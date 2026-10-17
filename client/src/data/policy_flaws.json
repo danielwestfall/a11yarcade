@@ -1,0 +1,338 @@
+[
+  {
+    "id": "flaw-01",
+    "title": "Public University Web Accessibility Statement",
+    "domain": 3,
+    "domainName": "Legal Mandates, Standards & Management Strategies",
+    "topic": "ADA Title II, Section 504 & Undue Burden Limitations",
+    "context": "A prominent state university published this digital accessibility policy on its public portal. One of the sentences contains a critical legal flaw regarding institutional obligations.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "Apex State University is committed to providing equal digital educational opportunities to students with disabilities in accordance with Title II of the Americans with Disabilities Act and Section 504 of the Rehabilitation Act.",
+        "isFlaw": false,
+        "explanation": "Compliant statement accurately citing the dual federal coverage for public state universities."
+      },
+      {
+        "id": "s2",
+        "text": "All online course materials, student registration portals, and public-facing departmental websites adhere to Web Content Accessibility Guidelines (WCAG) 2.1 Level AA criteria.",
+        "isFlaw": false,
+        "explanation": "Compliant standard widely recognized as the de facto technical benchmark for Title II digital accessibility."
+      },
+      {
+        "id": "s3",
+        "text": "Whenever digital course content cannot be rendered accessible without an undue burden, the university automatically excuses the instructor from providing any alternative auxiliary aids or accommodations to enrolled students.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: An undue burden defense excuses an entity from the specific prohibitive modification, but the entity is STILL legally obligated to provide alternative auxiliary aids and services to ensure equal access."
+      },
+      {
+        "id": "s4",
+        "text": "Students experiencing digital barriers are encouraged to submit an inquiry through the Office of Disability Services, where tickets are reviewed within two business days.",
+        "isFlaw": false,
+        "explanation": "Compliant operational procedure providing a clear grievance and accommodation reporting channel."
+      },
+      {
+        "id": "s5",
+        "text": "The university conducts bi-annual automated and manual screen reader audits across core learning management platforms to ensure continuous conformance.",
+        "isFlaw": false,
+        "explanation": "Best practice combining automated scanning with manual assistive technology verification."
+      }
+    ],
+    "flawSummary": "An undue burden defense relieves an entity from the specific cost-prohibitive modification, but DOES NOT excuse them from providing alternative auxiliary aids or accommodations that ensure equal access.",
+    "cpaccRef": "CPACC BoK Domain 3: Legal Mandates, ADA Title II & Section 504 Alternative Access Obligations"
+  },
+  {
+    "id": "flaw-02",
+    "title": "Vendor VPAT & Section 508 Procurement Statement",
+    "domain": 3,
+    "domainName": "Legal Mandates, Standards & Management Strategies",
+    "topic": "Revised Section 508 & COTS Software Coverage",
+    "context": "A commercial SaaS vendor submits an Accessibility Conformance Report (ACR) to bid on a federal agency IT contract. Spot the procurement misstatement.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "CloudSync Enterprise publishes Voluntary Product Accessibility Templates (VPAT 2.4 Edition) to document conformance with Revised Section 508 and European standard EN 301 549.",
+        "isFlaw": false,
+        "explanation": "Accurate reference to the official ITI VPAT 2.4 editions and relevant accessibility standards."
+      },
+      {
+        "id": "s2",
+        "text": "Our web application supports full keyboard navigation and works seamlessly with common screen readers including JAWS, NVDA, and VoiceOver.",
+        "isFlaw": false,
+        "explanation": "Standard AT compatibility verification claim."
+      },
+      {
+        "id": "s3",
+        "text": "Because our software is a commercial off-the-shelf (COTS) SaaS solution hosted on third-party servers, federal procurement regulations completely exempt federal agency buyers from Section 508 accessibility requirements under the Best-Efforts Safe Harbor clause.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: Revised Section 508 explicitly applies to federal agency procurement of COTS software. There is no 'Best-Efforts Safe Harbor' exempting COTS from Section 508 procurement standards."
+      },
+      {
+        "id": "s4",
+        "text": "Our engineering organization utilizes automated linting tools in CI/CD pipelines alongside regular manual evaluations by certified CPACC professionals.",
+        "isFlaw": false,
+        "explanation": "Sound management strategy integrating accessibility into the development lifecycle."
+      },
+      {
+        "id": "s5",
+        "text": "Where minor non-conformances exist, detailed remediation timelines and temporary administrative workarounds are documented in Section 3 of our ACR.",
+        "isFlaw": false,
+        "explanation": "Compliant transparency practice expected in government technology procurement."
+      }
+    ],
+    "flawSummary": "Section 508 applies directly to federal agency procurement of Commercial Off-The-Shelf (COTS) software. There is no 'Best-Efforts Safe Harbor' exempting COTS.",
+    "cpaccRef": "CPACC BoK Domain 3: Revised Section 508 Federal Procurement & Standards (COTS Coverage)"
+  },
+  {
+    "id": "flaw-03",
+    "title": "Corporate Workplace Reasonable Accommodation Policy",
+    "domain": 3,
+    "domainName": "Legal Mandates, Standards & Management Strategies",
+    "topic": "ADA Title I Reasonable Accommodation & Undue Hardship Standards",
+    "context": "A multinational technology corporation details internal disability accommodation guidelines for employees. Identify the unlawful policy restriction.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "GlobalTech Solutions is dedicated to full workplace inclusion and complies with Title I of the Americans with Disabilities Act by providing reasonable workplace accommodations to qualified applicants and employees with disabilities.",
+        "isFlaw": false,
+        "explanation": "Accurately reflects employer obligations under Title I of the ADA."
+      },
+      {
+        "id": "s2",
+        "text": "The accommodation process is collaborative, featuring an interactive dialogue between the employee, people operations, and assistive technology specialists to identify effective workplace solutions.",
+        "isFlaw": false,
+        "explanation": "Reflects the mandatory 'interactive process' required under EEOC regulations."
+      },
+      {
+        "id": "s3",
+        "text": "To prevent organizational budget imbalances, any requested accommodation that costs more than $500 is classified as an undue hardship and rejected without assessing company size or overall financial resources.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: Undue hardship under ADA Title I cannot be an arbitrary dollar cap. It must be determined through individualized assessment relative to the employer's overall financial resources, workforce size, and operational impact."
+      },
+      {
+        "id": "s4",
+        "text": "Medical documentation may be requested only when the disability or need for the requested accommodation is not obvious or already known to the employer.",
+        "isFlaw": false,
+        "explanation": "Accurately describes EEOC limits on medical documentation requests."
+      },
+      {
+        "id": "s5",
+        "text": "All health-related information and accommodation requests are maintained confidentially in separate medical files, apart from standard personnel records.",
+        "isFlaw": false,
+        "explanation": "Strictly satisfies statutory confidentiality mandates under ADA Title I."
+      }
+    ],
+    "flawSummary": "Undue hardship cannot be evaluated using an arbitrary fixed dollar ceiling ($500). Under ADA Title I, it requires individualized assessment against the employer's total financial resources and organizational size.",
+    "cpaccRef": "CPACC BoK Domain 3: ADA Title I Reasonable Accommodation & Undue Hardship Standards"
+  },
+  {
+    "id": "flaw-04",
+    "title": "Commercial Airline Passenger Booking Policy",
+    "domain": 3,
+    "domainName": "Legal Mandates, Standards & Management Strategies",
+    "topic": "Air Carrier Access Act (ACAA) Non-Discrimination Mandates",
+    "context": "An international airline publishes rules regarding passenger accommodations and ticketing. Find the prohibited statutory clause.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "Horizon Air is committed to accessible travel for all passengers, conforming to U.S. Department of Transportation regulations under the Air Carrier Access Act (ACAA).",
+        "isFlaw": false,
+        "explanation": "Properly identifies the governing federal statute for commercial aviation accessibility."
+      },
+      {
+        "id": "s2",
+        "text": "Our public website enables travelers with visual, auditory, motor, and cognitive disabilities to search flights, purchase tickets, and review flight status using assistive technologies.",
+        "isFlaw": false,
+        "explanation": "Complies with DOT web accessibility requirements for commercial airlines."
+      },
+      {
+        "id": "s3",
+        "text": "Passengers who use motorized wheelchairs or guide dogs must pay an additional 15% booking surcharge to cover airline handling fees and specialized ground crew assistance.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: The Air Carrier Access Act (14 CFR Part 382) strictly prohibits airlines from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling."
+      },
+      {
+        "id": "s4",
+        "text": "Airport automated self-service kiosks operated by Horizon Air include speech-output audio jacks, tactile keyboard navigation, and high-contrast display modes.",
+        "isFlaw": false,
+        "explanation": "Complies with DOT kiosk accessibility standards."
+      },
+      {
+        "id": "s5",
+        "text": "Flight attendants and gate agents receive annual specialized training in communication assistance and passenger transfer techniques.",
+        "isFlaw": false,
+        "explanation": "Mandated personnel training standard under 14 CFR Part 382."
+      }
+    ],
+    "flawSummary": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
+    "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
+  },
+  {
+    "id": "flaw-05",
+    "title": "E-Commerce Retailer Accessibility Statement",
+    "domain": 3,
+    "domainName": "Legal Mandates, Standards & Management Strategies",
+    "topic": "Digital Accessibility Legal Landscape & Overlay Limitations",
+    "context": "A fashion retail chain updates its online shopping portal accessibility statement. Identify the misleading legal/technical claim.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "StyleTrend Retail operates digital storefronts designed to be accessible to all shoppers in accordance with ADA Title III and global best practices.",
+        "isFlaw": false,
+        "explanation": "Acknowledges ADA Title III applicability to commercial public accommodation storefronts."
+      },
+      {
+        "id": "s2",
+        "text": "We target the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA success criteria across our checkout flow, product catalogs, and account management dashboards.",
+        "isFlaw": false,
+        "explanation": "Standard technical benchmark for commercial digital storefronts."
+      },
+      {
+        "id": "s3",
+        "text": "Installing a third-party automated JavaScript accessibility overlay toolbar guarantees 100% legal immunity against ADA Title III lawsuits and automatically satisfies all WCAG Level AA criteria without modifying underlying code.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: Accessibility overlays do not grant legal immunity under ADA Title III and cannot automatically resolve core code flaws such as semantic structure, keyboard trapping, or descriptive link context."
+      },
+      {
+        "id": "s4",
+        "text": "Shoppers can navigate product filters using keyboard Tab and Arrow keys with prominent focus rings meeting minimum 3:1 contrast ratios.",
+        "isFlaw": false,
+        "explanation": "Fulfills WCAG 2.4.7 Focus Visible and WCAG 1.4.11 Non-text Contrast."
+      },
+      {
+        "id": "s5",
+        "text": "We welcome customer feedback and provide a 24/7 dedicated telephone and live-chat customer service hotline for direct accessibility support.",
+        "isFlaw": false,
+        "explanation": "Best practice providing multi-channel customer support options."
+      }
+    ],
+    "flawSummary": "Accessibility overlay widgets do not provide legal immunity under ADA Title III and cannot retroactively remediate underlying structural code defects (such as semantic HTML, ARIA states, or complex keyboard navigation).",
+    "cpaccRef": "CPACC BoK Domain 3: Digital Accessibility Legal Landscape, Overlay Limitations & ADA Case Law"
+  },
+  {
+    "id": "flaw-06",
+    "title": "European Accessibility Act (EAA) Compliance Roadmap",
+    "domain": 3,
+    "domainName": "Legal Mandates, Standards & Management Strategies",
+    "topic": "European Accessibility Act (Directive 2019/882) Enforceability",
+    "context": "An EU fintech institution outlines its preparation for the European Accessibility Act. Detect the regulatory misunderstanding.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "Nordic Bank is aligning its consumer-facing banking applications, ATMs, and digital signature workflows with the European Accessibility Act (EAA - Directive 2019/882).",
+        "isFlaw": false,
+        "explanation": "Correctly identifies the EAA directive number and scope (banking services, ATMs, e-commerce)."
+      },
+      {
+        "id": "s2",
+        "text": "Our technical teams reference harmonised European standard EN 301 549 to evaluate hardware, mobile applications, and web services against accessibility benchmarks.",
+        "isFlaw": false,
+        "explanation": "Accurate citation of the EU harmonised technical standard."
+      },
+      {
+        "id": "s3",
+        "text": "Because the European Accessibility Act is a non-binding voluntary charter, Member States are prohibited from issuing financial penalties or market recalls against non-compliant commercial entities.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: The EAA is an EU Directive with binding legal force that mandates EU Member States establish effective, proportionate, and dissuasive penalties (including fines and market withdrawal) for non-compliance."
+      },
+      {
+        "id": "s4",
+        "text": "Mobile banking transactions provide multimodal biometric authentication alongside audio prompts and tactile feedback for users who are blind or low vision.",
+        "isFlaw": false,
+        "explanation": "Complies with EAA requirements for multimodal access in electronic banking."
+      },
+      {
+        "id": "s5",
+        "text": "Customer contracts, account statements, and mortgage agreements are available upon request in accessible EPUB 3, large print, and electronic braille formats.",
+        "isFlaw": false,
+        "explanation": "Complies with information accessibility mandates under the EAA."
+      }
+    ],
+    "flawSummary": "The European Accessibility Act is a legally binding European Directive (transposed into national laws) that mandates Member States enforce compliance with rigorous penalties, not a voluntary charter.",
+    "cpaccRef": "CPACC BoK Domain 3: European Accessibility Act (Directive 2019/882) & International Frameworks"
+  },
+  {
+    "id": "flaw-07",
+    "title": "Universal Design for Learning (UDL) Higher Ed Syllabus Policy",
+    "domain": 2,
+    "domainName": "Universal Design & Universal Design for Learning",
+    "topic": "Universal Design vs. Individual Accommodations (Distinct & Complementary)",
+    "context": "A college curriculum committee issues guidelines for inclusive instructional design. Find the critical misconception between UD and individual accommodations.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "The College of Science embraces Universal Design for Learning (UDL) across all undergraduate curricula to reduce learning barriers and optimize engagement for all students.",
+        "isFlaw": false,
+        "explanation": "Accurately represents the proactive philosophy of Universal Design for Learning."
+      },
+      {
+        "id": "s2",
+        "text": "Faculty must incorporate the three core UDL principles: multiple means of engagement, multiple means of representation, and multiple means of action and expression.",
+        "isFlaw": false,
+        "explanation": "Precise articulation of CAST's three core UDL pillars."
+      },
+      {
+        "id": "s3",
+        "text": "Applying Universal Design for Learning in a course eliminates all legal needs for disability accommodation services, allowing the university to automatically cancel pre-approved IEP and Section 504 accommodation letters.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: Universal Design minimizes barriers proactively, but NEVER eliminates the legal obligation or practical necessity for individualized accommodations under Section 504 and the ADA."
+      },
+      {
+        "id": "s4",
+        "text": "Lecture materials are provided in varied formats including captioned video recordings, searchable lecture transcripts, and editable slide decks.",
+        "isFlaw": false,
+        "explanation": "Textbook implementation of multiple means of representation."
+      },
+      {
+        "id": "s5",
+        "text": "Students demonstrate mastery through multiple assessment modalities, including oral presentations, written syntheses, and interactive lab portfolios.",
+        "isFlaw": false,
+        "explanation": "Exemplary implementation of multiple means of action and expression."
+      }
+    ],
+    "flawSummary": "Universal Design for Learning is a proactive instructional design framework, but it does NOT replace or invalidate legally mandated individual accommodations under the ADA and Section 504.",
+    "cpaccRef": "CPACC BoK Domain 2: Universal Design vs. Individual Accommodations (Distinct & Complementary)"
+  },
+  {
+    "id": "flaw-08",
+    "title": "Web Architecture & Screen Reader Interaction Guide",
+    "domain": 1,
+    "domainName": "Disabilities, Challenges & Assistive Technologies",
+    "topic": "Screen Reader Mechanics & Audio Interference (WCAG 1.4.2)",
+    "context": "A web agency releases technical guidelines for junior front-end developers on building for screen reader accessibility. Spot the disruptive anti-pattern.",
+    "sentences": [
+      {
+        "id": "s1",
+        "text": "Our front-end architecture uses semantic HTML5 elements like <header>, <main>, and <nav> to provide clear landmark structures for screen reader users.",
+        "isFlaw": false,
+        "explanation": "Semantic landmarks allow screen reader users to rapidly navigate and orient."
+      },
+      {
+        "id": "s2",
+        "text": "All decorative visual background patterns include empty alt attributes (alt=\"\") to ensure screen readers skip them cleanly without announcing clutter.",
+        "isFlaw": false,
+        "explanation": "Complies with WCAG 1.1.1 Non-text Content technique for decorative graphics."
+      },
+      {
+        "id": "s3",
+        "text": "To assist blind screen reader users, all form input fields must automatically trigger loud background audio narration soundbites whenever any field gains keyboard focus.",
+        "isFlaw": true,
+        "explanation": "CRITICAL FLAW: Auto-playing loud audio on focus interferes directly with screen reader speech synthesis, violates WCAG 1.4.2 Audio Control, and severely disorients users."
+      },
+      {
+        "id": "s4",
+        "text": "Interactive custom controls implement appropriate WAI-ARIA roles, states, and properties, such as aria-expanded for accordion panels.",
+        "isFlaw": false,
+        "explanation": "Essential ARIA implementation for conveying dynamic state to accessibility APIs."
+      },
+      {
+        "id": "s5",
+        "text": "Color coding is supplemented by shape glyphs and text labels to ensure users with deuteranopia and protanopia perceive all operational statuses.",
+        "isFlaw": false,
+        "explanation": "Dual coding technique strictly adhering to WCAG 1.4.1 Use of Color."
+      }
+    ],
+    "flawSummary": "Auto-playing audio sounds on input focus clashes with screen reader speech synthesis (violating WCAG 2.1 SC 1.4.2 Audio Control) and causes severe cognitive and sensory disorientation.",
+    "cpaccRef": "CPACC BoK Domain 1: Screen Reader Mechanics & WCAG Audio Control Principles"
+  }
+]

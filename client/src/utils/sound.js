@@ -599,6 +599,133 @@ export const soundManager = {
     gain.connect(ctx.destination);
     osc.start();
     osc.stop(ctx.currentTime + 0.08);
+  },
+
+  // Boss Raid: Deep Titan Roar
+  playBossRoar() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(80, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(45, ctx.currentTime + 0.6);
+
+    gain.gain.setValueAtTime(volume * 0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.7);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.7);
+  },
+
+  // Boss Raid: Heavy Impact Strike Damage
+  playBossDamage() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    for (let i = 0; i < 3; i++) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      const time = ctx.currentTime + i * 0.05;
+      osc.frequency.setValueAtTime(220 - i * 40, time);
+      osc.frequency.exponentialRampToValueAtTime(60, time + 0.15);
+
+      gain.gain.setValueAtTime(volume * 0.25, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.15);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(time);
+      osc.stop(time + 0.15);
+    }
+  },
+
+  // Boss Raid: Crystal Elemental Shield Shattered
+  playShieldBreak() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const crystal = [1200, 1600, 2000, 2400, 3200];
+    crystal.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      const time = ctx.currentTime + idx * 0.04;
+      osc.frequency.setValueAtTime(freq, time);
+
+      gain.gain.setValueAtTime(volume * 0.22, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.25);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(time);
+      osc.stop(time + 0.25);
+    });
+  },
+
+  // Boss Raid: Passive Tech Buff Unlocked
+  playBuffUnlocked() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const notes = [587.33, 739.99, 880, 1174.66]; // D5, F#5, A5, D6
+    notes.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      const time = ctx.currentTime + idx * 0.06;
+      osc.frequency.setValueAtTime(freq, time);
+
+      gain.gain.setValueAtTime(0, time);
+      gain.gain.linearRampToValueAtTime(volume * 0.25, time + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.35);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(time);
+      osc.stop(time + 0.35);
+    });
+  },
+
+  // Boss Raid: Raid Victory Triumphant Fanfare
+  playVictoryFanfare() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const chords = [
+      { f: 523.25, t: 0.0 }, // C5
+      { f: 659.25, t: 0.1 }, // E5
+      { f: 783.99, t: 0.2 }, // G5
+      { f: 1046.50, t: 0.3 }, // C6
+      { f: 1318.51, t: 0.5 }, // E6
+      { f: 1567.98, t: 0.7 }  // G6
+    ];
+
+    chords.forEach(({ f, t }) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      const start = ctx.currentTime + t;
+      osc.frequency.setValueAtTime(f, start);
+
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(volume * 0.3, start + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.6);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 0.6);
+    });
   }
 };
 

@@ -55,6 +55,17 @@ try {
   console.error('Failed to load boundary_cards.json:', err.message);
 }
 
+// Load Boss Raids Bank (Mode 8: The Enterprise Boss Raid)
+const bossRaidsPath = path.join(__dirname, '..', 'data', 'boss_raids.json');
+let bossRaidsBank = [];
+try {
+  const data = fs.readFileSync(bossRaidsPath, 'utf8');
+  bossRaidsBank = JSON.parse(data);
+  console.log(`Loaded ${bossRaidsBank.length} boss raid scenarios from boss raids bank.`);
+} catch (err) {
+  console.error('Failed to load boss_raids.json:', err.message);
+}
+
 // REST Endpoints
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() });
@@ -66,6 +77,10 @@ app.get('/api/flaws', (req, res) => {
 
 app.get('/api/boundary-cards', (req, res) => {
   res.json(boundaryCardsBank);
+});
+
+app.get('/api/boss-raids', (req, res) => {
+  res.json(bossRaidsBank);
 });
 
 app.get('/api/questions', (req, res) => {
@@ -275,6 +290,31 @@ io.on('connection', (socket) => {
         placements: new Map(),
         activeChallenge: null,
         settledChallenges: []
+      },
+
+      // Boss Raid State (Mode 8: The Enterprise Boss Raid)
+      bossRaid: {
+        stage: 'TECH_TREE',
+        scenario: bossRaidsBank[0] || null,
+        bossHp: bossRaidsBank[0] ? bossRaidsBank[0].maxHp : 500,
+        maxBossHp: bossRaidsBank[0] ? bossRaidsBank[0].maxHp : 500,
+        teamHp: bossRaidsBank[0] ? bossRaidsBank[0].maxTeamHp : 200,
+        maxTeamHp: bossRaidsBank[0] ? bossRaidsBank[0].maxTeamHp : 200,
+        shields: bossRaidsBank[0] ? (function() {
+          const s = {};
+          Object.keys(bossRaidsBank[0].shields).forEach(k => {
+            s[k] = { ...bossRaidsBank[0].shields[k], hp: bossRaidsBank[0].shields[k].maxHp };
+          });
+          return s;
+        })() : {},
+        completedNodeIds: new Set(),
+        activeBuffs: [],
+        activeNode: null,
+        activeQuestion: null,
+        combatSubmissions: new Map(),
+        combatTimeLeft: 45,
+        turnNumber: 0,
+        logs: []
       }
     };
 
@@ -299,19 +339,17 @@ io.on('connection', (socket) => {
         currentGear: 1,
         finished: false,
         finishRank: null,
-
-        // Saboteur properties
         ap: 0,
         isSaboteur: false,
         isFrozen: false,
         patchesApplied: 0,
         recentAnswers: [],
         currentSabQuestion: null,
-
-        // Boundary Brawl properties
         cardsPlaced: 0,
         challengesInitiated: 0,
-        challengesWon: 0
+        challengesWon: 0,
+        damageDealt: 0,
+        nodesCompleted: 0
       };
       room.players.set(socket.id, hostPlayer);
       socket.data.isPlayer = true;
@@ -405,7 +443,11 @@ io.on('connection', (socket) => {
       // Boundary Brawl properties
       cardsPlaced: 0,
       challengesInitiated: 0,
-      challengesWon: 0
+      challengesWon: 0,
+
+      // Boss Raid properties
+      damageDealt: 0,
+      nodesCompleted: 0
     };
 
     room.players.set(socket.id, player);
@@ -466,6 +508,8 @@ io.on('connection', (socket) => {
       startSaboteurGame(room);
     } else if (room.gameMode === 'BOUNDARY_BRAWL') {
       startBoundaryBrawlGame(room);
+    } else if (room.gameMode === 'BOSS_RAID') {
+      startBossRaidGame(room);
     } else {
       // Classic Mode
       room.currentQuestionIndex = 0;
@@ -2404,6 +2448,395 @@ io.on('connection', (socket) => {
     });
   }
 
+  // ========================================================
+  // ============ THE ENTERPRISE BOSS RAID ENGINE ===========
+  // ========================================================
+
+  function getSanitizedBossTree(room) {
+    const br = room.bossRaid;
+    const scenario = br.scenario;
+    if (!scenario) return null;
+
+    const allShieldsBroken = Object.values(br.shields).every(s => s.hp <= 0);
+
+    const branches = scenario.branches.map(b => {
+      const targetShield = br.shields[b.shieldTarget];
+      return {
+        id: b.id,
+        name: b.name,
+        domain: b.domain,
+        color: b.color,
+        shieldTarget: b.shieldTarget,
+        shieldHp: targetShield ? targetShield.hp : 0,
+        shieldMaxHp: targetShield ? targetShield.maxHp : 100,
+        nodes: b.nodes.map(n => {
+          const isCompleted = br.completedNodeIds.has(n.id);
+          let isAvailable = !isCompleted;
+          if (n.tier > 1) {
+            const prevNode = b.nodes.find(pn => pn.tier === n.tier - 1);
+            if (prevNode && !br.completedNodeIds.has(prevNode.id)) {
+              isAvailable = false;
+            }
+          }
+          return {
+            id: n.id,
+            tier: n.tier,
+            title: n.title,
+            concept: n.concept,
+            damage: n.damage,
+            buff: n.buff,
+            isCompleted,
+            isAvailable
+          };
+        })
+      };
+    });
+
+    return {
+      name: scenario.name,
+      title: scenario.title,
+      avatar: scenario.avatar,
+      description: scenario.description,
+      bossHp: br.bossHp,
+      maxBossHp: br.maxBossHp,
+      teamHp: br.teamHp,
+      maxTeamHp: br.maxTeamHp,
+      shields: br.shields,
+      allShieldsBroken,
+      branches,
+      activeBuffs: br.activeBuffs,
+      stage: br.stage,
+      capstoneUnlocked: allShieldsBroken,
+      capstone: allShieldsBroken ? {
+        id: scenario.capstone.id,
+        title: scenario.capstone.title,
+        damage: scenario.capstone.damage
+      } : null
+    };
+  }
+
+  function startBossRaidGame(room) {
+    if (room.timer) clearInterval(room.timer);
+
+    room.status = 'BOSS_TECH_TREE';
+    room.bossRaid.stage = 'TECH_TREE';
+
+    io.to(room.pin).emit('boss-game-started', {
+      tree: getSanitizedBossTree(room),
+      message: 'The Enterprise Boss Raid has begun! Select an available node to begin dismantling the Monolith.'
+    });
+  }
+
+  function transitionToBossTechTree(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'BOSS_TECH_TREE';
+    room.bossRaid.stage = 'TECH_TREE';
+    room.bossRaid.activeNode = null;
+    room.bossRaid.activeQuestion = null;
+
+    const tree = getSanitizedBossTree(room);
+
+    io.to(room.pin).emit('boss-stage-tech-tree', {
+      tree,
+      message: tree.allShieldsBroken
+        ? '⚠️ ALL 3 ELEMENTAL SHIELDS SHATTERED! The Capstone Strike is unlocked!'
+        : 'Select the next tech tree node to research and attack!'
+    });
+  }
+
+  socket.on('boss-select-node', ({ nodeId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOSS_RAID') return;
+
+    if (room.bossRaid.stage !== 'TECH_TREE') {
+      return callback && callback({ success: false, error: 'A node combat round is already active!' });
+    }
+
+    const br = room.bossRaid;
+    let foundNode = null;
+    let foundBranch = null;
+
+    for (const b of br.scenario.branches) {
+      const n = b.nodes.find(item => item.id === nodeId);
+      if (n) {
+        foundNode = n;
+        foundBranch = b;
+        break;
+      }
+    }
+
+    if (!foundNode) {
+      return callback && callback({ success: false, error: 'Node not found in tech tree!' });
+    }
+
+    if (br.completedNodeIds.has(foundNode.id)) {
+      return callback && callback({ success: false, error: 'This node has already been accredited and cleared!' });
+    }
+
+    if (foundNode.tier > 1) {
+      const prevNode = foundBranch.nodes.find(pn => pn.tier === foundNode.tier - 1);
+      if (prevNode && !br.completedNodeIds.has(prevNode.id)) {
+        return callback && callback({ success: false, error: `Prerequisite ${prevNode.title} must be solved first!` });
+      }
+    }
+
+    br.activeNode = foundNode;
+    br.activeQuestion = foundNode;
+    br.stage = 'NODE_COMBAT';
+    br.combatSubmissions.clear();
+    br.combatTimeLeft = 45;
+
+    const sanitizedChoices = foundNode.choices.map(c => ({
+      id: c.id,
+      text: c.text,
+      shape: c.shape
+    }));
+
+    const hasDistractorPurge = br.activeBuffs.some(b => b.id === 'buff-distractor-purge');
+    if (hasDistractorPurge) {
+      const wrongChoice = sanitizedChoices.find(c => {
+        const full = foundNode.choices.find(fc => fc.id === c.id);
+        return full && !full.isCorrect;
+      });
+      if (wrongChoice) wrongChoice.isPurged = true;
+    }
+
+    io.to(room.pin).emit('boss-node-activated', {
+      node: {
+        id: foundNode.id,
+        title: foundNode.title,
+        concept: foundNode.concept,
+        tier: foundNode.tier,
+        branchName: foundBranch.name,
+        color: foundBranch.color,
+        damage: foundNode.damage,
+        buff: foundNode.buff
+      },
+      question: {
+        stem: foundNode.question,
+        choices: sanitizedChoices
+      },
+      timeLeft: br.combatTimeLeft
+    });
+
+    if (callback) callback({ success: true });
+  });
+
+  socket.on('boss-submit-answer', ({ choiceId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOSS_RAID') return;
+
+    const br = room.bossRaid;
+    if (br.stage !== 'NODE_COMBAT' || !br.activeNode) {
+      return callback && callback({ success: false, error: 'No node is currently in combat!' });
+    }
+
+    const player = room.players.get(socket.id);
+    if (!player) return;
+
+    br.combatSubmissions.set(socket.id, choiceId);
+
+    const activeNode = br.activeNode;
+    const correctChoice = activeNode.choices.find(c => c.isCorrect);
+    const isCorrect = correctChoice && correctChoice.id === choiceId;
+
+    let dmgDealt = 0;
+    let counterDmgTaken = 0;
+    let shieldShattered = false;
+    let buffUnlocked = null;
+    let aegisAbsorbed = false;
+
+    if (isCorrect) {
+      dmgDealt = activeNode.damage || 50;
+
+      if (br.activeBuffs.some(b => b.id === 'buff-legal-pierce')) {
+        dmgDealt = Math.round(dmgDealt * 1.25);
+      }
+
+      const shieldKey = Object.keys(br.shields).find(k => {
+        const branch = br.scenario.branches.find(b => b.shieldTarget === k);
+        return branch && branch.nodes.some(n => n.id === activeNode.id);
+      }) || 'procurement';
+
+      if (br.shields[shieldKey] && br.shields[shieldKey].hp > 0) {
+        br.shields[shieldKey].hp = Math.max(0, br.shields[shieldKey].hp - dmgDealt);
+        if (br.shields[shieldKey].hp === 0) {
+          shieldShattered = true;
+        }
+      } else {
+        br.bossHp = Math.max(0, br.bossHp - dmgDealt);
+      }
+
+      if (br.activeBuffs.some(b => b.id === 'buff-team-surge')) {
+        br.teamHp = Math.min(br.maxTeamHp, br.teamHp + 25);
+      }
+
+      if (activeNode.buff && !br.activeBuffs.some(b => b.id === activeNode.buff.id)) {
+        br.activeBuffs.push(activeNode.buff);
+        buffUnlocked = activeNode.buff;
+
+        if (activeNode.buff.id === 'buff-combo-strike') {
+          br.bossHp = Math.max(0, br.bossHp - 50);
+          dmgDealt += 50;
+        }
+      }
+
+      br.completedNodeIds.add(activeNode.id);
+      player.score = (player.score || 0) + 100;
+      player.damageDealt = (player.damageDealt || 0) + dmgDealt;
+      player.nodesCompleted = (player.nodesCompleted || 0) + 1;
+    } else {
+      counterDmgTaken = 25;
+
+      const aegisIdx = br.activeBuffs.findIndex(b => b.id === 'buff-aegis-shield');
+      if (aegisIdx >= 0) {
+        aegisAbsorbed = true;
+        counterDmgTaken = 0;
+        br.activeBuffs.splice(aegisIdx, 1);
+      } else {
+        br.teamHp = Math.max(0, br.teamHp - counterDmgTaken);
+      }
+    }
+
+    br.stage = 'NODE_DEBRIEF';
+
+    io.to(room.pin).emit('boss-combat-resolved', {
+      isCorrect,
+      chosenId: choiceId,
+      correctId: correctChoice ? correctChoice.id : 'A',
+      damageDealt: dmgDealt,
+      counterDmgTaken,
+      aegisAbsorbed,
+      shieldShattered,
+      buffUnlocked,
+      newBossHp: br.bossHp,
+      maxBossHp: br.maxBossHp,
+      newTeamHp: br.teamHp,
+      maxTeamHp: br.maxTeamHp,
+      shields: br.shields,
+      explanation: activeNode.explanation,
+      cpaccRef: activeNode.cpaccRef,
+      playerScores: Array.from(room.players.values()).map(p => ({
+        id: p.id,
+        nickname: p.nickname,
+        score: p.score,
+        damageDealt: p.damageDealt || 0
+      }))
+    });
+
+    if (br.teamHp <= 0) {
+      finishBossRaidGame(room, false);
+    }
+
+    if (callback) callback({ success: true, isCorrect, damageDealt: dmgDealt });
+  });
+
+  socket.on('boss-start-capstone', (callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOSS_RAID') return;
+
+    const br = room.bossRaid;
+    const allShieldsBroken = Object.values(br.shields).every(s => s.hp <= 0);
+    if (!allShieldsBroken) {
+      return callback && callback({ success: false, error: 'All 3 shields must be broken before striking the Capstone!' });
+    }
+
+    br.stage = 'CAPSTONE';
+    br.activeNode = null;
+    br.activeQuestion = br.scenario.capstone;
+
+    const sanitizedChoices = br.scenario.capstone.choices.map(c => ({
+      id: c.id,
+      text: c.text,
+      shape: c.shape
+    }));
+
+    io.to(room.pin).emit('boss-capstone-activated', {
+      title: br.scenario.capstone.title,
+      question: {
+        stem: br.scenario.capstone.question,
+        choices: sanitizedChoices
+      },
+      bossHp: br.bossHp,
+      teamHp: br.teamHp
+    });
+
+    if (callback) callback({ success: true });
+  });
+
+  socket.on('boss-submit-capstone', ({ choiceId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOSS_RAID') return;
+
+    const br = room.bossRaid;
+    if (br.stage !== 'CAPSTONE' || !br.activeQuestion) return;
+
+    const player = room.players.get(socket.id);
+    const correctChoice = br.scenario.capstone.choices.find(c => c.isCorrect);
+    const isCorrect = correctChoice && correctChoice.id === choiceId;
+
+    if (isCorrect) {
+      br.bossHp = 0;
+      if (player) {
+        player.score = (player.score || 0) + 300;
+        player.damageDealt = (player.damageDealt || 0) + 200;
+      }
+      finishBossRaidGame(room, true);
+    } else {
+      br.teamHp = Math.max(0, br.teamHp - 40);
+      io.to(room.pin).emit('boss-capstone-failed', {
+        newTeamHp: br.teamHp,
+        explanation: br.scenario.capstone.explanation,
+        cpaccRef: br.scenario.capstone.cpaccRef
+      });
+      if (br.teamHp <= 0) {
+        finishBossRaidGame(room, false);
+      }
+    }
+
+    if (callback) callback({ success: true, isCorrect });
+  });
+
+  function finishBossRaidGame(room, won) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = won ? 'BOSS_VICTORY' : 'BOSS_DEFEAT';
+    room.bossRaid.stage = won ? 'VICTORY' : 'DEFEAT';
+
+    const ranked = Array.from(room.players.values())
+      .sort((a, b) => (b.damageDealt || 0) - (a.damageDealt || 0))
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.score,
+        damageDealt: p.damageDealt || 0,
+        nodesCompleted: p.nodesCompleted || 0,
+        rank: idx + 1
+      }));
+
+    gameStorage.recordGame({
+      roomPin: room.pin,
+      gameMode: room.gameMode,
+      players: ranked,
+      questionsCount: room.bossRaid.completedNodeIds.size + (won ? 1 : 0)
+    });
+
+    io.to(room.pin).emit('boss-game-finished', {
+      won,
+      bossName: room.bossRaid.scenario.name,
+      bossAvatar: room.bossRaid.scenario.avatar,
+      remainingBossHp: room.bossRaid.bossHp,
+      remainingTeamHp: room.bossRaid.teamHp,
+      nodesCompletedCount: room.bossRaid.completedNodeIds.size,
+      podium: ranked.slice(0, 3),
+      allPlayers: ranked
+    });
+  }
+
   // ==========================================
   // 4. Host Advance / Next Stage
   // ==========================================
@@ -2412,7 +2845,13 @@ io.on('connection', (socket) => {
     const room = rooms.get(pin);
     if (!room || room.hostSocketId !== socket.id) return;
 
-    if (room.gameMode === 'HOT_POTATO') {
+    if (room.gameMode === 'BOSS_RAID') {
+      if (room.bossRaid.stage === 'NODE_DEBRIEF') {
+        transitionToBossTechTree(room);
+      } else if (room.bossRaid.stage === 'CAPSTONE_DEBRIEF') {
+        finishBossRaidGame(room, room.bossRaid.bossHp <= 0);
+      }
+    } else if (room.gameMode === 'HOT_POTATO') {
       if (room.status === 'HP_SETTLEMENT') {
         room.currentQuestionIndex += 1;
         room.hotPotato.hotSeatIndex += 1;

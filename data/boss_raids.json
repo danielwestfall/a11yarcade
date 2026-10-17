@@ -1,0 +1,361 @@
+[
+  {
+    "id": "boss-monolith-01",
+    "name": "The GigaCorp Compliance Monolith",
+    "title": "Legacy Enterprise Silo & Digital Barrier Titan",
+    "avatar": "👾",
+    "description": "A sprawling 50,000-seat university and health system facing a federal OCR audit. Department heads buy non-conforming SaaS software, PDFs lack tags, and IT treats accessibility as an afterthought. Coordinate your squad to research the Tech Tree, pierce the 3 elemental shields, and execute the Governance Capstone!",
+    "maxHp": 500,
+    "maxTeamHp": 200,
+    "shields": {
+      "procurement": {
+        "id": "procurement",
+        "name": "Procurement & Standards Aegis",
+        "domain": 3,
+        "maxHp": 100,
+        "color": "#38bdf8",
+        "icon": "📜",
+        "desc": "Armored by unchecked vendor VPAT claims and vague contract terms."
+      },
+      "assistiveTech": {
+        "id": "assistiveTech",
+        "name": "Modality & Assistive Tech Barrier",
+        "domain": 1,
+        "maxHp": 100,
+        "color": "#10b981",
+        "icon": "🎧",
+        "desc": "Shielded by keyboard traps, missing ARIA live regions, and untagged documents."
+      },
+      "governance": {
+        "id": "governance",
+        "name": "Organizational Inertia Barrier",
+        "domain": 2,
+        "maxHp": 100,
+        "color": "#f59e0b",
+        "icon": "🏛️",
+        "desc": "Defended by lack of executive sponsorship and zero shift-left culture."
+      }
+    },
+    "branches": [
+      {
+        "id": "branch-a",
+        "name": "Branch A: Procurement & Legal Standards",
+        "domain": 3,
+        "color": "#38bdf8",
+        "shieldTarget": "procurement",
+        "nodes": [
+          {
+            "id": "node-a1",
+            "tier": 1,
+            "title": "Section 508 Refresh & Federal Scope",
+            "concept": "Statutory Mandates",
+            "damage": 50,
+            "shieldDamage": 50,
+            "buff": {
+              "id": "buff-legal-pierce",
+              "name": "Legal Piercer",
+              "icon": "⚖️",
+              "desc": "+25% extra damage on all future legal questions."
+            },
+            "question": "When GigaCorp procures third-party enterprise software for university staff using federal grant funds, what standard must the procurement team enforce under Section 508?",
+            "choices": [
+              {
+                "id": "A",
+                "text": "The vendor may self-certify with an informal email promise to fix bugs within 5 years.",
+                "shape": "triangle",
+                "isCorrect": false
+              },
+              {
+                "id": "B",
+                "text": "The vendor must provide an accredited Accessibility Conformance Report (ACR) based on VPAT 2.4+ mapping to WCAG 2.1 AA.",
+                "shape": "diamond",
+                "isCorrect": true
+              },
+              {
+                "id": "C",
+                "text": "Section 508 only applies to consumer hardware keyboards, not digital software.",
+                "shape": "circle",
+                "isCorrect": false
+              },
+              {
+                "id": "D",
+                "text": "Only open-source software is subject to Section 508 requirements.",
+                "shape": "square",
+                "isCorrect": false
+              }
+            ],
+            "explanation": "Federal agencies and recipients of federal funds must require an official Accessibility Conformance Report (ACR) generated via the current VPAT (Voluntary Product Accessibility Template) demonstrating WCAG 2.1 Level AA conformance.",
+            "cpaccRef": "Domain 3.B: Standards & Procurement (VPAT & ACR)"
+          },
+          {
+            "id": "node-a2",
+            "tier": 2,
+            "title": "European Standard EN 301 549 & Transnational Audits",
+            "concept": "International Standards Harmonization",
+            "damage": 50,
+            "shieldDamage": 50,
+            "buff": {
+              "id": "buff-distractor-purge",
+              "name": "Auditor Precision",
+              "icon": "🎯",
+              "desc": "Automatically eliminates 1 incorrect distractor choice in the Capstone."
+            },
+            "question": "GigaCorp operates international research campuses across the EU. How does European Standard EN 301 549 Clause 9 compare to US Section 508 standards?",
+            "choices": [
+              {
+                "id": "A",
+                "text": "EN 301 549 Clause 9 harmonizes directly with WCAG 2.1 Level AA, matching Section 508 ICT refresh requirements.",
+                "shape": "triangle",
+                "isCorrect": true
+              },
+              {
+                "id": "B",
+                "text": "EN 301 549 replaces WCAG completely with European ISO typography metrics.",
+                "shape": "diamond",
+                "isCorrect": false
+              },
+              {
+                "id": "C",
+                "text": "EN 301 549 only regulates physical elevators and ramp slopes, not digital ICT.",
+                "shape": "circle",
+                "isCorrect": false
+              },
+              {
+                "id": "D",
+                "text": "EN 301 549 exempts all higher education institutions from web accessibility.",
+                "shape": "square",
+                "isCorrect": false
+              }
+            ],
+            "explanation": "EN 301 549 Clause 9 incorporates the WCAG success criteria verbatim for web content, ensuring global harmonization between European public procurement and US Section 508 standards.",
+            "cpaccRef": "Domain 3.A: International Standards Harmonization (EN 301 549)"
+          }
+        ]
+      },
+      {
+        "id": "branch-b",
+        "name": "Branch B: Assistive Technology & Modalities",
+        "domain": 1,
+        "color": "#10b981",
+        "shieldTarget": "assistiveTech",
+        "nodes": [
+          {
+            "id": "node-b1",
+            "tier": 1,
+            "title": "Screen Reader Navigation & Heading Hierarchy",
+            "concept": "Assistive Technology Interaction",
+            "damage": 50,
+            "shieldDamage": 50,
+            "buff": {
+              "id": "buff-clarity-aura",
+              "name": "Semantic Radar",
+              "icon": "🎧",
+              "desc": "Grants the squad +20s extra thinking time on all remaining nodes."
+            },
+            "question": "A blind doctoral researcher uses NVDA and JAWS to navigate GigaCorp's research portal. What is the most efficient way screen reader users skim page structure?",
+            "choices": [
+              {
+                "id": "A",
+                "text": "Reading the entire page linearly from word 1 to the footer every time.",
+                "shape": "triangle",
+                "isCorrect": false
+              },
+              {
+                "id": "B",
+                "text": "Pulling up the Elements List / Rotor to jump through hierarchical H1-H6 headings and landmark regions.",
+                "shape": "diamond",
+                "isCorrect": true
+              },
+              {
+                "id": "C",
+                "text": "Disabling the screen reader and switching to high contrast monitor settings.",
+                "shape": "circle",
+                "isCorrect": false
+              },
+              {
+                "id": "D",
+                "text": "Repeatedly pressing Tab to reach text paragraphs.",
+                "shape": "square",
+                "isCorrect": false
+              }
+            ],
+            "explanation": "Over 75% of screen reader users rely on hierarchical headings (H key or Rotor Elements list) and landmark regions to skim, orient, and jump to specific page content.",
+            "cpaccRef": "Domain 1.B: Assistive Technologies (Screen Readers & Navigation)"
+          },
+          {
+            "id": "node-b2",
+            "tier": 2,
+            "title": "Single-Switch Access & Keyboard Trapping",
+            "concept": "Motor & Mobility Accommodations",
+            "damage": 50,
+            "shieldDamage": 50,
+            "buff": {
+              "id": "buff-aegis-shield",
+              "name": "Shift-Left Aegis",
+              "icon": "🛡️",
+              "desc": "Absorbs 1 future Boss counter-attack, preserving team health."
+            },
+            "question": "An engineering student with severe motor impairment navigates GigaCorp's LMS using a sip-and-puff single-switch device. Which barrier completely halts their ability to operate the platform?",
+            "choices": [
+              {
+                "id": "A",
+                "text": "A modal dialog with a keyboard trap where focus cannot be dismissed using Esc or Tab.",
+                "shape": "triangle",
+                "isCorrect": true
+              },
+              {
+                "id": "B",
+                "text": "Using a dark color scheme instead of white.",
+                "shape": "diamond",
+                "isCorrect": false
+              },
+              {
+                "id": "C",
+                "text": "An avatar picture that lacks audio description.",
+                "shape": "circle",
+                "isCorrect": false
+              },
+              {
+                "id": "D",
+                "text": "Providing text transcripts alongside audio podcasts.",
+                "shape": "square",
+                "isCorrect": false
+              }
+            ],
+            "explanation": "WCAG 2.1 SC 2.1.2 (No Keyboard Trap) is a catastrophic blocker for switch and keyboard users. If focus becomes trapped inside an interactive widget without an exit key, the user must abandon the session.",
+            "cpaccRef": "Domain 1.A: Motor & Dexterity Impairments (WCAG 2.1.2)"
+          }
+        ]
+      },
+      {
+        "id": "branch-c",
+        "name": "Branch C: Organizational Culture & Governance",
+        "domain": 2,
+        "color": "#f59e0b",
+        "shieldTarget": "governance",
+        "nodes": [
+          {
+            "id": "node-c1",
+            "tier": 1,
+            "title": "BDF Maturity Model & Shift-Left Strategy",
+            "concept": "Organizational Accessibility Strategy",
+            "damage": 50,
+            "shieldDamage": 50,
+            "buff": {
+              "id": "buff-team-surge",
+              "name": "Cultural Momentum",
+              "icon": "⚡",
+              "desc": "All correct answers heal the team for +25 HP."
+            },
+            "question": "GigaCorp currently fixes accessibility bugs only after receiving threatening legal letters. According to the Business Disability Forum (BDF) Maturity Model, what stage describes this approach?",
+            "choices": [
+              {
+                "id": "A",
+                "text": "Level 5: Best Practice Leader",
+                "shape": "triangle",
+                "isCorrect": false
+              },
+              {
+                "id": "B",
+                "text": "Level 1: Reactive / Ad-Hoc Compliance Panic",
+                "shape": "diamond",
+                "isCorrect": true
+              },
+              {
+                "id": "C",
+                "text": "Level 4: Integrated Sustainable Governance",
+                "shape": "circle",
+                "isCorrect": false
+              },
+              {
+                "id": "D",
+                "text": "Level 3: Proactive Design Thinking",
+                "shape": "square",
+                "isCorrect": false
+              }
+            ],
+            "explanation": "Level 1 (Reactive) is characterized by isolated, crisis-driven fixes following complaints or lawsuits. Sustainable maturity requires shifting left into policies, hiring, procurement, and ongoing QA.",
+            "cpaccRef": "Domain 2.C: Organizational Culture & Maturity Models (BDF)"
+          },
+          {
+            "id": "node-c2",
+            "tier": 2,
+            "title": "Universal Design for Learning (UDL) in Enterprise",
+            "concept": "Universal Design & Inclusive Education",
+            "damage": 50,
+            "shieldDamage": 50,
+            "buff": {
+              "id": "buff-combo-strike",
+              "name": "UDL Synergist",
+              "icon": "🌟",
+              "desc": "Deals +50 bonus damage to the Boss immediately upon unlocking."
+            },
+            "question": "What are the three core pedagogical pillars of the Universal Design for Learning (UDL) framework developed by CAST?",
+            "choices": [
+              {
+                "id": "A",
+                "text": "Multiple Means of Representation, Multiple Means of Action & Expression, and Multiple Means of Engagement.",
+                "shape": "triangle",
+                "isCorrect": true
+              },
+              {
+                "id": "B",
+                "text": "HTML5, CSS3, and JavaScript ECMAScript standards.",
+                "shape": "diamond",
+                "isCorrect": false
+              },
+              {
+                "id": "C",
+                "text": "Medical diagnosis, legal settlement, and accommodation appeals.",
+                "shape": "circle",
+                "isCorrect": false
+              },
+              {
+                "id": "D",
+                "text": "Video captions, high contrast buttons, and tactile braille embossing.",
+                "shape": "square",
+                "isCorrect": false
+              }
+            ],
+            "explanation": "CAST's Universal Design for Learning framework is grounded in cognitive neuroscience and structured around 3 principles: Representation (the 'what' of learning), Action & Expression (the 'how'), and Engagement (the 'why').",
+            "cpaccRef": "Domain 2.A: Universal Design for Learning (CAST UDL Pillars)"
+          }
+        ]
+      }
+    ],
+    "capstone": {
+      "id": "capstone-final",
+      "title": "CAPSTONE STRIKE: Enterprise Remediation Masterplan",
+      "damage": 200,
+      "question": "All 3 shields are shattered! The Vice Chancellor asks for GigaCorp's 3-year enterprise accessibility transformation strategy. Which coordinated blueprint achieves true sustainable organizational maturity?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Install a 3rd-party accessibility overlay widget script on all pages and lay off the internal testing team.",
+          "shape": "triangle",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Establish an executive-sponsored Central Accessibility Office, institute mandatory ACR vendor audits during procurement, integrate automated & manual screen reader testing into CI/CD, and train staff on UDL and shift-left design.",
+          "shape": "diamond",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Require every disabled student to provide notarized medical doctor letters before receiving digital course material.",
+          "shape": "circle",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Re-brand the campus website without changing underlying code, claiming compliance under grandfathering clauses.",
+          "shape": "square",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Sustainable enterprise accessibility requires leadership support, centralized governance, procurement rigor, shift-left development pipelines, and universal design culture—never superficial overlay scripts or medicalized barriers.",
+      "cpaccRef": "Domain 2 & 3 Capstone: Enterprise Governance & Shift-Left Strategy"
+    }
+  }
+]

@@ -30,6 +30,7 @@ import HighRollerMode from './HighRollerMode';
 import FlawFinderMode from './FlawFinderMode';
 import SaboteurMode from './SaboteurMode';
 import BoundaryBrawlMode from './BoundaryBrawlMode';
+import BossRaidMode from './BossRaidMode';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -124,6 +125,17 @@ export const ARCADE_CABINETS = [
     icon: '⚡',
     tag: '[RAPID TRIVIA]',
     color: '#38bdf8'
+  },
+  {
+    id: 'BOSS_RAID',
+    num: '08',
+    title: 'The Enterprise Boss Raid',
+    subtitle: 'CO-OP TECH TREE & PASSIVE BUFFS',
+    domain: 'All 3 CPACC Domains',
+    desc: 'Join forces to dismantle a multi-domain corporate compliance monolith! Draft tech-tree nodes across Procurement, Assistive Tech, and Organizational Culture to strip elemental shields and unlock the Capstone Strike.',
+    icon: '🐉',
+    tag: '[CO-OP RAID]',
+    color: '#ec4899'
   }
 ];
 
@@ -1378,6 +1390,17 @@ export default function LiveMode() {
       );
     }
 
+    if (gameMode === 'BOSS_RAID') {
+      return (
+        <BossRaidMode
+          socket={socket}
+          role="HOST"
+          roomPin={roomPin}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
     // 2B: Host Question Screen (Classic Mode)
     if (hostGameState === 'QUESTION' && currentQuestionData) {
       const q = currentQuestionData.question;
@@ -1844,6 +1867,17 @@ export default function LiveMode() {
     if (gameMode === 'BOUNDARY_BRAWL') {
       return (
         <BoundaryBrawlMode
+          socket={socket}
+          role="PLAYER"
+          roomPin={playerPinInput}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'BOSS_RAID') {
+      return (
+        <BossRaidMode
           socket={socket}
           role="PLAYER"
           roomPin={playerPinInput}

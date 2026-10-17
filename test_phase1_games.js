@@ -410,8 +410,57 @@ async function runTests() {
     brawler2.disconnect();
     console.log('🎉 The Boundary Line Brawl Mode Passed!\n');
 
+    // ==========================================
+    // TEST 8: The Enterprise Boss Raid Mode
+    // ==========================================
+    console.log('=== [8/8] Testing The Enterprise Boss Raid Mode ===');
+    const host8 = io('http://localhost:3001', { reconnection: false });
+    const raider1 = io('http://localhost:3001', { reconnection: false });
+    const raider2 = io('http://localhost:3001', { reconnection: false });
+    await Promise.all([waitForConnect(host8), waitForConnect(raider1), waitForConnect(raider2)]);
+
+    const createBoss = await new Promise(res => {
+      host8.emit('create-room', {
+        gameMode: 'BOSS_RAID',
+        timeLimit: 45
+      }, res);
+    });
+    console.log(`✓ Boss Raid Room Created: PIN ${createBoss.pin}`);
+
+    await new Promise(res => raider1.emit('join-room', { pin: createBoss.pin, nickname: 'Raid Commander Ada', avatar: '🛡️' }, res));
+    await new Promise(res => raider2.emit('join-room', { pin: createBoss.pin, nickname: 'Auditor Alex', avatar: '⚡' }, res));
+
+    const bossStartPromise = new Promise(res => raider1.once('boss-game-started', res));
+    host8.emit('start-game');
+
+    const bossData = await bossStartPromise;
+    console.log(`✓ Boss Raid Commenced! Boss: "${bossData.tree.name}", Boss HP: ${bossData.tree.bossHp}, Branches: ${bossData.tree.branches.length}`);
+
+    // Raider 1 activates Node A1 (Section 508 statutory mandates)
+    const nodeActivePromise = new Promise(res => raider1.once('boss-node-activated', res));
+    const selectNodeRes = await new Promise(res => {
+      raider1.emit('boss-select-node', { nodeId: 'node-a1' }, res);
+    });
+    if (!selectNodeRes.success) throw new Error(`Failed to select node: ${selectNodeRes.error}`);
+    const activeNodeData = await nodeActivePromise;
+    console.log(`✓ Node Activated: "${activeNodeData.node.title}" (Tier ${activeNodeData.node.tier}) - Damage: ${activeNodeData.node.damage}`);
+
+    // Raider 1 answers correctly (Choice B: ACR / VPAT 2.4+)
+    const strikeResultPromise = new Promise(res => raider1.once('boss-combat-resolved', res));
+    await new Promise(res => raider1.emit('boss-submit-answer', { choiceId: 'B' }, res));
+    const strikeResult = await strikeResultPromise;
+    console.log(`✓ Boss Strike Result: isCorrect=${strikeResult.isCorrect}, DmgDealt=${strikeResult.damageDealt}, Procurement Shield HP=${strikeResult.shields.procurement.hp}/${strikeResult.shields.procurement.maxHp}`);
+    if (strikeResult.buffUnlocked) {
+      console.log(`✓ Buff Unlocked: "${strikeResult.buffUnlocked.name}" (${strikeResult.buffUnlocked.desc})`);
+    }
+
+    host8.disconnect();
+    raider1.disconnect();
+    raider2.disconnect();
+    console.log('🎉 The Enterprise Boss Raid Mode Passed!\n');
+
     console.log('====================================================');
-    console.log('🏆 ALL 7 MULTIPLAYER GAME MODES PASS 100%!');
+    console.log('🏆 ALL 8 MULTIPLAYER GAME MODES PASS 100%!');
     console.log('====================================================');
     serverProcess.kill();
     process.exit(0);

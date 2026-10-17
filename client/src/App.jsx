@@ -8,6 +8,7 @@ import SoloHighRoller from './components/SoloHighRoller';
 import SoloFlawFinder from './components/SoloFlawFinder';
 import SoloSaboteur from './components/SoloSaboteur';
 import SoloBoundaryBrawl from './components/SoloBoundaryBrawl';
+import SoloBossRaid from './components/SoloBossRaid';
 import WeeklyLeaderboard from './components/WeeklyLeaderboard';
 import MissedQuestionsReview from './components/MissedQuestionsReview';
 import QuestionBankExplorer from './components/QuestionBankExplorer';
@@ -509,6 +510,48 @@ export default function App() {
                         </button>
                       </div>
                     </article>
+                    {/* Cabinet 07: Solo Enterprise Boss Raid */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#a855f7' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#c084fc' }}>
+                            CABINET 07
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#e9d5ff' }}>
+                            [TECH TREE // GIGACORP MONOLITH]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(168, 85, 247, 0.1)', border: '2px solid #a855f7', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            👾
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo Enterprise Boss Raid
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#c084fc', display: 'block', marginTop: '0.15rem' }}>
+                              CO-OP AI SQUAD & TECH TREE
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Raid the GigaCorp Compliance Monolith! Navigate the accessible tech tree, unlock squad buffs with AI bots Ada, Alex & Tina, and crack 3 elemental shields.
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★★★
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('BOSS_RAID'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#7e22ce', borderColor: '#a855f7' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
                   </div>
                 </section>
 
@@ -579,6 +622,10 @@ export default function App() {
 
             {soloSubMode === 'BOUNDARY_BRAWL' && (
               <SoloBoundaryBrawl onBack={() => setSoloSubMode('MENU')} />
+            )}
+
+            {soloSubMode === 'BOSS_RAID' && (
+              <SoloBossRaid onBack={() => setSoloSubMode('MENU')} />
             )}
           </div>
         )}

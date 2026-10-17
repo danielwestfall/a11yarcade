@@ -632,6 +632,104 @@
       "explanation": "Section 508 applies directly to federal agency procurement of Commercial Off-The-Shelf (COTS) software. There is no 'Best-Efforts Safe Harbor' exempting COTS.",
       "funNote": "Targeted Sentence: \"CloudSync Enterprise publishes Voluntary Product A...\"",
       "cpaccRef": "CPACC BoK Domain 3: Revised Section 508 Federal Procurement & Standards (COTS Coverage)"
+    },
+    {
+      "timestamp": "2026-10-17T02:03:58.974Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d2-10",
+      "questionText": "What does 'Robust' in the POUR principles specifically mean for web and software development?",
+      "topic": "WCAG - Robust",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Robust means maximizing compatibility with current and future user agents, specifically ensuring assistive tech (screen readers, braille displays) can parse the DOM cleanly.",
+      "funNote": "Robust doesn't mean your app survived a DDoS attack; it means your ARIA doesn't crash a braille display.",
+      "cpaccRef": "Domain Two C: WCAG Principle 4: Robust"
+    },
+    {
+      "timestamp": "2026-10-17T02:03:59.117Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-d1-13",
+      "questionText": "To prevent photosensitive epileptic seizures, web content must not contain anything that flashes more than how many times per second?",
+      "topic": "Seizure & Vestibular Disorders",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "WCAG Success Criterion 2.3.1 (Three Flashes or Below Threshold) states that pages do not contain anything that flashes more than 3 times in any 1-second period, or below general and red flash thresholds.",
+      "funNote": "Keep the rave lights in the club, not on your e-commerce checkout button!",
+      "cpaccRef": "Domain One B: Seizure Disabilities"
+    },
+    {
+      "timestamp": "2026-10-17T02:03:59.241Z",
+      "nickname": "Auditor Alex",
+      "questionId": "flaw-03-3",
+      "questionText": "Corporate Workplace Reasonable Accommodation Policy: A multinational technology corporation details internal disability accommodation guidelines for employees. Identify the unlawful policy restriction.",
+      "topic": "ADA Title I Reasonable Accommodation & Undue Hardship Standards",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Undue hardship cannot be evaluated using an arbitrary fixed dollar ceiling ($500). Under ADA Title I, it requires individualized assessment against the employer's total financial resources and organizational size.",
+      "funNote": "Targeted Sentence: \"GlobalTech Solutions is dedicated to full workplac...\"",
+      "cpaccRef": "CPACC BoK Domain 3: ADA Title I Reasonable Accommodation & Undue Hardship Standards"
+    },
+    {
+      "timestamp": "2026-10-17T02:04:25.519Z",
+      "nickname": "Alice",
+      "questionId": "cpacc-d1-08",
+      "questionText": "Which combination of screen reader and browser is the most common native pair on Apple macOS / iOS devices?",
+      "topic": "Visual Disabilities & Assistive Tech",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "VoiceOver is Apple's built-in screen reader across macOS, iOS, iPadOS, and watchOS, paired natively with Safari.",
+      "funNote": "VoiceOver on Apple, TalkBack on Android, NVDA & JAWS on Windows. Collect all four like Pokémon!",
+      "cpaccRef": "Domain One C: Identify Appropriate Assistive Technologies (Visual)"
+    },
+    {
+      "timestamp": "2026-10-17T02:04:25.679Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d3-09",
+      "questionText": "True or False: If an automated scanner (like Lighthouse or Axe-core) reports 0 accessibility errors, your digital product is guaranteed to be 100% accessible to all users with disabilities.",
+      "topic": "Evaluating with People with Disabilities",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Automated checkers cannot determine whether alt text is meaningful, whether keyboard navigation order makes logical sense, or whether custom widgets operate properly with screen readers.",
+      "funNote": "A scanner sees `alt='image of stuff'` and gives a gold star. A human sees that and weeps.",
+      "cpaccRef": "Domain Three F: Include people with disabilities in evaluations"
+    },
+    {
+      "timestamp": "2026-10-17T02:04:25.709Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-d2-02",
+      "questionText": "What does the 'Curb-Cut Effect' describe in accessibility lore?",
+      "topic": "The 'Curb-Cut Effect'",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Originally made for wheelchair users, curb cuts benefit parents with strollers, travelers with rolling suitcases, delivery workers with dollies, and cyclists.",
+      "funNote": "Captions in noisy sports bars and text messaging for busy commuters: curb cuts are everywhere!",
+      "cpaccRef": "Domain Two B: Benefits of Accessibility"
+    },
+    {
+      "timestamp": "2026-10-17T02:04:25.849Z",
+      "nickname": "Auditor Alex",
+      "questionId": "flaw-05-3",
+      "questionText": "E-Commerce Retailer Accessibility Statement: A fashion retail chain updates its online shopping portal accessibility statement. Identify the misleading legal/technical claim.",
+      "topic": "Digital Accessibility Legal Landscape & Overlay Limitations",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Accessibility overlay widgets do not provide legal immunity under ADA Title III and cannot retroactively remediate underlying structural code defects (such as semantic HTML, ARIA states, or complex keyboard navigation).",
+      "funNote": "Targeted Sentence: \"StyleTrend Retail operates digital storefronts des...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Digital Accessibility Legal Landscape, Overlay Limitations & ADA Case Law"
     }
   ],
   "users": {
@@ -640,7 +738,7 @@
       "avatar": "🦉",
       "pin": "1234",
       "createdAt": "2026-10-17T00:28:20.168Z",
-      "lastActive": "2026-10-17T01:54:15.026Z"
+      "lastActive": "2026-10-17T02:04:25.457Z"
     }
   }
 }
