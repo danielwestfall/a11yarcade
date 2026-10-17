@@ -129,7 +129,128 @@ export const soundManager = {
     });
   },
 
-  // Fanfare / Podium celebration
+  // Comedic Coach McGuirk Referee Whistle (Correct / Alert)
+  playCoachWhistle() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const t = ctx.currentTime;
+    const masterGain = ctx.createGain();
+    masterGain.gain.setValueAtTime(0, t);
+    masterGain.gain.linearRampToValueAtTime(volume * 0.18, t + 0.02);
+    masterGain.gain.setValueAtTime(volume * 0.18, t + 0.22);
+    masterGain.gain.exponentialRampToValueAtTime(0.001, t + 0.32);
+    masterGain.connect(ctx.destination);
+
+    // Pea flutter LFO
+    const lfo = ctx.createOscillator();
+    lfo.frequency.setValueAtTime(26, t);
+    const lfoGain = ctx.createGain();
+    lfoGain.gain.setValueAtTime(45, t);
+    lfo.connect(lfoGain);
+
+    // Whistle tones: dual resonant frequencies (metal whistle dual chamber)
+    [2420, 2690].forEach(baseFreq => {
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(baseFreq, t);
+      lfoGain.connect(osc.frequency);
+      osc.connect(masterGain);
+      osc.start(t);
+      osc.stop(t + 0.32);
+    });
+
+    lfo.start(t);
+    lfo.stop(t + 0.32);
+  },
+
+  // Comedic Sad Trombone (Wah-Wah-Wah-Waaaaah) for Incorrect Answers
+  playSadTrombone() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    // 4 notes: Eb4 (311.13), D4 (293.66), Db4 (277.18), C4 (261.63 -> sliding down with vibrato)
+    const t0 = ctx.currentTime;
+    const notes = [
+      { freq: 311.13, start: 0, dur: 0.26, slide: false },
+      { freq: 293.66, start: 0.28, dur: 0.26, slide: false },
+      { freq: 277.18, start: 0.56, dur: 0.26, slide: false },
+      { freq: 261.63, start: 0.84, dur: 0.72, slide: true }
+    ];
+
+    notes.forEach(({ freq, start, dur, slide }) => {
+      const startTime = t0 + start;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+
+      // Plunger mute filter simulation
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(freq * 2.2, startTime);
+      filter.Q.setValueAtTime(3.0, startTime);
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, startTime);
+
+      if (slide) {
+        osc.frequency.setValueAtTime(freq, startTime);
+        osc.frequency.linearRampToValueAtTime(215, startTime + dur);
+
+        filter.frequency.setValueAtTime(500, startTime);
+        filter.frequency.linearRampToValueAtTime(1100, startTime + 0.2);
+        filter.frequency.linearRampToValueAtTime(450, startTime + dur);
+      }
+
+      gain.gain.setValueAtTime(0, startTime);
+      gain.gain.linearRampToValueAtTime(volume * 0.22, startTime + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + dur);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(startTime);
+      osc.stop(startTime + dur);
+    });
+  },
+
+  // Comedic Cartoon Spring Boing
+  playBoing() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const t = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(140, t);
+    osc.frequency.exponentialRampToValueAtTime(620, t + 0.15);
+    osc.frequency.exponentialRampToValueAtTime(320, t + 0.35);
+
+    gain.gain.setValueAtTime(0, t);
+    gain.gain.linearRampToValueAtTime(volume * 0.28, t + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(t);
+    osc.stop(t + 0.4);
+  },
+
+  // Play comedic coach sound effect
+  playCoachFeedback(isCorrect) {
+    if (isCorrect) {
+      this.playCoachWhistle();
+      setTimeout(() => this.playCorrect(), 120);
+    } else {
+      this.playSadTrombone();
+    }
+  },
+
   playFanfare() {
     if (isMuted) return;
     const ctx = getAudioContext();

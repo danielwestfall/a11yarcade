@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import questionsData from '../data/questions.json';
+import CoachFeedbackCard from './CoachFeedbackCard';
 
 const SHAPE_CONFIG = {
   triangle: { icon: '▲', color: '#ef4444', label: 'Red Triangle' },
@@ -108,11 +109,11 @@ export default function PracticeMode({ onBack }) {
     setIsAnswered(true);
 
     if (isCorrect) {
-      soundManager.playCorrect();
+      soundManager.playCoachFeedback(true);
       setScore(prev => prev + 1);
       setLiveAnnouncement(`Correct! ${choice.text}. ${q.explanation}`);
     } else {
-      soundManager.playIncorrect();
+      soundManager.playCoachFeedback(false);
       const correctChoice = q.choices.find(c => c.isCorrect);
       setLiveAnnouncement(`Incorrect. You chose ${choice.text}. The correct answer was ${correctChoice ? correctChoice.text : ''}. ${q.explanation}`);
     }
@@ -496,6 +497,9 @@ export default function PracticeMode({ onBack }) {
                 </div>
               </div>
             )}
+
+            {/* Coach McGuirk's Sideline Pep Talk */}
+            <CoachFeedbackCard isCorrect={q.choices.find(c => c.id === selectedAnswer)?.isCorrect} />
 
             {/* Next Question Button */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>

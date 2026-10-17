@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import { Award, Users, Clock, RotateCcw, ArrowRight, Coins, Bot, Sparkles } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import rawQuestions from '../data/questions.json';
+import CoachFeedbackCard from './CoachFeedbackCard';
 
 const BOTS = [
   { id: 'bot-1', nickname: 'Ada Alt-Text', avatar: '🤖', specialtyDomain: 2 },
@@ -144,7 +145,7 @@ export default function SoloHotPotato({ onBack }) {
         explanation: currentQ.explanation
       });
       setGameState('SETTLEMENT');
-      if (isCorrect) soundManager.playCorrect(); else soundManager.playIncorrect();
+      if (isCorrect) soundManager.playCoachFeedback(true); else soundManager.playCoachFeedback(false);
     } else {
       // Player is a delegate
       const otherDel = delegates.find(d => d.id !== 'player');
@@ -448,6 +449,9 @@ export default function SoloHotPotato({ onBack }) {
               {settlementInfo.explanation}
             </p>
           </div>
+
+          {/* Coach McGuirk's Sideline Pep Talk */}
+          <CoachFeedbackCard isCorrect={settlementInfo.outcomeType !== 'SOLO_WRONG' && settlementInfo.outcomeType !== 'NEITHER_CORRECT'} />
 
           <div style={{ textAlign: 'center' }}>
             <button

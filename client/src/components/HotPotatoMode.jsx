@@ -16,6 +16,7 @@ import {
   UserCheck
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
+import CoachFeedbackCard from './CoachFeedbackCard';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -119,7 +120,22 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
       setIsDelegate(isDelA || isDelB);
       setDelegateSlot(isDelA ? 'A' : isDelB ? 'B' : null);
 
+      // Reduced Motion Check
+      const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        setDisplayDelegateNames({
+          a: data.delegateA?.nickname || 'None',
+          b: data.delegateB?.nickname || 'None'
+        });
+        setSlotSpinning(false);
+        soundManager.playDraftAlert();
+        setGameState('DELEGATE_QUESTION');
+        setLiveAnnouncement(`Delegates drafted: ${data.delegateA?.nickname} and ${data.delegateB?.nickname || 'None'}.`);
+        return;
+      }
+
       // Run slot-machine wheel visual
+      setGameState('DRAFTING');
       setSlotSpinning(true);
       soundManager.playSlotSpin();
 
@@ -196,6 +212,24 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
       socket.off('game-finished', handleGameFinished);
     };
   }, [socket]);
+
+  // Keyboard navigation for Teaser (T for TAKE, P for PASS)
+  useEffect(() => {
+    if (gameState !== 'TEASER' || !isHotSeat) return;
+
+    const handleTeaserKeyDown = (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      const key = e.key.toUpperCase();
+      if (key === 'T') {
+        handleChooseAction('TAKE');
+      } else if (key === 'P') {
+        handleChooseAction('PASS');
+      }
+    };
+
+    window.addEventListener('keydown', handleTeaserKeyDown);
+    return () => window.removeEventListener('keydown', handleTeaserKeyDown);
+  }, [gameState, isHotSeat]);
 
   // Keyboard navigation for answers
   useEffect(() => {
@@ -323,38 +357,86 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
           {/* Controls for Hot Seat vs Other Players */}
           {role === 'PLAYER' && isHotSeat ? (
             <div>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#f59e0b', marginBottom: '1rem' }}>
-                🔥 You are in the Hot Seat! Make your call:
+              <div style={{ fontSize: '1.25rem', fontWeight: 900, color: '#f59e0b', marginBottom: '0.75rem' }}>
+                🔥 YOU ARE IN THE HOT SEAT!
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '1.25rem' }}>
+                Make your call: tackle this concept alone or pass to two syndicate delegates!
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', maxWidth: '640px', margin: '0 auto' }}>
                 <button
                   type="button"
                   className="btn-primary"
-                  style={{ background: '#059669', borderColor: '#10b981', padding: '1.25rem', fontSize: '1.1rem' }}
+                  style={{ background: '#059669', borderColor: '#10b981', padding: '1.25rem', fontSize: '1.05rem', fontWeight: 800 }}
                   onClick={() => handleChooseAction('TAKE')}
+                  aria-label="Take Solo (+100 / -50). Shortcut key: T"
                 >
                   <Award size={22} />
-                  <span>TAKE IT (+100 / -50)</span>
+                  <span>[T] TAKE (SOLO) (+100 / -50)</span>
                 </button>
 
                 <button
                   type="button"
                   className="btn-primary"
-                  style={{ background: '#d97706', borderColor: '#f59e0b', padding: '1.25rem', fontSize: '1.1rem' }}
+                  style={{ background: '#d97706', borderColor: '#f59e0b', padding: '1.25rem', fontSize: '1.05rem', fontWeight: 800 }}
                   onClick={() => handleChooseAction('PASS')}
+                  aria-label="Pass to Syndicate Delegates. Shortcut key: P"
                 >
                   <Users size={22} />
-                  <span>PASS TO SYNDICATE</span>
+                  <span>[P] PASS (DELEGATE) (Split / Dividend)</span>
                 </button>
               </div>
             </div>
           ) : (
-            <div style={{ background: 'rgba(56, 189, 248, 0.1)', border: '1px solid #38bdf8', padding: '1rem', borderRadius: 'var(--radius-md)', maxWidth: '600px', margin: '0 auto' }}>
-              <p style={{ fontSize: '1rem', color: '#f8fafc', margin: 0 }}>
-                ⏳ Waiting for <strong style={{ color: '#38bdf8' }}>{teaserData.activePlayer.nickname}</strong> to decide: <em>Tackle alone for full glory or Pass to two delegates?</em>
+            <div style={{ background: 'rgba(56, 189, 248, 0.1)', border: '1px solid #38bdf8', padding: '1.5rem', borderRadius: 'var(--radius-md)', maxWidth: '600px', margin: '0 auto' }}>
+              <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🥔</div>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: 800, margin: '0 0 0.5rem 0', color: '#f8fafc' }}>
+                🥔 {teaserData.activePlayer.nickname} is in the Hot Seat!
+              </h4>
+              <p style={{ fontSize: '0.95rem', color: '#94a3b8', margin: 0 }}>
+                Waiting for the active player to decide: <em>[T] Take alone for full glory or [P] Pass to two delegates?</em>
               </p>
             </div>
           )}
+        </div>
+      )}
+
+      {/* ==================================================== */}
+      {/* 1.5. DRAFTING / SLOT MACHINE VIEW */}
+      {/* ==================================================== */}
+      {(gameState === 'DRAFTING' || slotSpinning) && (
+        <div className="card slot-machine-container" style={{ textAlign: 'center', padding: '2.5rem 1.5rem', border: '2px solid #f59e0b', boxShadow: '0 0 35px rgba(245, 158, 11, 0.35)', background: 'radial-gradient(ellipse at center, rgba(245, 158, 11, 0.15) 0%, rgba(15, 23, 42, 0.95) 100%)' }}>
+          <div style={{ display: 'inline-block', background: 'rgba(245, 158, 11, 0.2)', border: '1px solid #f59e0b', color: '#f59e0b', padding: '0.4rem 1.2rem', borderRadius: '9999px', fontWeight: 900, fontSize: '0.9rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            🎰 DELEGATE ROULETTE DRAFT
+          </div>
+          <h3 style={{ fontSize: '1.8rem', fontWeight: 900, marginBottom: '0.5rem', color: '#f8fafc' }}>
+            Spinning Syndicate Reels...
+          </h3>
+          <p style={{ color: '#94a3b8', fontSize: '1rem', marginBottom: '2rem' }}>
+            Randomly selecting two room cadets to tackle the bug ticket!
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', maxWidth: '640px', margin: '0 auto' }}>
+            {/* Reel A */}
+            <div style={{ background: '#0f172a', border: '3px solid #f59e0b', borderRadius: 'var(--radius-lg)', padding: '1.75rem 1rem', boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(245, 158, 11, 0.3)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>
+                ⚡ DELEGATE SLOT A
+              </div>
+              <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#ffffff', minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', textShadow: '0 0 10px #f59e0b' }}>
+                {displayDelegateNames.a}
+              </div>
+            </div>
+
+            {/* Reel B */}
+            <div style={{ background: '#0f172a', border: '3px solid #f59e0b', borderRadius: 'var(--radius-lg)', padding: '1.75rem 1rem', boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(245, 158, 11, 0.3)' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>
+                ⚡ DELEGATE SLOT B
+              </div>
+              <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#ffffff', minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', textShadow: '0 0 10px #f59e0b' }}>
+                {displayDelegateNames.b}
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
@@ -384,6 +466,18 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
               </div>
             )}
           </div>
+
+          {/* Delegate Specific Banner */}
+          {gameState === 'DELEGATE_QUESTION' && isDelegate && (
+            <div style={{ background: 'rgba(245, 158, 11, 0.2)', border: '2px solid #f59e0b', borderRadius: 'var(--radius-md)', padding: '1rem', textAlign: 'center', marginBottom: '1.25rem', color: '#f59e0b', boxShadow: '0 0 20px rgba(245, 158, 11, 0.2)' }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 900 }}>
+                ⚡ YOU WERE DRAFTED AS DELEGATE {delegateSlot || 'A'}!
+              </div>
+              <div style={{ fontSize: '0.9rem', color: '#e2e8f0', marginTop: '0.25rem' }}>
+                Your answer will decide the round. Solve carefully!
+              </div>
+            </div>
+          )}
 
           {/* Question Card */}
           <div className="card" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
@@ -429,11 +523,21 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
                 ))}
               </div>
             </div>
+          ) : isHotSeat && gameState === 'DELEGATE_QUESTION' ? (
+            <div className="card" style={{ textAlign: 'center', padding: '2.5rem 1.5rem', border: '1px solid #38bdf8' }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🤝</div>
+              <h4 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem', color: '#38bdf8' }}>
+                Delegates are answering your ticket... Sit tight!
+              </h4>
+              <p style={{ color: '#94a3b8', maxWidth: '500px', margin: '0 auto', fontSize: '1rem' }}>
+                You passed the ticket to Delegate A ({delegatesData?.delegateA?.nickname}) and Delegate B ({delegatesData?.delegateB?.nickname || 'Solo Delegate'}). Answer controls are locked out for the Hot Seat.
+              </p>
+            </div>
           ) : (
-            <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
-              <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🍿</div>
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Private Submissions Underway</h4>
-              <p style={{ color: '#94a3b8', maxWidth: '500px', margin: '0 auto' }}>
+            <div className="card" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🍿</div>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.5rem', color: '#f8fafc' }}>Private Submissions Underway</h4>
+              <p style={{ color: '#94a3b8', maxWidth: '500px', margin: '0 auto', fontSize: '1rem' }}>
                 {gameState === 'SOLO_QUESTION'
                   ? 'The active player is answering secretly. Results will be revealed once committed!'
                   : 'The two drafted delegates are submitting their answers secretly. If both miss, the Social Dividend drops into your score!'}
@@ -540,6 +644,9 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
               </p>
             )}
           </div>
+
+          {/* Coach McGuirk's Sideline Pep Talk */}
+          <CoachFeedbackCard isCorrect={settlementData.outcomeType !== 'NEITHER_CORRECT' && settlementData.outcomeType !== 'SOLO_WRONG'} />
 
           {/* Mini-Leaderboard */}
           <div style={{ marginBottom: '1.5rem' }}>

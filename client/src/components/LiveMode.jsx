@@ -31,6 +31,7 @@ import FlawFinderMode from './FlawFinderMode';
 import SaboteurMode from './SaboteurMode';
 import BoundaryBrawlMode from './BoundaryBrawlMode';
 import BossRaidMode from './BossRaidMode';
+import CoachFeedbackCard from './CoachFeedbackCard';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -56,9 +57,9 @@ export const ARCADE_CABINETS = [
     subtitle: 'DELEGATE ROULETTE & SOCIAL DIVIDENDS',
     domain: 'Universal Design & Models',
     desc: 'Pass rapid accessibility bug tickets before the audit timer blows up! Test knowledge of models of disability and Universal Design principles.',
-    icon: '🔥',
-    tag: '[ACTIVE LOADOUT]',
-    color: '#38bdf8'
+    icon: '🥔',
+    tag: '[DELEGATE ROULETTE // AI BOTS]',
+    color: '#f59e0b'
   },
   {
     id: 'GRAND_PRIX',
@@ -330,10 +331,10 @@ export default function LiveMode() {
         if (myResult) {
           setPlayerRoundFeedback(myResult);
           if (myResult.roundCorrect) {
-            soundManager.playCorrect();
+            soundManager.playCoachFeedback(true);
             setLiveAnnouncement(`Correct! You earned ${myResult.roundPoints} points. Total: ${myResult.score}.`);
           } else {
-            soundManager.playIncorrect();
+            soundManager.playCoachFeedback(false);
             setLiveAnnouncement(`Incorrect. The correct answer was ${results.correctChoiceId}. Total: ${myResult.score}.`);
           }
         }
@@ -1538,6 +1539,9 @@ export default function LiveMode() {
               </div>
             )}
 
+            {/* Coach McGuirk's Sideline Pep Talk on Host Display */}
+            <CoachFeedbackCard isCorrect={roundResults?.summary?.percentCorrect >= 50} />
+
             <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'flex-end' }}>
               <button type="button" className="btn-primary" onClick={handleHostNextStage}>
                 <span>Show Leaderboard</span>
@@ -2016,6 +2020,9 @@ export default function LiveMode() {
               <span>{playerRoundFeedback.streak} Streak! You're on fire!</span>
             </div>
           )}
+
+          {/* Coach McGuirk's Sideline Pep Talk for the Player */}
+          <CoachFeedbackCard isCorrect={playerRoundFeedback.roundCorrect} />
 
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '1.5rem' }}>
             Watch the host screen for explanations and the next question!
