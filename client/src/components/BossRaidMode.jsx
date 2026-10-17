@@ -40,6 +40,7 @@ export default function BossRaidMode({ socket, role, roomPin, onLeave }) {
     if (!socket) return;
 
     soundManager.playBossRoar();
+    socket.emit('boss-get-tree');
 
     // 1. Boss Game Started
     socket.on('boss-game-started', (data) => {

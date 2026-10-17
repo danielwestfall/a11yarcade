@@ -1,7 +1,44 @@
 {
-  "games": [],
-  "weeklyLeaderboard": {},
-  "allTimeLeaderboard": {},
+  "games": [
+    {
+      "id": "1792206486867-AGRC",
+      "timestamp": "2026-10-17T03:08:06.866Z",
+      "weekKey": "2026-W42",
+      "gameMode": "BOSS_RAID",
+      "questionsCount": 7,
+      "players": [
+        {
+          "nickname": "RaidLeader",
+          "avatar": "🐱",
+          "score": 900,
+          "distance": 0,
+          "rank": 1
+        }
+      ]
+    }
+  ],
+  "weeklyLeaderboard": {
+    "2026-W42": {
+      "RaidLeader": {
+        "nickname": "RaidLeader",
+        "avatar": "🐱",
+        "totalScore": 900,
+        "gamesPlayed": 1,
+        "wins": 1,
+        "bestScore": 900
+      }
+    }
+  },
+  "allTimeLeaderboard": {
+    "RaidLeader": {
+      "nickname": "RaidLeader",
+      "avatar": "🐱",
+      "totalScore": 900,
+      "gamesPlayed": 1,
+      "wins": 1,
+      "bestScore": 900
+    }
+  },
   "missedQuestionsLog": [
     {
       "timestamp": "2026-10-16T23:56:16.604Z",
@@ -926,6 +963,34 @@
       "explanation": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
       "funNote": "Targeted Sentence: \"Horizon Air is committed to accessible travel for ...\"",
       "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
+    },
+    {
+      "timestamp": "2026-10-17T02:32:36.925Z",
+      "nickname": "Bettor1",
+      "questionId": "cpacc-d2-09",
+      "questionText": "A developer writes `<div onclick='submit()'>Submit</div>` without a `tabindex`, `role='button'`, or keyboard event listener. Which WCAG principle is most severely violated?",
+      "topic": "WCAG - Operable",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "WRONG_ANSWER",
+      "correctChoiceId": "A",
+      "explanation": "A fake button made from a div cannot be focused via the Tab key and cannot be triggered via the Enter or Space keys unless manually coded. Using a native `<button>` element is always preferred.",
+      "funNote": "Friends don't let friends turn `<div>` tags into clickable buttons without keyboard handlers. Use `<button>`!",
+      "cpaccRef": "Domain Two C: WCAG 2.1 Keyboard Accessible"
+    },
+    {
+      "timestamp": "2026-10-17T03:08:36.069Z",
+      "nickname": "Bettor1",
+      "questionId": "cpacc-d1-01",
+      "questionText": "A designer says: 'Our website isn't broken; the user just lacks the proper vision to see our stylish 8px gray-on-white font!' Which disability model is this designer unfortunately channeling?",
+      "topic": "Theoretical Models of Disability",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "WRONG_ANSWER",
+      "correctChoiceId": "B",
+      "explanation": "The Medical Model views disability as an individual deficit or pathology that needs to be 'fixed' or cured, whereas the Social Model recognizes that society and poor design create the barriers.",
+      "funNote": "Blaming the user's retinas for your invisible font is peak Medical Model mischief!",
+      "cpaccRef": "Domain One A: Theoretical Models of Disability"
     }
   ],
   "users": {
@@ -976,7 +1041,7 @@
       "avatar": "🐱",
       "pin": "4321",
       "createdAt": "2026-10-17T02:16:06.471Z",
-      "lastActive": "2026-10-17T02:31:16.354Z"
+      "lastActive": "2026-10-17T03:08:35.737Z"
     },
     "overflowtester": {
       "nickname": "OverflowTester",
@@ -1032,21 +1097,28 @@
       "avatar": "🐱",
       "pin": "7788",
       "createdAt": "2026-10-17T02:29:57.931Z",
-      "lastActive": "2026-10-17T02:31:15.732Z"
+      "lastActive": "2026-10-17T03:08:35.179Z"
     },
     "raider1": {
       "nickname": "Raider1",
       "avatar": "🐱",
       "pin": "1111",
       "createdAt": "2026-10-17T02:29:58.684Z",
-      "lastActive": "2026-10-17T02:31:16.497Z"
+      "lastActive": "2026-10-17T03:08:35.906Z"
     },
     "bettor1": {
       "nickname": "Bettor1",
       "avatar": "🐱",
       "pin": "2222",
       "createdAt": "2026-10-17T02:31:16.653Z",
-      "lastActive": "2026-10-17T02:31:16.653Z"
+      "lastActive": "2026-10-17T03:08:36.062Z"
+    },
+    "raidleader": {
+      "nickname": "RaidLeader",
+      "avatar": "🐱",
+      "pin": "9988",
+      "createdAt": "2026-10-17T02:54:53.930Z",
+      "lastActive": "2026-10-17T03:05:59.820Z"
     }
   }
 }

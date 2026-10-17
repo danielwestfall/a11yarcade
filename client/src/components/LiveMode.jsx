@@ -791,7 +791,7 @@ export default function LiveMode() {
                       type="checkbox"
                       checked={hostSettings.hostParticipates || false}
                       onChange={(e) => setHostSettings({ ...hostSettings, hostParticipates: e.target.checked })}
-                      style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                      style={{ width: '24px', height: '24px', minWidth: '44px', minHeight: '44px', cursor: 'pointer' }}
                     />
                     <span>🎮 Play along as Host on this screen</span>
                   </label>

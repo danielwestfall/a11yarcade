@@ -455,6 +455,34 @@ io.on('connection', (socket) => {
             totalPlayers: room.players.size
           });
         }
+      } else if (room.gameMode === 'BOSS_RAID' && room.bossRaid) {
+        const tree = getSanitizedBossTree(room);
+        socket.emit('boss-stage-tech-tree', {
+          tree,
+          message: 'Reconnected to active Boss Raid!'
+        });
+        if (room.bossRaid.stage === 'NODE_COMBAT' && room.bossRaid.activeNode && room.bossRaid.activeQuestion) {
+          const sanitizedChoices = room.bossRaid.activeQuestion.choices.map(c => ({
+            id: c.id,
+            text: c.text,
+            shape: c.shape
+          }));
+          socket.emit('boss-node-activated', {
+            node: {
+              id: room.bossRaid.activeNode.id,
+              tier: room.bossRaid.activeNode.tier,
+              title: room.bossRaid.activeNode.title,
+              damage: room.bossRaid.activeNode.damage,
+              buff: room.bossRaid.activeNode.buff,
+              branchName: room.bossRaid.activeNode.branchName
+            },
+            question: {
+              stem: room.bossRaid.activeQuestion.stem,
+              choices: sanitizedChoices
+            },
+            timeLeft: room.bossRaid.combatTimeLeft || 45
+          });
+        }
       }
       return;
     }
@@ -2602,6 +2630,17 @@ io.on('connection', (socket) => {
         : 'Select the next tech tree node to research and attack!'
     });
   }
+
+  socket.on('boss-get-tree', () => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOSS_RAID' || !room.bossRaid) return;
+    const tree = getSanitizedBossTree(room);
+    socket.emit('boss-stage-tech-tree', {
+      tree,
+      message: 'Active tech tree synchronized.'
+    });
+  });
 
   socket.on('boss-select-node', ({ nodeId }, callback) => {
     const pin = socket.data.roomPin;
