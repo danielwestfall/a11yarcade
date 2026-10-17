@@ -722,11 +722,14 @@ export default function LiveMode() {
                 width: '100%',
                 maxWidth: '280px'
               }}>
-                <div style={{ fontSize: '0.85rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  Room PIN
+                <div style={{ fontSize: '0.82rem', color: '#94a3b8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: "'Space Mono', monospace" }}>
+                  ROOM TOKEN // PIN
                 </div>
-                <div style={{ fontSize: '3.6rem', fontWeight: 900, letterSpacing: '0.15em', color: '#ffffff', lineHeight: 1.1 }}>
+                <div style={{ fontSize: '3.6rem', fontWeight: 900, letterSpacing: '0.15em', color: '#ffffff', lineHeight: 1.1, fontFamily: "'Space Mono', monospace" }}>
                   {roomPin}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: '#38bdf8', marginTop: '0.25rem', fontStyle: 'italic' }}>
+                  Screen readers welcome • Rogue bots will be alt-tagged!
                 </div>
               </div>
 
@@ -842,14 +845,17 @@ export default function LiveMode() {
 
           {/* Connected Players List */}
           <div style={{ marginBottom: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontFamily: "'Space Grotesk', sans-serif" }}>
               <Users size={20} color="#38bdf8" />
-              <span>Joined Coworkers ({players.length}):</span>
+              <span>CONNECTED SQUAD ({players.length} CADETS)</span>
             </h3>
+            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1rem' }}>
+              {players.length > 0 ? 'Keyboard warriors in the arena ready to drop the quarter!' : 'Waiting for players to connect...'}
+            </p>
 
             {players.length === 0 ? (
               <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', padding: '1rem' }}>
-                Waiting for players to join...
+                Waiting for challengers to drop tokens into the slot...
               </p>
             ) : (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
@@ -858,18 +864,20 @@ export default function LiveMode() {
                     key={p.id}
                     style={{
                       background: 'var(--bg-surface-elevated)',
-                      border: '1px solid var(--border-color)',
+                      border: '2px solid var(--border-bright)',
                       padding: '0.5rem 1rem',
-                      borderRadius: '9999px',
+                      borderRadius: 'var(--radius-sm)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.5rem',
-                      fontSize: '1rem',
-                      fontWeight: 600
+                      fontSize: '0.95rem',
+                      fontWeight: 700,
+                      boxShadow: '0 3px 0 0 #020617'
                     }}
                   >
                     <span>{p.avatar}</span>
                     <span>{p.nickname}</span>
+                    <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 800 }}>✓ READY</span>
                   </div>
                 ))}
               </div>
@@ -879,12 +887,19 @@ export default function LiveMode() {
           <button
             type="button"
             className="btn-primary"
-            style={{ fontSize: '1.25rem', padding: '1rem 3rem' }}
+            style={{
+              fontSize: '1.25rem',
+              padding: '1rem 3rem',
+              background: '#10b981',
+              borderColor: '#10b981',
+              boxShadow: '0 6px 0 0 #059669',
+              color: '#090d16'
+            }}
             onClick={handleHostStartGame}
             disabled={players.length === 0}
           >
-            <Play size={22} />
-            <span>Start Game</span>
+            <Play size={24} />
+            <span>INSERT COIN / START GAME</span>
           </button>
         </div>
       );

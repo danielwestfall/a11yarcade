@@ -492,6 +492,62 @@
       "explanation": "An undue burden defense relieves an entity from the specific cost-prohibitive modification, but DOES NOT excuse them from providing alternative auxiliary aids or accommodations that ensure equal access.",
       "funNote": "Targeted Sentence: \"Apex State University is committed to providing eq...\"",
       "cpaccRef": "CPACC BoK Domain 3: Legal Mandates, ADA Title II & Section 504 Alternative Access Obligations"
+    },
+    {
+      "timestamp": "2026-10-17T01:19:27.994Z",
+      "nickname": "Alice",
+      "questionId": "cpacc-d1-14",
+      "questionText": "According to the World Health Organization (WHO), approximately what percentage of the global population experiences significant disability?",
+      "topic": "Demographics & Statistics",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "The WHO Global Report on Health Equity for Persons with Disabilities (2022) indicates ~1.3 billion people, or 16% of the world's population, experience significant disability.",
+      "funNote": "1 in 6 people. If your company ignores a11y, you're literally ignoring an audience the size of China!",
+      "cpaccRef": "Domain One D: Disability Demographics and Statistics"
+    },
+    {
+      "timestamp": "2026-10-17T01:19:28.303Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d3-04",
+      "questionText": "What is 'EN 301 549' in the European accessibility ecosystem?",
+      "topic": "European Standards (EN 301 549)",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "EN 301 549 specifies the functional accessibility requirements applicable to ICT products and services, including web, non-web software, hardware, and mobile apps across Europe.",
+      "funNote": "Pronounced 'E-N three-zero-one five-four-nine'. It sounds like a secret agent, but it's the EU's a11y bible.",
+      "cpaccRef": "Domain Three E: Applying Accessibility Standards to ICT"
+    },
+    {
+      "timestamp": "2026-10-17T01:19:28.447Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-d1-13",
+      "questionText": "To prevent photosensitive epileptic seizures, web content must not contain anything that flashes more than how many times per second?",
+      "topic": "Seizure & Vestibular Disorders",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "WCAG Success Criterion 2.3.1 (Three Flashes or Below Threshold) states that pages do not contain anything that flashes more than 3 times in any 1-second period, or below general and red flash thresholds.",
+      "funNote": "Keep the rave lights in the club, not on your e-commerce checkout button!",
+      "cpaccRef": "Domain One B: Seizure Disabilities"
+    },
+    {
+      "timestamp": "2026-10-17T01:19:28.464Z",
+      "nickname": "Auditor Alex",
+      "questionId": "flaw-05-3",
+      "questionText": "E-Commerce Retailer Accessibility Statement: A fashion retail chain updates its online shopping portal accessibility statement. Identify the misleading legal/technical claim.",
+      "topic": "Digital Accessibility Legal Landscape & Overlay Limitations",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Accessibility overlay widgets do not provide legal immunity under ADA Title III and cannot retroactively remediate underlying structural code defects (such as semantic HTML, ARIA states, or complex keyboard navigation).",
+      "funNote": "Targeted Sentence: \"StyleTrend Retail operates digital storefronts des...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Digital Accessibility Legal Landscape, Overlay Limitations & ADA Case Law"
     }
   ],
   "users": {
@@ -500,7 +556,7 @@
       "avatar": "🦉",
       "pin": "1234",
       "createdAt": "2026-10-17T00:28:20.168Z",
-      "lastActive": "2026-10-17T01:09:22.752Z"
+      "lastActive": "2026-10-17T01:19:27.957Z"
     }
   }
 }

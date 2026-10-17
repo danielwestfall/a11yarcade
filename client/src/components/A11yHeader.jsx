@@ -48,14 +48,14 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
   return (
     <header className="header-nav" role="banner">
       <div className="brand-group">
-        <span style={{ fontSize: '2rem' }} role="img" aria-label="Game controller">🎮</span>
+        <span style={{ fontSize: '2rem' }} role="img" aria-label="Arcade Joystick">🕹️</span>
         <div>
           <h1 className="brand-title">A11y Arcade</h1>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-            The Mario Party of Accessibility & CPACC Mastery
+          <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontFamily: "'Space Mono', monospace" }}>
+            Neo-Arcade CPACC Training & Battle Engine
           </p>
         </div>
-        <span className="brand-badge">IAAP CPACC BoK</span>
+        <span className="brand-badge">AAA TESTED // INSERT COIN</span>
       </div>
 
       <div className="controls-group" role="region" aria-label="Accessibility settings">
