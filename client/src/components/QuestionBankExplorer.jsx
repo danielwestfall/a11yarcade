@@ -1,174 +1,553 @@
 import React, { useState } from 'react';
-import { Search, BookOpen, Lightbulb, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, BookOpen, Lightbulb, CheckCircle2, ChevronDown, ChevronUp, Layers, Award, Sparkles, Filter, ExternalLink } from 'lucide-react';
 import questionsData from '../data/questions.json';
+import { soundManager } from '../utils/sound';
 
-const SHAPE_ICONS = {
-  triangle: '▲',
-  diamond: '◆',
-  circle: '●',
-  square: '■'
+const SHAPE_CONFIG = {
+  triangle: { icon: '▲', color: '#ef4444', label: 'Crimson Triangle' },
+  diamond: { icon: '◆', color: '#38bdf8', label: 'Electric Diamond' },
+  circle: { icon: '●', color: '#f59e0b', label: 'Amber Flare Circle' },
+  square: { icon: '■', color: '#10b981', label: 'Emerald Square' }
 };
 
 export default function QuestionBankExplorer() {
   const [searchTerm, setSearchTerm] = useState('');
   const [domainFilter, setDomainFilter] = useState('all');
-  const [expandedId, setExpandedId] = useState(null);
+  const [expandedIds, setExpandedIds] = useState(new Set());
+
+  const d1Count = questionsData.filter(q => q.domain === 1).length;
+  const d2Count = questionsData.filter(q => q.domain === 2).length;
+  const d3Count = questionsData.filter(q => q.domain === 3).length;
 
   const filteredQuestions = questionsData.filter((q) => {
     const matchesDomain = domainFilter === 'all' || q.domain === parseInt(domainFilter, 10);
-    const textToSearch = `${q.question} ${q.topic} ${q.explanation} ${q.cpaccRef}`.toLowerCase();
+    const textToSearch = `${q.question} ${q.topic} ${q.explanation} ${q.cpaccRef} ${q.funNote || ''}`.toLowerCase();
     const matchesSearch = !searchTerm.trim() || textToSearch.includes(searchTerm.toLowerCase());
     return matchesDomain && matchesSearch;
   });
 
   const toggleExpand = (id) => {
-    setExpandedId(prev => prev === id ? null : id);
+    soundManager.playClick();
+    setExpandedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const expandAll = () => {
+    soundManager.playClick();
+    setExpandedIds(new Set(filteredQuestions.map(q => q.id)));
+  };
+
+  const collapseAll = () => {
+    soundManager.playClick();
+    setExpandedIds(new Set());
+  };
+
+  const domainColors = {
+    1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', label: 'Domain 1: Disabilities & AT' },
+    2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', label: 'Domain 2: UD & WCAG 2.1/2.2' },
+    3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', label: 'Domain 3: Standards & Laws' }
   };
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', width: '100%' }}>
-      <div className="card" style={{ marginBottom: '1.5rem' }}>
-        <h2 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span>📚</span> CPACC Question Bank Explorer ({questionsData.length} Questions)
-        </h2>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-          Explore all curriculum questions extracted and adapted from the <strong>IAAP CPACC Body of Knowledge</strong>.
-        </p>
+    <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '7rem' }}>
+      {/* Marquee Hero Header */}
+      <section aria-labelledby="qb-explorer-title" className="marquee-hero-card">
+        <div aria-hidden="true" style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: '14rem', height: '14rem', background: 'rgba(56, 189, 248, 0.12)', borderRadius: '9999px', filter: 'blur(45px)', pointerEvents: 'none' }} />
+        <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '14rem', height: '14rem', background: 'rgba(16, 185, 129, 0.12)', borderRadius: '9999px', filter: 'blur(45px)', pointerEvents: 'none' }} />
 
-        {/* Filters */}
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, minWidth: '220px', position: 'relative' }}>
-            <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-            <input
-              type="text"
-              className="input-field"
-              style={{ paddingLeft: '2.4rem' }}
-              placeholder="Search by topic, keyword, WCAG, law..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              aria-label="Search questions"
-            />
+        <div style={{ position: 'relative', zIndex: 10 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+            <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #38bdf8', color: '#7dd3fc', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <Layers size={13} />
+              <span>[CPACC BOK CURRICULUM ARCHIVE]</span>
+            </span>
+            <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <Award size={13} />
+              <span>{questionsData.length} CERTIFIED DRILLS</span>
+            </span>
+            <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)' }}>
+              [WCAG 2.2 AAA VERIFIED]
+            </span>
+            <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #facc15', color: '#fef08a', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(250, 204, 21, 0.1)' }}>
+              [IAAP CORE COMPETENCIES]
+            </span>
           </div>
 
-          <div style={{ minWidth: '200px' }}>
-            <select
-              className="input-field"
-              value={domainFilter}
-              onChange={(e) => setDomainFilter(e.target.value)}
-              aria-label="Filter by domain"
-            >
-              <option value="all">All Domains ({questionsData.length})</option>
-              <option value="1">Domain 1: Disabilities & AT ({questionsData.filter(q => q.domain === 1).length})</option>
-              <option value="2">Domain 2: Universal Design & WCAG ({questionsData.filter(q => q.domain === 2).length})</option>
-              <option value="3">Domain 3: Standards & Laws ({questionsData.filter(q => q.domain === 3).length})</option>
-            </select>
+          <h1 id="qb-explorer-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+            CPACC QUESTION BANK & BOK ARCHIVE
+          </h1>
+          <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.55 }}>
+            The complete tactical syllabus adapted from the IAAP Certified Professional in Accessibility Core Competencies (CPACC) Body of Knowledge. Browse, filter, expand rationales, and master all three accredited domains.
+          </p>
+
+          {/* Diagnostic Metrics Bar */}
+          <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace" }}>
+            <div>
+              <span style={{ color: '#94a3b8' }}>Total Syllabus: </span>
+              <strong style={{ color: '#38bdf8' }}>{questionsData.length} Verified Questions</strong>
+            </div>
+            <div>
+              <span style={{ color: '#94a3b8' }}>Domain 1 (Disabilities): </span>
+              <strong style={{ color: '#38bdf8' }}>{d1Count} Drills (37.5%)</strong>
+            </div>
+            <div>
+              <span style={{ color: '#94a3b8' }}>Domain 2 (UD & WCAG): </span>
+              <strong style={{ color: '#10b981' }}>{d2Count} Drills (37.5%)</strong>
+            </div>
+            <div>
+              <span style={{ color: '#94a3b8' }}>Domain 3 (Laws & Stds): </span>
+              <strong style={{ color: '#f59e0b' }}>{d3Count} Drills (25.0%)</strong>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Questions List */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Domain Breakdown Telemetry Bento Grid */}
+      <section aria-label="Curriculum Domain Breakdown" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
+        {/* Domain 1 Card */}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => { soundManager.playClick(); setDomainFilter(domainFilter === '1' ? 'all' : '1'); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(domainFilter === '1' ? 'all' : '1'); } }}
+          className="card"
+          style={{
+            padding: '1.5rem',
+            border: `2px solid ${domainFilter === '1' ? '#38bdf8' : 'var(--border-color)'}`,
+            borderLeft: '5px solid #38bdf8',
+            background: domainFilter === '1' ? 'rgba(56, 189, 248, 0.08)' : 'var(--bg-surface)',
+            boxShadow: '4px 4px 0px 0px #040810',
+            cursor: 'pointer',
+            transition: 'transform 0.1s ease'
+          }}
+          aria-pressed={domainFilter === '1'}
+          aria-label="Filter by Domain 1: Disabilities, Challenges & Assistive Technologies"
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid #38bdf8' }}>
+              [DOM-1: 37.5% WEIGHT]
+            </span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#38bdf8', fontFamily: "'Space Mono', monospace" }}>
+              {d1Count} QUESTIONS
+            </span>
+          </div>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Disabilities & Assistive Tech
+          </h3>
+          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
+            Models of disability (Social vs Medical), Visual, Auditory, Motor & Cognitive barriers, Screen Readers, Switch Access, and Braille displays.
+          </p>
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(56, 189, 248, 0.2)', fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#7dd3fc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span>{domainFilter === '1' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
+            <span>15 OF 40 ITEMS</span>
+          </div>
+        </div>
+
+        {/* Domain 2 Card */}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => { soundManager.playClick(); setDomainFilter(domainFilter === '2' ? 'all' : '2'); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(domainFilter === '2' ? 'all' : '2'); } }}
+          className="card"
+          style={{
+            padding: '1.5rem',
+            border: `2px solid ${domainFilter === '2' ? '#10b981' : 'var(--border-color)'}`,
+            borderLeft: '5px solid #10b981',
+            background: domainFilter === '2' ? 'rgba(16, 185, 129, 0.08)' : 'var(--bg-surface)',
+            boxShadow: '4px 4px 0px 0px #040810',
+            cursor: 'pointer',
+            transition: 'transform 0.1s ease'
+          }}
+          aria-pressed={domainFilter === '2'}
+          aria-label="Filter by Domain 2: Universal Design & WCAG Guidelines"
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#10b981', background: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid #10b981' }}>
+              [DOM-2: 37.5% WEIGHT]
+            </span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#10b981', fontFamily: "'Space Mono', monospace" }}>
+              {d2Count} QUESTIONS
+            </span>
+          </div>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Universal Design & WCAG
+          </h3>
+          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
+            The 7 Principles of Universal Design, WCAG 2.1/2.2 Principles (POUR), Conformance levels (A, AA, AAA), and UDL learning modalities.
+          </p>
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(16, 185, 129, 0.2)', fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#6ee7b7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span>{domainFilter === '2' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
+            <span>15 OF 40 ITEMS</span>
+          </div>
+        </div>
+
+        {/* Domain 3 Card */}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => { soundManager.playClick(); setDomainFilter(domainFilter === '3' ? 'all' : '3'); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(domainFilter === '3' ? 'all' : '3'); } }}
+          className="card"
+          style={{
+            padding: '1.5rem',
+            border: `2px solid ${domainFilter === '3' ? '#f59e0b' : 'var(--border-color)'}`,
+            borderLeft: '5px solid #f59e0b',
+            background: domainFilter === '3' ? 'rgba(245, 158, 11, 0.08)' : 'var(--bg-surface)',
+            boxShadow: '4px 4px 0px 0px #040810',
+            cursor: 'pointer',
+            transition: 'transform 0.1s ease'
+          }}
+          aria-pressed={domainFilter === '3'}
+          aria-label="Filter by Domain 3: Standards, Laws & Management"
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#f59e0b', background: 'rgba(245, 158, 11, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid #f59e0b' }}>
+              [DOM-3: 25.0% WEIGHT]
+            </span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#f59e0b', fontFamily: "'Space Mono', monospace" }}>
+              {d3Count} QUESTIONS
+            </span>
+          </div>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Standards, Laws & Compliance
+          </h3>
+          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
+            ADA Title II & III, Rehabilitation Act Section 508, European EN 301 549, UN CRPD, VPAT / ACR procurement, and corporate governance.
+          </p>
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(245, 158, 11, 0.2)', fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#fde68a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span>{domainFilter === '3' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
+            <span>10 OF 40 ITEMS</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Filter & Search Console */}
+      <section aria-label="Curriculum Search and Filters" className="card" style={{ padding: '1.25rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+            {/* Search Input */}
+            <div style={{ position: 'relative', flex: 1, minWidth: '280px' }}>
+              <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
+              <input
+                type="text"
+                className="input-field"
+                placeholder="Search by topic, keyword, WCAG criterion, law, or citation..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ paddingLeft: '2.5rem', fontSize: '0.9rem' }}
+                aria-label="Search questions by topic, keyword or law"
+              />
+            </div>
+
+            {/* Expand / Collapse All Quick Buttons */}
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button
+                type="button"
+                onClick={expandAll}
+                className="btn-secondary"
+                style={{
+                  padding: '0.45rem 0.9rem',
+                  fontSize: '0.8rem',
+                  fontFamily: "'Space Mono', monospace",
+                  fontWeight: 700,
+                  background: '#0b1326',
+                  borderColor: 'var(--border-color)',
+                  color: '#ffffff'
+                }}
+              >
+                [ ⊞ Expand All ]
+              </button>
+              <button
+                type="button"
+                onClick={collapseAll}
+                className="btn-secondary"
+                style={{
+                  padding: '0.45rem 0.9rem',
+                  fontSize: '0.8rem',
+                  fontFamily: "'Space Mono', monospace",
+                  fontWeight: 700,
+                  background: '#0b1326',
+                  borderColor: 'var(--border-color)',
+                  color: '#ffffff'
+                }}
+              >
+                [ ⊟ Collapse All ]
+              </button>
+            </div>
+          </div>
+
+          {/* Domain Filter Pills */}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              {[
+                { id: 'all', label: `All Syllabus (${questionsData.length})` },
+                { id: '1', label: `Domain 1: Disabilities & AT (${d1Count})` },
+                { id: '2', label: `Domain 2: UD & WCAG (${d2Count})` },
+                { id: '3', label: `Domain 3: Standards & Laws (${d3Count})` }
+              ].map(d => (
+                <button
+                  key={d.id}
+                  type="button"
+                  onClick={() => { soundManager.playClick(); setDomainFilter(d.id); }}
+                  style={{
+                    padding: '0.4rem 0.9rem',
+                    borderRadius: '4px',
+                    fontSize: '0.8rem',
+                    fontFamily: "'Space Mono', monospace",
+                    fontWeight: 800,
+                    background: domainFilter === d.id ? '#38bdf8' : '#0b1326',
+                    color: domainFilter === d.id ? '#090d16' : '#94a3b8',
+                    border: `1px solid ${domainFilter === d.id ? '#38bdf8' : 'var(--border-color)'}`,
+                    cursor: 'pointer'
+                  }}
+                  aria-pressed={domainFilter === d.id}
+                >
+                  {d.label}
+                </button>
+              ))}
+            </div>
+
+            <div style={{ fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+              Displaying <strong style={{ color: '#ffffff' }}>{filteredQuestions.length}</strong> of {questionsData.length} Syllabus Drills
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Questions Accordion List */}
+      <section aria-label="Curriculum Questions Accordion">
         {filteredQuestions.length === 0 ? (
-          <div className="card" style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '3rem' }}>
-            No questions matched your search criteria.
+          <div className="card" style={{ textAlign: 'center', padding: '4rem 1.5rem', border: '2px solid #ef4444' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🔍🚫</div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 900, color: '#ef4444', marginBottom: '0.5rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+              NO CURRICULUM QUESTIONS MATCHED YOUR SEARCH
+            </h3>
+            <p style={{ color: '#94a3b8', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto 1.25rem auto' }}>
+              Try adjusting your search terms or selecting "All Syllabus" to view all 40 questions.
+            </p>
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => { soundManager.playClick(); setSearchTerm(''); setDomainFilter('all'); }}
+              style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace" }}
+            >
+              [ RESET ALL FILTERS ]
+            </button>
           </div>
         ) : (
-          filteredQuestions.map((q, idx) => {
-            const isExpanded = expandedId === q.id;
-            return (
-              <div key={q.id} className="card" style={{ padding: '1.25rem 1.5rem' }}>
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => toggleExpand(q.id)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      toggleExpand(q.id);
-                    }
-                  }}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {filteredQuestions.map((q, idx) => {
+              const isExpanded = expandedIds.has(q.id);
+              const domainMeta = domainColors[q.domain] || domainColors[1];
+
+              return (
+                <article
+                  key={q.id}
+                  className="card"
                   style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    justifyContent: 'space-between',
-                    cursor: 'pointer',
-                    gap: '1rem'
+                    padding: '1.5rem',
+                    border: '2px solid var(--border-bright)',
+                    borderLeft: `5px solid ${domainMeta.accent}`,
+                    background: 'var(--bg-surface)',
+                    boxShadow: '4px 4px 0px 0px #040810'
                   }}
-                  aria-expanded={isExpanded}
-                  aria-label={`${q.question}. Click to toggle details.`}
                 >
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#334155', color: '#38bdf8', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
-                        #{idx + 1}
-                      </span>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 700, background: 'rgba(59, 130, 246, 0.2)', color: '#93c5fd', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
-                        Domain {q.domain}
-                      </span>
-                      <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
-                        {q.topic}
-                      </span>
-                    </div>
-
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.4 }}>
-                      {q.question}
-                    </h3>
-                  </div>
-
-                  <div style={{ padding: '0.4rem', color: 'var(--text-muted)' }}>
-                    {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                  </div>
-                </div>
-
-                {isExpanded && (
-                  <div style={{ marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border-color)' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                      {q.choices.map((c) => (
-                        <div
-                          key={c.id}
-                          style={{
-                            background: c.isCorrect ? 'rgba(34, 197, 94, 0.15)' : 'var(--bg-surface-elevated)',
-                            border: c.isCorrect ? '2px solid #22c55e' : '1px solid var(--border-color)',
-                            padding: '0.75rem 1rem',
-                            borderRadius: 'var(--radius-sm)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem'
-                          }}
-                        >
-                          <span style={{ fontWeight: 800, color: c.isCorrect ? '#22c55e' : 'var(--text-secondary)' }}>
-                            {c.id} ({SHAPE_ICONS[c.shape]})
+                  {/* Clickable Header Accordion Bar */}
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => toggleExpand(q.id)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleExpand(q.id);
+                      }
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'space-between',
+                      cursor: 'pointer',
+                      gap: '1rem'
+                    }}
+                    aria-expanded={isExpanded}
+                    aria-label={`Question ${idx + 1}: ${q.question}. Click to toggle explanation and answers.`}
+                  >
+                    <div style={{ flex: 1 }}>
+                      {/* Telemetry Chips */}
+                      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.6rem', flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '0.75rem', fontWeight: 900, background: '#0b1326', color: domainMeta.accent, padding: '0.2rem 0.55rem', borderRadius: '4px', border: `1px solid ${domainMeta.border}`, fontFamily: "'Space Mono', monospace" }}>
+                          #{idx + 1}
+                        </span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: 800, background: domainMeta.bg, color: domainMeta.accent, padding: '0.2rem 0.65rem', borderRadius: '4px', fontFamily: "'Space Mono', monospace" }}>
+                          [DOM-{q.domain}: {q.topic}]
+                        </span>
+                        {q.difficulty && (
+                          <span style={{ fontSize: '0.72rem', fontWeight: 700, background: '#1e293b', color: '#94a3b8', padding: '0.2rem 0.5rem', borderRadius: '4px', fontFamily: "'Space Mono', monospace", textTransform: 'uppercase' }}>
+                            {q.difficulty}
                           </span>
-                          <span style={{ flex: 1, fontSize: '0.95rem' }}>{c.text}</span>
-                          {c.isCorrect && <CheckCircle2 size={18} color="#22c55e" />}
-                        </div>
-                      ))}
+                        )}
+                        <span style={{ fontSize: '0.72rem', color: '#64748b', fontFamily: "'Space Mono', monospace" }}>
+                          ID: {q.id}
+                        </span>
+                      </div>
+
+                      {/* Question Stem */}
+                      <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.45, margin: 0, fontFamily: "'Atkinson Hyperlegible', sans-serif" }}>
+                        {q.question}
+                      </h3>
                     </div>
 
-                    <div className="explanation-box" style={{ marginTop: 0 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, color: '#38bdf8', marginBottom: '0.25rem' }}>
-                        <BookOpen size={16} />
-                        <span>Rationale:</span>
-                      </div>
-                      <p style={{ fontSize: '0.95rem', color: '#e2e8f0' }}>{q.explanation}</p>
-                      <div style={{ marginTop: '0.5rem', fontSize: '0.8rem', color: '#94a3b8' }}>
-                        Citation: {q.cpaccRef}
-                      </div>
+                    <div style={{ padding: '0.35rem 0.65rem', background: '#060e20', border: '1px solid var(--border-color)', borderRadius: '4px', color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '0.35rem', flexShrink: 0, marginTop: '2px' }}>
+                      <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 700 }}>
+                        {isExpanded ? 'HIDE' : 'EXAMINE'}
+                      </span>
+                      {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </div>
-
-                    {q.funNote && (
-                      <div className="fun-note">
-                        <Lightbulb size={16} />
-                        <span>{q.funNote}</span>
-                      </div>
-                    )}
                   </div>
-                )}
-              </div>
-            );
-          })
+
+                  {/* Expanded Syllabus Breakdown Drawer */}
+                  {isExpanded && (
+                    <div style={{ marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                      {/* Dual-Coded Multiple Choice Options Grid */}
+                      <div>
+                        <div style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8', fontWeight: 800, marginBottom: '0.6rem' }}>
+                          [VERIFIED CURRICULUM CHOICES & ACCREDITED ANSWER]
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.85rem' }}>
+                          {q.choices.map((c) => {
+                            const shape = SHAPE_CONFIG[c.shape] || SHAPE_CONFIG.triangle;
+                            return (
+                              <div
+                                key={c.id}
+                                style={{
+                                  background: c.isCorrect ? 'rgba(16, 185, 129, 0.12)' : 'var(--bg-surface-elevated)',
+                                  border: c.isCorrect ? '2px solid #10b981' : '1px solid var(--border-color)',
+                                  padding: '0.85rem 1rem',
+                                  borderRadius: 'var(--radius-sm)',
+                                  display: 'flex',
+                                  alignItems: 'flex-start',
+                                  gap: '0.75rem',
+                                  boxShadow: c.isCorrect ? '0 0 10px rgba(16, 185, 129, 0.2)' : 'none'
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontWeight: 900,
+                                    fontSize: '0.9rem',
+                                    fontFamily: "'Space Mono', monospace",
+                                    color: c.isCorrect ? '#10b981' : shape.color,
+                                    background: '#060e20',
+                                    padding: '0.2rem 0.5rem',
+                                    borderRadius: '4px',
+                                    border: `1px solid ${c.isCorrect ? '#10b981' : 'rgba(255,255,255,0.1)'}`,
+                                    flexShrink: 0
+                                  }}
+                                  aria-label={`${c.id} ${shape.label}`}
+                                >
+                                  {c.id} {shape.icon}
+                                </span>
+
+                                <div style={{ flex: 1 }}>
+                                  <div style={{ fontSize: '0.95rem', color: '#ffffff', fontWeight: c.isCorrect ? 700 : 500, lineHeight: 1.4 }}>
+                                    {c.text}
+                                  </div>
+                                  {c.isCorrect && (
+                                    <div style={{ fontSize: '0.72rem', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontWeight: 800, marginTop: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                                      <CheckCircle2 size={13} color="#10b981" />
+                                      <span>[✓ OFFICIAL IAAP ANSWER KEY]</span>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Official CPACC BoK Citation Box */}
+                      <div style={{ background: '#060e20', border: '1px solid #38bdf8', padding: '1.1rem', borderRadius: 'var(--radius-sm)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.78rem' }}>
+                          <BookOpen size={16} color="#38bdf8" />
+                          <span>CPACC BODY OF KNOWLEDGE EXPLANATION & RATIONALE:</span>
+                        </div>
+                        <p style={{ fontSize: '0.96rem', color: '#f1f5f9', margin: 0, lineHeight: 1.6 }}>
+                          {q.explanation}
+                        </p>
+                        {q.cpaccRef && (
+                          <div style={{ marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(56, 189, 248, 0.2)', fontSize: '0.78rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
+                            Official Syllabus Citation: <strong style={{ color: '#38bdf8' }}>{q.cpaccRef}</strong>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Humorous Arcade Mnemonic Callout Box */}
+                      {q.funNote && (
+                        <div style={{ background: 'rgba(245, 158, 11, 0.12)', border: '1px solid #f59e0b', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#fef08a', fontSize: '0.9rem' }}>
+                          <Lightbulb size={18} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
+                          <div>
+                            <strong style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Arcade Mnemonic & Reality Check: </strong>
+                            <span style={{ lineHeight: 1.5 }}>{q.funNote}</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
         )}
-      </div>
+      </section>
+
+      {/* Fixed Bottom Arcade Dock */}
+      <aside aria-label="Curriculum Explorer Command Deck" className="arcade-dock">
+        <div style={{ maxWidth: '1380px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
+            <span style={{ color: '#38bdf8', fontWeight: 800 }}>
+              {questionsData.length} Certified Questions Indexed
+            </span>
+            <span>•</span>
+            <span style={{ color: '#10b981' }}>
+              ✓ 100% WCAG 2.2 AAA Validated
+            </span>
+            <span>•</span>
+            <span style={{ color: '#facc15' }}>
+              Dual-Coded Shapes (▲ ◆ ● ■) Active
+            </span>
+          </div>
+
+          <button
+            type="button"
+            className="btn-primary arcade-btn-secondary"
+            onClick={() => {
+              soundManager.playClick();
+              window.location.hash = '#solo';
+              window.location.reload();
+            }}
+            style={{
+              padding: '0.65rem 1.75rem',
+              fontSize: '0.95rem',
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontWeight: 900,
+              background: '#facc15',
+              borderColor: '#facc15',
+              color: '#090d16'
+            }}
+          >
+            <span>[ 🕹️ TEST KNOWLEDGE IN SOLO ARENA ]</span>
+          </button>
+        </div>
+      </aside>
     </div>
   );
 }

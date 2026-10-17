@@ -548,6 +548,48 @@
       "explanation": "Accessibility overlay widgets do not provide legal immunity under ADA Title III and cannot retroactively remediate underlying structural code defects (such as semantic HTML, ARIA states, or complex keyboard navigation).",
       "funNote": "Targeted Sentence: \"StyleTrend Retail operates digital storefronts des...\"",
       "cpaccRef": "CPACC BoK Domain 3: Digital Accessibility Legal Landscape, Overlay Limitations & ADA Case Law"
+    },
+    {
+      "timestamp": "2026-10-17T01:47:41.986Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d3-10",
+      "questionText": "Which of the following is considered an organizational best practice for sustaining a culture of accessibility?",
+      "topic": "Organizational Culture & Governance",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Grassroots champion networks paired with executive sponsorship and clear governance ensure accessibility knowledge is shared across design, engineering, product, and QA.",
+      "funNote": "Champions networks spread knowledge faster than office gossip on Friday afternoon!",
+      "cpaccRef": "Domain Three F: Integrating ICT Accessibility Across the Organization"
+    },
+    {
+      "timestamp": "2026-10-17T01:47:42.106Z",
+      "nickname": "Risky Ray",
+      "questionId": "cpacc-d2-05",
+      "questionText": "Which Universal Design principle emphasizes that design elements should communicate necessary information effectively through pictorial, verbal, and tactile means regardless of ambient conditions?",
+      "topic": "7 Principles of Universal Design",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Principle 4 (Perceptible Information) requires multi-modal redundancy (visual, auditory, tactile) so that information is perceivable regardless of sensory limitations or ambient noise/sunlight.",
+      "funNote": "If your smoke detector only whispered 'Fire!' in a quiet soprano voice, that violates Principle 4.",
+      "cpaccRef": "Domain Two E: The 7 Principles of Universal Design"
+    },
+    {
+      "timestamp": "2026-10-17T01:47:42.246Z",
+      "nickname": "Auditor Alex",
+      "questionId": "flaw-01-3",
+      "questionText": "Public University Web Accessibility Statement: A prominent state university published this digital accessibility policy on its public portal. One of the sentences contains a critical legal flaw regarding institutional obligations.",
+      "topic": "ADA Title II, Section 504 & Undue Burden Limitations",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "An undue burden defense relieves an entity from the specific cost-prohibitive modification, but DOES NOT excuse them from providing alternative auxiliary aids or accommodations that ensure equal access.",
+      "funNote": "Targeted Sentence: \"Apex State University is committed to providing eq...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Legal Mandates, ADA Title II & Section 504 Alternative Access Obligations"
     }
   ],
   "users": {
@@ -556,7 +598,7 @@
       "avatar": "🦉",
       "pin": "1234",
       "createdAt": "2026-10-17T00:28:20.168Z",
-      "lastActive": "2026-10-17T01:19:27.957Z"
+      "lastActive": "2026-10-17T01:47:41.667Z"
     }
   }
 }

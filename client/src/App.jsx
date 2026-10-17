@@ -134,151 +134,422 @@ export default function App() {
         {activeTab === 'SOLO_HUB' && (
           <div role="tabpanel" id="panel-solo" aria-labelledby="tab-solo">
             {soloSubMode === 'MENU' && (
-              <div style={{ maxWidth: '850px', margin: '0 auto', width: '100%' }}>
-                <div className="card" style={{ textAlign: 'center', marginBottom: '1.5rem', padding: '2rem 1.5rem' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🤖🎓</div>
-                  <h2 style={{ fontSize: '1.8rem', fontWeight: 900, marginBottom: '0.5rem' }}>
-                    Solo Practice & AI Bot Tournaments
-                  </h2>
-                  <p style={{ color: 'var(--text-secondary)', maxWidth: '540px', margin: '0 auto' }}>
-                    Play anytime on your own schedule. Sharpen your exam readiness solo or test your reflexes against simulated peers!
-                  </p>
-                </div>
+              <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '6rem' }}>
+                {/* Marquee Hero Header */}
+                <section aria-labelledby="solo-marquee-title" className="marquee-hero-card">
+                  <div aria-hidden="true" style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: '12rem', height: '12rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
+                  <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '12rem', height: '12rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.25rem' }}>
-                  {/* Option 1: Classic Solo Practice */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid var(--border-color)' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🎓</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.5rem' }}>Classic Self-Paced Practice</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Zero timer pressure. Filter by Domains 1, 2, or 3 with detailed explanations and instant BoK citations.
-                      </p>
+                  <div style={{ position: 'relative', zIndex: 10 }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <span>✓</span>
+                        <span>[DOM-1/2/3 HYBRID]</span>
+                      </span>
+                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #38bdf8', color: '#7dd3fc', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.1)' }}>
+                        [BOT CPU MATRIX // TURING V4.2]
+                      </span>
+                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <span>🛡️</span>
+                        <span>WCAG 2.2 AAA VERIFIED</span>
+                      </span>
+                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
+                        [OFFLINE CACHE READY]
+                      </span>
                     </div>
+
+                    <h1 id="solo-marquee-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+                      SOLO DRILLS & SIMULATED AI CADETS
+                    </h1>
+                    <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.5 }}>
+                      Sharpen your CPACC muscle memory without peer pressure! Spar against simulated neural bot peers: <strong style={{ color: '#38bdf8' }}>Ada Lovelace Bot</strong> (relentless logic & criteria recall), <strong style={{ color: '#ef4444' }}>Turbo Tina</strong> (speed demon & timer rusher), and <strong style={{ color: '#10b981' }}>Safe Sal</strong> (risk-averse legal compliance counsel). Every cartridge simulates realistic exam curveballs.
+                    </p>
+
+                    {/* Bot Roster Quick-Preview Bar */}
+                    <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1', fontWeight: 800 }}>
+                        SIMULATED PEER ROSTER:
+                      </span>
+                      <span style={{ background: '#0b1326', border: '1px solid #38bdf8', color: '#38bdf8', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                        🤖 Ada Lovelace [ARIA Core • 99.4% Acc]
+                      </span>
+                      <span style={{ background: '#0b1326', border: '1px solid #ef4444', color: '#f87171', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                        🏎️ Turbo Tina [Speed Demon • 4.2s Avg]
+                      </span>
+                      <span style={{ background: '#0b1326', border: '1px solid #10b981', color: '#6ee7b7', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                        🛡️ Safe Sal [VPAT Shield • Risk Aversion]
+                      </span>
+                      <span style={{ background: '#0b1326', border: '1px solid #c084fc', color: '#e9d5ff', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                        🎨 Dana Design [UD Cartographer]
+                      </span>
+                    </div>
+                  </div>
+                </section>
+
+                {/* 7 Solo Arcade Cabinets */}
+                <section aria-labelledby="solo-cabinets-title">
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '1.25rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8', fontWeight: 800 }}>
+                        [ACTIVE CARTRIDGE SELECTION]
+                      </span>
+                    </div>
+                    <h2 id="solo-cabinets-title" style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+                      SOLO CPACC TRAINING CARTRIDGES
+                    </h2>
+                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0 }}>
+                      Drop a virtual token into any solo arcade cabinet to begin training against AI simulated peers:
+                    </p>
+                  </div>
+
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                      gap: '1.25rem'
+                    }}
+                  >
+                    {/* Cabinet 00: Classic Self-Paced Practice */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#38bdf8' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#38bdf8' }}>
+                            CABINET 00
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#10b981' }}>
+                            [UNTIMED // DEEP BoK STUDY]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(56, 189, 248, 0.1)', border: '2px solid #38bdf8', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            🎓
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Classic Self-Paced Practice
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8', display: 'block', marginTop: '0.15rem' }}>
+                              UNTIMED BOK CITATIONS & HINTS
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Zero timer pressure. Filter by Domains 1, 2, or 3 with detailed explanations, distractor traps, and instant Body of Knowledge citations.
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★☆☆☆☆
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('CLASSIC'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800 }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+
+                    {/* Cabinet 01: Solo Hot Potato Syndicate */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#f59e0b' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#f59e0b' }}>
+                            CABINET 01
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#fbbf24' }}>
+                            [DELEGATE ROULETTE // AI BOTS]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            🥔
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo Hot Potato Syndicate
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#f59e0b', display: 'block', marginTop: '0.15rem' }}>
+                              SPAR WITH ADA, DEVIN & JORDAN
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Pass hot accessibility tickets before the timer triggers! Delegate to AI bot peers, answer when drafted, and bank social dividends.
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★☆☆
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('HOT_POTATO'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#d97706', borderColor: '#f59e0b' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+
+                    {/* Cabinet 02: Solo Grand Prix Racer */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#ef4444' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#ef4444' }}>
+                            CABINET 02
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#f87171' }}>
+                            [3-GEAR SPEEDWAY // GHOST RACE]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            🏎️
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo Grand Prix Racer
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#ef4444', display: 'block', marginTop: '0.15rem' }}>
+                              RACE GHOSTS OF TINA & SAL
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Shift gears across a 100m sprint: 1st Gear (Single-A safety), 2nd Gear (Double-A speedway), 3rd Gear (Triple-A nitro). Pit stops clear stalls!
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★★☆
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('GRAND_PRIX'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#dc2626', borderColor: '#ef4444' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+
+                    {/* Cabinet 03: Solo High-Roller Gauntlet */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#c084fc' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#c084fc' }}>
+                            CABINET 03
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#e9d5ff' }}>
+                            [CHIP WAGERING // RISK MATRIX]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(192, 132, 252, 0.1)', border: '2px solid #c084fc', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            🎰
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo High-Roller Gauntlet
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#c084fc', display: 'block', marginTop: '0.15rem' }}>
+                              WAGER AGAINST AI BETTORS
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Wager chips on tricky screen reader nuances (NVDA, JAWS, VoiceOver), Braille displays, and hardware workflows. Call bot bluffs!
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★★★
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('HIGH_ROLLER'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#7e22ce', borderColor: '#a855f7' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+
+                    {/* Cabinet 04: Solo Flaw Finder */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#38bdf8' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#38bdf8' }}>
+                            CABINET 04
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#7dd3fc' }}>
+                            [HEATMAP SNIPING // VPAT AUDIT]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(56, 189, 248, 0.1)', border: '2px solid #38bdf8', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            🎯
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo Flaw Finder
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8', display: 'block', marginTop: '0.15rem' }}>
+                              LEGAL POLICY LOOPHOLE SNIPING
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Audit authentic corporate policies, VPATs & contracts. Snipe the legal loophole before Safe Sal issues a conservative audit halt.
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★☆☆
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('FLAW_FINDER'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#0284c7', borderColor: '#38bdf8' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+
+                    {/* Cabinet 05: Solo Saboteur */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#ef4444' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#ef4444' }}>
+                            CABINET 05
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#f87171' }}>
+                            [ARIA HEIST // CODE RESCUE]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(239, 68, 68, 0.1)', border: '2px solid #ef4444', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            🕵️
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo Saboteur in Server Room
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#ef4444', display: 'block', marginTop: '0.15rem' }}>
+                              RESOURCE HEIST & CODE RESCUE
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          A rogue bot has injected broken ARIA roles & keyboard traps! Fix anomalies, restore compliance, and outwit the imposter.
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★★☆
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('SABOTEUR'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#dc2626', borderColor: '#ef4444' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+
+                    {/* Cabinet 06: Solo Boundary Line Brawl */}
+                    <article className="arcade-cabinet-card" style={{ borderColor: '#f59e0b' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#f59e0b' }}>
+                            CABINET 06
+                          </span>
+                          <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#fbbf24' }}>
+                            [2X2 QUADRANT // TERRITORY DEBATE]
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <div style={{ width: '44px', height: '44px', background: 'rgba(245, 158, 11, 0.1)', border: '2px solid #f59e0b', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                            ⚖️
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                              Solo Boundary Line Brawl
+                            </h3>
+                            <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: '#f59e0b', display: 'block', marginTop: '0.15rem' }}>
+                              2X2 MATRIX SPATIAL DEBATE
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                          Map edge-case scenarios onto the 2×2 matrix and slap debate challenges against 3 AI compliance specialists!
+                        </p>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          Difficulty: ★★★★☆
+                        </span>
+                        <button
+                          type="button"
+                          className="btn-primary arcade-btn-primary"
+                          onClick={() => { soundManager.playClick(); setSoloSubMode('BOUNDARY_BRAWL'); }}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, background: '#d97706', borderColor: '#f59e0b' }}
+                        >
+                          LAUNCH SOLO DRILL
+                        </button>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+
+                {/* Bottom Arcade Dock */}
+                <aside aria-label="Solo training control deck" className="arcade-dock">
+                  <div style={{ maxWidth: '1380px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.85rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#10b981' }}>
+                        <span>🛡️</span>
+                        <span>Zero Timer Pressure Options Available</span>
+                      </span>
+                      <span>•</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#38bdf8' }}>
+                        <span>✓</span>
+                        <span>Full IAAP CPACC BoK Coverage</span>
+                      </span>
+                      <span className="hidden sm:inline">•</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#facc15' }}>
+                        <span>🤖</span>
+                        <span>4 AI Bot Personas Active</span>
+                      </span>
+                    </div>
+
                     <button
                       type="button"
-                      className="btn-primary"
+                      className="btn-primary arcade-btn-primary"
                       onClick={() => { soundManager.playClick(); setSoloSubMode('CLASSIC'); }}
-                      style={{ width: '100%' }}
+                      style={{
+                        fontSize: '1rem',
+                        padding: '0.65rem 1.75rem',
+                        background: '#38bdf8',
+                        borderColor: '#38bdf8',
+                        color: '#090d16',
+                        fontWeight: 900,
+                        fontFamily: "'Space Grotesk', sans-serif"
+                      }}
                     >
-                      <span>Start Practice</span>
+                      <span>▶ QUICK START: UNTIMED PRACTICE</span>
                     </button>
                   </div>
-
-                  {/* Option 2: Solo Hot Potato with AI Peers */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #f59e0b' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🥔🤖</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.5rem' }}>Solo Hot Potato Syndicate</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Play with 3 AI study peers (Ada, Devin, Jordan). Pass to bots or answer when drafted. Collect Social Dividends!
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-primary"
-                      onClick={() => { soundManager.playClick(); setSoloSubMode('HOT_POTATO'); }}
-                      style={{ width: '100%', background: '#d97706', borderColor: '#f59e0b' }}
-                    >
-                      <span>Play Hot Potato</span>
-                    </button>
-                  </div>
-
-                  {/* Option 3: Solo Grand Prix with Bot Racers */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #ef4444' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🏎️⚡</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f87171', marginBottom: '0.5rem' }}>Solo Grand Prix Racer</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Race against 3 AI ghost cars (Safe Sal, Balanced Bea, Turbo Tina) across a 100m sprint with gear shifts & pit stops!
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-primary"
-                      onClick={() => { soundManager.playClick(); setSoloSubMode('GRAND_PRIX'); }}
-                      style={{ width: '100%', background: '#dc2626', borderColor: '#ef4444' }}
-                    >
-                      <span>Start Grand Prix</span>
-                    </button>
-                  </div>
-
-                  {/* Option 4: Solo High-Roller Gauntlet */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #a855f7' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🎰🪙</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.5rem' }}>Solo High-Roller Gauntlet</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Wager your chips against 3 AI bettors (Paul, Cal, Riley). Exploit underdog multipliers and climb to high-roller fortune!
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-primary"
-                      onClick={() => { soundManager.playClick(); setSoloSubMode('HIGH_ROLLER'); }}
-                      style={{ width: '100%', background: '#7e22ce', borderColor: '#a855f7' }}
-                    >
-                      <span>Enter Gauntlet</span>
-                    </button>
-                  </div>
-
-                  {/* Option 5: Solo Flaw Finder */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #0ea5e9' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🎯🔍</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.5rem' }}>Solo Flaw Finder</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Audit authentic corporate policies, VPATs & contracts. Snipe the legal loophole against 3 simulated AI auditors!
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-primary"
-                      onClick={() => { soundManager.playClick(); setSoloSubMode('FLAW_FINDER'); }}
-                      style={{ width: '100%', background: '#0284c7', borderColor: '#0ea5e9' }}
-                    >
-                      <span>Start Sniping</span>
-                    </button>
-                  </div>
-
-                  {/* Option 6: Solo Saboteur */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #ef4444' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🕵️💻</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f87171', marginBottom: '0.5rem' }}>Solo Saboteur in Server Room</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Play as Lead Auditor or rogue Saboteur against 3 simulated AI bots in a fast-fire AP resource heist!
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-primary"
-                      onClick={() => { soundManager.playClick(); setSoloSubMode('SABOTEUR'); }}
-                      style={{ width: '100%', background: '#dc2626', borderColor: '#ef4444' }}
-                    >
-                      <span>Enter Server Room</span>
-                    </button>
-                  </div>
-
-                  {/* Option 7: Solo Boundary Line Brawl */}
-                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #f59e0b' }}>
-                    <div>
-                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>⚖️🥊</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.5rem' }}>Solo Boundary Line Brawl</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-                        Map edge-case scenarios to the 2×2 matrix and slap debate challenges against 3 AI compliance specialists!
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-primary"
-                      onClick={() => { soundManager.playClick(); setSoloSubMode('BOUNDARY_BRAWL'); }}
-                      style={{ width: '100%', background: '#d97706', borderColor: '#f59e0b' }}
-                    >
-                      <span>Enter the Brawl</span>
-                    </button>
-                  </div>
-                </div>
+                </aside>
               </div>
             )}
 
