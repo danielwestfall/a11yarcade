@@ -5,7 +5,7 @@
   "description": "A11y Arcade: Accessible interactive multiplayer mini-game suite for team meetings and CPACC certification",
   "scripts": {
     "start": "node server/index.js",
-    "build": "npm --prefix client install && npm --prefix client run build && npm --prefix server install",
+    "build": "npm --prefix client install --include=dev && npm --prefix client run build && npm --prefix server install",
     "server": "npm --prefix server start",
     "client": "npm --prefix client run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\""
