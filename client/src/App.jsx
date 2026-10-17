@@ -6,6 +6,8 @@ import SoloHotPotato from './components/SoloHotPotato';
 import SoloGrandPrix from './components/SoloGrandPrix';
 import SoloHighRoller from './components/SoloHighRoller';
 import SoloFlawFinder from './components/SoloFlawFinder';
+import SoloSaboteur from './components/SoloSaboteur';
+import SoloBoundaryBrawl from './components/SoloBoundaryBrawl';
 import WeeklyLeaderboard from './components/WeeklyLeaderboard';
 import MissedQuestionsReview from './components/MissedQuestionsReview';
 import QuestionBankExplorer from './components/QuestionBankExplorer';
@@ -238,6 +240,44 @@ export default function App() {
                       <span>Start Sniping</span>
                     </button>
                   </div>
+
+                  {/* Option 6: Solo Saboteur */}
+                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #ef4444' }}>
+                    <div>
+                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🕵️💻</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f87171', marginBottom: '0.5rem' }}>Solo Saboteur in Server Room</h3>
+                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
+                        Play as Lead Auditor or rogue Saboteur against 3 simulated AI bots in a fast-fire AP resource heist!
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={() => { soundManager.playClick(); setSoloSubMode('SABOTEUR'); }}
+                      style={{ width: '100%', background: '#dc2626', borderColor: '#ef4444' }}
+                    >
+                      <span>Enter Server Room</span>
+                    </button>
+                  </div>
+
+                  {/* Option 7: Solo Boundary Line Brawl */}
+                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #f59e0b' }}>
+                    <div>
+                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>⚖️🥊</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.5rem' }}>Solo Boundary Line Brawl</h3>
+                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
+                        Map edge-case scenarios to the 2×2 matrix and slap debate challenges against 3 AI compliance specialists!
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={() => { soundManager.playClick(); setSoloSubMode('BOUNDARY_BRAWL'); }}
+                      style={{ width: '100%', background: '#d97706', borderColor: '#f59e0b' }}
+                    >
+                      <span>Enter the Brawl</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -269,6 +309,14 @@ export default function App() {
 
             {soloSubMode === 'FLAW_FINDER' && (
               <SoloFlawFinder onBack={() => setSoloSubMode('MENU')} />
+            )}
+
+            {soloSubMode === 'SABOTEUR' && (
+              <SoloSaboteur onBack={() => setSoloSubMode('MENU')} />
+            )}
+
+            {soloSubMode === 'BOUNDARY_BRAWL' && (
+              <SoloBoundaryBrawl onBack={() => setSoloSubMode('MENU')} />
             )}
           </div>
         )}

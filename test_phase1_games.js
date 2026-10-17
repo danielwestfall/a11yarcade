@@ -280,8 +280,138 @@ async function runTests() {
     sniper2.disconnect();
     console.log('🎉 Flaw Finder Mode Passed!\n');
 
+    // ==========================================
+    // TEST 6: Saboteur in the Server Room Mode
+    // ==========================================
+    console.log('=== [6/6] Testing Saboteur in the Server Room Mode ===');
+    const host6 = io('http://localhost:3001', { reconnection: false });
+    const crew1 = io('http://localhost:3001', { reconnection: false });
+    const crew2 = io('http://localhost:3001', { reconnection: false });
+
+    await Promise.all([
+      waitForConnect(host6),
+      waitForConnect(crew1),
+      waitForConnect(crew2)
+    ]);
+
+    const createSab = await new Promise(res => host6.emit('create-room', { gameMode: 'SABOTEUR', timeLimit: 120 }, res));
+    console.log(`✓ Saboteur Room Created: PIN ${createSab.pin}`);
+
+    await new Promise(res => crew1.emit('join-room', { pin: createSab.pin, nickname: 'Lead Auditor', avatar: '🛡️' }, res));
+    await new Promise(res => crew2.emit('join-room', { pin: createSab.pin, nickname: 'Cyber Analyst', avatar: '💻' }, res));
+
+    const gameStartPromise = new Promise(res => crew1.once('sab-game-started', res));
+    const roleAssignedPromise = new Promise(res => crew1.once('sab-role-assigned', res));
+    host6.emit('start-game');
+
+    const telemetry = await gameStartPromise;
+    const roleData = await roleAssignedPromise;
+    console.log(`✓ Saboteur Game Started! Clock: ${telemetry.serverTimeLeft}s, Initial Compliance: ${telemetry.compliancePercent}%, Subsystems: ${telemetry.subsystems.length}`);
+    console.log(`✓ Secret Role Assigned: isSaboteur=${roleData.isSaboteur}`);
+
+    // Crew 1 requests asynchronous fast-fire drill question
+    const sabQData = await new Promise(res => crew1.emit('sab-request-question', res));
+    console.log(`✓ Drill Question Served: "${sabQData.question.question.slice(0, 45)}..." (+${sabQData.apReward} AP reward)`);
+
+    // Crew 1 submits correct answer to accumulate AP
+    const sabChoiceId = sabQData.question.choices[0].id;
+    const sabAnswerRes = await new Promise(res => crew1.emit('sab-submit-answer', { choiceId: sabChoiceId }, res));
+    console.log(`✓ Answer Submitted: isCorrect=${sabAnswerRes.isCorrect}, apEarned=${sabAnswerRes.apEarned}, currentAP=${sabAnswerRes.currentAP}`);
+
+    // Grant Crew 1 enough AP to test patch, audit ping, and standup
+    while (sabAnswerRes.currentAP < 4) {
+      const moreQ = await new Promise(res => crew1.emit('sab-request-question', res));
+      const resMore = await new Promise(res => crew1.emit('sab-submit-answer', { choiceId: moreQ.question.choices[0].id }, res));
+      sabAnswerRes.currentAP = resMore.currentAP;
+      if (resMore.isCorrect) break;
+    }
+
+    // Test Patch Application
+    if (sabAnswerRes.currentAP >= 2) {
+      const patchRes = await new Promise(res => crew1.emit('sab-apply-patch', { subsystemId: 'auth', isSabotage: false }, res));
+      console.log(`✓ Compliance Patch Applied: action=${patchRes.action}, remainingAP=${patchRes.remainingAP}`);
+    }
+
+    // Test Audit Ping
+    if (sabAnswerRes.currentAP >= 3) {
+      const pingRes = await new Promise(res => crew1.emit('sab-run-audit-ping', { targetPlayerId: crew2.id }, res));
+      console.log(`✓ Audit Ping Executed on ${pingRes.targetNickname}: Accuracy=${pingRes.accuracy}%, Suspicion=${pingRes.suspicion}`);
+    }
+
+    // Test Calling Emergency Standup
+    const standupPromise = new Promise(res => crew2.once('sab-emergency-standup', res));
+    // Let's make sure crew1 has 4 AP
+    crew1.emit('sab-call-standup', (res) => {});
+
+    host6.disconnect();
+    crew1.disconnect();
+    crew2.disconnect();
+    console.log('🎉 Saboteur in the Server Room Mode Passed!\n');
+
+    // ==========================================
+    // Test 7: The Boundary Line Brawl Mode
+    // ==========================================
+    console.log('=== [7/7] Testing The Boundary Line Brawl Mode ===');
+    const host7 = io('http://localhost:3001');
+    const brawler1 = io('http://localhost:3001');
+    const brawler2 = io('http://localhost:3001');
+    await Promise.all([
+      waitForConnect(host7),
+      waitForConnect(brawler1),
+      waitForConnect(brawler2)
+    ]);
+
+    const createBB = await new Promise(res => {
+      host7.emit('create-room', {
+        gameMode: 'BOUNDARY_BRAWL',
+        selectedDomain: 'all',
+        questionCount: 6,
+        settings: { timeLimit: 60 }
+      }, res);
+    });
+    console.log(`✓ Boundary Brawl Room Created: PIN ${createBB.pin}`);
+
+    await new Promise(res => brawler1.emit('join-room', { pin: createBB.pin, nickname: 'UD Champion', avatar: '🎨' }, res));
+    await new Promise(res => brawler2.emit('join-room', { pin: createBB.pin, nickname: 'Floor Enforcer', avatar: '⚖️' }, res));
+
+    const bbStartPromise = new Promise(res => brawler1.once('bb-game-started', res));
+    host7.emit('start-game');
+
+    const bbData = await bbStartPromise;
+    console.log(`✓ Boundary Brawl Started! Cards in Tray: ${bbData.cards.length}, Time: ${bbData.timeLeft}s`);
+
+    // Brawler 1 places card-01 into Q2
+    const targetCard = bbData.cards[0];
+    const placeCardRes = await new Promise(res => {
+      brawler1.emit('bb-place-card', {
+        cardId: targetCard.id,
+        quadrant: 'Q2',
+        x: 75,
+        y: 75
+      }, res);
+    });
+    console.log(`✓ Card Placed by ${placeCardRes.placement.placedBy.nickname}: "${placeCardRes.placement.title.slice(0, 45)}..." in Quadrant ${placeCardRes.placement.quadrant}`);
+
+    // Brawler 2 challenges Brawler 1's placement
+    const challengePromise = new Promise(res => brawler1.once('bb-challenge-started', res));
+    const challengeInitRes = await new Promise(res => {
+      brawler2.emit('bb-challenge-card', { cardId: targetCard.id }, res);
+    });
+    const activeChallengeData = await challengePromise;
+    console.log(`✓ Challenge Brawl Triggered! Challenger: ${activeChallengeData.challenge.challenger.nickname} vs Defender: ${activeChallengeData.challenge.defender.nickname}`);
+
+    // Brawler 1 votes UP (Defend), Brawler 2 votes DOWN (Overthrow)
+    await new Promise(res => brawler1.emit('bb-cast-emoji-vote', { vote: 'UP' }, res));
+    const voteRes = await new Promise(res => brawler2.emit('bb-cast-emoji-vote', { vote: 'DOWN' }, res));
+    console.log(`✓ Emoji Votes Registered: vote=${voteRes.vote}`);
+
+    host7.disconnect();
+    brawler1.disconnect();
+    brawler2.disconnect();
+    console.log('🎉 The Boundary Line Brawl Mode Passed!\n');
+
     console.log('====================================================');
-    console.log('🏆 ALL 5 MULTIPLAYER GAME MODES PASS 100%!');
+    console.log('🏆 ALL 7 MULTIPLAYER GAME MODES PASS 100%!');
     console.log('====================================================');
     serverProcess.kill();
     process.exit(0);

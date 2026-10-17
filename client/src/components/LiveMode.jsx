@@ -28,6 +28,8 @@ import HotPotatoMode from './HotPotatoMode';
 import GrandPrixMode from './GrandPrixMode';
 import HighRollerMode from './HighRollerMode';
 import FlawFinderMode from './FlawFinderMode';
+import SaboteurMode from './SaboteurMode';
+import BoundaryBrawlMode from './BoundaryBrawlMode';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -555,6 +557,52 @@ export default function LiveMode() {
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Legal policy loophole auditing & heatmaps</div>
                   </div>
                 </button>
+
+                <button
+                  type="button"
+                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'SABOTEUR' })}
+                  style={{
+                    padding: '0.6rem 0.8rem',
+                    borderRadius: 'var(--radius-sm)',
+                    background: hostSettings.gameMode === 'SABOTEUR' ? 'rgba(239, 68, 68, 0.2)' : 'var(--bg-surface)',
+                    border: `2px solid ${hostSettings.gameMode === 'SABOTEUR' ? '#ef4444' : 'var(--border-color)'}`,
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}
+                >
+                  <span style={{ fontSize: '1.2rem' }}>🕵️</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'SABOTEUR' ? '#ef4444' : '#ffffff' }}>Saboteur in the Server Room</div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Resource heist, audit pings & emergency standups</div>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'BOUNDARY_BRAWL' })}
+                  style={{
+                    padding: '0.6rem 0.8rem',
+                    borderRadius: 'var(--radius-sm)',
+                    background: hostSettings.gameMode === 'BOUNDARY_BRAWL' ? 'rgba(245, 158, 11, 0.2)' : 'var(--bg-surface)',
+                    border: `2px solid ${hostSettings.gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : 'var(--border-color)'}`,
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}
+                >
+                  <span style={{ fontSize: '1.2rem' }}>⚖️</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : '#ffffff' }}>The Boundary Line Brawl</div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>2×2 matrix territory control, slap challenges & debate</div>
+                  </div>
+                </button>
               </div>
 
               {/* Host Play Along Option */}
@@ -631,15 +679,23 @@ export default function LiveMode() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: gameMode === 'HOT_POTATO' ? 'rgba(245, 158, 11, 0.2)' : gameMode === 'GRAND_PRIX' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(56, 189, 248, 0.2)',
-              border: `1px solid ${gameMode === 'HOT_POTATO' ? '#f59e0b' : gameMode === 'GRAND_PRIX' ? '#ef4444' : '#38bdf8'}`,
-              color: gameMode === 'HOT_POTATO' ? '#fbbf24' : gameMode === 'GRAND_PRIX' ? '#fca5a5' : '#38bdf8',
+              background: gameMode === 'HOT_POTATO' ? 'rgba(245, 158, 11, 0.2)' : gameMode === 'GRAND_PRIX' ? 'rgba(239, 68, 68, 0.2)' : gameMode === 'BOUNDARY_BRAWL' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(56, 189, 248, 0.2)',
+              border: `1px solid ${gameMode === 'HOT_POTATO' ? '#f59e0b' : gameMode === 'GRAND_PRIX' ? '#ef4444' : gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : '#38bdf8'}`,
+              color: gameMode === 'HOT_POTATO' ? '#fbbf24' : gameMode === 'GRAND_PRIX' ? '#fca5a5' : gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : '#38bdf8',
               padding: '0.4rem 1.25rem',
               borderRadius: '9999px',
               fontWeight: 800,
               fontSize: '0.95rem'
             }}>
-              <span>{gameMode === 'HOT_POTATO' ? '🥔 Mode: The Hot Potato Syndicate' : gameMode === 'GRAND_PRIX' ? '🏎️ Mode: Grand Prix: Apex Gambler' : '🎯 Mode: Classic Kahoot Clash'}</span>
+              <span>
+                {gameMode === 'HOT_POTATO' ? '🥔 Mode: The Hot Potato Syndicate' :
+                 gameMode === 'GRAND_PRIX' ? '🏎️ Mode: Grand Prix: Apex Gambler' :
+                 gameMode === 'HIGH_ROLLER' ? '🎰 Mode: The High-Roller Gauntlet' :
+                 gameMode === 'FLAW_FINDER' ? '🎯 Mode: Flaw Finder: Heatmap Sniping' :
+                 gameMode === 'SABOTEUR' ? '🕵️ Mode: Saboteur in the Server Room' :
+                 gameMode === 'BOUNDARY_BRAWL' ? '⚖️ Mode: The Boundary Line Brawl' :
+                 '🎯 Mode: Classic Kahoot Clash'}
+              </span>
             </span>
           </div>
 
@@ -871,6 +927,28 @@ export default function LiveMode() {
     if (gameMode === 'FLAW_FINDER') {
       return (
         <FlawFinderMode
+          socket={socket}
+          role="HOST"
+          roomPin={roomPin}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'SABOTEUR') {
+      return (
+        <SaboteurMode
+          socket={socket}
+          role="HOST"
+          roomPin={roomPin}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'BOUNDARY_BRAWL') {
+      return (
+        <BoundaryBrawlMode
           socket={socket}
           role="HOST"
           roomPin={roomPin}
@@ -1323,6 +1401,28 @@ export default function LiveMode() {
     if (gameMode === 'FLAW_FINDER') {
       return (
         <FlawFinderMode
+          socket={socket}
+          role="PLAYER"
+          roomPin={playerPinInput}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'SABOTEUR') {
+      return (
+        <SaboteurMode
+          socket={socket}
+          role="PLAYER"
+          roomPin={playerPinInput}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'BOUNDARY_BRAWL') {
+      return (
+        <BoundaryBrawlMode
           socket={socket}
           role="PLAYER"
           roomPin={playerPinInput}

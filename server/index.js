@@ -44,6 +44,17 @@ try {
   console.error('Failed to load policy_flaws.json:', err.message);
 }
 
+// Load Boundary Cards Bank (Mode 4: Boundary Line Brawl)
+const boundaryCardsPath = path.join(__dirname, '..', 'data', 'boundary_cards.json');
+let boundaryCardsBank = [];
+try {
+  const data = fs.readFileSync(boundaryCardsPath, 'utf8');
+  boundaryCardsBank = JSON.parse(data);
+  console.log(`Loaded ${boundaryCardsBank.length} cards from boundary cards bank.`);
+} catch (err) {
+  console.error('Failed to load boundary_cards.json:', err.message);
+}
+
 // REST Endpoints
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() });
@@ -51,6 +62,10 @@ app.get('/api/health', (req, res) => {
 
 app.get('/api/flaws', (req, res) => {
   res.json(policyFlawsBank);
+});
+
+app.get('/api/boundary-cards', (req, res) => {
+  res.json(boundaryCardsBank);
 });
 
 app.get('/api/questions', (req, res) => {
@@ -225,6 +240,41 @@ io.on('connection', (socket) => {
         })(),
         submissions: new Map(),
         stage: 'FF_SNIPING'
+      },
+
+      // Saboteur in the Server Room State
+      saboteur: {
+        compliancePercent: 0,
+        serverTimeLeft: typeof settings.timeLimit === 'number' && settings.timeLimit > 30 ? settings.timeLimit : 180,
+        totalTime: typeof settings.timeLimit === 'number' && settings.timeLimit > 30 ? settings.timeLimit : 180,
+        saboteurId: null,
+        activeStandup: null,
+        terminalLogs: [],
+        questionPool: pool,
+        subsystems: [
+          { id: 'auth', name: 'Authentication & SSO (WCAG 3.3.8)', progress: 0 },
+          { id: 'nav', name: 'Keyboard Landmarks & Focus (WCAG 2.4.7)', progress: 0 },
+          { id: 'forms', name: 'Form Labels & Error Prevention (WCAG 3.3.2)', progress: 0 },
+          { id: 'contrast', name: 'Color Contrast & Semantics (WCAG 1.4.3)', progress: 0 }
+        ]
+      },
+
+      // Boundary Line Brawl State
+      boundaryBrawl: {
+        stage: 'BB_SCRAMBLE', // 'BB_SCRAMBLE' | 'BB_CHALLENGE' | 'BB_PODIUM'
+        timeLeft: typeof settings.timeLimit === 'number' && settings.timeLimit > 20 ? settings.timeLimit : 75,
+        totalTime: typeof settings.timeLimit === 'number' && settings.timeLimit > 20 ? settings.timeLimit : 75,
+        cards: (function() {
+          let pool = [...boundaryCardsBank];
+          if (selectedDomain !== 'all') {
+            const filtered = pool.filter(c => c.domain === parseInt(selectedDomain, 10));
+            if (filtered.length > 0) pool = filtered;
+          }
+          return pool.sort(() => 0.5 - Math.random()).slice(0, Math.min(pool.length, questionCount || 6));
+        })(),
+        placements: new Map(),
+        activeChallenge: null,
+        settledChallenges: []
       }
     };
 
@@ -248,7 +298,20 @@ io.on('connection', (socket) => {
         currentQuestion: null,
         currentGear: 1,
         finished: false,
-        finishRank: null
+        finishRank: null,
+
+        // Saboteur properties
+        ap: 0,
+        isSaboteur: false,
+        isFrozen: false,
+        patchesApplied: 0,
+        recentAnswers: [],
+        currentSabQuestion: null,
+
+        // Boundary Brawl properties
+        cardsPlaced: 0,
+        challengesInitiated: 0,
+        challengesWon: 0
       };
       room.players.set(socket.id, hostPlayer);
       socket.data.isPlayer = true;
@@ -329,7 +392,20 @@ io.on('connection', (socket) => {
       currentQuestion: null,
       currentGear: 1,
       finished: false,
-      finishRank: null
+      finishRank: null,
+
+      // Saboteur properties
+      ap: 0,
+      isSaboteur: false,
+      isFrozen: false,
+      patchesApplied: 0,
+      recentAnswers: [],
+      currentSabQuestion: null,
+
+      // Boundary Brawl properties
+      cardsPlaced: 0,
+      challengesInitiated: 0,
+      challengesWon: 0
     };
 
     room.players.set(socket.id, player);
@@ -374,6 +450,10 @@ io.on('connection', (socket) => {
       room.currentQuestionIndex = 0;
       room.flawFinder.currentScenarioIndex = 0;
       startFlawFinderRound(room);
+    } else if (room.gameMode === 'SABOTEUR') {
+      startSaboteurGame(room);
+    } else if (room.gameMode === 'BOUNDARY_BRAWL') {
+      startBoundaryBrawlGame(room);
     } else {
       // Classic Mode
       room.currentQuestionIndex = 0;
@@ -1588,6 +1668,730 @@ io.on('connection', (socket) => {
     });
   }
 
+  // ========================================================
+  // ========= SABOTEUR IN THE SERVER ROOM ENGINE ===========
+  // ========================================================
+
+  function getSaboteurPublicTelemetry(room) {
+    return {
+      compliancePercent: room.saboteur.compliancePercent,
+      serverTimeLeft: room.saboteur.serverTimeLeft,
+      totalTime: room.saboteur.totalTime,
+      subsystems: room.saboteur.subsystems,
+      terminalLogs: room.saboteur.terminalLogs.slice(-10),
+      players: Array.from(room.players.values()).map(p => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.score,
+        patchesApplied: p.patchesApplied,
+        isFrozen: p.isFrozen
+      }))
+    };
+  }
+
+  function startSaboteurGame(room) {
+    if (room.timer) clearInterval(room.timer);
+
+    const playerList = Array.from(room.players.values());
+    if (playerList.length === 0) return;
+
+    // Secret role assignment: exactly 1 Saboteur
+    const sabIndex = Math.floor(Math.random() * playerList.length);
+    const sabPlayer = playerList[sabIndex];
+    room.saboteur.saboteurId = sabPlayer.id;
+
+    room.players.forEach(p => {
+      p.isSaboteur = (p.id === sabPlayer.id);
+      p.ap = 0;
+      p.isFrozen = false;
+      p.patchesApplied = 0;
+      p.recentAnswers = [];
+      p.currentSabQuestion = null;
+
+      io.to(p.id).emit('sab-role-assigned', {
+        isSaboteur: p.isSaboteur,
+        saboteurName: p.isSaboteur ? p.nickname : null
+      });
+    });
+
+    room.status = 'SAB_DRILL';
+    room.saboteur.compliancePercent = 0;
+    room.saboteur.serverTimeLeft = room.settings.timeLimit > 30 ? room.settings.timeLimit : 180;
+    room.saboteur.totalTime = room.saboteur.serverTimeLeft;
+    room.saboteur.terminalLogs = [
+      { text: '🖥️ System Boot: Corporate Accessibility Subsystems Online.', type: 'info', timestamp: Date.now() },
+      { text: '⚠️ Threat Warning: Saboteur detected on internal network.', type: 'alarm', timestamp: Date.now() }
+    ];
+
+    io.to(room.pin).emit('sab-game-started', getSaboteurPublicTelemetry(room));
+
+    // Master server countdown clock
+    room.timer = setInterval(() => {
+      if (room.status === 'SAB_STANDUP') return; // Standup has its own timer
+
+      room.saboteur.serverTimeLeft -= 1;
+      io.to(room.pin).emit('sab-timer-tick', {
+        timeLeft: room.saboteur.serverTimeLeft,
+        compliancePercent: room.saboteur.compliancePercent
+      });
+
+      if (room.saboteur.serverTimeLeft <= 0) {
+        clearInterval(room.timer);
+        finishSaboteurGame(room, 'SABOTEUR_TIMEOUT', 'The server deadline expired before 100% compliance was reached! The Saboteur wins.');
+      }
+    }, 1000);
+  }
+
+  socket.on('sab-request-question', (callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'SABOTEUR' || room.status !== 'SAB_DRILL') return;
+
+    const player = room.players.get(socket.id);
+    if (!player || player.isFrozen) return;
+
+    const pool = room.saboteur.questionPool || questionBank;
+    const randomQ = pool[Math.floor(Math.random() * pool.length)];
+    player.currentSabQuestion = randomQ;
+
+    const apReward = randomQ.difficulty === 'hard' ? 3 : randomQ.difficulty === 'medium' ? 2 : 1;
+
+    const payload = {
+      question: sanitizeQuestionForPlayers(randomQ),
+      apReward,
+      currentAP: player.ap
+    };
+
+    if (callback) callback(payload);
+    socket.emit('sab-question-served', payload);
+  });
+
+  socket.on('sab-submit-answer', ({ choiceId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'SABOTEUR' || room.status !== 'SAB_DRILL') return;
+
+    const player = room.players.get(socket.id);
+    if (!player || player.isFrozen || !player.currentSabQuestion) return;
+
+    const q = player.currentSabQuestion;
+    const correctChoice = q.choices.find(c => c.isCorrect);
+    const isCorrect = (correctChoice && correctChoice.id === choiceId);
+
+    const apReward = q.difficulty === 'hard' ? 3 : q.difficulty === 'medium' ? 2 : 1;
+    const points = q.difficulty === 'hard' ? 250 : q.difficulty === 'medium' ? 150 : 100;
+
+    if (isCorrect) {
+      player.ap += apReward;
+      player.score += points;
+      player.streak += 1;
+    } else {
+      player.streak = 0;
+    }
+
+    player.recentAnswers.push({ isCorrect, timestamp: Date.now() });
+    if (player.recentAnswers.length > 5) player.recentAnswers.shift();
+    player.currentSabQuestion = null;
+
+    const res = {
+      success: true,
+      isCorrect,
+      correctChoiceId: correctChoice?.id,
+      explanation: q.explanation,
+      apEarned: isCorrect ? apReward : 0,
+      currentAP: player.ap,
+      score: player.score
+    };
+
+    if (callback) callback(res);
+  });
+
+  socket.on('sab-apply-patch', ({ subsystemId, isSabotage }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'SABOTEUR' || room.status !== 'SAB_DRILL') return;
+
+    const player = room.players.get(socket.id);
+    if (!player || player.isFrozen) return;
+
+    if (player.ap < 2) {
+      return callback && callback({ success: false, error: 'Insufficient AP! Need 2 AP to apply a patch.' });
+    }
+
+    player.ap -= 2;
+    const subsystem = room.saboteur.subsystems.find(s => s.id === subsystemId) || room.saboteur.subsystems[0];
+
+    if (isSabotage && player.isSaboteur) {
+      // Sabotage Glitch Exploit
+      room.saboteur.compliancePercent = Math.max(0, room.saboteur.compliancePercent - 5);
+      if (subsystem) subsystem.progress = Math.max(0, subsystem.progress - 5);
+
+      room.saboteur.terminalLogs.push({
+        text: `⚠️ [INTEGRITY CORRUPTED] Critical glitch injected into ${subsystem?.name || 'Subsystem'} (-5% Compliance)`,
+        type: 'glitch',
+        timestamp: Date.now()
+      });
+
+      if (callback) callback({ success: true, action: 'SABOTAGE', remainingAP: player.ap });
+    } else {
+      // Legitimate Patch
+      player.patchesApplied += 1;
+      player.score += 75;
+      room.saboteur.compliancePercent = Math.min(100, room.saboteur.compliancePercent + 5);
+      if (subsystem) subsystem.progress = Math.min(100, subsystem.progress + 20);
+
+      room.saboteur.terminalLogs.push({
+        text: `✓ ${player.nickname} patched ${subsystem?.name || 'Subsystem'} (+5% Compliance)`,
+        type: 'patch',
+        timestamp: Date.now()
+      });
+
+      if (callback) callback({ success: true, action: 'PATCH', remainingAP: player.ap });
+    }
+
+    io.to(room.pin).emit('sab-telemetry-update', getSaboteurPublicTelemetry(room));
+
+    // Check 100% compliance win condition
+    if (room.saboteur.compliancePercent >= 100) {
+      finishSaboteurGame(room, 'AUDITORS_COMPLIANCE', '100% Subsystem Compliance Achieved! The Auditors secured the infrastructure!');
+    }
+  });
+
+  socket.on('sab-run-audit-ping', ({ targetPlayerId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'SABOTEUR' || room.status !== 'SAB_DRILL') return;
+
+    const player = room.players.get(socket.id);
+    if (!player || player.isFrozen) return;
+
+    if (player.ap < 3) {
+      return callback && callback({ success: false, error: 'Insufficient AP! Need 3 AP to run Audit Ping.' });
+    }
+
+    const target = room.players.get(targetPlayerId);
+    if (!target) {
+      return callback && callback({ success: false, error: 'Target player not found.' });
+    }
+
+    player.ap -= 3;
+    const recent = target.recentAnswers || [];
+    const correctCount = recent.filter(a => a.isCorrect).length;
+    const accuracy = recent.length > 0 ? Math.round((correctCount / recent.length) * 100) : 100;
+
+    let suspicion = 'LOW';
+    if (recent.length >= 2) {
+      if (accuracy <= 33) suspicion = 'HIGH';
+      else if (accuracy <= 66) suspicion = 'MEDIUM';
+    }
+
+    room.saboteur.terminalLogs.push({
+      text: `📡 Audit Ping pinged ${target.nickname}: Accuracy Log ${accuracy}% (${suspicion} Suspicion)`,
+      type: 'audit',
+      timestamp: Date.now()
+    });
+
+    if (callback) {
+      callback({
+        success: true,
+        targetNickname: target.nickname,
+        targetAvatar: target.avatar,
+        answersCount: recent.length,
+        accuracy,
+        suspicion,
+        remainingAP: player.ap
+      });
+    }
+
+    io.to(room.pin).emit('sab-telemetry-update', getSaboteurPublicTelemetry(room));
+  });
+
+  socket.on('sab-call-standup', (callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'SABOTEUR' || room.status !== 'SAB_DRILL') return;
+
+    const player = room.players.get(socket.id);
+    if (!player || player.isFrozen) return;
+
+    if (player.ap < 4) {
+      return callback && callback({ success: false, error: 'Insufficient AP! Need 4 AP to call Emergency Standup.' });
+    }
+
+    player.ap -= 4;
+    room.status = 'SAB_STANDUP';
+
+    room.saboteur.activeStandup = {
+      initiatorId: player.id,
+      initiatorNickname: player.nickname,
+      timeLeft: 45,
+      votes: new Map()
+    };
+
+    room.saboteur.terminalLogs.push({
+      text: `🚨 ${player.nickname} TRIGGERED AN EMERGENCY COMPLIANCE STANDUP!`,
+      type: 'alarm',
+      timestamp: Date.now()
+    });
+
+    io.to(room.pin).emit('sab-emergency-standup', {
+      initiatorNickname: player.nickname,
+      timeLeft: 45,
+      players: Array.from(room.players.values()).filter(p => !p.isFrozen).map(p => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        patchesApplied: p.patchesApplied
+      }))
+    });
+
+    if (callback) callback({ success: true, remainingAP: player.ap });
+
+    // Standup 45s countdown timer
+    let standupTimer = setInterval(() => {
+      if (!room.saboteur.activeStandup) {
+        clearInterval(standupTimer);
+        return;
+      }
+
+      room.saboteur.activeStandup.timeLeft -= 1;
+      io.to(room.pin).emit('sab-standup-tick', { timeLeft: room.saboteur.activeStandup.timeLeft });
+
+      if (room.saboteur.activeStandup.timeLeft <= 0) {
+        clearInterval(standupTimer);
+        settleEmergencyStandup(room);
+      }
+    }, 1000);
+  });
+
+  socket.on('sab-cast-vote', ({ suspectId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.status !== 'SAB_STANDUP' || !room.saboteur.activeStandup) return;
+
+    const player = room.players.get(socket.id);
+    if (!player || player.isFrozen) return;
+
+    room.saboteur.activeStandup.votes.set(socket.id, suspectId);
+    if (callback) callback({ success: true });
+
+    io.to(room.pin).emit('sab-standup-vote-update', {
+      votesCast: room.saboteur.activeStandup.votes.size,
+      totalVoters: Array.from(room.players.values()).filter(p => !p.isFrozen).length
+    });
+
+    // Check if all non-frozen players have voted
+    const activeCount = Array.from(room.players.values()).filter(p => !p.isFrozen).length;
+    if (room.saboteur.activeStandup.votes.size >= activeCount) {
+      settleEmergencyStandup(room);
+    }
+  });
+
+  function settleEmergencyStandup(room) {
+    if (!room.saboteur.activeStandup) return;
+
+    const votes = room.saboteur.activeStandup.votes;
+    const voteCounts = {};
+    votes.forEach(suspectId => {
+      if (suspectId && suspectId !== 'SKIP') {
+        voteCounts[suspectId] = (voteCounts[suspectId] || 0) + 1;
+      }
+    });
+
+    let topSuspectId = null;
+    let maxVotes = 0;
+    let isTie = false;
+
+    Object.entries(voteCounts).forEach(([suspectId, count]) => {
+      if (count > maxVotes) {
+        maxVotes = count;
+        topSuspectId = suspectId;
+        isTie = false;
+      } else if (count === maxVotes) {
+        isTie = true;
+      }
+    });
+
+    const ejectedPlayer = (!isTie && topSuspectId) ? room.players.get(topSuspectId) : null;
+
+    if (ejectedPlayer) {
+      ejectedPlayer.isFrozen = true;
+      const wasSaboteur = !!ejectedPlayer.isSaboteur;
+
+      if (wasSaboteur) {
+        finishSaboteurGame(room, 'AUDITORS_VOTED_SABOTEUR', `The Auditors successfully identified and ejected the Saboteur (${ejectedPlayer.nickname})!`);
+        return;
+      } else {
+        room.saboteur.terminalLogs.push({
+          text: `❌ ${ejectedPlayer.nickname} was ejected, but was an INNOCENT AUDITOR!`,
+          type: 'alarm',
+          timestamp: Date.now()
+        });
+
+        io.to(room.pin).emit('sab-standup-settled', {
+          ejectedNickname: ejectedPlayer.nickname,
+          ejectedAvatar: ejectedPlayer.avatar,
+          wasSaboteur: false,
+          message: `${ejectedPlayer.nickname} was ejected, but was an innocent compliance auditor! The Saboteur remains active.`
+        });
+      }
+    } else {
+      io.to(room.pin).emit('sab-standup-settled', {
+        ejectedNickname: null,
+        wasSaboteur: false,
+        message: 'No consensus reached. No player was ejected from the server room.'
+      });
+    }
+
+    room.saboteur.activeStandup = null;
+    room.status = 'SAB_DRILL';
+
+    setTimeout(() => {
+      if (room.status === 'SAB_DRILL') {
+        io.to(room.pin).emit('sab-resume-drill', getSaboteurPublicTelemetry(room));
+      }
+    }, 4000);
+  }
+
+  function finishSaboteurGame(room, outcome, reason) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'SAB_PODIUM';
+
+    const sabPlayer = Array.from(room.players.values()).find(p => p.isSaboteur);
+
+    const ranked = Array.from(room.players.values())
+      .sort((a, b) => b.score - a.score)
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.score,
+        patchesApplied: p.patchesApplied,
+        isSaboteur: p.isSaboteur,
+        rank: idx + 1
+      }));
+
+    gameStorage.recordGame({
+      roomPin: room.pin,
+      gameMode: room.gameMode,
+      players: ranked,
+      questionsCount: room.saboteur.compliancePercent
+    });
+
+    io.to(room.pin).emit('sab-game-finished', {
+      outcome,
+      reason,
+      saboteurNickname: sabPlayer?.nickname,
+      saboteurAvatar: sabPlayer?.avatar,
+      allPlayers: ranked
+    });
+  }
+
+  // ========================================================
+  // ========= THE BOUNDARY LINE BRAWL ENGINE ===============
+  // ========================================================
+
+  function startBoundaryBrawlGame(room) {
+    if (room.timer) clearInterval(room.timer);
+
+    room.status = 'BB_SCRAMBLE';
+    room.boundaryBrawl.stage = 'BB_SCRAMBLE';
+    room.boundaryBrawl.timeLeft = typeof room.settings.timeLimit === 'number' && room.settings.timeLimit > 20
+      ? room.settings.timeLimit
+      : 75;
+
+    const sanitizedCards = room.boundaryBrawl.cards.map(c => ({
+      id: c.id,
+      title: c.title,
+      domain: c.domain,
+      domainName: c.domainName,
+      description: c.description
+    }));
+
+    io.to(room.pin).emit('bb-game-started', {
+      cards: sanitizedCards,
+      placements: Array.from(room.boundaryBrawl.placements.values()),
+      timeLeft: room.boundaryBrawl.timeLeft,
+      totalTime: room.boundaryBrawl.totalTime
+    });
+
+    room.timer = setInterval(() => {
+      room.boundaryBrawl.timeLeft -= 1;
+      io.to(room.pin).emit('bb-timer-tick', { timeLeft: room.boundaryBrawl.timeLeft });
+
+      if (room.boundaryBrawl.timeLeft <= 0) {
+        clearInterval(room.timer);
+        transitionToBoundaryChallengeStage(room);
+      }
+    }, 1000);
+  }
+
+  function transitionToBoundaryChallengeStage(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'BB_CHALLENGE';
+    room.boundaryBrawl.stage = 'BB_CHALLENGE';
+
+    io.to(room.pin).emit('bb-scramble-ended', {
+      placements: Array.from(room.boundaryBrawl.placements.values()),
+      message: 'Placement scramble concluded! The Brawl begins. Slap a Challenge on any card to start a CPACC debate!'
+    });
+  }
+
+  socket.on('bb-place-card', ({ cardId, quadrant, x, y }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOUNDARY_BRAWL') return;
+
+    if (room.boundaryBrawl.activeChallenge && room.boundaryBrawl.activeChallenge.cardId === cardId) {
+      return callback && callback({ success: false, error: 'Card is currently locked in an active challenge debate!' });
+    }
+
+    const player = room.players.get(socket.id);
+    if (!player) return;
+
+    const card = room.boundaryBrawl.cards.find(c => c.id === cardId) || boundaryCardsBank.find(c => c.id === cardId);
+    if (!card) return;
+
+    const clampedX = typeof x === 'number' ? Math.max(5, Math.min(95, Math.round(x))) : 50;
+    const clampedY = typeof y === 'number' ? Math.max(5, Math.min(95, Math.round(y))) : 50;
+
+    const isFirstPlacement = !room.boundaryBrawl.placements.has(cardId);
+    if (isFirstPlacement) {
+      player.cardsPlaced = (player.cardsPlaced || 0) + 1;
+      player.score += 50; // Placement reward
+    }
+
+    const placement = {
+      cardId,
+      title: card.title,
+      description: card.description,
+      domain: card.domain,
+      domainName: card.domainName,
+      quadrant: quadrant || 'Q1',
+      x: clampedX,
+      y: clampedY,
+      placedBy: {
+        id: player.id,
+        nickname: player.nickname,
+        avatar: player.avatar
+      },
+      isVerified: false,
+      timestamp: Date.now()
+    };
+
+    room.boundaryBrawl.placements.set(cardId, placement);
+
+    io.to(room.pin).emit('bb-card-moved', {
+      placement,
+      placements: Array.from(room.boundaryBrawl.placements.values()),
+      playerScores: Array.from(room.players.values()).map(p => ({ id: p.id, nickname: p.nickname, score: p.score }))
+    });
+
+    if (callback) callback({ success: true, placement });
+  });
+
+  socket.on('bb-challenge-card', ({ cardId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOUNDARY_BRAWL') return;
+
+    if (room.boundaryBrawl.activeChallenge) {
+      return callback && callback({ success: false, error: 'A debate challenge is already active in the arena!' });
+    }
+
+    const placement = room.boundaryBrawl.placements.get(cardId);
+    if (!placement) {
+      return callback && callback({ success: false, error: 'This card has not been placed on the matrix yet!' });
+    }
+
+    const challenger = room.players.get(socket.id);
+    if (!challenger) return;
+
+    if (placement.placedBy.id === challenger.id) {
+      return callback && callback({ success: false, error: 'You cannot challenge your own card placement!' });
+    }
+
+    const card = room.boundaryBrawl.cards.find(c => c.id === cardId) || boundaryCardsBank.find(c => c.id === cardId);
+    if (!card) return;
+
+    challenger.challengesInitiated = (challenger.challengesInitiated || 0) + 1;
+
+    const challenge = {
+      cardId,
+      cardTitle: card.title,
+      cardDescription: card.description,
+      currentQuadrant: placement.quadrant,
+      challenger: {
+        id: challenger.id,
+        nickname: challenger.nickname,
+        avatar: challenger.avatar
+      },
+      defender: placement.placedBy,
+      thumbsUp: new Set(),   // Defend placement
+      thumbsDown: new Set(), // Overthrow placement
+      timeLeft: 20
+    };
+
+    room.boundaryBrawl.activeChallenge = challenge;
+
+    io.to(room.pin).emit('bb-challenge-started', {
+      challenge: {
+        cardId: challenge.cardId,
+        cardTitle: challenge.cardTitle,
+        cardDescription: challenge.cardDescription,
+        currentQuadrant: challenge.currentQuadrant,
+        challenger: challenge.challenger,
+        defender: challenge.defender,
+        timeLeft: 20,
+        thumbsUpCount: 0,
+        thumbsDownCount: 0
+      }
+    });
+
+    if (callback) callback({ success: true });
+
+    challenge.timer = setInterval(() => {
+      challenge.timeLeft -= 1;
+      io.to(room.pin).emit('bb-challenge-tick', { timeLeft: challenge.timeLeft });
+
+      if (challenge.timeLeft <= 0) {
+        clearInterval(challenge.timer);
+        settleBoundaryChallenge(room);
+      }
+    }, 1000);
+  });
+
+  socket.on('bb-cast-emoji-vote', ({ vote }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'BOUNDARY_BRAWL') return;
+
+    const challenge = room.boundaryBrawl.activeChallenge;
+    if (!challenge) {
+      return callback && callback({ success: false, error: 'No active challenge debate right now.' });
+    }
+
+    if (vote === 'UP') {
+      challenge.thumbsUp.add(socket.id);
+      challenge.thumbsDown.delete(socket.id);
+    } else if (vote === 'DOWN') {
+      challenge.thumbsDown.add(socket.id);
+      challenge.thumbsUp.delete(socket.id);
+    }
+
+    io.to(room.pin).emit('bb-vote-update', {
+      thumbsUpCount: challenge.thumbsUp.size,
+      thumbsDownCount: challenge.thumbsDown.size
+    });
+
+    if (callback) callback({ success: true, vote });
+  });
+
+  function settleBoundaryChallenge(room) {
+    const challenge = room.boundaryBrawl.activeChallenge;
+    if (!challenge) return;
+
+    const card = room.boundaryBrawl.cards.find(c => c.id === challenge.cardId) || boundaryCardsBank.find(c => c.id === challenge.cardId);
+    const placement = room.boundaryBrawl.placements.get(challenge.cardId);
+
+    const upCount = challenge.thumbsUp.size;
+    const downCount = challenge.thumbsDown.size;
+    const roomOverthrew = downCount > upCount;
+
+    if (roomOverthrew) {
+      const challengerPlayer = room.players.get(challenge.challenger.id);
+      if (challengerPlayer) {
+        challengerPlayer.score += 150;
+        challengerPlayer.challengesWon = (challengerPlayer.challengesWon || 0) + 1;
+      }
+      for (const vid of challenge.thumbsDown) {
+        const v = room.players.get(vid);
+        if (v) v.score += 50;
+      }
+
+      if (placement && card) {
+        placement.quadrant = card.quadrant;
+        placement.x = card.xPlacement;
+        placement.y = card.yPlacement;
+        placement.isVerified = true;
+        placement.placedBy = challenge.challenger; // Claimed by challenger!
+      }
+    } else {
+      const defenderPlayer = room.players.get(challenge.defender.id);
+      if (defenderPlayer) {
+        defenderPlayer.score += 200;
+      }
+      for (const vid of challenge.thumbsUp) {
+        const v = room.players.get(vid);
+        if (v) v.score += 50;
+      }
+      if (placement) {
+        placement.isVerified = true;
+      }
+    }
+
+    io.to(room.pin).emit('bb-challenge-settled', {
+      winner: roomOverthrew ? 'CHALLENGER' : 'DEFENDER',
+      cardId: challenge.cardId,
+      cardTitle: challenge.cardTitle,
+      challenger: challenge.challenger,
+      defender: challenge.defender,
+      thumbsUpCount: upCount,
+      thumbsDownCount: downCount,
+      correctQuadrant: card?.quadrant,
+      correctQuadrantName: card?.quadrantName,
+      officialX: card?.xPlacement,
+      officialY: card?.yPlacement,
+      rationale: card?.rationale,
+      cpaccRef: card?.cpaccRef,
+      updatedPlacements: Array.from(room.boundaryBrawl.placements.values()),
+      playerScores: Array.from(room.players.values()).map(p => ({ id: p.id, nickname: p.nickname, score: p.score }))
+    });
+
+    room.boundaryBrawl.settledChallenges.push({
+      cardId: challenge.cardId,
+      winner: roomOverthrew ? 'CHALLENGER' : 'DEFENDER',
+      timestamp: Date.now()
+    });
+
+    room.boundaryBrawl.activeChallenge = null;
+  }
+
+  function finishBoundaryBrawlGame(room) {
+    if (room.timer) clearInterval(room.timer);
+    if (room.boundaryBrawl.activeChallenge?.timer) {
+      clearInterval(room.boundaryBrawl.activeChallenge.timer);
+    }
+    room.status = 'BB_PODIUM';
+    room.boundaryBrawl.stage = 'BB_PODIUM';
+
+    const ranked = Array.from(room.players.values())
+      .sort((a, b) => b.score - a.score)
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.score,
+        cardsPlaced: p.cardsPlaced || 0,
+        challengesWon: p.challengesWon || 0,
+        rank: idx + 1
+      }));
+
+    gameStorage.recordGame({
+      roomPin: room.pin,
+      gameMode: room.gameMode,
+      players: ranked,
+      questionsCount: room.boundaryBrawl.cards.length
+    });
+
+    io.to(room.pin).emit('bb-game-finished', {
+      podium: ranked.slice(0, 3),
+      allPlayers: ranked,
+      finalPlacements: Array.from(room.boundaryBrawl.placements.values())
+    });
+  }
+
   // ==========================================
   // 4. Host Advance / Next Stage
   // ==========================================
@@ -1627,6 +2431,13 @@ io.on('connection', (socket) => {
         } else {
           startFlawFinderRound(room);
         }
+      }
+    } else if (room.gameMode === 'BOUNDARY_BRAWL') {
+      if (room.boundaryBrawl.stage === 'BB_SCRAMBLE') {
+        if (room.timer) clearInterval(room.timer);
+        transitionToBoundaryChallengeStage(room);
+      } else {
+        finishBoundaryBrawlGame(room);
       }
     } else if (room.gameMode === 'CLASSIC') {
       if (room.status === 'REVEAL') {
