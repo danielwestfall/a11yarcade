@@ -26,6 +26,8 @@ import { soundManager } from '../utils/sound';
 import { getSocketUrl } from '../utils/api';
 import HotPotatoMode from './HotPotatoMode';
 import GrandPrixMode from './GrandPrixMode';
+import HighRollerMode from './HighRollerMode';
+import FlawFinderMode from './FlawFinderMode';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -507,6 +509,52 @@ export default function LiveMode() {
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Gear shifts, Pit stops & Drafting</div>
                   </div>
                 </button>
+
+                <button
+                  type="button"
+                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'HIGH_ROLLER' })}
+                  style={{
+                    padding: '0.6rem 0.8rem',
+                    borderRadius: 'var(--radius-sm)',
+                    background: hostSettings.gameMode === 'HIGH_ROLLER' ? 'rgba(168, 85, 247, 0.2)' : 'var(--bg-surface)',
+                    border: `2px solid ${hostSettings.gameMode === 'HIGH_ROLLER' ? '#a855f7' : 'var(--border-color)'}`,
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}
+                >
+                  <span style={{ fontSize: '1.2rem' }}>🎰</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'HIGH_ROLLER' ? '#a855f7' : '#ffffff' }}>The High-Roller Gauntlet</div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Blind wagers & Underdog multipliers</div>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'FLAW_FINDER' })}
+                  style={{
+                    padding: '0.6rem 0.8rem',
+                    borderRadius: 'var(--radius-sm)',
+                    background: hostSettings.gameMode === 'FLAW_FINDER' ? 'rgba(14, 165, 233, 0.2)' : 'var(--bg-surface)',
+                    border: `2px solid ${hostSettings.gameMode === 'FLAW_FINDER' ? '#0ea5e9' : 'var(--border-color)'}`,
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}
+                >
+                  <span style={{ fontSize: '1.2rem' }}>🎯</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'FLAW_FINDER' ? '#0ea5e9' : '#ffffff' }}>Flaw Finder: Heatmap Sniping</div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Legal policy loophole auditing & heatmaps</div>
+                  </div>
+                </button>
               </div>
 
               {/* Host Play Along Option */}
@@ -801,6 +849,28 @@ export default function LiveMode() {
     if (gameMode === 'GRAND_PRIX') {
       return (
         <GrandPrixMode
+          socket={socket}
+          role="HOST"
+          roomPin={roomPin}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'HIGH_ROLLER') {
+      return (
+        <HighRollerMode
+          socket={socket}
+          role="HOST"
+          roomPin={roomPin}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'FLAW_FINDER') {
+      return (
+        <FlawFinderMode
           socket={socket}
           role="HOST"
           roomPin={roomPin}
@@ -1231,6 +1301,28 @@ export default function LiveMode() {
     if (gameMode === 'GRAND_PRIX') {
       return (
         <GrandPrixMode
+          socket={socket}
+          role="PLAYER"
+          roomPin={playerPinInput}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'HIGH_ROLLER') {
+      return (
+        <HighRollerMode
+          socket={socket}
+          role="PLAYER"
+          roomPin={playerPinInput}
+          onLeave={resetToModeSelection}
+        />
+      );
+    }
+
+    if (gameMode === 'FLAW_FINDER') {
+      return (
+        <FlawFinderMode
           socket={socket}
           role="PLAYER"
           roomPin={playerPinInput}

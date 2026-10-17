@@ -100,6 +100,118 @@
       "explanation": "WCAG 2.4.7 (Focus Visible) and WCAG 2.2 2.4.11 (Focus Appearance) require that keyboard focus must be clearly visible. Killing focus outline with no replacement makes keyboard navigation impossible.",
       "funNote": "Taking away focus rings from keyboard users is like taking away the mouse pointer from mouse users!",
       "cpaccRef": "Domain Two C: WCAG 2.4.7 Focus Visible"
+    },
+    {
+      "timestamp": "2026-10-17T00:43:28.606Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d1-12",
+      "questionText": "Which of the following design choices presents a severe cognitive barrier for individuals with ADHD or executive function challenges?",
+      "topic": "Cognitive Disabilities",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Arbitrary time limits and flashing/distracting elements severely impact users with ADHD, processing differences, or memory impairments. WCAG 2.2.1 requires adjustable timing.",
+      "funNote": "Nothing triggers panic like: 'You have 42 seconds before your entire mortgage application self-destructs!'",
+      "cpaccRef": "Domain One B: Cognitive Disabilities"
+    },
+    {
+      "timestamp": "2026-10-17T00:44:03.975Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-bonus-03",
+      "questionText": "A designer removes the keyboard focus outline with CSS `*:focus { outline: none; }` because 'the blue box is ugly'. What did they just do?",
+      "topic": "Creative Scenario: Focus Indicators",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "NONE",
+      "correctChoiceId": "B",
+      "explanation": "WCAG 2.4.7 (Focus Visible) and WCAG 2.2 2.4.11 (Focus Appearance) require that keyboard focus must be clearly visible. Killing focus outline with no replacement makes keyboard navigation impossible.",
+      "funNote": "Taking away focus rings from keyboard users is like taking away the mouse pointer from mouse users!",
+      "cpaccRef": "Domain Two C: WCAG 2.4.7 Focus Visible"
+    },
+    {
+      "timestamp": "2026-10-17T00:44:03.975Z",
+      "nickname": "Risky Ray",
+      "questionId": "cpacc-bonus-03",
+      "questionText": "A designer removes the keyboard focus outline with CSS `*:focus { outline: none; }` because 'the blue box is ugly'. What did they just do?",
+      "topic": "Creative Scenario: Focus Indicators",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "NONE",
+      "correctChoiceId": "B",
+      "explanation": "WCAG 2.4.7 (Focus Visible) and WCAG 2.2 2.4.11 (Focus Appearance) require that keyboard focus must be clearly visible. Killing focus outline with no replacement makes keyboard navigation impossible.",
+      "funNote": "Taking away focus rings from keyboard users is like taking away the mouse pointer from mouse users!",
+      "cpaccRef": "Domain Two C: WCAG 2.4.7 Focus Visible"
+    },
+    {
+      "timestamp": "2026-10-17T00:44:32.337Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d2-07",
+      "questionText": "What four words form the famous acronym 'POUR' representing the high-level principles of WCAG?",
+      "topic": "WCAG Principles (POUR)",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "POUR stands for Perceivable, Operable, Understandable, and Robust. All 13 guidelines in WCAG 2.1/2.2 fall under these 4 principles.",
+      "funNote": "Pour yourself a cup of coffee and remember: if it isn't POUR, it's poor quality!",
+      "cpaccRef": "Domain Two C: WCAG Principles"
+    },
+    {
+      "timestamp": "2026-10-17T00:44:32.507Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-d2-01",
+      "questionText": "What is the primary conceptual difference between 'Universal Design' and 'Accommodations'?",
+      "topic": "Universal Design vs Accommodations",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Universal Design integrates accessibility into the core product architecture for the widest audience possible from day one, while an accommodation is a tailored modification provided upon request for a specific person.",
+      "funNote": "Curb cuts are Universal Design; carrying someone up the steps when they arrive is a stressful accommodation.",
+      "cpaccRef": "Domain Two A: Universal Design vs Accommodations"
+    },
+    {
+      "timestamp": "2026-10-17T00:51:31.238Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d2-10",
+      "questionText": "What does 'Robust' in the POUR principles specifically mean for web and software development?",
+      "topic": "WCAG - Robust",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Robust means maximizing compatibility with current and future user agents, specifically ensuring assistive tech (screen readers, braille displays) can parse the DOM cleanly.",
+      "funNote": "Robust doesn't mean your app survived a DDoS attack; it means your ARIA doesn't crash a braille display.",
+      "cpaccRef": "Domain Two C: WCAG Principle 4: Robust"
+    },
+    {
+      "timestamp": "2026-10-17T00:51:31.379Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-d2-07",
+      "questionText": "What four words form the famous acronym 'POUR' representing the high-level principles of WCAG?",
+      "topic": "WCAG Principles (POUR)",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "POUR stands for Perceivable, Operable, Understandable, and Robust. All 13 guidelines in WCAG 2.1/2.2 fall under these 4 principles.",
+      "funNote": "Pour yourself a cup of coffee and remember: if it isn't POUR, it's poor quality!",
+      "cpaccRef": "Domain Two C: WCAG Principles"
+    },
+    {
+      "timestamp": "2026-10-17T00:51:31.510Z",
+      "nickname": "Auditor Alex",
+      "questionId": "flaw-08-1",
+      "questionText": "Web Architecture & Screen Reader Interaction Guide: A web agency releases technical guidelines for junior front-end developers on building for screen reader accessibility. Spot the disruptive anti-pattern.",
+      "topic": "Screen Reader Mechanics & Audio Interference (WCAG 1.4.2)",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Auto-playing audio sounds on input focus clashes with screen reader speech synthesis (violating WCAG 2.1 SC 1.4.2 Audio Control) and causes severe cognitive and sensory disorientation.",
+      "funNote": "Targeted Sentence: \"Our front-end architecture uses semantic HTML5 ele...\"",
+      "cpaccRef": "CPACC BoK Domain 1: Screen Reader Mechanics & WCAG Audio Control Principles"
     }
   ],
   "users": {
@@ -108,7 +220,7 @@
       "avatar": "🦉",
       "pin": "1234",
       "createdAt": "2026-10-17T00:28:20.168Z",
-      "lastActive": "2026-10-17T00:28:20.168Z"
+      "lastActive": "2026-10-17T00:51:30.940Z"
     }
   }
 }

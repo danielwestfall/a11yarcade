@@ -4,6 +4,8 @@ import LiveMode from './components/LiveMode';
 import PracticeMode from './components/PracticeMode';
 import SoloHotPotato from './components/SoloHotPotato';
 import SoloGrandPrix from './components/SoloGrandPrix';
+import SoloHighRoller from './components/SoloHighRoller';
+import SoloFlawFinder from './components/SoloFlawFinder';
 import WeeklyLeaderboard from './components/WeeklyLeaderboard';
 import MissedQuestionsReview from './components/MissedQuestionsReview';
 import QuestionBankExplorer from './components/QuestionBankExplorer';
@@ -198,6 +200,44 @@ export default function App() {
                       <span>Start Grand Prix</span>
                     </button>
                   </div>
+
+                  {/* Option 4: Solo High-Roller Gauntlet */}
+                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #a855f7' }}>
+                    <div>
+                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🎰🪙</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.5rem' }}>Solo High-Roller Gauntlet</h3>
+                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
+                        Wager your chips against 3 AI bettors (Paul, Cal, Riley). Exploit underdog multipliers and climb to high-roller fortune!
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={() => { soundManager.playClick(); setSoloSubMode('HIGH_ROLLER'); }}
+                      style={{ width: '100%', background: '#7e22ce', borderColor: '#a855f7' }}
+                    >
+                      <span>Enter Gauntlet</span>
+                    </button>
+                  </div>
+
+                  {/* Option 5: Solo Flaw Finder */}
+                  <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '1.5rem', border: '2px solid #0ea5e9' }}>
+                    <div>
+                      <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🎯🔍</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.5rem' }}>Solo Flaw Finder</h3>
+                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
+                        Audit authentic corporate policies, VPATs & contracts. Snipe the legal loophole against 3 simulated AI auditors!
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={() => { soundManager.playClick(); setSoloSubMode('FLAW_FINDER'); }}
+                      style={{ width: '100%', background: '#0284c7', borderColor: '#0ea5e9' }}
+                    >
+                      <span>Start Sniping</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -221,6 +261,14 @@ export default function App() {
 
             {soloSubMode === 'GRAND_PRIX' && (
               <SoloGrandPrix onBack={() => setSoloSubMode('MENU')} />
+            )}
+
+            {soloSubMode === 'HIGH_ROLLER' && (
+              <SoloHighRoller onBack={() => setSoloSubMode('MENU')} />
+            )}
+
+            {soloSubMode === 'FLAW_FINDER' && (
+              <SoloFlawFinder onBack={() => setSoloSubMode('MENU')} />
             )}
           </div>
         )}

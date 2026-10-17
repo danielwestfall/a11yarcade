@@ -176,8 +176,112 @@ async function runTests() {
     racer2.disconnect();
     console.log('🎉 Grand Prix Apex Gambler Mode Passed!\n');
 
+    // ==========================================
+    // TEST 4: The High-Roller Gauntlet Mode
+    // ==========================================
+    console.log('=== [4/4] Testing The High-Roller Gauntlet Mode ===');
+    const host4 = io('http://localhost:3001', { reconnection: false });
+    const bettor1 = io('http://localhost:3001', { reconnection: false });
+    const bettor2 = io('http://localhost:3001', { reconnection: false });
+
+    await Promise.all([
+      waitForConnect(host4),
+      waitForConnect(bettor1),
+      waitForConnect(bettor2)
+    ]);
+
+    const createHR = await new Promise(res => host4.emit('create-room', { gameMode: 'HIGH_ROLLER', questionCount: 2 }, res));
+    console.log(`✓ High-Roller Room Created: PIN ${createHR.pin}`);
+
+    await new Promise(res => bettor1.emit('join-room', { pin: createHR.pin, nickname: 'Dan The Man', avatar: '🎰' }, res));
+    await new Promise(res => bettor2.emit('join-room', { pin: createHR.pin, nickname: 'Risky Ray', avatar: '🦁' }, res));
+
+    const teaserPromise1 = new Promise(res => bettor1.once('hr-teaser', res));
+    host4.emit('start-game');
+    const teaserData = await teaserPromise1;
+    console.log(`✓ Teaser Started: Domain=${teaserData.domain}, Topic="${teaserData.topic}", Difficulty=${teaserData.difficulty}`);
+
+    // Both players wager
+    const qRevealPromise = new Promise(res => bettor1.once('hr-question-started', res));
+    await new Promise(res => bettor1.emit('hr-submit-wager', { wager: 300 }, res));
+    await new Promise(res => bettor2.emit('hr-submit-wager', { wager: 500 }, res));
+
+    const revealData = await qRevealPromise;
+    console.log(`✓ Question Revealed: "${revealData.question.question.slice(0, 45)}..."`);
+
+    // Bettors submit answers
+    const roundSettlePromise = new Promise(res => host4.once('hr-round-settlement', res));
+    const hrCorrectId = revealData.question.choices[0].id; // any choice
+    const hrWrongId = revealData.question.choices[1].id;
+
+    // Bettor 1 submits answer
+    await new Promise(res => bettor1.emit('hr-submit-answer', { choiceId: hrCorrectId }, res));
+    // Bettor 2 submits answer
+    await new Promise(res => bettor2.emit('hr-submit-answer', { choiceId: hrWrongId }, res));
+
+    const settleData = await roundSettlePromise;
+    console.log(`✓ Round Settled! Underdog Triggered=${settleData.underdogTriggered}`);
+    const p1Outcome = settleData.results.find(o => o.nickname === 'Dan The Man');
+    const p2Outcome = settleData.results.find(o => o.nickname === 'Risky Ray');
+    console.log(`✓ Dan: Net=${p1Outcome.chipDelta} chips (Final: ${p1Outcome.chips}), Ray: Net=${p2Outcome.chipDelta} chips (Final: ${p2Outcome.chips})`);
+
+    host4.disconnect();
+    bettor1.disconnect();
+    bettor2.disconnect();
+    console.log('🎉 The High-Roller Gauntlet Passed!\n');
+
+    // ==========================================
+    // TEST 5: Flaw Finder Mode (Heatmap Sniping)
+    // ==========================================
+    console.log('=== [5/5] Testing Flaw Finder Mode ===');
+    const host5 = io('http://localhost:3001', { reconnection: false });
+    const sniper1 = io('http://localhost:3001', { reconnection: false });
+    const sniper2 = io('http://localhost:3001', { reconnection: false });
+
+    await Promise.all([
+      waitForConnect(host5),
+      waitForConnect(sniper1),
+      waitForConnect(sniper2)
+    ]);
+
+    const createFF = await new Promise(res => host5.emit('create-room', { gameMode: 'FLAW_FINDER', questionCount: 2 }, res));
+    console.log(`✓ Flaw Finder Room Created: PIN ${createFF.pin}`);
+
+    await new Promise(res => sniper1.emit('join-room', { pin: createFF.pin, nickname: 'Sniper Sam', avatar: '🎯' }, res));
+    await new Promise(res => sniper2.emit('join-room', { pin: createFF.pin, nickname: 'Auditor Alex', avatar: '🧐' }, res));
+
+    const roundStartPromise = new Promise(res => sniper1.once('ff-round-started', res));
+    host5.emit('start-game');
+    const ffData = await roundStartPromise;
+    console.log(`✓ Scenario Served: "${ffData.scenario.title}" (Sentences: ${ffData.scenario.sentences.length})`);
+    
+    // Verify sanitized payload: sentences must NOT leak isFlaw flag to players
+    if (ffData.scenario.sentences[0].isFlaw !== undefined) {
+      throw new Error('Security flaw: isFlaw leaked in sanitized scenario!');
+    }
+    console.log(`✓ Sanitization Verified: Sentence answers protected against inspection`);
+
+    const heatmapPromise = new Promise(res => host5.once('ff-heatmap-reveal', res));
+    // Sniper 1 snipes sentence 3 (typically the flaw)
+    await new Promise(res => sniper1.emit('ff-submit-snipe', { sentenceId: 's3' }, res));
+    // Sniper 2 snipes sentence 1 (compliant distractor)
+    await new Promise(res => sniper2.emit('ff-submit-snipe', { sentenceId: 's1' }, res));
+
+    const revealHeatmap = await heatmapPromise;
+    console.log(`✓ Heatmap Revealed! Flaw Identified: ${revealHeatmap.flawedSentenceId}, Debrief: "${revealHeatmap.scenario.flawSummary.slice(0, 50)}..."`);
+    console.log(`✓ Heatmap Distribution: s3=${revealHeatmap.heatmap.find(h => h.id === 's3')?.percentage}%, s1=${revealHeatmap.heatmap.find(h => h.id === 's1')?.percentage}%`);
+
+    const s1Result = revealHeatmap.results.find(r => r.nickname === 'Sniper Sam');
+    const s2Result = revealHeatmap.results.find(r => r.nickname === 'Auditor Alex');
+    console.log(`✓ Sam: isCorrect=${s1Result.isCorrect}, pts=+${s1Result.roundPoints}; Alex: isCorrect=${s2Result.isCorrect}, pts=+${s2Result.roundPoints}`);
+
+    host5.disconnect();
+    sniper1.disconnect();
+    sniper2.disconnect();
+    console.log('🎉 Flaw Finder Mode Passed!\n');
+
     console.log('====================================================');
-    console.log('🏆 ALL PHASE 1 MULTIPLAYER GAME MODES PASS 100%!');
+    console.log('🏆 ALL 5 MULTIPLAYER GAME MODES PASS 100%!');
     console.log('====================================================');
     serverProcess.kill();
     process.exit(0);

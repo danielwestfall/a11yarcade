@@ -33,9 +33,24 @@ try {
   console.error('Failed to load questions.json:', err.message);
 }
 
+// Load Policy Flaws Bank (Mode 7: Flaw Finder)
+const flawsPath = path.join(__dirname, '..', 'data', 'policy_flaws.json');
+let policyFlawsBank = [];
+try {
+  const data = fs.readFileSync(flawsPath, 'utf8');
+  policyFlawsBank = JSON.parse(data);
+  console.log(`Loaded ${policyFlawsBank.length} scenarios from policy flaws bank.`);
+} catch (err) {
+  console.error('Failed to load policy_flaws.json:', err.message);
+}
+
 // REST Endpoints
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() });
+});
+
+app.get('/api/flaws', (req, res) => {
+  res.json(policyFlawsBank);
 });
 
 app.get('/api/questions', (req, res) => {
@@ -186,6 +201,30 @@ io.on('connection', (socket) => {
         questionPool: pool,
         finishedCount: 0,
         podium: []
+      },
+
+      // High-Roller Gauntlet State
+      highRoller: {
+        currentQuestionIndex: 0,
+        wagers: new Map(),
+        submissions: new Map(),
+        stage: 'HR_TEASER',
+        underdogTriggered: false
+      },
+
+      // Flaw Finder State
+      flawFinder: {
+        currentScenarioIndex: 0,
+        scenarios: (function() {
+          let pool = [...policyFlawsBank];
+          if (selectedDomain !== 'all') {
+            const filtered = pool.filter(f => f.domain === parseInt(selectedDomain, 10));
+            if (filtered.length > 0) pool = filtered;
+          }
+          return pool.sort(() => 0.5 - Math.random()).slice(0, Math.min(pool.length, questionCount || 5));
+        })(),
+        submissions: new Map(),
+        stage: 'FF_SNIPING'
       }
     };
 
@@ -197,6 +236,8 @@ io.on('connection', (socket) => {
         score: 0,
         streak: 0,
         answers: {},
+        chips: 1000,
+        currentWager: 100,
         distance: 0,
         gear: 1,
         inPit: false,
@@ -274,6 +315,8 @@ io.on('connection', (socket) => {
       score: 0,
       streak: 0,
       answers: {},
+      chips: 1000,
+      currentWager: 100,
 
       // Grand Prix properties
       distance: 0,
@@ -323,6 +366,14 @@ io.on('connection', (socket) => {
       startHotPotatoRound(room);
     } else if (room.gameMode === 'GRAND_PRIX') {
       startGrandPrixRace(room);
+    } else if (room.gameMode === 'HIGH_ROLLER') {
+      room.currentQuestionIndex = 0;
+      room.highRoller.currentQuestionIndex = 0;
+      startHighRollerTeaser(room);
+    } else if (room.gameMode === 'FLAW_FINDER') {
+      room.currentQuestionIndex = 0;
+      room.flawFinder.currentScenarioIndex = 0;
+      startFlawFinderRound(room);
     } else {
       // Classic Mode
       room.currentQuestionIndex = 0;
@@ -1029,6 +1080,514 @@ io.on('connection', (socket) => {
     });
   }
 
+  // ========================================================
+  // ============= HIGH-ROLLER GAUNTLET ENGINE ==============
+  // ========================================================
+
+  function startHighRollerTeaser(room) {
+    if (room.timer) clearInterval(room.timer);
+
+    const q = room.questions[room.currentQuestionIndex];
+    if (!q) {
+      finishHighRollerGame(room);
+      return;
+    }
+
+    room.status = 'HR_TEASER';
+    room.highRoller.wagers.clear();
+    room.highRoller.submissions.clear();
+    room.highRoller.underdogTriggered = false;
+    room.timeLeft = 15;
+
+    // Ensure players have at least 100 chips to wager
+    room.players.forEach(p => {
+      if (typeof p.chips !== 'number' || p.chips <= 0) {
+        p.chips = 1000;
+      }
+      p.currentWager = Math.min(p.chips, 100);
+    });
+
+    const teaserData = {
+      questionIndex: room.currentQuestionIndex,
+      totalQuestions: room.questions.length,
+      domain: q.domain,
+      domainName: q.domainName,
+      topic: q.topic || 'Accessibility Concept',
+      difficulty: q.difficulty || 'medium',
+      timeLimit: 15,
+      players: Array.from(room.players.values()).map(p => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        chips: p.chips
+      }))
+    };
+
+    io.to(room.pin).emit('hr-teaser', teaserData);
+
+    room.timer = setInterval(() => {
+      room.timeLeft -= 1;
+      io.to(room.pin).emit('timer-tick', { timeLeft: room.timeLeft });
+
+      if (room.timeLeft <= 0) {
+        clearInterval(room.timer);
+        revealHighRollerQuestion(room);
+      }
+    }, 1000);
+  }
+
+  socket.on('hr-submit-wager', ({ wager }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'HIGH_ROLLER' || room.status !== 'HR_TEASER') return;
+
+    const player = room.players.get(socket.id);
+    if (!player) return;
+
+    const maxBet = player.chips || 1000;
+    const bet = Math.max(10, Math.min(maxBet, parseInt(wager, 10) || 100));
+    player.currentWager = bet;
+    room.highRoller.wagers.set(socket.id, bet);
+
+    if (callback) callback({ success: true, wager: bet, remainingChips: player.chips });
+
+    io.to(room.pin).emit('hr-wager-update', {
+      playerId: socket.id,
+      wagerSubmitted: true,
+      totalWagersPlaced: room.highRoller.wagers.size,
+      totalPlayers: room.players.size
+    });
+
+    // If all players wagered, advance immediately without waiting out the teaser clock
+    if (room.highRoller.wagers.size >= room.players.size && room.players.size > 0) {
+      if (room.timer) clearInterval(room.timer);
+      revealHighRollerQuestion(room);
+    }
+  });
+
+  function revealHighRollerQuestion(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'HR_QUESTION';
+
+    // Auto-fill default wager for any player who didn't submit
+    room.players.forEach(p => {
+      if (!room.highRoller.wagers.has(p.id)) {
+        const fallbackBet = Math.min(p.chips, 100);
+        p.currentWager = fallbackBet;
+        room.highRoller.wagers.set(p.id, fallbackBet);
+      }
+    });
+
+    const q = room.questions[room.currentQuestionIndex];
+    const timeLimit = room.settings.timeLimit > 0 ? room.settings.timeLimit : 30;
+    room.timeLeft = timeLimit;
+
+    io.to(room.pin).emit('hr-question-started', {
+      questionIndex: room.currentQuestionIndex,
+      totalQuestions: room.questions.length,
+      question: sanitizeQuestionForPlayers(q),
+      timeLimit,
+      totalPlayers: room.players.size,
+      players: Array.from(room.players.values()).map(p => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        chips: p.chips,
+        wager: room.highRoller.wagers.get(p.id)
+      }))
+    });
+
+    if (timeLimit > 0) {
+      room.timer = setInterval(() => {
+        room.timeLeft -= 1;
+        io.to(room.pin).emit('timer-tick', { timeLeft: room.timeLeft });
+
+        if (room.timeLeft <= 0) {
+          clearInterval(room.timer);
+          settleHighRollerRound(room);
+        }
+      }, 1000);
+    }
+  }
+
+  socket.on('hr-submit-answer', ({ choiceId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'HIGH_ROLLER' || room.status !== 'HR_QUESTION') return;
+
+    const player = room.players.get(socket.id);
+    if (!player) return;
+
+    const q = room.questions[room.currentQuestionIndex];
+    const choice = q.choices.find(c => c.id === choiceId);
+    const isCorrect = choice ? choice.isCorrect : false;
+
+    room.highRoller.submissions.set(socket.id, {
+      choiceId,
+      isCorrect,
+      submittedAt: Date.now()
+    });
+
+    if (callback) callback({ success: true, choiceId });
+
+    io.to(room.pin).emit('answer-submitted-count', {
+      answeredCount: room.highRoller.submissions.size,
+      totalPlayers: room.players.size
+    });
+
+    if (room.highRoller.submissions.size >= room.players.size && room.players.size > 0) {
+      if (room.timer) clearInterval(room.timer);
+      settleHighRollerRound(room);
+    }
+  });
+
+  function settleHighRollerRound(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'HR_REVEAL';
+
+    const q = room.questions[room.currentQuestionIndex];
+    const correctChoice = q.choices.find(c => c.isCorrect);
+
+    // Distribution
+    const distribution = { A: 0, B: 0, C: 0, D: 0 };
+    room.highRoller.submissions.forEach(sub => {
+      if (distribution[sub.choiceId] !== undefined) {
+        distribution[sub.choiceId] += 1;
+      }
+    });
+
+    // Trap Card Underdog Multiplier:
+    // If >= 50% of the room chose a wrong distractor option
+    const totalSubs = room.highRoller.submissions.size;
+    const correctSubs = Array.from(room.highRoller.submissions.values()).filter(s => s.isCorrect).length;
+    const wrongSubs = totalSubs - correctSubs;
+
+    const underdogTriggered = (totalSubs >= 2 && (wrongSubs / totalSubs) >= 0.50);
+    room.highRoller.underdogTriggered = underdogTriggered;
+
+    const results = [];
+    room.players.forEach(p => {
+      const wager = room.highRoller.wagers.get(p.id) || 100;
+      const sub = room.highRoller.submissions.get(p.id);
+      const isCorrect = sub ? sub.isCorrect : false;
+
+      let chipDelta = 0;
+      let bailoutAwarded = false;
+
+      if (isCorrect) {
+        chipDelta = underdogTriggered ? Math.round(wager * 1.5) : wager;
+        p.chips += chipDelta;
+        p.score = p.chips;
+      } else {
+        chipDelta = -wager;
+        p.chips = Math.max(0, p.chips - wager);
+        if (p.chips <= 0) {
+          p.chips = 100; // Bailout safety loan
+          bailoutAwarded = true;
+        }
+        p.score = p.chips;
+
+        // Log missed question
+        gameStorage.recordMissedQuestion({
+          nickname: p.nickname,
+          questionId: q.id,
+          questionText: q.question,
+          topic: q.topic,
+          domain: q.domain,
+          domainName: q.domainName,
+          selectedChoiceId: sub ? sub.choiceId : 'NONE',
+          correctChoiceId: correctChoice?.id,
+          explanation: q.explanation,
+          funNote: q.funNote,
+          cpaccRef: q.cpaccRef
+        });
+      }
+
+      results.push({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        wager,
+        isCorrect,
+        choiceId: sub?.choiceId || null,
+        chipDelta,
+        chips: p.chips,
+        bailoutAwarded
+      });
+    });
+
+    const ranked = Array.from(room.players.values())
+      .sort((a, b) => b.chips - a.chips)
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        chips: p.chips,
+        score: p.chips,
+        rank: idx + 1
+      }));
+
+    io.to(room.pin).emit('hr-round-settlement', {
+      question: q,
+      correctChoiceId: correctChoice?.id,
+      underdogTriggered,
+      distribution,
+      results,
+      leaderboard: ranked,
+      isLastQuestion: room.currentQuestionIndex >= room.questions.length - 1
+    });
+  }
+
+  function finishHighRollerGame(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'HR_PODIUM';
+
+    const ranked = Array.from(room.players.values())
+      .sort((a, b) => b.chips - a.chips)
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.chips,
+        chips: p.chips,
+        rank: idx + 1
+      }));
+
+    gameStorage.recordGame({
+      roomPin: room.pin,
+      gameMode: room.gameMode,
+      players: ranked,
+      questionsCount: room.questions.length
+    });
+
+    io.to(room.pin).emit('hr-game-finished', {
+      podium: ranked.slice(0, 3),
+      allPlayers: ranked
+    });
+  }
+
+  // ========================================================
+  // ============== FLAW FINDER ENGINE (HEATMAP) ============
+  // ========================================================
+
+  function startFlawFinderRound(room) {
+    if (room.timer) clearInterval(room.timer);
+
+    const s = room.flawFinder.scenarios[room.flawFinder.currentScenarioIndex];
+    if (!s) {
+      finishFlawFinderGame(room);
+      return;
+    }
+
+    room.status = 'FF_SNIPING';
+    room.flawFinder.stage = 'FF_SNIPING';
+    room.flawFinder.submissions.clear();
+    const timeLimit = room.settings.timeLimit > 0 ? room.settings.timeLimit : 30;
+    room.timeLeft = timeLimit;
+
+    // Sanitize scenario to hide isFlaw & explanation
+    const sanitized = {
+      id: s.id,
+      title: s.title,
+      domain: s.domain,
+      domainName: s.domainName,
+      topic: s.topic,
+      context: s.context,
+      sentences: s.sentences.map(sent => ({
+        id: sent.id,
+        text: sent.text
+      }))
+    };
+
+    io.to(room.pin).emit('ff-round-started', {
+      scenarioIndex: room.flawFinder.currentScenarioIndex,
+      totalScenarios: room.flawFinder.scenarios.length,
+      scenario: sanitized,
+      timeLimit,
+      totalPlayers: room.players.size,
+      snipesLocked: 0
+    });
+
+    if (timeLimit > 0) {
+      room.timer = setInterval(() => {
+        room.timeLeft -= 1;
+        io.to(room.pin).emit('timer-tick', { timeLeft: room.timeLeft });
+
+        if (room.timeLeft <= 0) {
+          clearInterval(room.timer);
+          revealFlawFinderHeatmap(room);
+        }
+      }, 1000);
+    }
+  }
+
+  socket.on('ff-submit-snipe', ({ sentenceId }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.gameMode !== 'FLAW_FINDER' || room.status !== 'FF_SNIPING') return;
+
+    const player = room.players.get(socket.id);
+    if (!player) return;
+
+    const s = room.flawFinder.scenarios[room.flawFinder.currentScenarioIndex];
+    if (!s) return;
+
+    const targetSentence = s.sentences.find(sent => sent.id === sentenceId);
+    if (!targetSentence) {
+      return callback && callback({ success: false, error: 'Invalid sentence ID' });
+    }
+
+    const isFlaw = !!targetSentence.isFlaw;
+    room.flawFinder.submissions.set(socket.id, {
+      sentenceId,
+      isFlaw,
+      timeRemaining: room.timeLeft
+    });
+
+    if (callback) {
+      callback({ success: true, sentenceId, isFlaw });
+    }
+
+    io.to(room.pin).emit('ff-snipe-count', {
+      snipesLocked: room.flawFinder.submissions.size,
+      totalPlayers: room.players.size
+    });
+
+    // Advance when all players locked in
+    if (room.flawFinder.submissions.size >= room.players.size && room.players.size > 0) {
+      if (room.timer) clearInterval(room.timer);
+      revealFlawFinderHeatmap(room);
+    }
+  });
+
+  function revealFlawFinderHeatmap(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'FF_HEATMAP';
+    room.flawFinder.stage = 'FF_HEATMAP';
+
+    const s = room.flawFinder.scenarios[room.flawFinder.currentScenarioIndex];
+    const totalSubmissions = room.flawFinder.submissions.size;
+    const correctCount = Array.from(room.flawFinder.submissions.values()).filter(sub => sub.isFlaw).length;
+
+    // Deadshot Bonus: if <= 40% of the room correctly spotted the flaw (and room has >= 2 players)
+    const deadshotTriggered = totalSubmissions >= 2 && (correctCount / totalSubmissions) <= 0.40;
+
+    // Compute sentence heatmap votes and percentages
+    const sentenceVotes = {};
+    s.sentences.forEach(sent => {
+      sentenceVotes[sent.id] = 0;
+    });
+    room.flawFinder.submissions.forEach(sub => {
+      if (sentenceVotes[sub.sentenceId] !== undefined) {
+        sentenceVotes[sub.sentenceId] += 1;
+      }
+    });
+
+    const heatmap = s.sentences.map(sent => {
+      const votes = sentenceVotes[sent.id] || 0;
+      const percentage = totalSubmissions > 0 ? Math.round((votes / totalSubmissions) * 100) : 0;
+      return {
+        id: sent.id,
+        text: sent.text,
+        isFlaw: sent.isFlaw,
+        explanation: sent.explanation,
+        votes,
+        percentage
+      };
+    });
+
+    // Settle points and record missed questions
+    const results = [];
+    room.players.forEach(p => {
+      const sub = room.flawFinder.submissions.get(p.id);
+      const isCorrect = sub ? sub.isFlaw : false;
+      const targetedId = sub ? sub.sentenceId : null;
+
+      let roundPoints = 0;
+      if (isCorrect) {
+        roundPoints = deadshotTriggered ? 300 : 200;
+        p.score += roundPoints;
+        p.streak += 1;
+      } else {
+        p.streak = 0;
+        // Log missed question / scenario
+        const flawSentence = s.sentences.find(sent => sent.isFlaw);
+        gameStorage.recordMissedQuestion({
+          nickname: p.nickname,
+          questionId: `${s.id}-${s.domain}`,
+          questionText: s.title + ': ' + s.context,
+          topic: s.topic,
+          domain: s.domain,
+          domainName: s.domainName,
+          selectedChoiceId: targetedId || 'TIMEOUT',
+          correctChoiceId: flawSentence?.id,
+          explanation: s.flawSummary,
+          funNote: `Targeted Sentence: "${s.sentences.find(sent => sent.id === targetedId)?.text.slice(0, 50) || 'None'}..."`,
+          cpaccRef: s.cpaccRef
+        });
+      }
+
+      results.push({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        targetedId,
+        isCorrect,
+        roundPoints,
+        totalScore: p.score,
+        deadshotAwarded: isCorrect && deadshotTriggered
+      });
+    });
+
+    const rankedPlayers = Array.from(room.players.values())
+      .sort((a, b) => b.score - a.score)
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.score,
+        streak: p.streak,
+        rank: idx + 1
+      }));
+
+    io.to(room.pin).emit('ff-heatmap-reveal', {
+      scenario: s,
+      flawedSentenceId: s.sentences.find(sent => sent.isFlaw)?.id,
+      heatmap,
+      deadshotTriggered,
+      results,
+      leaderboard: rankedPlayers,
+      isLastScenario: room.flawFinder.currentScenarioIndex >= room.flawFinder.scenarios.length - 1
+    });
+  }
+
+  function finishFlawFinderGame(room) {
+    if (room.timer) clearInterval(room.timer);
+    room.status = 'FF_PODIUM';
+
+    const ranked = Array.from(room.players.values())
+      .sort((a, b) => b.score - a.score)
+      .map((p, idx) => ({
+        id: p.id,
+        nickname: p.nickname,
+        avatar: p.avatar,
+        score: p.score,
+        rank: idx + 1
+      }));
+
+    gameStorage.recordGame({
+      roomPin: room.pin,
+      gameMode: room.gameMode,
+      players: ranked,
+      questionsCount: room.flawFinder.scenarios.length
+    });
+
+    io.to(room.pin).emit('ff-game-finished', {
+      podium: ranked.slice(0, 3),
+      allPlayers: ranked
+    });
+  }
+
   // ==========================================
   // 4. Host Advance / Next Stage
   // ==========================================
@@ -1045,6 +1604,28 @@ io.on('connection', (socket) => {
           finishGame(room);
         } else {
           startHotPotatoRound(room);
+        }
+      }
+    } else if (room.gameMode === 'HIGH_ROLLER') {
+      if (room.status === 'HR_TEASER') {
+        revealHighRollerQuestion(room);
+      } else if (room.status === 'HR_REVEAL') {
+        room.currentQuestionIndex += 1;
+        if (room.currentQuestionIndex >= room.questions.length) {
+          finishHighRollerGame(room);
+        } else {
+          startHighRollerTeaser(room);
+        }
+      }
+    } else if (room.gameMode === 'FLAW_FINDER') {
+      if (room.status === 'FF_SNIPING') {
+        revealFlawFinderHeatmap(room);
+      } else if (room.status === 'FF_HEATMAP') {
+        room.flawFinder.currentScenarioIndex += 1;
+        if (room.flawFinder.currentScenarioIndex >= room.flawFinder.scenarios.length) {
+          finishFlawFinderGame(room);
+        } else {
+          startFlawFinderRound(room);
         }
       }
     } else if (room.gameMode === 'CLASSIC') {
