@@ -29,6 +29,15 @@ export default function WeeklyLeaderboard() {
     }
   };
 
+  const currentUser = (() => {
+    try {
+      const saved = localStorage.getItem('a11yarcade_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  })();
+
   const currentList = activeTab === 'WEEKLY' ? weeklyData : allTimeData;
 
   return (
@@ -116,31 +125,40 @@ export default function WeeklyLeaderboard() {
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            {currentList.map((entry, idx) => (
-              <div
-                key={entry.nickname}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '1rem 1.25rem',
-                  borderRadius: 'var(--radius-md)',
-                  background: idx === 0 ? 'rgba(234, 179, 8, 0.15)' : 'var(--bg-surface-elevated)',
-                  border: `1px solid ${idx === 0 ? '#eab308' : idx === 1 ? '#94a3b8' : idx === 2 ? '#b45309' : 'var(--border-color)'}`
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <span style={{ fontSize: '1.3rem', fontWeight: 900, minWidth: '32px', color: idx === 0 ? '#fbbf24' : idx === 1 ? '#cbd5e1' : idx === 2 ? '#d97706' : '#94a3b8' }}>
-                    {idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `#${idx + 1}`}
-                  </span>
-                  <span style={{ fontSize: '2rem' }}>{entry.avatar || '👤'}</span>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff' }}>{entry.nickname}</div>
-                    <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-                      {entry.gamesPlayed} {entry.gamesPlayed === 1 ? 'game' : 'games'} • {entry.wins} {entry.wins === 1 ? 'win' : 'wins'} • Best: {entry.bestScore.toLocaleString()}
+            {currentList.map((entry, idx) => {
+              const isMe = currentUser?.nickname && entry.nickname.toLowerCase() === currentUser.nickname.toLowerCase();
+              return (
+                <div
+                  key={entry.nickname}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '1rem 1.25rem',
+                    borderRadius: 'var(--radius-md)',
+                    background: isMe ? 'rgba(56, 189, 248, 0.15)' : idx === 0 ? 'rgba(234, 179, 8, 0.15)' : 'var(--bg-surface-elevated)',
+                    border: isMe ? '2px solid #38bdf8' : `1px solid ${idx === 0 ? '#eab308' : idx === 1 ? '#94a3b8' : idx === 2 ? '#b45309' : 'var(--border-color)'}`
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span style={{ fontSize: '1.3rem', fontWeight: 900, minWidth: '32px', color: idx === 0 ? '#fbbf24' : idx === 1 ? '#cbd5e1' : idx === 2 ? '#d97706' : '#94a3b8' }}>
+                      {idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `#${idx + 1}`}
+                    </span>
+                    <span style={{ fontSize: '2rem' }}>{entry.avatar || '👤'}</span>
+                    <div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span>{entry.nickname}</span>
+                        {isMe && (
+                          <span style={{ background: '#38bdf8', color: '#0f172a', fontSize: '0.7rem', fontWeight: 900, padding: '2px 8px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                            You
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                        {entry.gamesPlayed} {entry.gamesPlayed === 1 ? 'game' : 'games'} • {entry.wins} {entry.wins === 1 ? 'win' : 'wins'} • Best: {entry.bestScore.toLocaleString()}
+                      </div>
                     </div>
                   </div>
-                </div>
 
                 <div style={{ textAlign: 'right' }}>
                   <div style={{ fontSize: '1.35rem', fontWeight: 900, color: '#38bdf8' }}>
@@ -148,9 +166,10 @@ export default function WeeklyLeaderboard() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            );
+          })}
+        </div>
+      )}
       </div>
     </div>
   );

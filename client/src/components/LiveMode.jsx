@@ -19,7 +19,8 @@ import {
   Copy,
   Check,
   QrCode,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Lock
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import { getSocketUrl } from '../utils/api';
@@ -72,6 +73,7 @@ export default function LiveMode() {
   // Player State
   const [playerPinInput, setPlayerPinInput] = useState('');
   const [playerNickname, setPlayerNickname] = useState('');
+  const [userPasscode, setUserPasscode] = useState('');
   const [playerAvatar, setPlayerAvatar] = useState('🐱');
   const [playerInfo, setPlayerInfo] = useState(null);
   const [playerState, setPlayerState] = useState('JOIN_FORM'); // JOIN_FORM, LOBBY, QUESTION, SUBMITTED, REVEAL, PODIUM
@@ -82,6 +84,21 @@ export default function LiveMode() {
 
   // Screen reader announcer
   const [liveAnnouncement, setLiveAnnouncement] = useState('');
+
+  // Load saved player credentials from localStorage (Option B)
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('a11yarcade_user');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.nickname) setPlayerNickname(parsed.nickname);
+        if (parsed.avatar) setPlayerAvatar(parsed.avatar);
+        if (parsed.passcode) setUserPasscode(parsed.passcode);
+      }
+    } catch (err) {
+      console.error('Error reading localStorage user profile:', err);
+    }
+  }, []);
 
   // Check URL query parameters for ?pin=ABCD to auto-route to Player Join with PIN pre-filled
   useEffect(() => {
@@ -312,7 +329,7 @@ export default function LiveMode() {
     socket.emit('next-stage');
   };
 
-  // Player Action: Join Room
+  // Player Action: Join Room (Option B: Nickname + 4-Digit Passcode)
   const handlePlayerJoin = (e) => {
     e.preventDefault();
     if (!socket) return;
@@ -323,16 +340,33 @@ export default function LiveMode() {
       return;
     }
     if (!playerNickname.trim()) {
-      setErrorMessage('Please enter a nickname.');
+      setErrorMessage('Please enter your nickname.');
+      return;
+    }
+    const cleanPasscode = String(userPasscode || '').trim();
+    if (!/^\d{4}$/.test(cleanPasscode)) {
+      setErrorMessage('Please enter a 4-digit secret passcode (e.g. 1234) to protect your scores!');
       return;
     }
 
     socket.emit('join-room', {
-      pin: playerPinInput,
-      nickname: playerNickname,
-      avatar: playerAvatar
+      pin: playerPinInput.trim().toUpperCase(),
+      nickname: playerNickname.trim(),
+      avatar: playerAvatar,
+      userPin: cleanPasscode
     }, (res) => {
       if (res && res.success) {
+        // Cache user credentials locally for zero-friction future sessions
+        try {
+          localStorage.setItem('a11yarcade_user', JSON.stringify({
+            nickname: playerNickname.trim(),
+            avatar: playerAvatar,
+            passcode: cleanPasscode
+          }));
+        } catch (err) {
+          console.error('Failed to save user credentials locally:', err);
+        }
+
         setRole('PLAYER');
         setPlayerInfo(res.player);
         setGameMode(res.gameMode || 'CLASSIC');
@@ -1119,6 +1153,30 @@ export default function LiveMode() {
                 onChange={(e) => setPlayerNickname(e.target.value)}
                 required
               />
+            </div>
+
+            {/* Option B: 4-Digit Passcode */}
+            <div style={{ marginBottom: '1.25rem' }}>
+              <label htmlFor="passcode-input" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, marginBottom: '0.4rem' }}>
+                <Lock size={15} color="#38bdf8" />
+                <span>4-Digit Secret Passcode:</span>
+              </label>
+              <input
+                id="passcode-input"
+                type="password"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={4}
+                className="input-field"
+                style={{ textAlign: 'center', fontSize: '1.4rem', letterSpacing: '0.3em', fontWeight: 800 }}
+                placeholder="1234"
+                value={userPasscode}
+                onChange={(e) => setUserPasscode(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                required
+              />
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.35rem' }}>
+                Protects your weekly score & study history! Creates your PIN if new, or unlocks your rank if returning.
+              </p>
             </div>
 
             <div style={{ marginBottom: '1.5rem' }}>

@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, CheckCircle, XCircle, RotateCcw, AlertCircle, Sparkles, Filter } from 'lucide-react';
+import { BookOpen, CheckCircle, XCircle, RotateCcw, AlertCircle, Sparkles, Filter, User, Users } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import { apiUrl } from '../utils/api';
 
 export default function MissedQuestionsReview() {
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('a11yarcade_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [viewScope, setViewScope] = useState(() => {
+    try {
+      const saved = localStorage.getItem('a11yarcade_user');
+      return saved ? 'MY' : 'ALL';
+    } catch {
+      return 'ALL';
+    }
+  });
   const [missedList, setMissedList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterDomain, setFilterDomain] = useState('all');
@@ -12,12 +28,13 @@ export default function MissedQuestionsReview() {
 
   useEffect(() => {
     fetchMissed();
-  }, []);
+  }, [viewScope]);
 
   const fetchMissed = async () => {
     setLoading(true);
     try {
-      const res = await fetch(apiUrl('/api/study/missed?nickname=all')).then(r => r.json());
+      const scopeParam = viewScope === 'MY' && currentUser?.nickname ? currentUser.nickname : 'all';
+      const res = await fetch(apiUrl(`/api/study/missed?nickname=${encodeURIComponent(scopeParam)}`)).then(r => r.json());
       setMissedList(res.missed || []);
     } catch (err) {
       console.error('Failed to load missed questions:', err);
@@ -52,6 +69,52 @@ export default function MissedQuestionsReview() {
         <p style={{ color: 'var(--text-secondary)', maxWidth: '540px', margin: '0 auto 1.5rem auto', fontSize: '0.95rem' }}>
           Every question missed during meeting games is saved here with official CPACC Body of Knowledge citations and explanations.
         </p>
+
+        {/* View Scope Toggle (Option B: My Questions vs Team) */}
+        {currentUser?.nickname && (
+          <div style={{ display: 'inline-flex', background: 'var(--bg-surface-elevated)', padding: '4px', borderRadius: 'var(--radius-md)', gap: '4px', marginBottom: '1.25rem' }}>
+            <button
+              type="button"
+              onClick={() => { soundManager.playClick(); setViewScope('MY'); }}
+              style={{
+                padding: '0.45rem 1rem',
+                borderRadius: 'var(--radius-sm)',
+                background: viewScope === 'MY' ? '#38bdf8' : 'transparent',
+                color: viewScope === 'MY' ? '#000000' : '#ffffff',
+                fontWeight: 800,
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.85rem'
+              }}
+            >
+              <User size={15} />
+              <span>My Missed Questions ({currentUser.nickname})</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => { soundManager.playClick(); setViewScope('ALL'); }}
+              style={{
+                padding: '0.45rem 1rem',
+                borderRadius: 'var(--radius-sm)',
+                background: viewScope === 'ALL' ? '#38bdf8' : 'transparent',
+                color: viewScope === 'ALL' ? '#000000' : '#ffffff',
+                fontWeight: 800,
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.85rem'
+              }}
+            >
+              <Users size={15} />
+              <span>All Team Missed</span>
+            </button>
+          </div>
+        )}
 
         {/* Domain Filter */}
         <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>

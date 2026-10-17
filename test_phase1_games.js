@@ -33,8 +33,18 @@ async function runTests() {
     const createClassic = await new Promise(res => host1.emit('create-room', { gameMode: 'CLASSIC', timeLimit: 5, questionCount: 1 }, res));
     console.log(`✓ Classic Room Created: PIN ${createClassic.pin}`);
 
-    await new Promise(res => p1.emit('join-room', { pin: createClassic.pin, nickname: 'Alice', avatar: '🦉' }, res));
-    console.log(`✓ Player Alice joined Classic Room`);
+    // Option B Test: First join sets Alice's PIN to 1234
+    const joinOk = await new Promise(res => p1.emit('join-room', { pin: createClassic.pin, nickname: 'Alice', avatar: '🦉', userPin: '1234' }, res));
+    if (!joinOk.success) throw new Error('Failed initial join with PIN');
+    console.log(`✓ Option B Passcode: Player Alice registered with 4-digit PIN 1234`);
+
+    // Verify wrong PIN fails
+    const pFake = io('http://localhost:3001', { reconnection: false });
+    await waitForConnect(pFake);
+    const fakeJoin = await new Promise(res => pFake.emit('join-room', { pin: createClassic.pin, nickname: 'Alice', avatar: '🦉', userPin: '9999' }, res));
+    if (fakeJoin.success) throw new Error('Expected wrong PIN to fail!');
+    console.log(`✓ Option B Passcode: Wrong PIN rejected successfully (${fakeJoin.error.slice(0, 38)}...)`);
+    pFake.disconnect();
 
     const qPromise = new Promise(res => p1.once('question-started', res));
     const revealPromise = new Promise(res => host1.once('round-revealed', res));

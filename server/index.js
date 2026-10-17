@@ -80,6 +80,25 @@ app.get('/api/study/missed', (req, res) => {
   res.json({ missed });
 });
 
+// Option B: 4-digit PIN Authentication & Profiles
+app.post('/api/user/auth', (req, res) => {
+  const { nickname, pin, avatar } = req.body || {};
+  const result = gameStorage.registerOrVerifyUser({ nickname, pin, avatar });
+  if (!result.success) {
+    return res.status(400).json(result);
+  }
+  res.json(result);
+});
+
+app.get('/api/user/profile', (req, res) => {
+  const { nickname, pin } = req.query || {};
+  const profile = gameStorage.getUserProfile(nickname, pin);
+  if (!profile) {
+    return res.status(404).json({ success: false, error: 'User profile not found or PIN incorrect.' });
+  }
+  res.json({ success: true, profile });
+});
+
 // Game Rooms State Management
 const rooms = new Map();
 
@@ -220,7 +239,7 @@ io.on('connection', (socket) => {
   // ==========================================
   // 2. Player Join
   // ==========================================
-  socket.on('join-room', ({ pin, nickname, avatar }, callback) => {
+  socket.on('join-room', ({ pin, nickname, avatar, userPin }, callback) => {
     const cleanPin = (pin || '').trim().toUpperCase();
     const room = rooms.get(cleanPin);
 
@@ -232,6 +251,15 @@ io.on('connection', (socket) => {
     }
 
     const cleanNick = (nickname || 'Anonymous Player').trim().slice(0, 18);
+
+    // Option B: Check Passcode verification if userPin provided
+    if (userPin) {
+      const authResult = gameStorage.registerOrVerifyUser({ nickname: cleanNick, pin: userPin, avatar });
+      if (!authResult.success) {
+        return callback && callback({ success: false, error: authResult.error });
+      }
+    }
+
     let finalNick = cleanNick;
     let count = 2;
     const existingNicks = Array.from(room.players.values()).map(p => p.nickname.toLowerCase());

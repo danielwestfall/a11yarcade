@@ -58,6 +58,57 @@
       "explanation": "Principle 5 (Tolerance for Error) minimizes hazards and the adverse consequences of accidental or unintended actions.",
       "funNote": "Ctrl+Z has saved more marriages, careers, and sanity than therapy.",
       "cpaccRef": "Domain Two E: The 7 Principles of Universal Design"
+    },
+    {
+      "timestamp": "2026-10-17T00:28:03.492Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d3-04",
+      "questionText": "What is 'EN 301 549' in the European accessibility ecosystem?",
+      "topic": "European Standards (EN 301 549)",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "EN 301 549 specifies the functional accessibility requirements applicable to ICT products and services, including web, non-web software, hardware, and mobile apps across Europe.",
+      "funNote": "Pronounced 'E-N three-zero-one five-four-nine'. It sounds like a secret agent, but it's the EU's a11y bible.",
+      "cpaccRef": "Domain Three E: Applying Accessibility Standards to ICT"
+    },
+    {
+      "timestamp": "2026-10-17T00:28:20.217Z",
+      "nickname": "Alice",
+      "questionId": "cpacc-d2-09",
+      "questionText": "A developer writes `<div onclick='submit()'>Submit</div>` without a `tabindex`, `role='button'`, or keyboard event listener. Which WCAG principle is most severely violated?",
+      "topic": "WCAG - Operable",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "A fake button made from a div cannot be focused via the Tab key and cannot be triggered via the Enter or Space keys unless manually coded. Using a native `<button>` element is always preferred.",
+      "funNote": "Friends don't let friends turn `<div>` tags into clickable buttons without keyboard handlers. Use `<button>`!",
+      "cpaccRef": "Domain Two C: WCAG 2.1 Keyboard Accessible"
+    },
+    {
+      "timestamp": "2026-10-17T00:28:20.499Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-bonus-03",
+      "questionText": "A designer removes the keyboard focus outline with CSS `*:focus { outline: none; }` because 'the blue box is ugly'. What did they just do?",
+      "topic": "Creative Scenario: Focus Indicators",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "WCAG 2.4.7 (Focus Visible) and WCAG 2.2 2.4.11 (Focus Appearance) require that keyboard focus must be clearly visible. Killing focus outline with no replacement makes keyboard navigation impossible.",
+      "funNote": "Taking away focus rings from keyboard users is like taking away the mouse pointer from mouse users!",
+      "cpaccRef": "Domain Two C: WCAG 2.4.7 Focus Visible"
     }
-  ]
+  ],
+  "users": {
+    "alice": {
+      "nickname": "Alice",
+      "avatar": "🦉",
+      "pin": "1234",
+      "createdAt": "2026-10-17T00:28:20.168Z",
+      "lastActive": "2026-10-17T00:28:20.168Z"
+    }
+  }
 }

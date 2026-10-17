@@ -10,15 +10,17 @@ const DB_FILE = path.join(__dirname, '..', 'data', 'game_history.json');
 function loadData() {
   try {
     if (!fs.existsSync(DB_FILE)) {
-      const initial = { games: [], weeklyLeaderboard: {}, allTimeLeaderboard: {}, missedQuestionsLog: [] };
+      const initial = { users: {}, games: [], weeklyLeaderboard: {}, allTimeLeaderboard: {}, missedQuestionsLog: [] };
       fs.writeFileSync(DB_FILE, JSON.stringify(initial, null, 2));
       return initial;
     }
     const raw = fs.readFileSync(DB_FILE, 'utf8');
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (!parsed.users) parsed.users = {};
+    return parsed;
   } catch (err) {
     console.error('Error loading game history DB:', err);
-    return { games: [], weeklyLeaderboard: {}, allTimeLeaderboard: {}, missedQuestionsLog: [] };
+    return { users: {}, games: [], weeklyLeaderboard: {}, allTimeLeaderboard: {}, missedQuestionsLog: [] };
   }
 }
 
@@ -167,5 +169,78 @@ export const gameStorage = {
     return db.missedQuestionsLog
       .filter(m => m.nickname.toLowerCase() === clean)
       .slice(-50);
+  },
+
+  // Option B: Register or verify player by Nickname + 4-digit Passcode
+  registerOrVerifyUser({ nickname, pin, avatar }) {
+    const db = loadData();
+    if (!db.users) db.users = {};
+
+    const cleanNick = (nickname || '').trim().slice(0, 18);
+    if (!cleanNick) {
+      return { success: false, error: 'Nickname is required.' };
+    }
+
+    const cleanPin = String(pin || '').trim();
+    if (!/^\d{4}$/.test(cleanPin)) {
+      return { success: false, error: 'Please enter a 4-digit numeric passcode (e.g. 1234).' };
+    }
+
+    const key = cleanNick.toLowerCase();
+    const existing = db.users[key];
+
+    if (!existing) {
+      // First time registration: create user profile
+      const newUser = {
+        nickname: cleanNick,
+        avatar: avatar || '🐱',
+        pin: cleanPin,
+        createdAt: new Date().toISOString(),
+        lastActive: new Date().toISOString()
+      };
+      db.users[key] = newUser;
+      saveData(db);
+      return { success: true, isNew: true, user: { nickname: cleanNick, avatar: newUser.avatar } };
+    }
+
+    // Existing user: verify 4-digit PIN
+    if (existing.pin !== cleanPin) {
+      return {
+        success: false,
+        error: `Nickname "${existing.nickname}" is already registered. Enter the matching 4-digit PIN, or pick another nickname.`
+      };
+    }
+
+    // Match! Update activity & optional avatar
+    existing.lastActive = new Date().toISOString();
+    if (avatar) existing.avatar = avatar;
+    saveData(db);
+
+    return { success: true, isNew: false, user: { nickname: existing.nickname, avatar: existing.avatar } };
+  },
+
+  // Retrieve user summary stats
+  getUserProfile(nickname, pin) {
+    const db = loadData();
+    if (!db.users) db.users = {};
+    const cleanNick = (nickname || '').trim();
+    const key = cleanNick.toLowerCase();
+    const user = db.users[key];
+    if (!user || user.pin !== String(pin || '').trim()) {
+      return null;
+    }
+
+    const weekKey = getWeekKey();
+    const weekly = db.weeklyLeaderboard[weekKey]?.[user.nickname] || null;
+    const allTime = db.allTimeLeaderboard[user.nickname] || null;
+    const missed = db.missedQuestionsLog.filter(m => m.nickname.toLowerCase() === key);
+
+    return {
+      nickname: user.nickname,
+      avatar: user.avatar,
+      weekly,
+      allTime,
+      missedCount: missed.length
+    };
   }
 };
