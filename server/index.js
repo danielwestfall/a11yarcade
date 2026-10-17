@@ -10,6 +10,13 @@ import { gameStorage } from './storage.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+process.on('uncaughtException', (err) => {
+  console.error('Unhandled Exception in Server:', err);
+});
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -395,7 +402,7 @@ io.on('connection', (socket) => {
     // Finding 2: If nickname is registered in DB, require valid userPin
     const isRegistered = gameStorage.isUserRegistered(cleanNick);
     if (isRegistered && !userPin) {
-      return callback && callback({ success: false, error: `Nickname "${cleanNick}" is registered. 4-digit PIN required.` });
+      return callback && callback({ success: false, error: `Nickname '${cleanNick}' is registered. 4-digit PIN required.` });
     }
 
     // Option B: Check Passcode verification if userPin provided
@@ -844,10 +851,16 @@ io.on('connection', (socket) => {
 
       const candidates = Array.from(room.players.values()).filter(p => p.id !== activePlayerId);
       const shuffled = [...candidates].sort(() => 0.5 - Math.random());
-      const delegateA = shuffled[0] || room.hotPotato.hotSeatPlayer;
+      const delegateA = shuffled[0] || (room.players.get(activePlayerId) ? room.hotPotato.hotSeatPlayer : null);
       const delegateB = shuffled[1] || null;
 
       room.hotPotato.delegates = [delegateA, delegateB].filter(Boolean);
+
+      if (room.hotPotato.delegates.length === 0) {
+        if (room.timer) clearInterval(room.timer);
+        settleHotPotatoRound(room);
+        return;
+      }
 
       io.to(room.pin).emit('hp-delegates-drafted', {
         delegateA: { id: delegateA.id, nickname: delegateA.nickname, avatar: delegateA.avatar },
@@ -867,7 +880,7 @@ io.on('connection', (socket) => {
     }
   }
 
-  socket.on('hp-submit-answer', ({ choiceId }, callback) => {
+  const handleHpSubmitAnswer = (socket, choiceId, callback) => {
     const pin = socket.data.roomPin;
     const room = rooms.get(pin);
     if (!room || (room.status !== 'HP_SOLO' && room.status !== 'HP_DELEGATES')) {
@@ -879,8 +892,11 @@ io.on('connection', (socket) => {
     const isCorrect = correctChoice && correctChoice.id === choiceId;
 
     if (room.status === 'HP_SOLO') {
-      if (socket.id !== room.hotPotato.hotSeatPlayer.id) {
+      if (socket.id !== room.hotPotato.hotSeatPlayer?.id) {
         return callback && callback({ success: false, error: 'Only the active player can answer in Solo mode.' });
+      }
+      if (room.hotPotato.submissions.has(socket.id)) {
+        return callback && callback({ success: false, error: 'You have already submitted an answer!' });
       }
       room.hotPotato.submissions.set(socket.id, { choiceId, isCorrect, submittedAt: room.timeLeft });
       if (callback) callback({ success: true });
@@ -889,7 +905,10 @@ io.on('connection', (socket) => {
     } else if (room.status === 'HP_DELEGATES') {
       const isDelegate = room.hotPotato.delegates.some(d => d.id === socket.id);
       if (!isDelegate) {
-        return callback && callback({ success: false, error: 'Only drafted delegates can answer this question!' });
+        return callback && callback({ success: false, error: 'You are not a drafted delegate this round!' });
+      }
+      if (room.hotPotato.submissions.has(socket.id)) {
+        return callback && callback({ success: false, error: 'You have already submitted an answer!' });
       }
 
       room.hotPotato.submissions.set(socket.id, { choiceId, isCorrect, submittedAt: room.timeLeft });
@@ -901,14 +920,22 @@ io.on('connection', (socket) => {
         settleHotPotatoRound(room);
       }
     }
+  };
+
+  socket.on('hp-submit-answer', ({ choiceId }, callback) => {
+    handleHpSubmitAnswer(socket, choiceId, callback);
+  });
+
+  socket.on('hp-submit-delegate-answer', ({ choiceId }, callback) => {
+    handleHpSubmitAnswer(socket, choiceId, callback);
   });
 
   function settleHotPotatoRound(room) {
     room.status = 'HP_SETTLEMENT';
     const q = room.questions[room.currentQuestionIndex];
     const action = room.hotPotato.action;
-    const activePlayer = room.players.get(room.hotPotato.hotSeatPlayer.id);
-    const delegates = room.hotPotato.delegates.map(d => room.players.get(d.id)).filter(Boolean);
+    const activePlayer = room.players.get(room.hotPotato.hotSeatPlayer?.id) || room.hotPotato.hotSeatPlayer || { id: 'unknown', nickname: 'HotSeat', avatar: '🥔', score: 0 };
+    const delegates = room.hotPotato.delegates.map(d => room.players.get(d.id) || d).filter(Boolean);
     const pointDeltas = {};
     const submissions = {};
 
@@ -925,12 +952,12 @@ io.on('connection', (socket) => {
       if (isCorrect) {
         outcomeType = 'SOLO_CORRECT';
         pointDeltas[activePlayer.id] = 100;
-        activePlayer.score += 100;
+        if (activePlayer) activePlayer.score = (activePlayer.score || 0) + 100;
       } else {
         outcomeType = 'SOLO_WRONG';
         const penalty = room.settings.blunderPenalty ? -50 : 0;
         pointDeltas[activePlayer.id] = penalty;
-        activePlayer.score = Math.max(0, activePlayer.score + penalty);
+        if (activePlayer) activePlayer.score = Math.max(0, (activePlayer.score || 0) + penalty);
       }
     } else {
       // PASS: Evaluate delegates
@@ -941,7 +968,7 @@ io.on('connection', (socket) => {
         // Both Correct (Best Case for Active Player)
         outcomeType = 'BOTH_CORRECT';
         pointDeltas[activePlayer.id] = 100;
-        activePlayer.score += 100;
+        if (activePlayer) activePlayer.score = (activePlayer.score || 0) + 100;
         delegates.forEach(d => {
           pointDeltas[d.id] = 50;
           d.score += 50;
@@ -950,7 +977,7 @@ io.on('connection', (socket) => {
         // Only 1 Correct (Muddled)
         outcomeType = 'ONE_CORRECT';
         pointDeltas[activePlayer.id] = 50;
-        activePlayer.score += 50;
+        if (activePlayer) activePlayer.score = (activePlayer.score || 0) + 50;
         delegates.forEach(d => {
           const correct = room.hotPotato.submissions.get(d.id)?.isCorrect;
           pointDeltas[d.id] = correct ? 50 : 0;
@@ -961,7 +988,7 @@ io.on('connection', (socket) => {
         outcomeType = 'NEITHER_CORRECT';
         const blunderFee = room.settings.blunderPenalty ? -20 : 0;
         pointDeltas[activePlayer.id] = blunderFee;
-        activePlayer.score = Math.max(0, activePlayer.score + blunderFee);
+        if (activePlayer) activePlayer.score = Math.max(0, (activePlayer.score || 0) + blunderFee);
 
         delegates.forEach(d => {
           pointDeltas[d.id] = 0;
@@ -3096,6 +3123,26 @@ io.on('connection', (socket) => {
         }
       } else if (room.gameMode === 'GRAND_PRIX' && room.status === 'GP_RACING') {
         broadcastGrandPrixTelemetry(room, `Player left the race.`);
+      } else if (room.gameMode === 'HOT_POTATO') {
+        if (room.status === 'HP_TEASER' && room.hotPotato.hotSeatPlayer?.id === socket.id) {
+          console.log(`Hot Seat player disconnected during teaser in room ${pin}. Defaulting to PASS.`);
+          if (room.timer) clearInterval(room.timer);
+          handleHotPotatoAction(room, socket.id, 'PASS');
+        } else if (room.status === 'HP_SOLO' && room.hotPotato.hotSeatPlayer?.id === socket.id) {
+          console.log(`Hot Seat player disconnected during solo in room ${pin}. Settling round.`);
+          if (room.timer) clearInterval(room.timer);
+          settleHotPotatoRound(room);
+        } else if (room.status === 'HP_DELEGATES') {
+          const isDelegate = room.hotPotato.delegates.some(d => d.id === socket.id);
+          if (isDelegate) {
+            console.log(`Delegate disconnected during delegates round in room ${pin}.`);
+            room.hotPotato.delegates = room.hotPotato.delegates.filter(d => d.id !== socket.id);
+            if (room.hotPotato.delegates.length === 0 || room.hotPotato.submissions.size >= room.hotPotato.delegates.length) {
+              if (room.timer) clearInterval(room.timer);
+              settleHotPotatoRound(room);
+            }
+          }
+        }
       }
     }
   });
