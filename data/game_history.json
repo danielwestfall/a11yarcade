@@ -1,0 +1,63 @@
+{
+  "games": [],
+  "weeklyLeaderboard": {},
+  "allTimeLeaderboard": {},
+  "missedQuestionsLog": [
+    {
+      "timestamp": "2026-10-16T23:56:16.604Z",
+      "nickname": "Alice",
+      "questionId": "cpacc-d1-05",
+      "questionText": "You see a colleague with a service dog wearing a harness in the office kitchen. What is the most appropriate action?",
+      "topic": "Disability Etiquette",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "Service animals are working! Distracting them can put their handler in danger. Never pet, feed, or distract a working service animal without explicit permission.",
+      "funNote": "No matter how cute the lab is, it is on the clock. Respect the furry professional.",
+      "cpaccRef": "Domain One E: Apply Disability Etiquette into Practice"
+    },
+    {
+      "timestamp": "2026-10-16T23:56:16.879Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d3-09",
+      "questionText": "True or False: If an automated scanner (like Lighthouse or Axe-core) reports 0 accessibility errors, your digital product is guaranteed to be 100% accessible to all users with disabilities.",
+      "topic": "Evaluating with People with Disabilities",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Automated checkers cannot determine whether alt text is meaningful, whether keyboard navigation order makes logical sense, or whether custom widgets operate properly with screen readers.",
+      "funNote": "A scanner sees `alt='image of stuff'` and gives a gold star. A human sees that and weeps.",
+      "cpaccRef": "Domain Three F: Include people with disabilities in evaluations"
+    },
+    {
+      "timestamp": "2026-10-17T00:02:17.635Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-bonus-04",
+      "questionText": "What CSS media query allows websites to turn off wild parallax swooshes, flying modals, and spinning graphics for users with vestibular disorders?",
+      "topic": "Sensory Overload & Vestibular",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "`prefers-reduced-motion` is standard CSS supported across all modern browsers and operating systems to respect users who experience nausea or dizziness from motion.",
+      "funNote": "Parallax looks cool until a user has to lie down on the floor to stop the room from spinning!",
+      "cpaccRef": "Domain One B: Vestibular and Motion Barriers"
+    },
+    {
+      "timestamp": "2026-10-17T00:09:55.785Z",
+      "nickname": "Alice",
+      "questionId": "cpacc-d2-04",
+      "questionText": "A web application has a prominent 'Undo' button after deleting a file, and asks for confirmation before clearing your database. Which Universal Design principle is hard at work?",
+      "topic": "7 Principles of Universal Design",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "Principle 5 (Tolerance for Error) minimizes hazards and the adverse consequences of accidental or unintended actions.",
+      "funNote": "Ctrl+Z has saved more marriages, careers, and sanity than therapy.",
+      "cpaccRef": "Domain Two E: The 7 Principles of Universal Design"
+    }
+  ]
+}

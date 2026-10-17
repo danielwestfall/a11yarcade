@@ -1,0 +1,738 @@
+import json
+
+questions = [
+    # ==========================================
+    # DOMAIN 1: Disabilities, Challenges & AT
+    # ==========================================
+    {
+        "id": "cpacc-d1-01",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Theoretical Models of Disability",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "A designer says: 'Our website isn't broken; the user just lacks the proper vision to see our stylish 8px gray-on-white font!' Which disability model is this designer unfortunately channeling?",
+        "choices": [
+            {"id": "A", "text": "The Social Model", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "The Medical Model", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "The Biopsychosocial Model", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "The Economic Model", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "The Medical Model views disability as an individual deficit or pathology that needs to be 'fixed' or cured, whereas the Social Model recognizes that society and poor design create the barriers.",
+        "cpaccRef": "Domain One A: Theoretical Models of Disability",
+        "funNote": "Blaming the user's retinas for your invisible font is peak Medical Model mischief!"
+    },
+    {
+        "id": "cpacc-d1-02",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Theoretical Models of Disability",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Under the Social Model of Disability, what is considered the primary cause of 'disability'?",
+        "choices": [
+            {"id": "A", "text": "The person's physical or mental impairment", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Barriers in the environment, attitudes, and inaccessible design", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Lack of cutting-edge technology", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Unfortunate personal luck", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "The Social Model asserts that people are disabled by barriers in society (stairs without ramps, websites without keyboard support, biased attitudes), not by their bodies.",
+        "cpaccRef": "Domain One A: Theoretical Models of Disability",
+        "funNote": "A wheelchair isn't stopped by a wheelchair user; it's stopped by three poorly placed steps."
+    },
+    {
+        "id": "cpacc-d1-03",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Models of Disability",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Which disability model evaluates an individual's value or disability status strictly based on their ability to work and contribute to the labor market?",
+        "choices": [
+            {"id": "A", "text": "The Functional Solutions Model", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "The Charity / Tragedy Model", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "The Economic Model", "shape": "circle", "isCorrect": True},
+            {"id": "D", "text": "The Identity Model", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "The Economic Model defines disability by a person's inability to work and their loss of earning capacity, often used by policymakers and welfare systems.",
+        "cpaccRef": "Domain One A: Theoretical Models of Disability",
+        "funNote": "To the Economic Model, humans are spreadsheet cells. Don't be a spreadsheet cell."
+    },
+    {
+        "id": "cpacc-d1-04",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Models of Disability",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "A telethon portrays people with disabilities as pitiable, helpless victims who rely solely on the generosity of benevolent strangers. Which model is this?",
+        "choices": [
+            {"id": "A", "text": "The Charity (or Tragedy) Model", "shape": "triangle", "isCorrect": True},
+            {"id": "B", "text": "The Human Rights Model", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "The Social Model", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "The Functional Solutions Model", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "The Charity / Tragedy Model treats people with disabilities as objects of pity rather than rights-bearing equal citizens.",
+        "cpaccRef": "Domain One A: Theoretical Models of Disability",
+        "funNote": "Pity doesn't fix broken ARIA tags; equality and engineering do."
+    },
+    {
+        "id": "cpacc-d1-05",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Disability Etiquette",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "You see a colleague with a service dog wearing a harness in the office kitchen. What is the most appropriate action?",
+        "choices": [
+            {"id": "A", "text": "Immediately offer the dog a piece of your donut", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "High-pitched baby talk: 'Who's a good working boy?!'", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Ignore the dog and interact normally with the colleague", "shape": "circle", "isCorrect": True},
+            {"id": "D", "text": "Pet the dog as long as the colleague is looking away", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Service animals are working! Distracting them can put their handler in danger. Never pet, feed, or distract a working service animal without explicit permission.",
+        "cpaccRef": "Domain One E: Apply Disability Etiquette into Practice",
+        "funNote": "No matter how cute the lab is, it is on the clock. Respect the furry professional."
+    },
+    {
+        "id": "cpacc-d1-06",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Disability Etiquette",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "When speaking with a Deaf colleague who has a Sign Language interpreter present, where should your eye contact and attention be directed?",
+        "choices": [
+            {"id": "A", "text": "Directly at the Deaf colleague", "shape": "triangle", "isCorrect": True},
+            {"id": "B", "text": "At the interpreter, since they are doing the speaking", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Back and forth between both like a ping-pong match", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Look down at your notepad to avoid awkwardness", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Always face and address the person directly, using second-person language ('What do you think?'), rather than telling the interpreter 'Ask them what they think.'",
+        "cpaccRef": "Domain One E: Apply Disability Etiquette into Practice",
+        "funNote": "You are talking to your colleague, not interviewing the interpreter."
+    },
+    {
+        "id": "cpacc-d1-07",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Disability Etiquette",
+        "type": "true_false",
+        "difficulty": "easy",
+        "question": "True or False: If you see someone with a disability struggling with a heavy door or bag, you should immediately grab the item and help without asking.",
+        "choices": [
+            {"id": "A", "text": "True - Kindness requires immediate physical action", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "False - Always ask first and wait for their response before helping", "shape": "diamond", "isCorrect": True}
+        ],
+        "explanation": "Never assume someone wants help or take over their equipment. Always ask politely: 'Would you like some assistance?' and wait for instructions.",
+        "cpaccRef": "Domain One E: Apply Disability Etiquette into Practice",
+        "funNote": "Grabbing someone's wheelchair or gear uninvited is personal boundary violation 101."
+    },
+    {
+        "id": "cpacc-d1-08",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Visual Disabilities & Assistive Tech",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Which combination of screen reader and browser is the most common native pair on Apple macOS / iOS devices?",
+        "choices": [
+            {"id": "A", "text": "JAWS + Microsoft Edge", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "NVDA + Google Chrome", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "VoiceOver + Safari", "shape": "circle", "isCorrect": True},
+            {"id": "D", "text": "TalkBack + Firefox", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "VoiceOver is Apple's built-in screen reader across macOS, iOS, iPadOS, and watchOS, paired natively with Safari.",
+        "cpaccRef": "Domain One C: Identify Appropriate Assistive Technologies (Visual)",
+        "funNote": "VoiceOver on Apple, TalkBack on Android, NVDA & JAWS on Windows. Collect all four like Pokémon!"
+    },
+    {
+        "id": "cpacc-d1-09",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Visual Disabilities",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What is the most prevalent form of color vision deficiency (color blindness)?",
+        "choices": [
+            {"id": "A", "text": "Tritanopia (Blue-Yellow)", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Red-Green deficiency (Deuteranomaly / Protanomaly)", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Achromatopsia (Total color blindness)", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Monochromacy", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Red-green color blindness affects approximately 8% of males and 0.5% of females with Northern European ancestry, making it by far the most common.",
+        "cpaccRef": "Domain One B: Visual Disabilities",
+        "funNote": "If your UI status badges are just green dot vs red dot, ~8% of your male users are guessing!"
+    },
+    {
+        "id": "cpacc-d1-10",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Auditory Disabilities",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What is the crucial difference between Closed Captions (CC) and Subtitles?",
+        "choices": [
+            {"id": "A", "text": "Subtitles are legally binding; Closed Captions are optional", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Captions include spoken dialogue PLUS relevant sound effects/speaker IDs; subtitles typically only transcribe dialogue", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Captions cannot be turned off; subtitles can", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Subtitles are only in French", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Captions (like SDH) include non-speech information like '[Door creeps open]' or '[Dramatic violin swells]' and speaker identification for deaf/hard-of-hearing viewers.",
+        "cpaccRef": "Domain One B: Auditory Disabilities",
+        "funNote": "[Suspenseful accessibility testing intensifies] is a caption, not just a vibe."
+    },
+    {
+        "id": "cpacc-d1-11",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Motor & Physical Disabilities",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "A user with severe motor paralysis uses a single switch button mounted next to their cheek paired with on-screen scanning. How does this assistive technology work?",
+        "choices": [
+            {"id": "A", "text": "The computer guesses their thoughts using Bluetooth", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "The system highlights screen items sequentially; the user presses the switch when their choice is highlighted", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "The switch physically pushes the mouse across the desk", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "It converts cheek movements into Morse code soundwaves", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Switch access with scanning cycles through interface options (rows, columns, or items) until the user triggers their switch to select the active element.",
+        "cpaccRef": "Domain One C: Assistive Technologies in ICT (Motor)",
+        "funNote": "This is why accessible keyboard tab order and focus states are literally a matter of access for switch users."
+    },
+    {
+        "id": "cpacc-d1-12",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Cognitive Disabilities",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Which of the following design choices presents a severe cognitive barrier for individuals with ADHD or executive function challenges?",
+        "choices": [
+            {"id": "A", "text": "Providing breadcrumbs and a clear visual progress bar", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Strict un-extendable 60-second timeouts with unpausable blinking banner ads", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Breaking multi-step forms into bite-sized chapters", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Allowing users to save and resume later", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Arbitrary time limits and flashing/distracting elements severely impact users with ADHD, processing differences, or memory impairments. WCAG 2.2.1 requires adjustable timing.",
+        "cpaccRef": "Domain One B: Cognitive Disabilities",
+        "funNote": "Nothing triggers panic like: 'You have 42 seconds before your entire mortgage application self-destructs!'"
+    },
+    {
+        "id": "cpacc-d1-13",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Seizure & Vestibular Disorders",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "To prevent photosensitive epileptic seizures, web content must not contain anything that flashes more than how many times per second?",
+        "choices": [
+            {"id": "A", "text": "1 time per second", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "3 times per second (3 Hz threshold)", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "24 times per second", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "60 times per second", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "WCAG Success Criterion 2.3.1 (Three Flashes or Below Threshold) states that pages do not contain anything that flashes more than 3 times in any 1-second period, or below general and red flash thresholds.",
+        "cpaccRef": "Domain One B: Seizure Disabilities",
+        "funNote": "Keep the rave lights in the club, not on your e-commerce checkout button!"
+    },
+    {
+        "id": "cpacc-d1-14",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Demographics & Statistics",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "According to the World Health Organization (WHO), approximately what percentage of the global population experiences significant disability?",
+        "choices": [
+            {"id": "A", "text": "About 2% (150 million people)", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "About 7% (500 million people)", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "About 16% (1.3 billion people - 1 in 6)", "shape": "circle", "isCorrect": True},
+            {"id": "D", "text": "About 40% (3.2 billion people)", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "The WHO Global Report on Health Equity for Persons with Disabilities (2022) indicates ~1.3 billion people, or 16% of the world's population, experience significant disability.",
+        "cpaccRef": "Domain One D: Disability Demographics and Statistics",
+        "funNote": "1 in 6 people. If your company ignores a11y, you're literally ignoring an audience the size of China!"
+    },
+
+    # ==========================================
+    # DOMAIN 2: Accessibility & Universal Design
+    # ==========================================
+    {
+        "id": "cpacc-d2-01",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "Universal Design vs Accommodations",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What is the primary conceptual difference between 'Universal Design' and 'Accommodations'?",
+        "choices": [
+            {"id": "A", "text": "Universal Design is free; accommodations always cost money", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Universal Design proactively designs for everyone from the start; accommodations are reactive retrofits for a specific individual", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Accommodations apply to websites; Universal Design only applies to buildings", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "There is no difference; they are synonymous legal terms", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Universal Design integrates accessibility into the core product architecture for the widest audience possible from day one, while an accommodation is a tailored modification provided upon request for a specific person.",
+        "cpaccRef": "Domain Two A: Universal Design vs Accommodations",
+        "funNote": "Curb cuts are Universal Design; carrying someone up the steps when they arrive is a stressful accommodation."
+    },
+    {
+        "id": "cpacc-d2-02",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "The 'Curb-Cut Effect'",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "What does the 'Curb-Cut Effect' describe in accessibility lore?",
+        "choices": [
+            {"id": "A", "text": "How skateboarders ruined sidewalk concrete in the 1980s", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "When features designed for people with disabilities end up benefiting everyone in society", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "The budget cuts that accessibility teams suffer in Q4", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "A design style that cuts sharp corners off mobile buttons", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Originally made for wheelchair users, curb cuts benefit parents with strollers, travelers with rolling suitcases, delivery workers with dollies, and cyclists.",
+        "cpaccRef": "Domain Two B: Benefits of Accessibility",
+        "funNote": "Captions in noisy sports bars and text messaging for busy commuters: curb cuts are everywhere!"
+    },
+    {
+        "id": "cpacc-d2-03",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "7 Principles of Universal Design",
+        "type": "multiple_choice",
+        "difficulty": "hard",
+        "question": "An airport installs automatic sliding sensor doors that open equally for travelers carrying bags, wheelchair users, and parents holding toddlers. Which of the 7 Principles of Universal Design is best exemplified?",
+        "choices": [
+            {"id": "A", "text": "Principle 1: Equitable Use", "shape": "triangle", "isCorrect": True},
+            {"id": "B", "text": "Principle 4: Perceptible Information", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Principle 5: Tolerance for Error", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Principle 7: Size and Space for Approach and Use", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Principle 1 (Equitable Use) says design is useful and marketable to people with diverse abilities, providing the same means of use for all users—identical whenever possible; equivalent when not.",
+        "cpaccRef": "Domain Two E: The 7 Principles of Universal Design",
+        "funNote": "Nobody has to feel like a second-class citizen by being routed to a hidden freight elevator in the alley!"
+    },
+    {
+        "id": "cpacc-d2-04",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "7 Principles of Universal Design",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "A web application has a prominent 'Undo' button after deleting a file, and asks for confirmation before clearing your database. Which Universal Design principle is hard at work?",
+        "choices": [
+            {"id": "A", "text": "Principle 2: Flexibility in Use", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Principle 3: Simple and Intuitive Use", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Principle 5: Tolerance for Error", "shape": "circle", "isCorrect": True},
+            {"id": "D", "text": "Principle 6: Low Physical Effort", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Principle 5 (Tolerance for Error) minimizes hazards and the adverse consequences of accidental or unintended actions.",
+        "cpaccRef": "Domain Two E: The 7 Principles of Universal Design",
+        "funNote": "Ctrl+Z has saved more marriages, careers, and sanity than therapy."
+    },
+    {
+        "id": "cpacc-d2-05",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "7 Principles of Universal Design",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Which Universal Design principle emphasizes that design elements should communicate necessary information effectively through pictorial, verbal, and tactile means regardless of ambient conditions?",
+        "choices": [
+            {"id": "A", "text": "Principle 4: Perceptible Information", "shape": "triangle", "isCorrect": True},
+            {"id": "B", "text": "Principle 1: Equitable Use", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Principle 6: Low Physical Effort", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Principle 2: Flexibility in Use", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Principle 4 (Perceptible Information) requires multi-modal redundancy (visual, auditory, tactile) so that information is perceivable regardless of sensory limitations or ambient noise/sunlight.",
+        "cpaccRef": "Domain Two E: The 7 Principles of Universal Design",
+        "funNote": "If your smoke detector only whispered 'Fire!' in a quiet soprano voice, that violates Principle 4."
+    },
+    {
+        "id": "cpacc-d2-06",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "Universal Design for Learning (UDL)",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Universal Design for Learning (UDL) is organized around 3 core pillars. What are they?",
+        "choices": [
+            {"id": "A", "text": "Read, Write, and Arithmetic", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Multiple means of Engagement, Representation, and Action & Expression", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Hardware, Software, and Wetware", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Perception, Cognition, and Memorization", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "UDL (from CAST) addresses the 'Why' (Engagement), 'What' (Representation), and 'How' (Action & Expression) of learning.",
+        "cpaccRef": "Domain Two F: Universal Design for Learning (UDL)",
+        "funNote": "UDL recognizes that students aren't cookie-cutter robots who all learn by staring at a blackboard for 4 hours."
+    },
+    {
+        "id": "cpacc-d2-07",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "WCAG Principles (POUR)",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "What four words form the famous acronym 'POUR' representing the high-level principles of WCAG?",
+        "choices": [
+            {"id": "A", "text": "Polite, Open, Useful, Reliable", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Perceivable, Operable, Understandable, Robust", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Precise, Optimal, Unified, Responsive", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Programmed, Organized, User-friendly, Resilient", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "POUR stands for Perceivable, Operable, Understandable, and Robust. All 13 guidelines in WCAG 2.1/2.2 fall under these 4 principles.",
+        "cpaccRef": "Domain Two C: WCAG Principles",
+        "funNote": "Pour yourself a cup of coffee and remember: if it isn't POUR, it's poor quality!"
+    },
+    {
+        "id": "cpacc-d2-08",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "WCAG - Perceivable",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "An image button has `alt='click here to submit form'`. A second image is purely decorative background swirls and has `alt=''`. What is true?",
+        "choices": [
+            {"id": "A", "text": "Both are accessibility violations; decorative images must say 'decorative photo'", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Empty `alt=''` is the correct standard way to tell screen readers to ignore decorative images", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "You must never include an `alt` attribute on decorative images at all", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Screen readers automatically detect whether an image is pretty", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Decorative images should have an empty alt attribute (`alt=''`) or `aria-hidden='true'`. Omitting the alt attribute entirely causes many screen readers to read the raw file URL (`IMG_4021.jpg`), which is awful.",
+        "cpaccRef": "Domain Two C: WCAG 1.1 Text Alternatives",
+        "funNote": "Nobody wants their screen reader to read 'shutterstock_watermark_swirl_v3_final_FINAL.png'."
+    },
+    {
+        "id": "cpacc-d2-09",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "WCAG - Operable",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "A developer writes `<div onclick='submit()'>Submit</div>` without a `tabindex`, `role='button'`, or keyboard event listener. Which WCAG principle is most severely violated?",
+        "choices": [
+            {"id": "A", "text": "Operable (Keyboard Inaccessible - SC 2.1.1)", "shape": "triangle", "isCorrect": True},
+            {"id": "B", "text": "Perceivable (Contrast)", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Understandable (Language)", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "None, because divs are versatile and lightweight", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "A fake button made from a div cannot be focused via the Tab key and cannot be triggered via the Enter or Space keys unless manually coded. Using a native `<button>` element is always preferred.",
+        "cpaccRef": "Domain Two C: WCAG 2.1 Keyboard Accessible",
+        "funNote": "Friends don't let friends turn `<div>` tags into clickable buttons without keyboard handlers. Use `<button>`!"
+    },
+    {
+        "id": "cpacc-d2-10",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "WCAG - Robust",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What does 'Robust' in the POUR principles specifically mean for web and software development?",
+        "choices": [
+            {"id": "A", "text": "The servers have 99.999% uptime and redundant power backups", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Content can be interpreted reliably by a wide variety of user agents, including assistive technologies", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "The codebase is written in Rust or C++", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "The website layout cannot be zoomed or manipulated by users", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Robust means maximizing compatibility with current and future user agents, specifically ensuring assistive tech (screen readers, braille displays) can parse the DOM cleanly.",
+        "cpaccRef": "Domain Two C: WCAG Principle 4: Robust",
+        "funNote": "Robust doesn't mean your app survived a DDoS attack; it means your ARIA doesn't crash a braille display."
+    },
+    {
+        "id": "cpacc-d2-11",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "Color Contrast (WCAG 1.4.3)",
+        "type": "multiple_choice",
+        "difficulty": "hard",
+        "question": "Under WCAG 2.1 Level AA, what is the minimum required contrast ratio for standard (normal size) body text?",
+        "choices": [
+            {"id": "A", "text": "3:1", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "4.5:1", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "7:1", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "10:1", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "WCAG 1.4.3 Level AA requires at least 4.5:1 for normal text and 3:1 for large text (18pt / 24px or 14pt / ~18.66px bold). Level AAA requires 7:1 for normal text.",
+        "cpaccRef": "Domain Two C: WCAG 1.4.3 Contrast (Minimum)",
+        "funNote": "If your designer says '4.5:1 ruins my pastel aesthetic', tell them inaccessible apps ruin user retention."
+    },
+    {
+        "id": "cpacc-d2-12",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "Built Environment",
+        "type": "true_false",
+        "difficulty": "medium",
+        "question": "True or False: Wheelchair accessible ramps should ideally have a slope steeper than 1:12 (one foot of rise for every 8 feet of ramp) to save space in building hallways.",
+        "choices": [
+            {"id": "A", "text": "True - Steeper ramps save hallway space", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "False - The standard maximum slope is 1:12 (8.33%) to prevent tipping and exhaustion", "shape": "diamond", "isCorrect": True}
+        ],
+        "explanation": "Under ADA and standard universal design codes for the built environment, the maximum slope of a ramp in new construction is 1:12 (one unit of rise for every 12 units of run). Steeper ramps are hazardous.",
+        "cpaccRef": "Domain Two D: Principles for the Built Environment",
+        "funNote": "A 1:4 ramp isn't an accessible entrance; that's an extreme sports half-pipe!"
+    },
+
+    # ==========================================
+    # DOMAIN 3: Standards, Laws & Management
+    # ==========================================
+    {
+        "id": "cpacc-d3-01",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "International Conventions (UN CRPD)",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Which Article of the UN Convention on the Rights of Persons with Disabilities (CRPD) specifically addresses 'Accessibility' in physical, transportation, and ICT environments?",
+        "choices": [
+            {"id": "A", "text": "Article 1", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Article 9", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Article 24", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Article 50", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Article 9 of the UN CRPD is the landmark global mandate requiring State Parties to take appropriate measures to ensure access to the physical environment, transportation, information, and communications technologies.",
+        "cpaccRef": "Domain Three A: UN Convention on the Rights of Persons with Disabilities (CRPD)",
+        "funNote": "Article 9 is the rockstar of global accessibility law. Know it, love it, cite it!"
+    },
+    {
+        "id": "cpacc-d3-02",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "US Americans with Disabilities Act (ADA)",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Which Title of the Americans with Disabilities Act (ADA) prohibits discrimination in 'Places of Public Accommodation' (commercial businesses, restaurants, hotels, and increasingly websites)?",
+        "choices": [
+            {"id": "A", "text": "Title I", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Title II", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Title III", "shape": "circle", "isCorrect": True},
+            {"id": "D", "text": "Title IV", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Title III covers Places of Public Accommodation (private businesses open to the public). Title I covers Employment, and Title II covers State and Local Government services.",
+        "cpaccRef": "Domain Three C: The Americans with Disabilities Act of 1990",
+        "funNote": "Title III is the headline-maker behind most high-profile US website accessibility lawsuits."
+    },
+    {
+        "id": "cpacc-d3-03",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "US Rehabilitation Act - Section 508",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What is the primary mandate of Section 508 of the US Rehabilitation Act of 1973?",
+        "choices": [
+            {"id": "A", "text": "It requires all private companies to hire at least 5% disabled workers", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "It mandates that US Federal agencies procure, develop, maintain, and use accessible electronic & information technology (EIT/ICT)", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "It taxes websites that fail WCAG audits", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "It dictates font sizes on highway road signs", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Section 508 mandates that federal agencies develop, procure, maintain, and use ICT that is accessible to federal employees and members of the public with disabilities.",
+        "cpaccRef": "Domain Three D: Procurement Laws & Section 508",
+        "funNote": "If you want to sell software to the US government, Section 508 is your golden ticket (or barrier to entry)."
+    },
+    {
+        "id": "cpacc-d3-04",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "European Standards (EN 301 549)",
+        "type": "multiple_choice",
+        "difficulty": "hard",
+        "question": "What is 'EN 301 549' in the European accessibility ecosystem?",
+        "choices": [
+            {"id": "A", "text": "A secret EU regulation that banned dark mode", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "The European Harmonised Standard for ICT products and services, harmonizing WCAG 2.1 AA for EU public procurement and the Web Accessibility Directive", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "A European software patent for screen readers", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "The flight number of the IAAP conference airplane", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "EN 301 549 specifies the functional accessibility requirements applicable to ICT products and services, including web, non-web software, hardware, and mobile apps across Europe.",
+        "cpaccRef": "Domain Three E: Applying Accessibility Standards to ICT",
+        "funNote": "Pronounced 'E-N three-zero-one five-four-nine'. It sounds like a secret agent, but it's the EU's a11y bible."
+    },
+    {
+        "id": "cpacc-d3-05",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "Canadian Legislation (AODA)",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "The landmark provincial act passed in Ontario, Canada in 2005 with the goal of creating a fully accessible Ontario by 2025 is known as:",
+        "choices": [
+            {"id": "A", "text": "The Maple Leaf Equalization Treaty", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "AODA (Accessibility for Ontarians with Disabilities Act)", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Section 504 Canada Edition", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "The Toronto Inclusive Design Protocol", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "The Accessibility for Ontarians with Disabilities Act (AODA) became law in 2005, establishing accessibility standards across customer service, information/communications, employment, transportation, and public spaces.",
+        "cpaccRef": "Domain Three C: Ontarians with Disabilities Act",
+        "funNote": "AODA set the pace for Canadian accessibility regulations, paving the way for the Accessible Canada Act (ACA)."
+    },
+    {
+        "id": "cpacc-d3-06",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "Procurement Documents (VPAT / ACR)",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What is a 'VPAT' (Voluntary Product Accessibility Template)?",
+        "choices": [
+            {"id": "A", "text": "A patented vacuum cleaner for accessibility labs", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "A standardized document format used by vendors to state their product's conformance with accessibility standards (generating an ACR)", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "A certificate that guarantees 0% chance of lawsuits", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "A plugin that automatically converts speech into video", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "A VPAT is a reporting template created by ITI. When completed by an author or vendor, the completed document is called an Accessibility Conformance Report (ACR).",
+        "cpaccRef": "Domain Three D: Procurement Laws & Standards",
+        "funNote": "Filling out a VPAT honestly is the ultimate test of vendor courage and truth."
+    },
+    {
+        "id": "cpacc-d3-07",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "Organizational Maturity (CMM)",
+        "type": "multiple_choice",
+        "difficulty": "hard",
+        "question": "In the Capability Maturity Model (CMM) adapted for accessibility, an organization that only fixes accessibility issues reactively when a lawsuit or angry customer arrives is at which level?",
+        "choices": [
+            {"id": "A", "text": "Level 1: Initial / Ad Hoc", "shape": "triangle", "isCorrect": True},
+            {"id": "B", "text": "Level 3: Defined", "shape": "diamond", "isCorrect": False},
+            {"id": "C", "text": "Level 4: Managed", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Level 5: Optimizing", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Level 1 (Initial/Ad Hoc) is characterized by chaotic, reactive efforts with no formal policies, processes, or centralized oversight.",
+        "cpaccRef": "Domain Three F: Integrating ICT Accessibility Across the Organization",
+        "funNote": "Level 1 is panic-driven accessibility: 'Emergency! Put alt tags on everything before the court hearing!'"
+    },
+    {
+        "id": "cpacc-d3-08",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "Shift-Left Accessibility",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "What does 'Shift-Left' mean in an accessible software development lifecycle?",
+        "choices": [
+            {"id": "A", "text": "Moving all buttons to the left-hand margin of the screen", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Integrating accessibility considerations early in the design, discovery, and planning phases rather than testing at the end", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Allowing only left-handed engineers to conduct QA testing", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Holding keyboard key 'Shift' and 'Left Arrow' to open the inspector", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Shifting left integrates accessibility into user research, wireframing, architecture, and sprint planning, reducing remediation costs by up to 30x compared to fixing post-launch bugs.",
+        "cpaccRef": "Domain Three F: Integrating ICT Accessibility Across the Organization",
+        "funNote": "Fixing accessibility in Figma costs minutes; fixing it in production costs thousands of dollars and lots of tears."
+    },
+    {
+        "id": "cpacc-d3-09",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "Evaluating with People with Disabilities",
+        "type": "true_false",
+        "difficulty": "medium",
+        "question": "True or False: If an automated scanner (like Lighthouse or Axe-core) reports 0 accessibility errors, your digital product is guaranteed to be 100% accessible to all users with disabilities.",
+        "choices": [
+            {"id": "A", "text": "True - Automated tools detect every accessibility issue flawlessly", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "False - Automated tools only detect roughly 30% to 40% of WCAG criteria; manual & user testing is mandatory", "shape": "diamond", "isCorrect": True}
+        ],
+        "explanation": "Automated checkers cannot determine whether alt text is meaningful, whether keyboard navigation order makes logical sense, or whether custom widgets operate properly with screen readers.",
+        "cpaccRef": "Domain Three F: Include people with disabilities in evaluations",
+        "funNote": "A scanner sees `alt='image of stuff'` and gives a gold star. A human sees that and weeps."
+    },
+    {
+        "id": "cpacc-d3-10",
+        "domain": 3,
+        "domainName": "Standards, Laws, and Management Strategies",
+        "topic": "Organizational Culture & Governance",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Which of the following is considered an organizational best practice for sustaining a culture of accessibility?",
+        "choices": [
+            {"id": "A", "text": "Designating a single unpaid intern to be the 'Accessibility Department'", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Establishing an Accessibility Champions Network and leadership governance", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Hiding accessibility tickets in the backlog under 'Technical Debt (Never Read)'", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Relying on an AI overlay widget to slap on top of broken HTML", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Grassroots champion networks paired with executive sponsorship and clear governance ensure accessibility knowledge is shared across design, engineering, product, and QA.",
+        "cpaccRef": "Domain Three F: Integrating ICT Accessibility Across the Organization",
+        "funNote": "Champions networks spread knowledge faster than office gossip on Friday afternoon!"
+    },
+
+    # ==========================================
+    # CREATIVE & BONUS WORKPLACE SCENARIOS
+    # ==========================================
+    {
+        "id": "cpacc-bonus-01",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "Creative Scenario: Overlays",
+        "type": "creative",
+        "difficulty": "medium",
+        "question": "A sales rep promises your VP: 'Just copy/paste this one line of JavaScript widget overlay and your broken site instantly becomes 100% ADA compliant with AI magic!' What is the industry consensus?",
+        "choices": [
+            {"id": "A", "text": "Sign the contract immediately; technology has solved everything!", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Run away! Overlays cannot repair fundamental DOM/semantic architecture and often create worse barriers for real assistive tech users", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Only use it if it has at least 3 sparkles in the logo", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Overlays are required by federal law in 48 states", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "Overlays do not fix underlying source code defects, cannot fix custom canvas/webgl components, interfere with screen reader preferences, and have been the target of hundreds of lawsuits.",
+        "cpaccRef": "Domain Three E & Two C: Real vs Superficial Remediation",
+        "funNote": "Overlays are like painting over structural mold in a house: looks shiny for 5 minutes until the roof caves in."
+    },
+    {
+        "id": "cpacc-bonus-02",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Creative Scenario: Screen Magnification",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "A user with low vision zooms in at 400% magnification. What web layout failure causes the dreaded 'horizontal straw' effect?",
+        "choices": [
+            {"id": "A", "text": "Responsive reflow (content wraps into a single vertical column)", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Fixed-width containers that force two-dimensional scrolling (both horizontal and vertical panning)", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Dark mode activation", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Using SVG vector icons", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "WCAG 2.1 SC 1.4.10 (Reflow) requires that content can be zoomed up to 400% on a 1280px wide screen without requiring horizontal scrolling (except for maps or data tables).",
+        "cpaccRef": "Domain One B & Two C: Visual Disabilities and Reflow",
+        "funNote": "Reading a sentence while scrolling left, right, left, right is like watching a tennis match through a paper towel tube."
+    },
+    {
+        "id": "cpacc-bonus-03",
+        "domain": 2,
+        "domainName": "Accessibility and Universal Design",
+        "topic": "Creative Scenario: Focus Indicators",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "A designer removes the keyboard focus outline with CSS `*:focus { outline: none; }` because 'the blue box is ugly'. What did they just do?",
+        "choices": [
+            {"id": "A", "text": "Achieved minimalist Scandinavian Zen design perfection", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "Blinded every keyboard-only user on the planet as to where their cursor is", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "Saved 4 kilobytes of CSS bandwidth", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "Passed WCAG Level AAA with distinction", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "WCAG 2.4.7 (Focus Visible) and WCAG 2.2 2.4.11 (Focus Appearance) require that keyboard focus must be clearly visible. Killing focus outline with no replacement makes keyboard navigation impossible.",
+        "cpaccRef": "Domain Two C: WCAG 2.4.7 Focus Visible",
+        "funNote": "Taking away focus rings from keyboard users is like taking away the mouse pointer from mouse users!"
+    },
+    {
+        "id": "cpacc-bonus-04",
+        "domain": 1,
+        "domainName": "Disabilities, Challenges & Assistive Technologies",
+        "topic": "Sensory Overload & Vestibular",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "What CSS media query allows websites to turn off wild parallax swooshes, flying modals, and spinning graphics for users with vestibular disorders?",
+        "choices": [
+            {"id": "A", "text": "`@media (prefers-calm: true)`", "shape": "triangle", "isCorrect": False},
+            {"id": "B", "text": "`@media (prefers-reduced-motion: reduce)`", "shape": "diamond", "isCorrect": True},
+            {"id": "C", "text": "`@media (motion-sickness: disable)`", "shape": "circle", "isCorrect": False},
+            {"id": "D", "text": "`@media (stop-spinning: please)`", "shape": "square", "isCorrect": False}
+        ],
+        "explanation": "`prefers-reduced-motion` is standard CSS supported across all modern browsers and operating systems to respect users who experience nausea or dizziness from motion.",
+        "cpaccRef": "Domain One B: Vestibular and Motion Barriers",
+        "funNote": "Parallax looks cool until a user has to lie down on the floor to stop the room from spinning!"
+    }
+]
+
+print(f"Total curated questions: {len(questions)}")
+with open('data/questions.json', 'w', encoding='utf-8') as f:
+    json.dump(questions, f, indent=2)
+print("Successfully generated data/questions.json!")
