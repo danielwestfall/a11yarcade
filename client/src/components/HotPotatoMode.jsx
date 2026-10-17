@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import {
   Users,
@@ -55,15 +55,20 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
   const [isDelegate, setIsDelegate] = useState(false);
   const [delegateSlot, setDelegateSlot] = useState(null); // 'A' or 'B'
 
+  const playersRef = useRef(players);
+  useEffect(() => {
+    playersRef.current = players;
+  }, [players]);
+
   useEffect(() => {
     if (!socket) return;
 
-    socket.on('player-list-update', (updatedPlayers) => {
+    const handlePlayerList = (updatedPlayers) => {
       setPlayers(updatedPlayers);
-    });
+    };
 
     // 1. Teaser Event
-    socket.on('hp-teaser', (data) => {
+    const handleTeaser = (data) => {
       setTeaserData(data);
       setGameState('TEASER');
       setTimerLeft(data.decisionTimeLimit);
@@ -80,10 +85,10 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
 
       soundManager.playTick(1);
       setLiveAnnouncement(`Hot Seat: ${data.activePlayer.nickname}. Concept: ${data.conceptHeader}.`);
-    });
+    };
 
     // Timer tick
-    socket.on('timer-tick', ({ timeLeft }) => {
+    const handleTimerTick = ({ timeLeft }) => {
       setTimerLeft(timeLeft);
       if (timeLeft <= 5 && timeLeft > 0) {
         soundManager.playTick(2);
@@ -91,19 +96,19 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
           setLiveAnnouncement('5 seconds remaining!');
         }
       }
-    });
+    };
 
     // 2. Solo Started
-    socket.on('hp-solo-started', (data) => {
+    const handleSoloStarted = (data) => {
       setQuestionData(data.question);
       setTimerLeft(data.timeLimit);
       setGameState('SOLO_QUESTION');
       soundManager.playTick(1);
       setLiveAnnouncement(`Solo Answer Phase. Active player is answering.`);
-    });
+    };
 
     // 3. Delegates Drafted
-    socket.on('hp-delegates-drafted', (data) => {
+    const handleDelegatesDrafted = (data) => {
       setDelegatesData(data);
       setQuestionData(data.question);
       setTimerLeft(data.timeLimit);
@@ -121,9 +126,9 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
       let ticks = 0;
       const interval = setInterval(() => {
         ticks++;
-        const pList = players.length > 0 ? players : [data.delegateA, data.delegateB].filter(Boolean);
-        const randA = pList[Math.floor(Math.random() * pList.length)]?.nickname || '???';
-        const randB = pList[Math.floor(Math.random() * pList.length)]?.nickname || '???';
+        const currentList = playersRef.current.length > 0 ? playersRef.current : [data.delegateA, data.delegateB].filter(Boolean);
+        const randA = currentList[Math.floor(Math.random() * currentList.length)]?.nickname || '???';
+        const randB = currentList[Math.floor(Math.random() * currentList.length)]?.nickname || '???';
         setDisplayDelegateNames({ a: randA, b: randB });
 
         if (ticks >= 12) {
@@ -138,10 +143,10 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
           setLiveAnnouncement(`Delegates drafted: ${data.delegateA?.nickname} and ${data.delegateB?.nickname || 'None'}.`);
         }
       }, 100);
-    });
+    };
 
     // 4. Settlement
-    socket.on('hp-round-settlement', (data) => {
+    const handleSettlement = (data) => {
       setSettlementData(data);
       setLeaderboard(data.leaderboard);
       setGameState('SETTLEMENT');
@@ -162,27 +167,35 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
         soundManager.playTick(1);
         setLiveAnnouncement(`1 out of 2 correct.`);
       }
-    });
+    };
 
     // 5. Game Finished
-    socket.on('game-finished', ({ podium, allPlayers }) => {
+    const handleGameFinished = ({ podium, allPlayers }) => {
       setPodiumData(podium);
       setLeaderboard(allPlayers);
       setGameState('PODIUM');
       soundManager.playFanfare();
       confetti({ particleCount: 150, spread: 90 });
-    });
+    };
+
+    socket.on('player-list-update', handlePlayerList);
+    socket.on('hp-teaser', handleTeaser);
+    socket.on('timer-tick', handleTimerTick);
+    socket.on('hp-solo-started', handleSoloStarted);
+    socket.on('hp-delegates-drafted', handleDelegatesDrafted);
+    socket.on('hp-round-settlement', handleSettlement);
+    socket.on('game-finished', handleGameFinished);
 
     return () => {
-      socket.off('player-list-update');
-      socket.off('hp-teaser');
-      socket.off('timer-tick');
-      socket.off('hp-solo-started');
-      socket.off('hp-delegates-drafted');
-      socket.off('hp-round-settlement');
-      socket.off('game-finished');
+      socket.off('player-list-update', handlePlayerList);
+      socket.off('hp-teaser', handleTeaser);
+      socket.off('timer-tick', handleTimerTick);
+      socket.off('hp-solo-started', handleSoloStarted);
+      socket.off('hp-delegates-drafted', handleDelegatesDrafted);
+      socket.off('hp-round-settlement', handleSettlement);
+      socket.off('game-finished', handleGameFinished);
     };
-  }, [socket, players]);
+  }, [socket]);
 
   // Keyboard navigation for answers
   useEffect(() => {

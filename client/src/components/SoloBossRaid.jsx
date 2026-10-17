@@ -136,10 +136,15 @@ export default function SoloBossRaid({ onBack }) {
       setShields(prev => {
         const updated = { ...prev };
         if (updated[shieldKey] && updated[shieldKey].hp > 0) {
+          const remainingShieldHp = updated[shieldKey].hp;
+          const overflowDmg = Math.max(0, dmg - remainingShieldHp);
           const nextShieldHp = Math.max(0, updated[shieldKey].hp - dmg);
           updated[shieldKey] = { ...updated[shieldKey], hp: nextShieldHp };
           if (nextShieldHp === 0) {
             shieldShattered = true;
+            if (overflowDmg > 0) {
+              setBossHp(b => Math.max(0, b - overflowDmg));
+            }
             setTimeout(() => soundManager.playShieldBreak(), 250);
           }
         } else {

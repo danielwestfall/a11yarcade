@@ -11,8 +11,8 @@
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-muted: #87929a;
-  --border-color: #334155;
-  --border-bright: #64748b;
+  --border-color: #55657e; /* 3.25:1 contrast against #090d16 (meets WCAG 2.2 SC 1.4.11) */
+  --border-bright: #71839e;
   
   /* Electric Yellow Dedicated Accessibility Halo (12:1 Contrast) */
   --focus-ring: #facc15;
@@ -824,7 +824,6 @@ body {
   border: 2px solid var(--border-color);
   padding: 1.5rem;
   box-shadow: 6px 6px 0px 0px #040810;
-  overflow: hidden;
 }
 
 .cadet-card {

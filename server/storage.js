@@ -219,6 +219,14 @@ export const gameStorage = {
     return { success: true, isNew: false, user: { nickname: existing.nickname, avatar: existing.avatar } };
   },
 
+  // Check if a nickname is already registered in the DB
+  isUserRegistered(nickname) {
+    const db = loadData();
+    if (!db.users) return false;
+    const clean = (nickname || '').trim().toLowerCase();
+    return !!db.users[clean];
+  },
+
   // Retrieve user summary stats
   getUserProfile(nickname, pin) {
     const db = loadData();

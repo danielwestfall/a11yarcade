@@ -209,6 +209,7 @@ io.on('connection', (socket) => {
       },
       status: 'LOBBY',
       players: new Map(),
+      disconnectedPlayers: new Map(),
       questions: chosenQuestions,
       currentQuestionIndex: -1,
       timer: null,
@@ -388,11 +389,14 @@ io.on('connection', (socket) => {
     if (!room) {
       return callback && callback({ success: false, error: 'Room not found. Check the PIN code!' });
     }
-    if (room.status !== 'LOBBY') {
-      return callback && callback({ success: false, error: 'Game is already in progress!' });
-    }
 
     const cleanNick = (nickname || 'Anonymous Player').trim().slice(0, 18);
+
+    // Finding 2: If nickname is registered in DB, require valid userPin
+    const isRegistered = gameStorage.isUserRegistered(cleanNick);
+    if (isRegistered && !userPin) {
+      return callback && callback({ success: false, error: `Nickname "${cleanNick}" is registered. 4-digit PIN required.` });
+    }
 
     // Option B: Check Passcode verification if userPin provided
     if (userPin) {
@@ -400,6 +404,59 @@ io.on('connection', (socket) => {
       if (!authResult.success) {
         return callback && callback({ success: false, error: authResult.error });
       }
+    }
+
+    // Finding 1: Check if player is reconnecting with an existing session in this active room
+    const reconnectedEntry = room.disconnectedPlayers?.get(cleanNick.toLowerCase());
+    const isReconnecting = userPin && reconnectedEntry;
+
+    if (room.status !== 'LOBBY' && !isReconnecting) {
+      return callback && callback({ success: false, error: 'Game is already in progress!' });
+    }
+
+    if (isReconnecting) {
+      const restoredPlayer = reconnectedEntry.player;
+      restoredPlayer.id = socket.id;
+      if (avatar) restoredPlayer.avatar = avatar;
+
+      room.players.set(socket.id, restoredPlayer);
+      room.disconnectedPlayers.delete(cleanNick.toLowerCase());
+
+      socket.join(cleanPin);
+      socket.data.isPlayer = true;
+      socket.data.roomPin = cleanPin;
+
+      console.log(`Player ${cleanNick} reconnected to room ${cleanPin} (Mode: ${room.gameMode})`);
+
+      io.to(cleanPin).emit('player-list-update', Array.from(room.players.values()));
+
+      if (callback) {
+        callback({
+          success: true,
+          pin: cleanPin,
+          reconnected: true,
+          gameMode: room.gameMode,
+          status: room.status,
+          player: restoredPlayer,
+          players: Array.from(room.players.values())
+        });
+      }
+
+      // Re-emit active question if in classic mode
+      if (room.gameMode === 'CLASSIC' && room.status === 'QUESTION') {
+        const q = room.questions[room.currentQuestionIndex];
+        if (q) {
+          socket.emit('question-started', {
+            questionIndex: room.currentQuestionIndex,
+            totalQuestions: room.questions.length,
+            question: sanitizeQuestionForPlayers(q),
+            timeLimit: room.timeLeft,
+            answeredCount: room.answersThisRound.size,
+            totalPlayers: room.players.size
+          });
+        }
+      }
+      return;
     }
 
     let finalNick = cleanNick;
@@ -1418,7 +1475,7 @@ io.on('connection', (socket) => {
         chipDelta = -wager;
         p.chips = Math.max(0, p.chips - wager);
         if (p.chips <= 0) {
-          p.chips = 100; // Bailout safety loan
+          p.chips = 250; // Bailout safety loan (250 chips)
           bailoutAwarded = true;
         }
         p.score = p.chips;
@@ -2005,9 +2062,10 @@ io.on('connection', (socket) => {
     if (callback) callback({ success: true, remainingAP: player.ap });
 
     // Standup 45s countdown timer
-    let standupTimer = setInterval(() => {
+    if (room.saboteur.standupTimer) clearInterval(room.saboteur.standupTimer);
+    room.saboteur.standupTimer = setInterval(() => {
       if (!room.saboteur.activeStandup) {
-        clearInterval(standupTimer);
+        clearInterval(room.saboteur.standupTimer);
         return;
       }
 
@@ -2015,7 +2073,7 @@ io.on('connection', (socket) => {
       io.to(room.pin).emit('sab-standup-tick', { timeLeft: room.saboteur.activeStandup.timeLeft });
 
       if (room.saboteur.activeStandup.timeLeft <= 0) {
-        clearInterval(standupTimer);
+        clearInterval(room.saboteur.standupTimer);
         settleEmergencyStandup(room);
       }
     }, 1000);
@@ -2045,6 +2103,7 @@ io.on('connection', (socket) => {
   });
 
   function settleEmergencyStandup(room) {
+    if (room.saboteur.standupTimer) clearInterval(room.saboteur.standupTimer);
     if (!room.saboteur.activeStandup) return;
 
     const votes = room.saboteur.activeStandup.votes;
@@ -2661,9 +2720,14 @@ io.on('connection', (socket) => {
       }) || 'procurement';
 
       if (br.shields[shieldKey] && br.shields[shieldKey].hp > 0) {
+        const remainingShieldHp = br.shields[shieldKey].hp;
+        const overflowDmg = Math.max(0, dmgDealt - remainingShieldHp);
         br.shields[shieldKey].hp = Math.max(0, br.shields[shieldKey].hp - dmgDealt);
         if (br.shields[shieldKey].hp === 0) {
           shieldShattered = true;
+          if (overflowDmg > 0) {
+            br.bossHp = Math.max(0, br.bossHp - overflowDmg);
+          }
         }
       } else {
         br.bossHp = Math.max(0, br.bossHp - dmgDealt);
@@ -2960,6 +3024,8 @@ io.on('connection', (socket) => {
       console.log(`Host disconnected from room ${pin}`);
       io.to(pin).emit('host-disconnected');
       if (room.timer) clearInterval(room.timer);
+      if (room.saboteur?.standupTimer) clearInterval(room.saboteur.standupTimer);
+      if (room.boundaryBrawl?.activeChallenge?.timer) clearInterval(room.boundaryBrawl.activeChallenge.timer);
       for (const p of room.players.values()) {
         if (p.pitTimer) clearInterval(p.pitTimer);
       }
@@ -2967,7 +3033,18 @@ io.on('connection', (socket) => {
     } else if (socket.data.isPlayer) {
       console.log(`Player ${socket.id} left room ${pin}`);
       const player = room.players.get(socket.id);
-      if (player && player.pitTimer) clearInterval(player.pitTimer);
+      if (player) {
+        if (player.pitTimer) clearInterval(player.pitTimer);
+
+        // Finding 1: Preserve session for reconnection if game is in progress
+        if (room.status !== 'LOBBY') {
+          if (!room.disconnectedPlayers) room.disconnectedPlayers = new Map();
+          room.disconnectedPlayers.set(player.nickname.toLowerCase(), {
+            player,
+            disconnectTime: Date.now()
+          });
+        }
+      }
 
       room.players.delete(socket.id);
       room.answersThisRound.delete(socket.id);

@@ -125,7 +125,7 @@ export default function SoloHighRoller({ onBack }) {
       userDelta = -myWager;
       newUserChips = Math.max(0, newUserChips - myWager);
       if (newUserChips <= 0) {
-        newUserChips = 100;
+        newUserChips = 250;
         userBailout = true;
       }
     }
@@ -143,7 +143,7 @@ export default function SoloHighRoller({ onBack }) {
         bDelta = -b.currentWager;
         newBChips = Math.max(0, newBChips - b.currentWager);
         if (newBChips <= 0) {
-          newBChips = 100;
+          newBChips = 250;
           bBailout = true;
         }
       }

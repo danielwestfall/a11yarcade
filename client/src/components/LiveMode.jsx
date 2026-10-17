@@ -547,9 +547,10 @@ export default function LiveMode() {
   };
 
   // ==========================================
-  // VIEW 1: Role & Station Selection (Stitch Neo-Arcade Hero)
+  // VIEW RENDERER (Wrapped in Root Accessible Status Region)
   // ==========================================
-  if (!role) {
+  const renderViewContent = () => {
+    if (!role) {
     const activeCabinet = ARCADE_CABINETS.find(c => c.id === hostSettings.gameMode) || ARCADE_CABINETS[0];
 
     return (
@@ -1523,7 +1524,7 @@ export default function LiveMode() {
             </div>
 
             {/* Explanation Box */}
-            <div className="explanation-box" style={{ marginTop: '1.5rem' }}>
+            <div className="explanation-box" tabIndex={0} role="region" aria-label="CPACC Explanation and Reference" style={{ marginTop: '1.5rem' }}>
               <strong>CPACC Explanation:</strong> {q.explanation}
               <div style={{ marginTop: '0.4rem', fontSize: '0.85rem', color: '#94a3b8' }}>
                 Ref: {q.cpaccRef}
@@ -1909,10 +1910,6 @@ export default function LiveMode() {
     if (playerState === 'QUESTION') {
       return (
         <div style={{ maxWidth: '540px', margin: '0 auto', width: '100%' }}>
-          <div className="sr-only" role="status" aria-live="polite">
-            {liveAnnouncement}
-          </div>
-
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', color: 'var(--text-secondary)' }}>
             <span>Question in progress...</span>
             {timerLeft > 0 && <span style={{ fontWeight: 800, color: '#38bdf8' }}>{timerLeft}s remaining</span>}
@@ -2055,5 +2052,15 @@ export default function LiveMode() {
     }
   }
 
-  return null;
+    return null;
+  };
+
+  return (
+    <>
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {liveAnnouncement}
+      </div>
+      {renderViewContent()}
+    </>
+  );
 }

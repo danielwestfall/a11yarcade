@@ -42,7 +42,7 @@ export default function FlawFinderMode({ socket, role, roomPin, onLeave }) {
   useEffect(() => {
     if (!socket) return;
 
-    socket.on('ff-round-started', (data) => {
+    const handleRoundStarted = (data) => {
       setCurrentScenario(data.scenario);
       setScenarioIndex(data.scenarioIndex);
       setTotalScenarios(data.totalScenarios);
@@ -61,9 +61,9 @@ export default function FlawFinderMode({ socket, role, roomPin, onLeave }) {
 
       soundManager.playTick(1);
       setLiveAnnouncement(`New Scenario: ${data.scenario.title}. Scan the document and find the critical flaw.`);
-    });
+    };
 
-    socket.on('timer-tick', ({ timeLeft }) => {
+    const handleTimerTick = ({ timeLeft }) => {
       setTimerLeft(timeLeft);
       if (timeLeft <= 5 && timeLeft > 0) {
         soundManager.playTick(2);
@@ -71,14 +71,14 @@ export default function FlawFinderMode({ socket, role, roomPin, onLeave }) {
           setLiveAnnouncement('5 seconds remaining to lock in your snipe!');
         }
       }
-    });
+    };
 
-    socket.on('ff-snipe-count', ({ snipesLocked: locked, totalPlayers: total }) => {
+    const handleSnipeCount = ({ snipesLocked: locked, totalPlayers: total }) => {
       setSnipesLocked(locked);
       if (typeof total === 'number') setTotalPlayers(total);
-    });
+    };
 
-    socket.on('ff-heatmap-reveal', (data) => {
+    const handleHeatmapReveal = (data) => {
       setRevealData(data);
       setLeaderboard(data.leaderboard);
       setStage('HEATMAP');
@@ -98,9 +98,9 @@ export default function FlawFinderMode({ socket, role, roomPin, onLeave }) {
       } else {
         soundManager.playClick();
       }
-    });
+    };
 
-    socket.on('ff-game-finished', ({ podium, allPlayers }) => {
+    const handleGameFinished = ({ podium, allPlayers }) => {
       setPodiumData(podium);
       setLeaderboard(allPlayers);
       setStage('PODIUM');
@@ -111,14 +111,20 @@ export default function FlawFinderMode({ socket, role, roomPin, onLeave }) {
       if (!isReducedMotion && typeof confetti === 'function') {
         confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
       }
-    });
+    };
+
+    socket.on('ff-round-started', handleRoundStarted);
+    socket.on('timer-tick', handleTimerTick);
+    socket.on('ff-snipe-count', handleSnipeCount);
+    socket.on('ff-heatmap-reveal', handleHeatmapReveal);
+    socket.on('ff-game-finished', handleGameFinished);
 
     return () => {
-      socket.off('ff-round-started');
-      socket.off('timer-tick');
-      socket.off('ff-snipe-count');
-      socket.off('ff-heatmap-reveal');
-      socket.off('ff-game-finished');
+      socket.off('ff-round-started', handleRoundStarted);
+      socket.off('timer-tick', handleTimerTick);
+      socket.off('ff-snipe-count', handleSnipeCount);
+      socket.off('ff-heatmap-reveal', handleHeatmapReveal);
+      socket.off('ff-game-finished', handleGameFinished);
     };
   }, [socket]);
 

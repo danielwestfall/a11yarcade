@@ -82,7 +82,7 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
     soundManager.setVolume(preferences.soundVolume);
   }, [preferences]);
 
-  // Pointer tracking for reading ruler
+  // Pointer and keyboard focus tracking for reading ruler
   useEffect(() => {
     if (!preferences.readingRuler) return;
 
@@ -90,8 +90,19 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
       setRulerTop(e.clientY - 22);
     };
 
+    const handleFocusIn = (e) => {
+      if (e.target && typeof e.target.getBoundingClientRect === 'function') {
+        const rect = e.target.getBoundingClientRect();
+        setRulerTop(rect.top + rect.height / 2 - 22);
+      }
+    };
+
     window.addEventListener('pointermove', handlePointerMove);
-    return () => window.removeEventListener('pointermove', handlePointerMove);
+    window.addEventListener('focusin', handleFocusIn);
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('focusin', handleFocusIn);
+    };
   }, [preferences.readingRuler]);
 
   // Global hotkeys (Alt+A for menu, M for sound, H for theme, R for motion)

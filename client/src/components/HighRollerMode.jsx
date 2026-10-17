@@ -46,7 +46,7 @@ export default function HighRollerMode({ socket, role, roomPin, onLeave }) {
     if (!socket) return;
 
     // Teaser revealed
-    socket.on('hr-teaser', (data) => {
+    const handleTeaser = (data) => {
       setTeaserData(data);
       setStage('HR_TEASER');
       setTimeLeft(data.timeLimit || 15);
@@ -66,24 +66,24 @@ export default function HighRollerMode({ socket, role, roomPin, onLeave }) {
       }
 
       soundManager.playTick(1);
-    });
+    };
 
     // Timer tick
-    socket.on('timer-tick', ({ timeLeft }) => {
+    const handleTimerTick = ({ timeLeft }) => {
       setTimeLeft(timeLeft);
       if (timeLeft <= 5 && timeLeft > 0) {
         soundManager.playTick(2);
       }
-    });
+    };
 
     // Wager updates count
-    socket.on('hr-wager-update', (data) => {
+    const handleWagerUpdate = (data) => {
       setWagersPlacedCount(data.totalWagersPlaced);
       setTotalPlayers(data.totalPlayers);
-    });
+    };
 
     // Full question started
-    socket.on('hr-question-started', (data) => {
+    const handleQuestionStarted = (data) => {
       setQuestionData(data);
       setStage('HR_QUESTION');
       setTimeLeft(data.timeLimit || 30);
@@ -98,10 +98,10 @@ export default function HighRollerMode({ socket, role, roomPin, onLeave }) {
           if (me.wager) setSelectedWager(me.wager);
         }
       }
-    });
+    };
 
     // Round settlement
-    socket.on('hr-round-settlement', (data) => {
+    const handleRoundSettlement = (data) => {
       setSettlementData(data);
       setStage('HR_REVEAL');
 
@@ -115,10 +115,10 @@ export default function HighRollerMode({ socket, role, roomPin, onLeave }) {
       if (me) {
         setMyChips(me.chips);
       }
-    });
+    };
 
     // Final podium
-    socket.on('hr-game-finished', ({ podium, allPlayers }) => {
+    const handleGameFinished = ({ podium, allPlayers }) => {
       setPodiumData(podium);
       setStage('HR_PODIUM');
       soundManager.playFanfare();
@@ -128,15 +128,22 @@ export default function HighRollerMode({ socket, role, roomPin, onLeave }) {
       if (!isReducedMotion) {
         confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
       }
-    });
+    };
+
+    socket.on('hr-teaser', handleTeaser);
+    socket.on('timer-tick', handleTimerTick);
+    socket.on('hr-wager-update', handleWagerUpdate);
+    socket.on('hr-question-started', handleQuestionStarted);
+    socket.on('hr-round-settlement', handleRoundSettlement);
+    socket.on('hr-game-finished', handleGameFinished);
 
     return () => {
-      socket.off('hr-teaser');
-      socket.off('timer-tick');
-      socket.off('hr-wager-update');
-      socket.off('hr-question-started');
-      socket.off('hr-round-settlement');
-      socket.off('hr-game-finished');
+      socket.off('hr-teaser', handleTeaser);
+      socket.off('timer-tick', handleTimerTick);
+      socket.off('hr-wager-update', handleWagerUpdate);
+      socket.off('hr-question-started', handleQuestionStarted);
+      socket.off('hr-round-settlement', handleRoundSettlement);
+      socket.off('hr-game-finished', handleGameFinished);
     };
   }, [socket]);
 
