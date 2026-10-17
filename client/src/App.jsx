@@ -554,16 +554,7 @@ export default function App() {
             )}
 
             {soloSubMode === 'CLASSIC' && (
-              <div>
-                <button
-                  type="button"
-                  onClick={() => setSoloSubMode('MENU')}
-                  style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 700, marginBottom: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
-                >
-                  ← Back to Solo Hub
-                </button>
-                <PracticeMode />
-              </div>
+              <PracticeMode onBack={() => setSoloSubMode('MENU')} />
             )}
 
             {soloSubMode === 'HOT_POTATO' && (

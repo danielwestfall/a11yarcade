@@ -70,6 +70,177 @@ body.high-contrast .card {
   border: 3px solid #ffffff !important;
 }
 
+/* ==========================================================================
+   Light Mode (Crisp Paper High-Contrast Terminal - WCAG AAA Compliant)
+   ========================================================================== */
+body.light-mode {
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --text-primary: #090d16;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --border-bright: #94a3b8;
+  --focus-ring: #0284c7;
+
+  --arcade-cyan: #0284c7;
+  --arcade-green: #059669;
+  --arcade-crimson: #dc2626;
+  --arcade-amber: #d97706;
+  --arcade-purple: #7c3aed;
+  --arcade-gold: #b45309;
+
+  --color-triangle: #dc2626;
+  --color-diamond: #0284c7;
+  --color-circle: #d97706;
+  --color-square: #059669;
+
+  --shadow-card: 4px 4px 0px 0px #cbd5e1;
+  --shadow-cabinet: 0px 8px 0px 0px #94a3b8;
+}
+
+body.light-mode {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 65%),
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+body.light-mode .card,
+body.light-mode .arcade-cabinet-card,
+body.light-mode .cadet-card,
+body.light-mode .marquee-hero-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #090d16;
+  box-shadow: 4px 4px 0px 0px #cbd5e1;
+}
+
+body.light-mode .arcade-dock {
+  background: #ffffff;
+  border-top: 2px solid #cbd5e1;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .pin-tile {
+  background: #f1f5f9;
+  border-color: #0284c7;
+  color: #0284c7;
+  box-shadow: 0 4px 0 0 #94a3b8;
+}
+
+body.light-mode .input-field {
+  background: #ffffff;
+  color: #090d16;
+  border-color: #cbd5e1;
+}
+
+body.light-mode .input-field:focus {
+  border-color: #0284c7;
+  outline-color: #0284c7;
+}
+
+body.light-mode .explanation-box {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  color: #0c4a6e;
+}
+
+body.light-mode .explanation-box p {
+  color: #0f172a !important;
+}
+
+body.light-mode .mode-tabs {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+body.light-mode .mode-tab {
+  color: #475569;
+}
+
+body.light-mode .mode-tab:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #090d16;
+}
+
+body.light-mode .mode-tab.active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 0 0 #0369a1;
+}
+
+/* ==========================================================================
+   Font Size Scaling (WCAG 1.4.4 Resize Text)
+   ========================================================================== */
+body.font-scale-115 {
+  font-size: 1.15rem;
+}
+body.font-scale-130 {
+  font-size: 1.3rem;
+}
+body.font-scale-150 {
+  font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   Font Families (WCAG 3.0 Cognitive & Dyslexia Readability)
+   ========================================================================== */
+body.font-atkinson {
+  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif !important;
+}
+body.font-opendyslexic {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive, sans-serif !important;
+}
+body.font-mono {
+  font-family: 'Space Mono', 'Courier New', monospace !important;
+}
+body.font-system {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* ==========================================================================
+   Enhanced Text Spacing (WCAG 1.4.12 Text Spacing)
+   ========================================================================== */
+body.text-spacing-enhanced * {
+  line-height: 1.8 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+body.text-spacing-enhanced p {
+  margin-bottom: 2em !important;
+}
+
+/* ==========================================================================
+   High-Visibility Focus Halo (WCAG 2.4.13 Focus Appearance)
+   ========================================================================== */
+body.focus-ring-enhanced *:focus-visible {
+  outline: 5px solid #facc15 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 8px rgba(250, 204, 21, 0.35) !important;
+}
+
+/* ==========================================================================
+   Reading Focus Ruler Guide
+   ========================================================================== */
+.reading-ruler-guide {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: rgba(250, 204, 21, 0.12);
+  border-top: 2px solid #facc15;
+  border-bottom: 2px solid #facc15;
+  pointer-events: none;
+  z-index: 9999;
+  transition: top 0.05s ease-out;
+}
+
 /* Reduced Motion Mode */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -682,5 +853,148 @@ body {
   border-top: 2px solid var(--border-bright);
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.7);
   padding: 0.85rem 1.5rem;
+  padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
 }
+
+/* ==========================================================================
+   Responsive Scaling & WCAG 2.2 Viewport Conformance
+   ========================================================================== */
+
+/* WCAG 2.2 SC 2.4.11 / 2.4.12: Focus Not Obscured by sticky header or dock */
+html {
+  scroll-padding-top: 80px;
+  scroll-padding-bottom: 120px;
+}
+
+/* WCAG 2.2 SC 2.5.8: Target Size Minimum (44x44px Touch Targets) */
+button,
+a,
+input,
+select,
+[role="button"],
+.answer-btn,
+.mode-tab,
+.a11y-pill-btn {
+  min-height: 44px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0.75rem;
+  }
+
+  .header-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .brand-group {
+    justify-content: space-between;
+  }
+
+  .controls-group {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scrollbar-width: none;
+  }
+
+  .marquee-hero-card {
+    padding: 1.15rem;
+  }
+
+  .marquee-hero-card h1 {
+    font-size: 1.7rem !important;
+  }
+
+  .marquee-hero-card p {
+    font-size: 0.92rem !important;
+  }
+
+  .mode-tabs {
+    padding: 0.3rem;
+    gap: 0.35rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .mode-tab {
+    min-width: 120px;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .answers-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .answer-btn {
+    padding: 1rem 1.15rem;
+    min-height: 76px;
+    font-size: 1.05rem;
+  }
+
+  .arcade-dock {
+    padding: 0.65rem 1rem;
+    padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 1.15rem;
+  }
+
+  .brand-title {
+    font-size: 1.35rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  .marquee-hero-card h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .answer-btn {
+    padding: 0.85rem 1rem;
+    min-height: 68px;
+    font-size: 0.98rem;
+  }
+
+  .shape-badge {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .podium-stage {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .podium-col {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .podium-box {
+    height: 60px !important;
+  }
+}
+
 

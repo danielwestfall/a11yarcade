@@ -590,6 +590,48 @@
       "explanation": "An undue burden defense relieves an entity from the specific cost-prohibitive modification, but DOES NOT excuse them from providing alternative auxiliary aids or accommodations that ensure equal access.",
       "funNote": "Targeted Sentence: \"Apex State University is committed to providing eq...\"",
       "cpaccRef": "CPACC BoK Domain 3: Legal Mandates, ADA Title II & Section 504 Alternative Access Obligations"
+    },
+    {
+      "timestamp": "2026-10-17T01:54:15.361Z",
+      "nickname": "Speedy Sam",
+      "questionId": "cpacc-d3-09",
+      "questionText": "True or False: If an automated scanner (like Lighthouse or Axe-core) reports 0 accessibility errors, your digital product is guaranteed to be 100% accessible to all users with disabilities.",
+      "topic": "Evaluating with People with Disabilities",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Automated checkers cannot determine whether alt text is meaningful, whether keyboard navigation order makes logical sense, or whether custom widgets operate properly with screen readers.",
+      "funNote": "A scanner sees `alt='image of stuff'` and gives a gold star. A human sees that and weeps.",
+      "cpaccRef": "Domain Three F: Include people with disabilities in evaluations"
+    },
+    {
+      "timestamp": "2026-10-17T01:54:15.525Z",
+      "nickname": "Dan The Man",
+      "questionId": "cpacc-d3-03",
+      "questionText": "What is the primary mandate of Section 508 of the US Rehabilitation Act of 1973?",
+      "topic": "US Rehabilitation Act - Section 508",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Section 508 mandates that federal agencies develop, procure, maintain, and use ICT that is accessible to federal employees and members of the public with disabilities.",
+      "funNote": "If you want to sell software to the US government, Section 508 is your golden ticket (or barrier to entry).",
+      "cpaccRef": "Domain Three D: Procurement Laws & Section 508"
+    },
+    {
+      "timestamp": "2026-10-17T01:54:15.555Z",
+      "nickname": "Auditor Alex",
+      "questionId": "flaw-02-3",
+      "questionText": "Vendor VPAT & Section 508 Procurement Statement: A commercial SaaS vendor submits an Accessibility Conformance Report (ACR) to bid on a federal agency IT contract. Spot the procurement misstatement.",
+      "topic": "Revised Section 508 & COTS Software Coverage",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Section 508 applies directly to federal agency procurement of Commercial Off-The-Shelf (COTS) software. There is no 'Best-Efforts Safe Harbor' exempting COTS.",
+      "funNote": "Targeted Sentence: \"CloudSync Enterprise publishes Voluntary Product A...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Revised Section 508 Federal Procurement & Standards (COTS Coverage)"
     }
   ],
   "users": {
@@ -598,7 +640,7 @@
       "avatar": "🦉",
       "pin": "1234",
       "createdAt": "2026-10-17T00:28:20.168Z",
-      "lastActive": "2026-10-17T01:47:41.667Z"
+      "lastActive": "2026-10-17T01:54:15.026Z"
     }
   }
 }
