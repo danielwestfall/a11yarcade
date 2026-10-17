@@ -565,3 +565,122 @@ body {
   background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
   border: 2px solid #f59e0b;
 }
+
+/* ==========================================================================
+   Stitch Arcade Layout Classes (Cabinets, Pin Tiles, Launch Deck)
+   ========================================================================== */
+
+.arcade-cabinet-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: 4px 4px 0px 0px #040810;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.arcade-cabinet-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--arcade-cyan);
+  box-shadow: 6px 6px 0px 0px #0284c7;
+}
+
+.arcade-cabinet-card.cabinet-selected {
+  border-color: var(--arcade-cyan) !important;
+  box-shadow: 6px 6px 0px 0px #0284c7 !important;
+  background: #131b2e;
+}
+
+.pin-tile {
+  width: 58px;
+  height: 72px;
+  background: #171f33;
+  border: 2px solid var(--arcade-cyan);
+  color: var(--arcade-cyan);
+  font-family: 'Space Mono', monospace;
+  font-size: 2.2rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 0 0 #0284c7;
+}
+
+@media (max-width: 640px) {
+  .pin-tile {
+    width: 46px;
+    height: 58px;
+    font-size: 1.7rem;
+  }
+}
+
+.arcade-btn-primary {
+  box-shadow: 0px 5px 0px 0px #0284c7;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.arcade-btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0px 1px 0px 0px #0284c7;
+}
+
+.arcade-btn-secondary {
+  box-shadow: 0px 5px 0px 0px #005236;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.arcade-btn-secondary:active {
+  transform: translateY(4px);
+  box-shadow: 0px 1px 0px 0px #005236;
+}
+
+.arcade-btn-deck {
+  box-shadow: 0px 4px 0px 0px #060e20;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.arcade-btn-deck:active {
+  transform: translateY(3px);
+  box-shadow: 0px 1px 0px 0px #060e20;
+}
+
+.marquee-hero-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  padding: 1.5rem;
+  box-shadow: 6px 6px 0px 0px #040810;
+  overflow: hidden;
+}
+
+.cadet-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 4px 0px 0px #040810;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.cadet-card:hover {
+  border-color: var(--arcade-cyan);
+  transform: translateY(-2px);
+}
+
+.arcade-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #0f172a;
+  border-top: 2px solid var(--border-bright);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.7);
+  padding: 0.85rem 1.5rem;
+}
+

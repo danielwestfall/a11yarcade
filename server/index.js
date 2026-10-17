@@ -428,6 +428,18 @@ io.on('connection', (socket) => {
     io.to(cleanPin).emit('player-list-update', Array.from(room.players.values()));
   });
 
+  // Change Game Mode (Host switches arcade cabinet in Lobby)
+  socket.on('change-game-mode', ({ gameMode }, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.hostSocketId !== socket.id || room.status !== 'LOBBY') return;
+    room.gameMode = gameMode;
+    room.settings.gameMode = gameMode;
+    io.to(pin).emit('game-mode-changed', { gameMode });
+    console.log(`Host changed room ${pin} game mode to ${gameMode}`);
+    if (callback) callback({ success: true, gameMode });
+  });
+
   // ==========================================
   // 3. Start Game (Routes based on Game Mode)
   // ==========================================

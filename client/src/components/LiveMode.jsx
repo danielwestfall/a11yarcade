@@ -47,16 +47,107 @@ const SHAPE_NAMES = {
 
 const AVATARS = ['🐱', '🐶', '🦊', '🦉', '🐼', '🚀', '💡', '🥑', '⚡', '🌟', '🦄', '🐙'];
 
+export const ARCADE_CABINETS = [
+  {
+    id: 'HOT_POTATO',
+    num: '01',
+    title: 'The Hot Potato Syndicate',
+    subtitle: 'DELEGATE ROULETTE & SOCIAL DIVIDENDS',
+    domain: 'Universal Design & Models',
+    desc: 'Pass rapid accessibility bug tickets before the audit timer blows up! Test knowledge of models of disability and Universal Design principles.',
+    icon: '🔥',
+    tag: '[ACTIVE LOADOUT]',
+    color: '#38bdf8'
+  },
+  {
+    id: 'GRAND_PRIX',
+    num: '02',
+    title: 'Grand Prix: Apex Gambler',
+    subtitle: '3-GEAR RISK/REWARD SPEEDWAY',
+    domain: 'WCAG 2.1 / 2.2 SCs',
+    desc: 'Wager points on tricky WCAG 2.1 & 2.2 Success Criteria distinctions. Shift into 3rd gear for 3x combo bonuses on AA vs AAA requirements.',
+    icon: '🏎️',
+    tag: '[SPEEDWAY]',
+    color: '#10b981'
+  },
+  {
+    id: 'HIGH_ROLLER',
+    num: '03',
+    title: 'The High-Roller Gauntlet',
+    subtitle: 'CHIP WAGERING & UNDERDOG MULTIPLIERS',
+    domain: 'Assistive Tech & Hardware',
+    desc: 'Wager credits on screen reader nuances (NVDA, JAWS, VoiceOver), Braille displays, and speech recognition hardware workflows.',
+    icon: '🎰',
+    tag: '[HIGH STAKES]',
+    color: '#facc15'
+  },
+  {
+    id: 'FLAW_FINDER',
+    num: '04',
+    title: 'Flaw Finder: Heatmap Sniping',
+    subtitle: 'LEGAL POLICY LOOPHOLE SNIPING',
+    domain: 'Laws, Standards & Treaties',
+    desc: 'Analyze international accessibility treaties: Section 508, ADA Title II/III, European EN 301 549, and the Marrakesh Treaty.',
+    icon: '🎯',
+    tag: '[LEGAL MATRIX]',
+    color: '#ef4444'
+  },
+  {
+    id: 'SABOTEUR',
+    num: '05',
+    title: 'Saboteur in the Server Room',
+    subtitle: 'AP HEIST & EMERGENCY STANDUP',
+    domain: 'ARIA Architecture',
+    desc: 'Fix broken ARIA roles injected by an accessibility imposter! Debug incorrect aria-live, invalid aria-owns, and redundant button roles.',
+    icon: '🕵️',
+    tag: '[ARIA HEIST]',
+    color: '#c084fc'
+  },
+  {
+    id: 'BOUNDARY_BRAWL',
+    num: '06',
+    title: 'The Boundary Line Brawl',
+    subtitle: '2X2 MATRIX SPATIAL TERRITORY DEBATE',
+    domain: 'Accommodations & Barriers',
+    desc: 'Sort physical and digital barriers across Cognitive, Motor, Auditory, and Visual accommodations onto the spatial quadrant grid.',
+    icon: '⚖️',
+    tag: '[TERRITORY DEBATE]',
+    color: '#f59e0b'
+  },
+  {
+    id: 'CLASSIC',
+    num: '07',
+    title: 'Classic Kahoot Clash',
+    subtitle: 'RAPID-FIRE SPEED & ACCURACY',
+    domain: 'All CPACC Domains',
+    desc: 'Fast-paced 4-choice questions with streak bonuses, buzzer timers, and instant retro leaderboard tracking.',
+    icon: '⚡',
+    tag: '[RAPID TRIVIA]',
+    color: '#38bdf8'
+  }
+];
+
+export const CADET_SPECIALTIES = [
+  '[✓] Screen Reader Spec',
+  '[✓] Tab-Order Grandmaster',
+  '[✓] Semantic HTML Sorceress',
+  '[✓] Color Contrast Crusader',
+  '[✓] ARIA Live Announcer',
+  '[✓] Focus Ring Guardian',
+  '[✓] Alt-Text Artisan',
+  '[✓] Captions Connoisseur'
+];
+
 export default function LiveMode() {
   const [role, setRole] = useState(null); // null, 'HOST', 'PLAYER'
-  const [gameMode, setGameMode] = useState('CLASSIC'); // 'CLASSIC', 'HOT_POTATO', 'GRAND_PRIX'
+  const [gameMode, setGameMode] = useState('HOT_POTATO'); // 'HOT_POTATO', 'GRAND_PRIX', etc.
   const [socket, setSocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
 
   // Host State
   const [roomPin, setRoomPin] = useState('');
   const [hostSettings, setHostSettings] = useState({
-    gameMode: 'CLASSIC',
+    gameMode: 'HOT_POTATO',
     timeLimit: 20,
     questionCount: 10,
     domain: 'all',
@@ -73,6 +164,7 @@ export default function LiveMode() {
   const [podiumData, setPodiumData] = useState([]);
   const [qrDataUrl, setQrDataUrl] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
+  const [showQrModal, setShowQrModal] = useState(false);
 
   // Player State
   const [playerPinInput, setPlayerPinInput] = useState('');
@@ -262,6 +354,13 @@ export default function LiveMode() {
       }
     });
 
+    newSocket.on('game-mode-changed', ({ gameMode: newMode }) => {
+      setGameMode(newMode);
+      setHostSettings((prev) => ({ ...prev, gameMode: newMode }));
+      soundManager.playClick();
+      setLiveAnnouncement(`Host switched arcade cartridge to ${newMode}`);
+    });
+
     newSocket.on('host-disconnected', () => {
       alert('The Host has ended the game.');
       resetToModeSelection();
@@ -273,6 +372,19 @@ export default function LiveMode() {
       newSocket.disconnect();
     };
   }, []);
+
+  // Spacebar to start game when in Host Lobby
+  useEffect(() => {
+    if (role !== 'HOST' || hostGameState !== 'LOBBY' || players.length === 0) return;
+    const handleSpacebar = (e) => {
+      if (e.code === 'Space' && !['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+        e.preventDefault();
+        handleHostStartGame();
+      }
+    };
+    window.addEventListener('keydown', handleSpacebar);
+    return () => window.removeEventListener('keydown', handleSpacebar);
+  }, [role, hostGameState, players.length]);
 
   // Keyboard navigation for player answers (1, 2, 3, 4)
   useEffect(() => {
@@ -295,6 +407,16 @@ export default function LiveMode() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [role, playerState, currentQuestionData]);
+
+  // Host Action: Select Arcade Cabinet Game Mode
+  const handleSelectGameMode = (newMode) => {
+    setGameMode(newMode);
+    setHostSettings((prev) => ({ ...prev, gameMode: newMode }));
+    soundManager.playClick();
+    if (socket && roomPin) {
+      socket.emit('change-game-mode', { gameMode: newMode });
+    }
+  };
 
   // Host Action: Create Room
   const handleHostCreateRoom = () => {
@@ -413,255 +535,384 @@ export default function LiveMode() {
   };
 
   // ==========================================
-  // VIEW 1: Role Selection (Host or Player)
+  // VIEW 1: Role & Station Selection (Stitch Neo-Arcade Hero)
   // ==========================================
   if (!role) {
+    const activeCabinet = ARCADE_CABINETS.find(c => c.id === hostSettings.gameMode) || ARCADE_CABINETS[0];
+
     return (
-      <div className="card" style={{ maxWidth: '680px', margin: '0 auto', width: '100%', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-          👥 Live Meeting Multiplayer
-        </h2>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-          Play live with your coworkers during your Teams, Zoom, or Google Meet call!
-        </p>
+      <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        {/* Marquee Hero Header */}
+        <section aria-labelledby="lobby-marquee-title" className="marquee-hero-card">
+          <div aria-hidden="true" style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: '12rem', height: '12rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
+          <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '12rem', height: '12rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
+
+          <div style={{ position: 'relative', zIndex: 10 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <span>✓</span>
+                <span>[DOM-1, 2, 3 HYBRID]</span>
+              </span>
+              <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
+                MATCH ID: #CPACC-LOBBY
+              </span>
+              <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <span>🛡️</span>
+                <span>WCAG 2.2 AAA VERIFIED</span>
+              </span>
+            </div>
+
+            <h1 id="lobby-marquee-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+              MULTIPLAYER PARTY DRILL LOBBY
+            </h1>
+            <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '800px', lineHeight: 1.5 }}>
+              Choose your combat station! Screen readers welcome, rogue bots will be alt-tagged. Compete live with your accessibility team to conquer IAAP CPACC certification questions in rapid-fire arcade rounds.
+            </p>
+          </div>
+        </section>
 
         {errorMessage && (
-          <div style={{ background: 'rgba(239, 68, 68, 0.2)', border: '1px solid #ef4444', color: '#fca5a5', padding: '0.75rem', borderRadius: 'var(--radius-sm)', marginBottom: '1.25rem' }}>
+          <div style={{ background: 'rgba(239, 68, 68, 0.2)', border: '2px solid #ef4444', color: '#fca5a5', padding: '0.85rem 1.25rem', borderRadius: 'var(--radius-sm)', fontWeight: 700 }}>
             {errorMessage}
           </div>
         )}
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
-          {/* Host Card */}
-          <div style={{ background: 'var(--bg-surface-elevated)', padding: '1.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        {/* 2-Station Bento Grid: Player Join vs Host Launch */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '1.75rem' }}>
+          {/* Station 1: Join as Player */}
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', border: '2px solid var(--border-bright)', background: 'var(--bg-surface)' }}>
             <div>
-              <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🖥️</div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem' }}>Host a Game</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
-                Screen share this view on your Teams/Zoom/Meet call. Choose your game mode:
-              </p>
-
-              {/* Game Mode Selector */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', textAlign: 'left' }}>
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'CLASSIC' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'CLASSIC' ? 'rgba(56, 189, 248, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'CLASSIC' ? '#38bdf8' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>🎯</span>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '1.8rem' }}>📱</span>
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'CLASSIC' ? '#38bdf8' : '#ffffff' }}>Classic Kahoot Clash</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Fast-paced speed & accuracy review</div>
+                    <h2 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0, color: '#ffffff' }}>Join as Player</h2>
+                    <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8' }}>[CADET TERMINAL]</span>
                   </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'HOT_POTATO' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'HOT_POTATO' ? 'rgba(245, 158, 11, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'HOT_POTATO' ? '#f59e0b' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>🥔</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'HOT_POTATO' ? '#f59e0b' : '#ffffff' }}>The Hot Potato Syndicate</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Take or Pass with Social Dividend</div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'GRAND_PRIX' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'GRAND_PRIX' ? 'rgba(239, 68, 68, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'GRAND_PRIX' ? '#ef4444' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>🏎️</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'GRAND_PRIX' ? '#ef4444' : '#ffffff' }}>Grand Prix: Apex Gambler</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Gear shifts, Pit stops & Drafting</div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'HIGH_ROLLER' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'HIGH_ROLLER' ? 'rgba(168, 85, 247, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'HIGH_ROLLER' ? '#a855f7' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>🎰</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'HIGH_ROLLER' ? '#a855f7' : '#ffffff' }}>The High-Roller Gauntlet</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Blind wagers & Underdog multipliers</div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'FLAW_FINDER' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'FLAW_FINDER' ? 'rgba(14, 165, 233, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'FLAW_FINDER' ? '#0ea5e9' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>🎯</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'FLAW_FINDER' ? '#0ea5e9' : '#ffffff' }}>Flaw Finder: Heatmap Sniping</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Legal policy loophole auditing & heatmaps</div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'SABOTEUR' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'SABOTEUR' ? 'rgba(239, 68, 68, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'SABOTEUR' ? '#ef4444' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>🕵️</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'SABOTEUR' ? '#ef4444' : '#ffffff' }}>Saboteur in the Server Room</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Resource heist, audit pings & emergency standups</div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHostSettings({ ...hostSettings, gameMode: 'BOUNDARY_BRAWL' })}
-                  style={{
-                    padding: '0.6rem 0.8rem',
-                    borderRadius: 'var(--radius-sm)',
-                    background: hostSettings.gameMode === 'BOUNDARY_BRAWL' ? 'rgba(245, 158, 11, 0.2)' : 'var(--bg-surface)',
-                    border: `2px solid ${hostSettings.gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : 'var(--border-color)'}`,
-                    color: '#ffffff',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.6rem'
-                  }}
-                >
-                  <span style={{ fontSize: '1.2rem' }}>⚖️</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: hostSettings.gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : '#ffffff' }}>The Boundary Line Brawl</div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>2×2 matrix territory control, slap challenges & debate</div>
-                  </div>
-                </button>
+                </div>
+                <span style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid #38bdf8', color: '#38bdf8', borderRadius: '4px', fontWeight: 700 }}>
+                  LIVE SYNC
+                </span>
               </div>
 
-              {/* Host Play Along Option */}
-              <div style={{ background: 'var(--bg-surface)', padding: '0.85rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', marginBottom: '1.25rem', textAlign: 'left' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer', fontWeight: 700, fontSize: '0.9rem', color: '#ffffff' }}>
+              <form onSubmit={handlePlayerJoin} id="player-join-form">
+                <div style={{ marginBottom: '1rem' }}>
+                  <label htmlFor="role-pin-input" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace" }}>
+                    4-DIGIT ROOM PIN:
+                  </label>
                   <input
-                    type="checkbox"
-                    checked={hostSettings.hostParticipates || false}
-                    onChange={(e) => setHostSettings({ ...hostSettings, hostParticipates: e.target.checked })}
-                    style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                    id="role-pin-input"
+                    type="text"
+                    maxLength={4}
+                    className="input-field"
+                    style={{ textAlign: 'center', fontSize: '1.8rem', letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 900, fontFamily: "'Space Mono', monospace", color: '#38bdf8', background: '#090d16', border: '2px solid #38bdf8' }}
+                    placeholder="A11Y"
+                    value={playerPinInput}
+                    onChange={(e) => setPlayerPinInput(e.target.value.toUpperCase())}
+                    required
                   />
-                  <span>🎮 Play along as Host on this screen</span>
-                </label>
-                {hostSettings.hostParticipates && (
-                  <div style={{ marginTop: '0.75rem', display: 'flex', gap: '0.5rem' }}>
-                    <input
-                      type="text"
-                      className="input-field"
-                      placeholder="Your Nickname (e.g. Captain Host)"
-                      value={hostSettings.hostNickname || ''}
-                      onChange={(e) => setHostSettings({ ...hostSettings, hostNickname: e.target.value })}
-                      style={{ padding: '0.4rem 0.6rem', fontSize: '0.85rem' }}
-                    />
+                </div>
+
+                <div style={{ marginBottom: '1rem' }}>
+                  <label htmlFor="role-nick-input" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                    Cadet Nickname:
+                  </label>
+                  <input
+                    id="role-nick-input"
+                    type="text"
+                    maxLength={18}
+                    className="input-field"
+                    placeholder="e.g. Captain Contrast"
+                    value={playerNickname}
+                    onChange={(e) => setPlayerNickname(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {/* Option B: Secret Passcode */}
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <label htmlFor="role-passcode-input" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                    <Lock size={15} color="#38bdf8" />
+                    <span>4-Digit Secret Passcode:</span>
+                  </label>
+                  <input
+                    id="role-passcode-input"
+                    type="password"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={4}
+                    className="input-field"
+                    style={{ textAlign: 'center', fontSize: '1.3rem', letterSpacing: '0.3em', fontWeight: 800 }}
+                    placeholder="1234"
+                    value={userPasscode}
+                    onChange={(e) => setUserPasscode(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                    required
+                  />
+                  <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.35rem' }}>
+                    Protects your weekly score & study history! Creates your passcode if new, or unlocks stats if returning.
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <label style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                    Avatar Selection:
+                  </label>
+                  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    {AVATARS.map((av) => (
+                      <button
+                        key={av}
+                        type="button"
+                        onClick={() => {
+                          setPlayerAvatar(av);
+                          soundManager.playClick();
+                        }}
+                        style={{
+                          fontSize: '1.4rem',
+                          padding: '0.35rem 0.55rem',
+                          background: playerAvatar === av ? 'rgba(56, 189, 248, 0.25)' : 'var(--bg-surface-elevated)',
+                          border: `2px solid ${playerAvatar === av ? '#38bdf8' : 'var(--border-color)'}`,
+                          borderRadius: 'var(--radius-sm)',
+                          cursor: 'pointer',
+                          transform: playerAvatar === av ? 'scale(1.15)' : 'none',
+                          transition: 'transform 0.1s ease'
+                        }}
+                        aria-label={`Select avatar ${av}`}
+                      >
+                        {av}
+                      </button>
+                    ))}
                   </div>
-                )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn-primary arcade-btn-primary"
+                  style={{ width: '100%', fontSize: '1.05rem', padding: '0.85rem' }}
+                >
+                  <Users size={18} />
+                  <span>JOIN WITH TOKEN</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Station 2: Host an Arcade Game */}
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', border: '2px solid var(--border-bright)', background: 'var(--bg-surface)' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '1.8rem' }}>🖥️</span>
+                  <div>
+                    <h2 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0, color: '#ffffff' }}>Host Arcade Room</h2>
+                    <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#10b981' }}>[HOST COMMAND CENTER]</span>
+                  </div>
+                </div>
+                <span style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid #10b981', color: '#10b981', borderRadius: '4px', fontWeight: 700 }}>
+                  SCREEN SHARE
+                </span>
+              </div>
+
+              {/* Active Cartridge Pill */}
+              <div style={{ background: '#0b1326', border: `2px solid ${activeCabinet.color}`, borderRadius: 'var(--radius-md)', padding: '0.85rem 1rem', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
+                  <span style={{ fontSize: '0.72rem', color: activeCabinet.color, fontFamily: "'Space Mono', monospace", fontWeight: 800 }}>
+                    {activeCabinet.tag} // CABINET {activeCabinet.num}
+                  </span>
+                  <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
+                    {activeCabinet.domain}
+                  </span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                  <span style={{ fontSize: '1.6rem' }}>{activeCabinet.icon}</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                      {activeCabinet.title}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                      {activeCabinet.subtitle}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Host Settings */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.25rem' }}>
+                <div>
+                  <label htmlFor="host-timer-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                    Round Timer Limit:
+                  </label>
+                  <select
+                    id="host-timer-select"
+                    className="input-field"
+                    value={hostSettings.timeLimit}
+                    onChange={(e) => setHostSettings({ ...hostSettings, timeLimit: parseInt(e.target.value, 10) })}
+                  >
+                    <option value="15">15 Seconds (Rapid Reflexes)</option>
+                    <option value="20">20 Seconds (Standard Competitive)</option>
+                    <option value="30">30 Seconds (Thoughtful Team Review)</option>
+                    <option value="0">Untimed / Manual Advance (Max A11y)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="host-domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                    CPACC Domain Focus:
+                  </label>
+                  <select
+                    id="host-domain-select"
+                    className="input-field"
+                    value={hostSettings.domain}
+                    onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
+                  >
+                    <option value="all">All Domains (Mixed CPACC Review)</option>
+                    <option value="1">Domain 1 (Disabilities, Models & Assistive Tech)</option>
+                    <option value="2">Domain 2 (Universal Design & WCAG 2.1/2.2)</option>
+                    <option value="3">Domain 3 (Standards, Laws & Management)</option>
+                  </select>
+                </div>
+
+                {/* Host Play Along Option */}
+                <div style={{ background: '#0b1326', padding: '0.85rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer', fontWeight: 700, fontSize: '0.9rem', color: '#ffffff' }}>
+                    <input
+                      type="checkbox"
+                      checked={hostSettings.hostParticipates || false}
+                      onChange={(e) => setHostSettings({ ...hostSettings, hostParticipates: e.target.checked })}
+                      style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                    />
+                    <span>🎮 Play along as Host on this screen</span>
+                  </label>
+                  {hostSettings.hostParticipates && (
+                    <div style={{ marginTop: '0.6rem' }}>
+                      <input
+                        type="text"
+                        className="input-field"
+                        placeholder="Your Nickname (e.g. Captain Host)"
+                        value={hostSettings.hostNickname || ''}
+                        onChange={(e) => setHostSettings({ ...hostSettings, hostNickname: e.target.value })}
+                        style={{ padding: '0.4rem 0.6rem', fontSize: '0.85rem' }}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
             <button
               type="button"
-              className="btn-primary"
-              style={{ width: '100%' }}
+              className="btn-primary arcade-btn-secondary"
+              style={{ width: '100%', fontSize: '1.05rem', padding: '0.85rem', background: '#10b981', borderColor: '#10b981', color: '#090d16' }}
               onClick={handleHostCreateRoom}
             >
               <Play size={18} />
-              <span>Create Room ({hostSettings.gameMode === 'HOT_POTATO' ? 'Hot Potato' : hostSettings.gameMode === 'GRAND_PRIX' ? 'Grand Prix' : 'Classic'})</span>
-            </button>
-          </div>
-
-          {/* Join Card */}
-          <div style={{ background: 'var(--bg-surface-elevated)', padding: '1.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>📱</div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem' }}>Join as Player</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-                Participate on your phone or in a separate tab using your meeting host's 4-letter PIN code. Automatically connects to the hosted game mode!
-              </p>
-            </div>
-            <button
-              type="button"
-              className="btn-secondary"
-              style={{ width: '100%' }}
-              onClick={() => setRole('PLAYER')}
-            >
-              <Users size={18} />
-              <span>Join with PIN</span>
+              <span>CREATE ARCADE ROOM</span>
             </button>
           </div>
         </div>
+
+        {/* CPACC Certification Arcade Cabinets Preview / Selector Grid */}
+        <section aria-labelledby="arcade-cabinets-title">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '1.25rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8', fontWeight: 800 }}>
+                [SELECTION STAGE]
+              </span>
+            </div>
+            <h2 id="arcade-cabinets-title" style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+              CPACC CERTIFICATION ARCADE CABINETS
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0 }}>
+              Select a drill cartridge to load into the host lobby queue (1 active drill per round):
+            </p>
+          </div>
+
+          <div
+            role="radiogroup"
+            aria-label="CPACC Certification Arcade Cabinets"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '1.25rem'
+            }}
+          >
+            {ARCADE_CABINETS.map((cab) => {
+              const isSelected = hostSettings.gameMode === cab.id;
+              return (
+                <article
+                  key={cab.id}
+                  role="radio"
+                  aria-checked={isSelected}
+                  tabIndex={0}
+                  onClick={() => handleSelectGameMode(cab.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === ' ' || e.key === 'Enter') {
+                      e.preventDefault();
+                      handleSelectGameMode(cab.id);
+                    }
+                  }}
+                  className={`arcade-cabinet-card ${isSelected ? 'cabinet-selected' : ''}`}
+                  style={{
+                    borderColor: isSelected ? cab.color : undefined
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                      <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: cab.color, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <span>CABINET {cab.num}</span>
+                      </span>
+                      <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: isSelected ? '#10b981' : '#94a3b8' }}>
+                        {isSelected ? '[ACTIVE LOADOUT]' : cab.tag}
+                      </span>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <div style={{ width: '44px', height: '44px', background: `${cab.color}18`, border: `2px solid ${cab.color}`, borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                        {cab.icon}
+                      </div>
+                      <div>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                          {cab.title}
+                        </h3>
+                        <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: cab.color, display: 'block', marginTop: '0.15rem' }}>
+                          {cab.subtitle}
+                        </span>
+                      </div>
+                    </div>
+
+                    <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                      {cab.desc}
+                    </p>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                    <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                      Domain: {cab.domain}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleSelectGameMode(cab.id);
+                      }}
+                      className={isSelected ? "btn-primary" : "btn-secondary"}
+                      style={{
+                        padding: '0.3rem 0.75rem',
+                        fontSize: '0.75rem',
+                        fontFamily: "'Space Mono', monospace",
+                        fontWeight: 800,
+                        background: isSelected ? cab.color : undefined,
+                        borderColor: isSelected ? cab.color : undefined,
+                        color: isSelected ? '#090d16' : '#ffffff'
+                      }}
+                    >
+                      {isSelected ? '✓ SELECTED' : 'INSERT TOKEN'}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
       </div>
     );
   }
@@ -670,237 +921,392 @@ export default function LiveMode() {
   // VIEW 2: HOST SCREENS
   // ==========================================
   if (role === 'HOST') {
-    // 2A: Host Lobby Screen
+    // 2A: Host Lobby Screen (Stitch Neo-Arcade Architecture)
     if (hostGameState === 'LOBBY') {
+      const activeCabinet = ARCADE_CABINETS.find(c => c.id === gameMode) || ARCADE_CABINETS[0];
+      const pinLetters = roomPin ? roomPin.split('') : ['_', '_', '_', '_'];
+
       return (
-        <div className="card" style={{ maxWidth: '850px', margin: '0 auto', width: '100%', textAlign: 'center' }}>
-          <div style={{ marginBottom: '1rem' }}>
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              background: gameMode === 'HOT_POTATO' ? 'rgba(245, 158, 11, 0.2)' : gameMode === 'GRAND_PRIX' ? 'rgba(239, 68, 68, 0.2)' : gameMode === 'BOUNDARY_BRAWL' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(56, 189, 248, 0.2)',
-              border: `1px solid ${gameMode === 'HOT_POTATO' ? '#f59e0b' : gameMode === 'GRAND_PRIX' ? '#ef4444' : gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : '#38bdf8'}`,
-              color: gameMode === 'HOT_POTATO' ? '#fbbf24' : gameMode === 'GRAND_PRIX' ? '#fca5a5' : gameMode === 'BOUNDARY_BRAWL' ? '#f59e0b' : '#38bdf8',
-              padding: '0.4rem 1.25rem',
-              borderRadius: '9999px',
-              fontWeight: 800,
-              fontSize: '0.95rem'
-            }}>
-              <span>
-                {gameMode === 'HOT_POTATO' ? '🥔 Mode: The Hot Potato Syndicate' :
-                 gameMode === 'GRAND_PRIX' ? '🏎️ Mode: Grand Prix: Apex Gambler' :
-                 gameMode === 'HIGH_ROLLER' ? '🎰 Mode: The High-Roller Gauntlet' :
-                 gameMode === 'FLAW_FINDER' ? '🎯 Mode: Flaw Finder: Heatmap Sniping' :
-                 gameMode === 'SABOTEUR' ? '🕵️ Mode: Saboteur in the Server Room' :
-                 gameMode === 'BOUNDARY_BRAWL' ? '⚖️ Mode: The Boundary Line Brawl' :
-                 '🎯 Mode: Classic Kahoot Clash'}
-              </span>
-            </span>
-          </div>
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '7rem' }}>
+          {/* Top Marquee Bento Card */}
+          <section aria-labelledby="host-lobby-title" className="marquee-hero-card">
+            <div aria-hidden="true" style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: '12rem', height: '12rem', background: 'rgba(56, 189, 248, 0.12)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
+            <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '12rem', height: '12rem', background: 'rgba(16, 185, 129, 0.12)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
 
-          {/* Joining Station: PIN, Sharable Link, and QR Code */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.5rem',
-            alignItems: 'center',
-            background: 'var(--bg-surface-elevated)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '1.5rem',
-            marginBottom: '1.75rem',
-            textAlign: 'center'
-          }}>
-            {/* Left: PIN & Sharable Link */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-              <div style={{
-                background: 'rgba(56, 189, 248, 0.12)',
-                border: '2px solid #38bdf8',
-                padding: '0.75rem 2rem',
-                borderRadius: 'var(--radius-md)',
-                width: '100%',
-                maxWidth: '280px'
-              }}>
-                <div style={{ fontSize: '0.82rem', color: '#94a3b8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: "'Space Mono', monospace" }}>
-                  ROOM TOKEN // PIN
+            <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', lgDirection: 'row', gap: '2rem', justifyContent: 'space-between', alignItems: 'stretch' }}>
+              {/* Left Column: Match Details and HUD */}
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                    <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <span>✓</span>
+                      <span>[DOM-1 & DOM-2 COMPLIANCE]</span>
+                    </span>
+                    <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
+                      MATCH ID: #{roomPin || 'CPACC'}
+                    </span>
+                    <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <span>🛡️</span>
+                      <span>WCAG 2.2 AAA VERIFIED</span>
+                    </span>
+                  </div>
+
+                  <h1 id="host-lobby-title" style={{ fontSize: '2.2rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+                    MULTIPLAYER PARTY DRILL LOBBY
+                  </h1>
+                  <p style={{ marginTop: '0.6rem', fontSize: '1rem', color: '#94a3b8', maxWidth: '750px', lineHeight: 1.5 }}>
+                    Punch in your 4-digit token (<span style={{ color: '#10b981', fontWeight: 800 }}>screen readers welcome</span>, rogue bots will be alt-tagged!). Compete live with your accessibility team to conquer IAAP CPACC certification questions in rapid-fire arcade rounds.
+                  </p>
                 </div>
-                <div style={{ fontSize: '3.6rem', fontWeight: 900, letterSpacing: '0.15em', color: '#ffffff', lineHeight: 1.1, fontFamily: "'Space Mono', monospace" }}>
-                  {roomPin}
-                </div>
-                <div style={{ fontSize: '0.72rem', color: '#38bdf8', marginTop: '0.25rem', fontStyle: 'italic' }}>
-                  Screen readers welcome • Rogue bots will be alt-tagged!
+
+                {/* Match Configuration HUD Strip */}
+                <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '2px solid rgba(51, 65, 85, 0.6)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.25rem' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
+                    <Clock size={16} color="#38bdf8" />
+                    <span>Timer:</span>
+                    <select
+                      className="input-field"
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto' }}
+                      value={hostSettings.timeLimit}
+                      onChange={(e) => setHostSettings({ ...hostSettings, timeLimit: parseInt(e.target.value, 10) })}
+                    >
+                      <option value="15">15s Rapid</option>
+                      <option value="20">20s Standard</option>
+                      <option value="30">30s Thoughtful</option>
+                      <option value="0">Untimed / Manual</option>
+                    </select>
+                  </label>
+
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
+                    <span>Domain:</span>
+                    <select
+                      className="input-field"
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto' }}
+                      value={hostSettings.domain}
+                      onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
+                    >
+                      <option value="all">All Domains (Mixed)</option>
+                      <option value="1">Domain 1 (Disabilities & AT)</option>
+                      <option value="2">Domain 2 (Universal Design & WCAG)</option>
+                      <option value="3">Domain 3 (Standards & Laws)</option>
+                    </select>
+                  </label>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: activeCabinet.color }}>
+                    <span style={{ fontSize: '1.1rem' }}>{activeCabinet.icon}</span>
+                    <span style={{ fontWeight: 800 }}>CARTRIDGE: {activeCabinet.title}</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Sharable Link Button */}
-              <div style={{ width: '100%', maxWidth: '280px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <button
-                  type="button"
-                  className={copiedLink ? "btn-secondary" : "btn-primary"}
-                  onClick={handleCopyInviteLink}
-                  aria-live="polite"
-                  style={{
-                    width: '100%',
-                    padding: '0.65rem 1rem',
-                    fontSize: '0.9rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    background: copiedLink ? '#10b981' : undefined,
-                    borderColor: copiedLink ? '#10b981' : undefined,
-                    color: '#ffffff'
-                  }}
-                >
-                  {copiedLink ? <Check size={18} /> : <Copy size={18} />}
-                  <span>{copiedLink ? '✓ Link Copied to Clipboard!' : 'Copy Invite Link'}</span>
-                </button>
+              {/* Right Column: 4-Digit Room Code Terminal Box */}
+              <div style={{ minWidth: '340px', maxWidth: '420px', background: '#060e20', border: '2px solid rgba(56, 189, 248, 0.5)', padding: '1.25rem', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', boxShadow: '4px 4px 0px 0px #060e20' }}>
+                <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.5rem', marginBottom: '0.65rem', borderBottom: '1px solid var(--border-color)' }}>
+                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.72rem', color: '#10b981', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                    CABINET DISPATCH TOKEN
+                  </span>
+                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.7rem', color: '#64748b' }}>
+                    PORT: 8080-A11Y
+                  </span>
+                </div>
 
+                <p style={{ fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8', margin: '0 0 0.5rem 0' }}>
+                  ROOM PASSCODE FOR CADETS
+                </p>
+
+                {/* 4-Digit Massive Retro Tiles */}
                 <div
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                    padding: '0.35rem 0.6rem',
-                    background: 'var(--bg-surface)',
-                    borderRadius: '4px',
-                    border: '1px solid var(--border-color)',
-                    userSelect: 'all'
-                  }}
-                  title={`${window.location.origin}/?pin=${roomPin}`}
+                  aria-label={`4 digit room code: ${pinLetters.join(' ')}`}
+                  role="group"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem', margin: '0.5rem 0' }}
                 >
-                  🔗 {window.location.origin}/?pin={roomPin}
+                  {pinLetters.map((char, idx) => (
+                    <div key={idx} className="pin-tile">
+                      {char}
+                    </div>
+                  ))}
                 </div>
-              </div>
-            </div>
 
-            {/* Right: QR Code */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              {qrDataUrl ? (
-                <div style={{
-                  background: '#ffffff',
-                  padding: '0.75rem',
-                  borderRadius: 'var(--radius-md)',
-                  boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
-                  display: 'inline-block'
-                }}>
-                  <img
-                    src={qrDataUrl}
-                    alt={`Scan QR code to join room ${roomPin}`}
-                    style={{ width: '150px', height: '150px', display: 'block' }}
-                  />
-                </div>
-              ) : (
-                <div style={{ width: '150px', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-surface)', borderRadius: 'var(--radius-md)' }}>
-                  <QrCode size={48} color="#94a3b8" />
-                </div>
-              )}
-              <div style={{ marginTop: '0.6rem', fontSize: '0.85rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <QrCode size={15} color="#38bdf8" />
-                <span>Scan with phone camera to join</span>
-              </div>
-            </div>
-          </div>
-
-          <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginBottom: '1.75rem' }}>
-            Coworkers can scan the QR code, click your shared link, or enter PIN: <strong style={{ color: '#ffffff' }}>{roomPin}</strong>
-          </p>
-
-          {/* Settings Bar */}
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem', background: 'var(--bg-surface-elevated)', padding: '1rem', borderRadius: 'var(--radius-md)' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
-              <Clock size={16} color="#38bdf8" />
-              <span>Timer:</span>
-              <select
-                className="input-field"
-                style={{ padding: '0.3rem 0.6rem', fontSize: '0.9rem', width: 'auto' }}
-                value={hostSettings.timeLimit}
-                onChange={(e) => setHostSettings({ ...hostSettings, timeLimit: parseInt(e.target.value, 10) })}
-              >
-                <option value="15">15 Seconds (Rapid)</option>
-                <option value="20">20 Seconds (Standard)</option>
-                <option value="30">30 Seconds (Thoughtful)</option>
-                <option value="0">Untimed / Manual Advance (Max A11y)</option>
-              </select>
-            </label>
-
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
-              <span>Domain:</span>
-              <select
-                className="input-field"
-                style={{ padding: '0.3rem 0.6rem', fontSize: '0.9rem', width: 'auto' }}
-                value={hostSettings.domain}
-                onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
-              >
-                <option value="all">All Domains (Mixed)</option>
-                <option value="1">Domain 1 (Disabilities & AT)</option>
-                <option value="2">Domain 2 (Universal Design & WCAG)</option>
-                <option value="3">Domain 3 (Standards & Laws)</option>
-              </select>
-            </label>
-          </div>
-
-          {/* Connected Players List */}
-          <div style={{ marginBottom: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-              <Users size={20} color="#38bdf8" />
-              <span>CONNECTED SQUAD ({players.length} CADETS)</span>
-            </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1rem' }}>
-              {players.length > 0 ? 'Keyboard warriors in the arena ready to drop the quarter!' : 'Waiting for players to connect...'}
-            </p>
-
-            {players.length === 0 ? (
-              <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', padding: '1rem' }}>
-                Waiting for challengers to drop tokens into the slot...
-              </p>
-            ) : (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
-                {players.map((p) => (
-                  <div
-                    key={p.id}
+                {/* Action Buttons: Copy Invite Link & Smartphone QR */}
+                <div style={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginTop: '0.75rem' }}>
+                  <button
+                    type="button"
+                    className="btn-secondary arcade-btn-deck"
+                    onClick={handleCopyInviteLink}
                     style={{
-                      background: 'var(--bg-surface-elevated)',
-                      border: '2px solid var(--border-bright)',
-                      padding: '0.5rem 1rem',
-                      borderRadius: 'var(--radius-sm)',
+                      padding: '0.5rem',
+                      fontSize: '0.78rem',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '0.5rem',
-                      fontSize: '0.95rem',
-                      fontWeight: 700,
-                      boxShadow: '0 3px 0 0 #020617'
+                      justifyContent: 'center',
+                      gap: '0.35rem',
+                      background: copiedLink ? '#10b981' : undefined,
+                      borderColor: copiedLink ? '#10b981' : undefined,
+                      color: '#ffffff'
                     }}
                   >
-                    <span>{p.avatar}</span>
-                    <span>{p.nickname}</span>
-                    <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 800 }}>✓ READY</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+                    {copiedLink ? <Check size={14} /> : <Copy size={14} />}
+                    <span>{copiedLink ? 'Copied!' : 'Copy Link'}</span>
+                  </button>
 
-          <button
-            type="button"
-            className="btn-primary"
-            style={{
-              fontSize: '1.25rem',
-              padding: '1rem 3rem',
-              background: '#10b981',
-              borderColor: '#10b981',
-              boxShadow: '0 6px 0 0 #059669',
-              color: '#090d16'
-            }}
-            onClick={handleHostStartGame}
-            disabled={players.length === 0}
-          >
-            <Play size={24} />
-            <span>INSERT COIN / START GAME</span>
-          </button>
+                  <button
+                    type="button"
+                    className="btn-secondary arcade-btn-deck"
+                    onClick={() => setShowQrModal(!showQrModal)}
+                    style={{
+                      padding: '0.5rem',
+                      fontSize: '0.78rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.35rem'
+                    }}
+                  >
+                    <QrCode size={14} color="#38bdf8" />
+                    <span>{showQrModal ? 'Hide QR' : 'Phone QR'}</span>
+                  </button>
+                </div>
+
+                {/* QR Code view toggle */}
+                {showQrModal && qrDataUrl && (
+                  <div style={{ marginTop: '0.85rem', padding: '0.5rem', background: '#ffffff', borderRadius: 'var(--radius-sm)', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
+                    <img
+                      src={qrDataUrl}
+                      alt={`Scan QR code to join room ${roomPin}`}
+                      style={{ width: '140px', height: '140px', display: 'block', margin: '0 auto' }}
+                    />
+                    <div style={{ fontSize: '0.7rem', color: '#090d16', marginTop: '0.25rem', fontWeight: 800 }}>
+                      Scan to Join directly!
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2: Connected Squad Cadets */}
+          <section aria-labelledby="connected-squad-title" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                <span aria-hidden="true" style={{ width: '10px', height: '10px', background: '#10b981', borderRadius: '9999px', display: 'inline-block', boxShadow: '0 0 8px #10b981' }} />
+                <h2 id="connected-squad-title" style={{ fontSize: '1.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.02em', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+                  CONNECTED SQUAD ({players.length} CADETS)
+                </h2>
+              </div>
+              <div style={{ fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#10b981', background: '#0b1326', padding: '0.3rem 0.75rem', borderRadius: '4px', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <span>⌨️</span>
+                <span>{players.length} keyboard warriors in the room... ready to drop the quarter!</span>
+              </div>
+            </div>
+
+            {/* Cadets Bento Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem' }}>
+              {players.map((p, idx) => (
+                <article key={p.id || idx} className="cadet-card">
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <div
+                        aria-hidden="true"
+                        style={{
+                          width: '46px',
+                          height: '46px',
+                          background: '#060e20',
+                          border: `2px solid ${idx === 0 && hostSettings.hostParticipates ? '#10b981' : '#38bdf8'}`,
+                          borderRadius: 'var(--radius-sm)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '1.6rem'
+                        }}
+                      >
+                        {p.avatar || '🐱'}
+                      </div>
+                      <div>
+                        <h3 style={{ fontSize: '0.95rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                          {p.nickname}
+                        </h3>
+                        <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                          {p.score || 0} XP
+                        </span>
+                      </div>
+                    </div>
+                    <span style={{ padding: '0.15rem 0.5rem', background: idx === 0 && hostSettings.hostParticipates ? '#10b981' : '#1e293b', color: idx === 0 && hostSettings.hostParticipates ? '#090d16' : '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.68rem', fontWeight: 800, borderRadius: '4px' }}>
+                      {idx === 0 && hostSettings.hostParticipates ? 'HOST' : 'CADET'}
+                    </span>
+                  </div>
+
+                  <div style={{ marginTop: '0.85rem', paddingTop: '0.65rem', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.7rem', color: '#c084fc', border: '1px solid rgba(192, 132, 252, 0.4)', background: '#060e20', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                      {CADET_SPECIALTIES[idx % CADET_SPECIALTIES.length]}
+                    </span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: '#10b981', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', fontWeight: 800 }}>
+                      <span>✓</span>
+                      <span>READY</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+
+              {/* Slot Open Card */}
+              <div style={{ background: 'rgba(15, 23, 42, 0.4)', border: '2px dashed var(--border-color)', borderRadius: 'var(--radius-md)', padding: '1.25rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', minHeight: '115px' }}>
+                <span style={{ fontSize: '1.4rem', color: '#64748b', marginBottom: '0.25rem' }}>➕</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#94a3b8', fontFamily: "'Space Grotesk', sans-serif" }}>Slot Open</span>
+                <span style={{ fontSize: '0.72rem', color: '#64748b', fontFamily: "'Space Mono', monospace", marginTop: '0.2rem' }}>Waiting for challenger...</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 3: CPACC Certification Arcade Cabinets Grid (Selectable) */}
+          <section aria-labelledby="host-cabinets-title" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8', fontWeight: 800 }}>
+                  [SELECTION STAGE]
+                </span>
+              </div>
+              <h2 id="host-cabinets-title" style={{ fontSize: '1.5rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+                CPACC CERTIFICATION ARCADE CABINETS
+              </h2>
+              <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: 0 }}>
+                Select a drill cartridge to load into the host lobby queue (1 active drill per round):
+              </p>
+            </div>
+
+            <div
+              role="radiogroup"
+              aria-label="CPACC Certification Arcade Cabinets"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                gap: '1.25rem'
+              }}
+            >
+              {ARCADE_CABINETS.map((cab) => {
+                const isSelected = gameMode === cab.id;
+                return (
+                  <article
+                    key={cab.id}
+                    role="radio"
+                    aria-checked={isSelected}
+                    tabIndex={0}
+                    onClick={() => handleSelectGameMode(cab.id)}
+                    onKeyDown={(e) => {
+                      if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault();
+                        handleSelectGameMode(cab.id);
+                      }
+                    }}
+                    className={`arcade-cabinet-card ${isSelected ? 'cabinet-selected' : ''}`}
+                    style={{
+                      borderColor: isSelected ? cab.color : undefined
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.25rem 0.65rem', marginBottom: '0.75rem' }}>
+                        <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: cab.color, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                          <span>CABINET {cab.num}</span>
+                        </span>
+                        <span style={{ fontSize: '0.68rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: isSelected ? '#10b981' : '#94a3b8' }}>
+                          {isSelected ? '[ACTIVE LOADOUT]' : cab.tag}
+                        </span>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                        <div style={{ width: '44px', height: '44px', background: `${cab.color}18`, border: `2px solid ${cab.color}`, borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
+                          {cab.icon}
+                        </div>
+                        <div>
+                          <h3 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif" }}>
+                            {cab.title}
+                          </h3>
+                          <span style={{ fontSize: '0.7rem', fontFamily: "'Space Mono', monospace", color: cab.color, display: 'block', marginTop: '0.15rem' }}>
+                            {cab.subtitle}
+                          </span>
+                        </div>
+                      </div>
+
+                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.75rem 0 1rem 0', lineHeight: 1.45 }}>
+                        {cab.desc}
+                      </p>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+                      <span style={{ fontSize: '0.72rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                        Domain: {cab.domain}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSelectGameMode(cab.id);
+                        }}
+                        className={isSelected ? "btn-primary" : "btn-secondary"}
+                        style={{
+                          padding: '0.3rem 0.75rem',
+                          fontSize: '0.75rem',
+                          fontFamily: "'Space Mono', monospace",
+                          fontWeight: 800,
+                          background: isSelected ? cab.color : undefined,
+                          borderColor: isSelected ? cab.color : undefined,
+                          color: isSelected ? '#090d16' : '#ffffff'
+                        }}
+                      >
+                        {isSelected ? '✓ SELECTED' : 'INSERT TOKEN'}
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Sticky Bottom Primary Arcade Deck Action */}
+          <aside aria-label="Game launch terminal deck" className="arcade-dock">
+            <div style={{ maxWidth: '1380px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+              {/* Compliance Pills */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.85rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#10b981' }}>
+                  <span>🛡️</span>
+                  <span>Screen Reader Optimised</span>
+                </span>
+                <span>•</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#38bdf8' }}>
+                  <span>✓</span>
+                  <span>WCAG 2.2 AAA Validated</span>
+                </span>
+                <span className="hidden sm:inline">•</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#facc15' }}>
+                  <span>⌨️</span>
+                  <span>Press [SPACEBAR] to Launch</span>
+                </span>
+              </div>
+
+              {/* Big Arcade Start Push Button */}
+              <button
+                type="button"
+                className="btn-primary arcade-btn-secondary"
+                style={{
+                  fontSize: '1.15rem',
+                  padding: '0.85rem 2.5rem',
+                  background: '#10b981',
+                  borderColor: '#10b981',
+                  boxShadow: '0 5px 0 0 #059669',
+                  color: '#090d16',
+                  fontWeight: 900,
+                  letterSpacing: '0.05em',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem'
+                }}
+                onClick={handleHostStartGame}
+                disabled={players.length === 0}
+              >
+                <Play size={20} />
+                <span>INSERT COIN / START GAME</span>
+              </button>
+            </div>
+          </aside>
         </div>
       );
     }
