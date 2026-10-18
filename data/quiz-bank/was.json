@@ -36,7 +36,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls; Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -72,7 +72,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls; Domain One F",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -119,7 +119,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessible Names and Descriptions; Roles, States and Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -155,7 +155,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Controls and ARIA Authoring Practices Guide",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -209,7 +209,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Authoring Practices Guide",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -245,7 +245,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Authoring Practices Guide",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -281,7 +281,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, ACT Rules",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -335,7 +335,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, ACT Rules and Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -389,7 +389,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM and Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -431,7 +431,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM; Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -484,7 +484,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Assistive Technology and Usability Testing; Domain Two G, End-user Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -526,7 +526,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C, D, F and G, Testing Methods and End-user Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-involving-users",
@@ -580,7 +580,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -634,7 +634,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports and Procurement Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -670,7 +670,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports and Mitigating Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -724,7 +724,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, Guidelines and Success Criteria; WCAG Supporting Documents",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -760,7 +760,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG supporting documents",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -814,7 +814,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Dynamic Content and Managing State",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -850,7 +850,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Dynamic Content and Managing State",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -903,7 +903,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single Page Applications; Domain One B, Managing Focus",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -939,7 +939,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single Page Applications; Domain One B, Managing Focus",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -986,13 +986,13 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A and C, Interoperability and Testing with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-supported technologies",
         "role": "support",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1022,7 +1022,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A and C, Interoperability and Testing with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1069,7 +1069,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D-F, Testing Tools, Assistive Technology Testing and QA",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -1105,7 +1105,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C-F, Assistive Technology Testing, Tools and QA",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1153,7 +1153,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance; Responsibilities and Web Development Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1182,7 +1182,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1229,7 +1229,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Fixing vs. Redesign; Recommending Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1277,7 +1277,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects and Procurement Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1307,7 +1307,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1355,7 +1355,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, Guidelines and Specifications: Authoring Tool Accessibility Guidelines (ATAG) 2.0",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1384,7 +1384,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, W3C Guidelines and Specifications",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -1438,7 +1438,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, European Standard EN 301 549",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1485,7 +1485,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Device Independent Event Handlers; Simplify Events",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -1521,7 +1521,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1568,7 +1568,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C, Interactive Controls and Widgets; Domain One D, ARIA Authoring Practices Guide",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -1622,7 +1622,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, WAI-ARIA Roles, States, and Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -1658,7 +1658,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-Supported Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -1711,7 +1711,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single-Page Applications; Domain One B, Dynamic Content and Managing Focus",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -1765,7 +1765,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Strategies of Persons with Disabilities: Users without Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -1801,7 +1801,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A, Interoperability and Compatibility Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1848,7 +1848,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, Accessibility Target Level and Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -1901,7 +1901,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C, Testing with Assistive Technologies: Screen Reader Users",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -1949,7 +1949,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, ACT Rules: Applicability and Outcomes",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -1984,7 +1984,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance; Responsibilities and Web Development Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -2031,7 +2031,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Mobile and Touch Users",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2085,7 +2085,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -2114,7 +2114,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Distinguishing between Failures and Optional Best Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -2162,7 +2162,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports and Procurement",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -2216,7 +2216,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG 2.2: Principles and Guidelines",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2251,7 +2251,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Versioning and Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2305,7 +2305,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2358,7 +2358,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -2387,7 +2387,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Managing Focus; Domain One C, Interactive Widgets",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -2441,7 +2441,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Roles, States, Properties and Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -2495,7 +2495,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-Supported Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2530,7 +2530,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Cognitive Disabilities and Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -2583,7 +2583,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing; Domain Two C, Alternative Input Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -2618,7 +2618,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2671,7 +2671,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Testing Forms and Content with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2707,7 +2707,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -2760,7 +2760,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Mobile and Touch Users",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -2814,7 +2814,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM Evaluation Methodology",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -2867,7 +2867,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Fixing vs. Redesign; Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -2903,7 +2903,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -2950,7 +2950,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Integrating Accessibility into the Procurement Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -2986,7 +2986,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3034,7 +3034,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C, Interactive Controls and Widgets; Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -3088,7 +3088,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Understanding Accessible Names and Descriptions",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -3124,7 +3124,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Dynamic Content and Managing State",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -3178,7 +3178,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA Authoring Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -3214,7 +3214,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessible Names and Descriptions; ARIA Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -3268,7 +3268,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Roles, States and Properties; Domain One B, Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -3304,7 +3304,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Screen Readers; Domain Two C, Assistive Technology Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3351,7 +3351,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Low Vision and Magnification Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -3405,7 +3405,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Screen Reader Testing and Content Structure",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -3459,7 +3459,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, Automated Testing Tools; Domain Two B, Assigning Success Criteria and Failures",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -3495,7 +3495,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Web Development Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3524,7 +3524,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Touch and Alternative Input",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3572,7 +3572,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -3625,7 +3625,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Cognitive Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -3679,7 +3679,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Distinguishing between Failures and Optional Best Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -3715,7 +3715,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports and Procurement",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -3768,7 +3768,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3816,7 +3816,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessible Procurement Maturity Model",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3845,7 +3845,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Procurement Process and Mitigating Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -3892,7 +3892,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Content Testing with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -3928,7 +3928,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two B, Assigning Success Criteria and Failures",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -3982,7 +3982,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG 2.2 Success Criteria; Domain One B, Semantic HTML",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4018,7 +4018,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG 2.2 Success Criteria: Timing Adjustable",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4071,7 +4071,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG 2.2 Success Criteria: Reflow",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4107,7 +4107,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4161,7 +4161,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA Keyboard/Focus Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -4197,7 +4197,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Roles and Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -4250,7 +4250,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E and H, Screen Readers and Strategies of Users without Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4286,7 +4286,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-Supported Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4315,7 +4315,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM: Define the Evaluation Scope",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -4368,7 +4368,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Screen Reader Testing and Content Navigation",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4422,7 +4422,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, Testing Tools and ACT Rules",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -4476,7 +4476,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Responsibilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4506,7 +4506,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Cognitive Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -4559,7 +4559,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing and Focus",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -4613,7 +4613,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Mobile/Touch; Domain Three B, Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4667,7 +4667,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Recommending Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4696,7 +4696,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4743,7 +4743,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Role of Accessibility Experts in Procurement",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -4778,7 +4778,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Remediation Strategies and Verification",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4826,7 +4826,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4874,7 +4874,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Issue Reporting",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -4922,7 +4922,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Conformance Levels and Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -4975,7 +4975,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5028,7 +5028,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Controls and ARIA Authoring Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -5064,7 +5064,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Understanding Accessible Names and Descriptions",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -5117,7 +5117,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-Supported Technologies; Domain One D, Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5147,7 +5147,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5194,7 +5194,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single-Page Applications; Domain One B, Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5248,7 +5248,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Motor Disabilities and Keyboard-Like Devices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5302,7 +5302,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Screen Reader Testing; Domain One C-D, Dialog Widget Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -5356,7 +5356,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A, Interoperability and Compatibility Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5404,7 +5404,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, Accessibility Target Level and Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -5440,7 +5440,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Content Testing with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5494,7 +5494,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Users with Low Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -5548,7 +5548,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Issue Reporting",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5578,7 +5578,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Auditory Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5632,7 +5632,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5680,7 +5680,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Failures vs. Optional Best Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5710,7 +5710,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Integrating Accessibility into Procurement",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -5763,7 +5763,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Role of Accessibility Experts",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5792,7 +5792,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA Authoring Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -5846,7 +5846,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Managing Focus and Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -5893,7 +5893,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessible Names and Descriptions",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5928,7 +5928,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -5981,7 +5981,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -6017,7 +6017,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single-Page Applications",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6071,7 +6071,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Limited Reading Capacities and Assistive Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6107,7 +6107,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Device Independent Event Handlers and Simplify Events",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6161,7 +6161,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6196,7 +6196,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Users with Low Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6250,7 +6250,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM: Select a Representative Sample",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -6304,7 +6304,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6358,7 +6358,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Users with Motor Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6394,7 +6394,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Assistive Technology and Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -6442,7 +6442,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Web Development Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -6490,7 +6490,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Fixing vs. Redesign",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -6538,7 +6538,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -6568,7 +6568,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -6604,7 +6604,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Recommending Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -6651,7 +6651,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Device Independent Event Handlers and Simplify Events",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6687,7 +6687,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, WAI-ARIA Roles, States, and Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -6741,7 +6741,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -6795,7 +6795,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA Authoring Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -6849,7 +6849,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Strategies of Screen Reader Users",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -6885,7 +6885,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Authoring Practices Guide and Roles",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -6939,7 +6939,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls; Domain One C, Interactive Widgets",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -6975,7 +6975,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Low Vision and Magnification Software",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -7029,7 +7029,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Screen Reader and Content Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7083,7 +7083,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact for Auditory Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7119,7 +7119,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, ACT Rules",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -7172,7 +7172,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7225,7 +7225,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Users with Limited Reading Capacities and End-User Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7261,7 +7261,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Responsibilities and Organizational Approaches",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7308,7 +7308,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM and Conformance Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -7362,13 +7362,13 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Responsibilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization",
         "role": "support",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7416,7 +7416,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7446,7 +7446,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Fixing vs. Redesign",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7493,7 +7493,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -7529,7 +7529,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7576,7 +7576,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Supporting Documents",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7611,7 +7611,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Simplify Events",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7658,7 +7658,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and WAI-ARIA Roles, States, and Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -7694,7 +7694,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, WAI-ARIA Roles and Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -7748,7 +7748,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-Supported Technologies; Domain One H, Motor Disability Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7802,7 +7802,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Custom Controls; Domain One D, Roles and States",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -7838,7 +7838,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single-Page Applications",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -7886,7 +7886,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Limited Reading Capacities and Text-to-Speech Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -7940,7 +7940,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A, Interoperability and Compatibility Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -7976,7 +7976,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Cognitive and Learning Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -8030,7 +8030,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, ACT Rules and Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -8083,7 +8083,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Screen Reader and Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -8119,7 +8119,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM: Select a Representative Sample",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -8172,7 +8172,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Planning, Managing, and Implementing Accessibility",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -8220,7 +8220,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Low Vision and Mobile/Touch Users",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -8256,7 +8256,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, Conformance Requirements and Reporting",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -8309,7 +8309,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Distinguishing Failures from Optional Best Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -8344,7 +8344,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -8391,7 +8391,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports and Mitigating Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -8427,7 +8427,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Role of Accessibility Experts in Procurement",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -8456,7 +8456,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, Authoring Tool Accessibility Guidelines 2.0",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -8503,7 +8503,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -8539,7 +8539,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessible Names and Descriptions",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -8592,7 +8592,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Managing Focus; Domain One C, Interactive Widgets",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -8646,7 +8646,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Custom Controls; Domain One D, Roles, States, and Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -8682,7 +8682,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA States",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -8736,7 +8736,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Strategies of Users with Cognitive Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -8771,7 +8771,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Screen Readers; Domain One D, Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -8818,7 +8818,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Screen Reader Testing; Domain One G, Single-Page Applications",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -8848,7 +8848,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, Automated Testing Tools and ACT Rules",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-act",
@@ -8901,7 +8901,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Motor Disabilities and Speech Recognition Software",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -8955,7 +8955,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM: Explore the Target Website and Select a Sample",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -8991,7 +8991,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance; Domain Three B, Remediation Verification",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9039,7 +9039,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing End-User Impact: Low Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9093,7 +9093,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9141,7 +9141,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9194,7 +9194,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9223,7 +9223,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Recommending Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9270,7 +9270,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Procurement Process and Accessibility Conformance Reports",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -9306,7 +9306,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Fixing vs. Redesign",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9354,7 +9354,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Supporting Documents and Techniques",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9390,7 +9390,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Dynamic Content and JavaScript Accessibility",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9438,7 +9438,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA States",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -9492,7 +9492,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessible Names and Descriptions",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9527,7 +9527,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls; Domain One B, Semantic HTML",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9575,7 +9575,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Accessibility-Supported Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9628,7 +9628,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -9664,7 +9664,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, User Strategies; Domain One B, Semantic Structure",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -9718,7 +9718,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Screen Reader Testing; Domain One B, Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9754,7 +9754,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact for Auditory Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -9808,7 +9808,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A, Interoperability and Compatibility Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9838,7 +9838,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, Assigning Success Criteria and Failures; WCAG-EM Reporting",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -9892,7 +9892,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Cognitive Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -9928,7 +9928,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -9975,7 +9975,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Responsibilities and Organizational Approaches",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10023,7 +10023,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Motor Disabilities and Speech Recognition",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -10077,7 +10077,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10106,7 +10106,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -10160,7 +10160,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Distinguishing Failures and Optional Best Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10190,7 +10190,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessible Procurement Maturity Model",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10237,7 +10237,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, EN 301 549 Self-Scoping Requirements",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10285,7 +10285,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML, Forms and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -10321,7 +10321,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessibility Tree and Its Impact on Assistive Technology Users",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10368,7 +10368,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and Keyboard Patterns",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -10404,7 +10404,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA Authoring Practices Guide",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -10458,7 +10458,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10506,7 +10506,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single-Page Applications",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10536,7 +10536,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Motor Disabilities and Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -10590,7 +10590,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM Scope and Complete Processes",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -10644,7 +10644,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Testing Forms with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -10680,7 +10680,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -10733,7 +10733,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -10787,7 +10787,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Motor Disabilities and User Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10817,7 +10817,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Web Development Process and Accessibility QA",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10847,7 +10847,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact for Low Vision and Reading Access",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -10901,7 +10901,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10949,7 +10949,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A-B, Prioritization and Remediation Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -10979,7 +10979,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessible Procurement Maturity Model",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -11026,7 +11026,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C, Testing for End-User Impact and Assistive Technology Use",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11062,7 +11062,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG 2.2 Success Criteria",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11115,7 +11115,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11151,7 +11151,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widgets and ARIA Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -11205,7 +11205,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, ARIA and the Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -11253,7 +11253,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One E, Screen Readers; Domain One D, Accessibility Tree",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -11283,7 +11283,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Custom Controls; Domain One C, Widget Interaction Patterns",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -11337,7 +11337,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Strategies of Screen Reader Users; Domain One B, Semantic HTML",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11373,7 +11373,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One G, Single-Page Applications; Domain One B, Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11427,7 +11427,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard and Assistive Technology Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11481,7 +11481,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11517,7 +11517,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -11571,7 +11571,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM: Select a Representative Sample",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -11607,7 +11607,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Content Testing with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11661,7 +11661,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance and Web Development Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -11709,7 +11709,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Users with Low Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11763,7 +11763,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -11793,7 +11793,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Accessibility Conformance Reports",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "iti-acr-vpat",
@@ -11847,7 +11847,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Remediation Strategies and Verification",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -11877,7 +11877,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11931,7 +11931,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Success Criteria; Domain One B, Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -11967,7 +11967,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One B, Semantic HTML and Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12021,7 +12021,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One C-D, Interactive Widget Patterns",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -12057,7 +12057,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, WAI-ARIA Roles, States, and Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -12111,7 +12111,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Supporting Documents and Versioning",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12165,7 +12165,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One D, Accessibility Tree and WAI-ARIA Properties",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -12201,7 +12201,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One F, Standard Controls vs. Custom Controls",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -12248,7 +12248,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Users with Low Vision and Strategies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12302,7 +12302,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Screen Reader Testing; Domain One B, Dynamic Content",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12338,7 +12338,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two A, Interoperability and Compatibility Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -12386,7 +12386,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing Mobile and Touch End-User Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12422,7 +12422,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, WCAG-EM Reporting and Conformance Scope",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -12476,7 +12476,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E, Accessibility Quality Assurance",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12512,7 +12512,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, End-User Impact: Vision Disabilities",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12566,7 +12566,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -12596,7 +12596,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects and Procurement Process",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -12626,7 +12626,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Distinguishing Failures and Optional Best Practices",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -12656,7 +12656,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12709,7 +12709,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools; Domain Two F, Assistive Technology Testing",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "aria-apg",
@@ -12763,7 +12763,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One A, WCAG Principles; Domain Two A, Interoperability",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12799,7 +12799,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain One H, Strategies of Persons with Disabilities in Using Web Solutions",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-people-use-web",
@@ -12852,7 +12852,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Testing Content and Assistive Technology Use",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12888,7 +12888,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and F, Testing Content with Assistive Technologies",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12942,7 +12942,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Users with Low Vision",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -12996,7 +12996,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -13032,7 +13032,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two D, Automated Testing Tools and ACT Rules",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -13080,7 +13080,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two F, Keyboard Testing; Domain One D, ARIA States",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -13134,7 +13134,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two B, Assigning Success Criteria and Failures; WCAG-EM Reporting",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-em",
@@ -13188,7 +13188,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two G, Testing for End-User Impact: Motor Disabilities and Speech Recognition",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -13224,7 +13224,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two E and G, Accessibility Quality Assurance and End-User Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wai-involving-users",
@@ -13278,7 +13278,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Two C and G, Testing Media and Auditory End-User Impact",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       },
       {
         "source_id": "wcag-22",
@@ -13314,7 +13314,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three A, Severity and Prioritization of Issues",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -13361,7 +13361,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Mitigating Accessibility Defects",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -13409,7 +13409,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three B, Fixing vs. Redesign",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -13439,7 +13439,7 @@
         "source_id": "was-bok-2024-10",
         "locator": "Domain Three C, Procurement Process and Maturity",
         "role": "scope",
-        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
       }
     ],
     "tags": [
@@ -13449,5 +13449,1337 @@
     ],
     "status": "draft",
     "revision": 1
+  },
+  {
+    "id": "was-d2-a-supp-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-01",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A city service team evaluates a redesign. The review concerns browser, OS, and AT combinations. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "browser,-OS,-and-AT-combinations"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d2-a-supp-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-02",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A university reviews its student portal. The review concerns accessible name exposure. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "accessible-name-exposure"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d2-a-supp-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-03",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A library tests a new service. The review concerns role and state mapping. This factor should be considered when evaluating access.",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "role-and-state-mapping"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d2-a-supp-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-04",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A design team gathers user feedback. The review concerns keyboard operation. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "keyboard-operation"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "B",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "C",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "D",
+        "text": "Assume one feature proves access for everyone."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "was-d2-a-supp-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-05",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A QA analyst investigates a defect. The review concerns native versus custom controls. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "native-versus-custom-controls"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d2-a-supp-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-06",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A project team compares two approaches. The review concerns dynamic error announcement. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "dynamic-error-announcement"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d2-a-supp-07",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-07",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A public agency updates its process. The review concerns mobile screen-reader reachability. This factor should be considered when evaluating access.",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "mobile-screen-reader-reachability"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d2-a-supp-08",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-08",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A support team identifies a recurring barrier. The review concerns speech input labels. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "speech-input-labels"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "B",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "C",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "D",
+        "text": "Assume one feature proves access for everyone."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "was-d2-a-supp-09",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-09",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A product owner assesses a proposed fix. The review concerns ARIA and native semantics. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "ARIA-and-native-semantics"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d2-a-supp-10",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-10",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A community group reviews access. The review concerns browser regression. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "browser-regression"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d2-a-supp-11",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-11",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A developer examines a release. The review concerns reproducible environment records. This factor should be considered when evaluating access.",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "reproducible-environment-records"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d2-a-supp-12",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-12",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A facilities team changes visitor flow. The review concerns live status exposure. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "live-status-exposure"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "B",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "C",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "D",
+        "text": "Assume one feature proves access for everyone."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "was-d2-a-supp-13",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-13",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A training team updates course materials. The review concerns focus behavior across platforms. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "focus-behavior-across-platforms"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d2-a-supp-14",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-14",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A procurement team compares tools. The review concerns guidance plus testing. Which response is best?",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "guidance-plus-testing"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d2-a-supp-15",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-d2-a-supp-15",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A manager reviews outcome data. The review concerns touch operation. This factor should be considered when evaluating access.",
+    "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-interoperability",
+      "was-d2-a",
+      "touch-operation"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d1-g-supp-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-01",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A city service team evaluates a redesign. The review concerns title after route changes. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "title-after-route-changes"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d1-g-supp-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-02",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A university reviews its student portal. The review concerns focus after navigation. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "focus-after-navigation"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d1-g-supp-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-03",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A library tests a new service. The review concerns history and rendered route state. This factor should be considered when evaluating access.",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "history-and-rendered-route-state"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d1-g-supp-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-04",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A design team gathers user feedback. The review concerns dynamic results announcement. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "dynamic-results-announcement"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "B",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "C",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      },
+      {
+        "id": "D",
+        "text": "Assume one feature proves access for everyone."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "was-d1-g-supp-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-05",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A QA analyst investigates a defect. The review concerns direct-link initialization. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "direct-link-initialization"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d1-g-supp-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-06",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A project team compares two approaches. The review concerns modal focus. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "modal-focus"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d1-g-supp-07",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-07",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A public agency updates its process. The review concerns stale heading and title. This factor should be considered when evaluating access.",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "stale-heading-and-title"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d1-g-supp-08",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-08",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A support team identifies a recurring barrier. The review concerns back-button behavior. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "back-button-behavior"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "B",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "C",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      },
+      {
+        "id": "D",
+        "text": "Assume one feature proves access for everyone."
+      }
+    ],
+    "answer": "C"
+  },
+  {
+    "id": "was-d1-g-supp-09",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-09",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A product owner assesses a proposed fix. The review concerns announcement volume. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "announcement-volume"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      }
+    ],
+    "answer": "D"
+  },
+  {
+    "id": "was-d1-g-supp-10",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-10",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A community group reviews access. The review concerns filter update granularity. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "filter-update-granularity"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      },
+      {
+        "id": "B",
+        "text": "Assume one feature proves access for everyone."
+      },
+      {
+        "id": "C",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "D",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": "was-d1-g-supp-11",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-11",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A developer examines a release. The review concerns keyboard route testing. This factor should be considered when evaluating access.",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "keyboard-route-testing"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "answer": true
+  },
+  {
+    "id": "was-d1-g-supp-12",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-d1-g-supp-12",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A facilities team changes visitor flow. The review concerns coherent URL and content. Which response is best?",
+    "explanation": "Single-page applications must deliberately communicate view changes and preserve usable navigation state.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "file:///C:/Users/clean/OneDrive/Documents/GitHub/quiz_game/resources/IAAP_WAS_BOK_2024_v23%201.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Relevant linked guidance",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "was-spa-navigation-state",
+      "was-d1-g",
+      "coherent-URL-and-content"
+    ],
+    "status": "draft",
+    "revision": 1,
+    "options": [
+      {
+        "id": "A",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "B",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "C",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+      },
+      {
+        "id": "D",
+        "text": "Assume one feature proves access for everyone."
+      }
+    ],
+    "answer": "C"
   }
 ]

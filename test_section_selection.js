@@ -36,11 +36,11 @@ async function runSectionAndSubjectTests() {
   console.log(`  Low (5-9 Qs): ${audit.low.length} sections: ${audit.low.map(s => `${s.id} (${s.count} Qs)`).join(', ')}`);
   console.log(`  Healthy (>= 10 Qs): ${audit.healthy.length} sections`);
 
-  if (!audit.critical.some(s => s.id === 'CPACC-D1-D')) {
-    throw new Error('CPACC-D1-D should be identified as critical');
+  if (audit.critical.length !== 0) {
+    throw new Error(`Expected 0 critical sections after update, got ${audit.critical.length}`);
   }
-  if (!audit.critical.some(s => s.id === 'CPACC-D2-B')) {
-    throw new Error('CPACC-D2-B should be identified as critical');
+  if (audit.healthy.length !== 35) {
+    throw new Error(`Expected all 35 sections to be healthy (>= 10 Qs), got ${audit.healthy.length}`);
   }
 
   // Test 3: Subjects Endpoint
@@ -57,8 +57,8 @@ async function runSectionAndSubjectTests() {
   const secQuestions = await fetchJson('http://localhost:3001/api/questions?sections=CPACC-D1-D');
   const secCount = Array.isArray(secQuestions) ? secQuestions.length : (secQuestions.count || 0);
   console.log(`✓ Questions in CPACC-D1-D: ${secCount} items.`);
-  if (secCount !== 4) {
-    throw new Error(`Expected exactly 4 questions in CPACC-D1-D, got ${secCount}`);
+  if (secCount !== 20) {
+    throw new Error(`Expected exactly 20 questions in CPACC-D1-D, got ${secCount}`);
   }
 
   // Test 5: Questions Filter by Multiple Sections
@@ -66,8 +66,8 @@ async function runSectionAndSubjectTests() {
   const multiSecQuestions = await fetchJson('http://localhost:3001/api/questions?sections=CPACC-D1-D,WAS-D1-G');
   const multiSecCount = Array.isArray(multiSecQuestions) ? multiSecQuestions.length : (multiSecQuestions.count || 0);
   console.log(`✓ Questions in CPACC-D1-D + WAS-D1-G: ${multiSecCount} items.`);
-  if (multiSecCount !== 12) { // 4 + 8
-    throw new Error(`Expected 12 questions (4 + 8), got ${multiSecCount}`);
+  if (multiSecCount !== 40) { // 20 + 20
+    throw new Error(`Expected 40 questions (20 + 20), got ${multiSecCount}`);
   }
 
   // Test 6: Questions Filter by Subject
@@ -79,8 +79,8 @@ async function runSectionAndSubjectTests() {
     throw new Error(`Expected at least 30 questions for keyboard, got ${subCount}`);
   }
 
-  // Test 7: Socket.IO Room Creation with Under-Provisioned Section
-  console.log('\n--- Test 7: Socket.IO create-room with CPACC-D1-D (Critical Section Safety) ---');
+  // Test 7: Socket.IO Room Creation with Full 20-Question Section (Healthy Full Match)
+  console.log('\n--- Test 7: Socket.IO create-room with CPACC-D1-D (Healthy 20-Q Round) ---');
   const socket = io('http://localhost:3001');
 
   await new Promise((resolve, reject) => {
@@ -89,20 +89,16 @@ async function runSectionAndSubjectTests() {
         gameMode: 'HOT_POTATO',
         certTrack: 'cpacc',
         timeLimit: 20,
-        questionCount: 10, // Host asks for 10
-        sections: ['CPACC-D1-D'] // Only 4 available!
+        questionCount: 15, // Host asks for 15
+        sections: ['CPACC-D1-D'] // Has 20 available!
       }, (res) => {
         try {
           if (!res.success) throw new Error('create-room failed');
           console.log(`✓ Room created with PIN: ${res.pin}`);
-          console.log(`✓ Requested questionCount: 10 | Actual room questions: ${res.questionCount}`);
-          console.log(`✓ Safety pool warning: "${res.settings.poolWarning}"`);
+          console.log(`✓ Requested questionCount: 15 | Actual room questions: ${res.questionCount}`);
 
-          if (res.questionCount !== 4) {
-            throw new Error(`Expected questionCount to be capped at 4, got ${res.questionCount}`);
-          }
-          if (!res.settings.poolWarning || !res.settings.poolWarning.includes('4 question')) {
-            throw new Error('Expected poolWarning describing the 4 questions limit');
+          if (res.questionCount !== 15) {
+            throw new Error(`Expected questionCount to be 15, got ${res.questionCount}`);
           }
           resolve();
         } catch (e) {
