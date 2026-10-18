@@ -91,7 +91,8 @@ function normalizeQuestion(raw, defaultCert = 'CPACC') {
       concept_id: raw.concept_id || '',
       tags,
       certification: cert,
-      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
+      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`,
+      citationUrl: raw.source_refs?.[0]?.url || raw.citationUrl || raw.url || null
     };
   }
 
@@ -104,7 +105,7 @@ function normalizeQuestion(raw, defaultCert = 'CPACC') {
     const isAnswerTrue = raw.answer === true || String(raw.answer).toLowerCase() === 'true';
     choices = [
       { id: 'A', text: 'True', shape: 'triangle', isCorrect: isAnswerTrue },
-      { id: 'B', text: 'False', shape: 'diamond', isCorrect: !isAnswerTrue }
+      { id: 'B', text: 'False', shape: 'square', isCorrect: !isAnswerTrue }
     ];
   } else if (Array.isArray(raw.options)) {
     choices = raw.options.map((opt, idx) => ({
@@ -126,6 +127,8 @@ function normalizeQuestion(raw, defaultCert = 'CPACC') {
                    raw.cpaccRef ||
                    raw.wasRef ||
                    `${cert} Body of Knowledge`;
+
+  const citationUrl = raw.source_refs?.[0]?.url || raw.citationUrl || raw.url || null;
 
   const topic = raw.topic ||
                 (raw.concept_id ? raw.concept_id.replace(/^([a-z0-9]+-)+/i, '').replace(/-/g, ' ').toUpperCase() : '') ||
@@ -151,6 +154,7 @@ function normalizeQuestion(raw, defaultCert = 'CPACC') {
     correctAnswer,
     explanation: raw.explanation || 'Refer to the official IAAP Body of Knowledge.',
     citation,
+    citationUrl,
     funNote: raw.funNote || ''
   };
 }

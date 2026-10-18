@@ -189,7 +189,7 @@ async function runAllGameModeTests() {
     const qData = await qPromise;
 
     // 2. Submit intentionally wrong answer to lose entire bankroll
-    const wrongChoice = qData.question.choices.find(c => c.shape === 'square' || c.id === 'D') || qData.question.choices[3];
+    const wrongChoice = qData.question.choices.find(c => c.shape === 'square' || c.id === 'D' || c.id === 'B') || qData.question.choices[qData.question.choices.length - 1];
     const settlementPromise = waitForEvent(highRoller, 'hr-round-settlement');
     highRoller.emit('hr-submit-answer', { choiceId: wrongChoice.id });
     const settlement = await settlementPromise;

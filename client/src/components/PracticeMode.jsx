@@ -148,8 +148,8 @@ export default function PracticeMode({ onBack }) {
 
       const key = e.key.toUpperCase();
       let index = -1;
-      if (key === '1' || key === 'A') index = 0;
-      if (key === '2' || key === 'B') index = 1;
+      if (key === '1' || key === 'A' || key === 'T') index = 0;
+      if (key === '2' || key === 'B' || key === 'F') index = 1;
       if (key === '3' || key === 'C') index = 2;
       if (key === '4' || key === 'D') index = 3;
 
@@ -406,14 +406,14 @@ export default function PracticeMode({ onBack }) {
                       <button
                         type="button"
                         onClick={handleSelectAllSections}
-                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                       >
                         Select All
                       </button>
                       <button
                         type="button"
                         onClick={handleClearSections}
-                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                       >
                         Clear
                       </button>
@@ -444,7 +444,8 @@ export default function PracticeMode({ onBack }) {
                                       alignItems: 'center',
                                       justifyContent: 'space-between',
                                       gap: '0.5rem',
-                                      padding: '0.35rem 0.5rem',
+                                      padding: '0.45rem 0.65rem',
+                                      minHeight: '44px',
                                       borderRadius: '4px',
                                       background: isChecked ? 'rgba(16, 185, 129, 0.12)' : 'rgba(15, 23, 42, 0.5)',
                                       border: `1px solid ${isChecked ? '#10b981' : 'rgba(51, 65, 85, 0.5)'}`,
@@ -457,7 +458,7 @@ export default function PracticeMode({ onBack }) {
                                         type="checkbox"
                                         checked={isChecked}
                                         onChange={() => handleToggleSection(sec.id)}
-                                        style={{ width: '18px', height: '18px', minWidth: '24px', minHeight: '24px', cursor: 'pointer' }}
+                                        style={{ width: '24px', height: '24px', minWidth: '24px', minHeight: '24px', cursor: 'pointer' }}
                                       />
                                       <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 700, color: '#cbd5e1' }}>
                                         [{sec.id}]
@@ -503,14 +504,14 @@ export default function PracticeMode({ onBack }) {
                       <button
                         type="button"
                         onClick={handleSelectAllSubjects}
-                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid #f59e0b', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid #f59e0b', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                       >
                         Select All
                       </button>
                       <button
                         type="button"
                         onClick={handleClearSubjects}
-                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                       >
                         Clear
                       </button>
@@ -531,6 +532,7 @@ export default function PracticeMode({ onBack }) {
                             alignItems: 'center',
                             gap: '0.35rem',
                             padding: '0.4rem 0.65rem',
+                            minHeight: '44px',
                             borderRadius: '20px',
                             fontSize: '0.8rem',
                             fontWeight: 700,
@@ -627,14 +629,19 @@ export default function PracticeMode({ onBack }) {
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
               <button
                 type="submit"
+                disabled={availableQuestions.length === 0}
+                aria-disabled={availableQuestions.length === 0}
                 className="btn-primary arcade-btn-secondary"
                 style={{
                   padding: '0.85rem 2.5rem',
                   fontSize: '1.1rem',
+                  minHeight: '44px',
                   fontWeight: 900,
-                  background: '#10b981',
-                  borderColor: '#10b981',
-                  color: '#090d16'
+                  background: availableQuestions.length === 0 ? '#334155' : '#10b981',
+                  borderColor: availableQuestions.length === 0 ? '#475569' : '#10b981',
+                  color: availableQuestions.length === 0 ? '#94a3b8' : '#090d16',
+                  cursor: availableQuestions.length === 0 ? 'not-allowed' : 'pointer',
+                  opacity: availableQuestions.length === 0 ? 0.6 : 1
                 }}
               >
                 <Play size={20} />
@@ -857,7 +864,7 @@ export default function PracticeMode({ onBack }) {
                 <span style={{ flex: 1, fontWeight: 700 }}>{choice.text}</span>
 
                 <span className="shape-badge-key" aria-hidden="true">
-                  Key: {idx + 1}
+                  {q.choices.length === 2 ? `Key: ${idx + 1} / ${idx === 0 ? 'T' : 'F'}` : `Key: ${idx + 1}`}
                 </span>
 
                 {isAnswered && isCorrect && (

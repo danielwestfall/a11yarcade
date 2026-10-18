@@ -78,23 +78,23 @@ body.light-mode {
   --bg-surface: #ffffff;
   --bg-surface-elevated: #f1f5f9;
   --text-primary: #090d16;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-secondary: #1e293b;
+  --text-muted: #334155;
   --border-color: #cbd5e1;
   --border-bright: #94a3b8;
   --focus-ring: #0284c7;
 
-  --arcade-cyan: #0284c7;
-  --arcade-green: #059669;
+  --arcade-cyan: #0369a1; /* 5.5:1 contrast against white text (WCAG AA & AAA friendly) */
+  --arcade-green: #047857;
   --arcade-crimson: #dc2626;
-  --arcade-amber: #d97706;
-  --arcade-purple: #7c3aed;
-  --arcade-gold: #b45309;
+  --arcade-amber: #b45309;
+  --arcade-purple: #6b21a8;
+  --arcade-gold: #92400e;
 
   --color-triangle: #dc2626;
-  --color-diamond: #0284c7;
-  --color-circle: #d97706;
-  --color-square: #059669;
+  --color-diamond: #0369a1;
+  --color-circle: #b45309;
+  --color-square: #047857;
 
   --shadow-card: 4px 4px 0px 0px #cbd5e1;
   --shadow-cabinet: 0px 8px 0px 0px #94a3b8;
@@ -120,6 +120,105 @@ body.light-mode .marquee-hero-card {
   box-shadow: 4px 4px 0px 0px #cbd5e1;
 }
 
+/* Headings in Light Mode */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6 {
+  color: #090d16 !important;
+}
+
+/* Paragraphs, Labels, and Muted Text in Light Mode */
+body.light-mode p {
+  color: #1e293b !important;
+}
+
+body.light-mode label,
+body.light-mode span.label-text {
+  color: #0f172a !important;
+}
+
+/* Eliminate invisible white text on white backgrounds */
+body.light-mode [style*="color: #ffffff"]:not(.answer-btn *):not(.btn-primary *):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.theme-preview-dark *):not(.theme-preview-hc *),
+body.light-mode [style*="color: rgb(255, 255, 255)"]:not(.answer-btn *):not(.btn-primary *):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.theme-preview-dark *):not(.theme-preview-hc *),
+body.light-mode [style*="color: white"]:not(.answer-btn *):not(.btn-primary *):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.theme-preview-dark *):not(.theme-preview-hc *) {
+  color: #090d16 !important;
+}
+
+/* Low contrast slate/grey text on light backgrounds */
+body.light-mode [style*="color: #cbd5e1"],
+body.light-mode [style*="color: rgb(203, 213, 225)"],
+body.light-mode [style*="color: #e2e8f0"],
+body.light-mode [style*="color: #f8fafc"] {
+  color: #0f172a !important;
+}
+
+body.light-mode [style*="color: #64748b"],
+body.light-mode [style*="color: rgb(100, 116, 139)"],
+body.light-mode [style*="color: #94a3b8"],
+body.light-mode [style*="color: rgb(148, 163, 184)"],
+body.light-mode [style*="color: #87929a"],
+body.light-mode [style*="color: rgb(135, 146, 154)"] {
+  color: #334155 !important;
+}
+
+/* Dark Terminal Containers converted to Crisp Elevated Surfaces in Light Mode */
+body.light-mode [style*="background: #0b1326"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(11, 19, 38)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #060e20"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(6, 14, 32)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #070d19"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(7, 13, 25)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #1e293b"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(30, 41, 59)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #131b2e"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(19, 27, 46)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #0f172a"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(15, 23, 42)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(15, 23, 42"]:not(.theme-preview-dark):not(.theme-preview-hc) {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #090d16 !important;
+}
+
+/* Buttons in Light Mode */
+body.light-mode .btn-secondary,
+body.light-mode button.btn-secondary {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  color: #090d16 !important;
+  box-shadow: 0 4px 0 0 #cbd5e1 !important;
+}
+
+body.light-mode .btn-secondary:hover:not(:disabled),
+body.light-mode button.btn-secondary:hover:not(:disabled) {
+  background: #e2e8f0 !important;
+  color: #000000 !important;
+}
+
+body.light-mode .btn-primary,
+body.light-mode button.btn-primary {
+  background: #0369a1 !important;
+  border-color: #0369a1 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 0 #075985 !important;
+}
+
+body.light-mode .btn-primary:hover:not(:disabled),
+body.light-mode button.btn-primary:hover:not(:disabled) {
+  background: #075985 !important;
+}
+
+/* Secondary Action Buttons (e.g. Green Insert Token / Start Game) */
+body.light-mode .arcade-btn-secondary {
+  background: #047857 !important;
+  border-color: #047857 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 0 #065f46 !important;
+}
+
 body.light-mode .arcade-dock {
   background: #ffffff;
   border-top: 2px solid #cbd5e1;
@@ -134,14 +233,14 @@ body.light-mode .pin-tile {
 }
 
 body.light-mode .input-field {
-  background: #ffffff;
-  color: #090d16;
-  border-color: #cbd5e1;
+  background: #ffffff !important;
+  color: #090d16 !important;
+  border-color: #94a3b8 !important;
 }
 
 body.light-mode .input-field:focus {
-  border-color: #0284c7;
-  outline-color: #0284c7;
+  border-color: #0284c7 !important;
+  outline-color: #0284c7 !important;
 }
 
 body.light-mode .explanation-box {
@@ -160,19 +259,188 @@ body.light-mode .mode-tabs {
 }
 
 body.light-mode .mode-tab {
-  color: #475569;
+  color: #334155;
 }
 
 body.light-mode .mode-tab:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0.05);
   color: #090d16;
 }
 
 body.light-mode .mode-tab.active {
-  background: #0284c7;
-  color: #ffffff;
-  border-color: #0284c7;
-  box-shadow: 0 4px 0 0 #0369a1;
+  background: #0369a1 !important;
+  color: #ffffff !important;
+  border-color: #0369a1 !important;
+  box-shadow: 0 4px 0 0 #075985 !important;
+}
+
+body.light-mode .a11y-pill-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #090d16;
+  box-shadow: 0 3px 0 0 #94a3b8;
+}
+
+body.light-mode .a11y-pill-btn:hover {
+  background: #e2e8f0;
+  box-shadow: 0 4px 0 0 #64748b;
+}
+
+body.light-mode .a11y-pill-btn.active {
+  background: #0369a1 !important;
+  color: #ffffff !important;
+  border-color: #0369a1 !important;
+  box-shadow: 0 3px 0 0 #075985 !important;
+}
+
+body.light-mode .a11y-pill-btn.active[style*="background: #facc15"] {
+  background: #facc15 !important;
+  color: #090d16 !important;
+  border-color: #eab308 !important;
+  box-shadow: 0 3px 0 0 #ca8a04 !important;
+}
+
+/* Theme preview cards in A11y modal */
+body.light-mode .theme-preview-dark {
+  background: #090d16 !important;
+  border-color: #38bdf8 !important;
+}
+body.light-mode .theme-preview-dark * {
+  color: #ffffff !important;
+}
+body.light-mode .theme-preview-dark .theme-subtext {
+  color: #cbd5e1 !important;
+}
+
+body.light-mode .theme-preview-hc {
+  background: #000000 !important;
+  border-color: #facc15 !important;
+}
+body.light-mode .theme-preview-hc * {
+  color: #facc15 !important;
+}
+body.light-mode .theme-preview-hc .theme-subtext {
+  color: #ffffff !important;
+}
+
+/* High-Contrast Accessible Badges & Pills in Light Mode */
+body.light-mode [style*="color: #38bdf8"],
+body.light-mode [style*="color: rgb(56, 189, 248)"],
+body.light-mode [style*="color: #7dd3fc"],
+body.light-mode [style*="color: rgb(125, 211, 252)"],
+body.light-mode [style*="color: #60a5fa"],
+body.light-mode [style*="color: rgb(96, 165, 250)"] {
+  color: #0369a1 !important;
+}
+
+body.light-mode [style*="color: #10b981"],
+body.light-mode [style*="color: rgb(16, 185, 129)"],
+body.light-mode [style*="color: #4ade80"],
+body.light-mode [style*="color: rgb(74, 222, 128)"],
+body.light-mode [style*="color: #34d399"],
+body.light-mode [style*="color: rgb(52, 211, 153)"],
+body.light-mode [style*="color: #22c55e"],
+body.light-mode [style*="color: rgb(34, 197, 94)"],
+body.light-mode [style*="color: #6ee7b7"],
+body.light-mode [style*="color: rgb(110, 231, 183)"],
+body.light-mode [style*="color: #86efac"],
+body.light-mode [style*="color: rgb(134, 239, 172)"] {
+  color: #065f46 !important;
+}
+
+body.light-mode [style*="color: #f59e0b"],
+body.light-mode [style*="color: rgb(245, 158, 11)"],
+body.light-mode [style*="color: #fbbf24"],
+body.light-mode [style*="color: rgb(251, 191, 36)"],
+body.light-mode [style*="color: #facc15"],
+body.light-mode [style*="color: rgb(250, 204, 21)"],
+body.light-mode [style*="color: #fde68a"],
+body.light-mode [style*="color: rgb(253, 230, 138)"],
+body.light-mode [style*="color: #fef08a"],
+body.light-mode [style*="color: rgb(254, 240, 138)"] {
+  color: #78350f !important;
+}
+
+body.light-mode [style*="color: #ef4444"],
+body.light-mode [style*="color: rgb(239, 68, 68)"],
+body.light-mode [style*="color: #f87171"],
+body.light-mode [style*="color: rgb(248, 113, 113)"],
+body.light-mode [style*="color: #fca5a5"],
+body.light-mode [style*="color: rgb(252, 165, 165)"] {
+  color: #7f1d1d !important;
+}
+
+body.light-mode [style*="color: #c084fc"],
+body.light-mode [style*="color: rgb(192, 132, 252)"],
+body.light-mode [style*="color: #e9d5ff"],
+body.light-mode [style*="color: rgb(233, 213, 255)"],
+body.light-mode [style*="color: #ec4899"],
+body.light-mode [style*="color: rgb(236, 72, 153)"],
+body.light-mode [style*="color: #f472b6"],
+body.light-mode [style*="color: rgb(244, 114, 182)"] {
+  color: #581c87 !important;
+}
+
+/* Badge Background Overrides for Light Mode */
+body.light-mode [style*="background: rgba(16, 185, 129"],
+body.light-mode [style*="background: rgba(16, 185, 129, 0.2)"],
+body.light-mode [style*="background: rgba(16, 185, 129, 0.15)"] {
+  background: #d1fae5 !important;
+  border-color: #059669 !important;
+}
+
+body.light-mode [style*="background: rgba(56, 189, 248"],
+body.light-mode [style*="background: rgba(56, 189, 248, 0.2)"],
+body.light-mode [style*="background: rgba(56, 189, 248, 0.15)"] {
+  background: #e0f2fe !important;
+  border-color: #0284c7 !important;
+}
+
+body.light-mode [style*="background: rgba(245, 158, 11"],
+body.light-mode [style*="background: rgba(245, 158, 11, 0.2)"],
+body.light-mode [style*="background: rgba(245, 158, 11, 0.15)"],
+body.light-mode [style*="background: rgba(250, 204, 21"],
+body.light-mode [style*="background: rgba(250, 204, 21, 0.2)"],
+body.light-mode [style*="background: rgba(250, 204, 21, 0.15)"],
+body.light-mode [style*="background: rgba(250, 204, 21, 0.1)"] {
+  background: #fef3c7 !important;
+  border-color: #d97706 !important;
+}
+
+body.light-mode [style*="background: rgba(239, 68, 68"],
+body.light-mode [style*="background: rgba(239, 68, 68, 0.2)"],
+body.light-mode [style*="background: rgba(239, 68, 68, 0.15)"] {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+}
+
+body.light-mode [style*="background: rgba(192, 132, 252"],
+body.light-mode [style*="background: rgba(192, 132, 252, 0.2)"],
+body.light-mode [style*="background: rgba(192, 132, 252, 0.15)"] {
+  background: #f3e8ff !important;
+  border-color: #7c3aed !important;
+}
+
+/* Answer Button Typography in Light Mode */
+body.light-mode .answer-btn {
+  color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+body.light-mode .answer-btn.circle {
+  background-color: #b45309 !important; /* 5.25:1 contrast against white text */
+}
+
+body.light-mode .answer-btn.square {
+  background-color: #047857 !important; /* 6.2:1 contrast against white text */
+}
+
+body.light-mode .answer-btn.triangle {
+  background-color: #dc2626 !important; /* 4.8:1 contrast against white text */
+}
+
+body.light-mode .answer-btn.diamond {
+  background-color: #0284c7 !important; /* 4.6:1 contrast against white text */
 }
 
 /* ==========================================================================

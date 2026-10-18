@@ -35,6 +35,18 @@ export default function TauntTriggerButton({ socket, onTauntSent }) {
     }, 2500);
   };
 
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+      if (e.key === 't' || e.key === 'T') {
+        e.preventDefault();
+        handleSendTaunt(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [cooldown, socket]);
+
   return (
     <div
       className="taunt-trigger-container"

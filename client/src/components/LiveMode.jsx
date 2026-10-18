@@ -432,7 +432,7 @@ export default function LiveMode() {
     return () => window.removeEventListener('keydown', handleSpacebar);
   }, [role, hostGameState, players.length]);
 
-  // Keyboard navigation for player answers (1, 2, 3, 4)
+  // Keyboard navigation for player answers (1, 2, 3, 4 or T, F)
   useEffect(() => {
     if (role !== 'PLAYER' || playerState !== 'QUESTION' || !currentQuestionData) return;
 
@@ -440,8 +440,8 @@ export default function LiveMode() {
       if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
       const key = e.key.toUpperCase();
       let choiceId = null;
-      if (key === '1' || key === 'A') choiceId = 'A';
-      if (key === '2' || key === 'B') choiceId = 'B';
+      if (key === '1' || key === 'A' || key === 'T') choiceId = 'A';
+      if (key === '2' || key === 'B' || key === 'F') choiceId = 'B';
       if (key === '3' || key === 'C') choiceId = 'C';
       if (key === '4' || key === 'D') choiceId = 'D';
 
@@ -466,6 +466,12 @@ export default function LiveMode() {
 
   // Real-time calculation of available questions in pool
   const availableQuestions = React.useMemo(() => {
+    if (hostSettings.filterType === 'sections' && (!hostSettings.selectedSections || hostSettings.selectedSections.length === 0)) {
+      return [];
+    }
+    if (hostSettings.filterType === 'subjects' && (!hostSettings.selectedSubjects || hostSettings.selectedSubjects.length === 0)) {
+      return [];
+    }
     return getFilteredQuestions({
       certTrack: hostSettings.certTrack || 'all',
       domain: hostSettings.filterType === 'domain' ? hostSettings.domain : 'all',
@@ -533,6 +539,11 @@ export default function LiveMode() {
   // Host Action: Create Room
   const handleHostCreateRoom = () => {
     if (!socket) return;
+    if (availableQuestions.length === 0) {
+      soundManager.playError();
+      setErrorMessage('⚠️ Zero questions found matching this filter. Please choose at least one section or subject.');
+      return;
+    }
     setErrorMessage('');
     const payload = {
       ...hostSettings,
@@ -634,6 +645,11 @@ export default function LiveMode() {
     soundManager.playClick();
     setPlayerChoice(choiceId);
     setPlayerState('SUBMITTED');
+
+    const choiceObj = currentQuestionData?.choices?.find(c => c.id === choiceId);
+    const shapeLabel = choiceObj?.shape === 'triangle' ? '▲ Triangle' : choiceObj?.shape === 'diamond' ? '◆ Diamond' : choiceObj?.shape === 'circle' ? '● Circle' : '■ Square';
+    const choiceText = choiceObj?.text ? ` (${choiceObj.text})` : '';
+    setLiveAnnouncement(`Answer submitted: Choice ${choiceId} ${shapeLabel}${choiceText}. Locked in!`);
 
     // Haptic feedback on mobile if supported
     if (navigator.vibrate) {
@@ -1023,14 +1039,14 @@ export default function LiveMode() {
                         <button
                           type="button"
                           onClick={handleSelectAllSections}
-                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', borderRadius: '4px', cursor: 'pointer' }}
+                          style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                           Select All
                         </button>
                         <button
                           type="button"
                           onClick={handleClearSections}
-                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                          style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                           Clear
                         </button>
@@ -1061,7 +1077,8 @@ export default function LiveMode() {
                                         alignItems: 'center',
                                         justifyContent: 'space-between',
                                         gap: '0.5rem',
-                                        padding: '0.35rem 0.5rem',
+                                        padding: '0.45rem 0.65rem',
+                                        minHeight: '44px',
                                         borderRadius: '4px',
                                         background: isChecked ? 'rgba(16, 185, 129, 0.12)' : 'rgba(15, 23, 42, 0.5)',
                                         border: `1px solid ${isChecked ? '#10b981' : 'rgba(51, 65, 85, 0.5)'}`,
@@ -1074,7 +1091,7 @@ export default function LiveMode() {
                                           type="checkbox"
                                           checked={isChecked}
                                           onChange={() => handleToggleSection(sec.id)}
-                                          style={{ width: '18px', height: '18px', minWidth: '24px', minHeight: '24px', cursor: 'pointer' }}
+                                          style={{ width: '24px', height: '24px', minWidth: '24px', minHeight: '24px', cursor: 'pointer' }}
                                         />
                                         <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 700, color: '#cbd5e1' }}>
                                           [{sec.id}]
@@ -1121,14 +1138,14 @@ export default function LiveMode() {
                         <button
                           type="button"
                           onClick={handleSelectAllSubjects}
-                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid #f59e0b', borderRadius: '4px', cursor: 'pointer' }}
+                          style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid #f59e0b', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                           Select All
                         </button>
                         <button
                           type="button"
                           onClick={handleClearSubjects}
-                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                          style={{ minHeight: '44px', minWidth: '44px', fontSize: '0.75rem', padding: '0.35rem 0.65rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
                           Clear
                         </button>
@@ -1149,6 +1166,7 @@ export default function LiveMode() {
                               alignItems: 'center',
                               gap: '0.35rem',
                               padding: '0.4rem 0.65rem',
+                              minHeight: '44px',
                               borderRadius: '20px',
                               fontSize: '0.78rem',
                               fontWeight: 700,
@@ -1235,8 +1253,20 @@ export default function LiveMode() {
 
             <button
               type="button"
+              disabled={availableQuestions.length === 0}
+              aria-disabled={availableQuestions.length === 0}
               className="btn-primary arcade-btn-secondary"
-              style={{ width: '100%', fontSize: '1.05rem', padding: '0.85rem', background: '#10b981', borderColor: '#10b981', color: '#090d16' }}
+              style={{
+                width: '100%',
+                fontSize: '1.05rem',
+                padding: '0.85rem',
+                minHeight: '44px',
+                background: availableQuestions.length === 0 ? '#334155' : '#10b981',
+                borderColor: availableQuestions.length === 0 ? '#475569' : '#10b981',
+                color: availableQuestions.length === 0 ? '#94a3b8' : '#090d16',
+                cursor: availableQuestions.length === 0 ? 'not-allowed' : 'pointer',
+                opacity: availableQuestions.length === 0 ? 0.6 : 1
+              }}
               onClick={handleHostCreateRoom}
             >
               <Play size={18} />
@@ -2394,55 +2424,36 @@ export default function LiveMode() {
             {timerLeft > 0 && <span style={{ fontWeight: 800, color: '#38bdf8' }}>{timerLeft}s remaining</span>}
           </div>
 
-          {/* 4 Large Touch Buttons */}
-          <div className="answers-grid">
-            <button
-              type="button"
-              className="answer-btn triangle"
-              onClick={() => submitPlayerChoice('A')}
-              aria-label="Option A: Red Triangle"
-              style={{ minHeight: '120px', fontSize: '1.3rem' }}
-            >
-              <span className="shape-badge" style={{ fontSize: '2rem', width: '56px', height: '56px' }}>▲</span>
-              <span style={{ fontWeight: 800 }}>Option A</span>
-              <span className="shape-badge-key">1</span>
-            </button>
-
-            <button
-              type="button"
-              className="answer-btn diamond"
-              onClick={() => submitPlayerChoice('B')}
-              aria-label="Option B: Blue Diamond"
-              style={{ minHeight: '120px', fontSize: '1.3rem' }}
-            >
-              <span className="shape-badge" style={{ fontSize: '2rem', width: '56px', height: '56px' }}>◆</span>
-              <span style={{ fontWeight: 800 }}>Option B</span>
-              <span className="shape-badge-key">2</span>
-            </button>
-
-            <button
-              type="button"
-              className="answer-btn circle"
-              onClick={() => submitPlayerChoice('C')}
-              aria-label="Option C: Amber Circle"
-              style={{ minHeight: '120px', fontSize: '1.3rem' }}
-            >
-              <span className="shape-badge" style={{ fontSize: '2rem', width: '56px', height: '56px' }}>●</span>
-              <span style={{ fontWeight: 800 }}>Option C</span>
-              <span className="shape-badge-key">3</span>
-            </button>
-
-            <button
-              type="button"
-              className="answer-btn square"
-              onClick={() => submitPlayerChoice('D')}
-              aria-label="Option D: Green Square"
-              style={{ minHeight: '120px', fontSize: '1.3rem' }}
-            >
-              <span className="shape-badge" style={{ fontSize: '2rem', width: '56px', height: '56px' }}>■</span>
-              <span style={{ fontWeight: 800 }}>Option D</span>
-              <span className="shape-badge-key">4</span>
-            </button>
+          {/* Dynamic Answers Grid (Supports True/False 2-choice & Multiple Choice 4-choice) */}
+          <div
+            className="answers-grid"
+            style={currentQuestionData?.choices?.length === 2 ? { gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' } : {}}
+          >
+            {(currentQuestionData?.choices || [
+              { id: 'A', text: 'Option A', shape: 'triangle' },
+              { id: 'B', text: 'Option B', shape: 'diamond' },
+              { id: 'C', text: 'Option C', shape: 'circle' },
+              { id: 'D', text: 'Option D', shape: 'square' }
+            ]).map((c, idx) => {
+              const shapeIcon = SHAPE_ICONS[c.shape] || '▲';
+              const shapeName = SHAPE_NAMES[c.shape] || 'Shape';
+              const isTwoChoice = currentQuestionData?.choices?.length === 2;
+              const keyShortcut = isTwoChoice ? (idx === 0 ? '1 / T' : '2 / F') : `${idx + 1}`;
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  className={`answer-btn ${c.shape}`}
+                  onClick={() => submitPlayerChoice(c.id)}
+                  aria-label={`${c.text || `Option ${c.id}`}: ${shapeName}`}
+                  style={{ minHeight: '120px', fontSize: '1.25rem' }}
+                >
+                  <span className="shape-badge" style={{ fontSize: '2rem', width: '56px', height: '56px' }}>{shapeIcon}</span>
+                  <span style={{ fontWeight: 800 }}>{c.text || `Option ${c.id}`}</span>
+                  <span className="shape-badge-key">{keyShortcut}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       );

@@ -189,12 +189,13 @@ export default function A11yFeaturesModal({
               {/* Dark Theme */}
               <button
                 type="button"
+                className="theme-preview-dark"
                 onClick={() => updatePref('theme', 'dark')}
                 style={{
                   padding: '0.85rem 1rem',
                   borderRadius: 'var(--radius-sm)',
                   border: `2px solid ${preferences.theme === 'dark' ? 'var(--arcade-cyan)' : 'var(--border-color)'}`,
-                  background: preferences.theme === 'dark' ? 'rgba(56, 189, 248, 0.15)' : '#090d16',
+                  background: preferences.theme === 'dark' ? '#0b1326' : '#090d16',
                   color: '#ffffff',
                   textAlign: 'left',
                   cursor: 'pointer',
@@ -207,7 +208,7 @@ export default function A11yFeaturesModal({
                 <Moon size={18} color="#38bdf8" />
                 <div>
                   <div style={{ fontWeight: 800, fontSize: '0.9rem' }}>Dark Cyberpunk</div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Void black & neon (Default)</div>
+                  <div className="theme-subtext" style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>Void black & neon (Default)</div>
                 </div>
               </button>
 
@@ -239,12 +240,13 @@ export default function A11yFeaturesModal({
               {/* High Contrast */}
               <button
                 type="button"
+                className="theme-preview-hc"
                 onClick={() => updatePref('theme', 'high-contrast')}
                 style={{
                   padding: '0.85rem 1rem',
                   borderRadius: 'var(--radius-sm)',
                   border: `2px solid ${preferences.theme === 'high-contrast' ? '#facc15' : 'var(--border-color)'}`,
-                  background: preferences.theme === 'high-contrast' ? '#000000' : '#141414',
+                  background: '#000000',
                   color: '#facc15',
                   textAlign: 'left',
                   cursor: 'pointer',
@@ -257,7 +259,7 @@ export default function A11yFeaturesModal({
                 <span style={{ fontSize: '1.2rem' }}>⚡</span>
                 <div>
                   <div style={{ fontWeight: 900, fontSize: '0.9rem' }}>High Contrast</div>
-                  <div style={{ fontSize: '0.75rem', color: '#ffffff' }}>Monochrome 12:1 Yellow</div>
+                  <div className="theme-subtext" style={{ fontSize: '0.75rem', color: '#ffffff' }}>Monochrome 12:1 Yellow</div>
                 </div>
               </button>
             </div>

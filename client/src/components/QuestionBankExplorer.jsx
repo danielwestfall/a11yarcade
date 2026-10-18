@@ -465,12 +465,14 @@ export default function QuestionBankExplorer() {
                   fontSize: '0.8rem',
                   fontFamily: "'Space Mono', monospace",
                   fontWeight: 800,
+                  minHeight: '44px',
                   background: showAuditPanel ? '#f59e0b' : 'rgba(245, 158, 11, 0.15)',
                   color: showAuditPanel ? '#090d16' : '#fbbf24',
                   border: '1px solid #f59e0b',
                   cursor: 'pointer'
                 }}
                 aria-expanded={showAuditPanel}
+                aria-controls="section-readiness-drawer"
               >
                 📊 {showAuditPanel ? 'Hide Section Audit' : 'Section Readiness Audit'}
               </button>
@@ -483,7 +485,7 @@ export default function QuestionBankExplorer() {
 
           {/* Collapsible Section Inventory Audit Drawer */}
           {showAuditPanel && (
-            <div style={{ marginTop: '0.85rem', padding: '1rem', background: '#070d19', borderRadius: 'var(--radius-sm)', border: '2px solid #f59e0b' }}>
+            <div id="section-readiness-drawer" style={{ marginTop: '0.85rem', padding: '1rem', background: '#070d19', borderRadius: 'var(--radius-sm)', border: '2px solid #f59e0b' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
                 <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#fbbf24', fontFamily: "'Space Grotesk', sans-serif" }}>
                   📊 Individual Section Inventory & Readiness Audit
@@ -516,6 +518,7 @@ export default function QuestionBankExplorer() {
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             padding: '0.45rem 0.65rem',
+                            minHeight: '44px',
                             borderRadius: '4px',
                             textAlign: 'left',
                             cursor: 'pointer',
@@ -738,7 +741,29 @@ export default function QuestionBankExplorer() {
                         </p>
                         {(q.citation || q.cpaccRef || q.wasRef) && (
                           <div style={{ marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: `1px solid ${isWas ? 'rgba(16, 185, 129, 0.2)' : 'rgba(56, 189, 248, 0.2)'}`, fontSize: '0.78rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
-                            Official Syllabus Citation: <strong style={{ color: isWas ? '#6ee7b7' : '#38bdf8' }}>{q.citation || q.wasRef || q.cpaccRef}</strong>
+                            Official Syllabus Citation:{' '}
+                            {q.citationUrl ? (
+                              <a
+                                href={q.citationUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: isWas ? '#6ee7b7' : '#38bdf8',
+                                  textDecoration: 'underline',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '0.35rem',
+                                  fontWeight: 800
+                                }}
+                                aria-label={`${q.citation || q.wasRef || q.cpaccRef} (opens in a new tab)`}
+                              >
+                                <span>{q.citation || q.wasRef || q.cpaccRef}</span>
+                                <ExternalLink size={13} aria-hidden="true" />
+                                <span className="sr-only">(opens in a new tab)</span>
+                              </a>
+                            ) : (
+                              <strong style={{ color: isWas ? '#6ee7b7' : '#38bdf8' }}>{q.citation || q.wasRef || q.cpaccRef}</strong>
+                            )}
                           </div>
                         )}
                       </div>

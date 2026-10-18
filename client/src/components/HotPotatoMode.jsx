@@ -122,8 +122,9 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
       setIsDelegate(isDelA || isDelB);
       setDelegateSlot(isDelA ? 'A' : isDelB ? 'B' : null);
 
-      // Reduced Motion Check
-      const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Reduced Motion Check (App toggle or OS preference)
+      const prefersReducedMotion = (typeof document !== 'undefined' && document.body.classList.contains('reduced-motion')) ||
+        (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       if (prefersReducedMotion) {
         setDisplayDelegateNames({
           a: data.delegateA?.nickname || 'None',

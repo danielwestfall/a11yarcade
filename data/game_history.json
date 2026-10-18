@@ -176,6 +176,98 @@
           "rank": 2
         }
       ]
+    },
+    {
+      "id": "1792292441327-SHGS",
+      "timestamp": "2026-10-18T03:00:41.327Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 300,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792292455865-GXLH",
+      "timestamp": "2026-10-18T03:00:55.865Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792292650895-D3JA",
+      "timestamp": "2026-10-18T03:04:10.895Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792292688406-8FEL",
+      "timestamp": "2026-10-18T03:04:48.406Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 300,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
     }
   ],
   "weeklyLeaderboard": {
@@ -191,17 +283,17 @@
       "AgentTwo": {
         "nickname": "AgentTwo",
         "avatar": "🐱",
-        "totalScore": 1100,
-        "gamesPlayed": 7,
-        "wins": 3,
+        "totalScore": 1700,
+        "gamesPlayed": 11,
+        "wins": 5,
         "bestScore": 400
       },
       "AgentOne": {
         "nickname": "AgentOne",
         "avatar": "🐱",
-        "totalScore": 1450,
-        "gamesPlayed": 7,
-        "wins": 4,
+        "totalScore": 2150,
+        "gamesPlayed": 11,
+        "wins": 6,
         "bestScore": 400
       }
     }
@@ -218,17 +310,17 @@
     "AgentTwo": {
       "nickname": "AgentTwo",
       "avatar": "🐱",
-      "totalScore": 1100,
-      "gamesPlayed": 7,
-      "wins": 3,
+      "totalScore": 1700,
+      "gamesPlayed": 11,
+      "wins": 5,
       "bestScore": 400
     },
     "AgentOne": {
       "nickname": "AgentOne",
       "avatar": "🐱",
-      "totalScore": 1450,
-      "gamesPlayed": 7,
-      "wins": 4,
+      "totalScore": 2150,
+      "gamesPlayed": 11,
+      "wins": 6,
       "bestScore": 400
     }
   },
@@ -1721,6 +1813,158 @@
       "explanation": "Universal Design for Learning is a proactive instructional design framework, but it does NOT replace or invalidate legally mandated individual accommodations under the ADA and Section 504.",
       "funNote": "Targeted Sentence: \"The College of Science embraces Universal Design f...\"",
       "cpaccRef": "CPACC BoK Domain 2: Universal Design vs. Individual Accommodations (Distinct & Complementary)"
+    },
+    {
+      "timestamp": "2026-10-18T03:00:40.038Z",
+      "nickname": "ClassicBob",
+      "questionId": "was-d1-wcag-status-03",
+      "questionText": "A checkout page updates the total after a discount is applied, but a screen-reader user receives no feedback. Which criterion should the developer consider?",
+      "topic": "MESSAGES",
+      "domain": 1,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "A dynamic status update should be programmatically determinable so assistive technology can convey it without requiring focus movement.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:00:40.996Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-02-3",
+      "questionText": "Vendor VPAT & Section 508 Procurement Statement: A commercial SaaS vendor submits an Accessibility Conformance Report (ACR) to bid on a federal agency IT contract. Spot the procurement misstatement.",
+      "topic": "Revised Section 508 & COTS Software Coverage",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Section 508 applies directly to federal agency procurement of Commercial Off-The-Shelf (COTS) software. There is no 'Best-Efforts Safe Harbor' exempting COTS.",
+      "funNote": "Targeted Sentence: \"CloudSync Enterprise publishes Voluntary Product A...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Revised Section 508 Federal Procurement & Standards (COTS Coverage)"
+    },
+    {
+      "timestamp": "2026-10-18T03:00:54.585Z",
+      "nickname": "ClassicBob",
+      "questionId": "was-d2-qalifecycle-03",
+      "questionText": "Accessibility checks during design and development can reveal issues before they become expensive to remediate at release time.",
+      "topic": "ASSURANCE",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Integrating accessibility into the development process supports earlier discovery and correction of barriers.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:00:55.216Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-d-supp-04",
+      "questionText": "A design team gathers user feedback. The review concerns population denominator. Which response is best?",
+      "topic": "CONTEXT",
+      "domain": 1,
+      "selectedChoiceId": "D",
+      "correctChoiceId": "C",
+      "explanation": "Disability statistics depend on how and whom data are collected from; context matters.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:00:55.542Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-08-1",
+      "questionText": "Web Architecture & Screen Reader Interaction Guide: A web agency releases technical guidelines for junior front-end developers on building for screen reader accessibility. Spot the disruptive anti-pattern.",
+      "topic": "Screen Reader Mechanics & Audio Interference (WCAG 1.4.2)",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Auto-playing audio sounds on input focus clashes with screen reader speech synthesis (violating WCAG 2.1 SC 1.4.2 Audio Control) and causes severe cognitive and sensory disorientation.",
+      "funNote": "Targeted Sentence: \"Our front-end architecture uses semantic HTML5 ele...\"",
+      "cpaccRef": "CPACC BoK Domain 1: Screen Reader Mechanics & WCAG Audio Control Principles"
+    },
+    {
+      "timestamp": "2026-10-18T03:04:06.095Z",
+      "nickname": "CadetBravo",
+      "questionId": "was-d2-tools-focus-03",
+      "questionText": "An automated tool reports a focus indicator is present in the CSS. What still needs to be evaluated?",
+      "topic": "TOOLS",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Code presence does not establish visual usability; keyboard interaction testing should confirm the focus indicator is perceivable in context.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:04:09.618Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d2-target-size-01",
+      "questionText": "On a mobile site, two small action links are placed very close together, causing users with limited dexterity to activate the wrong one. Which WCAG 2.2 topic is most directly relevant?",
+      "topic": "SIZE",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "WCAG 2.2 includes a success criterion about target size minimum, with defined exceptions. The issue should be evaluated against the criterion rather than assuming every small target automatically fails.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:04:10.576Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-01-3",
+      "questionText": "Public University Web Accessibility Statement: A prominent state university published this digital accessibility policy on its public portal. One of the sentences contains a critical legal flaw regarding institutional obligations.",
+      "topic": "ADA Title II, Section 504 & Undue Burden Limitations",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "An undue burden defense relieves an entity from the specific cost-prohibitive modification, but DOES NOT excuse them from providing alternative auxiliary aids or accommodations that ensure equal access.",
+      "funNote": "Targeted Sentence: \"Apex State University is committed to providing eq...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Legal Mandates, ADA Title II & Section 504 Alternative Access Obligations"
+    },
+    {
+      "timestamp": "2026-10-18T03:04:47.136Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d2-text-alt-01",
+      "questionText": "A product image is the only way a page communicates that a jacket is waterproof. What should the content author do?",
+      "topic": "ALTERNATIVES",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Non-text content that conveys information needs an appropriate text alternative that serves an equivalent purpose. The alternative should reflect the image's function in context.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:04:47.771Z",
+      "nickname": "CasinoKing",
+      "questionId": "was-d2-auditory-live-02",
+      "questionText": "A live webinar evaluation should consider whether captions are available and sufficiently synchronized for participants who cannot rely on audio alone.",
+      "topic": "IMPACT",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Live captions support access to spoken information, and timing matters so viewers can associate captions with the current speech.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T03:04:48.086Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-03-3",
+      "questionText": "Corporate Workplace Reasonable Accommodation Policy: A multinational technology corporation details internal disability accommodation guidelines for employees. Identify the unlawful policy restriction.",
+      "topic": "ADA Title I Reasonable Accommodation & Undue Hardship Standards",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Undue hardship cannot be evaluated using an arbitrary fixed dollar ceiling ($500). Under ADA Title I, it requires individualized assessment against the employer's total financial resources and organizational size.",
+      "funNote": "Targeted Sentence: \"GlobalTech Solutions is dedicated to full workplac...\"",
+      "cpaccRef": "CPACC BoK Domain 3: ADA Title I Reasonable Accommodation & Undue Hardship Standards"
+    },
+    {
+      "timestamp": "2026-10-18T03:04:48.973Z",
+      "nickname": "CadetBravo",
+      "questionId": "was-d1-event-handler-02",
+      "questionText": "Attaching an action only to a mouse-specific event can prevent users of keyboards or other input methods from invoking the same function.",
+      "topic": "EVENTS",
+      "domain": 1,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Input-independent design ensures functionality can be triggered through appropriate mechanisms beyond a mouse-specific interaction.",
+      "funNote": ""
     }
   ],
   "users": {
@@ -1883,63 +2127,63 @@
       "avatar": "🐱",
       "pin": "1111",
       "createdAt": "2026-10-17T04:13:12.479Z",
-      "lastActive": "2026-10-18T01:51:30.483Z"
+      "lastActive": "2026-10-18T03:04:47.130Z"
     },
     "classicbob": {
       "nickname": "ClassicBob",
       "avatar": "🐱",
       "pin": "2222",
       "createdAt": "2026-10-17T04:13:12.481Z",
-      "lastActive": "2026-10-18T01:51:30.485Z"
+      "lastActive": "2026-10-18T03:04:47.133Z"
     },
     "speeddemon": {
       "nickname": "SpeedDemon",
       "avatar": "🐱",
       "pin": "3333",
       "createdAt": "2026-10-17T04:13:20.813Z",
-      "lastActive": "2026-10-18T01:51:30.807Z"
+      "lastActive": "2026-10-18T03:04:47.456Z"
     },
     "casinoking": {
       "nickname": "CasinoKing",
       "avatar": "🐱",
       "pin": "4444",
       "createdAt": "2026-10-17T04:13:21.140Z",
-      "lastActive": "2026-10-18T01:51:31.119Z"
+      "lastActive": "2026-10-18T03:04:47.769Z"
     },
     "policysniper": {
       "nickname": "PolicySniper",
       "avatar": "🐱",
       "pin": "5555",
       "createdAt": "2026-10-17T04:13:21.469Z",
-      "lastActive": "2026-10-18T01:51:31.444Z"
+      "lastActive": "2026-10-18T03:04:48.082Z"
     },
     "agentone": {
       "nickname": "AgentOne",
       "avatar": "🐱",
       "pin": "6666",
       "createdAt": "2026-10-17T04:13:29.809Z",
-      "lastActive": "2026-10-18T01:51:31.759Z"
+      "lastActive": "2026-10-18T03:04:48.398Z"
     },
     "agenttwo": {
       "nickname": "AgentTwo",
       "avatar": "🐱",
       "pin": "7777",
       "createdAt": "2026-10-17T04:13:29.812Z",
-      "lastActive": "2026-10-18T01:51:31.761Z"
+      "lastActive": "2026-10-18T03:04:48.400Z"
     },
     "brawlp1": {
       "nickname": "BrawlP1",
       "avatar": "🐱",
       "pin": "8888",
       "createdAt": "2026-10-17T04:13:30.137Z",
-      "lastActive": "2026-10-18T01:51:32.089Z"
+      "lastActive": "2026-10-18T03:04:48.717Z"
     },
     "brawlp2": {
       "nickname": "BrawlP2",
       "avatar": "🐱",
       "pin": "9999",
       "createdAt": "2026-10-17T04:13:30.139Z",
-      "lastActive": "2026-10-18T01:51:32.091Z"
+      "lastActive": "2026-10-18T03:04:48.719Z"
     },
     "alphacadet": {
       "nickname": "AlphaCadet",
@@ -1960,7 +2204,21 @@
       "avatar": "🚀",
       "pin": "9988",
       "createdAt": "2026-10-18T01:47:40.346Z",
-      "lastActive": "2026-10-18T02:16:07.514Z"
+      "lastActive": "2026-10-18T03:22:39.635Z"
+    },
+    "cadetalpha": {
+      "nickname": "CadetAlpha",
+      "avatar": "🛡️",
+      "pin": "1234",
+      "createdAt": "2026-10-18T03:04:06.089Z",
+      "lastActive": "2026-10-18T03:04:48.966Z"
+    },
+    "cadetbravo": {
+      "nickname": "CadetBravo",
+      "avatar": "⚡",
+      "pin": "5678",
+      "createdAt": "2026-10-18T03:04:06.093Z",
+      "lastActive": "2026-10-18T03:04:48.968Z"
     }
   }
 }

@@ -131,7 +131,8 @@ export function normalizeQuestion(raw, defaultCert = 'CPACC') {
       concept_id: raw.concept_id || '',
       tags,
       certification: cert,
-      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
+      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`,
+      citationUrl: raw.source_refs?.[0]?.url || raw.citationUrl || raw.url || null
     };
   }
 
@@ -143,7 +144,7 @@ export function normalizeQuestion(raw, defaultCert = 'CPACC') {
     const isAnswerTrue = raw.answer === true || String(raw.answer).toLowerCase() === 'true';
     choices = [
       { id: 'A', text: 'True', shape: 'triangle', isCorrect: isAnswerTrue },
-      { id: 'B', text: 'False', shape: 'diamond', isCorrect: !isAnswerTrue }
+      { id: 'B', text: 'False', shape: 'square', isCorrect: !isAnswerTrue }
     ];
   } else if (Array.isArray(raw.options)) {
     choices = raw.options.map((opt, idx) => ({
@@ -165,6 +166,8 @@ export function normalizeQuestion(raw, defaultCert = 'CPACC') {
                    raw.cpaccRef ||
                    raw.wasRef ||
                    `${cert} Body of Knowledge`;
+
+  const citationUrl = raw.source_refs?.[0]?.url || raw.citationUrl || raw.url || null;
 
   const topic = raw.topic ||
                 (raw.concept_id ? raw.concept_id.replace(/^([a-z0-9]+-)+/i, '').replace(/-/g, ' ').toUpperCase() : '') ||
@@ -190,6 +193,7 @@ export function normalizeQuestion(raw, defaultCert = 'CPACC') {
     correctAnswer,
     explanation: raw.explanation || 'Refer to the official IAAP Body of Knowledge.',
     citation,
+    citationUrl,
     funNote: raw.funNote || ''
   };
 }
@@ -223,23 +227,29 @@ export function getAllSections(track = 'all') {
     }
   });
 
-  const sectionsList = [];
   const certs = (CERTIFICATION_TAXONOMY?.certifications || []).filter(c => {
     if (track === 'all') return true;
     return c.id.toLowerCase() === track.toLowerCase();
   });
 
-  certs.forEach(c => {
-    (c.domains || []).forEach(d => {
-      (d.sections || []).forEach(s => {
+  return certs.map(c => ({
+    id: c.id,
+    name: c.name,
+    title: c.name || c.id,
+    domains: (c.domains || []).map(d => ({
+      id: d.id,
+      label: d.label,
+      title: d.label || d.id,
+      sections: (d.sections || []).map(s => {
         const count = counts[s.id] || 0;
         let status = 'healthy';
         if (count < 5) status = 'critical';
         else if (count < 10) status = 'low';
 
-        sectionsList.push({
+        return {
           id: s.id,
           label: s.label,
+          title: s.label,
           domain_id: d.id,
           domainLabel: d.label,
           certification_id: c.id,
@@ -250,12 +260,26 @@ export function getAllSections(track = 'all') {
             : count < 10
             ? `Low: ${count} questions (fewer than standard 10-question round)`
             : `${count} questions ready`
-        });
+        };
+      })
+    }))
+  }));
+}
+
+/**
+ * Returns a flat array of all sections across certifications.
+ */
+export function getAllFlatSections(track = 'all') {
+  const grouped = getAllSections(track);
+  const flat = [];
+  grouped.forEach(c => {
+    (c.domains || []).forEach(d => {
+      (d.sections || []).forEach(s => {
+        flat.push(s);
       });
     });
   });
-
-  return sectionsList;
+  return flat;
 }
 
 /**
@@ -317,7 +341,9 @@ export function getAllSubjects(track = 'all') {
       };
       return {
         id: tagId,
+        key: tagId,
         label: meta.name,
+        name: meta.name,
         icon: meta.icon,
         count
       };
@@ -328,7 +354,7 @@ export function getAllSubjects(track = 'all') {
  * Returns an audit report of sections with low question counts.
  */
 export function getSectionAuditReport() {
-  const allSections = getAllSections('all');
+  const allSections = getAllFlatSections('all');
   const critical = allSections.filter(s => s.status === 'critical');
   const low = allSections.filter(s => s.status === 'low');
   const healthy = allSections.filter(s => s.status === 'healthy');
@@ -363,13 +389,15 @@ export function getQuestionsByTrack(track = 'all') {
  */
 export function getFilteredQuestions({
   track = 'all',
+  certTrack,
   domain = 'all',
   sections = [],
   subjects = [],
   difficulty = 'all',
   searchTerm = ''
 }) {
-  let pool = getQuestionsByTrack(track);
+  const activeTrack = certTrack || track;
+  let pool = getQuestionsByTrack(activeTrack);
 
   // Filter by Domain
   if (domain !== 'all') {

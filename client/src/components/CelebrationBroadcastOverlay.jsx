@@ -14,15 +14,20 @@ export default function CelebrationBroadcastOverlay({ eventData, onDismiss }) {
       soundManager.playSoundById(eventData.soundId);
     }
 
-    // Trigger colorful confetti shower
-    try {
-      confetti({
-        particleCount: 60,
-        spread: 80,
-        origin: { y: 0.25 },
-        colors: ['#f59e0b', '#ec4899', '#38bdf8', '#10b981', '#ffffff']
-      });
-    } catch {}
+    // Trigger colorful confetti shower unless reduced motion is preferred
+    const isReducedMotion = document.body.classList.contains('reduced-motion') ||
+      (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    if (!isReducedMotion) {
+      try {
+        confetti({
+          particleCount: 60,
+          spread: 80,
+          origin: { y: 0.25 },
+          colors: ['#f59e0b', '#ec4899', '#38bdf8', '#10b981', '#ffffff']
+        });
+      } catch {}
+    }
 
     const timer = setTimeout(() => {
       setVisible(false);

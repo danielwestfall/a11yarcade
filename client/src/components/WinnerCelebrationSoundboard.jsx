@@ -18,14 +18,19 @@ export default function WinnerCelebrationSoundboard({ socket, isWinner = true, o
     // Play local audio immediately
     soundManager.playSoundById(effect.id);
 
-    // Burst confetti locally
-    try {
-      confetti({
-        particleCount: 50,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    } catch {}
+    // Burst confetti locally unless reduced motion is preferred
+    const isReducedMotion = document.body.classList.contains('reduced-motion') ||
+      (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    if (!isReducedMotion) {
+      try {
+        confetti({
+          particleCount: 50,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      } catch {}
+    }
 
     // Emit to room if connected via socket
     if (socket) {
