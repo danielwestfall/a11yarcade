@@ -15,6 +15,7 @@ import {
 import { soundManager } from '../utils/sound';
 import questionsData from '../data/questions.json';
 import CoachFeedbackCard from './CoachFeedbackCard';
+import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
 
 const SHAPE_CONFIG = {
   triangle: { icon: '▲', color: '#ef4444', label: 'Red Triangle' },
@@ -341,6 +342,11 @@ export default function PracticeMode({ onBack }) {
               </div>
             </div>
           </div>
+
+          {/* Solo Celebration Soundboard for High Accuracy */}
+          {percentage >= 70 && (
+            <WinnerCelebrationSoundboard isWinner={true} />
+          )}
 
           {/* Action Buttons */}
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

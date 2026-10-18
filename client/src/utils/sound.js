@@ -251,6 +251,135 @@ export const soundManager = {
     }
   },
 
+  // Triple burst arcade airhorn
+  playAirhorn() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const bursts = [
+      { start: 0, dur: 0.11 },
+      { start: 0.14, dur: 0.11 },
+      { start: 0.30, dur: 0.38 }
+    ];
+
+    const freqs = [466.16, 698.46, 932.33]; // Bb4, F5, Bb5 (classic airhorn chord)
+
+    bursts.forEach(({ start, dur }) => {
+      const t = ctx.currentTime + start;
+      freqs.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = idx === 0 ? 'sawtooth' : 'triangle';
+        osc.frequency.setValueAtTime(freq, t);
+        osc.frequency.linearRampToValueAtTime(freq * 0.98, t + dur);
+
+        gain.gain.setValueAtTime(0, t);
+        gain.gain.linearRampToValueAtTime(volume * (idx === 0 ? 0.22 : 0.12), t + 0.015);
+        gain.gain.setValueAtTime(volume * (idx === 0 ? 0.22 : 0.12), t + dur - 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + dur);
+      });
+    });
+  },
+
+  // Championship Boxing Bell (Ding-ding-ding)
+  playBoxingBell() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    [0, 0.22, 0.44].forEach((offset) => {
+      const t = ctx.currentTime + offset;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1480, t);
+
+      const osc2 = ctx.createOscillator();
+      const gain2 = ctx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(2960, t);
+
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(volume * 0.25, t + 0.005);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.55);
+
+      gain2.gain.setValueAtTime(0, t);
+      gain2.gain.linearRampToValueAtTime(volume * 0.1, t + 0.005);
+      gain2.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+
+      osc.connect(gain);
+      osc2.connect(gain2);
+      gain.connect(ctx.destination);
+      gain2.connect(ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.55);
+      osc2.start(t);
+      osc2.stop(t + 0.35);
+    });
+  },
+
+  // Crowd Ovation & Applause (Synthesized cheers)
+  playApplause() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    try {
+      const bufferSize = Math.floor(ctx.sampleRate * 1.2);
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        const mod = Math.sin(i / 1100) * Math.sin(i / 2600);
+        data[i] = (Math.random() * 2 - 1) * Math.abs(mod);
+      }
+
+      const noise = ctx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1200, ctx.currentTime);
+      filter.Q.setValueAtTime(1.2, ctx.currentTime);
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(volume * 0.3, ctx.currentTime + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      noise.start();
+      noise.stop(ctx.currentTime + 1.2);
+    } catch {
+      // Fallback to fanfare if buffer creation restricted
+      this.playFanfare();
+    }
+  },
+
+  // Universal sound dispatcher by ID
+  playSoundById(id) {
+    switch (id) {
+      case 'airhorn': return this.playAirhorn();
+      case 'fanfare': return this.playVictoryFanfare();
+      case 'whistle': return this.playCoachWhistle();
+      case 'sad-trombone': return this.playSadTrombone();
+      case 'boing': return this.playBoing();
+      case 'coins': return this.playCoinShower();
+      case 'boxing-bell': return this.playBoxingBell();
+      case 'applause': return this.playApplause();
+      default: return this.playCorrect();
+    }
+  },
+
   playFanfare() {
     if (isMuted) return;
     const ctx = getAudioContext();

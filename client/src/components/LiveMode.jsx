@@ -32,6 +32,10 @@ import SaboteurMode from './SaboteurMode';
 import BoundaryBrawlMode from './BoundaryBrawlMode';
 import BossRaidMode from './BossRaidMode';
 import CoachFeedbackCard from './CoachFeedbackCard';
+import TauntNotificationToast from './TauntNotificationToast';
+import TauntTriggerButton from './TauntTriggerButton';
+import CelebrationBroadcastOverlay from './CelebrationBroadcastOverlay';
+import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -193,6 +197,10 @@ export default function LiveMode() {
 
   // Screen reader announcer
   const [liveAnnouncement, setLiveAnnouncement] = useState('');
+
+  // Live Taunts & Winner Celebration Overlays
+  const [activeTaunt, setActiveTaunt] = useState(null);
+  const [activeCelebration, setActiveCelebration] = useState(null);
 
   // Load saved player credentials from localStorage (Option B)
   useEffect(() => {
@@ -377,6 +385,17 @@ export default function LiveMode() {
     newSocket.on('host-disconnected', () => {
       alert('The Host has ended the game.');
       resetToModeSelection();
+    });
+
+    // Room-wide taunts & winner celebration soundboard events
+    newSocket.on('player-taunted', (data) => {
+      setActiveTaunt(data);
+      setLiveAnnouncement(`Taunt from ${data.nickname}: "${data.tauntText}"`);
+    });
+
+    newSocket.on('winner-celebration-fx', (data) => {
+      setActiveCelebration(data);
+      setLiveAnnouncement(`${data.nickname} fired ${data.soundName} celebration!`);
     });
 
     setSocket(newSocket);
@@ -2024,6 +2043,11 @@ export default function LiveMode() {
           {/* Coach McGuirk's Sideline Pep Talk for the Player */}
           <CoachFeedbackCard isCorrect={playerRoundFeedback.roundCorrect} />
 
+          {/* Round winner / correct answer privilege: Drop a humorous taunt! */}
+          {playerRoundFeedback.roundCorrect && (
+            <TauntTriggerButton socket={socket} />
+          )}
+
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '1.5rem' }}>
             Watch the host screen for explanations and the next question!
           </p>
@@ -2036,7 +2060,7 @@ export default function LiveMode() {
       const myStanding = leaderboard.find(p => p.id === socket?.id);
 
       return (
-        <div className="card" style={{ maxWidth: '480px', margin: '0 auto', width: '100%', textAlign: 'center', padding: '3rem 1.5rem' }}>
+        <div className="card" style={{ maxWidth: '520px', margin: '0 auto', width: '100%', textAlign: 'center', padding: '2.5rem 1.5rem' }}>
           <div style={{ fontSize: '4rem', marginBottom: '0.5rem' }}>🏆</div>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>
             Game Over!
@@ -2047,9 +2071,14 @@ export default function LiveMode() {
           <div style={{ fontSize: '3rem', fontWeight: 900, color: '#eab308', marginBottom: '0.5rem' }}>
             #{myStanding?.rank || '-'} Place
           </div>
-          <div style={{ fontSize: '1.2rem', color: 'var(--text-primary)', marginBottom: '2rem' }}>
+          <div style={{ fontSize: '1.2rem', color: 'var(--text-primary)', marginBottom: '1.5rem' }}>
             Final Score: {myStanding?.score || 0} pts
           </div>
+
+          {/* Winner's Celebration Soundboard for 1st Place Champion */}
+          {myStanding?.rank === 1 && (
+            <WinnerCelebrationSoundboard socket={socket} isWinner={true} />
+          )}
 
           <button type="button" className="btn-secondary" style={{ width: '100%' }} onClick={resetToModeSelection}>
             Exit to Menu
@@ -2067,6 +2096,8 @@ export default function LiveMode() {
       <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
         {liveAnnouncement}
       </div>
+      <TauntNotificationToast taunt={activeTaunt} onDismiss={() => setActiveTaunt(null)} />
+      <CelebrationBroadcastOverlay eventData={activeCelebration} onDismiss={() => setActiveCelebration(null)} />
       {renderViewContent()}
     </>
   );

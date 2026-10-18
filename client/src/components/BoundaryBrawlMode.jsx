@@ -18,6 +18,8 @@ import {
   Sparkles
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
+import TauntTriggerButton from './TauntTriggerButton';
+import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
 
 export default function BoundaryBrawlMode({ socket, role, roomPin, onLeave }) {
   const [stage, setStage] = useState('SCRAMBLE'); // 'SCRAMBLE', 'CHALLENGE', 'PODIUM'
@@ -255,6 +257,11 @@ export default function BoundaryBrawlMode({ socket, role, roomPin, onLeave }) {
             </div>
           )}
         </div>
+
+        {/* Winner's Celebration Soundboard for 1st Place Champion */}
+        {finalData.podium[0]?.id === socket?.id && (
+          <WinnerCelebrationSoundboard socket={socket} isWinner={true} />
+        )}
 
         <button
           type="button"
@@ -496,6 +503,9 @@ export default function BoundaryBrawlMode({ socket, role, roomPin, onLeave }) {
           <div style={{ fontSize: '0.75rem', color: '#38bdf8' }}>
             <strong>Standard:</strong> {settledReport.cpaccRef}
           </div>
+
+          {/* Winner / Challenged Player Taunt Trigger */}
+          <TauntTriggerButton socket={socket} />
         </div>
       )}
 

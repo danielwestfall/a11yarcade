@@ -3078,6 +3078,93 @@ io.on('connection', (socket) => {
   }
 
   // ==========================================
+  // 4G. Live Taunts & Winner Celebration FX
+  // ==========================================
+  socket.on('send-taunt', ({ tauntText, soundFx }, callback) => {
+    const pin = socket.data.roomPin;
+    if (!pin) {
+      if (callback) callback({ success: false, error: 'Not in a room' });
+      return;
+    }
+
+    const room = rooms.get(pin);
+    if (!room) {
+      if (callback) callback({ success: false, error: 'Room not found' });
+      return;
+    }
+
+    const player = room.players.get(socket.id);
+    if (!player) {
+      if (callback) callback({ success: false, error: 'Player not in room' });
+      return;
+    }
+
+    const now = Date.now();
+    if (player.lastTauntTime && (now - player.lastTauntTime < 2000)) {
+      if (callback) callback({ success: false, error: 'Taunt cooldown active' });
+      return;
+    }
+    player.lastTauntTime = now;
+
+    const cleanTaunt = typeof tauntText === 'string' ? tauntText.substring(0, 160) : 'Skill Issue!';
+    const validSounds = ['airhorn', 'fanfare', 'whistle', 'sad-trombone', 'boing', 'coins', 'boxing-bell', 'applause'];
+    const chosenSound = validSounds.includes(soundFx) ? soundFx : 'boing';
+
+    io.to(pin).emit('player-taunted', {
+      senderId: socket.id,
+      nickname: player.nickname,
+      avatar: player.avatar || '🎮',
+      tauntText: cleanTaunt,
+      soundFx: chosenSound,
+      timestamp: now
+    });
+
+    if (callback) callback({ success: true });
+  });
+
+  socket.on('send-celebration-fx', ({ soundId, soundName, icon }, callback) => {
+    const pin = socket.data.roomPin;
+    if (!pin) {
+      if (callback) callback({ success: false, error: 'Not in a room' });
+      return;
+    }
+
+    const room = rooms.get(pin);
+    if (!room) {
+      if (callback) callback({ success: false, error: 'Room not found' });
+      return;
+    }
+
+    const player = room.players.get(socket.id);
+    if (!player) {
+      if (callback) callback({ success: false, error: 'Player not in room' });
+      return;
+    }
+
+    const validSounds = ['airhorn', 'fanfare', 'whistle', 'sad-trombone', 'boing', 'coins', 'boxing-bell', 'applause'];
+    const chosenSound = validSounds.includes(soundId) ? soundId : 'airhorn';
+
+    const now = Date.now();
+    if (player.lastCelebrationTime && (now - player.lastCelebrationTime < 1200)) {
+      if (callback) callback({ success: false, error: 'Celebration cooldown' });
+      return;
+    }
+    player.lastCelebrationTime = now;
+
+    io.to(pin).emit('winner-celebration-fx', {
+      senderId: socket.id,
+      nickname: player.nickname,
+      avatar: player.avatar || '🏆',
+      soundId: chosenSound,
+      soundName: typeof soundName === 'string' ? soundName.substring(0, 30) : 'Airhorn',
+      icon: typeof icon === 'string' ? icon.substring(0, 5) : '🎺',
+      timestamp: now
+    });
+
+    if (callback) callback({ success: true });
+  });
+
+  // ==========================================
   // 5. Disconnect Cleanup
   // ==========================================
   socket.on('disconnect', () => {

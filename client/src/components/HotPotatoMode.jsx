@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import CoachFeedbackCard from './CoachFeedbackCard';
+import TauntTriggerButton from './TauntTriggerButton';
+import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -648,6 +650,11 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
           {/* Coach McGuirk's Sideline Pep Talk */}
           <CoachFeedbackCard isCorrect={settlementData.outcomeType !== 'NEITHER_CORRECT' && settlementData.outcomeType !== 'SOLO_WRONG'} />
 
+          {/* Round winner / solvent syndicate taunt trigger */}
+          {settlementData.outcomeType !== 'NEITHER_CORRECT' && settlementData.outcomeType !== 'SOLO_WRONG' && (
+            <TauntTriggerButton socket={socket} />
+          )}
+
           {/* Mini-Leaderboard */}
           <div style={{ marginBottom: '1.5rem' }}>
             <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -735,6 +742,11 @@ export default function HotPotatoMode({ socket, role, roomPin, onLeave }) {
               </div>
             ))}
           </div>
+
+          {/* Winner's Celebration Soundboard for 1st Place */}
+          {podiumData[0]?.id === socket?.id && (
+            <WinnerCelebrationSoundboard socket={socket} isWinner={true} />
+          )}
 
           <button
             type="button"
