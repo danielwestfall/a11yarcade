@@ -29,15 +29,129 @@ const io = new Server(httpServer, {
   }
 });
 
-// Load Question Bank
-const questionsPath = path.join(__dirname, '..', 'data', 'questions.json');
+// Universal Question Record Normalizer
+function normalizeQuestion(raw, defaultCert = 'CPACC') {
+  if (!raw) return null;
+
+  // Already normalized legacy arcade format
+  if (raw.question && Array.isArray(raw.choices)) {
+    const cert = raw.certification || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
+    return {
+      ...raw,
+      certification: cert,
+      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
+    };
+  }
+
+  // Structured Quiz-Bank schema format
+  const cert = raw.certification_id || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
+  const questionText = raw.stem || raw.question || 'Accessibility Question';
+
+  let domainNum = 1;
+  if (typeof raw.domain === 'number') {
+    domainNum = raw.domain;
+  } else if (typeof raw.domain_id === 'string') {
+    const match = raw.domain_id.match(/-D(\d)/i);
+    if (match) domainNum = parseInt(match[1], 10);
+  }
+
+  const shapes = ['triangle', 'diamond', 'circle', 'square'];
+  let choices = [];
+  if (raw.type === 'true_false' || typeof raw.answer === 'boolean') {
+    const isAnswerTrue = raw.answer === true || String(raw.answer).toLowerCase() === 'true';
+    choices = [
+      { id: 'A', text: 'True', shape: 'triangle', isCorrect: isAnswerTrue },
+      { id: 'B', text: 'False', shape: 'diamond', isCorrect: !isAnswerTrue }
+    ];
+  } else if (Array.isArray(raw.options)) {
+    choices = raw.options.map((opt, idx) => ({
+      id: opt.id,
+      text: opt.text,
+      shape: shapes[idx % shapes.length],
+      isCorrect: opt.id === raw.answer
+    }));
+  } else if (Array.isArray(raw.choices)) {
+    choices = raw.choices.map((c, idx) => ({
+      ...c,
+      shape: c.shape || shapes[idx % shapes.length]
+    }));
+  }
+
+  const citation = raw.source_refs?.[0]?.locator ||
+                   raw.source_refs?.[0]?.source_id ||
+                   raw.citation ||
+                   raw.cpaccRef ||
+                   raw.wasRef ||
+                   `${cert} Body of Knowledge`;
+
+  const topic = raw.topic ||
+                (raw.concept_id ? raw.concept_id.replace(/^([a-z0-9]+-)+/i, '').replace(/-/g, ' ').toUpperCase() : '') ||
+                raw.section_id ||
+                'Accessibility Standard';
+
+  const correctAnswer = typeof raw.answer === 'boolean'
+    ? (raw.answer ? 'A' : 'B')
+    : (raw.answer || choices.find(c => c.isCorrect)?.id || 'A');
+
+  return {
+    id: raw.id,
+    question: questionText,
+    domain: domainNum,
+    certification: cert,
+    topic,
+    difficulty: raw.difficulty || 'medium',
+    choices,
+    correctAnswer,
+    explanation: raw.explanation || 'Refer to the official IAAP Body of Knowledge.',
+    citation,
+    funNote: raw.funNote || ''
+  };
+}
+
+// Load Question Banks (CPACC & WAS)
 let questionBank = [];
+const cpaccPath = path.join(__dirname, '..', 'data', 'questions.json');
+const cpaccAltPath = path.join(__dirname, '..', 'data', 'questions_cpacc.json');
+const qbCpaccPath = path.join(__dirname, '..', 'data', 'quiz-bank', 'cpacc.json');
+const wasPath = path.join(__dirname, '..', 'data', 'questions_was.json');
+const qbWasPath = path.join(__dirname, '..', 'data', 'quiz-bank', 'was.json');
+
 try {
-  const data = fs.readFileSync(questionsPath, 'utf8');
-  questionBank = JSON.parse(data);
-  console.log(`Loaded ${questionBank.length} questions from question bank.`);
+  const bankMap = new Map();
+
+  const loadAndIngest = (filePath, cert) => {
+    if (fs.existsSync(filePath)) {
+      try {
+        const raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        if (Array.isArray(raw)) {
+          raw.forEach(item => {
+            const norm = normalizeQuestion(item, cert);
+            if (norm && norm.id && !bankMap.has(norm.id)) {
+              bankMap.set(norm.id, norm);
+            }
+          });
+        }
+      } catch (e) {
+        console.error(`Error parsing ${filePath}:`, e.message);
+      }
+    }
+  };
+
+  // Load CPACC banks
+  loadAndIngest(cpaccPath, 'CPACC');
+  loadAndIngest(cpaccAltPath, 'CPACC');
+  loadAndIngest(qbCpaccPath, 'CPACC');
+
+  // Load WAS banks
+  loadAndIngest(wasPath, 'WAS');
+  loadAndIngest(qbWasPath, 'WAS');
+
+  questionBank = Array.from(bankMap.values());
+  const cpaccTotal = questionBank.filter(q => q.certification === 'CPACC').length;
+  const wasTotal = questionBank.filter(q => q.certification === 'WAS').length;
+  console.log(`Loaded ${questionBank.length} questions total (${cpaccTotal} CPACC, ${wasTotal} WAS).`);
 } catch (err) {
-  console.error('Failed to load questions.json:', err.message);
+  console.error('Failed to load question banks:', err.message);
 }
 
 // Load Policy Flaws Bank (Mode 7: Flaw Finder)
@@ -91,8 +205,13 @@ app.get('/api/boss-raids', (req, res) => {
 });
 
 app.get('/api/questions', (req, res) => {
-  const { domain, difficulty, limit } = req.query;
+  const { domain, difficulty, limit, track, cert } = req.query;
+  const certTrack = (track || cert || 'all').toLowerCase();
+
   let filtered = [...questionBank];
+  if (certTrack !== 'all') {
+    filtered = filtered.filter(q => q.certification?.toLowerCase() === certTrack);
+  }
   if (domain && domain !== 'all') {
     filtered = filtered.filter(q => q.domain === parseInt(domain, 10));
   }
@@ -107,12 +226,29 @@ app.get('/api/questions', (req, res) => {
 });
 
 app.get('/api/domains', (req, res) => {
-  res.json([
-    { id: 'all', name: 'All Domains (Mixed CPACC Review)' },
-    { id: 1, name: 'Domain 1: Disabilities, Challenges & Assistive Tech' },
-    { id: 2, name: 'Domain 2: Accessibility & Universal Design (WCAG)' },
-    { id: 3, name: 'Domain 3: Standards, Laws & Management Strategies' }
-  ]);
+  const track = (req.query.track || req.query.cert || 'all').toLowerCase();
+  if (track === 'was') {
+    res.json([
+      { id: 'all', name: 'All WAS Domains (Web Accessibility Specialist)' },
+      { id: 1, name: 'Domain 1: Creating Accessible Web Solutions (WCAG/ARIA/HTML)' },
+      { id: 2, name: 'Domain 2: Identifying Accessibility Issues & Auditing' },
+      { id: 3, name: 'Domain 3: Offering Remediation & Accessibility Strategies' }
+    ]);
+  } else if (track === 'cpacc') {
+    res.json([
+      { id: 'all', name: 'All CPACC Domains (Core Competencies)' },
+      { id: 1, name: 'Domain 1: Disabilities, Challenges & Assistive Tech' },
+      { id: 2, name: 'Domain 2: Accessibility & Universal Design (WCAG)' },
+      { id: 3, name: 'Domain 3: Standards, Laws & Management Strategies' }
+    ]);
+  } else {
+    res.json([
+      { id: 'all', name: 'All Domains (Dual CPACC & WAS Exam Pool)' },
+      { id: 1, name: 'Domain 1: Disabilities / Creating Accessible Web Solutions' },
+      { id: 2, name: 'Domain 2: Universal Design / Identifying Accessibility Issues' },
+      { id: 3, name: 'Domain 3: Standards, Laws & Remediation Strategies' }
+    ]);
+  }
 });
 
 // Leaderboard & Study Endpoints
@@ -192,8 +328,12 @@ io.on('connection', (socket) => {
     const timeLimit = typeof settings.timeLimit === 'number' ? settings.timeLimit : (gameMode === 'HOT_POTATO' ? 20 : 20);
     const questionCount = settings.questionCount || 10;
     const selectedDomain = settings.domain || 'all';
+    const certTrack = (settings.certTrack || settings.track || 'all').toLowerCase();
 
     let pool = [...questionBank];
+    if (certTrack !== 'all') {
+      pool = pool.filter(q => q.certification?.toLowerCase() === certTrack);
+    }
     if (selectedDomain !== 'all') {
       pool = pool.filter(q => q.domain === parseInt(selectedDomain, 10));
     }
@@ -207,6 +347,7 @@ io.on('connection', (socket) => {
       gameMode,
       settings: {
         gameMode,
+        certTrack,
         timeLimit,
         questionCount: chosenQuestions.length,
         domain: selectedDomain,

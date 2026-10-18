@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import { Search, BookOpen, Lightbulb, CheckCircle2, ChevronDown, ChevronUp, Layers, Award, Sparkles, Filter, ExternalLink } from 'lucide-react';
-import questionsData from '../data/questions.json';
+import { Search, BookOpen, Lightbulb, CheckCircle2, ChevronDown, ChevronUp, Layers, Award, Sparkles, Filter, ExternalLink, Code } from 'lucide-react';
+import {
+  COMBINED_QUESTIONS,
+  CPACC_QUESTIONS,
+  WAS_QUESTIONS,
+  CERTIFICATION_TRACKS,
+  CERTIFICATION_DOMAINS,
+  getFilteredQuestions
+} from '../utils/questionBanks';
 import { soundManager } from '../utils/sound';
 
 const SHAPE_CONFIG = {
@@ -11,17 +18,20 @@ const SHAPE_CONFIG = {
 };
 
 export default function QuestionBankExplorer() {
+  const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'cpacc', 'was'
   const [searchTerm, setSearchTerm] = useState('');
   const [domainFilter, setDomainFilter] = useState('all');
   const [expandedIds, setExpandedIds] = useState(new Set());
 
-  const d1Count = questionsData.filter(q => q.domain === 1).length;
-  const d2Count = questionsData.filter(q => q.domain === 2).length;
-  const d3Count = questionsData.filter(q => q.domain === 3).length;
+  const activePool = selectedTrack === 'cpacc' ? CPACC_QUESTIONS : selectedTrack === 'was' ? WAS_QUESTIONS : COMBINED_QUESTIONS;
 
-  const filteredQuestions = questionsData.filter((q) => {
+  const d1Count = activePool.filter(q => q.domain === 1).length;
+  const d2Count = activePool.filter(q => q.domain === 2).length;
+  const d3Count = activePool.filter(q => q.domain === 3).length;
+
+  const filteredQuestions = activePool.filter((q) => {
     const matchesDomain = domainFilter === 'all' || q.domain === parseInt(domainFilter, 10);
-    const textToSearch = `${q.question} ${q.topic} ${q.explanation} ${q.cpaccRef} ${q.funNote || ''}`.toLowerCase();
+    const textToSearch = `${q.question} ${q.topic} ${q.explanation} ${q.citation || q.cpaccRef || q.wasRef || ''} ${q.funNote || ''}`.toLowerCase();
     const matchesSearch = !searchTerm.trim() || textToSearch.includes(searchTerm.toLowerCase());
     return matchesDomain && matchesSearch;
   });
@@ -49,11 +59,25 @@ export default function QuestionBankExplorer() {
     setExpandedIds(new Set());
   };
 
-  const domainColors = {
-    1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', label: 'Domain 1: Disabilities & AT' },
-    2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', label: 'Domain 2: UD & WCAG 2.1/2.2' },
-    3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', label: 'Domain 3: Standards & Laws' }
+  const domainMetadata = {
+    cpacc: {
+      1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', tag: 'DOM-1: 37.5% WEIGHT', title: 'Disabilities & Assistive Tech', desc: 'Models of disability (Social vs Medical), Visual, Auditory, Motor & Cognitive barriers, Screen Readers, Switch Access, and Braille displays.' },
+      2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOM-2: 37.5% WEIGHT', title: 'Universal Design & WCAG', desc: 'The 7 Principles of Universal Design, WCAG 2.1/2.2 Principles (POUR), Conformance levels (A, AA, AAA), and UDL learning modalities.' },
+      3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOM-3: 25.0% WEIGHT', title: 'Standards, Laws & Compliance', desc: 'ADA Title II & III, Rehabilitation Act Section 508, European EN 301 549, UN CRPD, VPAT / ACR procurement, and corporate governance.' }
+    },
+    was: {
+      1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', tag: 'DOM-1: 40.0% WEIGHT', title: 'Creating Accessible Web Solutions', desc: 'Technical WCAG 2.1/2.2 AA success criteria, WAI-ARIA 1.2 roles, states & properties, semantic HTML5 structure, and custom component patterns.' },
+      2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOM-2: 40.0% WEIGHT', title: 'Auditing & Testing Issues', desc: 'Automated vs manual testing methodologies, screen reader mechanics (NVDA, JAWS, VoiceOver), keyboard traps, and contrast measurement.' },
+      3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOM-3: 20.0% WEIGHT', title: 'Remediation & Strategies', desc: 'VPAT / ACR evaluation, third-party component remediation, accessible agile workflows, developer coaching, and CI/CD automated gates.' }
+    },
+    all: {
+      1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', tag: 'DOMAIN 1 (CPACC + WAS)', title: 'Disabilities & Accessible Solutions', desc: 'Disability models, assistive technologies, semantic HTML structure, and technical WCAG 2.1/2.2 AA requirements.' },
+      2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOMAIN 2 (CPACC + WAS)', title: 'Universal Design & Technical Audits', desc: 'POUR principles, universal design, automated vs manual auditing, screen reader heuristics, and accessible design systems.' },
+      3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOMAIN 3 (CPACC + WAS)', title: 'Standards, Laws & Remediation', desc: 'ADA, Section 508, EN 301 549, VPAT / ACR compliance, and corporate remediation governance.' }
+    }
   };
+
+  const currentDomainMeta = domainMetadata[selectedTrack] || domainMetadata.all;
 
   return (
     <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '7rem' }}>
@@ -63,47 +87,94 @@ export default function QuestionBankExplorer() {
         <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '14rem', height: '14rem', background: 'rgba(16, 185, 129, 0.12)', borderRadius: '9999px', filter: 'blur(45px)', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', zIndex: 10 }}>
+          {/* Top Certification Track Selector Pills */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1.25rem' }}>
+            {CERTIFICATION_TRACKS.map(t => {
+              const isSelected = selectedTrack === t.id;
+              const count = t.id === 'cpacc' ? CPACC_QUESTIONS.length : t.id === 'was' ? WAS_QUESTIONS.length : COMBINED_QUESTIONS.length;
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => {
+                    soundManager.playClick();
+                    setSelectedTrack(t.id);
+                    setDomainFilter('all');
+                  }}
+                  style={{
+                    padding: '0.35rem 0.85rem',
+                    border: `2px solid ${isSelected ? t.color : 'rgba(255,255,255,0.15)'}`,
+                    color: isSelected ? '#ffffff' : '#94a3b8',
+                    fontFamily: "'Space Mono', monospace",
+                    fontSize: '0.8rem',
+                    fontWeight: 800,
+                    borderRadius: '6px',
+                    background: isSelected ? t.bg : '#0b1326',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    cursor: 'pointer',
+                    boxShadow: isSelected ? `0 0 12px ${t.color}40` : 'none',
+                    transition: 'all 0.15s ease'
+                  }}
+                  aria-pressed={isSelected}
+                >
+                  <span>{t.badge}</span>
+                  <span style={{ color: isSelected ? t.color : '#64748b' }}>({count})</span>
+                </button>
+              );
+            })}
+          </div>
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #38bdf8', color: '#7dd3fc', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <Layers size={13} />
-              <span>[CPACC BOK CURRICULUM ARCHIVE]</span>
+              <span>[{selectedTrack === 'was' ? 'IAAP WAS CURRICULUM ARCHIVE' : selectedTrack === 'cpacc' ? 'IAAP CPACC BOK ARCHIVE' : 'IAAP DUAL CERTIFICATION ARCHIVE'}]</span>
             </span>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <Award size={13} />
-              <span>{questionsData.length} CERTIFIED DRILLS</span>
+              <span>{activePool.length} CERTIFIED DRILLS</span>
             </span>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)' }}>
               [WCAG 2.2 AAA VERIFIED]
             </span>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #facc15', color: '#fef08a', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(250, 204, 21, 0.1)' }}>
-              [IAAP CORE COMPETENCIES]
+              [IAAP BODY OF KNOWLEDGE]
             </span>
           </div>
 
           <h1 id="qb-explorer-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-            CPACC QUESTION BANK & BOK ARCHIVE
+            {selectedTrack === 'was'
+              ? 'WAS TECHNICAL QUESTION BANK & CODE ARCHIVE'
+              : selectedTrack === 'cpacc'
+              ? 'CPACC QUESTION BANK & BOK ARCHIVE'
+              : 'IAAP ACCESSIBILITY CERTIFICATION ARCHIVE'}
           </h1>
-          <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.55 }}>
-            The complete tactical syllabus adapted from the IAAP Certified Professional in Accessibility Core Competencies (CPACC) Body of Knowledge. Browse, filter, expand rationales, and master all three accredited domains.
+          <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '880px', lineHeight: 1.55 }}>
+            {selectedTrack === 'was'
+              ? 'Technical accessibility drills adapted from the IAAP Web Accessibility Specialist (WAS) Body of Knowledge. Master WCAG 2.1/2.2 AA success criteria, WAI-ARIA 1.2 mechanics, screen reader compatibility, and code-level remediation.'
+              : selectedTrack === 'cpacc'
+              ? 'The complete tactical syllabus adapted from the IAAP Certified Professional in Accessibility Core Competencies (CPACC) Body of Knowledge. Browse, filter, expand rationales, and master all three accredited domains.'
+              : 'The comprehensive dual-track syllabus covering foundational concepts from IAAP CPACC and deep technical code-level remediation from IAAP WAS. Browse, filter by domain, inspect citations, and test your readiness.'}
           </p>
 
           {/* Diagnostic Metrics Bar */}
           <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace" }}>
             <div>
-              <span style={{ color: '#94a3b8' }}>Total Syllabus: </span>
-              <strong style={{ color: '#38bdf8' }}>{questionsData.length} Verified Questions</strong>
+              <span style={{ color: '#94a3b8' }}>Total Active Syllabus: </span>
+              <strong style={{ color: '#38bdf8' }}>{activePool.length} Verified Questions</strong>
             </div>
             <div>
-              <span style={{ color: '#94a3b8' }}>Domain 1 (Disabilities): </span>
-              <strong style={{ color: '#38bdf8' }}>{d1Count} Drills (37.5%)</strong>
+              <span style={{ color: '#94a3b8' }}>Domain 1: </span>
+              <strong style={{ color: '#38bdf8' }}>{d1Count} Drills ({activePool.length ? Math.round((d1Count / activePool.length) * 100) : 0}%)</strong>
             </div>
             <div>
-              <span style={{ color: '#94a3b8' }}>Domain 2 (UD & WCAG): </span>
-              <strong style={{ color: '#10b981' }}>{d2Count} Drills (37.5%)</strong>
+              <span style={{ color: '#94a3b8' }}>Domain 2: </span>
+              <strong style={{ color: '#10b981' }}>{d2Count} Drills ({activePool.length ? Math.round((d2Count / activePool.length) * 100) : 0}%)</strong>
             </div>
             <div>
-              <span style={{ color: '#94a3b8' }}>Domain 3 (Laws & Stds): </span>
-              <strong style={{ color: '#f59e0b' }}>{d3Count} Drills (25.0%)</strong>
+              <span style={{ color: '#94a3b8' }}>Domain 3: </span>
+              <strong style={{ color: '#f59e0b' }}>{d3Count} Drills ({activePool.length ? Math.round((d3Count / activePool.length) * 100) : 0}%)</strong>
             </div>
           </div>
         </div>
@@ -120,33 +191,33 @@ export default function QuestionBankExplorer() {
           className="card"
           style={{
             padding: '1.5rem',
-            border: `2px solid ${domainFilter === '1' ? '#38bdf8' : 'var(--border-color)'}`,
-            borderLeft: '5px solid #38bdf8',
-            background: domainFilter === '1' ? 'rgba(56, 189, 248, 0.08)' : 'var(--bg-surface)',
+            border: `2px solid ${domainFilter === '1' ? currentDomainMeta[1].accent : 'var(--border-color)'}`,
+            borderLeft: `5px solid ${currentDomainMeta[1].accent}`,
+            background: domainFilter === '1' ? currentDomainMeta[1].bg : 'var(--bg-surface)',
             boxShadow: '4px 4px 0px 0px #040810',
             cursor: 'pointer',
             transition: 'transform 0.1s ease'
           }}
           aria-pressed={domainFilter === '1'}
-          aria-label="Filter by Domain 1: Disabilities, Challenges & Assistive Technologies"
+          aria-label={`Filter by ${currentDomainMeta[1].title}`}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid #38bdf8' }}>
-              [DOM-1: 37.5% WEIGHT]
+            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: currentDomainMeta[1].accent, background: currentDomainMeta[1].bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${currentDomainMeta[1].border}` }}>
+              [{currentDomainMeta[1].tag}]
             </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#38bdf8', fontFamily: "'Space Mono', monospace" }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: currentDomainMeta[1].accent, fontFamily: "'Space Mono', monospace" }}>
               {d1Count} QUESTIONS
             </span>
           </div>
           <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-            Disabilities & Assistive Tech
+            {currentDomainMeta[1].title}
           </h3>
           <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-            Models of disability (Social vs Medical), Visual, Auditory, Motor & Cognitive barriers, Screen Readers, Switch Access, and Braille displays.
+            {currentDomainMeta[1].desc}
           </p>
-          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(56, 189, 248, 0.2)', fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#7dd3fc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${currentDomainMeta[1].accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#7dd3fc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span>{domainFilter === '1' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
-            <span>15 OF 40 ITEMS</span>
+            <span>{d1Count} OF {activePool.length} ITEMS</span>
           </div>
         </div>
 
@@ -159,33 +230,33 @@ export default function QuestionBankExplorer() {
           className="card"
           style={{
             padding: '1.5rem',
-            border: `2px solid ${domainFilter === '2' ? '#10b981' : 'var(--border-color)'}`,
-            borderLeft: '5px solid #10b981',
-            background: domainFilter === '2' ? 'rgba(16, 185, 129, 0.08)' : 'var(--bg-surface)',
+            border: `2px solid ${domainFilter === '2' ? currentDomainMeta[2].accent : 'var(--border-color)'}`,
+            borderLeft: `5px solid ${currentDomainMeta[2].accent}`,
+            background: domainFilter === '2' ? currentDomainMeta[2].bg : 'var(--bg-surface)',
             boxShadow: '4px 4px 0px 0px #040810',
             cursor: 'pointer',
             transition: 'transform 0.1s ease'
           }}
           aria-pressed={domainFilter === '2'}
-          aria-label="Filter by Domain 2: Universal Design & WCAG Guidelines"
+          aria-label={`Filter by ${currentDomainMeta[2].title}`}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#10b981', background: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid #10b981' }}>
-              [DOM-2: 37.5% WEIGHT]
+            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: currentDomainMeta[2].accent, background: currentDomainMeta[2].bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${currentDomainMeta[2].border}` }}>
+              [{currentDomainMeta[2].tag}]
             </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#10b981', fontFamily: "'Space Mono', monospace" }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: currentDomainMeta[2].accent, fontFamily: "'Space Mono', monospace" }}>
               {d2Count} QUESTIONS
             </span>
           </div>
           <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-            Universal Design & WCAG
+            {currentDomainMeta[2].title}
           </h3>
           <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-            The 7 Principles of Universal Design, WCAG 2.1/2.2 Principles (POUR), Conformance levels (A, AA, AAA), and UDL learning modalities.
+            {currentDomainMeta[2].desc}
           </p>
-          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(16, 185, 129, 0.2)', fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#6ee7b7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${currentDomainMeta[2].accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#6ee7b7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span>{domainFilter === '2' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
-            <span>15 OF 40 ITEMS</span>
+            <span>{d2Count} OF {activePool.length} ITEMS</span>
           </div>
         </div>
 
@@ -198,33 +269,33 @@ export default function QuestionBankExplorer() {
           className="card"
           style={{
             padding: '1.5rem',
-            border: `2px solid ${domainFilter === '3' ? '#f59e0b' : 'var(--border-color)'}`,
-            borderLeft: '5px solid #f59e0b',
-            background: domainFilter === '3' ? 'rgba(245, 158, 11, 0.08)' : 'var(--bg-surface)',
+            border: `2px solid ${domainFilter === '3' ? currentDomainMeta[3].accent : 'var(--border-color)'}`,
+            borderLeft: `5px solid ${currentDomainMeta[3].accent}`,
+            background: domainFilter === '3' ? currentDomainMeta[3].bg : 'var(--bg-surface)',
             boxShadow: '4px 4px 0px 0px #040810',
             cursor: 'pointer',
             transition: 'transform 0.1s ease'
           }}
           aria-pressed={domainFilter === '3'}
-          aria-label="Filter by Domain 3: Standards, Laws & Management"
+          aria-label={`Filter by ${currentDomainMeta[3].title}`}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#f59e0b', background: 'rgba(245, 158, 11, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid #f59e0b' }}>
-              [DOM-3: 25.0% WEIGHT]
+            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: currentDomainMeta[3].accent, background: currentDomainMeta[3].bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${currentDomainMeta[3].border}` }}>
+              [{currentDomainMeta[3].tag}]
             </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#f59e0b', fontFamily: "'Space Mono', monospace" }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: currentDomainMeta[3].accent, fontFamily: "'Space Mono', monospace" }}>
               {d3Count} QUESTIONS
             </span>
           </div>
           <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-            Standards, Laws & Compliance
+            {currentDomainMeta[3].title}
           </h3>
           <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-            ADA Title II & III, Rehabilitation Act Section 508, European EN 301 549, UN CRPD, VPAT / ACR procurement, and corporate governance.
+            {currentDomainMeta[3].desc}
           </p>
-          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(245, 158, 11, 0.2)', fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#fde68a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${currentDomainMeta[3].accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#fde68a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span>{domainFilter === '3' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
-            <span>10 OF 40 ITEMS</span>
+            <span>{d3Count} OF {activePool.length} ITEMS</span>
           </div>
         </div>
       </section>
@@ -288,10 +359,10 @@ export default function QuestionBankExplorer() {
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
               {[
-                { id: 'all', label: `All Syllabus (${questionsData.length})` },
-                { id: '1', label: `Domain 1: Disabilities & AT (${d1Count})` },
-                { id: '2', label: `Domain 2: UD & WCAG (${d2Count})` },
-                { id: '3', label: `Domain 3: Standards & Laws (${d3Count})` }
+                { id: 'all', label: `All Domains (${activePool.length})` },
+                { id: '1', label: `${currentDomainMeta[1].title} (${d1Count})` },
+                { id: '2', label: `${currentDomainMeta[2].title} (${d2Count})` },
+                { id: '3', label: `${currentDomainMeta[3].title} (${d3Count})` }
               ].map(d => (
                 <button
                   key={d.id}
@@ -316,7 +387,7 @@ export default function QuestionBankExplorer() {
             </div>
 
             <div style={{ fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
-              Displaying <strong style={{ color: '#ffffff' }}>{filteredQuestions.length}</strong> of {questionsData.length} Syllabus Drills
+              Displaying <strong style={{ color: '#ffffff' }}>{filteredQuestions.length}</strong> of {activePool.length} Syllabus Drills
             </div>
           </div>
         </div>
@@ -331,7 +402,7 @@ export default function QuestionBankExplorer() {
               NO CURRICULUM QUESTIONS MATCHED YOUR SEARCH
             </h3>
             <p style={{ color: '#94a3b8', fontSize: '0.95rem', maxWidth: '480px', margin: '0 auto 1.25rem auto' }}>
-              Try adjusting your search terms or selecting "All Syllabus" to view all 40 questions.
+              Try adjusting your search terms or selecting "All Domains" to view all {activePool.length} questions in this track.
             </p>
             <button
               type="button"
@@ -346,7 +417,8 @@ export default function QuestionBankExplorer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {filteredQuestions.map((q, idx) => {
               const isExpanded = expandedIds.has(q.id);
-              const domainMeta = domainColors[q.domain] || domainColors[1];
+              const domainMeta = currentDomainMeta[q.domain] || currentDomainMeta[1];
+              const isWas = (q.certification || '').toUpperCase() === 'WAS' || (q.id && q.id.startsWith('was-'));
 
               return (
                 <article
@@ -387,6 +459,25 @@ export default function QuestionBankExplorer() {
                         <span style={{ fontSize: '0.75rem', fontWeight: 900, background: '#0b1326', color: domainMeta.accent, padding: '0.2rem 0.55rem', borderRadius: '4px', border: `1px solid ${domainMeta.border}`, fontFamily: "'Space Mono', monospace" }}>
                           #{idx + 1}
                         </span>
+
+                        {/* Certification Pill */}
+                        <span style={{
+                          fontSize: '0.75rem',
+                          fontWeight: 800,
+                          background: isWas ? 'rgba(16, 185, 129, 0.15)' : 'rgba(56, 189, 248, 0.15)',
+                          color: isWas ? '#6ee7b7' : '#7dd3fc',
+                          padding: '0.2rem 0.55rem',
+                          borderRadius: '4px',
+                          border: `1px solid ${isWas ? '#10b981' : '#38bdf8'}`,
+                          fontFamily: "'Space Mono', monospace",
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.25rem'
+                        }}>
+                          {isWas ? <Code size={12} /> : <Award size={12} />}
+                          <span>[{isWas ? 'IAAP WAS' : 'IAAP CPACC'}]</span>
+                        </span>
+
                         <span style={{ fontSize: '0.75rem', fontWeight: 800, background: domainMeta.bg, color: domainMeta.accent, padding: '0.2rem 0.65rem', borderRadius: '4px', fontFamily: "'Space Mono', monospace" }}>
                           [DOM-{q.domain}: {q.topic}]
                         </span>
@@ -474,18 +565,18 @@ export default function QuestionBankExplorer() {
                         </div>
                       </div>
 
-                      {/* Official CPACC BoK Citation Box */}
-                      <div style={{ background: '#060e20', border: '1px solid #38bdf8', padding: '1.1rem', borderRadius: 'var(--radius-sm)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.78rem' }}>
-                          <BookOpen size={16} color="#38bdf8" />
-                          <span>CPACC BODY OF KNOWLEDGE EXPLANATION & RATIONALE:</span>
+                      {/* Official BoK Citation Box */}
+                      <div style={{ background: '#060e20', border: `1px solid ${isWas ? '#10b981' : '#38bdf8'}`, padding: '1.1rem', borderRadius: 'var(--radius-sm)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: isWas ? '#10b981' : '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.78rem' }}>
+                          <BookOpen size={16} color={isWas ? '#10b981' : '#38bdf8'} />
+                          <span>{isWas ? 'WAS BODY OF KNOWLEDGE & TECHNICAL RATIONALE:' : 'CPACC BODY OF KNOWLEDGE EXPLANATION & RATIONALE:'}</span>
                         </div>
                         <p style={{ fontSize: '0.96rem', color: '#f1f5f9', margin: 0, lineHeight: 1.6 }}>
                           {q.explanation}
                         </p>
-                        {q.cpaccRef && (
-                          <div style={{ marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(56, 189, 248, 0.2)', fontSize: '0.78rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
-                            Official Syllabus Citation: <strong style={{ color: '#38bdf8' }}>{q.cpaccRef}</strong>
+                        {(q.citation || q.cpaccRef || q.wasRef) && (
+                          <div style={{ marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: `1px solid ${isWas ? 'rgba(16, 185, 129, 0.2)' : 'rgba(56, 189, 248, 0.2)'}`, fontSize: '0.78rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
+                            Official Syllabus Citation: <strong style={{ color: isWas ? '#6ee7b7' : '#38bdf8' }}>{q.citation || q.wasRef || q.cpaccRef}</strong>
                           </div>
                         )}
                       </div>
@@ -514,7 +605,7 @@ export default function QuestionBankExplorer() {
         <div style={{ maxWidth: '1380px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
             <span style={{ color: '#38bdf8', fontWeight: 800 }}>
-              {questionsData.length} Certified Questions Indexed
+              {activePool.length} Certified Questions Indexed
             </span>
             <span>•</span>
             <span style={{ color: '#10b981' }}>

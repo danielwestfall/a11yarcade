@@ -1,0 +1,509 @@
+[
+  {
+    "id": "was-d1-01",
+    "certification": "WAS",
+    "domain": 1,
+    "domainName": "Creating Accessible Web Solutions",
+    "topic": "WAI-ARIA & Custom Dialog Widgets",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "question": "When a custom modal dialog (<div role=\"dialog\" aria-modal=\"true\">) is triggered open, where must keyboard focus immediately be placed according to the WAI-ARIA Authoring Practices Guide (APG)?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Remain on the triggering button outside the dialog",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Move to an element inside the dialog (such as the dialog title, first focusable item, or close button)",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Move to the top of the <body> element",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Move to the first URL link in the site header",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "According to the WAI-ARIA APG Modal Dialog Pattern, when a dialog opens, focus must move inside the dialog to the first focusable control, the dialog container, or the first heading. Focus must also be trapped within the dialog until dismissed.",
+    "wasRef": "Domain 1: Creating Accessible Web Solutions - Dialog (Modal) Pattern & Focus Management",
+    "funNote": "Leaving focus on the trigger outside a modal is like opening a door and making the user walk through the wall!"
+  },
+  {
+    "id": "was-d1-02",
+    "certification": "WAS",
+    "domain": 1,
+    "domainName": "Creating Accessible Web Solutions",
+    "topic": "WCAG 2.2 Target Size (Minimum)",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "Under WCAG 2.2 Success Criterion 2.5.8 (Target Size - Minimum, Level AA), what is the minimum required bounding box size for pointer inputs unless an exception (such as inline text or sufficient spacing) applies?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "44 × 44 CSS pixels",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "24 × 24 CSS pixels",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "16 × 16 CSS pixels",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "48 × 48 CSS pixels",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "WCAG 2.2 SC 2.5.8 (Level AA) requires a minimum target size of 24 × 24 CSS pixels, or an offset circle of 24px diameter that does not intersect adjacent targets. Note that 44 × 44px is SC 2.5.5 (Level AAA).",
+    "wasRef": "Domain 1: WCAG 2.2 SC 2.5.8 Target Size (Minimum) [Level AA]",
+    "funNote": "24px is AA, 44px is AAA. Don't mix up your target sizes on the WAS exam!"
+  },
+  {
+    "id": "was-d1-03",
+    "certification": "WAS",
+    "domain": 1,
+    "domainName": "Creating Accessible Web Solutions",
+    "topic": "ARIA Form Labeling",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "Which ARIA attribute takes precedence when a screen reader calculates the accessible name of an element according to the Accessible Name and Description Computation specification?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "aria-label",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "aria-labelledby",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "title attribute",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Native <label> element",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "In the Accessible Name computation hierarchy: aria-labelledby has the highest priority, overriding aria-label, which in turn overrides native elements (<label>, alt), which override placeholder and title.",
+    "wasRef": "Domain 1: Accessible Name and Description Computation 1.2",
+    "funNote": "aria-labelledby is the undisputed heavyweight champion of accessible naming!"
+  },
+  {
+    "id": "was-d1-04",
+    "certification": "WAS",
+    "domain": 1,
+    "domainName": "Creating Accessible Web Solutions",
+    "topic": "Responsive Reflow (WCAG 1.4.10)",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "Under WCAG 2.1/2.2 SC 1.4.10 (Reflow), content must be presented without loss of information or functionality and without requiring scrolling in two dimensions at a width equivalent to:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "320 CSS pixels (equivalent to 400% zoom on a 1280px display)",
+        "shape": "triangle",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "768 CSS pixels (standard tablet portrait)",
+        "shape": "diamond",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "1024 CSS pixels at 200% zoom",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "480 CSS pixels with fixed horizontal overflow",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "SC 1.4.10 Reflow requires responsive layout down to 320 CSS pixels for vertical scrolling content (320px width) and 256 CSS pixels for horizontal scrolling content (256px height) without 2D scrolling.",
+    "wasRef": "Domain 1: WCAG 2.1/2.2 SC 1.4.10 Reflow [Level AA]",
+    "funNote": "320px reflow testing means zooming your desktop browser to 400% at 1280px width."
+  },
+  {
+    "id": "was-d1-05",
+    "certification": "WAS",
+    "domain": 1,
+    "domainName": "Creating Accessible Web Solutions",
+    "topic": "WCAG 2.2 Redundant Entry",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "question": "A multi-step checkout form asks the user for their shipping address in Step 1, and then in Step 3 asks for the billing address with a 'Same as shipping address' checkbox that auto-populates the fields. Does this satisfy WCAG 2.2 SC 3.3.7 (Redundant Entry)?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "No, because the user still has to look at Step 3",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Yes, because the previously entered information is available for the user to select or auto-populate",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "No, SC 3.3.7 forbids asking for a billing address entirely",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Only if biometric facial authentication is used",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "SC 3.3.7 Redundant Entry (Level A, WCAG 2.2) requires that information previously entered in the same session is either auto-populated or available for the user to select, unless re-entering is essential or required for security.",
+    "wasRef": "Domain 1: WCAG 2.2 SC 3.3.7 Redundant Entry [Level A]",
+    "funNote": "Making users re-type their 30-character address twice in one session is a direct WCAG 2.2 violation!"
+  },
+  {
+    "id": "was-d1-06",
+    "certification": "WAS",
+    "domain": 1,
+    "domainName": "Creating Accessible Web Solutions",
+    "topic": "Live Region Mechanics",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "question": "What is the key functional difference between aria-live=\"polite\" and aria-live=\"assertive\"?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Polite uses a lower audio volume; Assertive uses maximum audio gain",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Polite waits until the screen reader finishes its current utterance; Assertive immediately interrupts speech output",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Polite works on mobile only; Assertive works on desktop only",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Polite only announces text deletions; Assertive only announces additions",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "aria-live='polite' informs the screen reader to speak updates at the next idle pause. aria-live='assertive' instructs the screen reader to immediately interrupt whatever speech queue is currently playing.",
+    "wasRef": "Domain 1: WAI-ARIA 1.2 - Live Region Attributes (aria-live)",
+    "funNote": "Assertive live regions should be reserved for time-critical emergencies, not chat notifications!"
+  },
+  {
+    "id": "was-d2-01",
+    "certification": "WAS",
+    "domain": 2,
+    "domainName": "Identifying Accessibility Issues",
+    "topic": "Automated Testing Limitations",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Industry research and IAAP guidance indicate that automated accessibility evaluation tools (axe, Lighthouse, WAVE) can detect approximately what percentage of all WCAG success criteria failures?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "100% of all issues with modern machine learning",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Roughly 30% to 40% of WCAG criteria failures",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Between 85% and 95%",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Less than 5%",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Automated tools excel at algorithmic rules (missing alt attributes, bad color contrast values, duplicate IDs), but cannot judge contextual quality, cognitive clarity, tab order logicality, or audio description adequacy, covering roughly 30-40% of WCAG.",
+    "wasRef": "Domain 2: Identifying Accessibility Issues - Automated vs. Manual Testing Methodologies",
+    "funNote": "A 100% automated score just means your code is syntactically clean, not that a human can use it!"
+  },
+  {
+    "id": "was-d2-02",
+    "certification": "WAS",
+    "domain": 2,
+    "domainName": "Identifying Accessibility Issues",
+    "topic": "Screen Reader Testing Protocols",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "question": "When testing a web application with NVDA on Windows, what is the default keyboard shortcut to toggle between 'Browse Mode' (virtual cursor navigation) and 'Focus Mode' (direct input pass-through)?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "NVDA Key + Spacebar",
+        "shape": "triangle",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Alt + F4",
+        "shape": "diamond",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Ctrl + Shift + Escape",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Windows Key + Tab",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "In NVDA, pressing NVDA+Spacebar toggles between Browse Mode (reading virtual document tree) and Focus Mode (typing keystrokes directly into form fields and custom widgets).",
+    "wasRef": "Domain 2: Assistive Technology Testing - NVDA Keystrokes & Modes",
+    "funNote": "NVDA+Space is the essential secret handshake of every certified web accessibility auditor."
+  },
+  {
+    "id": "was-d2-03",
+    "certification": "WAS",
+    "domain": 2,
+    "domainName": "Identifying Accessibility Issues",
+    "topic": "Non-Text Contrast (SC 1.4.11)",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "What is the minimum contrast ratio required under WCAG 2.1/2.2 SC 1.4.11 (Non-text Contrast) for active user interface components (such as input borders and custom checkbox outlines) against adjacent background colors?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "4.5:1",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "3:1",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "7:1",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "2:1",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "SC 1.4.11 Non-text Contrast requires a contrast ratio of at least 3:1 against adjacent background colors for UI component boundaries, states (focus, hover, checked), and graphical objects.",
+    "wasRef": "Domain 2: WCAG 2.1/2.2 SC 1.4.11 Non-text Contrast [Level AA]",
+    "funNote": "3:1 for graphics and borders, 4.5:1 for body text. Remember this classic WAS pairing!"
+  },
+  {
+    "id": "was-d2-04",
+    "certification": "WAS",
+    "domain": 2,
+    "domainName": "Identifying Accessibility Issues",
+    "topic": "Keyboard Trap Testing (SC 2.1.2)",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "During a manual keyboard audit, you Tab into an embedded third-party media widget. Pressing Tab and Shift+Tab repeatedly cycles only within the widget's internal controls, and pressing Escape does not exit. What critical WCAG failure has occurred?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "SC 2.4.7 Focus Visible",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "SC 2.1.2 No Keyboard Trap",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "SC 1.3.1 Info and Relationships",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "SC 3.2.1 On Focus",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "SC 2.1.2 (No Keyboard Trap, Level A) states that if keyboard focus can be moved to a component using a keyboard interface, then focus can be moved away from that component using only a keyboard interface without trapping the user.",
+    "wasRef": "Domain 2: Manual Audit - Keyboard Operability & SC 2.1.2",
+    "funNote": "A keyboard trap is an immediate audit blocker that halts blind and motor-impaired users dead in their tracks."
+  },
+  {
+    "id": "was-d3-01",
+    "certification": "WAS",
+    "domain": 3,
+    "domainName": "Remediation & Strategies",
+    "topic": "Remediation Prioritization Matrix",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "When delivering an accessibility audit remediation plan to an engineering team, which of the following criteria should be prioritized as 'Critical / Blocker' (Priority 1)?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "A decorative background SVG missing aria-hidden='true'",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "A keyboard trap or inaccessible primary call-to-action that prevents task completion for assistive tech users",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "A secondary footer link with 4.3:1 contrast ratio instead of 4.5:1",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A missing lang attribute on a sub-paragraph in the terms of service",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Remediation prioritization ranks blockers (issues that completely halt or trap users from completing core tasks) at Priority 1 (Critical), followed by high impact barriers, then medium annoyances and minor cosmetic items.",
+    "wasRef": "Domain 3: Offering Remediation & Accessibility Strategies - Triage & Severity Matrix",
+    "funNote": "Fix the locked front door before you polish the silverware in the dining room!"
+  },
+  {
+    "id": "was-d3-02",
+    "certification": "WAS",
+    "domain": 3,
+    "domainName": "Remediation & Strategies",
+    "topic": "ARIA Overuse Remediation (First Rule of ARIA)",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "A developer submits a pull request containing: <div role=\"button\" tabindex=\"0\" onclick=\"submit()\">Submit</div>. According to the First Rule of ARIA use, what is the best remediation advice?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Add aria-pressed='false' and aria-label='Submit'",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Replace the <div> with a native <button type=\"button\">Submit</button>",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "Wrap the <div> in a <form> and add onkeydown='...'",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Change role='button' to role='link'",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The First Rule of ARIA states: If you can use a native HTML element or attribute with the semantics and behavior you require already built in, then do so instead of re-purposing an element and adding ARIA.",
+    "wasRef": "Domain 3: Remediation Strategies - First Rule of ARIA & Semantic HTML",
+    "funNote": "Why write 40 lines of JavaScript keyboard handling when <button> gives it to you for free?"
+  },
+  {
+    "id": "was-d3-03",
+    "certification": "WAS",
+    "domain": 3,
+    "domainName": "Remediation & Strategies",
+    "topic": "Accessible Form Error Remediation",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "question": "To properly remediate an inaccessible inline form error for both visual and screen reader users, which combination of code attributes should be applied to the <input>?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "border: 2px solid red in CSS only",
+        "shape": "triangle",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "aria-invalid=\"true\" on the input, paired with aria-describedby referencing the unique ID of the visible text error container",
+        "shape": "diamond",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "placeholder=\"Error! Fix this field immediately!\"",
+        "shape": "circle",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "title=\"Error occurred\"",
+        "shape": "square",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Accessible form validation requires visible error text (SC 3.3.1), programmatically associated error descriptions via aria-describedby, and aria-invalid='true' to communicate the invalid state to assistive technology.",
+    "wasRef": "Domain 3: Remediation Guidance - WCAG SC 3.3.1 & SC 3.3.3 Error Handling",
+    "funNote": "Red borders without text are invisible to color-blind users and silent to screen readers!"
+  }
+]

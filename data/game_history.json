@@ -15,6 +15,167 @@
           "rank": 1
         }
       ]
+    },
+    {
+      "id": "1792210654868-6KGA",
+      "timestamp": "2026-10-17T04:17:34.868Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 400,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792210678964-U97W",
+      "timestamp": "2026-10-17T04:17:58.964Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792210696946-ASD6",
+      "timestamp": "2026-10-17T04:18:16.946Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792212197511-ES64",
+      "timestamp": "2026-10-17T04:43:17.511Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792285939026-7Z5Q",
+      "timestamp": "2026-10-18T01:12:19.026Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792288101999-HUF4",
+      "timestamp": "2026-10-18T01:48:21.999Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 350,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792288291769-MVT7",
+      "timestamp": "2026-10-18T01:51:31.769Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 400,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
     }
   ],
   "weeklyLeaderboard": {
@@ -26,6 +187,22 @@
         "gamesPlayed": 1,
         "wins": 1,
         "bestScore": 900
+      },
+      "AgentTwo": {
+        "nickname": "AgentTwo",
+        "avatar": "🐱",
+        "totalScore": 1100,
+        "gamesPlayed": 7,
+        "wins": 3,
+        "bestScore": 400
+      },
+      "AgentOne": {
+        "nickname": "AgentOne",
+        "avatar": "🐱",
+        "totalScore": 1450,
+        "gamesPlayed": 7,
+        "wins": 4,
+        "bestScore": 400
       }
     }
   },
@@ -37,6 +214,22 @@
       "gamesPlayed": 1,
       "wins": 1,
       "bestScore": 900
+    },
+    "AgentTwo": {
+      "nickname": "AgentTwo",
+      "avatar": "🐱",
+      "totalScore": 1100,
+      "gamesPlayed": 7,
+      "wins": 3,
+      "bestScore": 400
+    },
+    "AgentOne": {
+      "nickname": "AgentOne",
+      "avatar": "🐱",
+      "totalScore": 1450,
+      "gamesPlayed": 7,
+      "wins": 4,
+      "bestScore": 400
     }
   },
   "missedQuestionsLog": [
@@ -991,6 +1184,543 @@
       "explanation": "The Medical Model views disability as an individual deficit or pathology that needs to be 'fixed' or cured, whereas the Social Model recognizes that society and poor design create the barriers.",
       "funNote": "Blaming the user's retinas for your invisible font is peak Medical Model mischief!",
       "cpaccRef": "Domain One A: Theoretical Models of Disability"
+    },
+    {
+      "timestamp": "2026-10-17T04:13:12.483Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d1-14",
+      "questionText": "According to the World Health Organization (WHO), approximately what percentage of the global population experiences significant disability?",
+      "topic": "Demographics & Statistics",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "C",
+      "explanation": "The WHO Global Report on Health Equity for Persons with Disabilities (2022) indicates ~1.3 billion people, or 16% of the world's population, experience significant disability.",
+      "funNote": "1 in 6 people. If your company ignores a11y, you're literally ignoring an audience the size of China!",
+      "cpaccRef": "Domain One D: Disability Demographics and Statistics"
+    },
+    {
+      "timestamp": "2026-10-17T04:13:12.486Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d1-14",
+      "questionText": "According to the World Health Organization (WHO), approximately what percentage of the global population experiences significant disability?",
+      "topic": "Demographics & Statistics",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "The WHO Global Report on Health Equity for Persons with Disabilities (2022) indicates ~1.3 billion people, or 16% of the world's population, experience significant disability.",
+      "funNote": "1 in 6 people. If your company ignores a11y, you're literally ignoring an audience the size of China!",
+      "cpaccRef": "Domain One D: Disability Demographics and Statistics"
+    },
+    {
+      "timestamp": "2026-10-17T04:13:21.477Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-04-3",
+      "questionText": "Commercial Airline Passenger Booking Policy: An international airline publishes rules regarding passenger accommodations and ticketing. Find the prohibited statutory clause.",
+      "topic": "Air Carrier Access Act (ACAA) Non-Discrimination Mandates",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
+      "funNote": "Targeted Sentence: \"Horizon Air is committed to accessible travel for ...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
+    },
+    {
+      "timestamp": "2026-10-17T04:14:55.757Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d3-02",
+      "questionText": "Which Title of the Americans with Disabilities Act (ADA) prohibits discrimination in 'Places of Public Accommodation' (commercial businesses, restaurants, hotels, and increasingly websites)?",
+      "topic": "US Americans with Disabilities Act (ADA)",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "C",
+      "explanation": "Title III covers Places of Public Accommodation (private businesses open to the public). Title I covers Employment, and Title II covers State and Local Government services.",
+      "funNote": "Title III is the headline-maker behind most high-profile US website accessibility lawsuits.",
+      "cpaccRef": "Domain Three C: The Americans with Disabilities Act of 1990"
+    },
+    {
+      "timestamp": "2026-10-17T04:14:55.759Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d3-02",
+      "questionText": "Which Title of the Americans with Disabilities Act (ADA) prohibits discrimination in 'Places of Public Accommodation' (commercial businesses, restaurants, hotels, and increasingly websites)?",
+      "topic": "US Americans with Disabilities Act (ADA)",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "Title III covers Places of Public Accommodation (private businesses open to the public). Title I covers Employment, and Title II covers State and Local Government services.",
+      "funNote": "Title III is the headline-maker behind most high-profile US website accessibility lawsuits.",
+      "cpaccRef": "Domain Three C: The Americans with Disabilities Act of 1990"
+    },
+    {
+      "timestamp": "2026-10-17T04:15:12.751Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-01-3",
+      "questionText": "Public University Web Accessibility Statement: A prominent state university published this digital accessibility policy on its public portal. One of the sentences contains a critical legal flaw regarding institutional obligations.",
+      "topic": "ADA Title II, Section 504 & Undue Burden Limitations",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "An undue burden defense relieves an entity from the specific cost-prohibitive modification, but DOES NOT excuse them from providing alternative auxiliary aids or accommodations that ensure equal access.",
+      "funNote": "Targeted Sentence: \"Apex State University is committed to providing eq...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Legal Mandates, ADA Title II & Section 504 Alternative Access Obligations"
+    },
+    {
+      "timestamp": "2026-10-17T04:16:27.106Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d2-02",
+      "questionText": "What does the 'Curb-Cut Effect' describe in accessibility lore?",
+      "topic": "The 'Curb-Cut Effect'",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Originally made for wheelchair users, curb cuts benefit parents with strollers, travelers with rolling suitcases, delivery workers with dollies, and cyclists.",
+      "funNote": "Captions in noisy sports bars and text messaging for busy commuters: curb cuts are everywhere!",
+      "cpaccRef": "Domain Two B: Benefits of Accessibility"
+    },
+    {
+      "timestamp": "2026-10-17T04:16:27.750Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-08",
+      "questionText": "Which combination of screen reader and browser is the most common native pair on Apple macOS / iOS devices?",
+      "topic": "Visual Disabilities & Assistive Tech",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "C",
+      "explanation": "VoiceOver is Apple's built-in screen reader across macOS, iOS, iPadOS, and watchOS, paired natively with Safari.",
+      "funNote": "VoiceOver on Apple, TalkBack on Android, NVDA & JAWS on Windows. Collect all four like Pokémon!",
+      "cpaccRef": "Domain One C: Identify Appropriate Assistive Technologies (Visual)"
+    },
+    {
+      "timestamp": "2026-10-17T04:16:28.064Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-08-1",
+      "questionText": "Web Architecture & Screen Reader Interaction Guide: A web agency releases technical guidelines for junior front-end developers on building for screen reader accessibility. Spot the disruptive anti-pattern.",
+      "topic": "Screen Reader Mechanics & Audio Interference (WCAG 1.4.2)",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Auto-playing audio sounds on input focus clashes with screen reader speech synthesis (violating WCAG 2.1 SC 1.4.2 Audio Control) and causes severe cognitive and sensory disorientation.",
+      "funNote": "Targeted Sentence: \"Our front-end architecture uses semantic HTML5 ele...\"",
+      "cpaccRef": "CPACC BoK Domain 1: Screen Reader Mechanics & WCAG Audio Control Principles"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:33.586Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d1-10",
+      "questionText": "What is the crucial difference between Closed Captions (CC) and Subtitles?",
+      "topic": "Auditory Disabilities",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Captions (like SDH) include non-speech information like '[Door creeps open]' or '[Dramatic violin swells]' and speaker identification for deaf/hard-of-hearing viewers.",
+      "funNote": "[Suspenseful accessibility testing intensifies] is a caption, not just a vibe.",
+      "cpaccRef": "Domain One B: Auditory Disabilities"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:34.238Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d3-03",
+      "questionText": "What is the primary mandate of Section 508 of the US Rehabilitation Act of 1973?",
+      "topic": "US Rehabilitation Act - Section 508",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "B",
+      "explanation": "Section 508 mandates that federal agencies develop, procure, maintain, and use ICT that is accessible to federal employees and members of the public with disabilities.",
+      "funNote": "If you want to sell software to the US government, Section 508 is your golden ticket (or barrier to entry).",
+      "cpaccRef": "Domain Three D: Procurement Laws & Section 508"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:34.548Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-08-1",
+      "questionText": "Web Architecture & Screen Reader Interaction Guide: A web agency releases technical guidelines for junior front-end developers on building for screen reader accessibility. Spot the disruptive anti-pattern.",
+      "topic": "Screen Reader Mechanics & Audio Interference (WCAG 1.4.2)",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Auto-playing audio sounds on input focus clashes with screen reader speech synthesis (violating WCAG 2.1 SC 1.4.2 Audio Control) and causes severe cognitive and sensory disorientation.",
+      "funNote": "Targeted Sentence: \"Our front-end architecture uses semantic HTML5 ele...\"",
+      "cpaccRef": "CPACC BoK Domain 1: Screen Reader Mechanics & WCAG Audio Control Principles"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:57.664Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d1-04",
+      "questionText": "A telethon portrays people with disabilities as pitiable, helpless victims who rely solely on the generosity of benevolent strangers. Which model is this?",
+      "topic": "Models of Disability",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "The Charity / Tragedy Model treats people with disabilities as objects of pity rather than rights-bearing equal citizens.",
+      "funNote": "Pity doesn't fix broken ARIA tags; equality and engineering do.",
+      "cpaccRef": "Domain One A: Theoretical Models of Disability"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:57.978Z",
+      "nickname": "SpeedDemon",
+      "questionId": "cpacc-d2-04",
+      "questionText": "A web application has a prominent 'Undo' button after deleting a file, and asks for confirmation before clearing your database. Which Universal Design principle is hard at work?",
+      "topic": "7 Principles of Universal Design",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "Principle 5 (Tolerance for Error) minimizes hazards and the adverse consequences of accidental or unintended actions.",
+      "funNote": "Ctrl+Z has saved more marriages, careers, and sanity than therapy.",
+      "cpaccRef": "Domain Two E: The 7 Principles of Universal Design"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:58.307Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-01",
+      "questionText": "A designer says: 'Our website isn't broken; the user just lacks the proper vision to see our stylish 8px gray-on-white font!' Which disability model is this designer unfortunately channeling?",
+      "topic": "Theoretical Models of Disability",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "B",
+      "explanation": "The Medical Model views disability as an individual deficit or pathology that needs to be 'fixed' or cured, whereas the Social Model recognizes that society and poor design create the barriers.",
+      "funNote": "Blaming the user's retinas for your invisible font is peak Medical Model mischief!",
+      "cpaccRef": "Domain One A: Theoretical Models of Disability"
+    },
+    {
+      "timestamp": "2026-10-17T04:17:58.637Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-04-3",
+      "questionText": "Commercial Airline Passenger Booking Policy: An international airline publishes rules regarding passenger accommodations and ticketing. Find the prohibited statutory clause.",
+      "topic": "Air Carrier Access Act (ACAA) Non-Discrimination Mandates",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
+      "funNote": "Targeted Sentence: \"Horizon Air is committed to accessible travel for ...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
+    },
+    {
+      "timestamp": "2026-10-17T04:18:15.618Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d1-14",
+      "questionText": "According to the World Health Organization (WHO), approximately what percentage of the global population experiences significant disability?",
+      "topic": "Demographics & Statistics",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "C",
+      "explanation": "The WHO Global Report on Health Equity for Persons with Disabilities (2022) indicates ~1.3 billion people, or 16% of the world's population, experience significant disability.",
+      "funNote": "1 in 6 people. If your company ignores a11y, you're literally ignoring an audience the size of China!",
+      "cpaccRef": "Domain One D: Disability Demographics and Statistics"
+    },
+    {
+      "timestamp": "2026-10-17T04:18:15.619Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d1-14",
+      "questionText": "According to the World Health Organization (WHO), approximately what percentage of the global population experiences significant disability?",
+      "topic": "Demographics & Statistics",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "The WHO Global Report on Health Equity for Persons with Disabilities (2022) indicates ~1.3 billion people, or 16% of the world's population, experience significant disability.",
+      "funNote": "1 in 6 people. If your company ignores a11y, you're literally ignoring an audience the size of China!",
+      "cpaccRef": "Domain One D: Disability Demographics and Statistics"
+    },
+    {
+      "timestamp": "2026-10-17T04:18:16.269Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-08",
+      "questionText": "Which combination of screen reader and browser is the most common native pair on Apple macOS / iOS devices?",
+      "topic": "Visual Disabilities & Assistive Tech",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "C",
+      "explanation": "VoiceOver is Apple's built-in screen reader across macOS, iOS, iPadOS, and watchOS, paired natively with Safari.",
+      "funNote": "VoiceOver on Apple, TalkBack on Android, NVDA & JAWS on Windows. Collect all four like Pokémon!",
+      "cpaccRef": "Domain One C: Identify Appropriate Assistive Technologies (Visual)"
+    },
+    {
+      "timestamp": "2026-10-17T04:18:16.599Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-07-2",
+      "questionText": "Universal Design for Learning (UDL) Higher Ed Syllabus Policy: A college curriculum committee issues guidelines for inclusive instructional design. Find the critical misconception between UD and individual accommodations.",
+      "topic": "Universal Design vs. Individual Accommodations (Distinct & Complementary)",
+      "domain": 2,
+      "domainName": "Universal Design & Universal Design for Learning",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Universal Design for Learning is a proactive instructional design framework, but it does NOT replace or invalidate legally mandated individual accommodations under the ADA and Section 504.",
+      "funNote": "Targeted Sentence: \"The College of Science embraces Universal Design f...\"",
+      "cpaccRef": "CPACC BoK Domain 2: Universal Design vs. Individual Accommodations (Distinct & Complementary)"
+    },
+    {
+      "timestamp": "2026-10-17T04:43:16.223Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d2-03",
+      "questionText": "An airport installs automatic sliding sensor doors that open equally for travelers carrying bags, wheelchair users, and parents holding toddlers. Which of the 7 Principles of Universal Design is best exemplified?",
+      "topic": "7 Principles of Universal Design",
+      "domain": 2,
+      "domainName": "Accessibility and Universal Design",
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Principle 1 (Equitable Use) says design is useful and marketable to people with diverse abilities, providing the same means of use for all users—identical whenever possible; equivalent when not.",
+      "funNote": "Nobody has to feel like a second-class citizen by being routed to a hidden freight elevator in the alley!",
+      "cpaccRef": "Domain Two E: The 7 Principles of Universal Design"
+    },
+    {
+      "timestamp": "2026-10-17T04:43:16.860Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-11",
+      "questionText": "A user with severe motor paralysis uses a single switch button mounted next to their cheek paired with on-screen scanning. How does this assistive technology work?",
+      "topic": "Motor & Physical Disabilities",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "B",
+      "explanation": "Switch access with scanning cycles through interface options (rows, columns, or items) until the user triggers their switch to select the active element.",
+      "funNote": "This is why accessible keyboard tab order and focus states are literally a matter of access for switch users.",
+      "cpaccRef": "Domain One C: Assistive Technologies in ICT (Motor)"
+    },
+    {
+      "timestamp": "2026-10-17T04:43:17.177Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-07-2",
+      "questionText": "Universal Design for Learning (UDL) Higher Ed Syllabus Policy: A college curriculum committee issues guidelines for inclusive instructional design. Find the critical misconception between UD and individual accommodations.",
+      "topic": "Universal Design vs. Individual Accommodations (Distinct & Complementary)",
+      "domain": 2,
+      "domainName": "Universal Design & Universal Design for Learning",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Universal Design for Learning is a proactive instructional design framework, but it does NOT replace or invalidate legally mandated individual accommodations under the ADA and Section 504.",
+      "funNote": "Targeted Sentence: \"The College of Science embraces Universal Design f...\"",
+      "cpaccRef": "CPACC BoK Domain 2: Universal Design vs. Individual Accommodations (Distinct & Complementary)"
+    },
+    {
+      "timestamp": "2026-10-18T01:12:17.763Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-bonus-04",
+      "questionText": "What CSS media query allows websites to turn off wild parallax swooshes, flying modals, and spinning graphics for users with vestibular disorders?",
+      "topic": "Sensory Overload & Vestibular",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "`prefers-reduced-motion` is standard CSS supported across all modern browsers and operating systems to respect users who experience nausea or dizziness from motion.",
+      "funNote": "Parallax looks cool until a user has to lie down on the floor to stop the room from spinning!",
+      "cpaccRef": "Domain One B: Vestibular and Motion Barriers"
+    },
+    {
+      "timestamp": "2026-10-18T01:12:18.392Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-12",
+      "questionText": "Which of the following design choices presents a severe cognitive barrier for individuals with ADHD or executive function challenges?",
+      "topic": "Cognitive Disabilities",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "B",
+      "explanation": "Arbitrary time limits and flashing/distracting elements severely impact users with ADHD, processing differences, or memory impairments. WCAG 2.2.1 requires adjustable timing.",
+      "funNote": "Nothing triggers panic like: 'You have 42 seconds before your entire mortgage application self-destructs!'",
+      "cpaccRef": "Domain One B: Cognitive Disabilities"
+    },
+    {
+      "timestamp": "2026-10-18T01:12:18.707Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-03-3",
+      "questionText": "Corporate Workplace Reasonable Accommodation Policy: A multinational technology corporation details internal disability accommodation guidelines for employees. Identify the unlawful policy restriction.",
+      "topic": "ADA Title I Reasonable Accommodation & Undue Hardship Standards",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Undue hardship cannot be evaluated using an arbitrary fixed dollar ceiling ($500). Under ADA Title I, it requires individualized assessment against the employer's total financial resources and organizational size.",
+      "funNote": "Targeted Sentence: \"GlobalTech Solutions is dedicated to full workplac...\"",
+      "cpaccRef": "CPACC BoK Domain 3: ADA Title I Reasonable Accommodation & Undue Hardship Standards"
+    },
+    {
+      "timestamp": "2026-10-18T01:47:55.918Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-bonus-04",
+      "questionText": "What CSS media query allows websites to turn off wild parallax swooshes, flying modals, and spinning graphics for users with vestibular disorders?",
+      "topic": "Sensory Overload & Vestibular",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "`prefers-reduced-motion` is standard CSS supported across all modern browsers and operating systems to respect users who experience nausea or dizziness from motion.",
+      "funNote": "Parallax looks cool until a user has to lie down on the floor to stop the room from spinning!",
+      "cpaccRef": "Domain One B: Vestibular and Motion Barriers"
+    },
+    {
+      "timestamp": "2026-10-18T01:47:56.239Z",
+      "nickname": "SpeedDemon",
+      "questionId": "was-d1-05",
+      "questionText": "A multi-step checkout form asks the user for their shipping address in Step 1, and then in Step 3 asks for the billing address with a 'Same as shipping address' checkbox that auto-populates the fields. Does this satisfy WCAG 2.2 SC 3.3.7 (Redundant Entry)?",
+      "topic": "WCAG 2.2 Redundant Entry",
+      "domain": 1,
+      "domainName": "Creating Accessible Web Solutions",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "SC 3.3.7 Redundant Entry (Level A, WCAG 2.2) requires that information previously entered in the same session is either auto-populated or available for the user to select, unless re-entering is essential or required for security.",
+      "funNote": "Making users re-type their 30-character address twice in one session is a direct WCAG 2.2 violation!"
+    },
+    {
+      "timestamp": "2026-10-18T01:47:56.564Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d3-01",
+      "questionText": "Which Article of the UN Convention on the Rights of Persons with Disabilities (CRPD) specifically addresses 'Accessibility' in physical, transportation, and ICT environments?",
+      "topic": "International Conventions (UN CRPD)",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "B",
+      "explanation": "Article 9 of the UN CRPD is the landmark global mandate requiring State Parties to take appropriate measures to ensure access to the physical environment, transportation, information, and communications technologies.",
+      "funNote": "Article 9 is the rockstar of global accessibility law. Know it, love it, cite it!",
+      "cpaccRef": "Domain Three A: UN Convention on the Rights of Persons with Disabilities (CRPD)"
+    },
+    {
+      "timestamp": "2026-10-18T01:47:56.880Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-03-3",
+      "questionText": "Corporate Workplace Reasonable Accommodation Policy: A multinational technology corporation details internal disability accommodation guidelines for employees. Identify the unlawful policy restriction.",
+      "topic": "ADA Title I Reasonable Accommodation & Undue Hardship Standards",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Undue hardship cannot be evaluated using an arbitrary fixed dollar ceiling ($500). Under ADA Title I, it requires individualized assessment against the employer's total financial resources and organizational size.",
+      "funNote": "Targeted Sentence: \"GlobalTech Solutions is dedicated to full workplac...\"",
+      "cpaccRef": "CPACC BoK Domain 3: ADA Title I Reasonable Accommodation & Undue Hardship Standards"
+    },
+    {
+      "timestamp": "2026-10-18T01:48:20.716Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d3-05",
+      "questionText": "The landmark provincial act passed in Ontario, Canada in 2005 with the goal of creating a fully accessible Ontario by 2025 is known as:",
+      "topic": "Canadian Legislation (AODA)",
+      "domain": 3,
+      "domainName": "Standards, Laws, and Management Strategies",
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "The Accessibility for Ontarians with Disabilities Act (AODA) became law in 2005, establishing accessibility standards across customer service, information/communications, employment, transportation, and public spaces.",
+      "funNote": "AODA set the pace for Canadian accessibility regulations, paving the way for the Accessible Canada Act (ACA).",
+      "cpaccRef": "Domain Three C: Ontarians with Disabilities Act"
+    },
+    {
+      "timestamp": "2026-10-18T01:48:21.355Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d1-08",
+      "questionText": "Which combination of screen reader and browser is the most common native pair on Apple macOS / iOS devices?",
+      "topic": "Visual Disabilities & Assistive Tech",
+      "domain": 1,
+      "domainName": "Disabilities, Challenges & Assistive Technologies",
+      "selectedChoiceId": "D",
+      "correctChoiceId": "C",
+      "explanation": "VoiceOver is Apple's built-in screen reader across macOS, iOS, iPadOS, and watchOS, paired natively with Safari.",
+      "funNote": "VoiceOver on Apple, TalkBack on Android, NVDA & JAWS on Windows. Collect all four like Pokémon!",
+      "cpaccRef": "Domain One C: Identify Appropriate Assistive Technologies (Visual)"
+    },
+    {
+      "timestamp": "2026-10-18T01:48:21.680Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-04-3",
+      "questionText": "Commercial Airline Passenger Booking Policy: An international airline publishes rules regarding passenger accommodations and ticketing. Find the prohibited statutory clause.",
+      "topic": "Air Carrier Access Act (ACAA) Non-Discrimination Mandates",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
+      "funNote": "Targeted Sentence: \"Horizon Air is committed to accessible travel for ...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
+    },
+    {
+      "timestamp": "2026-10-18T01:51:05.200Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d2-wcag-error-prevention-02",
+      "questionText": "Before submitting a legally significant transaction, a service lets users review, correct, or confirm their responses. Which WCAG topic does this support?",
+      "topic": "PREVENTION",
+      "domain": 2,
+      "selectedChoiceId": "b",
+      "correctChoiceId": "a",
+      "explanation": "WCAG addresses review, confirmation, or reversibility for certain consequential submissions.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T01:51:05.836Z",
+      "nickname": "CasinoKing",
+      "questionId": "was-d2-screenreader-01",
+      "questionText": "A screen reader announces a form field's label but not that it is required. Which testing finding should be recorded?",
+      "topic": "TESTING",
+      "domain": 2,
+      "selectedChoiceId": "D",
+      "correctChoiceId": "A",
+      "explanation": "Testing should verify that important field instructions and states are conveyed through programmatic semantics and in the interaction context.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T01:51:06.150Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-02-3",
+      "questionText": "Vendor VPAT & Section 508 Procurement Statement: A commercial SaaS vendor submits an Accessibility Conformance Report (ACR) to bid on a federal agency IT contract. Spot the procurement misstatement.",
+      "topic": "Revised Section 508 & COTS Software Coverage",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Section 508 applies directly to federal agency procurement of Commercial Off-The-Shelf (COTS) software. There is no 'Best-Efforts Safe Harbor' exempting COTS.",
+      "funNote": "Targeted Sentence: \"CloudSync Enterprise publishes Voluntary Product A...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Revised Section 508 Federal Procurement & Standards (COTS Coverage)"
+    },
+    {
+      "timestamp": "2026-10-18T01:51:30.488Z",
+      "nickname": "ClassicBob",
+      "questionId": "was-d2-evaluation-check-02",
+      "questionText": "A successful evaluation should record both failures and the applicable criteria or evaluation basis used to reach the findings.",
+      "topic": "TARGET",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Traceable findings help teams understand why an issue was identified and support repeatable remediation and reporting.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T01:51:31.122Z",
+      "nickname": "CasinoKing",
+      "questionId": "was-d3-mitigation-01",
+      "questionText": "A purchased scheduling tool has an accessibility defect that its vendor cannot fix before launch. What should the organization do next?",
+      "topic": "MITIGATION",
+      "domain": 3,
+      "selectedChoiceId": "D",
+      "correctChoiceId": "A",
+      "explanation": "Procurement and remediation include identifying and mitigating defects, defining responsibilities and following up with vendors. A purchase does not remove the need to address user impact.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-18T01:51:31.446Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-07-2",
+      "questionText": "Universal Design for Learning (UDL) Higher Ed Syllabus Policy: A college curriculum committee issues guidelines for inclusive instructional design. Find the critical misconception between UD and individual accommodations.",
+      "topic": "Universal Design vs. Individual Accommodations (Distinct & Complementary)",
+      "domain": 2,
+      "domainName": "Universal Design & Universal Design for Learning",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Universal Design for Learning is a proactive instructional design framework, but it does NOT replace or invalidate legally mandated individual accommodations under the ADA and Section 504.",
+      "funNote": "Targeted Sentence: \"The College of Science embraces Universal Design f...\"",
+      "cpaccRef": "CPACC BoK Domain 2: Universal Design vs. Individual Accommodations (Distinct & Complementary)"
     }
   ],
   "users": {
@@ -1118,7 +1848,119 @@
       "avatar": "🐱",
       "pin": "9988",
       "createdAt": "2026-10-17T02:54:53.930Z",
-      "lastActive": "2026-10-17T03:05:59.820Z"
+      "lastActive": "2026-10-17T04:20:52.876Z"
+    },
+    "sarahhotseat": {
+      "nickname": "SarahHotSeat",
+      "avatar": "🥔",
+      "pin": "1111",
+      "createdAt": "2026-10-17T03:33:07.096Z",
+      "lastActive": "2026-10-17T03:38:24.174Z"
+    },
+    "marcusdel": {
+      "nickname": "MarcusDel",
+      "avatar": "⚡",
+      "pin": "2222",
+      "createdAt": "2026-10-17T03:33:07.100Z",
+      "lastActive": "2026-10-17T03:38:24.178Z"
+    },
+    "samaudience": {
+      "nickname": "SamAudience",
+      "avatar": "🦉",
+      "pin": "3333",
+      "createdAt": "2026-10-17T03:33:07.104Z",
+      "lastActive": "2026-10-17T03:38:24.183Z"
+    },
+    "elenaspectator": {
+      "nickname": "ElenaSpectator",
+      "avatar": "🍿",
+      "pin": "4444",
+      "createdAt": "2026-10-17T03:33:07.107Z",
+      "lastActive": "2026-10-17T03:38:24.188Z"
+    },
+    "classicace": {
+      "nickname": "ClassicAce",
+      "avatar": "🐱",
+      "pin": "1111",
+      "createdAt": "2026-10-17T04:13:12.479Z",
+      "lastActive": "2026-10-18T01:51:30.483Z"
+    },
+    "classicbob": {
+      "nickname": "ClassicBob",
+      "avatar": "🐱",
+      "pin": "2222",
+      "createdAt": "2026-10-17T04:13:12.481Z",
+      "lastActive": "2026-10-18T01:51:30.485Z"
+    },
+    "speeddemon": {
+      "nickname": "SpeedDemon",
+      "avatar": "🐱",
+      "pin": "3333",
+      "createdAt": "2026-10-17T04:13:20.813Z",
+      "lastActive": "2026-10-18T01:51:30.807Z"
+    },
+    "casinoking": {
+      "nickname": "CasinoKing",
+      "avatar": "🐱",
+      "pin": "4444",
+      "createdAt": "2026-10-17T04:13:21.140Z",
+      "lastActive": "2026-10-18T01:51:31.119Z"
+    },
+    "policysniper": {
+      "nickname": "PolicySniper",
+      "avatar": "🐱",
+      "pin": "5555",
+      "createdAt": "2026-10-17T04:13:21.469Z",
+      "lastActive": "2026-10-18T01:51:31.444Z"
+    },
+    "agentone": {
+      "nickname": "AgentOne",
+      "avatar": "🐱",
+      "pin": "6666",
+      "createdAt": "2026-10-17T04:13:29.809Z",
+      "lastActive": "2026-10-18T01:51:31.759Z"
+    },
+    "agenttwo": {
+      "nickname": "AgentTwo",
+      "avatar": "🐱",
+      "pin": "7777",
+      "createdAt": "2026-10-17T04:13:29.812Z",
+      "lastActive": "2026-10-18T01:51:31.761Z"
+    },
+    "brawlp1": {
+      "nickname": "BrawlP1",
+      "avatar": "🐱",
+      "pin": "8888",
+      "createdAt": "2026-10-17T04:13:30.137Z",
+      "lastActive": "2026-10-18T01:51:32.089Z"
+    },
+    "brawlp2": {
+      "nickname": "BrawlP2",
+      "avatar": "🐱",
+      "pin": "9999",
+      "createdAt": "2026-10-17T04:13:30.139Z",
+      "lastActive": "2026-10-18T01:51:32.091Z"
+    },
+    "alphacadet": {
+      "nickname": "AlphaCadet",
+      "avatar": "🦉",
+      "pin": "7711",
+      "createdAt": "2026-10-17T04:22:28.303Z",
+      "lastActive": "2026-10-17T04:22:28.303Z"
+    },
+    "betacadet": {
+      "nickname": "BetaCadet",
+      "avatar": "🐱",
+      "pin": "8822",
+      "createdAt": "2026-10-17T04:23:06.365Z",
+      "lastActive": "2026-10-17T04:23:06.366Z"
+    },
+    "cadettestwas": {
+      "nickname": "CadetTestWAS",
+      "avatar": "🚀",
+      "pin": "9988",
+      "createdAt": "2026-10-18T01:47:40.346Z",
+      "lastActive": "2026-10-18T01:51:39.383Z"
     }
   }
 }

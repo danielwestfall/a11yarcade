@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "certifications": [
+    {"id":"CPACC","name":"Certified Professional in Accessibility Core Competencies","source_id":"cpacc-bok-v3","domain_weights":{"CPACC-D1":40,"CPACC-D2":40,"CPACC-D3":20},"domains":[
+      {"id":"CPACC-D1","label":"Disabilities, Challenges, and Assistive Technologies","sections":[
+        {"id":"CPACC-D1-A","label":"Theoretical Models of Disability"},
+        {"id":"CPACC-D1-B","label":"Disability Categories, Barriers and Solutions"},
+        {"id":"CPACC-D1-D","label":"Disability Demographics and Statistics"},
+        {"id":"CPACC-D1-C","label":"Individual Assistive Technologies and Adaptive Strategies"},
+        {"id":"CPACC-D1-E","label":"Disability Etiquette"}
+      ]},
+      {"id":"CPACC-D2","label":"Accessibility and Universal Design","sections":[
+        {"id":"CPACC-D2-A","label":"Individualized Accommodations and Universal Design"},
+        {"id":"CPACC-D2-B","label":"Benefits of Accessibility"},
+        {"id":"CPACC-D2-C","label":"WCAG Principles and Application"},
+        {"id":"CPACC-D2-D","label":"Accessibility Principles for the Built Environment"},
+        {"id":"CPACC-D2-E","label":"Principles of Universal Design"},
+        {"id":"CPACC-D2-F","label":"Universal Design for Learning"}]},
+      {"id":"CPACC-D3","label":"Standards, Laws, and Management Strategies","sections":[
+        {"id":"CPACC-D3-A","label":"International Declarations and Conventions on Disability Rights"},
+        {"id":"CPACC-D3-B","label":"Regional Instruments on Human and Disability Rights"},
+        {"id":"CPACC-D3-D","label":"Domain-specific and Procurement Laws and Regulations"},
+        {"id":"CPACC-D3-E","label":"Applying Accessibility Standards and Regulations to ICT"},
+        {"id":"CPACC-D3-F","label":"Integrating ICT Accessibility Across the Organization"}]}
+    ]},
+    {"id":"WAS","name":"Web Accessibility Specialist","source_id":"was-bok-2024-10","domain_weights":{"WAS-D1":40,"WAS-D2":40,"WAS-D3":20},"domains":[
+      {"id":"WAS-D1","label":"Creating Accessible Web Solutions","sections":[
+      {"id":"WAS-D1-A","label":"Guidelines, Principles and Techniques for Meeting Success Criteria"},
+        {"id":"WAS-D1-B","label":"Basic Programming Knowledge: Semantic HTML and Custom Controls"},
+      {"id":"WAS-D1-C","label":"Create Interactive Controls and Widgets Based on Accessibility Best Practices"},
+        {"id":"WAS-D1-D","label":"Using ARIA"},
+      {"id":"WAS-D1-E","label":"Accessibility-Supported Technologies"},
+        {"id":"WAS-D1-F","label":"Standard Controls vs Custom Controls"},
+      {"id":"WAS-D1-G","label":"Single-Page Applications"},
+      {"id":"WAS-D1-H","label":"Strategies of Persons with Disabilities in Using Web Solutions"}]},
+      {"id":"WAS-D2","label":"Identifying Accessibility Issues in Web Solutions","sections":[
+      {"id":"WAS-D2-A","label":"Interoperability and Compatibility Issues"},
+        {"id":"WAS-D2-B","label":"Guidelines, Conformance Requirements and WCAG-EM"},
+        {"id":"WAS-D2-C","label":"Testing with Assistive Technologies"},
+        {"id":"WAS-D2-D","label":"Testing Tools for the Web and ACT Rules"},
+        {"id":"WAS-D2-E","label":"Accessibility Quality Assurance"},
+      {"id":"WAS-D2-F","label":"Testing with Assistive Technologies"},
+      {"id":"WAS-D2-G","label":"Testing for End-user Impact"},
+      {"id":"WAS-D2-H","label":"Testing Tools for the Web"}]},
+      {"id":"WAS-D3","label":"Remediating Issues in Web Solutions","sections":[
+        {"id":"WAS-D3-A","label":"Severity and Prioritization of Issues"},
+        {"id":"WAS-D3-B","label":"Recommending Remediation Strategies"},
+        {"id":"WAS-D3-C","label":"Accessibility Procurement Process"}]}
+    ]}
+  ],
+  "notes":"IDs are stable keys; labels may be edited without changing references. Domain weights are the certification outline weights. Taxonomies include the sections in the supplied CPACC and WAS Bodies of Knowledge."
+}

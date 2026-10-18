@@ -4,7 +4,15 @@ import path from 'path';
 
 const SERVER_URL = 'http://localhost:3001';
 
-const questionsData = JSON.parse(fs.readFileSync('./data/questions.json', 'utf8'));
+let questionsData = [];
+try {
+  const resp = await fetch(`${SERVER_URL}/api/questions?track=all`);
+  questionsData = await resp.json();
+} catch (e) {
+  const cpaccQuestions = JSON.parse(fs.readFileSync('./data/questions.json', 'utf8'));
+  const wasQuestions = fs.existsSync('./data/questions_was.json') ? JSON.parse(fs.readFileSync('./data/questions_was.json', 'utf8')) : [];
+  questionsData = [...cpaccQuestions, ...wasQuestions];
+}
 
 function createSocket() {
   return io(SERVER_URL, {

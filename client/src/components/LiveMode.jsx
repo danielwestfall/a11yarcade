@@ -36,6 +36,7 @@ import TauntNotificationToast from './TauntNotificationToast';
 import TauntTriggerButton from './TauntTriggerButton';
 import CelebrationBroadcastOverlay from './CelebrationBroadcastOverlay';
 import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
+import { CERTIFICATION_DOMAINS, CERTIFICATION_TRACKS } from '../utils/questionBanks';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -163,11 +164,13 @@ export default function LiveMode() {
 
   // Host State
   const [roomPin, setRoomPin] = useState('');
+  const [roomSettings, setRoomSettings] = useState(null);
   const [hostSettings, setHostSettings] = useState({
     gameMode: 'HOT_POTATO',
     timeLimit: 20,
     questionCount: 10,
     domain: 'all',
+    certTrack: 'all', // 'all', 'cpacc', 'was'
     blunderPenalty: true,
     targetDistance: 100
   });
@@ -458,6 +461,9 @@ export default function LiveMode() {
       if (res && res.success) {
         setRoomPin(res.pin);
         setGameMode(res.gameMode || hostSettings.gameMode || 'CLASSIC');
+        if (res.settings) {
+          setRoomSettings(res.settings);
+        }
         if (res.players) {
           setPlayers(res.players);
         }
@@ -528,6 +534,9 @@ export default function LiveMode() {
         setRole('PLAYER');
         setPlayerInfo(res.player);
         setGameMode(res.gameMode || 'CLASSIC');
+        if (res.roomSettings) {
+          setRoomSettings(res.roomSettings);
+        }
         setPlayerState('LOBBY');
         soundManager.playClick();
       } else {
@@ -771,6 +780,22 @@ export default function LiveMode() {
               {/* Host Settings */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.25rem' }}>
                 <div>
+                  <label htmlFor="host-track-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                    Certification Exam Track:
+                  </label>
+                  <select
+                    id="host-track-select"
+                    className="input-field"
+                    value={hostSettings.certTrack || 'all'}
+                    onChange={(e) => setHostSettings({ ...hostSettings, certTrack: e.target.value, domain: 'all' })}
+                  >
+                    <option value="all">🌟 Dual Certification Track (CPACC + WAS)</option>
+                    <option value="cpacc">📘 CPACC (Core Competencies & Universal Design)</option>
+                    <option value="was">💻 WAS (Web Accessibility Specialist - Technical AA/AAA)</option>
+                  </select>
+                </div>
+
+                <div>
                   <label htmlFor="host-timer-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
                     Round Timer Limit:
                   </label>
@@ -789,7 +814,7 @@ export default function LiveMode() {
 
                 <div>
                   <label htmlFor="host-domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
-                    CPACC Domain Focus:
+                    Curriculum Domain Focus:
                   </label>
                   <select
                     id="host-domain-select"
@@ -797,10 +822,9 @@ export default function LiveMode() {
                     value={hostSettings.domain}
                     onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
                   >
-                    <option value="all">All Domains (Mixed CPACC Review)</option>
-                    <option value="1">Domain 1 (Disabilities, Models & Assistive Tech)</option>
-                    <option value="2">Domain 2 (Universal Design & WCAG 2.1/2.2)</option>
-                    <option value="3">Domain 3 (Standards, Laws & Management)</option>
+                    {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
+                      <option key={d.id} value={d.id}>{d.label}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -971,12 +995,23 @@ export default function LiveMode() {
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <span>✓</span>
-                      <span>[DOM-1 & DOM-2 COMPLIANCE]</span>
+                    <span style={{
+                      padding: '0.2rem 0.6rem',
+                      border: `1px solid ${hostSettings.certTrack === 'was' ? '#10b981' : hostSettings.certTrack === 'cpacc' ? '#38bdf8' : '#c084fc'}`,
+                      color: hostSettings.certTrack === 'was' ? '#6ee7b7' : hostSettings.certTrack === 'cpacc' ? '#7dd3fc' : '#e9d5ff',
+                      fontFamily: "'Space Mono', monospace",
+                      fontSize: '0.75rem',
+                      borderRadius: '4px',
+                      background: hostSettings.certTrack === 'was' ? 'rgba(16, 185, 129, 0.15)' : hostSettings.certTrack === 'cpacc' ? 'rgba(56, 189, 248, 0.15)' : 'rgba(192, 132, 252, 0.15)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.35rem'
+                    }}>
+                      <span>{hostSettings.certTrack === 'was' ? '💻' : hostSettings.certTrack === 'cpacc' ? '📘' : '🌟'}</span>
+                      <span>[EXAM: {hostSettings.certTrack === 'was' ? 'IAAP WAS TECHNICAL' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC CORE' : 'DUAL CPACC + WAS'}]</span>
                     </span>
                     <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
-                      MATCH ID: #{roomPin || 'CPACC'}
+                      MATCH ID: #{roomPin || 'ARCADE'}
                     </span>
                     <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                       <span>🛡️</span>
@@ -988,7 +1023,7 @@ export default function LiveMode() {
                     MULTIPLAYER PARTY DRILL LOBBY
                   </h1>
                   <p style={{ marginTop: '0.6rem', fontSize: '1rem', color: '#94a3b8', maxWidth: '750px', lineHeight: 1.5 }}>
-                    Punch in your 4-digit token (<span style={{ color: '#10b981', fontWeight: 800 }}>screen readers welcome</span>, rogue bots will be alt-tagged!). Compete live with your accessibility team to conquer IAAP CPACC certification questions in rapid-fire arcade rounds.
+                    Punch in your 4-digit token (<span style={{ color: '#10b981', fontWeight: 800 }}>screen readers welcome</span>, rogue bots will be alt-tagged!). Compete live with your accessibility team to conquer {hostSettings.certTrack === 'was' ? 'IAAP WAS technical remediation' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC certification' : 'IAAP CPACC & WAS'} questions in rapid-fire arcade rounds.
                   </p>
                 </div>
 
@@ -1018,10 +1053,9 @@ export default function LiveMode() {
                       value={hostSettings.domain}
                       onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
                     >
-                      <option value="all">All Domains (Mixed)</option>
-                      <option value="1">Domain 1 (Disabilities & AT)</option>
-                      <option value="2">Domain 2 (Universal Design & WCAG)</option>
-                      <option value="3">Domain 3 (Standards & Laws)</option>
+                      {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
+                        <option key={d.id} value={d.id}>{d.label}</option>
+                      ))}
                     </select>
                   </label>
 
@@ -1921,9 +1955,22 @@ export default function LiveMode() {
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem' }}>
             Look at the meeting host screen. The game will start shortly!
           </p>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: '#334155', padding: '0.5rem 1rem', borderRadius: '9999px', fontSize: '0.9rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: '#334155', padding: '0.5rem 1rem', borderRadius: '9999px', fontSize: '0.9rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
             <span>Connected to PIN: {playerPinInput}</span>
+            {roomSettings?.certTrack && (
+              <span style={{
+                padding: '0.15rem 0.5rem',
+                borderRadius: '4px',
+                background: roomSettings.certTrack === 'was' ? '#10b981' : roomSettings.certTrack === 'cpacc' ? '#38bdf8' : '#c084fc',
+                color: '#090d16',
+                fontWeight: 800,
+                fontSize: '0.75rem',
+                fontFamily: "'Space Mono', monospace"
+              }}>
+                {roomSettings.certTrack === 'was' ? 'WAS TRACK' : roomSettings.certTrack === 'cpacc' ? 'CPACC TRACK' : 'DUAL TRACK'}
+              </span>
+            )}
           </div>
         </div>
       );

@@ -16,6 +16,7 @@ import { soundManager } from '../utils/sound';
 import questionsData from '../data/questions.json';
 import CoachFeedbackCard from './CoachFeedbackCard';
 import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
+import { CERTIFICATION_TRACKS, CERTIFICATION_DOMAINS, getQuestionsByTrack } from '../utils/questionBanks';
 
 const SHAPE_CONFIG = {
   triangle: { icon: '▲', color: '#ef4444', label: 'Red Triangle' },
@@ -25,7 +26,9 @@ const SHAPE_CONFIG = {
 };
 
 export default function PracticeMode({ onBack }) {
+  const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'cpacc', 'was'
   const [selectedDomain, setSelectedDomain] = useState('all');
+
   const [questionCount, setQuestionCount] = useState(10);
   const [isStarted, setIsStarted] = useState(false);
   const [currentQuestions, setCurrentQuestions] = useState([]);
@@ -42,7 +45,7 @@ export default function PracticeMode({ onBack }) {
 
   // Setup Quiz
   const startQuiz = (reviewMissedOnly = false) => {
-    let pool = [...questionsData];
+    let pool = getQuestionsByTrack(selectedTrack);
 
     if (reviewMissedOnly) {
       const missedIds = history.filter(h => !h.isCorrect).map(h => h.question.id);
@@ -181,10 +184,59 @@ export default function PracticeMode({ onBack }) {
         {/* Setup Console Card */}
         <section aria-label="Practice round configuration" className="card" style={{ padding: '2rem' }}>
           <form onSubmit={(e) => { e.preventDefault(); startQuiz(false); }}>
-            {/* Domain Selection */}
+            {/* 1. Certification Track Selection */}
+            <div style={{ marginBottom: '1.75rem' }}>
+              <label style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+                1. Select Certification Exam Track:
+              </label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.75rem' }}>
+                {CERTIFICATION_TRACKS.map(track => {
+                  const isSelected = selectedTrack === track.id;
+                  return (
+                    <button
+                      key={track.id}
+                      type="button"
+                      onClick={() => {
+                        soundManager.playClick();
+                        setSelectedTrack(track.id);
+                        setSelectedDomain('all');
+                      }}
+                      style={{
+                        padding: '1rem',
+                        textAlign: 'left',
+                        borderRadius: 'var(--radius-sm)',
+                        border: `2px solid ${isSelected ? track.color : 'var(--border-color)'}`,
+                        background: isSelected ? track.bg : 'var(--bg-surface-elevated)',
+                        color: isSelected ? '#ffffff' : '#94a3b8',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.35rem',
+                        transition: 'all 0.15s ease'
+                      }}
+                      aria-pressed={isSelected}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#ffffff' }}>
+                          {track.name}
+                        </span>
+                        <span style={{ fontSize: '0.7rem', color: track.color, fontFamily: "'Space Mono', monospace", fontWeight: 700 }}>
+                          {track.badge}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                        {track.desc}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 2. Domain Selection */}
             <div style={{ marginBottom: '1.75rem' }}>
               <label htmlFor="domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-                1. Select Curriculum Scope:
+                2. Select Curriculum Scope & Domain:
               </label>
               <select
                 id="domain-select"
@@ -193,17 +245,16 @@ export default function PracticeMode({ onBack }) {
                 onChange={(e) => setSelectedDomain(e.target.value)}
                 style={{ fontSize: '1rem', padding: '0.85rem 1rem' }}
               >
-                <option value="all">🌟 All Domains (Full 40-Question Mixed Pool)</option>
-                <option value="1">Domain 1: Disabilities, Challenges & Assistive Tech (37.5%)</option>
-                <option value="2">Domain 2: Accessibility & Universal Design / WCAG (37.5%)</option>
-                <option value="3">Domain 3: Standards, Laws & Management Strategies (25.0%)</option>
+                {(CERTIFICATION_DOMAINS[selectedTrack] || CERTIFICATION_DOMAINS.all).map(d => (
+                  <option key={d.id} value={d.id}>{d.label}</option>
+                ))}
               </select>
             </div>
 
-            {/* Question Count Selection */}
+            {/* 3. Question Count Selection */}
             <div style={{ marginBottom: '2rem' }}>
               <label style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-                2. Number of Questions:
+                3. Number of Questions:
               </label>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.75rem' }}>
@@ -412,6 +463,18 @@ export default function PracticeMode({ onBack }) {
             <span style={{ background: '#0b1326', border: '1px solid #38bdf8', color: '#38bdf8', padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", fontWeight: 900 }}>
               QUESTION {currentIndex + 1} OF {currentQuestions.length}
             </span>
+            <span style={{
+              background: q.certification === 'WAS' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(56, 189, 248, 0.15)',
+              border: `1px solid ${q.certification === 'WAS' ? '#10b981' : '#38bdf8'}`,
+              color: q.certification === 'WAS' ? '#34d399' : '#38bdf8',
+              padding: '0.25rem 0.65rem',
+              borderRadius: '4px',
+              fontSize: '0.8rem',
+              fontFamily: "'Space Mono', monospace",
+              fontWeight: 800
+            }}>
+              [{q.certification || 'CPACC'}]
+            </span>
             <span style={{ background: 'rgba(192, 132, 252, 0.15)', border: '1px solid #c084fc', color: '#e9d5ff', padding: '0.25rem 0.65rem', borderRadius: '4px', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 700 }}>
               [DOM-{q.domain}: {q.topic}]
             </span>
@@ -479,16 +542,16 @@ export default function PracticeMode({ onBack }) {
           <div style={{ marginTop: '1.75rem', paddingTop: '1.5rem', borderTop: '2px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {/* Citation Box */}
             <div style={{ background: '#060e20', border: '1px solid #38bdf8', padding: '1.25rem', borderRadius: 'var(--radius-sm)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.82rem' }}>
-                <BookOpen size={16} color="#38bdf8" />
-                <span>CPACC BODY OF KNOWLEDGE EXPLANATION:</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: q.certification === 'WAS' ? '#34d399' : '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.82rem' }}>
+                <BookOpen size={16} color={q.certification === 'WAS' ? '#34d399' : '#38bdf8'} />
+                <span>{q.certification || 'CPACC'} BODY OF KNOWLEDGE EXPLANATION:</span>
               </div>
               <p style={{ color: '#f1f5f9', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
                 {q.explanation}
               </p>
-              {q.cpaccRef && (
+              {(q.citation || q.cpaccRef || q.wasRef) && (
                 <div style={{ marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(56, 189, 248, 0.2)', fontSize: '0.8rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
-                  Syllabus Citation: <strong style={{ color: '#38bdf8' }}>{q.cpaccRef}</strong>
+                  Syllabus Citation: <strong style={{ color: q.certification === 'WAS' ? '#34d399' : '#38bdf8' }}>{q.citation || q.cpaccRef || q.wasRef}</strong>
                 </div>
               )}
             </div>
