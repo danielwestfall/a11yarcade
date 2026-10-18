@@ -253,6 +253,38 @@ body.light-mode .explanation-box p {
   color: #0f172a !important;
 }
 
+body.light-mode .coach-feedback-card {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .coach-feedback-card .coach-header-title {
+  color: #090d16 !important;
+}
+
+body.light-mode .coach-feedback-card blockquote {
+  color: #0f172a !important;
+}
+
+body.light-mode .coach-feedback-card .coach-quote-subtopic {
+  color: #475569 !important;
+}
+
+body.light-mode .coach-feedback-card button {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #090d16 !important;
+}
+
+body.light-mode .coach-feedback-card button svg {
+  color: #0369a1 !important;
+}
+
+body.light-mode .coach-feedback-card button:hover {
+  background: #e2e8f0 !important;
+}
+
 body.light-mode .mode-tabs {
   background: #ffffff;
   border-color: #cbd5e1;

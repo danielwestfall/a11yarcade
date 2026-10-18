@@ -30,7 +30,7 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
-    setQuoteData(getRandomCoachQuote(isCorrect));
+    setQuoteData(prev => getRandomCoachQuote(isCorrect, prev?.name));
   };
 
   const handlePlaySound = () => {
@@ -104,6 +104,7 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
           <span style={{ fontSize: '1.4rem' }} role="img" aria-hidden="true">🧢</span>
           <div>
             <div
+              className="coach-header-title"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 800,
@@ -116,14 +117,20 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
               Coach McGuirk's Sideline Pep Talk
             </div>
             <div
+              className="coach-quote-topic"
               style={{
-                fontSize: '0.72rem',
+                fontSize: '0.75rem',
                 fontFamily: "'Space Mono', monospace",
                 color: accentColor,
-                fontWeight: 700
+                fontWeight: 800
               }}
             >
-              [{quoteData.topic.toUpperCase()}]
+              {quoteData.name ? `[${quoteData.name.toUpperCase()}]` : `[${quoteData.topic.toUpperCase()}]`}
+              {quoteData.name && quoteData.topic && (
+                <span className="coach-quote-subtopic" style={{ opacity: 0.85, fontWeight: 600, marginLeft: '0.4rem', color: '#94a3b8' }}>
+                  • {quoteData.topic}
+                </span>
+              )}
             </div>
           </div>
         </div>
