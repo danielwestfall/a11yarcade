@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Volume2, MessageSquareQuote, Shuffle, VolumeX } from 'lucide-react';
 import { getRandomCoachQuote } from '../utils/coachQuotes';
 import { soundManager } from '../utils/sound';
+import RetroMemeBadge from './RetroMemeBadge';
 
 export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) {
   const [quoteData, setQuoteData] = useState(() => getRandomCoachQuote(isCorrect));
@@ -219,32 +220,52 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
         </div>
       </div>
 
-      {/* Quote Bubble */}
-      <blockquote
-        style={{
-          margin: 0,
-          padding: '0.25rem 0.5rem',
-          color: '#f8fafc',
-          fontSize: '0.98rem',
-          lineHeight: 1.6,
-          fontStyle: 'italic',
-          fontFamily: "'Space Grotesk', system-ui, sans-serif"
-        }}
-      >
-        "{quoteData.quote}"
-      </blockquote>
-
-      {/* Attribution Tag */}
+      {/* Quote Body with Retro Pixel Meme Badge */}
       <div
+        className="coach-quote-body"
         style={{
-          marginTop: '0.65rem',
-          textAlign: 'right',
-          fontSize: '0.78rem',
-          fontFamily: "'Space Mono', monospace",
-          color: '#94a3b8'
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem',
+          marginTop: '0.4rem',
+          flexWrap: 'wrap'
         }}
       >
-        — <span style={{ color: '#ffffff', fontWeight: 700 }}>Coach McGuirk</span>, Unsolicited Sideline Advice
+        <RetroMemeBadge
+          badgeId={quoteData.badgeId || 'default'}
+          isCorrect={isCorrect}
+          size={64}
+        />
+
+        <div style={{ flex: 1, minWidth: '220px' }}>
+          <blockquote
+            style={{
+              margin: 0,
+              padding: '0.2rem 0.4rem',
+              color: '#f8fafc',
+              fontSize: '0.98rem',
+              lineHeight: 1.6,
+              fontStyle: 'italic',
+              fontFamily: "'Space Grotesk', system-ui, sans-serif"
+            }}
+          >
+            "{quoteData.quote}"
+          </blockquote>
+
+          {/* Attribution Tag */}
+          <div
+            className="coach-attribution-box"
+            style={{
+              marginTop: '0.5rem',
+              textAlign: 'right',
+              fontSize: '0.78rem',
+              fontFamily: "'Space Mono', monospace",
+              color: '#94a3b8'
+            }}
+          >
+            — <span className="coach-attribution-name" style={{ color: '#ffffff', fontWeight: 700 }}>Coach McGuirk</span>, Unsolicited Sideline Advice
+          </div>
+        </div>
       </div>
     </aside>
   );

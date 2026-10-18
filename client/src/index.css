@@ -271,6 +271,14 @@ body.light-mode .coach-feedback-card .coach-quote-subtopic {
   color: #475569 !important;
 }
 
+body.light-mode .coach-feedback-card .coach-attribution-name {
+  color: #090d16 !important;
+}
+
+body.light-mode .coach-feedback-card .coach-attribution-box {
+  color: #475569 !important;
+}
+
 body.light-mode .coach-feedback-card button {
   background: #f1f5f9 !important;
   border-color: #cbd5e1 !important;
