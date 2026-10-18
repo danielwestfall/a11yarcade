@@ -8436,5 +8436,5018 @@
     ],
     "status": "draft",
     "revision": 1
+  },
+  {
+    "id": "was-d1-atag-create-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-atag",
+    "variant_group_id": "was-atag-v1",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "ATAG includes guidance for making authoring tools accessible to authors with disabilities and for helping authors create accessible content.",
+    "answer": true,
+    "explanation": "ATAG addresses both accessibility of the authoring tool user interface and support the tool provides for producing accessible content.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, Authoring Tool Accessibility Guidelines 2.0",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "atag",
+      "authoring-tools"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-apg-dialog-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-dialog-pattern",
+    "variant_group_id": "was-dialog-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A modal confirmation dialog opens after a user selects Delete. What content and behavior help users understand and complete the interaction?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A meaningful dialog name, clear actions, logical focus behavior, and a way to cancel or close"
+      },
+      {
+        "id": "B",
+        "text": "No title and no keyboard access"
+      },
+      {
+        "id": "C",
+        "text": "A mouse-only close icon outside the dialog"
+      },
+      {
+        "id": "D",
+        "text": "A live region that repeats the page title"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Dialogs need an accessible name and coherent focus and keyboard behavior. Clear action choices also support safe completion of a consequential task.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C-D, Interactive Widgets and ARIA Practices",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Dialog (Modal) pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+      }
+    ],
+    "tags": [
+      "dialog",
+      "aria",
+      "keyboard"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-aria-describedby-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-accessible-name-description",
+    "variant_group_id": "was-name-desc-v4",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A control can have an accessible name and a separate accessible description when additional instructions are useful.",
+    "answer": true,
+    "explanation": "Names and descriptions have different purposes, and both can be exposed when they provide useful information without redundancy.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, Accessible Names and Descriptions",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Accessible Name and Description Computation",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "accessible-name",
+      "description"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-keyboard-escape-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-B",
+    "concept_id": "was-focus-management",
+    "variant_group_id": "was-focus-v4",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A non-modal dialog can be dismissed with Escape, but after dismissal keyboard focus moves to the document body. What should be reviewed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether focus returns to the invoking control or another logical location"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page background changes color"
+      },
+      {
+        "id": "C",
+        "text": "Whether every link is removed"
+      },
+      {
+        "id": "D",
+        "text": "Whether the dialog is announced twice"
+      }
+    ],
+    "answer": "A",
+    "explanation": "When a transient interface closes, focus should return to a logical place so users can continue their task.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One B, Managing Focus; Domain One C, Interactive Widgets",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Dialog pattern: keyboard interaction",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+      }
+    ],
+    "tags": [
+      "focus-management",
+      "dialog",
+      "keyboard"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-custom-tabs-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-standard-controls",
+    "variant_group_id": "was-controls-v6",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A custom tab looks selected but the associated panel does not change, while its selected state is exposed. What should be fixed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Keep visual selection, programmatic state, focus, and displayed panel synchronized"
+      },
+      {
+        "id": "B",
+        "text": "Remove the panel's content"
+      },
+      {
+        "id": "C",
+        "text": "Add a second selected tab"
+      },
+      {
+        "id": "D",
+        "text": "Make the tabs inaccessible by keyboard"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A widget's visual state, programmatic state, and functional result should remain aligned so all users receive consistent feedback.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Custom Controls; Domain One D, Roles, States, and Properties",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Tabs pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/"
+      }
+    ],
+    "tags": [
+      "tabs",
+      "custom-controls",
+      "state"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-apg-checkbox-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-widget-patterns",
+    "variant_group_id": "was-checkbox-v1",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A custom checkbox should expose its checked or unchecked state and update that state when activated.",
+    "answer": true,
+    "explanation": "A checkbox's state is part of its semantic information and should reflect the current selection.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C-D, Interactive Widgets and ARIA States",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Checkbox pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/"
+      }
+    ],
+    "tags": [
+      "checkbox",
+      "aria",
+      "state"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-cognitive-strategy-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-H",
+    "concept_id": "was-user-strategies",
+    "variant_group_id": "was-user-strategies-v9",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A user with a cognitive disability relies on a browser's find feature to locate a specific term. Which content practice makes that strategy more effective?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Use clear, consistent terms for the same concept throughout the site"
+      },
+      {
+        "id": "B",
+        "text": "Rename the same feature on every page"
+      },
+      {
+        "id": "C",
+        "text": "Replace text with unlabeled symbols"
+      },
+      {
+        "id": "D",
+        "text": "Hide important words until hover"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Consistent terminology reduces memory and interpretation demands and makes browser search and other navigation strategies more effective.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One H, Strategies of Users with Cognitive Disabilities",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-people-use-web",
+        "locator": "Cognitive disabilities: strategies and barriers",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/people-use-web/abilities-barriers/"
+      }
+    ],
+    "tags": [
+      "cognitive-disability",
+      "consistent-language"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-screenreader-output-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-screen-readers",
+    "variant_group_id": "was-at-v2",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A screen reader may provide users with information about roles, names, states, and relationships that sighted users perceive visually.",
+    "answer": true,
+    "explanation": "Assistive technology communicates programmatic information exposed by the web content and accessibility APIs.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Screen Readers; Domain One D, Accessibility Tree",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "accessibility-tree"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-at-focus-reading-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-at-content-testing",
+    "variant_group_id": "was-at-content-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A screen-reader user activates a link and the destination loads, but focus remains on a removed element from the previous view. What should testing report?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Focus may be lost or left in an invalid context after the content transition"
+      },
+      {
+        "id": "B",
+        "text": "The link color is not saturated enough"
+      },
+      {
+        "id": "C",
+        "text": "The page needs an audio transcript"
+      },
+      {
+        "id": "D",
+        "text": "The browser should close automatically"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Testing dynamic navigation should check that focus and reading context remain meaningful when prior content is replaced or removed.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Screen Reader Testing; Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "focus",
+      "spa"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-act-automated-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-automated-testing",
+    "variant_group_id": "was-tools-v6",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A successful automated test can reduce uncertainty about the specific condition it checks without replacing evaluation of user tasks and other criteria.",
+    "answer": true,
+    "explanation": "Automation provides evidence for defined checks. It is one part of a broader evaluation strategy that includes human judgment and interaction testing.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Automated Testing Tools and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-act",
+        "locator": "ACT Rules: test scope",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/standards-guidelines/act/rules/"
+      }
+    ],
+    "tags": [
+      "automated-testing",
+      "act-rules"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-voice-input-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v13",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A voice-control user says the visible label 'Continue' but the control is not activated because its accessible name is 'Proceed to next step.' What should be evaluated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the programmatic name includes the visible label and supports speech activation"
+      },
+      {
+        "id": "B",
+        "text": "Whether the button has an icon"
+      },
+      {
+        "id": "C",
+        "text": "Whether the user can scroll with a mouse"
+      },
+      {
+        "id": "D",
+        "text": "Whether the button is on the right side"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The mismatch can prevent speech input from matching the visible control label; evaluate accessible naming and voice-control operation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, End-User Impact: Motor Disabilities and Speech Recognition Software",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.5.3 Label in Name",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#label-in-name"
+      }
+    ],
+    "tags": [
+      "voice-control",
+      "accessible-name",
+      "end-user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-wcag-em-evidence-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-B",
+    "concept_id": "was-wcagem-sampling",
+    "variant_group_id": "was-wcagem-v7",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "An evaluator finds no issues on sampled pages but never checks the common template or shared navigation used across the site. What evaluation risk remains?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A systemic barrier in shared elements may have been missed across the sample"
+      },
+      {
+        "id": "B",
+        "text": "The sample necessarily proves every page conforms"
+      },
+      {
+        "id": "C",
+        "text": "Shared components do not affect conformance"
+      },
+      {
+        "id": "D",
+        "text": "WCAG-EM excludes navigation"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Evaluation should explore common components and representative page types because shared elements can produce repeated barriers across the site.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two B, WCAG-EM: Explore the Target Website and Select a Sample",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-em",
+        "locator": "Explore the target website; select a representative sample",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"
+      }
+    ],
+    "tags": [
+      "wcag-em",
+      "sampling",
+      "shared-components"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-qa-user-retest-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-E",
+    "concept_id": "was-quality-assurance",
+    "variant_group_id": "was-qa-v11",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "After a developer changes a control to fix a keyboard issue, retesting with keyboard interaction is needed to verify the reported barrier is resolved.",
+    "answer": true,
+    "explanation": "Verification should reproduce the original task and confirm that the fix resolves the interaction problem without introducing regressions.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two E, Accessibility Quality Assurance; Domain Three B, Remediation Verification",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "qa",
+      "keyboard",
+      "verification"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-lowvision-contrast-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v14",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A low-vision participant cannot distinguish a form field boundary from the background. What should the tester examine?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the component boundary and focus or state indicators have sufficient non-text contrast"
+      },
+      {
+        "id": "B",
+        "text": "Whether the form has a footer"
+      },
+      {
+        "id": "C",
+        "text": "Whether the field's name is alphabetical"
+      },
+      {
+        "id": "D",
+        "text": "Whether the participant can hear the page"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Non-text contrast requirements can apply to visual information needed to identify controls and states; user testing helps reveal practical visibility problems.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing End-User Impact: Low Vision",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.4.11 Non-text Contrast",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#non-text-contrast"
+      }
+    ],
+    "tags": [
+      "low-vision",
+      "contrast",
+      "end-user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-automation-report-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v7",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A team runs an automated scanner but does not record tool version, pages scanned, or configuration. What is a limitation of the resulting report?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The results may not be reproducible or interpretable because test scope and conditions are unclear"
+      },
+      {
+        "id": "B",
+        "text": "Automation cannot produce reports"
+      },
+      {
+        "id": "C",
+        "text": "A version number guarantees conformance"
+      },
+      {
+        "id": "D",
+        "text": "The number of pages never matters"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Recording scope, tool version, and configuration helps others understand and reproduce the checks; it does not turn the scan into a full evaluation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "testing-tools",
+      "reporting",
+      "reproducibility"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-test-keyboard-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-keyboard-testing",
+    "variant_group_id": "was-keyboard-v5",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A tester uses Tab to inspect a form but never tries to submit it with Enter or Space. What may have been missed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether controls can be activated using the expected keyboard keys"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page title is descriptive"
+      },
+      {
+        "id": "C",
+        "text": "Whether images have color"
+      },
+      {
+        "id": "D",
+        "text": "Whether text is aligned left"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Keyboard testing must check both focus navigation and activation behavior for interactive controls.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Keyboard Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.1.1 Keyboard",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#keyboard"
+      }
+    ],
+    "tags": [
+      "keyboard-testing",
+      "activation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-severity-coretask-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-prioritization",
+    "variant_group_id": "was-priority-v9",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A defect blocks users from submitting an application, but the page otherwise appears polished. What should guide its severity rating?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The effect on users' ability to complete an important task"
+      },
+      {
+        "id": "B",
+        "text": "The visual polish of the page"
+      },
+      {
+        "id": "C",
+        "text": "The number of colors used"
+      },
+      {
+        "id": "D",
+        "text": "Whether the defect is easy to describe"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Severity reflects the barrier's impact on users and task completion, not the visual quality of the surrounding page.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization of Issues",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "severity",
+      "task-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-remediation-workaround-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-remediation-strategy",
+    "variant_group_id": "was-remediation-strategy-v4",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A remediation recommendation should consider whether a workaround preserves the essential task for users while a permanent fix is developed.",
+    "answer": true,
+    "explanation": "Recommendations may include interim alternatives when a durable correction cannot be delivered immediately, while preserving user access as much as possible.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Recommending Remediation Strategies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "remediation",
+      "workaround"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-procurement-scope-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-maturity",
+    "variant_group_id": "was-procurement-v4",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A vendor's ACR covers a web product but not the mobile app included in the purchase. What should the buyer do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Request evidence for the mobile app and assess it separately within the intended procurement scope"
+      },
+      {
+        "id": "B",
+        "text": "Assume the web report applies to the app automatically"
+      },
+      {
+        "id": "C",
+        "text": "Exclude mobile users from the product"
+      },
+      {
+        "id": "D",
+        "text": "Treat the product name as sufficient evidence"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Conformance evidence applies to its stated scope. Products and platforms included in procurement need relevant evidence and evaluation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Procurement Process and Accessibility Conformance Reports",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "iti-acr-vpat",
+        "locator": "VPAT/ACR resources",
+        "role": "support",
+        "url": "https://www.itic.org/policy/accessibility/vpat"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "acr",
+      "scope"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-redesign-fail-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-fix-or-redesign",
+    "variant_group_id": "was-remediation-v5",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A specialist should recommend redesign whenever any accessibility defect is found, regardless of whether a focused fix is effective.",
+    "answer": false,
+    "explanation": "The choice between fixing and redesigning depends on the nature, scope, risk, and sustainability of the issue; neither approach is automatic for every defect.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Fixing vs. Redesign",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "remediation",
+      "redesign",
+      "prioritization"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-wcag-technique-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-wcag-supporting-docs",
+    "variant_group_id": "was-wcag-docs-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A team finds one WCAG technique that fits a page and assumes using that technique is the only way to conform. What should the specialist clarify?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Techniques are informative ways to meet criteria; conformance is based on meeting the success criteria, not using one prescribed technique"
+      },
+      {
+        "id": "B",
+        "text": "Every technique is mandatory in every context"
+      },
+      {
+        "id": "C",
+        "text": "Techniques replace success criteria"
+      },
+      {
+        "id": "D",
+        "text": "Only automated techniques can be used"
+      }
+    ],
+    "answer": "A",
+    "explanation": "WCAG Techniques are informative examples. A page may meet a success criterion through other approaches when the outcome satisfies the requirement.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, WCAG Supporting Documents and Techniques",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "Understanding WCAG 2.2: sufficient techniques and failures",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "wcag",
+      "techniques",
+      "conformance"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-dom-event-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-B",
+    "concept_id": "was-dynamic-content",
+    "variant_group_id": "was-dynamic-content-v2",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "After a script inserts content, the resulting DOM and accessibility tree should expose the new content and relevant semantics to user agents.",
+    "answer": true,
+    "explanation": "Dynamic content must be represented so browsers and assistive technologies can discover and interpret the updated interface.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One B, Dynamic Content and JavaScript Accessibility",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "dynamic-content",
+      "dom",
+      "accessibility-tree"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-accordion-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-disclosure-pattern",
+    "variant_group_id": "was-disclosure-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An accordion heading contains a button, but the button's expanded state never changes when the panel opens. What should be corrected?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Update the programmatic expanded state to match the panel's visibility"
+      },
+      {
+        "id": "B",
+        "text": "Remove the heading from the page"
+      },
+      {
+        "id": "C",
+        "text": "Make the panel visible only on hover"
+      },
+      {
+        "id": "D",
+        "text": "Add a second unrelated button"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The exposed expanded or collapsed state should stay synchronized with the panel so assistive technology users receive accurate feedback.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C-D, Interactive Widgets and ARIA States",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Accordion pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/"
+      }
+    ],
+    "tags": [
+      "accordion",
+      "aria",
+      "state"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-name-precedence-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-accessible-name-description",
+    "variant_group_id": "was-name-desc-v5",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A button's visible text is 'Download report' but its accessible name is only 'Action'. What should be changed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Give the button an accessible name that identifies the download action and includes the visible label"
+      },
+      {
+        "id": "B",
+        "text": "Remove the visible text"
+      },
+      {
+        "id": "C",
+        "text": "Add a description that says 'button'"
+      },
+      {
+        "id": "D",
+        "text": "Change the control to a heading"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The accessible name should identify the purpose and align with visible text so users of assistive technology and speech input can operate the control.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, Accessible Names and Descriptions",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.5.3 Label in Name; 4.1.2 Name, Role, Value",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "accessible-name",
+      "label-in-name"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-native-anchor-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-standard-controls",
+    "variant_group_id": "was-controls-v7",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A native anchor with a valid destination is generally a better starting point for navigation than a generic element with a click handler and a link-like appearance.",
+    "answer": true,
+    "explanation": "Native links provide built-in semantics, keyboard operation, context-menu behavior, and browser navigation features.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls; Domain One B, Semantic HTML",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "native-controls",
+      "links",
+      "semantic-html"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-support-voice-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-accessibility-supported",
+    "variant_group_id": "was-supported-tech-v6",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A developer relies on a browser API supported only by a small set of user agents used by the intended audience. What should be considered before using it as the only way to complete a task?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the technology is accessibility-supported in the audience's environments or an accessible alternative is available"
+      },
+      {
+        "id": "B",
+        "text": "Whether the API has a short name"
+      },
+      {
+        "id": "C",
+        "text": "Whether the code is minified"
+      },
+      {
+        "id": "D",
+        "text": "Whether the feature is visually impressive"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A technique must work with the user agents and assistive technologies relevant to the audience or have an accessible alternative.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "Conformance Requirement 5.2.4 Accessibility-Supported Technologies",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#accessibility-supported"
+      }
+    ],
+    "tags": [
+      "accessibility-supported",
+      "user-agents"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-native-select-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-standard-controls",
+    "variant_group_id": "was-controls-v8",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A developer replaces a native select menu with a custom visual dropdown to match a design mockup. What should the specialist include in the review?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the custom version preserves selection semantics, keyboard behavior, focus, and platform compatibility"
+      },
+      {
+        "id": "B",
+        "text": "Only whether its corners match the mockup"
+      },
+      {
+        "id": "C",
+        "text": "Whether it has a longer animation"
+      },
+      {
+        "id": "D",
+        "text": "Whether it can be used with a mouse"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Replacing a native control creates responsibility for its complete interaction and accessibility behavior, not just appearance.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Select-only Combobox or Listbox patterns",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"
+      }
+    ],
+    "tags": [
+      "native-controls",
+      "custom-controls",
+      "selection"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-sr-cognitive-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-H",
+    "concept_id": "was-user-strategies",
+    "variant_group_id": "was-user-strategies-v10",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Clear headings, short instructions, and consistent page organization can support people who use screen readers and people with cognitive disabilities.",
+    "answer": true,
+    "explanation": "Semantic organization and clear content can support multiple user strategies and access needs.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One H, User Strategies; Domain One B, Semantic Structure",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-people-use-web",
+        "locator": "Strategies and barriers for screen reader and cognitive disability users",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/people-use-web/abilities-barriers/"
+      }
+    ],
+    "tags": [
+      "headings",
+      "cognitive-access",
+      "screen-reader"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-test-live-region-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-at-content-testing",
+    "variant_group_id": "was-at-content-v3",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A screen-reader tester notices a 'Saved' message visually but hears no announcement after saving. What should be checked?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the update is exposed as a programmatically determinable status message"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page uses a serif font"
+      },
+      {
+        "id": "C",
+        "text": "Whether focus is removed from every control"
+      },
+      {
+        "id": "D",
+        "text": "Whether the save button is a link"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Status messages should be exposed to assistive technologies without necessarily moving focus to the message.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Screen Reader Testing; Domain One B, Dynamic Content",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.3 Status Messages",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#status-messages"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "status-messages",
+      "testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-auditory-live-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v15",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A live webinar evaluation should consider whether captions are available and sufficiently synchronized for participants who cannot rely on audio alone.",
+    "answer": true,
+    "explanation": "Live captions support access to spoken information, and timing matters so viewers can associate captions with the current speech.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, End-User Impact for Auditory Disabilities",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.2.4 Captions (Live)",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#captions-live"
+      }
+    ],
+    "tags": [
+      "captions",
+      "live-media",
+      "auditory"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-multiple-browser-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-interop-v4",
+    "variant_strategy": "misconception_check",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A custom widget passes in a desktop browser but is broken in the mobile browser used by many customers. What should the evaluation plan do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Include representative supported mobile browser and assistive-technology combinations and report the user impact"
+      },
+      {
+        "id": "B",
+        "text": "Exclude mobile because the desktop passed"
+      },
+      {
+        "id": "C",
+        "text": "Assume every mobile browser behaves identically"
+      },
+      {
+        "id": "D",
+        "text": "Test only the developer's device"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The evaluation strategy should reflect technologies used by the audience; a pass in one environment does not establish compatibility in another.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "interoperability",
+      "mobile",
+      "testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-evaluation-check-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-B",
+    "concept_id": "was-conformance-target",
+    "variant_group_id": "was-conformance-target-v5",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A successful evaluation should record both failures and the applicable criteria or evaluation basis used to reach the findings.",
+    "answer": true,
+    "explanation": "Traceable findings help teams understand why an issue was identified and support repeatable remediation and reporting.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two B, Assigning Success Criteria and Failures; WCAG-EM Reporting",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-em",
+        "locator": "Report the evaluation findings",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"
+      }
+    ],
+    "tags": [
+      "evaluation",
+      "reporting",
+      "criteria"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-zoom-cognitive-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v16",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A participant with a cognitive disability loses progress after making an error in a multi-step task. What should the evaluator capture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether error handling, instructions, and progress recovery support task completion"
+      },
+      {
+        "id": "B",
+        "text": "Only the page's typeface"
+      },
+      {
+        "id": "C",
+        "text": "Whether the site has a carousel"
+      },
+      {
+        "id": "D",
+        "text": "Whether the participant can use a mouse"
+      }
+    ],
+    "answer": "A",
+    "explanation": "End-user impact review considers whether people can understand errors and recover without losing work or orientation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing for End-User Impact: Cognitive Disabilities",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-people-use-web",
+        "locator": "Cognitive disabilities: barriers and strategies",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/people-use-web/abilities-barriers/"
+      }
+    ],
+    "tags": [
+      "cognitive-disability",
+      "forms",
+      "end-user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-tool-focus-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v8",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A tool can identify some focus-order or markup issues, but manual keyboard testing is still needed to judge actual operability and context.",
+    "answer": true,
+    "explanation": "Automated checks can find certain code patterns; manual testing verifies the actual interaction sequence and user experience.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web; Domain Two F, Keyboard Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "testing-tools",
+      "keyboard-testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-qa-impact-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-E",
+    "concept_id": "was-quality-assurance",
+    "variant_group_id": "was-qa-v12",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A team has a test checklist but no process for deciding who fixes or accepts an accessibility risk. What should QA add?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Clear ownership, escalation, and decision processes for findings and remediation"
+      },
+      {
+        "id": "B",
+        "text": "More checkboxes without owners"
+      },
+      {
+        "id": "C",
+        "text": "A rule to hide all failed results"
+      },
+      {
+        "id": "D",
+        "text": "Only a new logo for the QA team"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Quality assurance includes responsibilities and organizational approaches so findings lead to accountable decisions and action.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two E, Responsibilities and Organizational Approaches",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "qa",
+      "ownership",
+      "governance"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-voice-time-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v17",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A timed authentication challenge expires while a user is entering a response with speech recognition. What should the tester investigate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the time limit is adjustable or otherwise handled under applicable timing requirements"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page contains a footer"
+      },
+      {
+        "id": "C",
+        "text": "Whether the user can type faster"
+      },
+      {
+        "id": "D",
+        "text": "Whether the challenge has a background image"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Speech recognition and other alternative inputs may take additional time; evaluate timing barriers and applicable requirements and exceptions.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, End-User Impact: Motor Disabilities and Speech Recognition",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.2.1 Timing Adjustable",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#timing-adjustable"
+      }
+    ],
+    "tags": [
+      "speech-recognition",
+      "timing",
+      "end-user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-document-priority-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-prioritization",
+    "variant_group_id": "was-priority-v10",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A remediation backlog contains severity ratings but no rationale. What additional information makes prioritization more useful to decision-makers?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Affected users and tasks, impact evidence, breadth, and relevant dependencies"
+      },
+      {
+        "id": "B",
+        "text": "Only the developer's estimate of code length"
+      },
+      {
+        "id": "C",
+        "text": "The color of each issue label"
+      },
+      {
+        "id": "D",
+        "text": "A ranking with no explanation"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Clear rationale supports transparent decisions about severity, user impact, scope, and remediation sequencing.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization of Issues",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "prioritization",
+      "reporting"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-acr-score-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-acr",
+    "variant_group_id": "was-procurement-v6",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "An overall percentage score in a vendor presentation is a substitute for reviewing the ACR's criterion-level responses and remarks.",
+    "answer": false,
+    "explanation": "Procurement needs specific evidence and limitations tied to criteria and product scope; a summary score can conceal important gaps.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Accessibility Conformance Reports",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "iti-acr-vpat",
+        "locator": "Accessibility Conformance Report format and responses",
+        "role": "support",
+        "url": "https://www.itic.org/policy/accessibility/vpat"
+      }
+    ],
+    "tags": [
+      "acr",
+      "procurement",
+      "evidence"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-bestpractice-context-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-failure-vs-best-practice",
+    "variant_group_id": "was-remediation-advice-v5",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A specialist recommends adding visible instructions beyond the minimum because user testing shows repeated mistakes. How should the recommendation be framed if no success criterion is currently failed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "As an evidence-based usability improvement, clearly distinguished from a WCAG failure"
+      },
+      {
+        "id": "B",
+        "text": "As a mandatory failure without evidence"
+      },
+      {
+        "id": "C",
+        "text": "As unrelated to accessibility"
+      },
+      {
+        "id": "D",
+        "text": "As a legal determination"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Recommendations can go beyond minimum conformance. Clear classification helps teams understand what is required and what is a beneficial improvement.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Distinguishing Failures and Optional Best Practices",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "best-practice",
+      "user-testing",
+      "remediation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-procurement-maturity-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-maturity",
+    "variant_group_id": "was-procurement-maturity-v3",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "An accessible procurement maturity approach can improve over time by standardizing requirements, evidence review, and vendor follow-up across purchases.",
+    "answer": true,
+    "explanation": "A maturity model helps organizations move from ad hoc accessibility checks toward repeatable processes and continuous improvement.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Accessible Procurement Maturity Model",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "maturity"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-en301549-selfscope-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-en301549",
+    "variant_group_id": "was-en-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "An evaluator reviews a requirement in EN 301 549 that applies only to certain kinds of ICT. What must they determine before marking it as a failure?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the requirement is applicable to the product or service in the evaluation scope"
+      },
+      {
+        "id": "B",
+        "text": "Whether the requirement is the first one in the document"
+      },
+      {
+        "id": "C",
+        "text": "Whether WCAG is mentioned elsewhere"
+      },
+      {
+        "id": "D",
+        "text": "Whether the product's vendor agrees"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Some requirements have applicability conditions. Evaluators should assess applicability and scope before treating a requirement as failed.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, EN 301 549 Self-Scoping Requirements",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "en301549",
+      "applicability",
+      "evaluation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-label-instructions-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-B",
+    "concept_id": "was-form-semantics",
+    "variant_group_id": "was-form-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A required date field uses an unexplained placeholder 'MM/DD/YYYY' and gives no indication that the field is mandatory. What should be added?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A persistent label and clear instructions that identify the required format and status"
+      },
+      {
+        "id": "B",
+        "text": "A decorative image inside the field"
+      },
+      {
+        "id": "C",
+        "text": "A tooltip that appears only on hover"
+      },
+      {
+        "id": "D",
+        "text": "A red border without text"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Labels and instructions should identify the control and communicate requirements in a persistent and accessible way.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One B, Semantic HTML, Forms and Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "3.3.2 Labels or Instructions",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#labels-or-instructions"
+      }
+    ],
+    "tags": [
+      "forms",
+      "labels",
+      "instructions"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-tree-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-accessibility-tree",
+    "variant_group_id": "was-tree-v1",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "The accessibility tree represents information about content and controls that browsers expose for assistive technologies to use.",
+    "answer": true,
+    "explanation": "The accessibility tree is a programmatic representation derived from document semantics and interface properties, consumed by assistive technologies through platform APIs.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, Accessibility Tree and Its Impact on Assistive Technology Users",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "accessibility-tree",
+      "assistive-technology"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-custom-radio-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-widget-patterns",
+    "variant_group_id": "was-radio-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A radio group allows Tab to stop on every option instead of using a single group stop and arrow-key selection. What should be reviewed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the custom group follows the expected radio-group focus and keyboard pattern"
+      },
+      {
+        "id": "B",
+        "text": "Whether each option has a different font"
+      },
+      {
+        "id": "C",
+        "text": "Whether the page has a skip link"
+      },
+      {
+        "id": "D",
+        "text": "Whether the radio circles are animated"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Interactive radio groups have an expected keyboard pattern. A custom implementation should match the semantics, selection, and focus behavior of the chosen pattern.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C-D, Interactive Widgets and Keyboard Patterns",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Radio Group pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/"
+      }
+    ],
+    "tags": [
+      "radio-group",
+      "keyboard",
+      "widgets"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-apg-not-guarantee-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-apg-pattern-guidance",
+    "variant_group_id": "was-apg-pattern-v3",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "An APG example can be copied into production without checking whether its assumptions, browser support, or interaction fit the actual use case.",
+    "answer": false,
+    "explanation": "APG examples are guidance and should be adapted carefully, then tested in the target environments and user workflows.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, ARIA Authoring Practices Guide",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Read Me First: examples are illustrative; testing recommended",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "aria-apg",
+      "implementation",
+      "testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-native-custom-cost-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-standard-controls",
+    "variant_group_id": "was-controls-v9",
+    "variant_strategy": "analysis",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A custom dropdown works with mouse clicks but has no focus styling, keyboard operation, or announced selection. What is the most important recommendation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Prefer a native control when suitable or implement and test the full expected behavior"
+      },
+      {
+        "id": "B",
+        "text": "Add a shadow to the dropdown"
+      },
+      {
+        "id": "C",
+        "text": "Tell keyboard users to use a mouse"
+      },
+      {
+        "id": "D",
+        "text": "Add a longer placeholder"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Custom controls need more than visual styling; they require semantics, keyboard interaction, focus visibility, and state communication.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "custom-controls",
+      "keyboard",
+      "focus"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-spa-back-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-spa-v6",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A user presses the browser Back button in a single-page app, but the visible view does not return to the previous section. What should be investigated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether client-side navigation updates and responds to browser history appropriately"
+      },
+      {
+        "id": "B",
+        "text": "Whether the logo has alternative text"
+      },
+      {
+        "id": "C",
+        "text": "Whether the page uses a footer"
+      },
+      {
+        "id": "D",
+        "text": "Whether all routes are hidden from users"
+      }
+    ],
+    "answer": "A",
+    "explanation": "SPA routing should work coherently with browser history so users can navigate between views and restore context.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "spa",
+      "history",
+      "navigation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-user-motor-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-H",
+    "concept_id": "was-user-strategies",
+    "variant_group_id": "was-user-strategies-v11",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "People with motor disabilities may use speech recognition, switches, keyboard-like devices, or pointer adaptations, so testing one input method may miss barriers.",
+    "answer": true,
+    "explanation": "The BoK describes varied motor disability strategies and assistive technologies; implementation should support applicable input alternatives.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One H, Users with Motor Disabilities and Assistive Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-people-use-web",
+        "locator": "Motor disabilities: strategies and barriers",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/people-use-web/abilities-barriers/"
+      }
+    ],
+    "tags": [
+      "motor-disability",
+      "assistive-technology",
+      "user-strategies"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-wcag-em-process-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-B",
+    "concept_id": "was-wcagem-sampling",
+    "variant_group_id": "was-wcagem-v8",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An evaluation is limited to pages before login, but users must sign in to complete the main service. What should the evaluator do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Clarify whether authenticated pages and the complete service process are in scope and arrange access for evaluation"
+      },
+      {
+        "id": "B",
+        "text": "Assume the login boundary makes later steps irrelevant"
+      },
+      {
+        "id": "C",
+        "text": "Report conformance for pages not tested"
+      },
+      {
+        "id": "D",
+        "text": "Remove authentication from the product"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Scope should include the pages and states necessary to evaluate the intended service and its complete processes; access constraints should be documented and addressed.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two B, WCAG-EM Scope and Complete Processes",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-em",
+        "locator": "Define scope; complete processes",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"
+      }
+    ],
+    "tags": [
+      "wcag-em",
+      "authenticated-pages",
+      "scope"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-sr-label-error-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-C",
+    "concept_id": "was-form-testing",
+    "variant_group_id": "was-form-v3",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A screen reader announces that an email field is invalid but does not explain how to correct it. What should the evaluator inspect?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the error message identifies the problem and offers a useful correction suggestion where possible"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page uses a video"
+      },
+      {
+        "id": "C",
+        "text": "Whether the field is on the left"
+      },
+      {
+        "id": "D",
+        "text": "Whether the error is only shown in red"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Error feedback should identify the issue and, when known, suggest how to fix it so users can recover from mistakes.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two C and F, Testing Forms with Assistive Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "3.3.1 Error Identification; 3.3.3 Error Suggestion",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "forms",
+      "errors",
+      "screen-reader"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-aria-menu-test-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-keyboard-testing",
+    "variant_group_id": "was-keyboard-v6",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Keyboard testing of a menu should check both how users move among items and how they leave or close the menu.",
+    "answer": true,
+    "explanation": "A complete interaction test covers entry, navigation, activation, and exit behavior rather than checking only whether focus can reach the first item.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Keyboard Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Menu and Menubar pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/"
+      }
+    ],
+    "tags": [
+      "keyboard-testing",
+      "menu"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-tools-focus-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v9",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An automated tool reports a focus indicator is present in the CSS. What still needs to be evaluated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether it is actually visible, distinguishable, and not obscured during keyboard use"
+      },
+      {
+        "id": "B",
+        "text": "Whether it is named after the developer"
+      },
+      {
+        "id": "C",
+        "text": "Whether the user can open a new tab"
+      },
+      {
+        "id": "D",
+        "text": "Whether it appears in the HTML source text"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Code presence does not establish visual usability; keyboard interaction testing should confirm the focus indicator is perceivable in context.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web; Domain Two F, Keyboard Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.4.7 Focus Visible; 2.4.11 Focus Not Obscured",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "testing-tools",
+      "focus-indicator",
+      "keyboard"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-enduser-aac-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v18",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A user who uses speech-generating AAC is asked to complete a timed free-text response with no alternate response method. What should the evaluator assess?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the timing and response format create a barrier and whether an equivalent option is available"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page uses enough icons"
+      },
+      {
+        "id": "C",
+        "text": "Whether the user can use a mouse"
+      },
+      {
+        "id": "D",
+        "text": "Whether the submit control has a shadow"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Alternative communication can require different timing and input methods; end-user impact testing should assess whether the task supports these strategies.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, End-User Impact: Motor Disabilities and User Strategies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "aac",
+      "timing",
+      "end-user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-qalifecycle-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-E",
+    "concept_id": "was-quality-assurance",
+    "variant_group_id": "was-qa-v13",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Accessibility checks during design and development can reveal issues before they become expensive to remediate at release time.",
+    "answer": true,
+    "explanation": "Integrating accessibility into the development process supports earlier discovery and correction of barriers.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two E, Web Development Process and Accessibility QA",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "qa",
+      "lifecycle",
+      "early-testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-user-textspacing-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v19",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Testing with increased text spacing can reveal whether content overlaps or becomes unavailable for users who adjust typography.",
+    "answer": true,
+    "explanation": "Text-spacing overrides can expose clipping and layout failures that are not visible with default styling.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, End-User Impact for Low Vision and Reading Access",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.4.12 Text Spacing",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#text-spacing"
+      }
+    ],
+    "tags": [
+      "text-spacing",
+      "low-vision",
+      "testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-remediation-commit-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-remediation-strategy",
+    "variant_group_id": "was-remediation-strategy-v5",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A team agrees that a custom carousel needs redesign but has no owner or target date. What should the specialist recommend adding?",
+    "options": [
+      {
+        "id": "A",
+        "text": "An accountable owner, priority, timeline, and verification plan"
+      },
+      {
+        "id": "B",
+        "text": "A statement that the issue is understood"
+      },
+      {
+        "id": "C",
+        "text": "A list of unrelated WCAG criteria"
+      },
+      {
+        "id": "D",
+        "text": "A plan to stop using the site"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Remediation strategies need ownership, scheduling, and verification to move from recommendation to a completed, validated change.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Remediation Strategies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "remediation",
+      "ownership",
+      "verification"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-priority-constraint-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-prioritization",
+    "variant_group_id": "was-priority-v11",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A severe issue cannot be fixed before launch because a third-party dependency is involved. What is the most responsible recommendation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Escalate the impact and define an interim mitigation, owner, and follow-up plan while pursuing a durable fix"
+      },
+      {
+        "id": "B",
+        "text": "Remove the issue from the record"
+      },
+      {
+        "id": "C",
+        "text": "Claim conformance without qualification"
+      },
+      {
+        "id": "D",
+        "text": "Tell affected users not to use the service"
+      }
+    ],
+    "answer": "A",
+    "explanation": "When immediate remediation is constrained, the issue should remain visible and a plan should reduce user impact and track resolution.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A-B, Prioritization and Remediation Strategies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "prioritization",
+      "mitigation",
+      "third-party"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-procurement-maturity-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-maturity",
+    "variant_group_id": "was-procurement-v5",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A procurement maturity model can help identify how consistently an organization applies accessibility practices and where process improvements are needed.",
+    "answer": true,
+    "explanation": "Maturity models assess repeatability and institutionalization and can guide improvements to procurement practice.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Accessible Procurement Maturity Model",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "maturity"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-test-time-limit-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-C",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v20",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A timer expires while a participant using a screen reader is listening to a long instruction. Which WCAG issue should the evaluator consider?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the time limit can be adjusted or extended under the applicable timing requirements"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page has a logo"
+      },
+      {
+        "id": "C",
+        "text": "Whether audio can be muted only"
+      },
+      {
+        "id": "D",
+        "text": "Whether the text is centered"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Users may need additional time to read or listen to content; evaluate the timing limit against applicable requirements and exceptions.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two C, Testing for End-User Impact and Assistive Technology Use",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.2.1 Timing Adjustable",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#timing-adjustable"
+      }
+    ],
+    "tags": [
+      "timing",
+      "screen-reader",
+      "testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-wcag-meaningful-sequence-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-wcag-structure",
+    "variant_group_id": "was-wcag-structure-v1",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "When changing visual layout also changes the programmatic reading order in a way that alters meaning, the implementation should be reviewed for a meaningful sequence issue.",
+    "answer": true,
+    "explanation": "The reading sequence exposed to assistive technology should preserve meaning and relationships when sequence matters.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, WCAG 2.2 Success Criteria",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.3.2 Meaningful Sequence",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#meaningful-sequence"
+      }
+    ],
+    "tags": [
+      "wcag",
+      "reading-order"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-list-structure-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-B",
+    "concept_id": "was-semantic-structure",
+    "variant_group_id": "was-semantic-structure-v4",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A set of related navigation links is visually formatted as a list but coded as unrelated text blocks. What should the developer consider?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Use semantic list structure when the content represents a list of related items"
+      },
+      {
+        "id": "B",
+        "text": "Make every item a heading level one"
+      },
+      {
+        "id": "C",
+        "text": "Remove the links from the accessibility tree"
+      },
+      {
+        "id": "D",
+        "text": "Use only CSS spacing to communicate the grouping"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Semantic grouping can expose relationships that are apparent visually, helping assistive technology users understand the collection.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One B, Semantic HTML and Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.3.1 Info and Relationships",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#info-and-relationships"
+      }
+    ],
+    "tags": [
+      "semantic-html",
+      "lists",
+      "structure"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-combobox-focus-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-combobox-pattern",
+    "variant_group_id": "was-combobox-v2",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A combobox implementation should communicate its expanded state and provide a usable way to navigate or select suggestions using the expected input methods.",
+    "answer": true,
+    "explanation": "Combobox patterns coordinate state, focus or active option, keyboard interaction, and selection behavior.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C-D, Interactive Widgets and ARIA Practices",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Combobox pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"
+      }
+    ],
+    "tags": [
+      "combobox",
+      "aria",
+      "keyboard"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-aria-hidden-focus-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-aria-hidden",
+    "variant_group_id": "was-aria-hidden-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "A developer hides a collapsed panel from the accessibility tree but forgets to remove its links from keyboard focus. What is the likely failure?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Keyboard focus can move to links that assistive technology cannot perceive"
+      },
+      {
+        "id": "B",
+        "text": "The visible panel will become a heading"
+      },
+      {
+        "id": "C",
+        "text": "The links will automatically receive labels"
+      },
+      {
+        "id": "D",
+        "text": "The page will no longer support zoom"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Focusable descendants should not remain available to keyboard users while hidden from the accessibility tree; visibility and interaction state must remain aligned.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, ARIA and the Accessibility Tree",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "aria-hidden",
+      "focus",
+      "accessibility-tree"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-screenreader-voice-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-screen-readers",
+    "variant_group_id": "was-at-v3",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A page uses custom canvas-rendered text and controls. A screen reader cannot navigate or activate the controls. What should the developer investigate first?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether meaningful content and interactive semantics are exposed in the accessibility tree"
+      },
+      {
+        "id": "B",
+        "text": "Whether the canvas has a border"
+      },
+      {
+        "id": "C",
+        "text": "Whether the user has installed more fonts"
+      },
+      {
+        "id": "D",
+        "text": "Whether the page title is shorter"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Canvas visuals alone do not expose semantic text or controls; accessible alternatives or programmatic DOM semantics are needed for assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Screen Readers; Domain One D, Accessibility Tree",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "canvas",
+      "semantics"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-custom-slider-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-standard-controls",
+    "variant_group_id": "was-controls-v10",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A custom slider is accessible if it has role slider, even if users cannot change its value with a keyboard.",
+    "answer": false,
+    "explanation": "A role alone does not supply the expected interaction. Custom sliders need keyboard behavior and current value semantics as well as an accessible name.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Custom Controls; Domain One C, Widget Interaction Patterns",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Slider pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/"
+      }
+    ],
+    "tags": [
+      "slider",
+      "custom-controls",
+      "keyboard"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-screenreader-forms-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-H",
+    "concept_id": "was-user-strategies",
+    "variant_group_id": "was-user-strategies-v12",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A screen-reader user navigates directly to form fields but cannot understand which section each field belongs to. What structure should the developer review?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether headings, field groups, and labels expose meaningful relationships and context"
+      },
+      {
+        "id": "B",
+        "text": "Whether the site has a carousel"
+      },
+      {
+        "id": "C",
+        "text": "Whether all fields use the same width"
+      },
+      {
+        "id": "D",
+        "text": "Whether the page has a background video"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Users may navigate directly among controls; semantic grouping and clear labels help retain context and understand related fields.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One H, Strategies of Screen Reader Users; Domain One B, Semantic HTML",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.3.1 Info and Relationships; 3.3.2 Labels or Instructions",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "forms",
+      "structure"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-spa-announcement-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-G",
+    "concept_id": "was-spa-navigation-state",
+    "variant_group_id": "was-spa-v7",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A route change that updates the main content may require an appropriate way to inform assistive technology users that the view changed.",
+    "answer": true,
+    "explanation": "Client-side navigation can change context without a full page load; changes should be perceivable and focus should remain logical.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One G, Single-Page Applications; Domain One B, Dynamic Content",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.3 Status Messages",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#status-messages"
+      }
+    ],
+    "tags": [
+      "spa",
+      "dynamic-content",
+      "announcements"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-keyboard-newwindow-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-keyboard-testing",
+    "variant_group_id": "was-keyboard-v7",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A user activates a link that opens a new tab without warning, then cannot tell why the expected page did not appear in the current view. What should testing note?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Unexpected context changes can affect orientation and should be communicated or avoided"
+      },
+      {
+        "id": "B",
+        "text": "Links should never have names"
+      },
+      {
+        "id": "C",
+        "text": "The new tab should contain only images"
+      },
+      {
+        "id": "D",
+        "text": "Keyboard users do not use browser tabs"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Unexpected context changes can confuse users; provide clear indication and avoid opening new windows or tabs without a user-initiated need where possible.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Keyboard and Assistive Technology Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "3.2.2 On Input",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#on-input"
+      }
+    ],
+    "tags": [
+      "testing",
+      "context-change",
+      "navigation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-tools-state-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v10",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A tool detects a button in the DOM but does not test whether its accessible name describes the action. What should the specialist do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Manually evaluate the name and task context in addition to the tool result"
+      },
+      {
+        "id": "B",
+        "text": "Assume any detected button is accessible"
+      },
+      {
+        "id": "C",
+        "text": "Remove the button's label"
+      },
+      {
+        "id": "D",
+        "text": "Use the tool result as a conformance claim"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Detection of a control does not ensure its accessible name communicates purpose; tools and manual review answer different questions.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.2 Name, Role, Value",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#name-role-value"
+      }
+    ],
+    "tags": [
+      "testing-tools",
+      "accessible-name",
+      "manual-review"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-enduser-speech-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v21",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "End-user testing should avoid assuming that all people with the same disability use the same assistive technology or interaction strategy.",
+    "answer": true,
+    "explanation": "Individual preferences and combinations of tools differ; evaluation should consider representative strategies and avoid overgeneralizing from one participant.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing for End-User Impact",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-people-use-web",
+        "locator": "People with disabilities: varied strategies and technologies",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/people-use-web/"
+      }
+    ],
+    "tags": [
+      "user-testing",
+      "assistive-technology",
+      "individual-variation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-representative-criteria-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-B",
+    "concept_id": "was-wcagem-sampling",
+    "variant_group_id": "was-wcagem-v9",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A website offers a public search, a checkout flow, and account management. How should the evaluator reflect this variety in the sample?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Include pages and processes that represent the distinct functionality users need"
+      },
+      {
+        "id": "B",
+        "text": "Choose pages only by URL length"
+      },
+      {
+        "id": "C",
+        "text": "Exclude transactional pages from consideration"
+      },
+      {
+        "id": "D",
+        "text": "Evaluate just one content article"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A representative sample should reflect the diversity of page types, functionality, and complete processes within the evaluation scope.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two B, WCAG-EM: Select a Representative Sample",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-em",
+        "locator": "Select a representative sample; complete processes",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"
+      }
+    ],
+    "tags": [
+      "wcag-em",
+      "sampling",
+      "processes"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-content-linktest-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-content-testing",
+    "variant_group_id": "was-content-v3",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Content testing should consider whether link text and headings make sense when users encounter them outside their immediate visual layout.",
+    "answer": true,
+    "explanation": "People may navigate through link or heading lists; context and labels should remain useful in those navigation modes.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Content Testing with Assistive Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.4.4 Link Purpose (In Context)",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#link-purpose-in-context"
+      }
+    ],
+    "tags": [
+      "content-testing",
+      "links",
+      "headings"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-qa-process-change-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-E",
+    "concept_id": "was-quality-assurance",
+    "variant_group_id": "was-qa-v14",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A team fixes an accessibility issue but does not update its component guidance or test cases, and the same pattern returns later. What process improvement would help?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Update shared guidance and regression checks so the learning is incorporated into future work"
+      },
+      {
+        "id": "B",
+        "text": "Stop using shared components"
+      },
+      {
+        "id": "C",
+        "text": "Delete the defect history"
+      },
+      {
+        "id": "D",
+        "text": "Rely on a single person's memory"
+      }
+    ],
+    "answer": "A",
+    "explanation": "QA should use findings to improve repeatable processes, guidance, and regression coverage so the same defects are less likely to recur.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two E, Accessibility Quality Assurance and Web Development Process",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "qa",
+      "continuous-improvement",
+      "regression"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-lowvision-contrast-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v22",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A participant with low vision can read body text but cannot tell which button has keyboard focus because the focus outline has little contrast. What should be assessed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the focus indicator is visually distinguishable against adjacent colors"
+      },
+      {
+        "id": "B",
+        "text": "Whether the button has a tooltip"
+      },
+      {
+        "id": "C",
+        "text": "Whether the user has a screen reader"
+      },
+      {
+        "id": "D",
+        "text": "Whether the page has a banner"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Focus indicators and other meaningful graphical information need to be perceptible; low-vision testing reveals practical visibility barriers.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing for End-User Impact: Users with Low Vision",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.4.11 Non-text Contrast; 2.4.7 Focus Visible",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "low-vision",
+      "focus",
+      "contrast"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-user-severity-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-prioritization",
+    "variant_group_id": "was-priority-v12",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A defect affects a small number of users but completely blocks them from accessing a required service. How should a specialist treat the issue?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Consider its high task impact and severity even if the affected group is small"
+      },
+      {
+        "id": "B",
+        "text": "Deprioritize it because few users reported it"
+      },
+      {
+        "id": "C",
+        "text": "Ignore the task because an alternative service exists elsewhere"
+      },
+      {
+        "id": "D",
+        "text": "Rate severity only by how often the site is visited"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Severity should reflect the depth of the barrier and task importance, not only the number of reports or users.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization of Issues",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "severity",
+      "user-impact",
+      "prioritization"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-acr-remarks-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-acr",
+    "variant_group_id": "was-procurement-v7",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Remarks in an ACR can materially affect how a procurement team interprets a conformance response and its applicability to the planned deployment.",
+    "answer": true,
+    "explanation": "Remarks provide context about testing, limitations, or conditions and should be reviewed alongside the response category.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Accessibility Conformance Reports",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "iti-acr-vpat",
+        "locator": "VPAT/ACR reporting guidance",
+        "role": "support",
+        "url": "https://www.itic.org/policy/accessibility/vpat"
+      }
+    ],
+    "tags": [
+      "acr",
+      "procurement",
+      "remarks"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-remediate-pattern-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-remediation-strategy",
+    "variant_group_id": "was-remediation-strategy-v6",
+    "variant_strategy": "misconception_check",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A remediation proposal changes the code but leaves the user unable to complete the same task with a keyboard. How should the specialist respond?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reopen the finding and recommend a strategy that resolves the actual user barrier, then verify it"
+      },
+      {
+        "id": "B",
+        "text": "Accept the change because code was modified"
+      },
+      {
+        "id": "C",
+        "text": "Close the issue without retesting"
+      },
+      {
+        "id": "D",
+        "text": "Change the severity to low automatically"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A remediation is successful when it addresses the user-facing barrier, not merely when code changes; verification should reproduce the task.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Remediation Strategies and Verification",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "remediation",
+      "verification",
+      "keyboard"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-tool-accessname-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v11",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A tool that confirms an accessible name exists cannot necessarily determine whether that name accurately communicates the control's purpose.",
+    "answer": true,
+    "explanation": "Existence checks do not always assess the quality or contextual appropriateness of a name; manual review is often needed.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.2 Name, Role, Value",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#name-role-value"
+      }
+    ],
+    "tags": [
+      "testing-tools",
+      "accessible-name",
+      "manual-review"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-wcag-status-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-wcag-status-messages",
+    "variant_group_id": "was-status-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A checkout page updates the total after a discount is applied, but a screen-reader user receives no feedback. Which criterion should the developer consider?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Status Messages"
+      },
+      {
+        "id": "B",
+        "text": "Orientation"
+      },
+      {
+        "id": "C",
+        "text": "Audio Control"
+      },
+      {
+        "id": "D",
+        "text": "Consistent Help"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A dynamic status update should be programmatically determinable so assistive technology can convey it without requiring focus movement.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, WCAG Success Criteria; Domain One B, Dynamic Content",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.3 Status Messages",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#status-messages"
+      }
+    ],
+    "tags": [
+      "wcag",
+      "status-messages",
+      "dynamic-content"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-programmatic-label-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-B",
+    "concept_id": "was-form-semantics",
+    "variant_group_id": "was-form-v3",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A visually adjacent text label is more reliably associated with its form control when the relationship is also programmatically conveyed.",
+    "answer": true,
+    "explanation": "Programmatic relationships help assistive technology identify which label belongs to which control.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One B, Semantic HTML and Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.3.1 Info and Relationships",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#info-and-relationships"
+      }
+    ],
+    "tags": [
+      "forms",
+      "labels",
+      "semantics"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-tabs-activation-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-widget-patterns",
+    "variant_group_id": "was-tab-pattern-v3",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A tab becomes visually selected on focus, but its panel opens only after a separate mouse click. What should be investigated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the widget's focus, selection, and activation behavior matches its chosen tabs pattern"
+      },
+      {
+        "id": "B",
+        "text": "Whether the tabs are in alphabetical order"
+      },
+      {
+        "id": "C",
+        "text": "Whether the panel uses a border"
+      },
+      {
+        "id": "D",
+        "text": "Whether users can scroll the footer"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Tabs need a consistent pattern for focus movement, selection, and panel display; unexpected differences can confuse keyboard users.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C-D, Interactive Widget Patterns",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Tabs pattern: keyboard interaction and activation",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/"
+      }
+    ],
+    "tags": [
+      "tabs",
+      "keyboard",
+      "activation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-aria-state-expanded-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-aria-states",
+    "variant_group_id": "was-aria-states-v3",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "If a disclosure is visually open, exposing aria-expanded as false gives assistive technology an accurate description of its state.",
+    "answer": false,
+    "explanation": "The programmatic state must match the actual state; a mismatch misleads users who rely on assistive technology.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, WAI-ARIA Roles, States, and Properties",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Disclosure pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/"
+      }
+    ],
+    "tags": [
+      "aria",
+      "expanded-state",
+      "disclosure"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-standards-requirement-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-standards-scope",
+    "variant_group_id": "was-standards-scope-v3",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "An engineer cites a W3C technique as if it were a separate normative requirement. What clarification should the WAS provide?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Distinguish normative success criteria from informative techniques and apply the criterion to the actual result"
+      },
+      {
+        "id": "B",
+        "text": "Treat every technique as legally mandatory"
+      },
+      {
+        "id": "C",
+        "text": "Ignore all supporting documents"
+      },
+      {
+        "id": "D",
+        "text": "Replace WCAG with a browser manual"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Success criteria establish WCAG requirements; techniques are informative examples of ways to meet them.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, WCAG Supporting Documents and Versioning",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "Understanding WCAG 2.2: Understanding Documents and Techniques",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "wcag",
+      "normative",
+      "techniques"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-aria-owns-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-D",
+    "concept_id": "was-aria-relationships",
+    "variant_group_id": "was-aria-relationships-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "A developer uses aria-owns to reorder unrelated page content in the accessibility tree, creating a reading order that differs from visual and DOM order. What should be reviewed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the relationship is necessary and whether it creates a coherent, predictable accessibility-tree structure"
+      },
+      {
+        "id": "B",
+        "text": "Whether the page has enough animations"
+      },
+      {
+        "id": "C",
+        "text": "Whether aria-owns is required on every element"
+      },
+      {
+        "id": "D",
+        "text": "Whether the DOM can be removed"
+      }
+    ],
+    "answer": "A",
+    "explanation": "ARIA relationships affect the accessibility tree and should be used carefully; semantic DOM structure is often a more robust way to establish order and relationships.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One D, Accessibility Tree and WAI-ARIA Properties",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Read Me First: semantic structure and ARIA",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      }
+    ],
+    "tags": [
+      "aria",
+      "accessibility-tree",
+      "relationships"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-native-button-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-standard-controls",
+    "variant_group_id": "was-controls-v11",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Using a native button for an action generally gives browsers a built-in focus and activation model that authors would otherwise need to recreate.",
+    "answer": true,
+    "explanation": "Native controls provide established semantics and behavior and reduce the implementation burden compared with custom elements.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "native-controls",
+      "button"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-user-lowvision-color-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-H",
+    "concept_id": "was-user-strategies",
+    "variant_group_id": "was-user-strategies-v13",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A user with low vision applies a custom color scheme, but a site fixes text and background colors in a way that makes some labels disappear. What should a developer consider?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Allow user-agent text and color adjustments without losing content or functionality"
+      },
+      {
+        "id": "B",
+        "text": "Prevent all browser customization"
+      },
+      {
+        "id": "C",
+        "text": "Convert labels into images"
+      },
+      {
+        "id": "D",
+        "text": "Use color as the only way to identify controls"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Users may adapt text, colors, and contrast with browser or assistive tools; content should remain available under these presentations.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One H, Users with Low Vision and Strategies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.4.3 Contrast (Minimum); 1.4.4 Resize Text",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "low-vision",
+      "customization",
+      "user-strategies"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-sr-focus-result-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-C",
+    "concept_id": "was-screenreader-testing",
+    "variant_group_id": "was-screenreader-v6",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A search results page loads new content after submission, but a screen-reader user is not told the result count or where results begin. What should testing recommend?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Provide meaningful result feedback and a navigable structure for the updated content"
+      },
+      {
+        "id": "B",
+        "text": "Remove the search field label"
+      },
+      {
+        "id": "C",
+        "text": "Move focus to an unrelated footer link"
+      },
+      {
+        "id": "D",
+        "text": "Hide the results from assistive technology"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Users need to know that results updated and to locate the new content through meaningful headings, status feedback, or appropriate focus handling.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two C and F, Screen Reader Testing; Domain One B, Dynamic Content",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.3 Status Messages; 2.4.6 Headings and Labels",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "search",
+      "dynamic-content"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-interop-srname-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-A",
+    "concept_id": "was-interoperability",
+    "variant_group_id": "was-interop-v5",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "If a control name is correct in the DOM inspector but missing in a screen reader, the evaluator should examine how the browser maps the element to the accessibility API and the tested environment.",
+    "answer": true,
+    "explanation": "Interoperability involves the complete path from content semantics through user-agent APIs to assistive technology behavior.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two A, Interoperability and Compatibility Issues",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "interoperability",
+      "accessible-name",
+      "screen-reader"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-mobile-pinch-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v23",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A mobile user must perform a multipoint pinch gesture to enlarge a map, but there is no zoom button or other alternative. What should evaluation examine?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether a simpler single-pointer alternative exists for the function"
+      },
+      {
+        "id": "B",
+        "text": "Whether the map has a legend color"
+      },
+      {
+        "id": "C",
+        "text": "Whether the page has a footer"
+      },
+      {
+        "id": "D",
+        "text": "Whether the user can hover"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Multipoint gestures can be difficult or impossible for some users; an equivalent simple pointer alternative may be required unless the gesture is essential.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing Mobile and Touch End-User Impact",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.5.1 Pointer Gestures",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#pointer-gestures"
+      }
+    ],
+    "tags": [
+      "mobile",
+      "touch",
+      "gestures"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-report-limitations-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-B",
+    "concept_id": "was-conformance-target",
+    "variant_group_id": "was-conformance-target-v6",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A test report should disclose limitations such as inaccessible test accounts or untested pages rather than implying those areas were evaluated.",
+    "answer": true,
+    "explanation": "Transparent limitations prevent readers from drawing conclusions about content or processes outside the actual evaluation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two B, WCAG-EM Reporting and Conformance Scope",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-em",
+        "locator": "Report the evaluation findings",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"
+      }
+    ],
+    "tags": [
+      "reporting",
+      "scope",
+      "limitations"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-qaregression-focus-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-E",
+    "concept_id": "was-quality-assurance",
+    "variant_group_id": "was-qa-v15",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A CSS update changes focus outlines on every page. What QA action is most useful?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Regression-test focus visibility across representative controls, states, and page templates"
+      },
+      {
+        "id": "B",
+        "text": "Check only the homepage background"
+      },
+      {
+        "id": "C",
+        "text": "Assume CSS changes cannot affect accessibility"
+      },
+      {
+        "id": "D",
+        "text": "Remove the focus outline to standardize appearance"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Shared style changes can affect many interfaces; regression checks should cover representative controls and contexts to catch new barriers.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two E, Accessibility Quality Assurance",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.4.7 Focus Visible",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#focus-visible"
+      }
+    ],
+    "tags": [
+      "qa",
+      "regression",
+      "focus"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-lowvision-color-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v24",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A site that relies on red and green alone to distinguish status may create an end-user barrier for some people with color-vision differences.",
+    "answer": true,
+    "explanation": "Testing should check that status and meaning are available through cues other than color alone.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, End-User Impact: Vision Disabilities",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.4.1 Use of Color",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#use-of-color"
+      }
+    ],
+    "tags": [
+      "color",
+      "vision",
+      "end-user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-priority-pattern-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-prioritization",
+    "variant_group_id": "was-priority-v13",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "The same critical barrier appears in a shared component used across several key workflows. What should the prioritization record include?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The component's reach, affected workflows, user impact, and severity to support coordinated remediation"
+      },
+      {
+        "id": "B",
+        "text": "Only the component's file size"
+      },
+      {
+        "id": "C",
+        "text": "A note that the issue is duplicated and therefore irrelevant"
+      },
+      {
+        "id": "D",
+        "text": "Only the page where it was first reported"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Shared issues should be prioritized and tracked with their broader scope and impact, rather than dismissed as duplicate findings.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "prioritization",
+      "shared-components",
+      "impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-procurement-followup-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-defect-mitigation",
+    "variant_group_id": "was-procurement-v8",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "When a vendor agrees to remediate an accessibility defect, the buyer should still track the commitment and verify the resulting fix.",
+    "answer": true,
+    "explanation": "A vendor commitment is not the same as a verified resolution; organizations should monitor follow-through and confirm users can complete the affected task.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Mitigating Accessibility Defects and Procurement Process",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "vendor-management",
+      "verification"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-fail-versus-recommend-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-failure-vs-best-practice",
+    "variant_group_id": "was-remediation-advice-v6",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A recommendation should be tied to a specific requirement when it is described as a WCAG failure; otherwise, it should be clearly labeled as guidance or an improvement opportunity.",
+    "answer": true,
+    "explanation": "Clear distinctions help teams understand which changes are needed for conformance and which are additional recommendations.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Distinguishing Failures and Optional Best Practices",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "failure-classification",
+      "best-practice",
+      "reporting"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-keyboard-skip-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-keyboard-testing",
+    "variant_group_id": "was-keyboard-v8",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Keyboard testing should include whether users can bypass repeated navigation blocks and reach the main content efficiently.",
+    "answer": true,
+    "explanation": "Bypass mechanisms reduce the burden of moving through repeated content for people who navigate sequentially with a keyboard.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Keyboard Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.4.1 Bypass Blocks",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#bypass-blocks"
+      }
+    ],
+    "tags": [
+      "keyboard-testing",
+      "bypass-blocks"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-automated-modal-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v12",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "An automated scan reports no modal-dialog issues. What still needs to be tested manually?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether focus enters and leaves the dialog correctly, keyboard interaction works, and assistive technology receives its name and content"
+      },
+      {
+        "id": "B",
+        "text": "Whether the dialog has a drop shadow"
+      },
+      {
+        "id": "C",
+        "text": "Whether the dialog is centered at every screen size only"
+      },
+      {
+        "id": "D",
+        "text": "Whether the page has a footer"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Many dialog interaction and user-impact concerns require manual keyboard and assistive-technology testing beyond automated rule checks.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools; Domain Two F, Assistive Technology Testing",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Dialog (Modal) pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+      }
+    ],
+    "tags": [
+      "testing-tools",
+      "dialog",
+      "manual-testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-guideline-robust-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-A",
+    "concept_id": "was-wcag-principles",
+    "variant_group_id": "was-wcag-principles-v2",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A custom control works in one browser but exposes no usable role or state to assistive technology in another supported browser. Which WCAG principle is most directly relevant?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Robust"
+      },
+      {
+        "id": "B",
+        "text": "Understandable"
+      },
+      {
+        "id": "C",
+        "text": "Perceivable"
+      },
+      {
+        "id": "D",
+        "text": "Operable"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Robust content is compatible with current and future user agents, including assistive technologies; exposed semantics and interoperability are central concerns.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One A, WCAG Principles; Domain Two A, Interoperability",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "Principle 4: Robust",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#robust"
+      }
+    ],
+    "tags": [
+      "wcag",
+      "robust",
+      "interoperability"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d1-user-multiple-modes-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-H",
+    "concept_id": "was-user-strategies",
+    "variant_group_id": "was-user-strategies-v14",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "A person may use different accessibility strategies for different tasks, so one observed method should not be assumed to represent every use case.",
+    "answer": true,
+    "explanation": "The BoK emphasizes varied strategies and user preferences; developers and evaluators should consider task context and individual variation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One H, Strategies of Persons with Disabilities in Using Web Solutions",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-people-use-web",
+        "locator": "People with disabilities: diverse web-use strategies",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/people-use-web/"
+      }
+    ],
+    "tags": [
+      "user-strategies",
+      "individual-variation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-test-instructions-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-C",
+    "concept_id": "was-content-testing",
+    "variant_group_id": "was-content-v4",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An instruction says 'Select the large circle on the right' but the control is on the left at narrow viewport widths. What should evaluation record?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The instruction relies on location and may become inaccurate or inaccessible across layouts"
+      },
+      {
+        "id": "B",
+        "text": "The control needs a larger icon only"
+      },
+      {
+        "id": "C",
+        "text": "The page title should be removed"
+      },
+      {
+        "id": "D",
+        "text": "Instructions should always use colors instead"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Instructions should not rely solely on sensory characteristics or fixed spatial position that may not be perceived or may change with responsive layout.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two C and F, Testing Content and Assistive Technology Use",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.3.3 Sensory Characteristics",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#sensory-characteristics"
+      }
+    ],
+    "tags": [
+      "content-testing",
+      "responsive-design",
+      "instructions"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-screenreader-language-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-C",
+    "concept_id": "was-screenreader-testing",
+    "variant_group_id": "was-screenreader-v7",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "If a page contains passages in another language, testing should consider whether the language changes are programmatically identified where required for correct pronunciation.",
+    "answer": true,
+    "explanation": "Language metadata can affect how assistive technology pronounces text, which can change whether content is understandable.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two C and F, Testing Content with Assistive Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "3.1.2 Language of Parts",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#language-of-parts"
+      }
+    ],
+    "tags": [
+      "screen-reader",
+      "language",
+      "testing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-at-zoom-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v25",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A magnification user can see the focused control but a sticky header covers its label. Which issue should the evaluator report?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The focused component is obscured at the user's magnification or viewport setting"
+      },
+      {
+        "id": "B",
+        "text": "The page uses an incorrect language code"
+      },
+      {
+        "id": "C",
+        "text": "The control has no mouse hover effect"
+      },
+      {
+        "id": "D",
+        "text": "The user should zoom out"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Focus obscuration can make it difficult to determine the active control, especially for users with limited field of view or high magnification.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing for End-User Impact: Users with Low Vision",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.4.11 Focus Not Obscured (Minimum)",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum"
+      }
+    ],
+    "tags": [
+      "magnification",
+      "focus",
+      "low-vision"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-automated-alt-quality-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-testing-tools",
+    "variant_group_id": "was-tools-v13",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A tool verifies that every image has an alt attribute but cannot determine whether the text is accurate for the image's purpose. What should the specialist do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Review the images in context and judge whether each alternative conveys relevant information or purpose"
+      },
+      {
+        "id": "B",
+        "text": "Assume attribute presence means success"
+      },
+      {
+        "id": "C",
+        "text": "Delete all alt attributes"
+      },
+      {
+        "id": "D",
+        "text": "Replace every alternative with the filename"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Automated detection of an attribute does not ensure the quality or appropriateness of its value; context-sensitive review is needed.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web; Domain Two D, Automated Testing Tools",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.1.1 Non-text Content",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#non-text-content"
+      }
+    ],
+    "tags": [
+      "automated-testing",
+      "alt-text",
+      "manual-review"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-report-tool-scope-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-automated-testing",
+    "variant_group_id": "was-tools-v14",
+    "variant_strategy": "misconception_check",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "An automated test report should identify what checks and pages were covered so readers do not mistake limited tool results for a complete accessibility evaluation.",
+    "answer": true,
+    "explanation": "Reporting scope and coverage helps communicate exactly what evidence the tool produced and what still requires other evaluation methods.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Automated Testing Tools and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "automated-testing",
+      "reporting",
+      "scope"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-at-keyboard-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-F",
+    "concept_id": "was-keyboard-testing",
+    "variant_group_id": "was-keyboard-v9",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A keyboard user can activate a toggle but cannot determine whether it is on or off. What should be tested?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whether the current state is exposed and updated programmatically in addition to keyboard operation"
+      },
+      {
+        "id": "B",
+        "text": "Whether the toggle is a link"
+      },
+      {
+        "id": "C",
+        "text": "Whether it has a background image"
+      },
+      {
+        "id": "D",
+        "text": "Whether a mouse can hover over it"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Keyboard operability alone is not sufficient; users also need state information communicated through the accessibility tree.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two F, Keyboard Testing; Domain One D, ARIA States",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "4.1.2 Name, Role, Value",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#name-role-value"
+      }
+    ],
+    "tags": [
+      "keyboard-testing",
+      "state",
+      "aria"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-wcag-em-report-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-B",
+    "concept_id": "was-wcagem-sampling",
+    "variant_group_id": "was-wcagem-v10",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "An evaluation finds some failures but the report omits the pages and criteria involved. What should be added for remediation teams?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Specific affected pages or components, applicable criteria, evidence, and user impact"
+      },
+      {
+        "id": "B",
+        "text": "Only a general pass/fail statement"
+      },
+      {
+        "id": "C",
+        "text": "A list of unrelated style preferences"
+      },
+      {
+        "id": "D",
+        "text": "A screenshot with no explanation"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Actionable findings need enough detail to reproduce, understand, prioritize, and fix the barrier.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two B, Assigning Success Criteria and Failures; WCAG-EM Reporting",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-em",
+        "locator": "Report the evaluation findings",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"
+      }
+    ],
+    "tags": [
+      "evaluation",
+      "reporting",
+      "remediation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-user-speech-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-G",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v26",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A person using speech recognition cannot activate a button because its visible phrase is not included in its accessible name. What should the evaluator connect in the finding?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The name mismatch and the user's inability to target the control through voice input"
+      },
+      {
+        "id": "B",
+        "text": "The button's color and the page's language"
+      },
+      {
+        "id": "C",
+        "text": "The user's microphone brand only"
+      },
+      {
+        "id": "D",
+        "text": "The placement of the footer"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A strong finding connects the technical cause to the end-user consequence and affected task.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two G, Testing for End-User Impact: Motor Disabilities and Speech Recognition",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "2.5.3 Label in Name",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#label-in-name"
+      }
+    ],
+    "tags": [
+      "speech-recognition",
+      "user-impact",
+      "label-in-name"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-qa-userfeedback-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-E",
+    "concept_id": "was-quality-assurance",
+    "variant_group_id": "was-qa-v16",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Accessibility QA can use feedback from disabled users to identify issues and improve test cases and development practices.",
+    "answer": true,
+    "explanation": "User feedback can reveal practical barriers and help organizations improve both products and recurring processes.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two E and G, Accessibility Quality Assurance and End-User Impact",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wai-involving-users",
+        "locator": "Involving users in web accessibility projects",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/test-evaluate/involving-users/"
+      }
+    ],
+    "tags": [
+      "qa",
+      "user-feedback",
+      "continuous-improvement"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d2-test-captions-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-C",
+    "concept_id": "was-end-user-impact",
+    "variant_group_id": "was-enduser-impact-v27",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A live meeting's captions are accurate but several seconds behind the discussion. What user impact should be considered?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The lag may make it difficult to follow turn-taking and connect captions to current speech"
+      },
+      {
+        "id": "B",
+        "text": "Captions should always be delayed"
+      },
+      {
+        "id": "C",
+        "text": "Only the meeting background is affected"
+      },
+      {
+        "id": "D",
+        "text": "Caption accuracy is irrelevant if text appears"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Timing and synchronization influence whether captions provide usable access to live speech, especially in interactive conversations.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two C and G, Testing Media and Auditory End-User Impact",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "1.2.4 Captions (Live)",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/#captions-live"
+      }
+    ],
+    "tags": [
+      "captions",
+      "live-media",
+      "timing"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-priority-criteria-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-prioritization",
+    "variant_group_id": "was-priority-v14",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Prioritization should account for how an accessibility barrier affects the user's ability to complete tasks, not just how visible the defect is to developers.",
+    "answer": true,
+    "explanation": "User impact and task completion are central to understanding severity; some serious barriers may not be visually obvious to developers.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization of Issues",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "prioritization",
+      "user-impact"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-procurement-mitigate-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-defect-mitigation",
+    "variant_group_id": "was-procurement-v9",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A vendor's known defect affects a non-critical feature, and the buyer has an accessible alternative. What should still be documented?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The defect, its impact and scope, the alternative, ownership, and plan for vendor follow-up"
+      },
+      {
+        "id": "B",
+        "text": "Nothing, because an alternative exists"
+      },
+      {
+        "id": "C",
+        "text": "Only the vendor's product slogan"
+      },
+      {
+        "id": "D",
+        "text": "A claim that the product has no accessibility issues"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A mitigation does not erase a defect; documenting the impact, alternative, and follow-up supports transparent procurement and risk management.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Mitigating Accessibility Defects",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "mitigation",
+      "documentation"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-redesign-decision-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-B",
+    "concept_id": "was-fix-or-redesign",
+    "variant_group_id": "was-remediation-v7",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "A specialist considers redesigning a form because small repairs have not resolved repeated errors. What evidence should support the recommendation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The nature and recurrence of failures, user impact, and whether redesign is more effective than further isolated fixes"
+      },
+      {
+        "id": "B",
+        "text": "The team's preferred visual style alone"
+      },
+      {
+        "id": "C",
+        "text": "The number of characters in the form title"
+      },
+      {
+        "id": "D",
+        "text": "A desire to replace all content"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A redesign recommendation should be grounded in the systemic nature of the problem and the comparative effectiveness of available approaches.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three B, Fixing vs. Redesign",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "redesign",
+      "remediation",
+      "evidence"
+    ],
+    "status": "draft",
+    "revision": 1
+  },
+  {
+    "id": "was-d3-procurement-sustain-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-C",
+    "concept_id": "was-procurement-maturity",
+    "variant_group_id": "was-procurement-v6",
+    "variant_strategy": "new_context",
+    "type": "true_false",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Procurement accessibility practices should be revisited as products, contracts, versions, and organizational needs change.",
+    "answer": true,
+    "explanation": "Procurement accessibility is an ongoing process; new versions and changing use cases can alter the relevance of prior evidence and mitigations.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three C, Procurement Process and Maturity",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "lifecycle",
+      "maturity"
+    ],
+    "status": "draft",
+    "revision": 1
   }
 ]

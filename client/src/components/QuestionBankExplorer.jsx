@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Search, BookOpen, Lightbulb, CheckCircle2, ChevronDown, ChevronUp, Layers, Award, Sparkles, Filter, ExternalLink, Code } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Search, BookOpen, Lightbulb, CheckCircle2, ChevronDown, ChevronUp, Layers, Award, Sparkles, Filter, ExternalLink, Code, AlertTriangle, ShieldCheck } from 'lucide-react';
 import {
   COMBINED_QUESTIONS,
   CPACC_QUESTIONS,
   WAS_QUESTIONS,
   CERTIFICATION_TRACKS,
   CERTIFICATION_DOMAINS,
+  CERTIFICATION_TAXONOMY,
+  getAllSections,
+  getAllSubjects,
   getFilteredQuestions
 } from '../utils/questionBanks';
 import { soundManager } from '../utils/sound';
@@ -21,20 +24,34 @@ export default function QuestionBankExplorer() {
   const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'cpacc', 'was'
   const [searchTerm, setSearchTerm] = useState('');
   const [domainFilter, setDomainFilter] = useState('all');
+  const [sectionFilter, setSectionFilter] = useState('all');
+  const [subjectFilter, setSubjectFilter] = useState('all');
   const [expandedIds, setExpandedIds] = useState(new Set());
+  const [showAuditPanel, setShowAuditPanel] = useState(false);
 
   const activePool = selectedTrack === 'cpacc' ? CPACC_QUESTIONS : selectedTrack === 'was' ? WAS_QUESTIONS : COMBINED_QUESTIONS;
+
+  const allSectionsList = useMemo(() => getAllSections(selectedTrack), [selectedTrack]);
+  const allSubjectsList = useMemo(() => getAllSubjects(selectedTrack), [selectedTrack]);
 
   const d1Count = activePool.filter(q => q.domain === 1).length;
   const d2Count = activePool.filter(q => q.domain === 2).length;
   const d3Count = activePool.filter(q => q.domain === 3).length;
 
-  const filteredQuestions = activePool.filter((q) => {
-    const matchesDomain = domainFilter === 'all' || q.domain === parseInt(domainFilter, 10);
-    const textToSearch = `${q.question} ${q.topic} ${q.explanation} ${q.citation || q.cpaccRef || q.wasRef || ''} ${q.funNote || ''}`.toLowerCase();
-    const matchesSearch = !searchTerm.trim() || textToSearch.includes(searchTerm.toLowerCase());
-    return matchesDomain && matchesSearch;
-  });
+  const filteredQuestions = useMemo(() => {
+    return activePool.filter((q) => {
+      const matchesDomain = domainFilter === 'all' || q.domain === parseInt(domainFilter, 10);
+      const matchesSection = sectionFilter === 'all' || q.section_id === sectionFilter;
+      const matchesSubject = subjectFilter === 'all' || (
+        Array.isArray(q.tags) && q.tags.map(t => t.toLowerCase()).includes(subjectFilter.toLowerCase())
+      ) || (
+        typeof q.topic === 'string' && q.topic.toLowerCase().includes(subjectFilter.toLowerCase())
+      );
+      const textToSearch = `${q.question} ${q.topic} ${q.explanation} ${q.citation || q.cpaccRef || q.wasRef || ''} ${q.funNote || ''}`.toLowerCase();
+      const matchesSearch = !searchTerm.trim() || textToSearch.includes(searchTerm.toLowerCase());
+      return matchesDomain && matchesSection && matchesSubject && matchesSearch;
+    });
+  }, [activePool, domainFilter, sectionFilter, subjectFilter, searchTerm]);
 
   const toggleExpand = (id) => {
     soundManager.playClick();
@@ -355,7 +372,58 @@ export default function QuestionBankExplorer() {
             </div>
           </div>
 
-          {/* Domain Filter Pills */}
+          {/* Section & Subject Filters Strip */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+            {/* Section Filter Dropdown */}
+            <div>
+              <label htmlFor="explorer-section-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.78rem', color: '#cbd5e1', marginBottom: '0.3rem', fontFamily: "'Space Mono', monospace" }}>
+                📑 Filter By Section:
+              </label>
+              <select
+                id="explorer-section-select"
+                className="input-field"
+                value={sectionFilter}
+                onChange={(e) => { soundManager.playClick(); setSectionFilter(e.target.value); }}
+                style={{ fontSize: '0.85rem', padding: '0.45rem 0.65rem' }}
+              >
+                <option value="all">All Sections ({activePool.length} Qs)</option>
+                {allSectionsList.map(cert => (
+                  <optgroup key={cert.id} label={cert.title}>
+                    {(cert.domains || []).map(dom => (
+                      (dom.sections || []).map(s => (
+                        <option key={s.id} value={s.id}>
+                          {s.id}: {s.title} ({s.count} Qs{s.count < 5 ? ' - 🔴 CRITICAL' : s.count < 10 ? ' - ⚠️ LOW' : ''})
+                        </option>
+                      ))
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+
+            {/* Subject Filter Dropdown */}
+            <div>
+              <label htmlFor="explorer-subject-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.78rem', color: '#cbd5e1', marginBottom: '0.3rem', fontFamily: "'Space Mono', monospace" }}>
+                🏷️ Filter By Subject / Tag:
+              </label>
+              <select
+                id="explorer-subject-select"
+                className="input-field"
+                value={subjectFilter}
+                onChange={(e) => { soundManager.playClick(); setSubjectFilter(e.target.value); }}
+                style={{ fontSize: '0.85rem', padding: '0.45rem 0.65rem' }}
+              >
+                <option value="all">All Subjects / Topics ({activePool.length} Qs)</option>
+                {allSubjectsList.map(sub => (
+                  <option key={sub.key} value={sub.key}>
+                    {sub.icon} {sub.label} ({sub.count} Qs)
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Domain Filter Pills & Audit Toggle */}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
               {[
@@ -384,12 +452,106 @@ export default function QuestionBankExplorer() {
                   {d.label}
                 </button>
               ))}
+
+              <button
+                type="button"
+                onClick={() => {
+                  soundManager.playClick();
+                  setShowAuditPanel(!showAuditPanel);
+                }}
+                style={{
+                  padding: '0.4rem 0.9rem',
+                  borderRadius: '4px',
+                  fontSize: '0.8rem',
+                  fontFamily: "'Space Mono', monospace",
+                  fontWeight: 800,
+                  background: showAuditPanel ? '#f59e0b' : 'rgba(245, 158, 11, 0.15)',
+                  color: showAuditPanel ? '#090d16' : '#fbbf24',
+                  border: '1px solid #f59e0b',
+                  cursor: 'pointer'
+                }}
+                aria-expanded={showAuditPanel}
+              >
+                📊 {showAuditPanel ? 'Hide Section Audit' : 'Section Readiness Audit'}
+              </button>
             </div>
 
             <div style={{ fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
               Displaying <strong style={{ color: '#ffffff' }}>{filteredQuestions.length}</strong> of {activePool.length} Syllabus Drills
             </div>
           </div>
+
+          {/* Collapsible Section Inventory Audit Drawer */}
+          {showAuditPanel && (
+            <div style={{ marginTop: '0.85rem', padding: '1rem', background: '#070d19', borderRadius: 'var(--radius-sm)', border: '2px solid #f59e0b' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+                <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#fbbf24', fontFamily: "'Space Grotesk', sans-serif" }}>
+                  📊 Individual Section Inventory & Readiness Audit
+                </h4>
+                <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
+                  MIN ROUND: 5 Qs | STANDARD: 10 Qs
+                </span>
+              </div>
+              <p style={{ fontSize: '0.8rem', color: '#cbd5e1', lineHeight: 1.45, marginBottom: '0.85rem' }}>
+                Click any section badge below to inspect its questions. Sections labeled <strong style={{ color: '#fca5a5' }}>🔴 CRITICAL</strong> have fewer than 5 questions and cannot support an isolated 5- or 10-question round without pooling.
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.5rem' }}>
+                {allSectionsList.map(cert => (
+                  (cert.domains || []).map(dom => (
+                    (dom.sections || []).map(sec => {
+                      const isCritical = sec.count < 5;
+                      const isLow = sec.count >= 5 && sec.count < 10;
+                      const isSelected = sectionFilter === sec.id;
+                      return (
+                        <button
+                          key={sec.id}
+                          type="button"
+                          onClick={() => {
+                            soundManager.playClick();
+                            setSectionFilter(sectionFilter === sec.id ? 'all' : sec.id);
+                          }}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            padding: '0.45rem 0.65rem',
+                            borderRadius: '4px',
+                            textAlign: 'left',
+                            cursor: 'pointer',
+                            background: isSelected ? 'rgba(56, 189, 248, 0.2)' : isCritical ? 'rgba(239, 68, 68, 0.1)' : isLow ? 'rgba(245, 158, 11, 0.1)' : 'rgba(15, 23, 42, 0.6)',
+                            border: `1px solid ${isSelected ? '#38bdf8' : isCritical ? '#ef4444' : isLow ? '#f59e0b' : 'rgba(51, 65, 85, 0.5)'}`,
+                            color: '#ffffff',
+                            fontSize: '0.78rem'
+                          }}
+                        >
+                          <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 800, color: isCritical ? '#fca5a5' : isLow ? '#fde68a' : '#93c5fd' }}>
+                              [{sec.id}]
+                            </span>
+                            <span style={{ fontSize: '0.75rem', color: '#cbd5e1', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '200px' }}>
+                              {sec.title}
+                            </span>
+                          </div>
+                          <span style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 800,
+                            padding: '0.15rem 0.4rem',
+                            borderRadius: '3px',
+                            background: isCritical ? '#ef4444' : isLow ? '#f59e0b' : '#10b981',
+                            color: '#090d16',
+                            fontFamily: "'Space Mono', monospace"
+                          }}>
+                            {sec.count} Qs
+                          </span>
+                        </button>
+                      );
+                    })
+                  ))
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

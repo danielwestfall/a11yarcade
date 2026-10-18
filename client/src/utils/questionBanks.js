@@ -1,11 +1,15 @@
 // Multi-Certification Question Banks Loader & Utilities
 // Supports IAAP CPACC (Core Competencies) and IAAP WAS (Web Accessibility Specialist)
 // Seamlessly normalizes both legacy arcade format and new structured quiz-bank schema
+// Supports granular Section-level and Subject-level filtering with question count audit
 
 import cpaccRaw from '../data/questions.json';
 import wasRaw from '../data/questions_was.json';
 import cpaccBankRaw from '../data/quiz-bank/cpacc.json';
 import wasBankRaw from '../data/quiz-bank/was.json';
+import taxonomyRaw from '../data/quiz-bank/taxonomy.json';
+
+export const CERTIFICATION_TAXONOMY = taxonomyRaw;
 
 export const CERTIFICATION_TRACKS = [
   {
@@ -61,25 +65,45 @@ export const CERTIFICATION_DOMAINS = {
 const SHAPES = ['triangle', 'diamond', 'circle', 'square'];
 
 /**
+ * Maps legacy question IDs to appropriate taxonomy section IDs.
+ */
+function mapLegacySection(q) {
+  if (q.section_id) return q.section_id;
+  if (!q.id) return 'UNKNOWN';
+
+  if (q.id.startsWith('cpacc-d1')) {
+    const num = parseInt(q.id.replace('cpacc-d1-', ''), 10);
+    if (num <= 5) return 'CPACC-D1-A'; // Theoretical Models
+    if (num <= 10) return 'CPACC-D1-B'; // Disability Categories & Barriers
+    return 'CPACC-D1-C'; // Assistive Tech
+  } else if (q.id.startsWith('cpacc-d2')) {
+    const num = parseInt(q.id.replace('cpacc-d2-', ''), 10);
+    if (num <= 5) return 'CPACC-D2-E'; // Principles of Universal Design
+    if (num <= 10) return 'CPACC-D2-F'; // UDL
+    return 'CPACC-D2-C'; // WCAG Principles
+  } else if (q.id.startsWith('cpacc-d3')) {
+    const num = parseInt(q.id.replace('cpacc-d3-', ''), 10);
+    if (num <= 5) return 'CPACC-D3-D'; // Laws & Regulations
+    return 'CPACC-D3-F'; // Integrating ICT Accessibility
+  } else if (q.id.startsWith('was-d1')) {
+    return 'WAS-D1-B'; // Semantic HTML & Custom Controls
+  } else if (q.id.startsWith('was-d2')) {
+    return 'WAS-D2-B'; // Guidelines, Conformance & WCAG-EM
+  } else if (q.id.startsWith('was-d3')) {
+    return 'WAS-D3-A'; // Severity & Prioritization
+  }
+  return 'UNKNOWN';
+}
+
+/**
  * Universal question record normalizer.
  * Supports legacy quiz format (question, choices) and structured quiz-bank schema (stem, options, answer).
  */
 export function normalizeQuestion(raw, defaultCert = 'CPACC') {
   if (!raw) return null;
 
-  // Already normalized legacy arcade format
-  if (raw.question && Array.isArray(raw.choices)) {
-    const cert = raw.certification || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
-    return {
-      ...raw,
-      certification: cert,
-      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
-    };
-  }
-
-  // Structured Quiz-Bank schema format
   const cert = raw.certification_id || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
-  const questionText = raw.stem || raw.question || 'Accessibility Question';
+  const sectionId = mapLegacySection(raw);
 
   let domainNum = 1;
   if (typeof raw.domain === 'number') {
@@ -88,6 +112,31 @@ export function normalizeQuestion(raw, defaultCert = 'CPACC') {
     const match = raw.domain_id.match(/-D(\d)/i);
     if (match) domainNum = parseInt(match[1], 10);
   }
+
+  // Tags / Subject derivation
+  let tags = [];
+  if (Array.isArray(raw.tags)) {
+    tags = raw.tags;
+  } else if (raw.topic) {
+    tags = [raw.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-')];
+  }
+
+  // Already normalized legacy arcade format
+  if (raw.question && Array.isArray(raw.choices)) {
+    return {
+      ...raw,
+      domain: domainNum,
+      domain_id: raw.domain_id || `${cert}-D${domainNum}`,
+      section_id: sectionId,
+      concept_id: raw.concept_id || '',
+      tags,
+      certification: cert,
+      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
+    };
+  }
+
+  // Structured Quiz-Bank schema format
+  const questionText = raw.stem || raw.question || 'Accessibility Question';
 
   let choices = [];
   if (raw.type === 'true_false' || typeof raw.answer === 'boolean') {
@@ -130,6 +179,10 @@ export function normalizeQuestion(raw, defaultCert = 'CPACC') {
     id: raw.id,
     question: questionText,
     domain: domainNum,
+    domain_id: raw.domain_id || `${cert}-D${domainNum}`,
+    section_id: sectionId,
+    concept_id: raw.concept_id || '',
+    tags,
     certification: cert,
     topic,
     difficulty: raw.difficulty || 'medium',
@@ -158,6 +211,138 @@ export const WAS_QUESTIONS = buildBank([...(Array.isArray(wasBankRaw) ? wasBankR
 export const COMBINED_QUESTIONS = [...CPACC_QUESTIONS, ...WAS_QUESTIONS];
 
 /**
+ * Returns all taxonomy sections with real-time question counts and health status.
+ * @param {'all' | 'cpacc' | 'was'} track 
+ */
+export function getAllSections(track = 'all') {
+  const questions = getQuestionsByTrack(track);
+  const counts = {};
+  questions.forEach(q => {
+    if (q.section_id) {
+      counts[q.section_id] = (counts[q.section_id] || 0) + 1;
+    }
+  });
+
+  const sectionsList = [];
+  const certs = (CERTIFICATION_TAXONOMY?.certifications || []).filter(c => {
+    if (track === 'all') return true;
+    return c.id.toLowerCase() === track.toLowerCase();
+  });
+
+  certs.forEach(c => {
+    (c.domains || []).forEach(d => {
+      (d.sections || []).forEach(s => {
+        const count = counts[s.id] || 0;
+        let status = 'healthy';
+        if (count < 5) status = 'critical';
+        else if (count < 10) status = 'low';
+
+        sectionsList.push({
+          id: s.id,
+          label: s.label,
+          domain_id: d.id,
+          domainLabel: d.label,
+          certification_id: c.id,
+          count,
+          status, // 'healthy' (10+), 'low' (5-9), 'critical' (< 5)
+          warningText: count < 5
+            ? `Critical: only ${count} questions (cannot support a full 5- or 10-question round)`
+            : count < 10
+            ? `Low: ${count} questions (fewer than standard 10-question round)`
+            : `${count} questions ready`
+        });
+      });
+    });
+  });
+
+  return sectionsList;
+}
+
+/**
+ * Returns distinct subjects / tags with question counts.
+ * @param {'all' | 'cpacc' | 'was'} track 
+ */
+export function getAllSubjects(track = 'all') {
+  const questions = getQuestionsByTrack(track);
+  const subjectMap = {};
+
+  const SUBJECT_DISPLAY_NAMES = {
+    'keyboard': { name: 'Keyboard Navigation & Focus', icon: '⌨️' },
+    'procurement': { name: 'Procurement, VPAT & ACR', icon: '📜' },
+    'wcag': { name: 'WCAG Conformance & Principles', icon: '🎯' },
+    'testing': { name: 'Accessibility Testing & Audits', icon: '🧪' },
+    'screen-reader': { name: 'Screen Reader Interaction', icon: '🔊' },
+    'aria': { name: 'WAI-ARIA Roles & States', icon: '⚡' },
+    'remediation': { name: 'Code Remediation Strategies', icon: '🛠️' },
+    'end-user-impact': { name: 'End-User Experience & Impact', icon: '👥' },
+    'prioritization': { name: 'Defect Severity & Backlog Prioritization', icon: '⚖️' },
+    'assistive-technology': { name: 'Assistive Tech & Switch Access', icon: '🦽' },
+    'low-vision': { name: 'Low Vision & Magnification', icon: '👁️' },
+    'universal-design': { name: 'Universal Design & Accommodations', icon: '🌐' },
+    'custom-controls': { name: 'Custom Widget & Dialog Semantics', icon: '🎛️' },
+    'accessible-name': { name: 'Accessible Names & Descriptions', icon: '🏷️' },
+    'focus': { name: 'Focus Order & Trap Prevention', icon: '🔍' },
+    'forms': { name: 'Accessible Forms & Validation', icon: '📝' },
+    'acr': { name: 'Accessibility Conformance Reports', icon: '📋' },
+    'dynamic-content': { name: 'Dynamic Content & Live Regions', icon: '📡' },
+    'wcag-em': { name: 'WCAG-EM Evaluation Methodology', icon: '📊' },
+    'testing-tools': { name: 'Automated vs Manual Linters & Tools', icon: '⚙️' },
+    'reporting': { name: 'Audit Documentation & Reporting', icon: '📑' },
+    'qa': { name: 'Quality Assurance & CI/CD Gates', icon: '🛡️' },
+    'conformance': { name: 'Conformance Levels (A, AA, AAA)', icon: '🏅' },
+    'semantic-html': { name: 'Semantic HTML5 Elements', icon: '💻' },
+    'automated-testing': { name: 'Automated Test Coverage Limits', icon: '🤖' },
+    'severity': { name: 'Issue Severity Grading', icon: '🚨' },
+    'captions': { name: 'Captions, Subtitles & Audio Description', icon: '💬' },
+    'mitigation': { name: 'Third-Party Defect Mitigation', icon: '🩹' },
+    'state': { name: 'ARIA State Management (expanded, pressed)', icon: '🔄' }
+  };
+
+  questions.forEach(q => {
+    const qTags = Array.isArray(q.tags) && q.tags.length > 0 ? q.tags : [q.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-')];
+    qTags.forEach(rawTag => {
+      const clean = rawTag.toLowerCase().trim();
+      if (!clean) return;
+      subjectMap[clean] = (subjectMap[clean] || 0) + 1;
+    });
+  });
+
+  return Object.entries(subjectMap)
+    .filter(([_, count]) => count >= 4) // Only show subjects with at least 4 items
+    .sort((a, b) => b[1] - a[1])
+    .map(([tagId, count]) => {
+      const meta = SUBJECT_DISPLAY_NAMES[tagId] || {
+        name: tagId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        icon: '🏷️'
+      };
+      return {
+        id: tagId,
+        label: meta.name,
+        icon: meta.icon,
+        count
+      };
+    });
+}
+
+/**
+ * Returns an audit report of sections with low question counts.
+ */
+export function getSectionAuditReport() {
+  const allSections = getAllSections('all');
+  const critical = allSections.filter(s => s.status === 'critical');
+  const low = allSections.filter(s => s.status === 'low');
+  const healthy = allSections.filter(s => s.status === 'healthy');
+
+  return {
+    totalSections: allSections.length,
+    critical,
+    low,
+    healthy,
+    summaryText: `Found ${critical.length} critical section(s) (< 5 questions) and ${low.length} low section(s) (< 10 questions) out of ${allSections.length} syllabus sections.`
+  };
+}
+
+/**
  * Returns questions filtered by track.
  * @param {'all' | 'cpacc' | 'was'} track 
  */
@@ -168,28 +353,63 @@ export function getQuestionsByTrack(track = 'all') {
 }
 
 /**
- * Filter questions by multiple criteria.
+ * Filter questions by multiple criteria:
+ * - track ('all', 'cpacc', 'was')
+ * - domain ('all', 1, 2, 3)
+ * - sections (array of section IDs, or single string)
+ * - subjects (array of subject/tag strings, or single string)
+ * - difficulty ('all', 'easy', 'medium', 'hard')
+ * - searchTerm (string)
  */
 export function getFilteredQuestions({
   track = 'all',
   domain = 'all',
+  sections = [],
+  subjects = [],
   difficulty = 'all',
   searchTerm = ''
 }) {
   let pool = getQuestionsByTrack(track);
 
+  // Filter by Domain
   if (domain !== 'all') {
     pool = pool.filter(q => q.domain === parseInt(domain, 10));
   }
 
+  // Filter by Section(s) - single or multiple
+  const activeSections = Array.isArray(sections)
+    ? sections.filter(Boolean)
+    : (sections ? [sections] : []);
+
+  if (activeSections.length > 0) {
+    const secSet = new Set(activeSections);
+    pool = pool.filter(q => q.section_id && secSet.has(q.section_id));
+  }
+
+  // Filter by Subject(s) - single or multiple
+  const activeSubjects = Array.isArray(subjects)
+    ? subjects.filter(Boolean).map(s => s.toLowerCase())
+    : (subjects ? [subjects.toLowerCase()] : []);
+
+  if (activeSubjects.length > 0) {
+    const subSet = new Set(activeSubjects);
+    pool = pool.filter(q => {
+      const qTags = (q.tags || []).map(t => t.toLowerCase());
+      const qTopic = (q.topic || '').toLowerCase();
+      return qTags.some(t => subSet.has(t)) || subSet.has(qTopic);
+    });
+  }
+
+  // Filter by Difficulty
   if (difficulty !== 'all') {
     pool = pool.filter(q => q.difficulty === difficulty);
   }
 
+  // Filter by Search Term
   if (searchTerm && searchTerm.trim()) {
     const term = searchTerm.toLowerCase().trim();
     pool = pool.filter(q => {
-      const haystack = `${q.question} ${q.topic} ${q.explanation} ${q.citation || ''} ${q.funNote || ''}`.toLowerCase();
+      const haystack = `${q.question} ${q.topic} ${q.explanation} ${q.citation || ''} ${q.funNote || ''} ${q.section_id || ''}`.toLowerCase();
       return haystack.includes(term);
     });
   }

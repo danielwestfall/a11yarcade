@@ -29,23 +29,41 @@ const io = new Server(httpServer, {
   }
 });
 
+// Maps legacy question IDs to appropriate taxonomy section IDs
+function mapLegacySection(q) {
+  if (q.section_id) return q.section_id;
+  if (!q.id) return 'UNKNOWN';
+
+  if (q.id.startsWith('cpacc-d1')) {
+    const num = parseInt(q.id.replace('cpacc-d1-', ''), 10);
+    if (num <= 5) return 'CPACC-D1-A'; // Theoretical Models
+    if (num <= 10) return 'CPACC-D1-B'; // Disability Categories & Barriers
+    return 'CPACC-D1-C'; // Assistive Tech
+  } else if (q.id.startsWith('cpacc-d2')) {
+    const num = parseInt(q.id.replace('cpacc-d2-', ''), 10);
+    if (num <= 5) return 'CPACC-D2-E'; // Principles of Universal Design
+    if (num <= 10) return 'CPACC-D2-F'; // UDL
+    return 'CPACC-D2-C'; // WCAG Principles
+  } else if (q.id.startsWith('cpacc-d3')) {
+    const num = parseInt(q.id.replace('cpacc-d3-', ''), 10);
+    if (num <= 5) return 'CPACC-D3-D'; // Laws & Regulations
+    return 'CPACC-D3-F'; // Integrating ICT Accessibility
+  } else if (q.id.startsWith('was-d1')) {
+    return 'WAS-D1-B'; // Semantic HTML & Custom Controls
+  } else if (q.id.startsWith('was-d2')) {
+    return 'WAS-D2-B'; // Guidelines, Conformance & WCAG-EM
+  } else if (q.id.startsWith('was-d3')) {
+    return 'WAS-D3-A'; // Severity & Prioritization
+  }
+  return 'UNKNOWN';
+}
+
 // Universal Question Record Normalizer
 function normalizeQuestion(raw, defaultCert = 'CPACC') {
   if (!raw) return null;
 
-  // Already normalized legacy arcade format
-  if (raw.question && Array.isArray(raw.choices)) {
-    const cert = raw.certification || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
-    return {
-      ...raw,
-      certification: cert,
-      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
-    };
-  }
-
-  // Structured Quiz-Bank schema format
   const cert = raw.certification_id || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
-  const questionText = raw.stem || raw.question || 'Accessibility Question';
+  const sectionId = mapLegacySection(raw);
 
   let domainNum = 1;
   if (typeof raw.domain === 'number') {
@@ -54,6 +72,31 @@ function normalizeQuestion(raw, defaultCert = 'CPACC') {
     const match = raw.domain_id.match(/-D(\d)/i);
     if (match) domainNum = parseInt(match[1], 10);
   }
+
+  // Tags / Subject derivation
+  let tags = [];
+  if (Array.isArray(raw.tags)) {
+    tags = raw.tags;
+  } else if (raw.topic) {
+    tags = [raw.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-')];
+  }
+
+  // Already normalized legacy arcade format
+  if (raw.question && Array.isArray(raw.choices)) {
+    return {
+      ...raw,
+      domain: domainNum,
+      domain_id: raw.domain_id || `${cert}-D${domainNum}`,
+      section_id: sectionId,
+      concept_id: raw.concept_id || '',
+      tags,
+      certification: cert,
+      citation: raw.citation || raw.cpaccRef || raw.wasRef || `${cert} Body of Knowledge`
+    };
+  }
+
+  // Structured Quiz-Bank schema format
+  const questionText = raw.stem || raw.question || 'Accessibility Question';
 
   const shapes = ['triangle', 'diamond', 'circle', 'square'];
   let choices = [];
@@ -97,6 +140,10 @@ function normalizeQuestion(raw, defaultCert = 'CPACC') {
     id: raw.id,
     question: questionText,
     domain: domainNum,
+    domain_id: raw.domain_id || `${cert}-D${domainNum}`,
+    section_id: sectionId,
+    concept_id: raw.concept_id || '',
+    tags,
     certification: cert,
     topic,
     difficulty: raw.difficulty || 'medium',
@@ -204,8 +251,127 @@ app.get('/api/boss-raids', (req, res) => {
   res.json(bossRaidsBank);
 });
 
+// Load Taxonomy for Sections & Domains
+const taxonomyPath = path.join(__dirname, '..', 'data', 'quiz-bank', 'taxonomy.json');
+let taxonomyData = null;
+try {
+  if (fs.existsSync(taxonomyPath)) {
+    taxonomyData = JSON.parse(fs.readFileSync(taxonomyPath, 'utf8'));
+  }
+} catch (err) {
+  console.error('Failed to load taxonomy.json:', err.message);
+}
+
+// Taxonomy Endpoint (with real-time section question counts & health indicators)
+app.get('/api/taxonomy', (req, res) => {
+  const { track } = req.query;
+  const targetTrack = (track || 'all').toLowerCase();
+
+  const counts = {};
+  questionBank.forEach(q => {
+    if (q.section_id) {
+      counts[q.section_id] = (counts[q.section_id] || 0) + 1;
+    }
+  });
+
+  if (!taxonomyData || !Array.isArray(taxonomyData.certifications)) {
+    return res.json({ certifications: [] });
+  }
+
+  const enrichedCerts = taxonomyData.certifications
+    .filter(c => targetTrack === 'all' || c.id.toLowerCase() === targetTrack)
+    .map(c => ({
+      ...c,
+      domains: (c.domains || []).map(d => ({
+        ...d,
+        sections: (d.sections || []).map(s => {
+          const count = counts[s.id] || 0;
+          let status = 'healthy';
+          if (count < 5) status = 'critical';
+          else if (count < 10) status = 'low';
+          return {
+            ...s,
+            count,
+            status,
+            warning: count < 5 ? `Critical (< 5): only ${count} items` : count < 10 ? `Low (< 10): ${count} items` : null
+          };
+        })
+      }))
+    }));
+
+  res.json({ certifications: enrichedCerts });
+});
+
+// Section Audit Endpoint (Reports sections with low or critical counts)
+app.get('/api/sections/audit', (req, res) => {
+  const counts = {};
+  questionBank.forEach(q => {
+    if (q.section_id) counts[q.section_id] = (counts[q.section_id] || 0) + 1;
+  });
+
+  const critical = [];
+  const low = [];
+  const healthy = [];
+
+  if (taxonomyData && Array.isArray(taxonomyData.certifications)) {
+    taxonomyData.certifications.forEach(c => {
+      (c.domains || []).forEach(d => {
+        (d.sections || []).forEach(s => {
+          const count = counts[s.id] || 0;
+          const entry = {
+            id: s.id,
+            label: s.label,
+            certification: c.id,
+            domainId: d.id,
+            count
+          };
+          if (count < 5) critical.push(entry);
+          else if (count < 10) low.push(entry);
+          else healthy.push(entry);
+        });
+      });
+    });
+  }
+
+  res.json({
+    totalSections: critical.length + low.length + healthy.length,
+    critical,
+    low,
+    healthy,
+    summary: `Found ${critical.length} critical section(s) (< 5 items) and ${low.length} low section(s) (< 10 items).`
+  });
+});
+
+// Subjects / Tags Endpoint
+app.get('/api/subjects', (req, res) => {
+  const { track } = req.query;
+  const targetTrack = (track || 'all').toLowerCase();
+
+  const subjectMap = {};
+  questionBank.forEach(q => {
+    if (targetTrack !== 'all' && q.certification?.toLowerCase() !== targetTrack) return;
+    const tags = Array.isArray(q.tags) && q.tags.length > 0 ? q.tags : [q.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-')];
+    tags.forEach(t => {
+      const clean = t.toLowerCase().trim();
+      if (!clean) return;
+      subjectMap[clean] = (subjectMap[clean] || 0) + 1;
+    });
+  });
+
+  const subjects = Object.entries(subjectMap)
+    .filter(([_, count]) => count >= 4)
+    .sort((a, b) => b[1] - a[1])
+    .map(([id, count]) => ({
+      id,
+      label: id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      count
+    }));
+
+  res.json(subjects);
+});
+
 app.get('/api/questions', (req, res) => {
-  const { domain, difficulty, limit, track, cert } = req.query;
+  const { domain, difficulty, limit, track, cert, sections, section, subjects, subject } = req.query;
   const certTrack = (track || cert || 'all').toLowerCase();
 
   let filtered = [...questionBank];
@@ -218,6 +384,31 @@ app.get('/api/questions', (req, res) => {
   if (difficulty && difficulty !== 'all') {
     filtered = filtered.filter(q => q.difficulty === difficulty);
   }
+
+  // Multi-section filter
+  const rawSections = sections || section;
+  if (rawSections) {
+    const secList = (Array.isArray(rawSections) ? rawSections : String(rawSections).split(',')).map(s => s.trim()).filter(Boolean);
+    if (secList.length > 0) {
+      const secSet = new Set(secList);
+      filtered = filtered.filter(q => q.section_id && secSet.has(q.section_id));
+    }
+  }
+
+  // Multi-subject filter
+  const rawSubjects = subjects || subject;
+  if (rawSubjects) {
+    const subList = (Array.isArray(rawSubjects) ? rawSubjects : String(rawSubjects).split(',')).map(s => s.trim().toLowerCase()).filter(Boolean);
+    if (subList.length > 0) {
+      const subSet = new Set(subList);
+      filtered = filtered.filter(q => {
+        const qTags = (q.tags || []).map(t => t.toLowerCase());
+        const qTopic = (q.topic || '').toLowerCase();
+        return qTags.some(t => subSet.has(t)) || subSet.has(qTopic);
+      });
+    }
+  }
+
   if (limit) {
     const lim = parseInt(limit, 10);
     filtered = filtered.sort(() => 0.5 - Math.random()).slice(0, lim);
@@ -330,6 +521,17 @@ io.on('connection', (socket) => {
     const selectedDomain = settings.domain || 'all';
     const certTrack = (settings.certTrack || settings.track || 'all').toLowerCase();
 
+    // Multi-section and Multi-subject extraction
+    const rawSections = settings.sections || settings.section;
+    const selectedSections = rawSections
+      ? (Array.isArray(rawSections) ? rawSections : String(rawSections).split(',')).map(s => s.trim()).filter(Boolean)
+      : [];
+
+    const rawSubjects = settings.subjects || settings.subject;
+    const selectedSubjects = rawSubjects
+      ? (Array.isArray(rawSubjects) ? rawSubjects : String(rawSubjects).split(',')).map(s => s.trim().toLowerCase()).filter(Boolean)
+      : [];
+
     let pool = [...questionBank];
     if (certTrack !== 'all') {
       pool = pool.filter(q => q.certification?.toLowerCase() === certTrack);
@@ -337,7 +539,31 @@ io.on('connection', (socket) => {
     if (selectedDomain !== 'all') {
       pool = pool.filter(q => q.domain === parseInt(selectedDomain, 10));
     }
-    const chosenQuestions = pool.sort(() => 0.5 - Math.random()).slice(0, questionCount);
+    if (selectedSections.length > 0) {
+      const secSet = new Set(selectedSections);
+      pool = pool.filter(q => q.section_id && secSet.has(q.section_id));
+    }
+    if (selectedSubjects.length > 0) {
+      const subSet = new Set(selectedSubjects);
+      pool = pool.filter(q => {
+        const qTags = (q.tags || []).map(t => t.toLowerCase());
+        const qTopic = (q.topic || '').toLowerCase();
+        return qTags.some(t => subSet.has(t)) || subSet.has(qTopic);
+      });
+    }
+
+    let poolWarning = null;
+    let chosenQuestions = [];
+    if (pool.length === 0) {
+      poolWarning = 'No questions matched the selected section/subject filter. Falling back to active track pool.';
+      let fallbackPool = questionBank.filter(q => certTrack === 'all' || q.certification?.toLowerCase() === certTrack);
+      chosenQuestions = fallbackPool.sort(() => 0.5 - Math.random()).slice(0, questionCount);
+    } else {
+      if (pool.length < questionCount) {
+        poolWarning = `Selected section(s)/subject(s) only contain ${pool.length} question(s). Round size adjusted to ${pool.length}.`;
+      }
+      chosenQuestions = pool.sort(() => 0.5 - Math.random()).slice(0, questionCount);
+    }
 
     const hostParticipates = Boolean(settings.hostParticipates);
 
@@ -351,6 +577,9 @@ io.on('connection', (socket) => {
         timeLimit,
         questionCount: chosenQuestions.length,
         domain: selectedDomain,
+        sections: selectedSections,
+        subjects: selectedSubjects,
+        poolWarning,
         blunderPenalty: settings.blunderPenalty !== false, // for Hot Potato
         targetDistance: settings.targetDistance || 100,    // for Grand Prix
         hostParticipates

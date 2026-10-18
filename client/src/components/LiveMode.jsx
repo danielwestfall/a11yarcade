@@ -36,7 +36,15 @@ import TauntNotificationToast from './TauntNotificationToast';
 import TauntTriggerButton from './TauntTriggerButton';
 import CelebrationBroadcastOverlay from './CelebrationBroadcastOverlay';
 import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
-import { CERTIFICATION_DOMAINS, CERTIFICATION_TRACKS } from '../utils/questionBanks';
+import {
+  CERTIFICATION_DOMAINS,
+  CERTIFICATION_TRACKS,
+  CERTIFICATION_TAXONOMY,
+  getAllSections,
+  getAllSubjects,
+  getSectionAuditReport,
+  getFilteredQuestions
+} from '../utils/questionBanks';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -171,6 +179,9 @@ export default function LiveMode() {
     questionCount: 10,
     domain: 'all',
     certTrack: 'all', // 'all', 'cpacc', 'was'
+    filterType: 'domain', // 'domain', 'sections', 'subjects'
+    selectedSections: [],
+    selectedSubjects: [],
     blunderPenalty: true,
     targetDistance: 100
   });
@@ -453,11 +464,83 @@ export default function LiveMode() {
     }
   };
 
+  // Real-time calculation of available questions in pool
+  const availableQuestions = React.useMemo(() => {
+    return getFilteredQuestions({
+      certTrack: hostSettings.certTrack || 'all',
+      domain: hostSettings.filterType === 'domain' ? hostSettings.domain : 'all',
+      sections: hostSettings.filterType === 'sections' ? hostSettings.selectedSections : [],
+      subjects: hostSettings.filterType === 'subjects' ? hostSettings.selectedSubjects : []
+    });
+  }, [hostSettings.certTrack, hostSettings.domain, hostSettings.filterType, hostSettings.selectedSections, hostSettings.selectedSubjects]);
+
+  const allAvailableSections = React.useMemo(() => {
+    return getAllSections(hostSettings.certTrack || 'all');
+  }, [hostSettings.certTrack]);
+
+  const allAvailableSubjects = React.useMemo(() => {
+    return getAllSubjects(hostSettings.certTrack || 'all');
+  }, [hostSettings.certTrack]);
+
+  const handleToggleSection = (sectionId) => {
+    soundManager.playClick();
+    setHostSettings((prev) => {
+      const current = prev.selectedSections || [];
+      const updated = current.includes(sectionId)
+        ? current.filter(id => id !== sectionId)
+        : [...current, sectionId];
+      return { ...prev, selectedSections: updated };
+    });
+  };
+
+  const handleSelectAllSections = () => {
+    soundManager.playClick();
+    const allIds = [];
+    allAvailableSections.forEach(c => {
+      (c.domains || []).forEach(d => {
+        (d.sections || []).forEach(s => allIds.push(s.id));
+      });
+    });
+    setHostSettings(prev => ({ ...prev, selectedSections: allIds }));
+  };
+
+  const handleClearSections = () => {
+    soundManager.playClick();
+    setHostSettings(prev => ({ ...prev, selectedSections: [] }));
+  };
+
+  const handleToggleSubject = (subjectKey) => {
+    soundManager.playClick();
+    setHostSettings((prev) => {
+      const current = prev.selectedSubjects || [];
+      const updated = current.includes(subjectKey)
+        ? current.filter(k => k !== subjectKey)
+        : [...current, subjectKey];
+      return { ...prev, selectedSubjects: updated };
+    });
+  };
+
+  const handleSelectAllSubjects = () => {
+    soundManager.playClick();
+    setHostSettings(prev => ({ ...prev, selectedSubjects: allAvailableSubjects.map(s => s.key) }));
+  };
+
+  const handleClearSubjects = () => {
+    soundManager.playClick();
+    setHostSettings(prev => ({ ...prev, selectedSubjects: [] }));
+  };
+
   // Host Action: Create Room
   const handleHostCreateRoom = () => {
     if (!socket) return;
     setErrorMessage('');
-    socket.emit('create-room', hostSettings, (res) => {
+    const payload = {
+      ...hostSettings,
+      sections: hostSettings.filterType === 'sections' ? hostSettings.selectedSections : [],
+      subjects: hostSettings.filterType === 'subjects' ? hostSettings.selectedSubjects : [],
+      domain: hostSettings.filterType === 'domain' ? hostSettings.domain : 'all'
+    };
+    socket.emit('create-room', payload, (res) => {
       if (res && res.success) {
         setRoomPin(res.pin);
         setGameMode(res.gameMode || hostSettings.gameMode || 'CLASSIC');
@@ -778,7 +861,7 @@ export default function LiveMode() {
               </div>
 
               {/* Host Settings */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.25rem' }}>
                 <div>
                   <label htmlFor="host-track-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
                     Certification Exam Track:
@@ -795,37 +878,332 @@ export default function LiveMode() {
                   </select>
                 </div>
 
-                <div>
-                  <label htmlFor="host-timer-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
-                    Round Timer Limit:
-                  </label>
-                  <select
-                    id="host-timer-select"
-                    className="input-field"
-                    value={hostSettings.timeLimit}
-                    onChange={(e) => setHostSettings({ ...hostSettings, timeLimit: parseInt(e.target.value, 10) })}
-                  >
-                    <option value="15">15 Seconds (Rapid Reflexes)</option>
-                    <option value="20">20 Seconds (Standard Competitive)</option>
-                    <option value="30">30 Seconds (Thoughtful Team Review)</option>
-                    <option value="0">Untimed / Manual Advance (Max A11y)</option>
-                  </select>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                  <div>
+                    <label htmlFor="host-timer-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                      Round Timer Limit:
+                    </label>
+                    <select
+                      id="host-timer-select"
+                      className="input-field"
+                      value={hostSettings.timeLimit}
+                      onChange={(e) => setHostSettings({ ...hostSettings, timeLimit: parseInt(e.target.value, 10) })}
+                    >
+                      <option value="15">15 Seconds (Rapid)</option>
+                      <option value="20">20 Seconds (Standard)</option>
+                      <option value="30">30 Seconds (Thoughtful)</option>
+                      <option value="0">Untimed / Manual</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="host-count-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                      Questions Per Match:
+                    </label>
+                    <select
+                      id="host-count-select"
+                      className="input-field"
+                      value={hostSettings.questionCount}
+                      onChange={(e) => setHostSettings({ ...hostSettings, questionCount: parseInt(e.target.value, 10) })}
+                    >
+                      <option value="5">5 Questions (Blitz)</option>
+                      <option value="10">10 Questions (Standard)</option>
+                      <option value="15">15 Questions (Extended)</option>
+                      <option value="20">20 Questions (Marathon)</option>
+                    </select>
+                  </div>
                 </div>
 
+                {/* Question Selection Mode Switcher */}
                 <div>
-                  <label htmlFor="host-domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
-                    Curriculum Domain Focus:
-                  </label>
-                  <select
-                    id="host-domain-select"
-                    className="input-field"
-                    value={hostSettings.domain}
-                    onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
+                  <span style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.45rem' }}>
+                    Question Pool Focus:
+                  </span>
+                  <div
+                    role="tablist"
+                    aria-label="Question selection method"
+                    style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.4rem', background: '#0b1326', padding: '0.35rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}
                   >
-                    {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
-                      <option key={d.id} value={d.id}>{d.label}</option>
-                    ))}
-                  </select>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={hostSettings.filterType === 'domain'}
+                      onClick={() => {
+                        soundManager.playClick();
+                        setHostSettings(prev => ({ ...prev, filterType: 'domain' }));
+                      }}
+                      style={{
+                        padding: '0.5rem 0.25rem',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        background: hostSettings.filterType === 'domain' ? '#38bdf8' : 'transparent',
+                        color: hostSettings.filterType === 'domain' ? '#090d16' : '#94a3b8',
+                        transition: 'all 0.15s ease'
+                      }}
+                    >
+                      🌐 By Domain
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={hostSettings.filterType === 'sections'}
+                      onClick={() => {
+                        soundManager.playClick();
+                        setHostSettings(prev => ({ ...prev, filterType: 'sections' }));
+                      }}
+                      style={{
+                        padding: '0.5rem 0.25rem',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        background: hostSettings.filterType === 'sections' ? '#10b981' : 'transparent',
+                        color: hostSettings.filterType === 'sections' ? '#090d16' : '#94a3b8',
+                        transition: 'all 0.15s ease'
+                      }}
+                    >
+                      📑 By Sections ({hostSettings.selectedSections?.length || 0})
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={hostSettings.filterType === 'subjects'}
+                      onClick={() => {
+                        soundManager.playClick();
+                        setHostSettings(prev => ({ ...prev, filterType: 'subjects' }));
+                      }}
+                      style={{
+                        padding: '0.5rem 0.25rem',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        background: hostSettings.filterType === 'subjects' ? '#f59e0b' : 'transparent',
+                        color: hostSettings.filterType === 'subjects' ? '#090d16' : '#94a3b8',
+                        transition: 'all 0.15s ease'
+                      }}
+                    >
+                      🏷️ By Subject ({hostSettings.selectedSubjects?.length || 0})
+                    </button>
+                  </div>
+                </div>
+
+                {/* Sub-Panel A: By Domain Focus */}
+                {hostSettings.filterType === 'domain' && (
+                  <div>
+                    <label htmlFor="host-domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                      Curriculum Domain Focus:
+                    </label>
+                    <select
+                      id="host-domain-select"
+                      className="input-field"
+                      value={hostSettings.domain}
+                      onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
+                    >
+                      {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
+                        <option key={d.id} value={d.id}>{d.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+                {/* Sub-Panel B: By Sections Multi-Select */}
+                {hostSettings.filterType === 'sections' && (
+                  <div style={{ background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#10b981' }}>
+                        Curriculum Sections ({hostSettings.selectedSections.length} selected):
+                      </span>
+                      <div style={{ display: 'flex', gap: '0.4rem' }}>
+                        <button
+                          type="button"
+                          onClick={handleSelectAllSections}
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', borderRadius: '4px', cursor: 'pointer' }}
+                        >
+                          Select All
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleClearSections}
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                        >
+                          Clear
+                        </button>
+                      </div>
+                    </div>
+
+                    <div style={{ maxHeight: '240px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '0.65rem', paddingRight: '0.35rem' }}>
+                      {allAvailableSections.map(cert => (
+                        <div key={cert.id} style={{ marginBottom: '0.35rem' }}>
+                          <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.35rem', letterSpacing: '0.05em' }}>
+                            {cert.title}
+                          </div>
+                          {(cert.domains || []).map(dom => (
+                            <div key={dom.id} style={{ marginBottom: '0.5rem', paddingLeft: '0.35rem', borderLeft: '2px solid rgba(56, 189, 248, 0.3)' }}>
+                              <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '0.25rem' }}>
+                                {dom.title}
+                              </div>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                                {(dom.sections || []).map(sec => {
+                                  const isChecked = hostSettings.selectedSections.includes(sec.id);
+                                  const isCritical = sec.count < 5;
+                                  const isLow = sec.count >= 5 && sec.count < 10;
+                                  return (
+                                    <label
+                                      key={sec.id}
+                                      style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        gap: '0.5rem',
+                                        padding: '0.35rem 0.5rem',
+                                        borderRadius: '4px',
+                                        background: isChecked ? 'rgba(16, 185, 129, 0.12)' : 'rgba(15, 23, 42, 0.5)',
+                                        border: `1px solid ${isChecked ? '#10b981' : 'rgba(51, 65, 85, 0.5)'}`,
+                                        cursor: 'pointer',
+                                        fontSize: '0.8rem'
+                                      }}
+                                    >
+                                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1 }}>
+                                        <input
+                                          type="checkbox"
+                                          checked={isChecked}
+                                          onChange={() => handleToggleSection(sec.id)}
+                                          style={{ width: '18px', height: '18px', minWidth: '24px', minHeight: '24px', cursor: 'pointer' }}
+                                        />
+                                        <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 700, color: '#cbd5e1' }}>
+                                          [{sec.id}]
+                                        </span>
+                                        <span style={{ color: '#ffffff', fontSize: '0.78rem' }}>
+                                          {sec.title}
+                                        </span>
+                                      </div>
+                                      <span
+                                        style={{
+                                          fontSize: '0.7rem',
+                                          fontWeight: 800,
+                                          padding: '0.15rem 0.4rem',
+                                          borderRadius: '4px',
+                                          whiteSpace: 'nowrap',
+                                          background: isCritical ? 'rgba(239, 68, 68, 0.2)' : isLow ? 'rgba(245, 158, 11, 0.2)' : 'rgba(16, 185, 129, 0.2)',
+                                          border: `1px solid ${isCritical ? '#ef4444' : isLow ? '#f59e0b' : '#10b981'}`,
+                                          color: isCritical ? '#fca5a5' : isLow ? '#fde68a' : '#86efac'
+                                        }}
+                                        title={isCritical ? 'Fewer than 5 questions available for this section' : isLow ? 'Fewer than 10 questions available' : 'Healthy inventory'}
+                                      >
+                                        {isCritical ? `🔴 ${sec.count} Qs` : isLow ? `⚠️ ${sec.count} Qs` : `🟢 ${sec.count} Qs`}
+                                      </span>
+                                    </label>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Sub-Panel C: By Subject / Topic Multi-Select */}
+                {hostSettings.filterType === 'subjects' && (
+                  <div style={{ background: '#0b1326', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#f59e0b' }}>
+                        Curriculum Subjects ({hostSettings.selectedSubjects.length} selected):
+                      </span>
+                      <div style={{ display: 'flex', gap: '0.4rem' }}>
+                        <button
+                          type="button"
+                          onClick={handleSelectAllSubjects}
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid #f59e0b', borderRadius: '4px', cursor: 'pointer' }}
+                        >
+                          Select All
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleClearSubjects}
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                        >
+                          Clear
+                        </button>
+                      </div>
+                    </div>
+
+                    <div style={{ maxHeight: '200px', overflowY: 'auto', display: 'flex', flexWrap: 'wrap', gap: '0.4rem', paddingRight: '0.35rem' }}>
+                      {allAvailableSubjects.map(sub => {
+                        const isChecked = hostSettings.selectedSubjects.includes(sub.key);
+                        return (
+                          <button
+                            key={sub.key}
+                            type="button"
+                            onClick={() => handleToggleSubject(sub.key)}
+                            aria-pressed={isChecked}
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.35rem',
+                              padding: '0.4rem 0.65rem',
+                              borderRadius: '20px',
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                              cursor: 'pointer',
+                              border: `1px solid ${isChecked ? '#f59e0b' : 'rgba(51, 65, 85, 0.6)'}`,
+                              background: isChecked ? 'rgba(245, 158, 11, 0.2)' : 'rgba(15, 23, 42, 0.6)',
+                              color: isChecked ? '#fbbf24' : '#cbd5e1'
+                            }}
+                          >
+                            <span>{sub.icon}</span>
+                            <span>{sub.label}</span>
+                            <span style={{ fontSize: '0.7rem', opacity: 0.8, fontFamily: "'Space Mono', monospace" }}>
+                              ({sub.count})
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Real-Time Question Pool Diagnostic Bar */}
+                <div style={{
+                  background: availableQuestions.length === 0 ? 'rgba(239, 68, 68, 0.15)' : availableQuestions.length < hostSettings.questionCount ? 'rgba(245, 158, 11, 0.15)' : 'rgba(16, 185, 129, 0.12)',
+                  border: `1px solid ${availableQuestions.length === 0 ? '#ef4444' : availableQuestions.length < hostSettings.questionCount ? '#f59e0b' : '#10b981'}`,
+                  borderRadius: 'var(--radius-sm)',
+                  padding: '0.65rem 0.85rem'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
+                    <span style={{
+                      fontWeight: 800,
+                      fontSize: '0.82rem',
+                      fontFamily: "'Space Mono', monospace",
+                      color: availableQuestions.length === 0 ? '#fca5a5' : availableQuestions.length < hostSettings.questionCount ? '#fde68a' : '#86efac'
+                    }}>
+                      📦 MATCH POOL: {availableQuestions.length} Questions Available
+                    </span>
+                    <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
+                      TARGET: {hostSettings.questionCount} Qs
+                    </span>
+                  </div>
+
+                  {availableQuestions.length === 0 ? (
+                    <div style={{ fontSize: '0.75rem', color: '#fca5a5', marginTop: '0.2rem' }}>
+                      ⚠️ Zero questions found matching this filter. Please choose at least one section or subject.
+                    </div>
+                  ) : availableQuestions.length < hostSettings.questionCount ? (
+                    <div style={{ fontSize: '0.75rem', color: '#fde68a', marginTop: '0.2rem' }}>
+                      ⚠️ Pool has fewer items ({availableQuestions.length}) than your round target ({hostSettings.questionCount}). The match will run with all {availableQuestions.length} questions.
+                    </div>
+                  ) : (
+                    <div style={{ fontSize: '0.75rem', color: '#86efac', marginTop: '0.2rem' }}>
+                      ✓ Healthy question inventory for full {hostSettings.questionCount}-question matches.
+                    </div>
+                  )}
                 </div>
 
                 {/* Host Play Along Option */}
@@ -1025,6 +1403,25 @@ export default function LiveMode() {
                   <p style={{ marginTop: '0.6rem', fontSize: '1rem', color: '#94a3b8', maxWidth: '750px', lineHeight: 1.5 }}>
                     Punch in your 4-digit token (<span style={{ color: '#10b981', fontWeight: 800 }}>screen readers welcome</span>, rogue bots will be alt-tagged!). Compete live with your accessibility team to conquer {hostSettings.certTrack === 'was' ? 'IAAP WAS technical remediation' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC certification' : 'IAAP CPACC & WAS'} questions in rapid-fire arcade rounds.
                   </p>
+
+                  {/* Room Inventory Warning if Pool is small */}
+                  {roomSettings?.poolWarning && (
+                    <div style={{
+                      marginTop: '0.75rem',
+                      background: 'rgba(245, 158, 11, 0.15)',
+                      border: '1px solid #f59e0b',
+                      color: '#fde68a',
+                      padding: '0.5rem 0.85rem',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.85rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem'
+                    }}>
+                      <span style={{ fontSize: '1.1rem' }}>⚠️</span>
+                      <span><strong>Pool Inventory Notice:</strong> {roomSettings.poolWarning}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Match Configuration HUD Strip */}
@@ -1045,19 +1442,31 @@ export default function LiveMode() {
                     </select>
                   </label>
 
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
-                    <span>Domain:</span>
-                    <select
-                      className="input-field"
-                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto' }}
-                      value={hostSettings.domain}
-                      onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
-                    >
-                      {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
-                        <option key={d.id} value={d.id}>{d.label}</option>
-                      ))}
-                    </select>
-                  </label>
+                  {roomSettings?.sections && roomSettings.sections.length > 0 ? (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid #10b981' }}>
+                      <span>📑 Sections:</span>
+                      <span style={{ fontWeight: 800 }}>{roomSettings.sections.length} Selected ({roomSettings.sections.join(', ')})</span>
+                    </div>
+                  ) : roomSettings?.subjects && roomSettings.subjects.length > 0 ? (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid #f59e0b' }}>
+                      <span>🏷️ Subjects:</span>
+                      <span style={{ fontWeight: 800 }}>{roomSettings.subjects.join(', ')}</span>
+                    </div>
+                  ) : (
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
+                      <span>Domain:</span>
+                      <select
+                        className="input-field"
+                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto' }}
+                        value={hostSettings.domain}
+                        onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
+                      >
+                        {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
+                          <option key={d.id} value={d.id}>{d.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: activeCabinet.color }}>
                     <span style={{ fontSize: '1.1rem' }}>{activeCabinet.icon}</span>

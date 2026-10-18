@@ -16,7 +16,15 @@ import { soundManager } from '../utils/sound';
 import questionsData from '../data/questions.json';
 import CoachFeedbackCard from './CoachFeedbackCard';
 import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
-import { CERTIFICATION_TRACKS, CERTIFICATION_DOMAINS, getQuestionsByTrack } from '../utils/questionBanks';
+import {
+  CERTIFICATION_TRACKS,
+  CERTIFICATION_DOMAINS,
+  CERTIFICATION_TAXONOMY,
+  getAllSections,
+  getAllSubjects,
+  getFilteredQuestions,
+  getQuestionsByTrack
+} from '../utils/questionBanks';
 
 const SHAPE_CONFIG = {
   triangle: { icon: '▲', color: '#ef4444', label: 'Red Triangle' },
@@ -28,6 +36,9 @@ const SHAPE_CONFIG = {
 export default function PracticeMode({ onBack }) {
   const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'cpacc', 'was'
   const [selectedDomain, setSelectedDomain] = useState('all');
+  const [filterType, setFilterType] = useState('domain'); // 'domain', 'sections', 'subjects'
+  const [selectedSections, setSelectedSections] = useState([]);
+  const [selectedSubjects, setSelectedSubjects] = useState([]);
 
   const [questionCount, setQuestionCount] = useState(10);
   const [isStarted, setIsStarted] = useState(false);
@@ -43,19 +54,74 @@ export default function PracticeMode({ onBack }) {
 
   const nextButtonRef = useRef(null);
 
+  const availableQuestions = React.useMemo(() => {
+    return getFilteredQuestions({
+      certTrack: selectedTrack,
+      domain: filterType === 'domain' ? selectedDomain : 'all',
+      sections: filterType === 'sections' ? selectedSections : [],
+      subjects: filterType === 'subjects' ? selectedSubjects : []
+    });
+  }, [selectedTrack, selectedDomain, filterType, selectedSections, selectedSubjects]);
+
+  const allAvailableSections = React.useMemo(() => {
+    return getAllSections(selectedTrack);
+  }, [selectedTrack]);
+
+  const allAvailableSubjects = React.useMemo(() => {
+    return getAllSubjects(selectedTrack);
+  }, [selectedTrack]);
+
+  const handleToggleSection = (sectionId) => {
+    soundManager.playClick();
+    setSelectedSections(prev =>
+      prev.includes(sectionId) ? prev.filter(id => id !== sectionId) : [...prev, sectionId]
+    );
+  };
+
+  const handleSelectAllSections = () => {
+    soundManager.playClick();
+    const allIds = [];
+    allAvailableSections.forEach(c => {
+      (c.domains || []).forEach(d => {
+        (d.sections || []).forEach(s => allIds.push(s.id));
+      });
+    });
+    setSelectedSections(allIds);
+  };
+
+  const handleClearSections = () => {
+    soundManager.playClick();
+    setSelectedSections([]);
+  };
+
+  const handleToggleSubject = (subjectKey) => {
+    soundManager.playClick();
+    setSelectedSubjects(prev =>
+      prev.includes(subjectKey) ? prev.filter(k => k !== subjectKey) : [...prev, subjectKey]
+    );
+  };
+
+  const handleSelectAllSubjects = () => {
+    soundManager.playClick();
+    setSelectedSubjects(allAvailableSubjects.map(s => s.key));
+  };
+
+  const handleClearSubjects = () => {
+    soundManager.playClick();
+    setSelectedSubjects([]);
+  };
+
   // Setup Quiz
   const startQuiz = (reviewMissedOnly = false) => {
-    let pool = getQuestionsByTrack(selectedTrack);
+    let pool = [];
 
     if (reviewMissedOnly) {
       const missedIds = history.filter(h => !h.isCorrect).map(h => h.question.id);
-      pool = pool.filter(q => missedIds.includes(q.id));
+      pool = getQuestionsByTrack(selectedTrack).filter(q => missedIds.includes(q.id));
       setIsReviewingMissed(true);
     } else {
       setIsReviewingMissed(false);
-      if (selectedDomain !== 'all') {
-        pool = pool.filter(q => q.domain === parseInt(selectedDomain, 10));
-      }
+      pool = [...availableQuestions];
       pool = pool.sort(() => 0.5 - Math.random()).slice(0, questionCount);
     }
 
@@ -233,22 +299,290 @@ export default function PracticeMode({ onBack }) {
               </div>
             </div>
 
-            {/* 2. Domain Selection */}
+            {/* 2. Curriculum Focus: Domain / Sections / Subject Switch */}
             <div style={{ marginBottom: '1.75rem' }}>
-              <label htmlFor="domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-                2. Select Curriculum Scope & Domain:
+              <label style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+                2. Select Curriculum Scope:
               </label>
-              <select
-                id="domain-select"
-                className="input-field"
-                value={selectedDomain}
-                onChange={(e) => setSelectedDomain(e.target.value)}
-                style={{ fontSize: '1rem', padding: '0.85rem 1rem' }}
+
+              <div
+                role="tablist"
+                aria-label="Practice curriculum selection method"
+                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem', background: 'var(--bg-surface-elevated)', padding: '0.4rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', marginBottom: '1rem' }}
               >
-                {(CERTIFICATION_DOMAINS[selectedTrack] || CERTIFICATION_DOMAINS.all).map(d => (
-                  <option key={d.id} value={d.id}>{d.label}</option>
-                ))}
-              </select>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={filterType === 'domain'}
+                  onClick={() => {
+                    soundManager.playClick();
+                    setFilterType('domain');
+                  }}
+                  style={{
+                    padding: '0.6rem 0.5rem',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    background: filterType === 'domain' ? '#38bdf8' : 'transparent',
+                    color: filterType === 'domain' ? '#090d16' : '#94a3b8',
+                    transition: 'all 0.15s ease'
+                  }}
+                >
+                  🌐 By Domain
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={filterType === 'sections'}
+                  onClick={() => {
+                    soundManager.playClick();
+                    setFilterType('sections');
+                  }}
+                  style={{
+                    padding: '0.6rem 0.5rem',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    background: filterType === 'sections' ? '#10b981' : 'transparent',
+                    color: filterType === 'sections' ? '#090d16' : '#94a3b8',
+                    transition: 'all 0.15s ease'
+                  }}
+                >
+                  📑 By Sections ({selectedSections.length})
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={filterType === 'subjects'}
+                  onClick={() => {
+                    soundManager.playClick();
+                    setFilterType('subjects');
+                  }}
+                  style={{
+                    padding: '0.6rem 0.5rem',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    background: filterType === 'subjects' ? '#f59e0b' : 'transparent',
+                    color: filterType === 'subjects' ? '#090d16' : '#94a3b8',
+                    transition: 'all 0.15s ease'
+                  }}
+                >
+                  🏷️ By Subject ({selectedSubjects.length})
+                </button>
+              </div>
+
+              {/* Sub-Panel A: By Domain */}
+              {filterType === 'domain' && (
+                <div>
+                  <select
+                    id="domain-select"
+                    className="input-field"
+                    value={selectedDomain}
+                    onChange={(e) => setSelectedDomain(e.target.value)}
+                    style={{ fontSize: '1rem', padding: '0.85rem 1rem' }}
+                  >
+                    {(CERTIFICATION_DOMAINS[selectedTrack] || CERTIFICATION_DOMAINS.all).map(d => (
+                      <option key={d.id} value={d.id}>{d.label}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* Sub-Panel B: By Specific Sections */}
+              {filterType === 'sections' && (
+                <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                    <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#10b981' }}>
+                      Certification Sections ({selectedSections.length} selected):
+                    </span>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <button
+                        type="button"
+                        onClick={handleSelectAllSections}
+                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', borderRadius: '4px', cursor: 'pointer' }}
+                      >
+                        Select All
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleClearSections}
+                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+
+                  <div style={{ maxHeight: '250px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '0.75rem', paddingRight: '0.35rem' }}>
+                    {allAvailableSections.map(cert => (
+                      <div key={cert.id} style={{ marginBottom: '0.35rem' }}>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.35rem' }}>
+                          {cert.title}
+                        </div>
+                        {(cert.domains || []).map(dom => (
+                          <div key={dom.id} style={{ marginBottom: '0.5rem', paddingLeft: '0.5rem', borderLeft: '2px solid rgba(56, 189, 248, 0.3)' }}>
+                            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '0.25rem' }}>
+                              {dom.title}
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                              {(dom.sections || []).map(sec => {
+                                const isChecked = selectedSections.includes(sec.id);
+                                const isCritical = sec.count < 5;
+                                const isLow = sec.count >= 5 && sec.count < 10;
+                                return (
+                                  <label
+                                    key={sec.id}
+                                    style={{
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      gap: '0.5rem',
+                                      padding: '0.35rem 0.5rem',
+                                      borderRadius: '4px',
+                                      background: isChecked ? 'rgba(16, 185, 129, 0.12)' : 'rgba(15, 23, 42, 0.5)',
+                                      border: `1px solid ${isChecked ? '#10b981' : 'rgba(51, 65, 85, 0.5)'}`,
+                                      cursor: 'pointer',
+                                      fontSize: '0.82rem'
+                                    }}
+                                  >
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1 }}>
+                                      <input
+                                        type="checkbox"
+                                        checked={isChecked}
+                                        onChange={() => handleToggleSection(sec.id)}
+                                        style={{ width: '18px', height: '18px', minWidth: '24px', minHeight: '24px', cursor: 'pointer' }}
+                                      />
+                                      <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 700, color: '#cbd5e1' }}>
+                                        [{sec.id}]
+                                      </span>
+                                      <span style={{ color: '#ffffff', fontSize: '0.8rem' }}>
+                                        {sec.title}
+                                      </span>
+                                    </div>
+                                    <span
+                                      style={{
+                                        fontSize: '0.72rem',
+                                        fontWeight: 800,
+                                        padding: '0.15rem 0.45rem',
+                                        borderRadius: '4px',
+                                        whiteSpace: 'nowrap',
+                                        background: isCritical ? 'rgba(239, 68, 68, 0.2)' : isLow ? 'rgba(245, 158, 11, 0.2)' : 'rgba(16, 185, 129, 0.2)',
+                                        border: `1px solid ${isCritical ? '#ef4444' : isLow ? '#f59e0b' : '#10b981'}`,
+                                        color: isCritical ? '#fca5a5' : isLow ? '#fde68a' : '#86efac'
+                                      }}
+                                    >
+                                      {isCritical ? `🔴 ${sec.count} Qs` : isLow ? `⚠️ ${sec.count} Qs` : `🟢 ${sec.count} Qs`}
+                                    </span>
+                                  </label>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Sub-Panel C: By Subjects */}
+              {filterType === 'subjects' && (
+                <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                    <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#f59e0b' }}>
+                      Topics & Subjects ({selectedSubjects.length} selected):
+                    </span>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <button
+                        type="button"
+                        onClick={handleSelectAllSubjects}
+                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: '1px solid #f59e0b', borderRadius: '4px', cursor: 'pointer' }}
+                      >
+                        Select All
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleClearSubjects}
+                        style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '4px', cursor: 'pointer' }}
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+
+                  <div style={{ maxHeight: '200px', overflowY: 'auto', display: 'flex', flexWrap: 'wrap', gap: '0.45rem', paddingRight: '0.35rem' }}>
+                    {allAvailableSubjects.map(sub => {
+                      const isChecked = selectedSubjects.includes(sub.key);
+                      return (
+                        <button
+                          key={sub.key}
+                          type="button"
+                          onClick={() => handleToggleSubject(sub.key)}
+                          aria-pressed={isChecked}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.35rem',
+                            padding: '0.4rem 0.65rem',
+                            borderRadius: '20px',
+                            fontSize: '0.8rem',
+                            fontWeight: 700,
+                            cursor: 'pointer',
+                            border: `1px solid ${isChecked ? '#f59e0b' : 'rgba(51, 65, 85, 0.6)'}`,
+                            background: isChecked ? 'rgba(245, 158, 11, 0.2)' : 'rgba(15, 23, 42, 0.6)',
+                            color: isChecked ? '#fbbf24' : '#cbd5e1'
+                          }}
+                        >
+                          <span>{sub.icon}</span>
+                          <span>{sub.label}</span>
+                          <span style={{ fontSize: '0.72rem', opacity: 0.8, fontFamily: "'Space Mono', monospace" }}>
+                            ({sub.count})
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Pool Inventory Status */}
+              <div style={{
+                marginTop: '1rem',
+                background: availableQuestions.length === 0 ? 'rgba(239, 68, 68, 0.15)' : availableQuestions.length < questionCount ? 'rgba(245, 158, 11, 0.15)' : 'rgba(16, 185, 129, 0.12)',
+                border: `1px solid ${availableQuestions.length === 0 ? '#ef4444' : availableQuestions.length < questionCount ? '#f59e0b' : '#10b981'}`,
+                borderRadius: 'var(--radius-sm)',
+                padding: '0.65rem 0.85rem'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{
+                    fontWeight: 800,
+                    fontSize: '0.85rem',
+                    fontFamily: "'Space Mono', monospace",
+                    color: availableQuestions.length === 0 ? '#fca5a5' : availableQuestions.length < questionCount ? '#fde68a' : '#86efac'
+                  }}>
+                    📦 MATCH POOL: {availableQuestions.length} Questions Available
+                  </span>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
+                    TARGET: {questionCount} Qs
+                  </span>
+                </div>
+                {availableQuestions.length === 0 ? (
+                  <div style={{ fontSize: '0.78rem', color: '#fca5a5', marginTop: '0.25rem' }}>
+                    ⚠️ Zero questions match this selection. Please pick at least one section or subject.
+                  </div>
+                ) : availableQuestions.length < questionCount ? (
+                  <div style={{ fontSize: '0.78rem', color: '#fde68a', marginTop: '0.25rem' }}>
+                    ⚠️ Pool has fewer items ({availableQuestions.length}) than your target ({questionCount}). Quiz will run with {availableQuestions.length} questions.
+                  </div>
+                ) : null}
+              </div>
             </div>
 
             {/* 3. Question Count Selection */}
