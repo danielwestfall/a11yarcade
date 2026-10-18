@@ -50,16 +50,49 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
     window.speechSynthesis.cancel(); // Stop any pending speech
     const utterance = new SpeechSynthesisUtterance(quoteData.quote);
     
-    // Coach McGuirk's deadpan, slightly lower-pitch cadence
-    utterance.pitch = 0.84;
-    utterance.rate = 0.88;
+    const isFemale = quoteData.gender === 'female';
+    utterance.pitch = quoteData.pitch || (isFemale ? 1.15 : 0.84);
+    utterance.rate = quoteData.rate || 0.90;
 
-    // Try finding an English voice (prefer male/deep if available)
+    // Dynamically pick female or male English voice based on active mentor gender
     const voices = window.speechSynthesis.getVoices();
-    const englishVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('David') || v.name.includes('Mark') || v.name.includes('Male'))) 
-      || voices.find(v => v.lang.startsWith('en'));
-    if (englishVoice) {
-      utterance.voice = englishVoice;
+    const englishVoices = voices.filter(v => v.lang.startsWith('en'));
+
+    let chosenVoice = null;
+    if (isFemale) {
+      // Prioritize female English voices
+      chosenVoice = englishVoices.find(v => {
+        const n = v.name.toLowerCase();
+        return n.includes('zira') || n.includes('samantha') || n.includes('victoria') ||
+               n.includes('karen') || n.includes('jenny') || n.includes('ava') ||
+               n.includes('female') || n.includes('woman') || n.includes('catherine') ||
+               n.includes('serena') || n.includes('fiona') || n.includes('susan') ||
+               n.includes('hazel') || n.includes('linda') || n.includes('allison');
+      });
+      // Fallback: any voice that isn't explicitly male
+      if (!chosenVoice) {
+        chosenVoice = englishVoices.find(v => {
+          const n = v.name.toLowerCase();
+          return !n.includes('david') && !n.includes('mark') && !n.includes('guy') && !n.includes('male') && !n.includes('george');
+        });
+      }
+    } else {
+      // Prioritize male English voices
+      chosenVoice = englishVoices.find(v => {
+        const n = v.name.toLowerCase();
+        return n.includes('david') || n.includes('mark') || n.includes('male') ||
+               n.includes('guy') || n.includes('george') || n.includes('daniel') ||
+               n.includes('james') || n.includes('richard') || n.includes('alex') ||
+               n.includes('man');
+      });
+    }
+
+    // Ultimate fallback: any English voice, or system default
+    if (!chosenVoice && englishVoices.length > 0) {
+      chosenVoice = englishVoices[0];
+    }
+    if (chosenVoice) {
+      utterance.voice = chosenVoice;
     }
 
     utterance.onstart = () => setIsSpeaking(true);
@@ -73,10 +106,14 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
   const badgeBg = isCorrect ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)';
   const borderStyle = isCorrect ? '1px solid rgba(16, 185, 129, 0.35)' : '1px solid rgba(245, 158, 11, 0.35)';
 
+  const authorName = quoteData.author || quoteData.coach || 'Coach McGuirk';
+  const authorRole = quoteData.role || 'Unsolicited Sideline Advice';
+  const avatarIcon = quoteData.avatarIcon || '🧢';
+
   return (
     <aside
       className="coach-feedback-card"
-      aria-label="Coach McGuirk's Sideline Pep Talk"
+      aria-label={`${authorName}'s Sideline Pep Talk`}
       style={{
         background: '#070f22',
         border: borderStyle,
@@ -102,7 +139,9 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <span style={{ fontSize: '1.4rem' }} role="img" aria-hidden="true">🧢</span>
+          <span style={{ fontSize: '1.4rem' }} role="img" aria-label={authorName}>
+            {avatarIcon}
+          </span>
           <div>
             <div
               className="coach-header-title"
@@ -115,7 +154,7 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
                 textTransform: 'uppercase'
               }}
             >
-              Coach McGuirk's Sideline Pep Talk
+              {authorName}'s Sideline Pep Talk
             </div>
             <div
               className="coach-quote-topic"
@@ -170,8 +209,8 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
             <button
               type="button"
               onClick={handleSpeakQuote}
-              title={isSpeaking ? 'Stop Coach Voice' : 'Coach Reads Quote Aloud'}
-              aria-label={isSpeaking ? 'Stop voice readout' : 'Have Coach read quote aloud'}
+              title={isSpeaking ? 'Stop Mentor Voice' : `Have ${authorName} read quote aloud`}
+              aria-label={isSpeaking ? 'Stop voice readout' : `Have ${authorName} read quote aloud`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -199,8 +238,8 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
           <button
             type="button"
             onClick={handleNextQuote}
-            title="Get another random Coach quote"
-            aria-label="Get another Coach McGuirk quote"
+            title="Get another random mentor quote"
+            aria-label="Get another mentor quote"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -263,7 +302,7 @@ export default function CoachFeedbackCard({ isCorrect, autoPlaySound = false }) 
               color: '#94a3b8'
             }}
           >
-            — <span className="coach-attribution-name" style={{ color: '#ffffff', fontWeight: 700 }}>Coach McGuirk</span>, Unsolicited Sideline Advice
+            — <span className="coach-attribution-name" style={{ color: '#ffffff', fontWeight: 700 }}>{authorName}</span>, {authorRole}
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
-// Coach McGuirk's Sideline Wisdom & Pep Talks
-// Inspired by the legendary deadpan soccer coach from Home Movies
-// Infused with popular SFW internet memes, tech satire, and unsolicited sideline philosophy.
+// Sideline Mentors & Pep Talks Library
+// An ensemble of comedic, eccentric mentors (male & female) delivering humorous sideline philosophy.
+// Infused with popular SFW internet memes, tech satire, and accessible wisdom.
 // Strictly SFW, family and workplace friendly.
 
 export const COACH_CORRECT_QUOTES = [
@@ -8,193 +8,385 @@ export const COACH_CORRECT_QUOTES = [
     name: "The Philosophy of Studying",
     topic: "Educational Ethics",
     badgeId: "studying",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Brendon, you studied, didn't you? You know what studying is? It's cheating. It's looking at the answers before the test. Why would you do that? Now you know the answers. Where's the mystery, Brendon? Where's the drama?"
   },
   {
     name: "The Galaxy Brain Auditor",
     topic: "Cognitive Expansion",
     badgeId: "galaxy-brain",
-    quote: "Look at that big brain. You just operated on four parallel cerebral planes: one for WCAG, one for ARIA landmarks, one for focus traps, and one wondering what's for dinner. Respect."
+    author: "Dr. Priya Sharma",
+    role: "Principal A11y Demographics Theorist",
+    gender: "female",
+    avatarIcon: "🔬",
+    pitch: 1.12,
+    rate: 0.96,
+    quote: "Look at that expansive intellect. You just operated on four parallel cerebral planes: one for WCAG criteria, one for ARIA landmarks, one for focus traps, and one wondering what's for lunch. Pure cognitive brilliance."
   },
   {
     name: "Administrative Leadership",
     topic: "Credit Appropriation",
     badgeId: "sweatpants",
-    quote: "Boom. Correct. Did I teach you that? No. Am I going to take full credit for it in the teacher's lounge tomorrow? Absolutely. That's what coaching is all about."
+    author: "Coach Brenda Martinez",
+    role: "Head of Semantic Optimization & Sprint Coach",
+    gender: "female",
+    avatarIcon: "👩‍💻",
+    pitch: 1.15,
+    rate: 0.95,
+    quote: "Boom. Correct. Did I write those semantic tags for you? No. Am I going to take full credit for this in the executive sprint retro on Monday? Absolutely. That's true organizational leadership."
   },
   {
     name: "Suffering From Success",
     topic: "DJ Khaled Doctrine",
     badgeId: "dj-khaled",
-    quote: "DJ Khaled warned me about this. Another one! You answered that so fast the server thought you were a DDoS attack. Slow down, kid, you're scaring the mainframe."
+    author: "DJ Derek",
+    role: "Audio Description Hype Man",
+    gender: "male",
+    avatarIcon: "🎧",
+    pitch: 0.92,
+    rate: 1.05,
+    quote: "DJ Derek in the mix! Another one! You answered that so fast the server thought you were a distributed denial-of-service attack. Slow down, champion, you're melting the audio board!"
   },
   {
     name: "One Does Not Simply Tab Into Mordor",
-    topic: "Fellowship of the Ring",
+    topic: "Maritime Navigation",
     badgeId: "one-does-not-simply",
-    quote: "One does not simply bypass a modal without focus trapping... except you just nailed it. Boromir would weep tears of pure accessible joy right now."
+    author: "Captain Jack Sterling",
+    role: "VP of Keyboard Navigation & Maritime A11y",
+    gender: "male",
+    avatarIcon: "⚓",
+    pitch: 0.88,
+    rate: 0.92,
+    quote: "One does not simply sail past a dialog modal without dropping a proper focus trap anchor. But you steered right through the channel with perfect heading hierarchy. Steady as she goes!"
   },
   {
     name: "The Sweatpants Doctrine",
     topic: "Tactical Prowess",
     badgeId: "sweatpants",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Good answer. I was actually going to pick the other one, but that was just a tactical test to see if you had the guts to disagree with a man wearing sweatpants at 2 PM. You passed."
   },
   {
     name: "Championship Granola Bar",
-    topic: "Reward Architecture",
+    topic: "Universal Kindness",
     badgeId: "granola-bar",
-    quote: "You got it right. Congratulations. You want a trophy? I don't have one. I have a half-eaten granola bar from 1998 and a whistle that only works on Thursdays. Take the granola bar."
+    author: "Grandma Gertrude",
+    role: "Universal Design Pioneer Since 1948",
+    gender: "female",
+    avatarIcon: "👵",
+    pitch: 1.25,
+    rate: 0.82,
+    quote: "You got it right, sweetheart! What a clever child. You want a trophy? I don't have a trophy, but I've got two wrapped butterscotch candies and a crisp five-dollar bill in my purse. Take both."
   },
   {
     name: "It's Over 9000!",
     topic: "Power Level Assessment",
     badgeId: "over-9000",
-    quote: "What does the scouter say about your accessibility power level?! It's over 9000! Well, technically the score caps at 1000 per round, but mathematically you crushed it."
+    author: "Coach Chloe Adams",
+    role: "Front-End Chaos Coordinator",
+    gender: "female",
+    avatarIcon: "🎮",
+    pitch: 1.20,
+    rate: 1.05,
+    quote: "What does the scouter say about your accessibility power level?! It's over 9000! Well, technically the score caps at 1000 per question, but emotionally you obliterated that spec."
   },
   {
     name: "Automotive Confidence",
     topic: "Parallel Parking",
     badgeId: "parking",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Don't let this victory go to your head. One day you're getting accessibility questions right, the next day you think you can tell me how to parallel park my car. You can't. Nobody can."
   },
   {
     name: "Is This A Feature? (Butterfly Meme)",
     topic: "Spec Interpretation",
     badgeId: "butterfly",
-    quote: "*Points butterfly at screen reader announcement* Is this an accredited WCAG success criterion? Yes. Yes it is, butterfly. You actually knew it."
+    author: "Professor Eleanor Vance",
+    role: "Dean of WAI-ARIA Architecture",
+    gender: "female",
+    avatarIcon: "👩‍🏫",
+    pitch: 1.10,
+    rate: 0.90,
+    quote: "*Points gently at live-region status update* Is this an accredited WCAG success criterion? Yes. Yes it is, my dear scholar. You actually cited the normative guidelines."
   },
   {
     name: "Character Building Through Guessing",
     topic: "Cardiovascular Risk",
     badgeId: "guessing",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Personally, I prefer to guess. Guessing builds character. It keeps the cardiovascular system alert. But fine, do it the boring way with your fancy 'knowledge' and 'credentials'."
   },
   {
     name: "The Gigachad Semantic Element",
     topic: "DOM Superiority",
     badgeId: "gigachad",
-    quote: "Virgin <div> click handler vs. the Gigachad native <button type='button'>. You chose the Gigachad path. Beautiful. Nature is healing."
+    author: "Coach Brenda Martinez",
+    role: "Head of Semantic Optimization & Sprint Coach",
+    gender: "female",
+    avatarIcon: "👩‍💻",
+    pitch: 1.15,
+    rate: 0.95,
+    quote: "Virgin <div> click handler vs. the Gigachad native <button type='button'>. You chose the semantic button path. Beautiful. Nature is healing, and the DOM tree thanks you."
   },
   {
     name: "Cardiovascular Conditioning",
     topic: "Discipline Training",
     badgeId: "laps",
-    quote: "That was correct. Now drop and give me two laps anyway. Not because you were wrong, but because standing still gives you time to think, and thinking leads to doubt."
+    author: "Sgt. Rick Kowalski",
+    role: "Focus Trap Extraction Unit Lead",
+    gender: "male",
+    avatarIcon: "🦺",
+    pitch: 0.80,
+    rate: 1.00,
+    quote: "That was correct, recruit! Now drop and give me two laps around the DOM anyway! Not because you were wrong, but because standing still gives you time to think, and thinking invites focus traps!"
   },
   {
     name: "I See This As An Absolute Win",
     topic: "Hulk Endorsement",
     badgeId: "hulk-win",
-    quote: "Bruce Banner said it best: I see this as an absolute win! The DOM is structured, the landmarks are semantic, and my clipboard remains pristine."
+    author: "Coach Maya Lin",
+    role: "Chief Color Contrast Referee",
+    gender: "female",
+    avatarIcon: "🎨",
+    pitch: 1.20,
+    rate: 1.00,
+    quote: "Bruce Banner said it best: I see this as an absolute win! The color contrast is a radiant 7 to 1, the text is crisp, and our visual audit passes with flying colors."
   },
   {
     name: "Financial Advisory on Wall Swords",
     topic: "Consumer Restraint",
     badgeId: "wall-sword",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Right on the money. Now don't get cocky. Cockiness is how you end up buying three identical decorative stainless steel wall swords off late-night television. Trust me on this."
   },
   {
     name: "Modern Problems, Modern Solutions",
     topic: "Tactical Improvisation",
     badgeId: "sweatpants",
-    quote: "Dave Chappelle is nodding in approval right now. They threw complex WAI-ARIA states at you, and you hit them with clean semantic HTML. Big brain hours."
+    author: "Auntie Denise",
+    role: "Unlicensed IT Consultant & WhatsApp Admin",
+    gender: "female",
+    avatarIcon: "📱",
+    pitch: 1.15,
+    rate: 0.92,
+    quote: "They tried to throw complicated JavaScript widgets at you, and you solved it with plain semantic HTML! That's modern problem solving, darling! I'm forwarding this to the family WhatsApp group right now."
   },
   {
     name: "Happy Little Headings",
     topic: "The Bob Ross Method",
     badgeId: "bob-ross",
-    quote: "We don't make mistakes in accessibility, Brendon. We just have happy little heading level hierarchies. And yours was an absolute masterpiece."
+    author: "Professor Eleanor Vance",
+    role: "Dean of WAI-ARIA Architecture",
+    gender: "female",
+    avatarIcon: "👩‍🏫",
+    pitch: 1.10,
+    rate: 0.90,
+    quote: "We don't make mistakes in accessibility, darling. We just have happy little heading level hierarchies. And yours was an absolute architectural masterpiece."
   },
   {
     name: "Emotional Boundary Control",
     topic: "Interpersonal Limits",
     badgeId: "high-five",
-    quote: "Correct! Don't look at me like that, I'm not going to hug you. High fives are for regional champions, and right now you're just someone who read the syllabus."
+    author: "Coach Brenda Martinez",
+    role: "Head of Semantic Optimization & Sprint Coach",
+    gender: "female",
+    avatarIcon: "👩‍💻",
+    pitch: 1.15,
+    rate: 0.95,
+    quote: "Correct! Don't look at me like that, I'm not going to hug you. High fives are reserved for zero-defect production releases, and right now you're just someone who read the documentation."
   },
   {
     name: "Such Compliance, Much Wow",
     topic: "Doge Treasury",
     badgeId: "doge",
-    quote: "Much accessible. Very semantic. Such compliance. Wow. If WCAG had a crypto token, your portfolio would be through the roof right now."
+    author: "Coach Chloe Adams",
+    role: "Front-End Chaos Coordinator",
+    gender: "female",
+    avatarIcon: "🎮",
+    pitch: 1.20,
+    rate: 1.05,
+    quote: "Much accessible. Very semantic. Such compliance. Wow! If WCAG had a crypto token, your accessibility portfolio would be mooning on the charts right now."
   },
   {
     name: "Defensive Formations",
-    topic: "Youth Soccer Analogy",
+    topic: "Relay Baton Pass",
     badgeId: "soccer-defense",
-    quote: "Screen readers, focus order, live regions... they're a lot like youth soccer defense. I don't understand any of them, but I respect the hustle."
+    author: "Coach Reggie Thornton",
+    role: "Screen Reader Evangelist & Track Coach",
+    gender: "male",
+    avatarIcon: "📢",
+    pitch: 0.90,
+    rate: 0.95,
+    quote: "Screen readers, focus order, live regions... they're just like a 4x100 relay team. Every baton pass has to be clean, and you just sprinted across the anchor leg without a single stutter!"
   },
   {
     name: "They Said It Could Not Be Done",
-    topic: "Résumé Building",
+    topic: "Empirical Vindication",
     badgeId: "resume",
-    quote: "They said nobody could remember the difference between aria-describedby and aria-labelledby. They were wrong. You did it. I'm putting this on my résumé."
+    author: "Dr. Priya Sharma",
+    role: "Principal A11y Demographics Theorist",
+    gender: "female",
+    avatarIcon: "🔬",
+    pitch: 1.12,
+    rate: 0.96,
+    quote: "They said nobody could remember the nuanced distinction between aria-describedby and aria-labelledby under exam conditions. They were wrong. You demonstrated cognitive perfection. I am citing you in my next paper."
   },
   {
     name: "Look At Me: I Am The Captain Now",
     topic: "Chain of Command",
     badgeId: "captain-now",
-    quote: "Look at me. Look at me! You are the Section 508 compliance lead now. Grab the whistle, I'm going to take a nap in the bleachers."
+    author: "Captain Jack Sterling",
+    role: "VP of Keyboard Navigation & Maritime A11y",
+    gender: "male",
+    avatarIcon: "⚓",
+    pitch: 0.88,
+    rate: 0.92,
+    quote: "Look at me. Look at me! You are the Section 508 navigation skipper now! Take the helm and keep the ship on a true keyboard heading while I enjoy a cup of hot grog."
   },
   {
     name: "The Green Uno Reverse Card",
     topic: "Counter-Strategy",
     badgeId: "uno-reverse",
-    quote: "The test question tried to hit you with a sneaky quadruple negative distractor, and you just slapped down the green Uno Reverse card. Absolutely lethal."
+    author: "Coach Tasha Washington",
+    role: "VP of Alt Text Quality Control",
+    gender: "female",
+    avatarIcon: "👁️",
+    pitch: 1.10,
+    rate: 0.95,
+    quote: "The exam question tried to hit you with a sneaky quadruple negative distractor, and you just slapped down the green Uno Reverse card with descriptive alt text. Absolutely flawless defense."
   },
   {
     name: "Task Failed Successfully",
     topic: "Index Card Crisis",
     badgeId: "index-cards",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Wait, you actually got that right? I had a whole motivational speech prepared for when you failed. Now what am I supposed to do with all these color-coded index cards?"
   },
   {
     name: "Too Dangerous To Be Left Alive",
     topic: "Mace Windu Warning",
     badgeId: "mace-windu",
-    quote: "Mace Windu is sweating in the corner. You just identified the exact color contrast ratio on sight without a color picker. That level of power is frankly alarming."
+    author: "Coach Maya Lin",
+    role: "Chief Color Contrast Referee",
+    gender: "female",
+    avatarIcon: "🎨",
+    pitch: 1.20,
+    rate: 1.00,
+    quote: "Mace Windu is sweating in the corner! You just calculated the exact 4.5:1 luminous contrast ratio on sight without touching an eyedropper tool. That level of design mastery is frankly intimidating."
   },
   {
     name: "Schrödinger's Heading Structure",
     topic: "Quantum Verification",
     badgeId: "schrodinger",
-    quote: "Until you inspect the DOM, the heading hierarchy is both broken and accessible. But you inspected it, and it was pure perfection."
+    author: "Dr. Priya Sharma",
+    role: "Principal A11y Demographics Theorist",
+    gender: "female",
+    avatarIcon: "🔬",
+    pitch: 1.12,
+    rate: 0.96,
+    quote: "Until you inspect the accessibility tree, the heading hierarchy exists in quantum superposition. But you inspected it, and it collapsed into pure semantic elegance. Fascinating."
   },
   {
     name: "Honest Work",
     topic: "Farmer Meme",
     badgeId: "honest-work",
-    quote: "It ain't much, but it's honest work. One correct question at a time. The IAAP board of directors is nodding slowly in a dimly lit conference room."
+    author: "Grandma Gertrude",
+    role: "Universal Design Pioneer Since 1948",
+    gender: "female",
+    avatarIcon: "👵",
+    pitch: 1.25,
+    rate: 0.82,
+    quote: "It ain't much, but it's honest work, darling. One accessible button at a time. The IAAP board of directors is smiling down on you like proud grandparents."
   },
   {
     name: "Straight to the Hall of Fame",
     topic: "Metaphorical Chaos",
     badgeId: "hall-of-fame",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "I've been coaching soccer for twelve years, and that was the best accessibility answer I've seen on a football field. Don't question the metaphor."
   },
   {
     name: "Spiderman Pointing Synchrony",
     topic: "Multiverse Agreement",
     badgeId: "spiderman",
-    quote: "You and the official answer key just looked at each other and pointed. Synchronized multiverse perfection."
+    author: "Auntie Denise",
+    role: "Unlicensed IT Consultant & WhatsApp Admin",
+    gender: "female",
+    avatarIcon: "📱",
+    pitch: 1.15,
+    rate: 0.92,
+    quote: "You and the official WCAG specification just looked at each other and pointed like the Spiderman meme! Pure, synchronized harmony right there!"
   },
   {
     name: "Big League Promotion",
     topic: "Contract Negotiations",
     badgeId: "big-league",
-    quote: "You nailed it. If this were pro soccer, you'd be getting a multi-million dollar contract. Since it's a quiz game, you get this virtual thumbs-up. Same value, basically."
+    author: "Coach Brenda Martinez",
+    role: "Head of Semantic Optimization & Sprint Coach",
+    gender: "female",
+    avatarIcon: "👩‍💻",
+    pitch: 1.15,
+    rate: 0.95,
+    quote: "You nailed it. If this were Silicon Valley, you'd be promoted to Staff Accessibility Architect with stock options. Since it's a quiz game, you get maximum XP. Same prestige, honestly."
   },
   {
     name: "Keyboard Warrior Transcendence",
     topic: "No Mouse Required",
     badgeId: "keyboard-warrior",
-    quote: "Look at those hands fly! Not a single mouse click was detected. Tim Berners-Lee just smiled somewhere across the ocean."
+    author: "Sgt. Rick Kowalski",
+    role: "Focus Trap Extraction Unit Lead",
+    gender: "male",
+    avatarIcon: "🦺",
+    pitch: 0.80,
+    rate: 1.00,
+    quote: "Look at those fingers fly! Not a single mouse click was detected across the entire testing perimeter! Tim Berners-Lee is standing at attention and saluting!"
   },
   {
     name: "Peak Performance Aesthetic",
-    topic: "Physical Perfection",
+    topic: "Athletic Precision",
     badgeId: "peak-performance",
-    quote: "You may not like it, but this is what peak accessibility performance looks like. A person answering multiple-choice questions while Coach drinks room-temperature tap water."
+    author: "Coach Reggie Thornton",
+    role: "Screen Reader Evangelist & Track Coach",
+    gender: "male",
+    avatarIcon: "📢",
+    pitch: 0.90,
+    rate: 0.95,
+    quote: "You may not like it, but this is what peak accessibility performance looks like! Crisp focus rings, proper landmark tags, and unwavering calm under the stadium lights!"
   }
 ];
 
@@ -203,202 +395,406 @@ export const COACH_INCORRECT_QUOTES = [
     name: "The Value of Mentorship",
     topic: "Diner Economics",
     badgeId: "diner",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "You blew it. You know what? It's fine. You know what champions do when they strike out? They get in my car and we drive to the diner. I don't have any money on me, so you're buying, but the lesson is priceless."
   },
   {
     name: "Emotional Damage!",
-    topic: "Asian Boss Slipper",
+    topic: "Slipper Protocol",
     badgeId: "emotional-damage",
-    quote: "*Takes off slipper* Emotional damage! Very high! But look, your pride is bruised, your XP took a ding, but your keyboard is still intact. Re-rack and go again."
+    author: "Auntie Denise",
+    role: "Unlicensed IT Consultant & WhatsApp Admin",
+    gender: "female",
+    avatarIcon: "📱",
+    pitch: 1.15,
+    rate: 0.92,
+    quote: "*Takes off house slipper* Emotional damage! Very high! But look, darling, your pride took a little bump, but your keyboard is still intact. Drink some warm tea and try the next one."
   },
   {
     name: "This Is Fine (Fire Dog)",
     topic: "Thermodynamic Acceptance",
     badgeId: "this-is-fine",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Everything is fine. The test console is on fire, the contrast is 1.2 to 1, and the coffee is scalding hot. Sip the coffee, Brendon. Just sip the coffee."
   },
   {
     name: "Public Speaking 101",
     topic: "Posture Correction",
     badgeId: "posture",
-    quote: "Wrong. Totally wrong. But here's the secret: if you say it with enough confidence, about forty percent of people will just believe you anyway. Work on your posture."
+    author: "Professor Eleanor Vance",
+    role: "Dean of WAI-ARIA Architecture",
+    gender: "female",
+    avatarIcon: "👩‍🏫",
+    pitch: 1.10,
+    rate: 0.90,
+    quote: "Incorrect. But here is the academic secret: if you state the incorrect answer with sufficient Latin terminology and majestic posture, half the committee nods in agreement. Stand taller next time."
   },
   {
     name: "HTTP 404: Answer Not Found",
     topic: "Network Outage",
     badgeId: "404-error",
-    quote: "HTTP 404: Correct answer not found on this server. Did you try unplugging your brain and plugging it back in? That usually fixes my toaster oven."
+    author: "Coach Chloe Adams",
+    role: "Front-End Chaos Coordinator",
+    gender: "female",
+    avatarIcon: "🎮",
+    pitch: 1.20,
+    rate: 1.05,
+    quote: "HTTP 404: Correct answer not found in memory cache! Did you try unplugging your thought process and plugging it back in? That usually clears out the glitches."
   },
   {
     name: "Strategic Delegation",
     topic: "Cooler Perch Strategy",
     badgeId: "cooler",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Swing and a miss. Look, accessibility standards are hard. You know what's easy? Sitting on an upside-down cooler while other people run around orange cones. Consider that career path."
   },
   {
     name: "Push vs. Pull Crisis Management",
-    topic: "Retail Navigation",
+    topic: "Storefront Navigation",
     badgeId: "push-pull",
-    quote: "Don't feel bad. I once spent forty-five minutes trying to push a door that said PULL in giant red letters. The key is to never break eye contact with the cashier."
+    author: "Grandma Gertrude",
+    role: "Universal Design Pioneer Since 1948",
+    gender: "female",
+    avatarIcon: "👵",
+    pitch: 1.25,
+    rate: 0.82,
+    quote: "Don't feel bad, darling. I once spent forty-five minutes trying to push an automatic sliding grocery store door. The trick is to smile politely and pretend you were inspecting the architecture."
   },
   {
     name: "You Had One Job",
     topic: "Quality Assurance",
     badgeId: "one-job",
-    quote: "You had one job! Just one! Pick the accessible option! And you picked the option that puts a 60 Hz strobe effect on a tax portal! We're doing wind sprints tomorrow."
+    author: "Sgt. Rick Kowalski",
+    role: "Focus Trap Extraction Unit Lead",
+    gender: "male",
+    avatarIcon: "🦺",
+    pitch: 0.80,
+    rate: 1.00,
+    quote: "You had one job, recruit! Just one! Pick the accessible option! And you picked the choice that triggers a 60 Hz strobe effect on a tax portal! Drop and give me twenty pushups!"
   },
   {
     name: "Quantum Physics Loophole",
     topic: "Dimensional Shifting",
     badgeId: "alternate-dimension",
-    quote: "That was the wrong answer, Brendon. But look on the bright side: in an alternate dimension, maybe that was the right answer. Not this dimension, though. In this dimension you lost points."
+    author: "Dr. Priya Sharma",
+    role: "Principal A11y Demographics Theorist",
+    gender: "female",
+    avatarIcon: "🔬",
+    pitch: 1.12,
+    rate: 0.96,
+    quote: "That was incorrect in our current timeline. But theoretically, in an alternate quantum universe, that answer was brilliantly correct. Unfortunately, IAAP only grades in this dimension."
   },
   {
     name: "Decorative Wall Sword Therapy",
     topic: "Retail Therapy",
     badgeId: "wall-sword",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "You missed that one. You know what you need? A sword. A real decorative stainless steel wall sword. It doesn't help with WCAG contrast ratios, but you'll feel better about yourself."
   },
   {
     name: "Distracted Boyfriend Meme",
     topic: "Distractor Traps",
     badgeId: "distracted-bf",
-    quote: "You were holding hands with the right answer, but you turned around to look at the shiny distractor choice with the fancy buzzwords. We've all been there."
+    author: "Coach Brenda Martinez",
+    role: "Head of Semantic Optimization & Sprint Coach",
+    gender: "female",
+    avatarIcon: "👩‍💻",
+    pitch: 1.15,
+    rate: 0.95,
+    quote: "You were walking hand-in-hand with the clean semantic solution, and then you turned your head to check out that flashy 300-line custom div framework! Classic distractor trap."
   },
   {
     name: "Mental Calisthenics",
     topic: "Brain Pushups",
     badgeId: "mental-pushups",
-    quote: "Wrong answer. Walk it off. Just walk it off. If your brain hurts, that just means it's out of shape. Do five mental pushups and get back in there."
+    author: "Sgt. Rick Kowalski",
+    role: "Focus Trap Extraction Unit Lead",
+    gender: "male",
+    avatarIcon: "🦺",
+    pitch: 0.80,
+    rate: 1.00,
+    quote: "Wrong answer, soldier! Walk it off! If your cerebral cortex hurts, that just means your brain is doing heavy field conditioning! Shake it out and re-engage the target!"
   },
   {
     name: "Accountability Shifting",
     topic: "Meteorological Blame",
     badgeId: "blame-weather",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Incorrect. Here's my advice: blame the referee. If there is no referee, blame the atmospheric humidity. Even indoors. Especially indoors."
   },
   {
     name: "Press F To Pay Respects",
     topic: "Multiplier Memorial",
     badgeId: "press-f",
-    quote: "Press F in the chat for that score multiplier. It had a family, Brendon! It had hopes and dreams! Now it's back to zero."
+    author: "DJ Derek",
+    role: "Audio Description Hype Man",
+    gender: "male",
+    avatarIcon: "🎧",
+    pitch: 0.92,
+    rate: 1.05,
+    quote: "Press F in the chat for that score multiplier! It had a family! It was reaching for the 10x jackpot! Now we're back at the beat drop. Cue the vinyl scratch!"
   },
   {
     name: "Modern Cartoon Logic",
     topic: "Albuquerque Navigation",
     badgeId: "albuquerque",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "Not even close. But hey, failure is just success that took a wrong turn at Albuquerque. Or whatever that cartoon rabbit says. Don't look at me like that."
   },
   {
     name: "Family Wisdom",
     topic: "Expectation Management",
     badgeId: "lower-expectations",
-    quote: "Ouch. Wrong. You know, my uncle used to say, 'McGuirk, if at first you don't succeed, lower your expectations until you look like a genius.' Words to live by."
+    author: "Auntie Denise",
+    role: "Unlicensed IT Consultant & WhatsApp Admin",
+    gender: "female",
+    avatarIcon: "📱",
+    pitch: 1.15,
+    rate: 0.92,
+    quote: "Ouch. Wrong, sweetheart. You know what my uncle always said? 'If at first you don't succeed, lower your expectations until everyone thinks you're a genius.' Sound advice for family holidays."
   },
   {
     name: "Clipboard Paradox",
     topic: "Authority Critique",
     badgeId: "clipboard",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "That was wrong. But who cares? Rules are just suggestions made by people with clipboards who couldn't cut it on the field. Wait... I'm holding a clipboard. Forget I said that."
   },
   {
     name: "Aight Imma Head Out",
     topic: "SpongeBob Exit",
     badgeId: "spongebob-chair",
-    quote: "SpongeBob is grabbing his chair right now. That answer was so wild the entire accessibility auditing committee just packed up their binders and went home early."
+    author: "Coach Tasha Washington",
+    role: "VP of Alt Text Quality Control",
+    gender: "female",
+    avatarIcon: "👁️",
+    pitch: 1.10,
+    rate: 0.95,
+    quote: "SpongeBob is grabbing his folding chair and heading out right now! That answer was so confusing the entire accessibility auditing committee just packed their bags and left early."
   },
   {
     name: "No Crying in Digital Arcades",
     topic: "Athletic Tape Remedy",
     badgeId: "athletic-tape",
-    quote: "There's no crying in digital arcades! Just wipe your eyes on your athletic tape, hit the next button, and pretend it was a tactical feint to confuse the algorithm."
+    author: "Coach Reggie Thornton",
+    role: "Screen Reader Evangelist & Track Coach",
+    gender: "male",
+    avatarIcon: "📢",
+    pitch: 0.90,
+    rate: 0.95,
+    quote: "There's no crying on the accessibility track! Wipe off the sweat, adjust your focus ring, and treat that stumble like a practice false start. Next lap starts now!"
   },
   {
     name: "Woman Yelling at Cat",
     topic: "Dinner Table Drama",
     badgeId: "cat-salad",
-    quote: "The prompt was yelling at you with clear requirements, and you sat there eating salad like that white cat. Confused, majestic, but unfortunately incorrect."
+    author: "Coach Maya Lin",
+    role: "Chief Color Contrast Referee",
+    gender: "female",
+    avatarIcon: "🎨",
+    pitch: 1.20,
+    rate: 1.00,
+    quote: "The WCAG specification was yelling at you across the dining table with 4.5:1 ratio demands, and you sat there eating salad like the confused white cat! Majestic, but completely unreadable."
   },
   {
     name: "The Unskippable Cutscene",
     topic: "Keyboard Trap Trap",
     badgeId: "focus-trap",
-    quote: "You just locked yourself into a conversational focus trap. No escape key, no tab navigation, just pure unadulterated wrongness. Let's reset the play."
+    author: "Captain Jack Sterling",
+    role: "VP of Keyboard Navigation & Maritime A11y",
+    gender: "male",
+    avatarIcon: "⚓",
+    pitch: 0.88,
+    rate: 0.92,
+    quote: "Shiver me timbers, you steered us into a keyboard focus trap! No Escape key, no tab route out, just spinning in the whirlpool! Sound the foghorn and let's chart a new course."
   },
   {
     name: "Anakin's High Ground",
     topic: "Mustafar Tactical Warning",
     badgeId: "high-ground",
-    quote: "The question had the high ground, Anakin! You tried to jump anyway! Now your score is floating in the lava. Next question, let's go."
+    author: "Professor Eleanor Vance",
+    role: "Dean of WAI-ARIA Architecture",
+    gender: "female",
+    avatarIcon: "👩‍🏫",
+    pitch: 1.10,
+    rate: 0.90,
+    quote: "The question held the academic high ground! You attempted an audacious conceptual leap and lost your points in the molten lava. Let us return to foundational definitions."
   },
   {
     name: "Call An Ambulance... For Me!",
     topic: "Emergency Services",
     badgeId: "ambulance",
-    quote: "Call an ambulance! Call an ambulance!... Actually yes, for you. That question just tackled you from behind while the ref wasn't looking."
+    author: "Auntie Denise",
+    role: "Unlicensed IT Consultant & WhatsApp Admin",
+    gender: "female",
+    avatarIcon: "📱",
+    pitch: 1.15,
+    rate: 0.92,
+    quote: "Call an ambulance! Call an ambulance!... Actually yes, for you, darling! That sneaky phrasing tackled you right into the couch cushions! Let Auntie get you an ice pack."
   },
   {
     name: "They Had Us In The First Half",
     topic: "Postgame Interview",
     badgeId: "first-half",
-    quote: "They had us in the first half, not gonna lie! You started reading the prompt with so much swagger, and then... boom, distractor trap."
+    author: "Coach Brenda Martinez",
+    role: "Head of Semantic Optimization & Sprint Coach",
+    gender: "female",
+    avatarIcon: "👩‍💻",
+    pitch: 1.15,
+    rate: 0.95,
+    quote: "They had us in the first half, not gonna lie! You read the prompt with supreme confidence, and then stepped right onto the distractor landmine. We regroup at sprint planning."
   },
   {
     name: "I Am Once Again Asking",
     topic: "Bernie's Mittens",
     badgeId: "bernie-mittens",
-    quote: "I am once again asking you to check the keyboard focus indicator. Bernie Sanders didn't wear those hand-knitted mittens so you could drop tab order."
+    author: "Dr. Priya Sharma",
+    role: "Principal A11y Demographics Theorist",
+    gender: "female",
+    avatarIcon: "🔬",
+    pitch: 1.12,
+    rate: 0.96,
+    quote: "I am once again asking you to inspect the keyboard focus indicator. Bernie Sanders did not sit in the freezing cold in hand-knitted mittens for us to neglect focus visibility."
   },
   {
     name: "Confused Travolta Meme",
     topic: "Pulp Fiction Stumble",
     badgeId: "travolta",
-    quote: "John Travolta looking around with his leather jacket right now. Where did the correct answer go? It was right there in Option B, Brendon! Right there!"
+    author: "Captain Jack Sterling",
+    role: "VP of Keyboard Navigation & Maritime A11y",
+    gender: "male",
+    avatarIcon: "⚓",
+    pitch: 0.88,
+    rate: 0.92,
+    quote: "John Travolta looking around the cargo hold in his trenchcoat right now. Where did the correct answer go? It was right there off the starboard bow!"
   },
   {
     name: "Houston, We Have A Problem",
     topic: "Apollo Trajectory",
     badgeId: "houston",
-    quote: "Houston, we have a problem. The lunar lander missed the runway and landed directly on an unlabelled form input. Mission control is crying."
+    author: "Coach Chloe Adams",
+    role: "Front-End Chaos Coordinator",
+    gender: "female",
+    avatarIcon: "🎮",
+    pitch: 1.20,
+    rate: 1.05,
+    quote: "Houston, we have an accessibility telemetry problem! The lunar lander missed the target zone and touched down directly on an unlabelled input element! Mission control is panicking."
   },
   {
     name: "Parkour! (The Office)",
     topic: "Scranton Athletics",
     badgeId: "parkour",
-    quote: "You tried to parkour over the WCAG 2.2 criteria like Michael Scott into a refrigerator box. Bold move. Didn't work out, but bold."
+    author: "Coach Reggie Thornton",
+    role: "Screen Reader Evangelist & Track Coach",
+    gender: "male",
+    avatarIcon: "📢",
+    pitch: 0.90,
+    rate: 0.95,
+    quote: "You tried to parkour over the WCAG success criteria like Michael Scott into an empty refrigerator box! Tremendous enthusiasm, catastrophic landing mechanics! Let's build proper ramps."
   },
   {
     name: "Roll Safe (Thinking Guy)",
     topic: "Cerebral Subversion",
     badgeId: "roll-safe",
+    author: "Coach McGuirk",
+    role: "Youth Soccer Strategist & Unsolicited Advice",
+    gender: "male",
+    avatarIcon: "🧢",
+    pitch: 0.84,
+    rate: 0.88,
     quote: "*Taps temple* You can't fail the color contrast audit if you just make everything neon yellow on white. Wait, no, that's literally what fails it. Don't listen to me."
   },
   {
     name: "The Tactical Retreat",
     topic: "Military Terminology",
     badgeId: "tactical-retreat",
-    quote: "We didn't lose that question, Brendon. We performed a rapid reverse recon maneuver. That's military terminology for 'we guessed wrong and ran away'."
+    author: "Sgt. Rick Kowalski",
+    role: "Focus Trap Extraction Unit Lead",
+    gender: "male",
+    avatarIcon: "🦺",
+    pitch: 0.80,
+    rate: 1.00,
+    quote: "We didn't lose that drill, soldier! We performed a rapid retrograde recon maneuver! Regroup behind the perimeter line, check the field manual, and push forward!"
   },
   {
     name: "Side Eye Chloe",
     topic: "Unimpressed Gaze",
     badgeId: "side-eye-chloe",
-    quote: "Little Chloe in the car seat is looking at your answer choice with pure, unadulterated side-eye. Even toddlers know about alt text, kid."
+    author: "Coach Tasha Washington",
+    role: "VP of Alt Text Quality Control",
+    gender: "female",
+    avatarIcon: "👁️",
+    pitch: 1.10,
+    rate: 0.95,
+    quote: "Little Chloe in the car seat is looking at your answer choice with pure side-eye. You can't leave decorative icons unhidden from assistive tech, darling, even toddlers know that."
   },
   {
     name: "The Dial-Up Internet Sound",
     topic: "Retro Buffering",
     badgeId: "dial-up",
-    quote: "I could literally hear the 56k dial-up screeching inside your skull while you were picking that answer. Next time, wait for the connection to finish buffering."
+    author: "Grandma Gertrude",
+    role: "Universal Design Pioneer Since 1948",
+    gender: "female",
+    avatarIcon: "👵",
+    pitch: 1.25,
+    rate: 0.82,
+    quote: "Oh dear, I could hear the 56k dial-up screeching in your brain from across the room! Take a deep breath, have a butterscotch candy, and let the page finish loading."
   }
 ];
 
 /**
- * Returns a random Coach McGuirk quote based on whether the answer was correct or incorrect.
+ * Returns a random Sideline Mentor quote based on whether the answer was correct or incorrect.
  * Optionally avoids repeating the currently displayed quote.
  * @param {boolean} isCorrect 
  * @param {string} [currentName]
- * @returns {{ quote: string, topic: string, name: string, badgeId: string, coach: string }}
+ * @returns {{
+ *   quote: string,
+ *   topic: string,
+ *   name: string,
+ *   badgeId: string,
+ *   author: string,
+ *   role: string,
+ *   gender: 'male' | 'female',
+ *   avatarIcon: string,
+ *   pitch: number,
+ *   rate: number,
+ *   coach: string
+ * }}
  */
 export function getRandomCoachQuote(isCorrect, currentName = null) {
   const list = isCorrect ? COACH_CORRECT_QUOTES : COACH_INCORRECT_QUOTES;
@@ -407,6 +803,6 @@ export function getRandomCoachQuote(isCorrect, currentName = null) {
   const item = pool[Math.floor(Math.random() * pool.length)];
   return {
     ...item,
-    coach: "Coach McGuirk"
+    coach: item.author || "Coach McGuirk"
   };
 }

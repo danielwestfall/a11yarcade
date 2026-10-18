@@ -1,5 +1,5 @@
 // test_coach_quotes_and_audio.js
-// Verification suite for Coach McGuirk Quotes Library and Comedic Sound Synthesizers
+// Verification suite for Sideline Mentors Library (Male & Female Diverse Mentors) and Comedic Sound Synthesizers
 
 import assert from 'assert';
 import {
@@ -8,12 +8,12 @@ import {
   getRandomCoachQuote
 } from './client/src/utils/coachQuotes.js';
 
-console.log('🏁 Starting Coach McGuirk Quotes & Audio Test Suite...\n');
+console.log('🏁 Starting Sideline Mentors & Audio Test Suite...\n');
 
-// 1. Verify Quote Integrity
-console.log('🧪 Test 1: Quote Library Verification');
-assert(COACH_CORRECT_QUOTES.length >= 10, 'Must have at least 10 correct quotes');
-assert(COACH_INCORRECT_QUOTES.length >= 10, 'Must have at least 10 incorrect quotes');
+// 1. Verify Quote Library Integrity
+console.log('🧪 Test 1: Quote Library & Diverse Mentor Verification');
+assert(COACH_CORRECT_QUOTES.length >= 20, 'Must have at least 20 correct quotes');
+assert(COACH_INCORRECT_QUOTES.length >= 20, 'Must have at least 20 incorrect quotes');
 
 // Check for the iconic Home Movies studying is cheating quote
 const iconicQuote = COACH_CORRECT_QUOTES.find(q =>
@@ -22,33 +22,75 @@ const iconicQuote = COACH_CORRECT_QUOTES.find(q =>
 assert(iconicQuote, 'Iconic Home Movies "studying is cheating" quote must be present');
 console.log('  ✅ Found iconic quote: "' + iconicQuote.quote.substring(0, 70) + '..."');
 
-// Check SFW compliance (no explicit language)
+// Check SFW compliance (no explicit language) & schema integrity
 const profanityList = ['damn', 'hell', 'crap', 'shit', 'fuck', 'bitch', 'ass'];
-[...COACH_CORRECT_QUOTES, ...COACH_INCORRECT_QUOTES].forEach(({ quote, topic }) => {
+const allQuotes = [...COACH_CORRECT_QUOTES, ...COACH_INCORRECT_QUOTES];
+
+const authors = new Set();
+const femaleMentors = new Set();
+const maleMentors = new Set();
+
+allQuotes.forEach(q => {
+  const { quote, topic, author, role, gender, avatarIcon, pitch, rate, badgeId } = q;
   const lower = quote.toLowerCase();
   profanityList.forEach(word => {
-    // Only check whole word matches
     const regex = new RegExp(`\\b${word}\\b`, 'i');
     assert(!regex.test(lower), `SFW Violation: found forbidden word "${word}" in: ${quote}`);
   });
+
   assert(topic && topic.length > 0, `Topic must be provided for quote: ${quote}`);
+  assert(author && author.length > 0, `Author must be provided for quote: ${quote}`);
+  assert(role && role.length > 0, `Role must be provided for quote: ${quote}`);
+  assert(gender === 'male' || gender === 'female', `Gender must be 'male' or 'female': got ${gender}`);
+  assert(avatarIcon && avatarIcon.length > 0, `avatarIcon must be provided for ${author}`);
+  assert(typeof pitch === 'number' && pitch > 0, `pitch must be a valid number: got ${pitch}`);
+  assert(typeof rate === 'number' && rate > 0, `rate must be a valid number: got ${rate}`);
+  assert(badgeId && badgeId.length > 0, `badgeId must be provided for ${author}`);
+
+  authors.add(author);
+  if (gender === 'female') {
+    femaleMentors.add(author);
+    assert(pitch >= 1.05, `Female voice pitch should be appropriately tuned (>= 1.05): got ${pitch} for ${author}`);
+  } else {
+    maleMentors.add(author);
+    assert(pitch <= 1.0, `Male voice pitch should be appropriately tuned (<= 1.0): got ${pitch} for ${author}`);
+  }
 });
-console.log(`  ✅ All ${COACH_CORRECT_QUOTES.length + COACH_INCORRECT_QUOTES.length} quotes passed strict SFW compliance.`);
+
+console.log(`  ✅ All ${allQuotes.length} quotes passed strict SFW compliance.`);
+console.log(`  ✅ Mentors Roster: ${authors.size} unique mentors across male and female roles.`);
+console.log(`     • Female Mentors (${femaleMentors.size}): ${Array.from(femaleMentors).join(', ')}`);
+console.log(`     • Male Mentors (${maleMentors.size}): ${Array.from(maleMentors).join(', ')}`);
+assert(femaleMentors.size >= 4, 'Must have at least 4 female mentors');
+assert(maleMentors.size >= 3, 'Must have at least 3 male mentors');
 
 // 2. Test getRandomCoachQuote helper
-console.log('\n🧪 Test 2: getRandomCoachQuote Randomization & Structure');
-for (let i = 0; i < 20; i++) {
+console.log('\n🧪 Test 2: getRandomCoachQuote Randomization & Voice Profile');
+let sampledFemale = 0;
+let sampledMale = 0;
+
+for (let i = 0; i < 50; i++) {
   const correctQ = getRandomCoachQuote(true);
   assert(correctQ.quote, 'Must return quote string');
   assert(correctQ.topic, 'Must return topic string');
-  assert.strictEqual(correctQ.coach, 'Coach McGuirk');
+  assert(correctQ.author, 'Must return author name');
+  assert(correctQ.coach, 'Must return coach fallback property');
+  assert(correctQ.avatarIcon, 'Must return avatarIcon');
+  assert(correctQ.gender === 'male' || correctQ.gender === 'female', 'Must return valid gender');
+
+  if (correctQ.gender === 'female') sampledFemale++;
+  if (correctQ.gender === 'male') sampledMale++;
 
   const incorrectQ = getRandomCoachQuote(false);
   assert(incorrectQ.quote, 'Must return quote string');
   assert(incorrectQ.topic, 'Must return topic string');
-  assert.strictEqual(incorrectQ.coach, 'Coach McGuirk');
+  assert(incorrectQ.author, 'Must return author name');
+  assert(incorrectQ.gender === 'male' || incorrectQ.gender === 'female', 'Must return valid gender');
 }
-console.log('  ✅ 20 consecutive random draws verified with valid structures.');
+
+console.log(`  ✅ 50 consecutive random draws verified with valid structures.`);
+console.log(`     • Sample distribution: ${sampledFemale} female draws, ${sampledMale} male draws.`);
+assert(sampledFemale > 0 && sampledMale > 0, 'Both female and male mentors must be sampled randomly');
 
 // 3. Mock Web Audio API Context to verify Sound Synthesizer calls
 console.log('\n🧪 Test 3: Web Audio API Synthesizer Verification');
