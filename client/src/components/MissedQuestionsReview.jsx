@@ -55,7 +55,9 @@ export default function MissedQuestionsReview() {
       (m.questionText && m.questionText.toLowerCase().includes(term)) ||
       (m.topic && m.topic.toLowerCase().includes(term)) ||
       (m.explanation && m.explanation.toLowerCase().includes(term)) ||
-      (m.cpaccRef && m.cpaccRef.toLowerCase().includes(term))
+      (m.cpaccRef && m.cpaccRef.toLowerCase().includes(term)) ||
+      (m.wasRef && m.wasRef.toLowerCase().includes(term)) ||
+      (m.citation && m.citation.toLowerCase().includes(term))
     );
   });
 
@@ -81,7 +83,7 @@ export default function MissedQuestionsReview() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <span>📖</span>
-              <span>[CPACC BoK CITATIONS]</span>
+              <span>[IAAP BoK CITATIONS (CPACC · WAS · ADS)]</span>
             </span>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #ef4444', color: '#fca5a5', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(239, 68, 68, 0.1)' }}>
               [AUTONOMOUS DIAGNOSTICS]
@@ -99,7 +101,7 @@ export default function MissedQuestionsReview() {
             MISSED QUESTIONS & STUDY REVIEW
           </h1>
           <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '820px', lineHeight: 1.5 }}>
-            Every stumble in the arena is logged here with official CPACC Body of Knowledge citations and humorous explanations. Review missed items solo or test your memory with instant retakes!
+            Every stumble in the arena is logged here with official Digital Accessibility IAAP Body of Knowledge citations (CPACC · WAS · ADS) and humorous explanations. Review missed items solo or test your memory with instant retakes!
           </p>
 
           {/* Diagnostic Metrics Bar */}
@@ -226,7 +228,7 @@ export default function MissedQuestionsReview() {
       <section aria-label="Diagnostic Flash Cards List">
         {loading ? (
           <div className="card" style={{ textAlign: 'center', padding: '3rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
-            [⧗] ACCESSING CPACC DIAGNOSTIC REPOSITORIES...
+            [⧗] ACCESSING IAAP DIAGNOSTIC REPOSITORIES...
           </div>
         ) : uniqueQuestions.length === 0 ? (
           <div className="card" style={{ textAlign: 'center', padding: '4rem 1.5rem', border: '2px solid #10b981' }}>
@@ -256,7 +258,7 @@ export default function MissedQuestionsReview() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <span style={{ background: '#0b1326', border: '1px solid #c084fc', color: '#c084fc', padding: '0.2rem 0.65rem', borderRadius: '4px', fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800 }}>
-                      [DOM-{q.domain || 1}: {q.topic || q.domainName || 'CPACC BOK'}]
+                      [DOM-{q.domain || 1}: {q.topic || q.domainName || 'IAAP BoK'}]
                     </span>
                     <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
                       #{q.questionId}
@@ -285,7 +287,7 @@ export default function MissedQuestionsReview() {
                         Choice {q.selectedChoiceId}
                       </div>
                       <p style={{ fontSize: '0.78rem', color: '#fca5a5', margin: '0.35rem 0 0 0' }}>
-                        Common distractor trap: Watch out for pace vs modality differences in CPACC scenarios.
+                        Common distractor trap: Watch out for pace vs modality differences in accessibility scenarios.
                       </p>
                     </div>
                   )}
@@ -294,7 +296,7 @@ export default function MissedQuestionsReview() {
                   {q.correctChoiceId && (
                     <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid #10b981', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)' }}>
                       <div style={{ fontSize: '0.72rem', color: '#10b981', fontFamily: "'Space Mono', monospace", fontWeight: 800, marginBottom: '0.35rem' }}>
-                        [✓ ACCREDITED CPACC ANSWER]
+                        [✓ ACCREDITED IAAP ANSWER]
                       </div>
                       <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff' }}>
                         Choice {q.correctChoiceId}
@@ -306,18 +308,18 @@ export default function MissedQuestionsReview() {
                   )}
                 </div>
 
-                {/* Official CPACC BoK Citation Box */}
+                {/* Official IAAP BoK Citation Box */}
                 <div style={{ background: '#060e20', border: '1px solid #38bdf8', padding: '1rem', borderRadius: 'var(--radius-sm)', marginBottom: '0.85rem' }}>
                   <div style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#38bdf8', marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                     <BookOpen size={14} color="#38bdf8" />
-                    <span>CPACC BODY OF KNOWLEDGE EXPLANATION:</span>
+                    <span>IAAP BODY OF KNOWLEDGE EXPLANATION:</span>
                   </div>
                   <p style={{ fontSize: '0.95rem', color: '#f1f5f9', margin: 0, lineHeight: 1.55 }}>
                     {q.explanation}
                   </p>
-                  {q.cpaccRef && (
+                  {(q.citation || q.cpaccRef || q.wasRef) && (
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace", marginTop: '0.5rem', borderTop: '1px solid rgba(56, 189, 248, 0.2)', paddingTop: '0.35rem' }}>
-                      Official Syllabus Citation: <strong style={{ color: '#38bdf8' }}>{q.cpaccRef}</strong>
+                      Official Syllabus Citation: <strong style={{ color: '#38bdf8' }}>{q.citation || q.cpaccRef || q.wasRef}</strong>
                     </div>
                   )}
                 </div>

@@ -1,12 +1,90 @@
 [
-  {"source_id":"cpacc-bok-v3","title":"IAAP CPACC Body of Knowledge","type":"certification_bok","version":"V3 (August 2024)","url":"../../resources/CPACCBoKmsft.docx","source_role":"scope"},
-  {"source_id":"was-bok-2024-10","title":"IAAP Web Accessibility Specialist Body of Knowledge","type":"certification_bok","version":"October 2024","url":"../../resources/IAAP_WAS_BOK_2024_v23 1.docx","source_role":"scope"},
-  {"source_id":"wcag-22","title":"Web Content Accessibility Guidelines (WCAG) 2.2","type":"standard","version":"W3C Recommendation, 12 December 2024","url":"https://www.w3.org/TR/WCAG22/","source_role":"support"},
-  {"source_id":"aria-apg","title":"WAI-ARIA Authoring Practices Guide","type":"official_guidance","version":"W3C/WAI resource; verify at release","url":"https://www.w3.org/WAI/ARIA/apg/","source_role":"support"},
-  {"source_id":"wcag-em","title":"WCAG Evaluation Methodology (WCAG-EM)","type":"official_guidance","version":"W3C/WAI resource; verify at release","url":"https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/","source_role":"support"},
-  {"source_id":"wcag-act","title":"Accessibility Conformance Testing (ACT) Rules","type":"official_guidance","version":"W3C/WAI resource; verify current rule at release","url":"https://www.w3.org/WAI/standards-guidelines/act/rules/","source_role":"support"},
-  {"source_id":"wai-people-use-web","title":"How People with Disabilities Use the Web","type":"official_guidance","version":"W3C/WAI resource; verify at release","url":"https://www.w3.org/WAI/people-use-web/","source_role":"support"},
-  {"source_id":"wai-involving-users","title":"Involving Users in Evaluating Web Accessibility","type":"official_guidance","version":"W3C/WAI resource; verify at release","url":"https://www.w3.org/WAI/test-evaluate/involving-users/","source_role":"support"},
-  {"source_id":"crpd-text","title":"Convention on the Rights of Persons with Disabilities","type":"treaty_text","version":"Official UN/OHCHR text","url":"https://www.ohchr.org/Documents/HRBodies/CRPD/CRPD_ENG.pdf","source_role":"support"},
-  {"source_id":"iti-acr-vpat","title":"ITI Accessibility Conformance Reports and VPAT resources","type":"industry_guidance","version":"Verify current template at release","url":"https://www.itic.org/policy/accessibility/vpat","source_role":"support"}
+  {
+    "source_id": "cpacc-bok-v3",
+    "title": "IAAP CPACC Body of Knowledge",
+    "type": "certification_bok",
+    "version": "V3 (August 2024)",
+    "url": "../../resources/CPACCBoKmsft.docx",
+    "source_role": "scope"
+  },
+  {
+    "source_id": "was-bok-2024-10",
+    "title": "IAAP Web Accessibility Specialist Body of Knowledge",
+    "type": "certification_bok",
+    "version": "October 2024",
+    "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx",
+    "source_role": "scope"
+  },
+  {
+    "source_id": "wcag-22",
+    "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+    "type": "standard",
+    "version": "W3C Recommendation, 12 December 2024",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "source_role": "support"
+  },
+  {
+    "source_id": "aria-apg",
+    "title": "WAI-ARIA Authoring Practices Guide",
+    "type": "official_guidance",
+    "version": "W3C/WAI resource; verify at release",
+    "url": "https://www.w3.org/WAI/ARIA/apg/",
+    "source_role": "support"
+  },
+  {
+    "source_id": "wcag-em",
+    "title": "WCAG Evaluation Methodology (WCAG-EM)",
+    "type": "official_guidance",
+    "version": "W3C/WAI resource; verify at release",
+    "url": "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/",
+    "source_role": "support"
+  },
+  {
+    "source_id": "wcag-act",
+    "title": "Accessibility Conformance Testing (ACT) Rules",
+    "type": "official_guidance",
+    "version": "W3C/WAI resource; verify current rule at release",
+    "url": "https://www.w3.org/WAI/standards-guidelines/act/rules/",
+    "source_role": "support"
+  },
+  {
+    "source_id": "wai-people-use-web",
+    "title": "How People with Disabilities Use the Web",
+    "type": "official_guidance",
+    "version": "W3C/WAI resource; verify at release",
+    "url": "https://www.w3.org/WAI/people-use-web/",
+    "source_role": "support"
+  },
+  {
+    "source_id": "wai-involving-users",
+    "title": "Involving Users in Evaluating Web Accessibility",
+    "type": "official_guidance",
+    "version": "W3C/WAI resource; verify at release",
+    "url": "https://www.w3.org/WAI/test-evaluate/involving-users/",
+    "source_role": "support"
+  },
+  {
+    "source_id": "crpd-text",
+    "title": "Convention on the Rights of Persons with Disabilities",
+    "type": "treaty_text",
+    "version": "Official UN/OHCHR text",
+    "url": "https://www.ohchr.org/Documents/HRBodies/CRPD/CRPD_ENG.pdf",
+    "source_role": "support"
+  },
+  {
+    "source_id": "iti-acr-vpat",
+    "title": "ITI Accessibility Conformance Reports and VPAT resources",
+    "type": "industry_guidance",
+    "version": "Verify current template at release",
+    "url": "https://www.itic.org/policy/accessibility/vpat",
+    "source_role": "support"
+  },
+  {
+    "source_id": "ads-bok-2021",
+    "title": "IAAP Accessible Document Specialist Body of Knowledge",
+    "type": "certification_bok",
+    "version": "March 2021; provided PDF metadata indicates a June 2025 modification date",
+    "url": "../../../../resources/ADSBoK.pdf",
+    "source_role": "scope"
+  }
 ]

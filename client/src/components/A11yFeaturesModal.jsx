@@ -14,7 +14,8 @@ import {
   Sun,
   Moon,
   Compass,
-  FileText
+  FileText,
+  Palette
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 
@@ -79,6 +80,9 @@ export default function A11yFeaturesModal({
     setPreferences(updated);
     try {
       localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+      if (key === 'skin') {
+        window.dispatchEvent(new CustomEvent('a11y-skin-changed', { detail: { skin: val } }));
+      }
     } catch (e) {
       console.warn('Could not save preferences to localStorage', e);
     }
@@ -88,6 +92,7 @@ export default function A11yFeaturesModal({
     soundManager.playClick();
     const defaults = {
       theme: 'dark', // 'dark' | 'light' | 'high-contrast'
+      skin: 'arcade', // 'arcade' | 'kawaii' | 'anime'
       fontScale: 100, // 100 | 115 | 130 | 150
       fontFamily: 'atkinson', // 'atkinson' | 'opendyslexic' | 'mono' | 'system'
       textSpacing: false,
@@ -135,7 +140,7 @@ export default function A11yFeaturesModal({
         aria-describedby="a11y-modal-desc"
         className="card"
         style={{
-          maxWidth: '780px',
+          maxWidth: '820px',
           width: '100%',
           maxHeight: '90vh',
           overflowY: 'auto',
@@ -178,11 +183,157 @@ export default function A11yFeaturesModal({
 
         {/* Feature Grid */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {/* SECTION 1: THEME & COLOR SCHEME */}
+          {/* SECTION 1: ART STYLE & VISUAL SKIN */}
+          <section aria-labelledby="heading-skin">
+            <h3 id="heading-skin" style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--arcade-cyan)', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.45rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <Palette size={16} />
+              <span>1. ART STYLE & VISUAL SKIN (STITCH DESIGN SYSTEMS)</span>
+            </h3>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '0.75rem' }}>
+              {/* Option 1: Neo-Arcade */}
+              <button
+                type="button"
+                className="skin-option-arcade"
+                onClick={() => updatePref('skin', 'arcade')}
+                style={{
+                  padding: '1rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: `2px solid ${(!preferences.skin || preferences.skin === 'arcade') ? 'var(--arcade-cyan)' : 'var(--border-color)'}`,
+                  background: (!preferences.skin || preferences.skin === 'arcade') ? 'rgba(56, 189, 248, 0.15)' : 'var(--bg-surface-elevated)',
+                  color: 'var(--text-primary)',
+                  textAlign: 'left',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.5rem'
+                }}
+                aria-pressed={!preferences.skin || preferences.skin === 'arcade'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '1.4rem' }}>🕹️</span>
+                    <div>
+                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Neo-Arcade</div>
+                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '3px', background: 'rgba(56,189,248,0.2)', color: 'var(--arcade-cyan)', border: '1px solid var(--arcade-cyan)' }}>
+                        CLASSIC CABINET
+                      </span>
+                    </div>
+                  </div>
+                  {(!preferences.skin || preferences.skin === 'arcade') && (
+                    <span style={{ color: 'var(--arcade-cyan)', fontWeight: 900, fontSize: '0.8rem' }}>✓ ACTIVE</span>
+                  )}
+                </div>
+                <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
+                  Coin-op battle station, hard chamfered borders, scanlines & brutalist push-buttons.
+                </p>
+                <div style={{ display: 'flex', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.25rem' }}>
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#090d16', border: '1px solid #71839e' }} title="#090d16 Void" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#38bdf8' }} title="#38bdf8 Cyan" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#10b981' }} title="#10b981 Green" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#facc15' }} title="#facc15 Gold" />
+                </div>
+              </button>
+
+              {/* Option 2: Kawaii Pastel */}
+              <button
+                type="button"
+                className="skin-option-kawaii"
+                onClick={() => updatePref('skin', 'kawaii')}
+                style={{
+                  padding: '1rem',
+                  borderRadius: '16px',
+                  border: `2px solid ${preferences.skin === 'kawaii' ? '#ec4899' : 'var(--border-color)'}`,
+                  background: preferences.skin === 'kawaii' ? 'rgba(236, 72, 153, 0.18)' : 'var(--bg-surface-elevated)',
+                  color: 'var(--text-primary)',
+                  textAlign: 'left',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.5rem'
+                }}
+                aria-pressed={preferences.skin === 'kawaii'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '1.4rem' }}>🎀</span>
+                    <div>
+                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Kawaii Pastel</div>
+                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '12px', background: 'rgba(236,72,153,0.25)', color: '#f472b6', border: '1px solid #f472b6' }}>
+                        HELLO KITTY STYLE
+                      </span>
+                    </div>
+                  </div>
+                  {preferences.skin === 'kawaii' && (
+                    <span style={{ color: '#ec4899', fontWeight: 900, fontSize: '0.8rem' }}>✓ ACTIVE</span>
+                  )}
+                </div>
+                <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
+                  18px pill curves, strawberry & mint candy pastels, cute heart motifs, WCAG AAA certified.
+                </p>
+                <div style={{ display: 'flex', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.25rem' }}>
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#fff5f8', border: '1px solid #db2777' }} title="#fff5f8 Sakura Cream" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#be185d' }} title="#be185d Raspberry Rose" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#047857' }} title="#047857 Mint Candy" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#6b21a8' }} title="#6b21a8 Velvet Grape" />
+                </div>
+              </button>
+
+              {/* Option 3: Anime & Graphic Novel */}
+              <button
+                type="button"
+                className="skin-option-anime"
+                onClick={() => updatePref('skin', 'anime')}
+                style={{
+                  padding: '1rem',
+                  borderRadius: '4px',
+                  border: `3px solid ${preferences.skin === 'anime' ? '#ef4444' : 'var(--border-color)'}`,
+                  background: preferences.skin === 'anime' ? 'rgba(239, 68, 68, 0.18)' : 'var(--bg-surface-elevated)',
+                  color: 'var(--text-primary)',
+                  textAlign: 'left',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.5rem',
+                  boxShadow: preferences.skin === 'anime' ? '3px 3px 0px #ef4444' : 'none'
+                }}
+                aria-pressed={preferences.skin === 'anime'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '1.4rem' }}>💥</span>
+                    <div>
+                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Manga & Comic</div>
+                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '2px', background: 'rgba(239,68,68,0.25)', color: '#ef4444', border: '1px solid #ef4444' }}>
+                        SHONEN ACTION
+                      </span>
+                    </div>
+                  </div>
+                  {preferences.skin === 'anime' && (
+                    <span style={{ color: '#ef4444', fontWeight: 900, fontSize: '0.8rem' }}>✓ ACTIVE</span>
+                  )}
+                </div>
+                <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
+                  Bold 3px ink borders, halftone screentone dots, cel-shaded shadows, WCAG AAA certified.
+                </p>
+                <div style={{ display: 'flex', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.25rem' }}>
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#faf7f0', border: '1px solid #111827' }} title="#faf7f0 Newsprint" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#b91c1c' }} title="#b91c1c Shonen Vermilion" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#1d4ed8' }} title="#1d4ed8 Manga Cobalt" />
+                  <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#111827' }} title="#111827 Comic Ink" />
+                </div>
+              </button>
+            </div>
+          </section>
+
+          {/* SECTION 2: THEME & COLOR SCHEME */}
           <section aria-labelledby="heading-theme">
             <h3 id="heading-theme" style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--arcade-cyan)', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.45rem', fontFamily: "'Space Grotesk', sans-serif" }}>
               <Eye size={16} />
-              <span>1. COLOR SCHEME & CONTRAST (WCAG 1.4.3 & 1.4.11)</span>
+              <span>2. COLOR SCHEME & CONTRAST MODES (WCAG 1.4.3 & 1.4.11 LEVEL AAA)</span>
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.65rem' }}>
@@ -265,11 +416,11 @@ export default function A11yFeaturesModal({
             </div>
           </section>
 
-          {/* SECTION 2: TEXT SIZE SCALING */}
+          {/* SECTION 3: TEXT SIZE SCALING */}
           <section aria-labelledby="heading-font-size">
             <h3 id="heading-font-size" style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--arcade-cyan)', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.45rem', fontFamily: "'Space Grotesk', sans-serif" }}>
               <Type size={16} />
-              <span>2. TEXT SIZE SCALING (WCAG 1.4.4 RESIZE TEXT)</span>
+              <span>3. TEXT SIZE SCALING (WCAG 1.4.4 RESIZE TEXT)</span>
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
@@ -301,11 +452,11 @@ export default function A11yFeaturesModal({
             </div>
           </section>
 
-          {/* SECTION 3: FONT FAMILY & DYSLEXIA */}
+          {/* SECTION 4: FONT FAMILY & DYSLEXIA */}
           <section aria-labelledby="heading-font-family">
             <h3 id="heading-font-family" style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--arcade-cyan)', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.45rem', fontFamily: "'Space Grotesk', sans-serif" }}>
               <Compass size={16} />
-              <span>3. TYPEFACE & COGNITIVE READABILITY (WCAG 3.0)</span>
+              <span>4. TYPEFACE & COGNITIVE READABILITY (WCAG 3.0)</span>
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.5rem' }}>
@@ -337,11 +488,11 @@ export default function A11yFeaturesModal({
             </div>
           </section>
 
-          {/* SECTION 4: READING RULER, TEXT SPACING & FOCUS */}
+          {/* SECTION 5: READING RULER, TEXT SPACING & FOCUS */}
           <section aria-labelledby="heading-visual-aids">
             <h3 id="heading-visual-aids" style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--arcade-cyan)', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.45rem', fontFamily: "'Space Grotesk', sans-serif" }}>
               <Sparkles size={16} />
-              <span>4. VISUAL GUIDES & FOCUS HALOS (WCAG 1.4.12 & 2.4.13)</span>
+              <span>5. VISUAL GUIDES & FOCUS HALOS (WCAG 1.4.12 & 2.4.13)</span>
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.65rem' }}>
@@ -428,11 +579,11 @@ export default function A11yFeaturesModal({
             </div>
           </section>
 
-          {/* SECTION 5: MOTION & SOUND */}
+          {/* SECTION 6: MOTION & SOUND */}
           <section aria-labelledby="heading-motion-audio">
             <h3 id="heading-motion-audio" style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--arcade-cyan)', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.45rem', fontFamily: "'Space Grotesk', sans-serif" }}>
               <Volume2 size={16} />
-              <span>5. MOTION & SYNTHESIZED AUDIO (WCAG 1.4.2 & 2.3.3)</span>
+              <span>6. MOTION & SYNTHESIZED AUDIO (WCAG 1.4.2 & 2.3.3)</span>
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>

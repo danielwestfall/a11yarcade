@@ -20,7 +20,8 @@ import {
   Check,
   QrCode,
   Link as LinkIcon,
-  Lock
+  Lock,
+  Settings
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import { getSocketUrl } from '../utils/api';
@@ -134,7 +135,7 @@ export const ARCADE_CABINETS = [
     num: '07',
     title: 'Classic Kahoot Clash',
     subtitle: 'RAPID-FIRE SPEED & ACCURACY',
-    domain: 'All CPACC Domains',
+    domain: 'All IAAP Domains (CPACC · WAS · ADS)',
     desc: 'Fast-paced 4-choice questions with streak bonuses, buzzer timers, and instant retro leaderboard tracking.',
     icon: '⚡',
     tag: '[RAPID TRIVIA]',
@@ -145,7 +146,7 @@ export const ARCADE_CABINETS = [
     num: '08',
     title: 'The Enterprise Boss Raid',
     subtitle: 'CO-OP TECH TREE & PASSIVE BUFFS',
-    domain: 'All 3 CPACC Domains',
+    domain: 'All IAAP Domains (CPACC · WAS · ADS)',
     desc: 'Join forces to dismantle a multi-domain corporate compliance monolith! Draft tech-tree nodes across Procurement, Assistive Tech, and Organizational Culture to strip elemental shields and unlock the Capstone Strike.',
     icon: '🐉',
     tag: '[CO-OP RAID]',
@@ -196,6 +197,8 @@ export default function LiveMode() {
   const [qrDataUrl, setQrDataUrl] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
+  const [showSettingsModal, setShowSettingsModal] = useState(false);
+  const [showStopHostingConfirm, setShowStopHostingConfirm] = useState(false);
 
   // Player State
   const [playerPinInput, setPlayerPinInput] = useState('');
@@ -396,6 +399,35 @@ export default function LiveMode() {
       setLiveAnnouncement(`Host switched arcade cartridge to ${newMode}`);
     });
 
+    newSocket.on('room-settings-updated', ({ settings, gameMode: newMode, questionCount }) => {
+      if (settings) {
+        setRoomSettings(settings);
+        setHostSettings((prev) => ({ ...prev, ...settings }));
+        if (settings.timeLimit !== undefined) {
+          setTimerLeft(settings.timeLimit);
+        }
+      }
+      if (newMode) setGameMode(newMode);
+      soundManager.playClick();
+      setLiveAnnouncement(`Host updated match settings: ${questionCount || ''} questions, ${settings?.timeLimit ? settings.timeLimit + 's' : 'untimed'}.`);
+    });
+
+    newSocket.on('room-returned-to-lobby', ({ settings, gameMode: newMode, players: updatedPlayers }) => {
+      setHostGameState('LOBBY');
+      setPlayerState('LOBBY');
+      setCurrentQuestionData(null);
+      setRoundResults(null);
+      if (settings) {
+        setRoomSettings(settings);
+        setHostSettings((prev) => ({ ...prev, ...settings }));
+        setTimerLeft(settings.timeLimit || 20);
+      }
+      if (newMode) setGameMode(newMode);
+      if (updatedPlayers) setPlayers(updatedPlayers);
+      soundManager.playClick();
+      setLiveAnnouncement('Match paused by host and squad returned to Lobby.');
+    });
+
     newSocket.on('host-disconnected', () => {
       alert('The Host has ended the game.');
       resetToModeSelection();
@@ -587,6 +619,56 @@ export default function LiveMode() {
     socket.emit('next-stage');
   };
 
+  // Host Action: Update Match Settings live on server & broadcast
+  const handleUpdateSettings = (updated) => {
+    const next = { ...hostSettings, ...updated };
+    setHostSettings(next);
+    if (socket && role === 'HOST' && roomPin) {
+      const payload = {
+        ...next,
+        sections: next.filterType === 'sections' ? (next.selectedSections || []) : [],
+        subjects: next.filterType === 'subjects' ? (next.selectedSubjects || []) : [],
+        domain: next.filterType === 'domain' ? next.domain : 'all'
+      };
+      socket.emit('update-room-settings', payload, (res) => {
+        if (res && res.success) {
+          if (res.settings) setRoomSettings(res.settings);
+          soundManager.playClick();
+          setLiveAnnouncement('Match settings updated and broadcast to all cadets.');
+        }
+      });
+    }
+  };
+
+  // Host Action: Return Active Match to Lobby without disconnecting players
+  const handleReturnToLobby = () => {
+    if (!socket || role !== 'HOST') return;
+    soundManager.playClick();
+    socket.emit('return-to-lobby', (res) => {
+      if (res && res.success) {
+        setHostGameState('LOBBY');
+        setCurrentQuestionData(null);
+        setRoundResults(null);
+        setLiveAnnouncement('Returned match to Lobby. You may now reconfigure or change settings.');
+      }
+    });
+    setShowSettingsModal(false);
+  };
+
+  // Host Action: Stop Hosting (cleans up room and returns to setup)
+  const handleStopHosting = () => {
+    soundManager.playClick();
+    if (socket && role === 'HOST') {
+      socket.emit('stop-hosting', () => {
+        resetToModeSelection();
+      });
+    } else {
+      resetToModeSelection();
+    }
+    setShowStopHostingConfirm(false);
+    setShowSettingsModal(false);
+  };
+
   // Player Action: Join Room (Option B: Nickname + 4-Digit Passcode)
   const handlePlayerJoin = (e) => {
     e.preventDefault();
@@ -672,6 +754,654 @@ export default function LiveMode() {
     setCurrentQuestionData(null);
     setRoundResults(null);
     setLeaderboard([]);
+    setShowSettingsModal(false);
+    setShowStopHostingConfirm(false);
+  };
+
+  // Host In-Game Persistent Command Bar (renders across all 8 cabinet game modes)
+  const renderHostInGameHeader = () => {
+    if (role !== 'HOST' || hostGameState === 'LOBBY') return null;
+
+    const activeCabinet = ARCADE_CABINETS.find(c => c.id === gameMode) || ARCADE_CABINETS[0];
+
+    return (
+      <header
+        aria-label="Host Match Control Deck"
+        style={{
+          background: '#060e20',
+          border: '2px solid rgba(56, 189, 248, 0.4)',
+          borderRadius: 'var(--radius-md)',
+          padding: '0.65rem 1rem',
+          marginBottom: '1.25rem',
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '0.75rem',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.72rem', background: '#1e293b', color: '#38bdf8', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 800 }}>
+            🎮 HOST COMMAND DECK
+          </span>
+          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.8rem', color: '#10b981', fontWeight: 800 }}>
+            ROOM: {roomPin}
+          </span>
+          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.78rem', color: activeCabinet.color, fontWeight: 700 }}>
+            {activeCabinet.icon} {activeCabinet.title}
+          </span>
+          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', color: '#facc15' }}>
+            👥 {players.length} Cadets
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <button
+            type="button"
+            className="btn-secondary arcade-btn-deck"
+            style={{ minHeight: '44px', padding: '0.35rem 0.75rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+            onClick={() => setShowSettingsModal(true)}
+          >
+            <Settings size={15} />
+            <span>Settings</span>
+          </button>
+          <button
+            type="button"
+            className="btn-secondary arcade-btn-deck"
+            style={{ minHeight: '44px', padding: '0.35rem 0.75rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.35rem', borderColor: '#f59e0b', color: '#fde68a' }}
+            onClick={handleReturnToLobby}
+          >
+            <RotateCcw size={15} />
+            <span>Restart to Lobby</span>
+          </button>
+          <button
+            type="button"
+            className="btn-secondary arcade-btn-deck"
+            style={{ minHeight: '44px', padding: '0.35rem 0.75rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.35rem', borderColor: '#ef4444', color: '#fca5a5' }}
+            onClick={() => setShowStopHostingConfirm(true)}
+          >
+            <XCircle size={15} />
+            <span>Stop Hosting</span>
+          </button>
+        </div>
+      </header>
+    );
+  };
+
+  // Host Match Settings & Curriculum Modal
+  const renderSettingsModal = () => {
+    if (!showSettingsModal) return null;
+
+    return (
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="host-settings-modal-title"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(3, 7, 18, 0.85)',
+          backdropFilter: 'blur(6px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 9999,
+          padding: '1rem'
+        }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setShowSettingsModal(false);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') setShowSettingsModal(false);
+        }}
+      >
+        <div
+          style={{
+            background: '#0b1326',
+            border: '2px solid #38bdf8',
+            borderRadius: 'var(--radius-lg)',
+            maxWidth: '800px',
+            width: '100%',
+            maxHeight: '90vh',
+            display: 'flex',
+            flexDirection: 'column',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.8)',
+            overflow: 'hidden'
+          }}
+        >
+          {/* Modal Header */}
+          <div
+            style={{
+              padding: '1.25rem 1.5rem',
+              borderBottom: '1px solid var(--border-color)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: '#060e20'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <span style={{ fontSize: '1.5rem' }}>⚙️</span>
+              <div>
+                <h2
+                  id="host-settings-modal-title"
+                  style={{ fontSize: '1.25rem', fontWeight: 900, color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  HOST MATCH & CURRICULUM SETTINGS
+                </h2>
+                <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#38bdf8' }}>
+                  ACTIVE ROOM PIN: {roomPin} {hostGameState !== 'LOBBY' ? '• [MATCH IN PROGRESS]' : '• [IN LOBBY]'}
+                </span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="btn-secondary"
+              style={{ minWidth: '44px', minHeight: '44px', padding: '0.4rem 0.75rem', fontSize: '1rem', color: '#94a3b8' }}
+              onClick={() => setShowSettingsModal(false)}
+              aria-label="Close Settings Dialog"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Modal Scrollable Body */}
+          <div style={{ padding: '1.5rem', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {/* Row 1: Cartridge / Game Mode & Exam Track */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+              <div>
+                <label htmlFor="modal-game-mode" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                  🕹️ Active Arcade Cartridge:
+                </label>
+                <select
+                  id="modal-game-mode"
+                  className="input-field"
+                  value={hostSettings.gameMode}
+                  onChange={(e) => {
+                    handleSelectGameMode(e.target.value);
+                  }}
+                  style={{ minHeight: '44px' }}
+                >
+                  {ARCADE_CABINETS.map((cab) => (
+                    <option key={cab.id} value={cab.id}>
+                      Cabinet {cab.num}: {cab.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="modal-track-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                  🎓 Certification Exam Track:
+                </label>
+                <select
+                  id="modal-track-select"
+                  className="input-field"
+                  value={hostSettings.certTrack || 'all'}
+                  onChange={(e) => {
+                    handleUpdateSettings({ certTrack: e.target.value, domain: 'all' });
+                  }}
+                  style={{ minHeight: '44px' }}
+                >
+                  <option value="all">🌟 Digital Accessibility IAAP Suite (CPACC · WAS · ADS)</option>
+                  <option value="cpacc">📘 CPACC (Core Competencies & Universal Design)</option>
+                  <option value="was">💻 WAS (Web Accessibility Specialist - Technical AA/AAA)</option>
+                  <option value="ads">📄 ADS (Accessible Document Specialist - Remediation & PDF/UA)</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Row 2: Timer & Question Count */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div>
+                <label htmlFor="modal-timer-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                  ⏱️ Round Timer Limit:
+                </label>
+                <select
+                  id="modal-timer-select"
+                  className="input-field"
+                  value={hostSettings.timeLimit}
+                  onChange={(e) => {
+                    handleUpdateSettings({ timeLimit: parseInt(e.target.value, 10) });
+                  }}
+                  style={{ minHeight: '44px' }}
+                >
+                  <option value="15">15 Seconds (Rapid)</option>
+                  <option value="20">20 Seconds (Standard)</option>
+                  <option value="30">30 Seconds (Thoughtful)</option>
+                  <option value="0">Untimed / Manual Advance</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="modal-count-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                  🎯 Questions Per Match:
+                </label>
+                <select
+                  id="modal-count-select"
+                  className="input-field"
+                  value={hostSettings.questionCount}
+                  onChange={(e) => {
+                    handleUpdateSettings({ questionCount: parseInt(e.target.value, 10) });
+                  }}
+                  style={{ minHeight: '44px' }}
+                >
+                  <option value="5">5 Questions (Blitz)</option>
+                  <option value="10">10 Questions (Standard)</option>
+                  <option value="15">15 Questions (Extended)</option>
+                  <option value="20">20 Questions (Marathon)</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Row 3: Curriculum Filter Mode Switcher */}
+            <div>
+              <span style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.45rem' }}>
+                📚 Curriculum Selection Focus:
+              </span>
+              <div
+                role="tablist"
+                aria-label="Modal question selection method"
+                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.4rem', background: '#060e20', padding: '0.35rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={hostSettings.filterType === 'domain'}
+                  onClick={() => {
+                    soundManager.playClick();
+                    handleUpdateSettings({ filterType: 'domain' });
+                  }}
+                  style={{
+                    minHeight: '44px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    background: hostSettings.filterType === 'domain' ? '#38bdf8' : 'transparent',
+                    color: hostSettings.filterType === 'domain' ? '#090d16' : '#94a3b8'
+                  }}
+                >
+                  🌐 By Domain
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={hostSettings.filterType === 'sections'}
+                  onClick={() => {
+                    soundManager.playClick();
+                    handleUpdateSettings({ filterType: 'sections' });
+                  }}
+                  style={{
+                    minHeight: '44px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    background: hostSettings.filterType === 'sections' ? '#10b981' : 'transparent',
+                    color: hostSettings.filterType === 'sections' ? '#090d16' : '#94a3b8'
+                  }}
+                >
+                  📑 By Sections ({hostSettings.selectedSections?.length || 0})
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={hostSettings.filterType === 'subjects'}
+                  onClick={() => {
+                    soundManager.playClick();
+                    handleUpdateSettings({ filterType: 'subjects' });
+                  }}
+                  style={{
+                    minHeight: '44px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    background: hostSettings.filterType === 'subjects' ? '#f59e0b' : 'transparent',
+                    color: hostSettings.filterType === 'subjects' ? '#090d16' : '#94a3b8'
+                  }}
+                >
+                  🏷️ By Subject ({hostSettings.selectedSubjects?.length || 0})
+                </button>
+              </div>
+            </div>
+
+            {/* Filter Content */}
+            {hostSettings.filterType === 'domain' && (
+              <div>
+                <label htmlFor="modal-domain-select" style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                  Curriculum Domain Focus:
+                </label>
+                <select
+                  id="modal-domain-select"
+                  className="input-field"
+                  value={hostSettings.domain}
+                  onChange={(e) => {
+                    handleUpdateSettings({ domain: e.target.value });
+                  }}
+                  style={{ minHeight: '44px' }}
+                >
+                  {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
+                    <option key={d.id} value={d.id}>{d.label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {hostSettings.filterType === 'sections' && (
+              <div style={{ background: '#060e20', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#10b981' }}>
+                    Curriculum Sections ({hostSettings.selectedSections?.length || 0} selected):
+                  </span>
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', minHeight: '44px' }}
+                      onClick={handleSelectAllSections}
+                    >
+                      Select All
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', minHeight: '44px' }}
+                      onClick={handleClearSections}
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </div>
+
+                <div style={{ maxHeight: '240px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingRight: '0.5rem' }}>
+                  {allAvailableSections.map((cert) => (
+                    <div key={cert.id} style={{ marginBottom: '0.5rem' }}>
+                      <div style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#38bdf8', marginBottom: '0.35rem', borderBottom: '1px solid #1e293b', paddingBottom: '0.2rem' }}>
+                        {cert.title}
+                      </div>
+                      {(cert.domains || []).map((dom) => (
+                        <div key={dom.id} style={{ marginBottom: '0.5rem', paddingLeft: '0.35rem' }}>
+                          <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+                            {dom.title}
+                          </div>
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.35rem' }}>
+                            {(dom.sections || []).map((sec) => {
+                              const isChecked = (hostSettings.selectedSections || []).includes(sec.id);
+                              return (
+                                <label
+                                  key={sec.id}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem',
+                                    padding: '0.35rem 0.5rem',
+                                    borderRadius: '4px',
+                                    background: isChecked ? 'rgba(16, 185, 129, 0.15)' : 'rgba(15, 23, 42, 0.4)',
+                                    border: `1px solid ${isChecked ? '#10b981' : 'transparent'}`,
+                                    cursor: 'pointer',
+                                    minHeight: '44px'
+                                  }}
+                                >
+                                  <input
+                                    type="checkbox"
+                                    checked={isChecked}
+                                    onChange={() => handleToggleSection(sec.id)}
+                                    style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#10b981' }}
+                                  />
+                                  <span style={{ fontSize: '0.75rem', color: isChecked ? '#ffffff' : '#cbd5e1', flex: 1 }}>
+                                    <strong>{sec.id}</strong>: {sec.name}
+                                  </span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {hostSettings.filterType === 'subjects' && (
+              <div style={{ background: '#060e20', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#f59e0b' }}>
+                    Curriculum Subjects ({hostSettings.selectedSubjects?.length || 0} selected):
+                  </span>
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', minHeight: '44px' }}
+                    onClick={handleClearSubjects}
+                  >
+                    Clear All
+                  </button>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', maxHeight: '200px', overflowY: 'auto' }}>
+                  {allAvailableSubjects.map((sub) => {
+                    const isChecked = (hostSettings.selectedSubjects || []).includes(sub.key);
+                    return (
+                      <button
+                        key={sub.key}
+                        type="button"
+                        onClick={() => handleToggleSubject(sub.key)}
+                        style={{
+                          padding: '0.35rem 0.65rem',
+                          borderRadius: '9999px',
+                          fontSize: '0.75rem',
+                          fontFamily: "'Space Mono', monospace",
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          minHeight: '44px',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          background: isChecked ? '#f59e0b' : 'rgba(30, 41, 59, 0.7)',
+                          color: isChecked ? '#090d16' : '#cbd5e1',
+                          border: `1px solid ${isChecked ? '#f59e0b' : 'rgba(100, 116, 139, 0.4)'}`
+                        }}
+                      >
+                        <span>{isChecked ? '✓' : '+'}</span>
+                        <span>{sub.label}</span>
+                        <span style={{ opacity: 0.75, fontSize: '0.7rem' }}>({sub.count})</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Pool Diagnostics */}
+            <div
+              style={{
+                padding: '0.75rem 1rem',
+                borderRadius: 'var(--radius-sm)',
+                background: availableQuestions.length === 0 ? 'rgba(239, 68, 68, 0.15)' : availableQuestions.length < hostSettings.questionCount ? 'rgba(245, 158, 11, 0.15)' : 'rgba(16, 185, 129, 0.15)',
+                border: `1px solid ${availableQuestions.length === 0 ? '#ef4444' : availableQuestions.length < hostSettings.questionCount ? '#f59e0b' : '#10b981'}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                fontSize: '0.85rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: availableQuestions.length === 0 ? '#fca5a5' : availableQuestions.length < hostSettings.questionCount ? '#fde68a' : '#6ee7b7' }}>
+                <span>{availableQuestions.length === 0 ? '🔴' : availableQuestions.length < hostSettings.questionCount ? '⚠️' : '🟢'}</span>
+                <span>
+                  {availableQuestions.length === 0
+                    ? 'Zero questions found matching this filter.'
+                    : availableQuestions.length < hostSettings.questionCount
+                    ? `Pool only has ${availableQuestions.length} questions (below round target of ${hostSettings.questionCount}).`
+                    : `Healthy inventory: ${availableQuestions.length} questions available.`}
+                </span>
+              </div>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 800, color: '#ffffff' }}>
+                POOL: {availableQuestions.length} Qs
+              </span>
+            </div>
+          </div>
+
+          {/* Modal Footer Actions */}
+          <div
+            style={{
+              padding: '1.25rem 1.5rem',
+              borderTop: '1px solid var(--border-color)',
+              background: '#060e20',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '0.75rem'
+            }}
+          >
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              {hostGameState !== 'LOBBY' && (
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  style={{ minHeight: '44px', borderColor: '#f59e0b', color: '#fde68a', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                  onClick={handleReturnToLobby}
+                >
+                  <RotateCcw size={16} />
+                  <span>Restart / Return to Lobby</span>
+                </button>
+              )}
+              <button
+                type="button"
+                className="btn-secondary"
+                style={{ minHeight: '44px', borderColor: '#ef4444', color: '#fca5a5', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                onClick={() => {
+                  setShowSettingsModal(false);
+                  setShowStopHostingConfirm(true);
+                }}
+              >
+                <XCircle size={16} />
+                <span>Stop Hosting</span>
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button
+                type="button"
+                className="btn-secondary"
+                style={{ minHeight: '44px' }}
+                onClick={() => setShowSettingsModal(false)}
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className="btn-primary"
+                style={{ minHeight: '44px', background: '#10b981', borderColor: '#10b981', color: '#090d16', fontWeight: 800 }}
+                onClick={() => {
+                  handleUpdateSettings(hostSettings);
+                  setShowSettingsModal(false);
+                }}
+              >
+                ✓ Apply & Broadcast
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Host Stop Hosting Confirmation Dialog
+  const renderStopHostingConfirmModal = () => {
+    if (!showStopHostingConfirm) return null;
+
+    return (
+      <div
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="stop-hosting-dialog-title"
+        aria-describedby="stop-hosting-dialog-desc"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(3, 7, 18, 0.85)',
+          backdropFilter: 'blur(6px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10000,
+          padding: '1rem'
+        }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setShowStopHostingConfirm(false);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') setShowStopHostingConfirm(false);
+        }}
+      >
+        <div
+          style={{
+            background: '#0b1326',
+            border: '2px solid #ef4444',
+            borderRadius: 'var(--radius-lg)',
+            maxWidth: '520px',
+            width: '100%',
+            padding: '1.75rem',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.25rem'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '2rem' }}>🛑</span>
+            <div>
+              <h2
+                id="stop-hosting-dialog-title"
+                style={{ fontSize: '1.4rem', fontWeight: 900, color: '#ef4444', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                STOP HOSTING ARCADE ROOM?
+              </h2>
+              <span style={{ fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8' }}>
+                ROOM PASSCODE: {roomPin}
+              </span>
+            </div>
+          </div>
+
+          <p id="stop-hosting-dialog-desc" style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.5, margin: 0 }}>
+            Stopping the hosted game will immediately terminate Room <strong>{roomPin}</strong> and disconnect all connected cadets. You will be returned to the main cartridge setup screen.
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '0.5rem' }}>
+            <button
+              type="button"
+              className="btn-secondary"
+              style={{ minHeight: '44px', padding: '0.6rem 1.25rem' }}
+              onClick={() => setShowStopHostingConfirm(false)}
+            >
+              ↩️ Keep Hosting
+            </button>
+            <button
+              type="button"
+              className="btn-primary"
+              style={{ minHeight: '44px', padding: '0.6rem 1.25rem', background: '#ef4444', borderColor: '#ef4444', color: '#ffffff', fontWeight: 800 }}
+              onClick={handleStopHosting}
+            >
+              🛑 Yes, Stop Hosting
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   // ==========================================
@@ -695,7 +1425,7 @@ export default function LiveMode() {
                 <span>[DOM-1, 2, 3 HYBRID]</span>
               </span>
               <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
-                MATCH ID: #CPACC-LOBBY
+                MATCH ID: #IAAP-LOBBY
               </span>
               <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <span>🛡️</span>
@@ -707,7 +1437,7 @@ export default function LiveMode() {
               MULTIPLAYER PARTY DRILL LOBBY
             </h1>
             <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '800px', lineHeight: 1.5 }}>
-              Choose your combat station! Screen readers welcome, rogue bots will be alt-tagged. Compete live with your accessibility team to conquer IAAP CPACC certification questions in rapid-fire arcade rounds.
+              Choose your combat station! Screen readers welcome, rogue bots will be alt-tagged. Compete live with your accessibility team to conquer Digital Accessibility IAAP certification questions (CPACC, WAS, and upcoming ADS) in rapid-fire arcade rounds.
             </p>
           </div>
         </section>
@@ -888,9 +1618,10 @@ export default function LiveMode() {
                     value={hostSettings.certTrack || 'all'}
                     onChange={(e) => setHostSettings({ ...hostSettings, certTrack: e.target.value, domain: 'all' })}
                   >
-                    <option value="all">🌟 Dual Certification Track (CPACC + WAS)</option>
+                    <option value="all">🌟 Digital Accessibility IAAP Suite (CPACC · WAS · ADS)</option>
                     <option value="cpacc">📘 CPACC (Core Competencies & Universal Design)</option>
                     <option value="was">💻 WAS (Web Accessibility Specialist - Technical AA/AAA)</option>
+                    <option value="ads">📄 ADS (Accessible Document Specialist - Remediation & PDF/UA)</option>
                   </select>
                 </div>
 
@@ -1275,7 +2006,7 @@ export default function LiveMode() {
           </div>
         </div>
 
-        {/* CPACC Certification Arcade Cabinets Preview / Selector Grid */}
+        {/* Digital Accessibility IAAP Certification Arcade Cabinets Preview / Selector Grid */}
         <section aria-labelledby="arcade-cabinets-title">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '1.25rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -1284,7 +2015,7 @@ export default function LiveMode() {
               </span>
             </div>
             <h2 id="arcade-cabinets-title" style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-              CPACC CERTIFICATION ARCADE CABINETS
+              DIGITAL ACCESSIBILITY IAAP CERTIFICATION CABINETS (CPACC · WAS · ADS)
             </h2>
             <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0 }}>
               Select a drill cartridge to load into the host lobby queue (1 active drill per round):
@@ -1293,7 +2024,7 @@ export default function LiveMode() {
 
           <div
             role="radiogroup"
-            aria-label="CPACC Certification Arcade Cabinets"
+            aria-label="Digital Accessibility IAAP Certification Cabinets (CPACC · WAS · ADS)"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -1402,36 +2133,59 @@ export default function LiveMode() {
               {/* Left Column: Match Details and HUD */}
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    <span style={{
-                      padding: '0.2rem 0.6rem',
-                      border: `1px solid ${hostSettings.certTrack === 'was' ? '#10b981' : hostSettings.certTrack === 'cpacc' ? '#38bdf8' : '#c084fc'}`,
-                      color: hostSettings.certTrack === 'was' ? '#6ee7b7' : hostSettings.certTrack === 'cpacc' ? '#7dd3fc' : '#e9d5ff',
-                      fontFamily: "'Space Mono', monospace",
-                      fontSize: '0.75rem',
-                      borderRadius: '4px',
-                      background: hostSettings.certTrack === 'was' ? 'rgba(16, 185, 129, 0.15)' : hostSettings.certTrack === 'cpacc' ? 'rgba(56, 189, 248, 0.15)' : 'rgba(192, 132, 252, 0.15)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.35rem'
-                    }}>
-                      <span>{hostSettings.certTrack === 'was' ? '💻' : hostSettings.certTrack === 'cpacc' ? '📘' : '🌟'}</span>
-                      <span>[EXAM: {hostSettings.certTrack === 'was' ? 'IAAP WAS TECHNICAL' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC CORE' : 'DUAL CPACC + WAS'}]</span>
-                    </span>
-                    <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
-                      MATCH ID: #{roomPin || 'ARCADE'}
-                    </span>
-                    <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <span>🛡️</span>
-                      <span>WCAG 2.2 AAA VERIFIED</span>
-                    </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      <span style={{
+                        padding: '0.2rem 0.6rem',
+                        border: `1px solid ${hostSettings.certTrack === 'was' ? '#10b981' : hostSettings.certTrack === 'cpacc' ? '#38bdf8' : hostSettings.certTrack === 'ads' ? '#f59e0b' : '#c084fc'}`,
+                        color: hostSettings.certTrack === 'was' ? '#6ee7b7' : hostSettings.certTrack === 'cpacc' ? '#7dd3fc' : hostSettings.certTrack === 'ads' ? '#fde68a' : '#e9d5ff',
+                        fontFamily: "'Space Mono', monospace",
+                        fontSize: '0.75rem',
+                        borderRadius: '4px',
+                        background: hostSettings.certTrack === 'was' ? 'rgba(16, 185, 129, 0.15)' : hostSettings.certTrack === 'cpacc' ? 'rgba(56, 189, 248, 0.15)' : hostSettings.certTrack === 'ads' ? 'rgba(245, 158, 11, 0.15)' : 'rgba(192, 132, 252, 0.15)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.35rem'
+                      }}>
+                        <span>{hostSettings.certTrack === 'was' ? '💻' : hostSettings.certTrack === 'cpacc' ? '📘' : hostSettings.certTrack === 'ads' ? '📄' : '🌟'}</span>
+                        <span>[EXAM: {hostSettings.certTrack === 'was' ? 'IAAP WAS TECHNICAL' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC CORE' : hostSettings.certTrack === 'ads' ? 'IAAP ADS DOCUMENT SPECIALIST' : 'DIGITAL ACCESSIBILITY IAAP (CPACC · WAS · ADS)'}]</span>
+                      </span>
+                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
+                        MATCH ID: #{roomPin || 'ARCADE'}
+                      </span>
+                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <span>🛡️</span>
+                        <span>WCAG 2.2 AAA VERIFIED</span>
+                      </span>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                      <button
+                        type="button"
+                        className="btn-secondary arcade-btn-deck"
+                        style={{ minHeight: '44px', padding: '0.4rem 0.85rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.4rem', borderColor: '#38bdf8', color: '#7dd3fc' }}
+                        onClick={() => setShowSettingsModal(true)}
+                      >
+                        <Settings size={15} />
+                        <span>⚙️ Edit Match Settings</span>
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-secondary arcade-btn-deck"
+                        style={{ minHeight: '44px', padding: '0.4rem 0.85rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.4rem', borderColor: '#ef4444', color: '#fca5a5' }}
+                        onClick={() => setShowStopHostingConfirm(true)}
+                      >
+                        <XCircle size={15} />
+                        <span>🛑 Stop Hosting</span>
+                      </button>
+                    </div>
                   </div>
 
                   <h1 id="host-lobby-title" style={{ fontSize: '2.2rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
                     MULTIPLAYER PARTY DRILL LOBBY
                   </h1>
                   <p style={{ marginTop: '0.6rem', fontSize: '1rem', color: '#94a3b8', maxWidth: '750px', lineHeight: 1.5 }}>
-                    Punch in your 4-digit token (<span style={{ color: '#10b981', fontWeight: 800 }}>screen readers welcome</span>, rogue bots will be alt-tagged!). Compete live with your accessibility team to conquer {hostSettings.certTrack === 'was' ? 'IAAP WAS technical remediation' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC certification' : 'IAAP CPACC & WAS'} questions in rapid-fire arcade rounds.
+                    Punch in your 4-digit token (<span style={{ color: '#10b981', fontWeight: 800 }}>screen readers welcome</span>, rogue bots will be alt-tagged!). Compete live with your accessibility team to conquer {hostSettings.certTrack === 'was' ? 'IAAP WAS technical remediation' : hostSettings.certTrack === 'cpacc' ? 'IAAP CPACC certification' : hostSettings.certTrack === 'ads' ? 'IAAP ADS document accessibility' : 'Digital Accessibility IAAP certification (CPACC · WAS · ADS)'} questions in rapid-fire arcade rounds.
                   </p>
 
                   {/* Room Inventory Warning if Pool is small */}
@@ -1455,15 +2209,15 @@ export default function LiveMode() {
                 </div>
 
                 {/* Match Configuration HUD Strip */}
-                <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '2px solid rgba(51, 65, 85, 0.6)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.25rem' }}>
+                <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '2px solid rgba(51, 65, 85, 0.6)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
                     <Clock size={16} color="#38bdf8" />
                     <span>Timer:</span>
                     <select
                       className="input-field"
-                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto' }}
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto', minHeight: '44px' }}
                       value={hostSettings.timeLimit}
-                      onChange={(e) => setHostSettings({ ...hostSettings, timeLimit: parseInt(e.target.value, 10) })}
+                      onChange={(e) => handleUpdateSettings({ timeLimit: parseInt(e.target.value, 10) })}
                     >
                       <option value="15">15s Rapid</option>
                       <option value="20">20s Standard</option>
@@ -1472,33 +2226,59 @@ export default function LiveMode() {
                     </select>
                   </label>
 
-                  {roomSettings?.sections && roomSettings.sections.length > 0 ? (
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid #10b981' }}>
-                      <span>📑 Sections:</span>
-                      <span style={{ fontWeight: 800 }}>{roomSettings.sections.length} Selected ({roomSettings.sections.join(', ')})</span>
-                    </div>
-                  ) : roomSettings?.subjects && roomSettings.subjects.length > 0 ? (
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.82rem', fontFamily: "'Space Mono', monospace", color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid #f59e0b' }}>
-                      <span>🏷️ Subjects:</span>
-                      <span style={{ fontWeight: 800 }}>{roomSettings.subjects.join(', ')}</span>
-                    </div>
-                  ) : (
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
-                      <span>Domain:</span>
-                      <select
-                        className="input-field"
-                        style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto' }}
-                        value={hostSettings.domain}
-                        onChange={(e) => setHostSettings({ ...hostSettings, domain: e.target.value })}
-                      >
-                        {(CERTIFICATION_DOMAINS[hostSettings.certTrack || 'all'] || CERTIFICATION_DOMAINS.all).map(d => (
-                          <option key={d.id} value={d.id}>{d.label}</option>
-                        ))}
-                      </select>
-                    </label>
-                  )}
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
+                    <span>Track:</span>
+                    <select
+                      className="input-field"
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto', minHeight: '44px' }}
+                      value={hostSettings.certTrack || 'all'}
+                      onChange={(e) => handleUpdateSettings({ certTrack: e.target.value, domain: 'all' })}
+                    >
+                      <option value="all">🌟 Digital Accessibility IAAP Suite (CPACC · WAS · ADS)</option>
+                      <option value="cpacc">📘 CPACC (Core Competencies & Universal Design)</option>
+                      <option value="was">💻 WAS (Web Accessibility Specialist)</option>
+                      <option value="ads">📄 ADS (Accessible Document Specialist - Remediation & PDF/UA)</option>
+                    </select>
+                  </label>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: activeCabinet.color }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1' }}>
+                    <span>Questions:</span>
+                    <select
+                      className="input-field"
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', width: 'auto', minHeight: '44px' }}
+                      value={hostSettings.questionCount}
+                      onChange={(e) => handleUpdateSettings({ questionCount: parseInt(e.target.value, 10) })}
+                    >
+                      <option value="5">5 Qs</option>
+                      <option value="10">10 Qs</option>
+                      <option value="15">15 Qs</option>
+                      <option value="20">20 Qs</option>
+                    </select>
+                  </label>
+
+                  <button
+                    type="button"
+                    className="btn-secondary arcade-btn-deck"
+                    style={{ minHeight: '44px', padding: '0.35rem 0.75rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.4rem', borderColor: '#10b981', color: '#6ee7b7' }}
+                    onClick={() => setShowSettingsModal(true)}
+                  >
+                    <span>📑 Curriculum:</span>
+                    <span style={{ fontWeight: 800 }}>
+                      {hostSettings.filterType === 'sections'
+                        ? `${hostSettings.selectedSections?.length || 0} Sec`
+                        : hostSettings.filterType === 'subjects'
+                        ? `${hostSettings.selectedSubjects?.length || 0} Sub`
+                        : 'By Domain'}
+                    </span>
+                    <span style={{ fontSize: '0.72rem', opacity: 0.8 }}>(Customize)</span>
+                  </button>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", color: availableQuestions.length === 0 ? '#ef4444' : availableQuestions.length < hostSettings.questionCount ? '#f59e0b' : '#10b981' }}>
+                    <span>{availableQuestions.length === 0 ? '🔴' : availableQuestions.length < hostSettings.questionCount ? '⚠️' : '🟢'}</span>
+                    <span>{availableQuestions.length} Qs Pool</span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace", color: activeCabinet.color, marginLeft: 'auto' }}>
                     <span style={{ fontSize: '1.1rem' }}>{activeCabinet.icon}</span>
                     <span style={{ fontWeight: 800 }}>CARTRIDGE: {activeCabinet.title}</span>
                   </div>
@@ -1671,7 +2451,7 @@ export default function LiveMode() {
                 </span>
               </div>
               <h2 id="host-cabinets-title" style={{ fontSize: '1.5rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-                CPACC CERTIFICATION ARCADE CABINETS
+                DIGITAL ACCESSIBILITY IAAP CERTIFICATION CABINETS (CPACC · WAS · ADS)
               </h2>
               <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: 0 }}>
                 Select a drill cartridge to load into the host lobby queue (1 active drill per round):
@@ -1680,7 +2460,7 @@ export default function LiveMode() {
 
             <div
               role="radiogroup"
-              aria-label="CPACC Certification Arcade Cabinets"
+              aria-label="Digital Accessibility IAAP Certification Cabinets (CPACC · WAS · ADS)"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -1787,30 +2567,52 @@ export default function LiveMode() {
                 </span>
               </div>
 
-              {/* Big Arcade Start Push Button */}
-              <button
-                type="button"
-                className="btn-primary arcade-btn-secondary"
-                style={{
-                  fontSize: '1.15rem',
-                  padding: '0.85rem 2.5rem',
-                  background: '#10b981',
-                  borderColor: '#10b981',
-                  boxShadow: '0 5px 0 0 #059669',
-                  color: '#090d16',
-                  fontWeight: 900,
-                  letterSpacing: '0.05em',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.6rem'
-                }}
-                onClick={handleHostStartGame}
-                disabled={players.length === 0}
-              >
-                <Play size={20} />
-                <span>INSERT COIN / START GAME</span>
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  className="btn-secondary arcade-btn-deck"
+                  style={{ minHeight: '44px', padding: '0.6rem 1.25rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem', borderColor: '#38bdf8', color: '#7dd3fc' }}
+                  onClick={() => setShowSettingsModal(true)}
+                >
+                  <Settings size={18} />
+                  <span>⚙️ Settings</span>
+                </button>
+                <button
+                  type="button"
+                  className="btn-secondary arcade-btn-deck"
+                  style={{ minHeight: '44px', padding: '0.6rem 1.25rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem', borderColor: '#ef4444', color: '#fca5a5' }}
+                  onClick={() => setShowStopHostingConfirm(true)}
+                >
+                  <XCircle size={18} />
+                  <span>🛑 Stop Hosting</span>
+                </button>
+
+                {/* Big Arcade Start Push Button */}
+                <button
+                  type="button"
+                  className="btn-primary arcade-btn-secondary"
+                  style={{
+                    fontSize: '1.15rem',
+                    padding: '0.85rem 2.5rem',
+                    background: '#10b981',
+                    borderColor: '#10b981',
+                    boxShadow: '0 5px 0 0 #059669',
+                    color: '#090d16',
+                    fontWeight: 900,
+                    letterSpacing: '0.05em',
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem',
+                    minHeight: '44px'
+                  }}
+                  onClick={handleHostStartGame}
+                  disabled={players.length === 0}
+                >
+                  <Play size={20} />
+                  <span>INSERT COIN / START GAME</span>
+                </button>
+              </div>
             </div>
           </aside>
         </div>
@@ -1820,78 +2622,99 @@ export default function LiveMode() {
     // Route to specialized Game Mode views
     if (gameMode === 'HOT_POTATO') {
       return (
-        <HotPotatoMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <HotPotatoMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
     if (gameMode === 'GRAND_PRIX') {
       return (
-        <GrandPrixMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <GrandPrixMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
     if (gameMode === 'HIGH_ROLLER') {
       return (
-        <HighRollerMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <HighRollerMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
     if (gameMode === 'FLAW_FINDER') {
       return (
-        <FlawFinderMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <FlawFinderMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
     if (gameMode === 'SABOTEUR') {
       return (
-        <SaboteurMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <SaboteurMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
     if (gameMode === 'BOUNDARY_BRAWL') {
       return (
-        <BoundaryBrawlMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <BoundaryBrawlMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
     if (gameMode === 'BOSS_RAID') {
       return (
-        <BossRaidMode
-          socket={socket}
-          role="HOST"
-          roomPin={roomPin}
-          onLeave={resetToModeSelection}
-        />
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <BossRaidMode
+            socket={socket}
+            role="HOST"
+            roomPin={roomPin}
+            onLeave={handleReturnToLobby}
+          />
+        </div>
       );
     }
 
@@ -1904,6 +2727,7 @@ export default function LiveMode() {
 
       return (
         <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
           <div className="card">
             {/* Top Bar */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -1980,6 +2804,7 @@ export default function LiveMode() {
 
       return (
         <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
           <div className="card">
             <h2 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '1.5rem' }}>
               {q.question}
@@ -2017,10 +2842,10 @@ export default function LiveMode() {
             </div>
 
             {/* Explanation Box */}
-            <div className="explanation-box" tabIndex={0} role="region" aria-label="CPACC Explanation and Reference" style={{ marginTop: '1.5rem' }}>
-              <strong>CPACC Explanation:</strong> {q.explanation}
+            <div className="explanation-box" tabIndex={0} role="region" aria-label="IAAP Certification Explanation and Reference" style={{ marginTop: '1.5rem' }}>
+              <strong>Body of Knowledge Explanation:</strong> {q.explanation}
               <div style={{ marginTop: '0.4rem', fontSize: '0.85rem', color: '#94a3b8' }}>
-                Ref: {q.cpaccRef}
+                Ref: {q.cpaccRef || q.wasRef || q.section_id || 'IAAP BoK'}
               </div>
             </div>
 
@@ -2048,54 +2873,57 @@ export default function LiveMode() {
     // 2D: Host Leaderboard Screen
     if (hostGameState === 'LEADERBOARD') {
       return (
-        <div className="card" style={{ maxWidth: '750px', margin: '0 auto', width: '100%' }}>
-          <h2 style={{ fontSize: '1.8rem', fontWeight: 800, textAlign: 'center', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-            <Award size={28} color="#eab308" />
-            <span>Leaderboard Standings</span>
-          </h2>
+        <div style={{ maxWidth: '750px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <div className="card">
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 800, textAlign: 'center', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+              <Award size={28} color="#eab308" />
+              <span>Leaderboard Standings</span>
+            </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
-            {leaderboard.slice(0, 5).map((player, idx) => (
-              <div
-                key={player.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  background: 'var(--bg-surface-elevated)',
-                  border: idx === 0 ? '2px solid #eab308' : '1px solid var(--border-color)',
-                  padding: '1rem 1.25rem',
-                  borderRadius: 'var(--radius-md)'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <span style={{ fontSize: '1.4rem', fontWeight: 800, width: '28px' }}>
-                    #{player.rank}
-                  </span>
-                  <span style={{ fontSize: '1.6rem' }}>{player.avatar}</span>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 700 }}>{player.nickname}</div>
-                    {player.streak >= 2 && (
-                      <div style={{ fontSize: '0.8rem', color: '#f59e0b', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                        <Flame size={14} />
-                        <span>{player.streak} streak!</span>
-                      </div>
-                    )}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+              {leaderboard.slice(0, 5).map((player, idx) => (
+                <div
+                  key={player.id}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    background: 'var(--bg-surface-elevated)',
+                    border: idx === 0 ? '2px solid #eab308' : '1px solid var(--border-color)',
+                    padding: '1rem 1.25rem',
+                    borderRadius: 'var(--radius-md)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span style={{ fontSize: '1.4rem', fontWeight: 800, width: '28px' }}>
+                      #{player.rank}
+                    </span>
+                    <span style={{ fontSize: '1.6rem' }}>{player.avatar}</span>
+                    <div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 700 }}>{player.nickname}</div>
+                      {player.streak >= 2 && (
+                        <div style={{ fontSize: '0.8rem', color: '#f59e0b', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                          <Flame size={14} />
+                          <span>{player.streak} streak!</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#38bdf8' }}>
+                    {player.score.toLocaleString()} pts
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#38bdf8' }}>
-                  {player.score.toLocaleString()} pts
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button type="button" className="btn-primary" style={{ padding: '0.9rem 2.5rem' }} onClick={handleHostNextStage}>
-              <span>Next Question</span>
-              <ArrowRight size={20} />
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <button type="button" className="btn-primary" style={{ padding: '0.9rem 2.5rem' }} onClick={handleHostNextStage}>
+                <span>Next Question</span>
+                <ArrowRight size={20} />
+              </button>
+            </div>
           </div>
         </div>
       );
@@ -2108,64 +2936,71 @@ export default function LiveMode() {
       const bronze = podiumData[2];
 
       return (
-        <div className="card" style={{ maxWidth: '850px', margin: '0 auto', width: '100%', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '0.5rem', background: 'linear-gradient(135deg, #eab308 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            🎉 The CPACC Champions Podium! 🎉
-          </h2>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-            Congratulations to our accessibility champions!
-          </p>
+        <div style={{ maxWidth: '850px', margin: '0 auto', width: '100%' }}>
+          {renderHostInGameHeader()}
+          <div className="card" style={{ textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '0.5rem', background: 'linear-gradient(135deg, #eab308 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              🎉 The Digital Accessibility Champions Podium! 🎉
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+              Congratulations to our accessibility champions!
+            </p>
 
-          {/* Podium Graphic */}
-          <div className="podium-stage">
-            {/* 2nd place (Silver) */}
-            <div className="podium-column">
-              {silver && (
-                <>
-                  <div style={{ fontSize: '2.5rem' }}>{silver.avatar}</div>
-                  <div style={{ fontWeight: 700, marginBottom: '0.5rem' }}>{silver.nickname}</div>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-                    {silver.score} pts
-                  </div>
-                  <div className="podium-box silver">2nd</div>
-                </>
-              )}
+            {/* Podium Graphic */}
+            <div className="podium-stage">
+              {/* 2nd place (Silver) */}
+              <div className="podium-column">
+                {silver && (
+                  <>
+                    <div style={{ fontSize: '2.5rem' }}>{silver.avatar}</div>
+                    <div style={{ fontWeight: 700, marginBottom: '0.5rem' }}>{silver.nickname}</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+                      {silver.score} pts
+                    </div>
+                    <div className="podium-box silver">2nd</div>
+                  </>
+                )}
+              </div>
+
+              {/* 1st place (Gold) */}
+              <div className="podium-column">
+                {gold && (
+                  <>
+                    <div style={{ fontSize: '3rem' }}>👑 {gold.avatar}</div>
+                    <div style={{ fontWeight: 800, fontSize: '1.2rem', marginBottom: '0.5rem' }}>{gold.nickname}</div>
+                    <div style={{ fontSize: '0.9rem', color: '#fef08a', marginBottom: '0.5rem' }}>
+                      {gold.score} pts
+                    </div>
+                    <div className="podium-box gold">1st</div>
+                  </>
+                )}
+              </div>
+
+              {/* 3rd place (Bronze) */}
+              <div className="podium-column">
+                {bronze && (
+                  <>
+                    <div style={{ fontSize: '2.5rem' }}>{bronze.avatar}</div>
+                    <div style={{ fontWeight: 700, marginBottom: '0.5rem' }}>{bronze.nickname}</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+                      {bronze.score} pts
+                    </div>
+                    <div className="podium-box bronze">3rd</div>
+                  </>
+                )}
+              </div>
             </div>
 
-            {/* 1st place (Gold) */}
-            <div className="podium-column">
-              {gold && (
-                <>
-                  <div style={{ fontSize: '3rem' }}>👑 {gold.avatar}</div>
-                  <div style={{ fontWeight: 800, fontSize: '1.2rem', marginBottom: '0.5rem' }}>{gold.nickname}</div>
-                  <div style={{ fontSize: '0.9rem', color: '#fef08a', marginBottom: '0.5rem' }}>
-                    {gold.score} pts
-                  </div>
-                  <div className="podium-box gold">1st</div>
-                </>
-              )}
+            <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <button type="button" className="btn-secondary" style={{ minHeight: '44px' }} onClick={handleReturnToLobby}>
+                <RotateCcw size={18} />
+                <span>Return to Lobby (Keep Squad)</span>
+              </button>
+              <button type="button" className="btn-secondary" style={{ minHeight: '44px', borderColor: '#ef4444', color: '#fca5a5' }} onClick={() => setShowStopHostingConfirm(true)}>
+                <XCircle size={18} />
+                <span>Stop Hosting</span>
+              </button>
             </div>
-
-            {/* 3rd place (Bronze) */}
-            <div className="podium-column">
-              {bronze && (
-                <>
-                  <div style={{ fontSize: '2.5rem' }}>{bronze.avatar}</div>
-                  <div style={{ fontWeight: 700, marginBottom: '0.5rem' }}>{bronze.nickname}</div>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-                    {bronze.score} pts
-                  </div>
-                  <div className="podium-box bronze">3rd</div>
-                </>
-              )}
-            </div>
-          </div>
-
-          <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
-            <button type="button" className="btn-secondary" onClick={resetToModeSelection}>
-              <RotateCcw size={18} />
-              <span>Host Another Game</span>
-            </button>
           </div>
         </div>
       );
@@ -2401,13 +3236,13 @@ export default function LiveMode() {
               <span style={{
                 padding: '0.15rem 0.5rem',
                 borderRadius: '4px',
-                background: roomSettings.certTrack === 'was' ? '#10b981' : roomSettings.certTrack === 'cpacc' ? '#38bdf8' : '#c084fc',
+                background: roomSettings.certTrack === 'was' ? '#10b981' : roomSettings.certTrack === 'cpacc' ? '#38bdf8' : roomSettings.certTrack === 'ads' ? '#f59e0b' : '#c084fc',
                 color: '#090d16',
                 fontWeight: 800,
                 fontSize: '0.75rem',
                 fontFamily: "'Space Mono', monospace"
               }}>
-                {roomSettings.certTrack === 'was' ? 'WAS TRACK' : roomSettings.certTrack === 'cpacc' ? 'CPACC TRACK' : 'DUAL TRACK'}
+                {roomSettings.certTrack === 'was' ? 'WAS TRACK' : roomSettings.certTrack === 'cpacc' ? 'CPACC TRACK' : roomSettings.certTrack === 'ads' ? 'ADS TRACK' : 'IAAP SUITE (CPACC · WAS · ADS)'}
               </span>
             )}
           </div>
@@ -2565,6 +3400,8 @@ export default function LiveMode() {
       </div>
       <TauntNotificationToast taunt={activeTaunt} onDismiss={() => setActiveTaunt(null)} />
       <CelebrationBroadcastOverlay eventData={activeCelebration} onDismiss={() => setActiveCelebration(null)} />
+      {renderSettingsModal()}
+      {renderStopHostingConfirmModal()}
       {renderViewContent()}
     </>
   );

@@ -239,10 +239,10 @@ export default function PracticeMode({ onBack }) {
             </div>
 
             <h1 id="practice-hero-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-              CPACC PRACTICE GAUNTLET
+              DIGITAL ACCESSIBILITY IAAP PRACTICE GAUNTLET (CPACC · WAS · ADS)
             </h1>
             <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '820px', lineHeight: 1.55 }}>
-              Master the official IAAP CPACC Body of Knowledge at your own speed with zero timer pressure, instant accredited citations, and witty real-world reality checks.
+              Master official IAAP Digital Accessibility Certifications (CPACC · WAS · ADS) Body of Knowledge at your own speed with zero timer pressure, instant accredited citations, and witty real-world reality checks.
             </p>
           </div>
         </section>
@@ -688,7 +688,7 @@ export default function PracticeMode({ onBack }) {
 
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: 1.5 }}>
             {percentage >= 80
-              ? 'Outstanding mastery! You demonstrated thorough command of the CPACC Body of Knowledge!'
+              ? 'Outstanding mastery! You demonstrated thorough command of the IAAP Digital Accessibility Body of Knowledge!'
               : percentage >= 60
               ? 'Solid performance! A few more practice iterations will cement your core competencies.'
               : 'Great training session! Remember that accessibility is an iterative journey of continuous improvement.'}
@@ -814,7 +814,7 @@ export default function PracticeMode({ onBack }) {
               fontFamily: "'Space Mono', monospace",
               fontWeight: 800
             }}>
-              [{q.certification || 'CPACC'}]
+              [{q.certification || 'IAAP'}]
             </span>
             <span style={{ background: 'rgba(192, 132, 252, 0.15)', border: '1px solid #c084fc', color: '#e9d5ff', padding: '0.25rem 0.65rem', borderRadius: '4px', fontSize: '0.8rem', fontFamily: "'Space Mono', monospace", fontWeight: 700 }}>
               [DOM-{q.domain}: {q.topic}]
@@ -878,14 +878,14 @@ export default function PracticeMode({ onBack }) {
           })}
         </div>
 
-        {/* Feedback & CPACC Explanation Drawer */}
+        {/* Feedback & IAAP Explanation Drawer */}
         {isAnswered && (
           <div style={{ marginTop: '1.75rem', paddingTop: '1.5rem', borderTop: '2px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {/* Citation Box */}
             <div style={{ background: '#060e20', border: '1px solid #38bdf8', padding: '1.25rem', borderRadius: 'var(--radius-sm)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: q.certification === 'WAS' ? '#34d399' : '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.82rem' }}>
                 <BookOpen size={16} color={q.certification === 'WAS' ? '#34d399' : '#38bdf8'} />
-                <span>{q.certification || 'CPACC'} BODY OF KNOWLEDGE EXPLANATION:</span>
+                <span>{q.certification || 'IAAP'} BODY OF KNOWLEDGE EXPLANATION:</span>
               </div>
               <p style={{ color: '#f1f5f9', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
                 {q.explanation}

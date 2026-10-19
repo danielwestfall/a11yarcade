@@ -268,6 +268,75 @@
           "rank": 2
         }
       ]
+    },
+    {
+      "id": "1792380087453-WQ6B",
+      "timestamp": "2026-10-19T03:21:27.453Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 300,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792381106645-MRP8",
+      "timestamp": "2026-10-19T03:38:26.645Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 300,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "1792383488209-6TYT",
+      "timestamp": "2026-10-19T04:18:08.209Z",
+      "weekKey": "2026-W42",
+      "gameMode": "SABOTEUR",
+      "questionsCount": 0,
+      "players": [
+        {
+          "nickname": "AgentOne",
+          "avatar": "🐱",
+          "score": 300,
+          "distance": 0,
+          "rank": 1
+        },
+        {
+          "nickname": "AgentTwo",
+          "avatar": "🐱",
+          "score": 0,
+          "distance": 0,
+          "rank": 2
+        }
+      ]
     }
   ],
   "weeklyLeaderboard": {
@@ -283,17 +352,17 @@
       "AgentTwo": {
         "nickname": "AgentTwo",
         "avatar": "🐱",
-        "totalScore": 1700,
-        "gamesPlayed": 11,
-        "wins": 5,
+        "totalScore": 2300,
+        "gamesPlayed": 14,
+        "wins": 7,
         "bestScore": 400
       },
       "AgentOne": {
         "nickname": "AgentOne",
         "avatar": "🐱",
-        "totalScore": 2150,
-        "gamesPlayed": 11,
-        "wins": 6,
+        "totalScore": 2450,
+        "gamesPlayed": 14,
+        "wins": 7,
         "bestScore": 400
       }
     }
@@ -310,17 +379,17 @@
     "AgentTwo": {
       "nickname": "AgentTwo",
       "avatar": "🐱",
-      "totalScore": 1700,
-      "gamesPlayed": 11,
-      "wins": 5,
+      "totalScore": 2300,
+      "gamesPlayed": 14,
+      "wins": 7,
       "bestScore": 400
     },
     "AgentOne": {
       "nickname": "AgentOne",
       "avatar": "🐱",
-      "totalScore": 2150,
-      "gamesPlayed": 11,
-      "wins": 6,
+      "totalScore": 2450,
+      "gamesPlayed": 14,
+      "wins": 7,
       "bestScore": 400
     }
   },
@@ -1965,6 +2034,156 @@
       "correctChoiceId": "A",
       "explanation": "Input-independent design ensures functionality can be triggered through appropriate mechanisms beyond a mouse-specific interaction.",
       "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:21:26.149Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d3-laws-policy-01",
+      "questionText": "A multinational organization assumes one country's accessibility law automatically applies to every office and service worldwide. What should it do?",
+      "topic": "LAW",
+      "domain": 3,
+      "selectedChoiceId": "b",
+      "correctChoiceId": "a",
+      "explanation": "Legal scope varies; organizations should understand applicable local obligations while adopting a coherent accessibility program.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:21:26.801Z",
+      "nickname": "CasinoKing",
+      "questionId": "cpacc-d2-a-supp-10",
+      "questionText": "A community group reviews access. The review concerns user preferences. Which response is best?",
+      "topic": "UD",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Universal design and individualized accommodations complement one another; broad design will not meet every need.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:21:27.128Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-05-3",
+      "questionText": "E-Commerce Retailer Accessibility Statement: A fashion retail chain updates its online shopping portal accessibility statement. Identify the misleading legal/technical claim.",
+      "topic": "Digital Accessibility Legal Landscape & Overlay Limitations",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "Accessibility overlay widgets do not provide legal immunity under ADA Title III and cannot retroactively remediate underlying structural code defects (such as semantic HTML, ARIA states, or complex keyboard navigation).",
+      "funNote": "Targeted Sentence: \"StyleTrend Retail operates digital storefronts des...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Digital Accessibility Legal Landscape, Overlay Limitations & ADA Case Law"
+    },
+    {
+      "timestamp": "2026-10-19T03:21:28.117Z",
+      "nickname": "CadetBravo",
+      "questionId": "was-d1-event-handler-02",
+      "questionText": "Attaching an action only to a mouse-specific event can prevent users of keyboards or other input methods from invoking the same function.",
+      "topic": "EVENTS",
+      "domain": 1,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Input-independent design ensures functionality can be triggered through appropriate mechanisms beyond a mouse-specific interaction.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:38:25.292Z",
+      "nickname": "ClassicAce",
+      "questionId": "cpacc-d2-d-supp-12",
+      "questionText": "A facilities team changes visitor flow. The review concerns restroom access. Which response is best?",
+      "topic": "ACCESSIBILITY",
+      "domain": 2,
+      "selectedChoiceId": "A",
+      "correctChoiceId": "C",
+      "explanation": "Built-environment access depends on connected routes, wayfinding, communication, and ongoing operation.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:38:25.294Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d2-d-supp-12",
+      "questionText": "A facilities team changes visitor flow. The review concerns restroom access. Which response is best?",
+      "topic": "ACCESSIBILITY",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "C",
+      "explanation": "Built-environment access depends on connected routes, wayfinding, communication, and ongoing operation.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:38:25.955Z",
+      "nickname": "CasinoKing",
+      "questionId": "was-d3-procurement-sustain-04",
+      "questionText": "Procurement accessibility practices should be revisited as products, contracts, versions, and organizational needs change.",
+      "topic": "MATURITY",
+      "domain": 3,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "Procurement accessibility is an ongoing process; new versions and changing use cases can alter the relevance of prior evidence and mitigations.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T03:38:26.292Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-04-3",
+      "questionText": "Commercial Airline Passenger Booking Policy: An international airline publishes rules regarding passenger accommodations and ticketing. Find the prohibited statutory clause.",
+      "topic": "Air Carrier Access Act (ACAA) Non-Discrimination Mandates",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
+      "funNote": "Targeted Sentence: \"Horizon Air is committed to accessible travel for ...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
+    },
+    {
+      "timestamp": "2026-10-19T03:38:36.256Z",
+      "nickname": "CadetAlpha",
+      "questionId": "was-d1-semantic-controls-01",
+      "questionText": "A developer replaces a native button with a styled div. The new control looks correct but is skipped during keyboard navigation. What is the best first direction for remediation?",
+      "topic": "CONTROLS",
+      "domain": 1,
+      "selectedChoiceId": "A",
+      "correctChoiceId": "B",
+      "explanation": "Native HTML controls provide built-in semantics and interaction behavior. If a custom control is necessary, it needs equivalent semantics and keyboard interaction rather than visual styling alone.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T04:18:06.825Z",
+      "nickname": "ClassicBob",
+      "questionId": "cpacc-d2-udl-action-02",
+      "questionText": "UDL's multiple means of action and expression concerns the different ways learners can demonstrate or communicate their learning.",
+      "topic": "EXPRESSION",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "A",
+      "explanation": "This UDL principle addresses action and expression. Multiple means of representation and engagement address other dimensions of learning design.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T04:18:07.507Z",
+      "nickname": "CasinoKing",
+      "questionId": "was-d2-a-supp-01",
+      "questionText": "A city service team evaluates a redesign. The review concerns browser, OS, and AT combinations. Which response is best?",
+      "topic": "INTEROPERABILITY",
+      "domain": 2,
+      "selectedChoiceId": "B",
+      "correctChoiceId": "D",
+      "explanation": "Interoperability depends on how browsers and platforms expose content and behavior to assistive technology.",
+      "funNote": ""
+    },
+    {
+      "timestamp": "2026-10-19T04:18:07.859Z",
+      "nickname": "PolicySniper",
+      "questionId": "flaw-04-3",
+      "questionText": "Commercial Airline Passenger Booking Policy: An international airline publishes rules regarding passenger accommodations and ticketing. Find the prohibited statutory clause.",
+      "topic": "Air Carrier Access Act (ACAA) Non-Discrimination Mandates",
+      "domain": 3,
+      "domainName": "Legal Mandates, Standards & Management Strategies",
+      "selectedChoiceId": "s1",
+      "correctChoiceId": "s3",
+      "explanation": "The Air Carrier Access Act (14 CFR Part 382) strictly prohibits air carriers from imposing surcharges or extra fees for providing required accommodations, service animal carriage, or assistive device handling.",
+      "funNote": "Targeted Sentence: \"Horizon Air is committed to accessible travel for ...\"",
+      "cpaccRef": "CPACC BoK Domain 3: Air Carrier Access Act (ACAA) Non-Discrimination & Surcharge Prohibitions"
     }
   ],
   "users": {
@@ -2127,63 +2346,63 @@
       "avatar": "🐱",
       "pin": "1111",
       "createdAt": "2026-10-17T04:13:12.479Z",
-      "lastActive": "2026-10-18T03:04:47.130Z"
+      "lastActive": "2026-10-19T04:18:06.818Z"
     },
     "classicbob": {
       "nickname": "ClassicBob",
       "avatar": "🐱",
       "pin": "2222",
       "createdAt": "2026-10-17T04:13:12.481Z",
-      "lastActive": "2026-10-18T03:04:47.133Z"
+      "lastActive": "2026-10-19T04:18:06.821Z"
     },
     "speeddemon": {
       "nickname": "SpeedDemon",
       "avatar": "🐱",
       "pin": "3333",
       "createdAt": "2026-10-17T04:13:20.813Z",
-      "lastActive": "2026-10-18T03:04:47.456Z"
+      "lastActive": "2026-10-19T04:18:07.158Z"
     },
     "casinoking": {
       "nickname": "CasinoKing",
       "avatar": "🐱",
       "pin": "4444",
       "createdAt": "2026-10-17T04:13:21.140Z",
-      "lastActive": "2026-10-18T03:04:47.769Z"
+      "lastActive": "2026-10-19T04:18:07.498Z"
     },
     "policysniper": {
       "nickname": "PolicySniper",
       "avatar": "🐱",
       "pin": "5555",
       "createdAt": "2026-10-17T04:13:21.469Z",
-      "lastActive": "2026-10-18T03:04:48.082Z"
+      "lastActive": "2026-10-19T04:18:07.851Z"
     },
     "agentone": {
       "nickname": "AgentOne",
       "avatar": "🐱",
       "pin": "6666",
       "createdAt": "2026-10-17T04:13:29.809Z",
-      "lastActive": "2026-10-18T03:04:48.398Z"
+      "lastActive": "2026-10-19T04:18:08.189Z"
     },
     "agenttwo": {
       "nickname": "AgentTwo",
       "avatar": "🐱",
       "pin": "7777",
       "createdAt": "2026-10-17T04:13:29.812Z",
-      "lastActive": "2026-10-18T03:04:48.400Z"
+      "lastActive": "2026-10-19T04:18:08.195Z"
     },
     "brawlp1": {
       "nickname": "BrawlP1",
       "avatar": "🐱",
       "pin": "8888",
       "createdAt": "2026-10-17T04:13:30.137Z",
-      "lastActive": "2026-10-18T03:04:48.717Z"
+      "lastActive": "2026-10-19T04:18:08.553Z"
     },
     "brawlp2": {
       "nickname": "BrawlP2",
       "avatar": "🐱",
       "pin": "9999",
       "createdAt": "2026-10-17T04:13:30.139Z",
-      "lastActive": "2026-10-18T03:04:48.719Z"
+      "lastActive": "2026-10-19T04:18:08.558Z"
     },
     "alphacadet": {
       "nickname": "AlphaCadet",
@@ -2204,21 +2423,35 @@
       "avatar": "🚀",
       "pin": "9988",
       "createdAt": "2026-10-18T01:47:40.346Z",
-      "lastActive": "2026-10-18T05:12:56.022Z"
+      "lastActive": "2026-10-19T03:21:25.878Z"
     },
     "cadetalpha": {
       "nickname": "CadetAlpha",
       "avatar": "🛡️",
       "pin": "1234",
       "createdAt": "2026-10-18T03:04:06.089Z",
-      "lastActive": "2026-10-18T03:04:48.966Z"
+      "lastActive": "2026-10-19T03:38:36.240Z"
     },
     "cadetbravo": {
       "nickname": "CadetBravo",
       "avatar": "⚡",
       "pin": "5678",
       "createdAt": "2026-10-18T03:04:06.093Z",
-      "lastActive": "2026-10-18T03:04:48.968Z"
+      "lastActive": "2026-10-19T03:38:36.246Z"
+    },
+    "cadet1": {
+      "nickname": "Cadet1",
+      "avatar": "🐱",
+      "pin": "1111",
+      "createdAt": "2026-10-19T03:21:14.667Z",
+      "lastActive": "2026-10-19T03:38:31.825Z"
+    },
+    "cadet2": {
+      "nickname": "Cadet2",
+      "avatar": "🐱",
+      "pin": "2222",
+      "createdAt": "2026-10-19T03:21:14.680Z",
+      "lastActive": "2026-10-19T03:38:31.831Z"
     }
   }
 }

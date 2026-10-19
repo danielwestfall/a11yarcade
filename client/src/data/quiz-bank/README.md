@@ -1,12 +1,10 @@
 # Quiz question bank
 
-This folder holds the structured CPACC and WAS quiz bank, separate from the legacy CPACC-only `data/questions.json` consumed by the current game.
+This folder holds the structured CPACC, WAS, and ADS quiz banks, separate from the legacy CPACC-only `data/questions.json` consumed by the current game.
 
-- `cpacc.json` and `was.json` contain the current draft bank (300 CPACC and 30 WAS). The CPACC bank is at its initial 300-item target; next expand the WAS bank to 300 items.
-- `taxonomy.json` defines stable certification, domain and section IDs used by this batch. Extend it from the complete BoKs as coverage grows.
-- `sources.json` maps question source IDs to the supplied BoKs and linked supporting resources.
-- `question.schema.json` defines the question-record contract.
+- `cpacc.json`, `was.json`, and `ads.json` contain structured draft banks. The ADS bank has 400 items: 20 questions for each of the 20 numbered ADS BoK sections.
+- `taxonomy.json` defines stable certification, domain, and section IDs for the supported banks.
+- `sources.json` maps question source IDs to the supplied Bodies of Knowledge and supporting resources.
+- `question.schema.json` defines the shared question-record contract, including the ADS certification and five-domain ID pattern.
 
-All items are marked `draft`. The CPACC bank follows the BoK's 40/40/20 domain weighting. It is separate from gameplay and is not yet wired into the game. For long sessions, the game should track item IDs for the whole session to prevent exact repeats, while allowing concepts to recur through distinct questions. A cooldown by concept can reduce back-to-back near-duplicates.
-
-
+All ADS items are marked `draft`. The ADS bank follows the ADS BoK domain weights (25/25/25/15/10). These structured banks are separate from gameplay and are not wired into the game. The ADS set uses application-style scenarios; its records may be reviewed and revised before approval.

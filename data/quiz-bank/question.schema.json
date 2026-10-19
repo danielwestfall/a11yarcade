@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://quiz-game.local/schema/quiz-question.schema.json",
-  "title": "Quiz Question",
-  "description": "One traceable CPACC or WAS true/false or single-answer multiple-choice item.",
+  "title": "Quiz Question (CPACC, WAS, or ADS)",
+  "description": "One traceable CPACC, WAS, or ADS true/false or single-answer multiple-choice item.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -28,12 +28,13 @@
     "certification_id": {
       "enum": [
         "CPACC",
-        "WAS"
+        "WAS",
+        "ADS"
       ]
     },
     "domain_id": {
       "type": "string",
-      "pattern": "^(CPACC|WAS)-D[1-3]$"
+      "pattern": "^(CPACC|WAS|ADS)-D[1-5]$"
     },
     "section_id": {
       "type": "string",

@@ -163,7 +163,7 @@ export default function App() {
                       SOLO DRILLS & SIMULATED AI CADETS
                     </h1>
                     <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.5 }}>
-                      Sharpen your CPACC muscle memory without peer pressure! Spar against simulated neural bot peers: <strong style={{ color: '#38bdf8' }}>Ada Lovelace Bot</strong> (relentless logic & criteria recall), <strong style={{ color: '#ef4444' }}>Turbo Tina</strong> (speed demon & timer rusher), and <strong style={{ color: '#10b981' }}>Safe Sal</strong> (risk-averse legal compliance counsel). Every cartridge simulates realistic exam curveballs.
+                      Sharpen your Digital Accessibility IAAP certification muscle memory (CPACC · WAS · ADS) without peer pressure! Spar against simulated neural bot peers: <strong style={{ color: '#38bdf8' }}>Ada Lovelace Bot</strong> (relentless logic & criteria recall), <strong style={{ color: '#ef4444' }}>Turbo Tina</strong> (speed demon & timer rusher), and <strong style={{ color: '#10b981' }}>Safe Sal</strong> (risk-averse legal compliance counsel). Every cartridge simulates realistic exam curveballs.
                     </p>
 
                     {/* Bot Roster Quick-Preview Bar */}
@@ -196,7 +196,7 @@ export default function App() {
                       </span>
                     </div>
                     <h2 id="solo-cabinets-title" style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-                      SOLO CPACC TRAINING CARTRIDGES
+                      SOLO DIGITAL ACCESSIBILITY TRAINING CARTRIDGES (CPACC · WAS · ADS)
                     </h2>
                     <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0 }}>
                       Drop a virtual token into any solo arcade cabinet to begin training against AI simulated peers:
@@ -566,7 +566,7 @@ export default function App() {
                       <span>•</span>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#38bdf8' }}>
                         <span>✓</span>
-                        <span>Full IAAP CPACC BoK Coverage</span>
+                        <span>Full IAAP BoK Coverage (CPACC · WAS · ADS)</span>
                       </span>
                       <span className="hidden sm:inline">•</span>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#facc15' }}>
@@ -655,7 +655,7 @@ export default function App() {
       {/* Footer with A11y & Attribution */}
       <footer style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
         <p>
-          Built for workplace accessibility education based on the <strong>IAAP CPACC Body of Knowledge</strong>.
+          Built for workplace accessibility education based on <strong>Digital Accessibility IAAP Certifications (CPACC · WAS · ADS) Body of Knowledge</strong>.
         </p>
         <p style={{ marginTop: '0.25rem' }}>
           Designed with ❤️ for screen readers, keyboard-only warriors, and high-contrast champions.

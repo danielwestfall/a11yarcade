@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Volume2, VolumeX, Eye, Zap, Sliders, Sun, Moon, Sparkles } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import A11yFeaturesModal from './A11yFeaturesModal';
+import { THEME_ICONS } from '../utils/useSkin';
 
 const DEFAULT_PREFS = {
   theme: 'dark', // 'dark' | 'light' | 'high-contrast'
+  skin: 'arcade', // 'arcade' | 'kawaii' | 'anime'
   fontScale: 100, // 100 | 115 | 130 | 150
   fontFamily: 'atkinson', // 'atkinson' | 'opendyslexic' | 'mono' | 'system'
   textSpacing: false,
@@ -37,6 +39,10 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
   // Sync DOM classes whenever preferences change
   useEffect(() => {
     const body = document.body;
+
+    // 0. Art Skin Style
+    body.classList.remove('skin-arcade', 'skin-kawaii', 'skin-anime');
+    body.classList.add(`skin-${preferences.skin || 'arcade'}`);
 
     // 1. Theme
     body.classList.remove('light-mode', 'high-contrast');
@@ -137,6 +143,14 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
           const updated = { ...preferences, theme: themes[nextIdx] };
           setPreferences(updated);
           localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+        } else if (e.key === 's' || e.key === 'S') {
+          e.preventDefault();
+          soundManager.playClick();
+          const skins = ['arcade', 'kawaii', 'anime'];
+          const nextIdx = (skins.indexOf(preferences.skin || 'arcade') + 1) % skins.length;
+          const updated = { ...preferences, skin: skins[nextIdx] };
+          setPreferences(updated);
+          localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
           soundManager.playClick();
@@ -162,6 +176,20 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
       localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
     } catch (e) {
       console.warn('Could not save theme', e);
+    }
+  };
+
+  const cycleSkin = () => {
+    soundManager.playClick();
+    const skins = ['arcade', 'kawaii', 'anime'];
+    const nextIdx = (skins.indexOf(preferences.skin || 'arcade') + 1) % skins.length;
+    const updated = { ...preferences, skin: skins[nextIdx] };
+    setPreferences(updated);
+    try {
+      localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+      window.dispatchEvent(new CustomEvent('a11y-skin-changed', { detail: { skin: updated.skin } }));
+    } catch (e) {
+      console.warn('Could not save skin', e);
     }
   };
 
@@ -203,11 +231,23 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
 
       <header className="header-nav" role="banner">
         <div className="brand-group">
-          <span style={{ fontSize: '2rem' }} role="img" aria-label="Arcade Joystick">🕹️</span>
+          <span
+            style={{ fontSize: '2rem' }}
+            role="img"
+            aria-label={
+              preferences.skin === 'kawaii'
+                ? 'Kawaii Ribbon'
+                : preferences.skin === 'anime'
+                ? 'Shonen Action Burst'
+                : 'Arcade Joystick'
+            }
+          >
+            {(THEME_ICONS[preferences.skin] || THEME_ICONS.arcade).hero}
+          </span>
           <div>
             <h1 className="brand-title">A11y Arcade</h1>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontFamily: "'Space Mono', monospace" }}>
-              Neo-Arcade CPACC Training & Battle Engine
+              Digital Accessibility IAAP Certification Battle Engine (CPACC · WAS · ADS)
             </p>
           </div>
           <span className="brand-badge">WCAG 2.2 AA & 3.0 READY</span>
@@ -256,6 +296,26 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
                 : preferences.theme === 'high-contrast'
                 ? 'High Contrast'
                 : 'Dark Mode'}
+            </span>
+          </button>
+
+          {/* Skin Quick Switcher Pill */}
+          <button
+            type="button"
+            onClick={cycleSkin}
+            className="a11y-pill-btn"
+            aria-label={`Cycle art style skin. Current skin is ${preferences.skin === 'kawaii' ? 'Kawaii Pastel' : preferences.skin === 'anime' ? 'Manga Action' : 'Neo-Arcade'}. Hotkey S.`}
+            title="Cycle Visual Skin (S)"
+          >
+            <span style={{ fontSize: '1rem' }}>
+              {preferences.skin === 'kawaii' ? '🎀' : preferences.skin === 'anime' ? '💥' : '🕹️'}
+            </span>
+            <span>
+              {preferences.skin === 'kawaii'
+                ? 'Kawaii Pop'
+                : preferences.skin === 'anime'
+                ? 'Manga Action'
+                : 'Neo-Arcade'}
             </span>
           </button>
 

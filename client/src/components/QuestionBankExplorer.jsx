@@ -4,6 +4,7 @@ import {
   COMBINED_QUESTIONS,
   CPACC_QUESTIONS,
   WAS_QUESTIONS,
+  ADS_QUESTIONS,
   CERTIFICATION_TRACKS,
   CERTIFICATION_DOMAINS,
   CERTIFICATION_TAXONOMY,
@@ -21,7 +22,7 @@ const SHAPE_CONFIG = {
 };
 
 export default function QuestionBankExplorer() {
-  const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'cpacc', 'was'
+  const [selectedTrack, setSelectedTrack] = useState('all'); // 'all', 'cpacc', 'was', 'ads'
   const [searchTerm, setSearchTerm] = useState('');
   const [domainFilter, setDomainFilter] = useState('all');
   const [sectionFilter, setSectionFilter] = useState('all');
@@ -29,7 +30,13 @@ export default function QuestionBankExplorer() {
   const [expandedIds, setExpandedIds] = useState(new Set());
   const [showAuditPanel, setShowAuditPanel] = useState(false);
 
-  const activePool = selectedTrack === 'cpacc' ? CPACC_QUESTIONS : selectedTrack === 'was' ? WAS_QUESTIONS : COMBINED_QUESTIONS;
+  const activePool = selectedTrack === 'cpacc'
+    ? CPACC_QUESTIONS
+    : selectedTrack === 'was'
+    ? WAS_QUESTIONS
+    : selectedTrack === 'ads'
+    ? ADS_QUESTIONS
+    : COMBINED_QUESTIONS;
 
   const allSectionsList = useMemo(() => getAllSections(selectedTrack), [selectedTrack]);
   const allSubjectsList = useMemo(() => getAllSubjects(selectedTrack), [selectedTrack]);
@@ -87,10 +94,19 @@ export default function QuestionBankExplorer() {
       2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOM-2: 40.0% WEIGHT', title: 'Auditing & Testing Issues', desc: 'Automated vs manual testing methodologies, screen reader mechanics (NVDA, JAWS, VoiceOver), keyboard traps, and contrast measurement.' },
       3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOM-3: 20.0% WEIGHT', title: 'Remediation & Strategies', desc: 'VPAT / ACR evaluation, third-party component remediation, accessible agile workflows, developer coaching, and CI/CD automated gates.' }
     },
+    ads: {
+      1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', tag: 'DOM-1: 25.0% WEIGHT', title: 'Creating Electronic Documents', desc: 'Writing accessible inclusive content, document layout, styling hierarchy, and assembling final format documents.' },
+      2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOM-2: 25.0% WEIGHT', title: 'Remediating Electronic Documents', desc: 'Alternative text, reading order, tagged PDF/UA, table structures, form fields, and final format remediation.' },
+      3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOM-3: 25.0% WEIGHT', title: 'Auditing & Testing Documents', desc: 'Automated document accessibility checkers, manual inspection, screen reader verification, and conformance auditing.' },
+      4: { accent: '#ec4899', bg: 'rgba(236, 72, 153, 0.1)', border: '#ec4899', tag: 'DOM-4: 15.0% WEIGHT', title: 'Document Planning & Training', desc: 'Document workflows, enterprise templates, author training programs, and organizational integration.' },
+      5: { accent: '#c084fc', bg: 'rgba(192, 132, 252, 0.1)', border: '#c084fc', tag: 'DOM-5: 10.0% WEIGHT', title: 'Policy, Advocacy & Advising', desc: 'Organizational policies, procurement of accessible authoring tools, user advocacy, and consulting advice.' }
+    },
     all: {
-      1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', tag: 'DOMAIN 1 (CPACC + WAS)', title: 'Disabilities & Accessible Solutions', desc: 'Disability models, assistive technologies, semantic HTML structure, and technical WCAG 2.1/2.2 AA requirements.' },
-      2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOMAIN 2 (CPACC + WAS)', title: 'Universal Design & Technical Audits', desc: 'POUR principles, universal design, automated vs manual auditing, screen reader heuristics, and accessible design systems.' },
-      3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOMAIN 3 (CPACC + WAS)', title: 'Standards, Laws & Remediation', desc: 'ADA, Section 508, EN 301 549, VPAT / ACR compliance, and corporate remediation governance.' }
+      1: { accent: '#38bdf8', bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', tag: 'DOMAIN 1 (CPACC · WAS · ADS)', title: 'Disabilities, Web & Document Creation', desc: 'Disability models, assistive tech, semantic HTML structure, and accessible document authoring.' },
+      2: { accent: '#10b981', bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', tag: 'DOMAIN 2 (CPACC · WAS · ADS)', title: 'Universal Design, Auditing & Remediation', desc: 'POUR principles, automated vs manual auditing, and document structure/tagging remediation.' },
+      3: { accent: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', tag: 'DOMAIN 3 (CPACC · WAS · ADS)', title: 'Standards, Laws & Document Testing', desc: 'ADA, Section 508, EN 301 549, VPAT/ACR compliance, and document accessibility verification.' },
+      4: { accent: '#ec4899', bg: 'rgba(236, 72, 153, 0.1)', border: '#ec4899', tag: 'DOMAIN 4 (ADS)', title: 'Document Planning & Training', desc: 'Enterprise templates, document workflows, author training programs, and governance.' },
+      5: { accent: '#c084fc', bg: 'rgba(192, 132, 252, 0.1)', border: '#c084fc', tag: 'DOMAIN 5 (ADS)', title: 'Policy Promotion, Advocacy & Advising', desc: 'Procurement of authoring tools, document standards policy, and user advocacy.' }
     }
   };
 
@@ -108,7 +124,7 @@ export default function QuestionBankExplorer() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1.25rem' }}>
             {CERTIFICATION_TRACKS.map(t => {
               const isSelected = selectedTrack === t.id;
-              const count = t.id === 'cpacc' ? CPACC_QUESTIONS.length : t.id === 'was' ? WAS_QUESTIONS.length : COMBINED_QUESTIONS.length;
+              const count = t.id === 'cpacc' ? CPACC_QUESTIONS.length : t.id === 'was' ? WAS_QUESTIONS.length : t.id === 'ads' ? ADS_QUESTIONS.length : COMBINED_QUESTIONS.length;
               return (
                 <button
                   key={t.id}
@@ -146,7 +162,7 @@ export default function QuestionBankExplorer() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #38bdf8', color: '#7dd3fc', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <Layers size={13} />
-              <span>[{selectedTrack === 'was' ? 'IAAP WAS CURRICULUM ARCHIVE' : selectedTrack === 'cpacc' ? 'IAAP CPACC BOK ARCHIVE' : 'IAAP DUAL CERTIFICATION ARCHIVE'}]</span>
+              <span>[{selectedTrack === 'was' ? 'IAAP WAS CURRICULUM ARCHIVE' : selectedTrack === 'cpacc' ? 'IAAP CPACC BOK ARCHIVE' : selectedTrack === 'ads' ? 'IAAP ADS DOCUMENT ARCHIVE (COMING SOON)' : 'DIGITAL ACCESSIBILITY IAAP ARCHIVE (CPACC · WAS · ADS)'}]</span>
             </span>
             <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <Award size={13} />
@@ -165,14 +181,18 @@ export default function QuestionBankExplorer() {
               ? 'WAS TECHNICAL QUESTION BANK & CODE ARCHIVE'
               : selectedTrack === 'cpacc'
               ? 'CPACC QUESTION BANK & BOK ARCHIVE'
-              : 'IAAP ACCESSIBILITY CERTIFICATION ARCHIVE'}
+              : selectedTrack === 'ads'
+              ? 'ADS ACCESSIBLE DOCUMENT SPECIALIST ARCHIVE'
+              : 'DIGITAL ACCESSIBILITY IAAP CERTIFICATION ARCHIVE (CPACC · WAS · ADS)'}
           </h1>
           <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '880px', lineHeight: 1.55 }}>
             {selectedTrack === 'was'
               ? 'Technical accessibility drills adapted from the IAAP Web Accessibility Specialist (WAS) Body of Knowledge. Master WCAG 2.1/2.2 AA success criteria, WAI-ARIA 1.2 mechanics, screen reader compatibility, and code-level remediation.'
               : selectedTrack === 'cpacc'
               ? 'The complete tactical syllabus adapted from the IAAP Certified Professional in Accessibility Core Competencies (CPACC) Body of Knowledge. Browse, filter, expand rationales, and master all three accredited domains.'
-              : 'The comprehensive dual-track syllabus covering foundational concepts from IAAP CPACC and deep technical code-level remediation from IAAP WAS. Browse, filter by domain, inspect citations, and test your readiness.'}
+              : selectedTrack === 'ads'
+              ? 'Accessible document remediation syllabus covering PDF/UA, Microsoft Word, Excel, PowerPoint, tagged tables, reading orders, and digital publishing standards.'
+              : 'The comprehensive digital accessibility syllabus covering foundational concepts from IAAP CPACC, deep technical code-level remediation from IAAP WAS, and upcoming IAAP ADS (Accessible Document Specialist). Browse, filter by domain, inspect citations, and test your readiness.'}
           </p>
 
           {/* Diagnostic Metrics Bar */}
@@ -198,123 +218,51 @@ export default function QuestionBankExplorer() {
       </section>
 
       {/* Domain Breakdown Telemetry Bento Grid */}
-      <section aria-label="Curriculum Domain Breakdown" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
-        {/* Domain 1 Card */}
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={() => { soundManager.playClick(); setDomainFilter(domainFilter === '1' ? 'all' : '1'); }}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(domainFilter === '1' ? 'all' : '1'); } }}
-          className="card"
-          style={{
-            padding: '1.5rem',
-            border: `2px solid ${domainFilter === '1' ? currentDomainMeta[1].accent : 'var(--border-color)'}`,
-            borderLeft: `5px solid ${currentDomainMeta[1].accent}`,
-            background: domainFilter === '1' ? currentDomainMeta[1].bg : 'var(--bg-surface)',
-            boxShadow: '4px 4px 0px 0px #040810',
-            cursor: 'pointer',
-            transition: 'transform 0.1s ease'
-          }}
-          aria-pressed={domainFilter === '1'}
-          aria-label={`Filter by ${currentDomainMeta[1].title}`}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: currentDomainMeta[1].accent, background: currentDomainMeta[1].bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${currentDomainMeta[1].border}` }}>
-              [{currentDomainMeta[1].tag}]
-            </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: currentDomainMeta[1].accent, fontFamily: "'Space Mono', monospace" }}>
-              {d1Count} QUESTIONS
-            </span>
-          </div>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-            {currentDomainMeta[1].title}
-          </h3>
-          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-            {currentDomainMeta[1].desc}
-          </p>
-          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${currentDomainMeta[1].accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#7dd3fc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>{domainFilter === '1' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
-            <span>{d1Count} OF {activePool.length} ITEMS</span>
-          </div>
-        </div>
-
-        {/* Domain 2 Card */}
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={() => { soundManager.playClick(); setDomainFilter(domainFilter === '2' ? 'all' : '2'); }}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(domainFilter === '2' ? 'all' : '2'); } }}
-          className="card"
-          style={{
-            padding: '1.5rem',
-            border: `2px solid ${domainFilter === '2' ? currentDomainMeta[2].accent : 'var(--border-color)'}`,
-            borderLeft: `5px solid ${currentDomainMeta[2].accent}`,
-            background: domainFilter === '2' ? currentDomainMeta[2].bg : 'var(--bg-surface)',
-            boxShadow: '4px 4px 0px 0px #040810',
-            cursor: 'pointer',
-            transition: 'transform 0.1s ease'
-          }}
-          aria-pressed={domainFilter === '2'}
-          aria-label={`Filter by ${currentDomainMeta[2].title}`}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: currentDomainMeta[2].accent, background: currentDomainMeta[2].bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${currentDomainMeta[2].border}` }}>
-              [{currentDomainMeta[2].tag}]
-            </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: currentDomainMeta[2].accent, fontFamily: "'Space Mono', monospace" }}>
-              {d2Count} QUESTIONS
-            </span>
-          </div>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-            {currentDomainMeta[2].title}
-          </h3>
-          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-            {currentDomainMeta[2].desc}
-          </p>
-          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${currentDomainMeta[2].accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#6ee7b7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>{domainFilter === '2' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
-            <span>{d2Count} OF {activePool.length} ITEMS</span>
-          </div>
-        </div>
-
-        {/* Domain 3 Card */}
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={() => { soundManager.playClick(); setDomainFilter(domainFilter === '3' ? 'all' : '3'); }}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(domainFilter === '3' ? 'all' : '3'); } }}
-          className="card"
-          style={{
-            padding: '1.5rem',
-            border: `2px solid ${domainFilter === '3' ? currentDomainMeta[3].accent : 'var(--border-color)'}`,
-            borderLeft: `5px solid ${currentDomainMeta[3].accent}`,
-            background: domainFilter === '3' ? currentDomainMeta[3].bg : 'var(--bg-surface)',
-            boxShadow: '4px 4px 0px 0px #040810',
-            cursor: 'pointer',
-            transition: 'transform 0.1s ease'
-          }}
-          aria-pressed={domainFilter === '3'}
-          aria-label={`Filter by ${currentDomainMeta[3].title}`}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: currentDomainMeta[3].accent, background: currentDomainMeta[3].bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${currentDomainMeta[3].border}` }}>
-              [{currentDomainMeta[3].tag}]
-            </span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 900, color: currentDomainMeta[3].accent, fontFamily: "'Space Mono', monospace" }}>
-              {d3Count} QUESTIONS
-            </span>
-          </div>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
-            {currentDomainMeta[3].title}
-          </h3>
-          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-            {currentDomainMeta[3].desc}
-          </p>
-          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${currentDomainMeta[3].accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: '#fde68a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>{domainFilter === '3' ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
-            <span>{d3Count} OF {activePool.length} ITEMS</span>
-          </div>
-        </div>
+      <section aria-label="Curriculum Domain Breakdown" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+        {Object.entries(currentDomainMeta).map(([domId, meta]) => {
+          const dCount = activePool.filter(q => q.domain === parseInt(domId, 10)).length;
+          const isSelected = domainFilter === domId;
+          return (
+            <div
+              key={domId}
+              role="button"
+              tabIndex={0}
+              onClick={() => { soundManager.playClick(); setDomainFilter(isSelected ? 'all' : domId); }}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); soundManager.playClick(); setDomainFilter(isSelected ? 'all' : domId); } }}
+              className="card domain-interactive-card"
+              style={{
+                padding: '1.5rem',
+                border: `2px solid ${isSelected ? meta.accent : 'var(--border-color)'}`,
+                borderLeft: `5px solid ${meta.accent}`,
+                background: isSelected ? meta.bg : 'var(--bg-surface)',
+                boxShadow: '4px 4px 0px 0px #040810',
+                cursor: 'pointer',
+                transition: 'transform 0.1s ease'
+              }}
+              aria-pressed={isSelected}
+              aria-label={`Filter by ${meta.title}`}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", fontWeight: 800, color: meta.accent, background: meta.bg, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${meta.border}` }}>
+                  [{meta.tag}]
+                </span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 900, color: meta.accent, fontFamily: "'Space Mono', monospace" }}>
+                  {dCount} QUESTIONS
+                </span>
+              </div>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.4rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+                {meta.title}
+              </h3>
+              <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
+                {meta.desc}
+              </p>
+              <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: `1px solid ${meta.accent}33`, fontSize: '0.78rem', fontFamily: "'Space Mono', monospace", color: meta.accent, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span>{isSelected ? '✓ FILTER ACTIVE' : 'CLICK TO FILTER'}</span>
+                <span>{dCount} OF {activePool.length} ITEMS</span>
+              </div>
+            </div>
+          );
+        })}
       </section>
 
       {/* Filter & Search Console */}
@@ -734,7 +682,7 @@ export default function QuestionBankExplorer() {
                       <div style={{ background: '#060e20', border: `1px solid ${isWas ? '#10b981' : '#38bdf8'}`, padding: '1.1rem', borderRadius: 'var(--radius-sm)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, color: isWas ? '#10b981' : '#38bdf8', marginBottom: '0.4rem', fontFamily: "'Space Mono', monospace", fontSize: '0.78rem' }}>
                           <BookOpen size={16} color={isWas ? '#10b981' : '#38bdf8'} />
-                          <span>{isWas ? 'WAS BODY OF KNOWLEDGE & TECHNICAL RATIONALE:' : 'CPACC BODY OF KNOWLEDGE EXPLANATION & RATIONALE:'}</span>
+                          <span>{isWas ? 'WAS BODY OF KNOWLEDGE & TECHNICAL RATIONALE:' : q.certification === 'ADS' ? 'ADS BODY OF KNOWLEDGE & DOCUMENT RATIONALE:' : 'IAAP BODY OF KNOWLEDGE EXPLANATION & RATIONALE:'}</span>
                         </div>
                         <p style={{ fontSize: '0.96rem', color: '#f1f5f9', margin: 0, lineHeight: 1.6 }}>
                           {q.explanation}

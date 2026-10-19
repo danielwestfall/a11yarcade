@@ -948,6 +948,218 @@ io.on('connection', (socket) => {
     if (callback) callback({ success: true, gameMode });
   });
 
+  // Update Room Settings (Host updates curriculum, time, question count, or tracks on the fly)
+  socket.on('update-room-settings', (newSettings = {}, callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.hostSocketId !== socket.id) {
+      return callback && callback({ success: false, error: 'Unauthorized or room not found' });
+    }
+
+    const gameMode = newSettings.gameMode || room.gameMode || 'CLASSIC';
+    const timeLimit = typeof newSettings.timeLimit === 'number' ? newSettings.timeLimit : (room.settings.timeLimit ?? 20);
+    const questionCount = newSettings.questionCount || room.settings.questionCount || 10;
+    const selectedDomain = newSettings.domain !== undefined ? newSettings.domain : (room.settings.domain || 'all');
+    const certTrack = (newSettings.certTrack || newSettings.track || room.settings.certTrack || 'all').toLowerCase();
+
+    const rawSections = newSettings.sections !== undefined ? newSettings.sections : room.settings.sections;
+    const selectedSections = rawSections
+      ? (Array.isArray(rawSections) ? rawSections : String(rawSections).split(',')).map(s => s.trim()).filter(Boolean)
+      : [];
+
+    const rawSubjects = newSettings.subjects !== undefined ? newSettings.subjects : room.settings.subjects;
+    const selectedSubjects = rawSubjects
+      ? (Array.isArray(rawSubjects) ? rawSubjects : String(rawSubjects).split(',')).map(s => s.trim().toLowerCase()).filter(Boolean)
+      : [];
+
+    let pool = [...questionBank];
+    if (certTrack !== 'all') {
+      pool = pool.filter(q => q.certification?.toLowerCase() === certTrack);
+    }
+    if (selectedDomain && selectedDomain !== 'all') {
+      pool = pool.filter(q => q.domain === parseInt(selectedDomain, 10));
+    }
+    if (selectedSections.length > 0) {
+      const secSet = new Set(selectedSections);
+      pool = pool.filter(q => q.section_id && secSet.has(q.section_id));
+    }
+    if (selectedSubjects.length > 0) {
+      const subSet = new Set(selectedSubjects);
+      pool = pool.filter(q => {
+        const qTags = (q.tags || []).map(t => t.toLowerCase());
+        const qTopic = (q.topic || '').toLowerCase();
+        return qTags.some(t => subSet.has(t)) || subSet.has(qTopic);
+      });
+    }
+
+    let poolWarning = null;
+    let chosenQuestions = [];
+    if (pool.length === 0) {
+      poolWarning = 'No questions matched the selected section/subject filter. Falling back to active track pool.';
+      let fallbackPool = questionBank.filter(q => certTrack === 'all' || q.certification?.toLowerCase() === certTrack);
+      chosenQuestions = fallbackPool.sort(() => 0.5 - Math.random()).slice(0, questionCount);
+    } else {
+      if (pool.length < questionCount) {
+        poolWarning = `Selected section(s)/subject(s) only contain ${pool.length} question(s). Round size adjusted to ${pool.length}.`;
+      }
+      chosenQuestions = pool.sort(() => 0.5 - Math.random()).slice(0, questionCount);
+    }
+
+    room.gameMode = gameMode;
+    room.questions = chosenQuestions;
+    room.timeLeft = timeLimit;
+    room.settings = {
+      ...room.settings,
+      gameMode,
+      certTrack,
+      timeLimit,
+      questionCount: chosenQuestions.length,
+      domain: selectedDomain,
+      sections: selectedSections,
+      subjects: selectedSubjects,
+      poolWarning
+    };
+
+    if (room.grandPrix) {
+      room.grandPrix.questionPool = pool;
+    }
+    if (room.saboteur) {
+      room.saboteur.questionPool = pool;
+    }
+
+    io.to(pin).emit('room-settings-updated', {
+      settings: room.settings,
+      gameMode: room.gameMode,
+      questionCount: chosenQuestions.length
+    });
+
+    console.log(`Host updated settings for room ${pin}: Mode=${gameMode}, Track=${certTrack}, QCount=${chosenQuestions.length}, Time=${timeLimit}`);
+
+    if (callback) {
+      callback({
+        success: true,
+        settings: room.settings,
+        questionCount: chosenQuestions.length
+      });
+    }
+  });
+
+  // Return to Lobby (Host halts active match and brings squad back to Lobby to reconfigure/restart)
+  socket.on('return-to-lobby', (callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.hostSocketId !== socket.id) {
+      return callback && callback({ success: false, error: 'Unauthorized or room not found' });
+    }
+
+    if (room.timer) clearInterval(room.timer);
+    if (room.saboteur?.standupTimer) clearInterval(room.saboteur.standupTimer);
+    if (room.boundaryBrawl?.activeChallenge?.timer) clearInterval(room.boundaryBrawl.activeChallenge.timer);
+    for (const p of room.players.values()) {
+      if (p.pitTimer) clearInterval(p.pitTimer);
+      p.score = 0;
+      p.streak = 0;
+      p.answers = {};
+      p.distance = 0;
+      p.gear = 1;
+      p.inPit = false;
+      p.finished = false;
+      p.finishRank = null;
+      p.chips = 1000;
+      p.ap = 0;
+      p.isSaboteur = false;
+      p.isFrozen = false;
+      p.cardsPlaced = 0;
+      p.damageDealt = 0;
+    }
+
+    room.status = 'LOBBY';
+    room.currentQuestionIndex = -1;
+    room.answersThisRound.clear();
+    room.timeLeft = room.settings.timeLimit;
+
+    if (room.hotPotato) {
+      room.hotPotato.hotSeatIndex = 0;
+      room.hotPotato.hotSeatPlayer = null;
+      room.hotPotato.delegates = [];
+      room.hotPotato.action = null;
+      room.hotPotato.submissions.clear();
+      room.hotPotato.jackpotPot = 0;
+    }
+    if (room.highRoller) {
+      room.highRoller.currentQuestionIndex = 0;
+      room.highRoller.wagers.clear();
+      room.highRoller.submissions.clear();
+      room.highRoller.stage = 'HR_TEASER';
+      room.highRoller.underdogTriggered = false;
+    }
+    if (room.flawFinder) {
+      room.flawFinder.currentScenarioIndex = 0;
+      room.flawFinder.submissions.clear();
+      room.flawFinder.stage = 'FF_SNIPING';
+    }
+    if (room.saboteur) {
+      room.saboteur.compliancePercent = 0;
+      room.saboteur.saboteurId = null;
+      room.saboteur.activeStandup = null;
+      room.saboteur.terminalLogs = [];
+      room.saboteur.subsystems.forEach(s => s.progress = 0);
+    }
+    if (room.boundaryBrawl) {
+      room.boundaryBrawl.stage = 'BB_SCRAMBLE';
+      room.boundaryBrawl.placements.clear();
+      room.boundaryBrawl.activeChallenge = null;
+      room.boundaryBrawl.settledChallenges = [];
+    }
+    if (room.bossRaid) {
+      room.bossRaid.stage = 'TECH_TREE';
+      room.bossRaid.bossHp = room.bossRaid.maxBossHp;
+      room.bossRaid.teamHp = room.bossRaid.maxTeamHp;
+      room.bossRaid.completedNodeIds.clear();
+      room.bossRaid.activeBuffs = [];
+      room.bossRaid.activeNode = null;
+      room.bossRaid.activeQuestion = null;
+      room.bossRaid.combatSubmissions.clear();
+      room.bossRaid.turnNumber = 0;
+      room.bossRaid.logs = [];
+    }
+
+    io.to(pin).emit('room-returned-to-lobby', {
+      settings: room.settings,
+      gameMode: room.gameMode,
+      players: Array.from(room.players.values())
+    });
+    io.to(pin).emit('player-list-update', Array.from(room.players.values()));
+
+    console.log(`Host returned room ${pin} to LOBBY.`);
+    if (callback) callback({ success: true });
+  });
+
+  // Stop Hosting (Host cleanly shuts down room and disconnects players)
+  socket.on('stop-hosting', (callback) => {
+    const pin = socket.data.roomPin;
+    const room = rooms.get(pin);
+    if (!room || room.hostSocketId !== socket.id) {
+      return callback && callback({ success: false, error: 'Unauthorized or room not found' });
+    }
+
+    if (room.timer) clearInterval(room.timer);
+    if (room.saboteur?.standupTimer) clearInterval(room.saboteur.standupTimer);
+    if (room.boundaryBrawl?.activeChallenge?.timer) clearInterval(room.boundaryBrawl.activeChallenge.timer);
+    for (const p of room.players.values()) {
+      if (p.pitTimer) clearInterval(p.pitTimer);
+    }
+
+    io.to(pin).emit('host-disconnected');
+    rooms.delete(pin);
+    socket.leave(pin);
+    socket.data.isHost = false;
+    socket.data.roomPin = null;
+
+    console.log(`Host explicitly stopped hosting room ${pin}. Room deleted.`);
+    if (callback) callback({ success: true });
+  });
+
   // ==========================================
   // 3. Start Game (Routes based on Game Mode)
   // ==========================================

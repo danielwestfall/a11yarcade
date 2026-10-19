@@ -1,5 +1,5 @@
 // Multi-Certification Question Banks Loader & Utilities
-// Supports IAAP CPACC (Core Competencies) and IAAP WAS (Web Accessibility Specialist)
+// Supports Digital Accessibility IAAP Certifications: CPACC (Core Competencies), WAS (Web Accessibility Specialist), and upcoming ADS (Accessible Document Specialist)
 // Seamlessly normalizes both legacy arcade format and new structured quiz-bank schema
 // Supports granular Section-level and Subject-level filtering with question count audit
 
@@ -7,6 +7,7 @@ import cpaccRaw from '../data/questions.json';
 import wasRaw from '../data/questions_was.json';
 import cpaccBankRaw from '../data/quiz-bank/cpacc.json';
 import wasBankRaw from '../data/quiz-bank/was.json';
+import adsBankRaw from '../data/quiz-bank/ads.json';
 import taxonomyRaw from '../data/quiz-bank/taxonomy.json';
 
 export const CERTIFICATION_TAXONOMY = taxonomyRaw;
@@ -15,9 +16,9 @@ export const CERTIFICATION_TRACKS = [
   {
     id: 'all',
     code: 'ALL',
-    name: 'Dual Certification Pool',
-    badge: '🌟 MIXED IAAP BOK',
-    desc: 'Comprehensive mix of CPACC foundational concepts and WAS technical remediation questions.',
+    name: 'Digital Accessibility IAAP Suite (CPACC · WAS · ADS)',
+    badge: '🌟 IAAP CERTIFICATIONS',
+    desc: 'Comprehensive curriculum covering CPACC foundational concepts, WAS technical code remediation, and ADS document accessibility.',
     color: '#c084fc',
     bg: 'rgba(192, 132, 252, 0.15)'
   },
@@ -38,6 +39,16 @@ export const CERTIFICATION_TRACKS = [
     desc: 'Technical WCAG 2.1/2.2 AA success criteria, WAI-ARIA 1.2, screen reader testing, and code remediation.',
     color: '#10b981',
     bg: 'rgba(16, 185, 129, 0.15)'
+  },
+  {
+    id: 'ads',
+    code: 'ADS',
+    name: 'ADS: Accessible Document Specialist',
+    badge: '📄 IAAP ADS',
+    desc: 'Electronic documents, authoring accessible content, PDF/UA & Office remediation, document auditing, and advocacy.',
+    color: '#f59e0b',
+    bg: 'rgba(245, 158, 11, 0.15)',
+    comingSoon: false
   }
 ];
 
@@ -54,11 +65,21 @@ export const CERTIFICATION_DOMAINS = {
     { id: 2, label: 'Domain 2: Identifying Accessibility Issues & Auditing (40%)' },
     { id: 3, label: 'Domain 3: Offering Remediation & Accessibility Strategies (20%)' }
   ],
+  ads: [
+    { id: 'all', label: '🌟 All ADS Domains (Full Document Accessibility Suite)' },
+    { id: 1, label: 'Domain 1: Creating Electronic Documents (25%)' },
+    { id: 2, label: 'Domain 2: Remediating Electronic Documents (25%)' },
+    { id: 3, label: 'Domain 3: Auditing & Testing Document Accessibility (25%)' },
+    { id: 4, label: 'Domain 4: Document Accessibility Planning & Training (15%)' },
+    { id: 5, label: 'Domain 5: Policy Promotion, Advocacy & Advising (10%)' }
+  ],
   all: [
-    { id: 'all', label: '🌟 All Domains (Full Dual-Certification Pool)' },
-    { id: 1, label: 'Domain 1: Disabilities / Creating Accessible Web Solutions' },
-    { id: 2, label: 'Domain 2: Universal Design / Identifying Accessibility Issues' },
-    { id: 3, label: 'Domain 3: Standards, Laws & Remediation Strategies' }
+    { id: 'all', label: '🌟 All Domains (Full Digital Accessibility Certification Suite)' },
+    { id: 1, label: 'Domain 1: Disabilities · Web Solutions · Document Creation' },
+    { id: 2, label: 'Domain 2: Universal Design · Auditing · Document Remediation' },
+    { id: 3, label: 'Domain 3: Standards & Laws · Remediation · Document Auditing' },
+    { id: 4, label: 'Domain 4: Document Planning & Training (ADS)' },
+    { id: 5, label: 'Domain 5: Policy Promotion, Advocacy & Advising (ADS)' }
   ]
 };
 
@@ -91,6 +112,8 @@ function mapLegacySection(q) {
     return 'WAS-D2-B'; // Guidelines, Conformance & WCAG-EM
   } else if (q.id.startsWith('was-d3')) {
     return 'WAS-D3-A'; // Severity & Prioritization
+  } else if (q.id.startsWith('ads-')) {
+    return q.section_id || 'ADS-D1-A';
   }
   return 'UNKNOWN';
 }
@@ -102,7 +125,7 @@ function mapLegacySection(q) {
 export function normalizeQuestion(raw, defaultCert = 'CPACC') {
   if (!raw) return null;
 
-  const cert = raw.certification_id || (raw.id?.startsWith('was-') ? 'WAS' : defaultCert);
+  const cert = raw.certification_id || (raw.id?.startsWith('was-') ? 'WAS' : raw.id?.startsWith('ads-') ? 'ADS' : defaultCert);
   const sectionId = mapLegacySection(raw);
 
   let domainNum = 1;
@@ -212,7 +235,8 @@ function buildBank(rawList, defaultCert) {
 
 export const CPACC_QUESTIONS = buildBank([...(Array.isArray(cpaccBankRaw) ? cpaccBankRaw : []), ...(Array.isArray(cpaccRaw) ? cpaccRaw : [])], 'CPACC');
 export const WAS_QUESTIONS = buildBank([...(Array.isArray(wasBankRaw) ? wasBankRaw : []), ...(Array.isArray(wasRaw) ? wasRaw : [])], 'WAS');
-export const COMBINED_QUESTIONS = [...CPACC_QUESTIONS, ...WAS_QUESTIONS];
+export const ADS_QUESTIONS = buildBank(Array.isArray(adsBankRaw) ? adsBankRaw : [], 'ADS');
+export const COMBINED_QUESTIONS = [...CPACC_QUESTIONS, ...WAS_QUESTIONS, ...ADS_QUESTIONS];
 
 /**
  * Returns all taxonomy sections with real-time question counts and health status.
@@ -375,6 +399,7 @@ export function getSectionAuditReport() {
 export function getQuestionsByTrack(track = 'all') {
   if (track === 'cpacc') return CPACC_QUESTIONS;
   if (track === 'was') return WAS_QUESTIONS;
+  if (track === 'ads') return ADS_QUESTIONS;
   return COMBINED_QUESTIONS;
 }
 

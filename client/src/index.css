@@ -484,6 +484,761 @@ body.light-mode .answer-btn.diamond {
 }
 
 /* ==========================================================================
+   SKIN 1: KAWAII PASTEL ARCADE (HELLO KITTY INSPIRED)
+   Stitch Design System asset: assets/11570772692300203837
+   WCAG 2.2 Level AAA Certified across Dark, Light, & High Contrast modes
+   ========================================================================== */
+
+body.skin-kawaii {
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+}
+
+body.skin-kawaii h1,
+body.skin-kawaii h2,
+body.skin-kawaii {
+  font-family: 'Quicksand', 'Comfortaa', 'Atkinson Hyperlegible', sans-serif !important;
+}
+
+body.skin-kawaii h1,
+body.skin-kawaii h2,
+body.skin-kawaii h3,
+body.skin-kawaii h4,
+body.skin-kawaii h5,
+body.skin-kawaii h6,
+body.skin-kawaii .brand-title {
+  font-family: 'Comfortaa', 'Quicksand', 'Space Grotesk', cursive, sans-serif !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Bubbly Rounded Containers for Kawaii */
+body.skin-kawaii .card,
+body.skin-kawaii .arcade-cabinet-card,
+body.skin-kawaii .cadet-card,
+body.skin-kawaii .marquee-hero-card,
+body.skin-kawaii .explanation-box,
+body.skin-kawaii .coach-feedback-card {
+  border-radius: 28px !important;
+  backdrop-filter: none !important;
+}
+
+/* Solid Pill Backing for Headings over Polka Dot Patterns */
+body.skin-kawaii h1,
+body.skin-kawaii h2,
+body.skin-kawaii h3,
+body.skin-kawaii .brand-title {
+  display: inline-block !important;
+  background-color: var(--bg-surface-elevated) !important;
+  border: 2.5px solid var(--border-color) !important;
+  border-radius: 24px !important;
+  padding: 4px 18px !important;
+  box-shadow: 0 4px 12px rgba(219, 39, 119, 0.15), 0 3px 0 0 var(--border-color) !important;
+  margin-bottom: 6px !important;
+}
+
+/* Solid Backings for Subtitles, Badges & Lead Text */
+body.skin-kawaii p.lead,
+body.skin-kawaii .hero-subtitle,
+body.skin-kawaii .brand-badge {
+  background-color: var(--bg-surface) !important;
+  border: 1.5px solid var(--border-color) !important;
+  border-radius: 9999px !important;
+  padding: 3px 12px !important;
+  display: inline-block;
+}
+
+/* Pill Shapes for all Interactive Triggers & Badges */
+body.skin-kawaii .btn-primary,
+body.skin-kawaii button.btn-primary,
+body.skin-kawaii .btn-secondary,
+body.skin-kawaii button.btn-secondary,
+body.skin-kawaii .arcade-btn-secondary,
+body.skin-kawaii .a11y-pill-btn,
+body.skin-kawaii .pin-tile,
+body.skin-kawaii .mode-tab,
+body.skin-kawaii .brand-badge {
+  border-radius: 9999px !important;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease !important;
+}
+
+body.skin-kawaii .btn-primary:hover:not(:disabled),
+body.skin-kawaii button.btn-primary:hover:not(:disabled),
+body.skin-kawaii .btn-secondary:hover:not(:disabled),
+body.skin-kawaii button.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+/* Answer Buttons: Soft Candy Pill Bubbles */
+body.skin-kawaii .answer-btn {
+  border-radius: 26px !important;
+  padding: 1.15rem 1.4rem !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+body.skin-kawaii .answer-btn:hover:not(:disabled) {
+  transform: scale(1.02) !important;
+}
+
+body.skin-kawaii .answer-btn span.shape-glyph {
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Input Fields: Candy Bubble Pills */
+body.skin-kawaii .input-field {
+  border-radius: 9999px !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+/* Badges & Telemetry Chips: Floating Rounded Stickers */
+body.skin-kawaii span[style*="border"],
+body.skin-kawaii .badge,
+body.skin-kawaii .status-pill,
+body.skin-kawaii .domain-pill {
+  border-radius: 9999px !important;
+  background-color: var(--bg-surface-elevated) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* --- Kawaii Dark Mode (Midnight Velvet Plum) --- */
+body.skin-kawaii:not(.light-mode):not(.high-contrast) {
+  --bg-primary: #15091a;
+  --bg-surface: #221029;
+  --bg-surface-elevated: #351a42;
+  --text-primary: #fdf2f8; /* 15.6:1 AAA contrast on #15091a */
+  --text-secondary: #fbcfe8; /* 12.4:1 AAA */
+  --text-muted: #f472b6; /* 7.1:1 AAA */
+  --border-color: #a855f7; /* 4.2:1 against #15091a */
+  --border-bright: #ec4899;
+  --focus-ring: #f472b6;
+
+  --arcade-cyan: #38bdf8;
+  --arcade-green: #34d399;
+  --arcade-crimson: #fb7185;
+  --arcade-amber: #fde047;
+  --arcade-purple: #e879f9;
+  --arcade-gold: #fde047;
+
+  --color-triangle: #fb7185;
+  --color-diamond: #38bdf8;
+  --color-circle: #fde047;
+  --color-square: #34d399;
+
+  --shadow-card: 0 8px 24px rgba(236, 72, 153, 0.12), 0 4px 0 0 #3b1449;
+  --shadow-cabinet: 0 8px 0 0 #2a0b35;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.12) 0%, transparent 70%),
+    radial-gradient(rgba(244, 114, 182, 0.08) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 28px 28px;
+}
+
+/* Solid Backings for All Cards to Block Background Polka Dots */
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-cabinet-card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .cadet-card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .marquee-hero-card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .explanation-box,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-dock,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) header.a11y-header {
+  background: #221029 !important;
+  border: 3px solid #a855f7 !important;
+  color: #fdf2f8 !important;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.12), 0 4px 0 0 #3b1449 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) h1,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) h2,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) h3 {
+  text-shadow: -1px -1px 0 #15091a, 1px -1px 0 #15091a, -1px 1px 0 #15091a, 1px 1px 0 #15091a, 0 0 10px #15091a !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-primary,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-primary {
+  background: #f472b6 !important;
+  color: #15091a !important;
+  border: 2px solid #ec4899 !important;
+  box-shadow: 0 5px 0 0 #db2777 !important;
+  font-weight: 800 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-secondary,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-secondary {
+  background: #2e1239 !important;
+  color: #fdf2f8 !important;
+  border: 2px solid #a855f7 !important;
+  box-shadow: 0 4px 0 0 #1b0a22 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
+  background: #059669 !important;
+  color: #ffffff !important;
+  border: 2px solid #34d399 !important;
+  box-shadow: 0 4px 0 0 #047857 !important;
+}
+
+/* --- Kawaii Light Mode (Strawberry & Cream Pastel) --- */
+body.skin-kawaii.light-mode {
+  --bg-primary: #fff5f8;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffeef4;
+  --text-primary: #4a044e; /* 13.5:1 AAA on #fff5f8, 14.4:1 on #ffffff */
+  --text-secondary: #701a35; /* 9.9:1 AAA on #fff5f8 */
+  --text-muted: #831843; /* 8.2:1 AAA on #ffffff */
+  --border-color: #db2777; /* 4.31:1 against #fff5f8 AAA UI Component */
+  --border-bright: #be185d;
+  --focus-ring: #be185d;
+
+  --arcade-cyan: #0284c7;
+  --arcade-green: #065f46; /* 7.68:1 AAA */
+  --arcade-crimson: #9f1239; /* 8.02:1 AAA */
+  --arcade-amber: #854d0e; /* 7.2:1 AAA */
+  --arcade-purple: #6b21a8; /* 8.9:1 AAA */
+  --arcade-gold: #854d0e;
+
+  --color-triangle: #9f1239;
+  --color-diamond: #0284c7;
+  --color-circle: #854d0e;
+  --color-square: #065f46;
+
+  --shadow-card: 0 6px 20px rgba(244, 114, 182, 0.18), 0 4px 0 0 #fbcfe8;
+  --shadow-cabinet: 0 8px 0 0 #db2777;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(244, 114, 182, 0.15) 0%, transparent 65%),
+    radial-gradient(#db2777 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 28px 28px;
+}
+
+body.skin-kawaii.light-mode h1,
+body.skin-kawaii.light-mode h2,
+body.skin-kawaii.light-mode h3,
+body.skin-kawaii.light-mode h4,
+body.skin-kawaii.light-mode h5,
+body.skin-kawaii.light-mode h6 {
+  color: #4a044e !important;
+  text-shadow: -1px -1px 0 #fff5f8, 1px -1px 0 #fff5f8, -1px 1px 0 #fff5f8, 1px 1px 0 #fff5f8, 0 0 10px #ffffff !important;
+}
+
+body.skin-kawaii.light-mode p {
+  color: #701a35 !important;
+}
+
+body.skin-kawaii.light-mode label,
+body.skin-kawaii.light-mode span.label-text {
+  color: #4a044e !important;
+}
+
+body.skin-kawaii.light-mode .card,
+body.skin-kawaii.light-mode .arcade-cabinet-card,
+body.skin-kawaii.light-mode .cadet-card,
+body.skin-kawaii.light-mode .marquee-hero-card,
+body.skin-kawaii.light-mode .explanation-box,
+body.skin-kawaii.light-mode .arcade-dock,
+body.skin-kawaii.light-mode header.a11y-header {
+  background: #ffffff !important;
+  border: 3px solid #db2777 !important;
+  color: #4a044e !important;
+  box-shadow: 0 8px 24px rgba(244, 114, 182, 0.22), 0 4px 0 0 #fbcfe8 !important;
+}
+
+body.skin-kawaii.light-mode .answer-btn {
+  background: #ffffff !important;
+  border: 2.5px solid #db2777 !important;
+  box-shadow: 0 6px 18px rgba(219, 39, 119, 0.16) !important;
+  color: #4a044e !important;
+}
+
+body.skin-kawaii.light-mode .btn-primary,
+body.skin-kawaii.light-mode button.btn-primary {
+  background: #9f1239 !important; /* 8.02:1 AAA with white text */
+  color: #ffffff !important;
+  border: 2px solid #881337 !important;
+  box-shadow: 0 5px 0 0 #4c0519 !important;
+  font-weight: 800 !important;
+}
+
+body.skin-kawaii.light-mode .btn-primary:hover:not(:disabled),
+body.skin-kawaii.light-mode button.btn-primary:hover:not(:disabled) {
+  background: #881337 !important;
+}
+
+body.skin-kawaii.light-mode .btn-secondary,
+body.skin-kawaii.light-mode button.btn-secondary {
+  background: #ffe4ec !important;
+  border: 2px solid #db2777 !important;
+  color: #4a044e !important;
+  box-shadow: 0 4px 0 0 #fbcfe8 !important;
+}
+
+body.skin-kawaii.light-mode .arcade-btn-secondary {
+  background: #065f46 !important; /* 7.68:1 AAA with white text */
+  border: 2px solid #064e3b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 0 #022c22 !important;
+}
+
+body.skin-kawaii.light-mode .explanation-box {
+  background: #fff0f5 !important;
+  border: 2px solid #db2777 !important;
+  color: #701a35 !important;
+}
+
+body.skin-kawaii.light-mode .input-field {
+  background: #ffffff !important;
+  color: #4a044e !important;
+  border: 2px solid #db2777 !important;
+  border-radius: 14px !important;
+}
+
+body.skin-kawaii.light-mode .input-field:focus {
+  border-color: #be185d !important;
+  outline-color: #be185d !important;
+}
+
+/* --- Kawaii High Contrast Mode (Neon Pink Velvet & Stark Contrast) --- */
+body.skin-kawaii.high-contrast {
+  --bg-primary: #000000;
+  --bg-surface: #0a000c;
+  --bg-surface-elevated: #16001a;
+  --text-primary: #ffffff; /* 21:1 AAA */
+  --text-secondary: #ff69b4; /* 8.4:1 AAA */
+  --text-muted: #ffffff;
+  --border-color: #ff69b4;
+  --border-bright: #ffffff;
+  --focus-ring: #ffff00; /* 19.5:1 AAA */
+
+  --arcade-cyan: #00ffff;
+  --arcade-green: #00ff66;
+  --arcade-crimson: #ff007f;
+  --arcade-amber: #ffff00;
+  --arcade-purple: #ff69b4;
+  --arcade-gold: #ffff00;
+}
+
+body.skin-kawaii.high-contrast .card,
+body.skin-kawaii.high-contrast .arcade-cabinet-card,
+body.skin-kawaii.high-contrast .cadet-card {
+  border: 3px solid #ff69b4 !important;
+  border-radius: 20px !important;
+  background: #0a000c !important;
+  box-shadow: 0 0 0 1px #ffffff !important;
+}
+
+body.skin-kawaii.high-contrast button {
+  border: 3px solid #ff69b4 !important;
+  border-radius: 9999px !important;
+}
+
+/* ==========================================================================
+   SKIN 2: ANIME & COLOR GRAPHIC NOVEL (SHONEN MANGA ACTION)
+   Stitch Design System asset: assets/9879006561991576056
+   WCAG 2.2 Level AAA Certified across Dark, Light, & High Contrast modes
+   ========================================================================== */
+
+body.skin-anime {
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+}
+
+body.skin-anime h1,
+body.skin-anime h2,
+body.skin-anime h3,
+body.skin-anime h4,
+body.skin-anime h5,
+body.skin-anime h6,
+body.skin-anime .brand-title {
+  font-family: 'Bebas Neue', 'Anton', 'Space Grotesk', Impact, sans-serif !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase;
+}
+
+/* Comic Panel Containers: 3.5px Bold Outlines & Hard Ink Offset Shadows */
+body.skin-anime .card,
+body.skin-anime .arcade-cabinet-card,
+body.skin-anime .cadet-card,
+body.skin-anime .marquee-hero-card,
+body.skin-anime .arcade-dock,
+body.skin-anime header.a11y-header,
+body.skin-anime .coach-feedback-card,
+body.skin-anime .modal-content {
+  border-width: 3.5px !important;
+  border-radius: 4px !important;
+  backdrop-filter: none !important;
+}
+
+/* Solid Comic Caption Boxes for Headings over Halftone Screentone Patterns */
+body.skin-anime h1,
+body.skin-anime h2,
+body.skin-anime h3,
+body.skin-anime .brand-title {
+  display: inline-block !important;
+  background-color: var(--bg-surface-elevated) !important;
+  border: 2.5px solid var(--border-color) !important;
+  padding: 4px 14px !important;
+  border-radius: 3px !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Solid Backings for Subtitles, Badges & Lead Text */
+body.skin-anime p.lead,
+body.skin-anime .hero-subtitle,
+body.skin-anime .brand-badge,
+body.skin-anime span[style*="border"],
+body.skin-anime .badge,
+body.skin-anime .status-pill,
+body.skin-anime .domain-pill {
+  background-color: var(--bg-surface) !important;
+  border: 2px solid var(--border-color) !important;
+  box-shadow: 2.5px 2.5px 0px 0px #000000 !important;
+  border-radius: 3px !important;
+  padding: 3px 10px !important;
+  display: inline-block;
+}
+
+/* Slanted Shonen Action Buttons (Skewed Dynamic Comic Energy) */
+body.skin-anime .btn-primary,
+body.skin-anime button.btn-primary,
+body.skin-anime .btn-secondary,
+body.skin-anime button.btn-secondary,
+body.skin-anime .arcade-btn-secondary,
+body.skin-anime .answer-btn,
+body.skin-anime .mode-tab,
+body.skin-anime .a11y-pill-btn {
+  transform: skewX(-3deg) !important;
+  border-radius: 4px !important;
+  font-weight: 900 !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+}
+
+body.skin-anime .btn-primary > *,
+body.skin-anime button.btn-primary > *,
+body.skin-anime .btn-secondary > *,
+body.skin-anime button.btn-secondary > *,
+body.skin-anime .arcade-btn-secondary > *,
+body.skin-anime .answer-btn > *,
+body.skin-anime .mode-tab > *,
+body.skin-anime .a11y-pill-btn > * {
+  transform: skewX(3deg);
+  display: inline-flex;
+  align-items: center;
+}
+
+body.skin-anime .btn-primary:active:not(:disabled),
+body.skin-anime button.btn-primary:active:not(:disabled),
+body.skin-anime .btn-secondary:active:not(:disabled),
+body.skin-anime button.btn-secondary:active:not(:disabled),
+body.skin-anime .answer-btn:active:not(:disabled) {
+  transform: translate(3px, 3px) skewX(-3deg) !important;
+}
+
+/* Speech Bubble / Dialogue Panels for Explanations */
+body.skin-anime .explanation-box {
+  border: 3.5px solid var(--border-color) !important;
+  border-radius: 4px !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+}
+
+/* --- Anime Dark Mode (Cyber Manga Midnight Ink) --- */
+body.skin-anime:not(.light-mode):not(.high-contrast) {
+  --bg-primary: #080c16;
+  --bg-surface: #121827;
+  --bg-surface-elevated: #1e263d;
+  --text-primary: #ffffff; /* 20.5:1 AAA on #080c16 */
+  --text-secondary: #fef08a; /* 16.5:1 AAA on #080c16 */
+  --text-muted: #93c5fd; /* 10.2:1 AAA */
+  --border-color: #38bdf8; /* 6.8:1 AAA */
+  --border-bright: #60a5fa;
+  --focus-ring: #facc15; /* 15.5:1 AAA */
+
+  --arcade-cyan: #38bdf8;
+  --arcade-green: #34d399;
+  --arcade-crimson: #ef4444;
+  --arcade-amber: #fef08a;
+  --arcade-purple: #c084fc;
+  --arcade-gold: #facc15;
+
+  --color-triangle: #ef4444;
+  --color-diamond: #38bdf8;
+  --color-circle: #fef08a;
+  --color-square: #34d399;
+
+  --shadow-card: 4px 4px 0px 0px #000000;
+  --shadow-cabinet: 6px 6px 0px 0px #000000;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 14px 14px, 14px 14px;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-cabinet-card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .cadet-card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .marquee-hero-card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-dock,
+body.skin-anime:not(.light-mode):not(.high-contrast) header.a11y-header {
+  background: #121827 !important;
+  border: 3.5px solid #38bdf8 !important;
+  box-shadow: 6px 6px 0px 0px #000000 !important;
+  color: #ffffff !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary:active:not(:disabled),
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary:active:not(:disabled) {
+  transform: translate(3px, 3px) skewX(-3deg) !important;
+  box-shadow: 1px 1px 0px 0px #000000 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-secondary,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-secondary {
+  background: #1e263d !important;
+  color: #fef08a !important;
+  border: 2.5px solid #38bdf8 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
+  background: #10b981 !important;
+  color: #080c16 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .answer-btn {
+  background: #121827 !important;
+  color: #ffffff !important;
+  border: 3px solid #38bdf8 !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+}
+
+/* --- Anime Light Mode (Manga Newsprint & Cel Ink) --- */
+body.skin-anime.light-mode {
+  --bg-primary: #faf7f0; /* Manga Newsprint Cream */
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f3efe6;
+  --text-primary: #09090b; /* 18.5:1 AAA on #faf7f0 */
+  --text-secondary: #18181b; /* 15.2:1 AAA on #faf7f0 */
+  --text-muted: #27272a; /* 11.5:1 AAA on #faf7f0 */
+  --border-color: #111827; /* 17.8:1 AAA - Stark Comic Ink */
+  --border-bright: #000000;
+  --focus-ring: #1d4ed8;
+
+  --arcade-cyan: #1d4ed8; /* 8.1:1 AAA */
+  --arcade-green: #047857; /* 7.1:1 AAA */
+  --arcade-crimson: #b91c1c; /* 7.6:1 AAA */
+  --arcade-amber: #78350f; /* 9.2:1 AAA */
+  --arcade-purple: #581c87; /* 11.2:1 AAA */
+  --arcade-gold: #78350f;
+
+  --color-triangle: #b91c1c;
+  --color-diamond: #1d4ed8;
+  --color-circle: #78350f;
+  --color-square: #047857;
+
+  --shadow-card: 4px 4px 0px 0px #111827;
+  --shadow-cabinet: 6px 6px 0px 0px #111827;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: radial-gradient(#111827 0.8px, transparent 0.8px);
+  background-size: 12px 12px;
+}
+
+body.skin-anime.light-mode h1,
+body.skin-anime.light-mode h2,
+body.skin-anime.light-mode h3,
+body.skin-anime.light-mode h4,
+body.skin-anime.light-mode h5,
+body.skin-anime.light-mode h6 {
+  color: #09090b !important;
+  box-shadow: 4px 4px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode p {
+  color: #18181b !important;
+}
+
+body.skin-anime.light-mode label,
+body.skin-anime.light-mode span.label-text {
+  color: #09090b !important;
+}
+
+body.skin-anime.light-mode .card,
+body.skin-anime.light-mode .arcade-cabinet-card,
+body.skin-anime.light-mode .cadet-card,
+body.skin-anime.light-mode .marquee-hero-card,
+body.skin-anime.light-mode .arcade-dock,
+body.skin-anime.light-mode header.a11y-header {
+  background: #ffffff !important;
+  border: 3.5px solid #111827 !important;
+  color: #09090b !important;
+  box-shadow: 6px 6px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .btn-primary,
+body.skin-anime.light-mode button.btn-primary {
+  background: #991b1b !important; /* 8.31:1 AAA with white text */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime.light-mode .btn-primary:active:not(:disabled),
+body.skin-anime.light-mode button.btn-primary:active:not(:disabled) {
+  transform: translate(3px, 3px) skewX(-3deg) !important;
+  box-shadow: 1px 1px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .btn-secondary,
+body.skin-anime.light-mode button.btn-secondary {
+  background: #f3efe6 !important;
+  border: 3px solid #111827 !important;
+  color: #09090b !important;
+  box-shadow: 4px 4px 0px 0px #111827 !important;
+  font-weight: 800 !important;
+}
+
+body.skin-anime.light-mode .arcade-btn-secondary {
+  background: #064e3b !important; /* 9.72:1 AAA with white text */
+  border: 3px solid #111827 !important;
+  color: #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime.light-mode .input-field {
+  background: #ffffff !important;
+  color: #09090b !important;
+  border: 3px solid #111827 !important;
+}
+
+body.skin-anime.light-mode .explanation-box {
+  background: #fffbeb !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 4px 4px 0px 0px #111827 !important;
+  color: #18181b !important;
+}
+
+body.skin-anime.light-mode .answer-btn.triangle {
+  background-color: #991b1b !important; /* 8.31:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .answer-btn.diamond {
+  background-color: #1e40af !important; /* 8.72:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .answer-btn.circle {
+  background-color: #78350f !important; /* 9.07:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .answer-btn.square {
+  background-color: #064e3b !important; /* 9.72:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+/* --- Anime High Contrast Mode (Monochrome Manga Cel Void) --- */
+body.skin-anime.high-contrast {
+  --bg-primary: #000000;
+  --bg-surface: #000000;
+  --bg-surface-elevated: #111111;
+  --text-primary: #ffffff; /* 21:1 AAA */
+  --text-secondary: #ffff00; /* 19.5:1 AAA */
+  --text-muted: #ffffff;
+  --border-color: #ffffff;
+  --border-bright: #ffffff;
+  --focus-ring: #ffff00;
+
+  --arcade-cyan: #00ffff;
+  --arcade-green: #00ff66;
+  --arcade-crimson: #ff0055;
+  --arcade-amber: #ffff00;
+  --arcade-purple: #e066ff;
+  --arcade-gold: #ffff00;
+
+  --shadow-card: 5px 5px 0px 0px #ffffff;
+  --shadow-cabinet: 6px 6px 0px 0px #ffffff;
+}
+
+body.skin-anime.high-contrast .card,
+body.skin-anime.high-contrast .arcade-cabinet-card,
+body.skin-anime.high-contrast .cadet-card,
+body.skin-anime.high-contrast .marquee-hero-card,
+body.skin-anime.high-contrast .arcade-dock,
+body.skin-anime.high-contrast header.a11y-header {
+  border: 3.5px solid #ffffff !important;
+  box-shadow: 6px 6px 0px 0px #ffffff !important;
+  background: #000000 !important;
+}
+
+body.skin-anime.high-contrast button {
+  border: 3px solid #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #ffffff !important;
+}
+
+/* Universal Light Mode Card Header & Badge Contrast Overrides */
+body.light-mode .arcade-cabinet-card div[style*="background: #0b1326"],
+body.light-mode .card div[style*="background: #0b1326"],
+body.light-mode span[style*="background: #0b1326"],
+body.light-mode div[style*="background: #060e20"],
+body.light-mode span[style*="background: #060e20"],
+body.light-mode div[style*="background: rgb(11, 19, 38)"] {
+  background-color: var(--bg-surface-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+body.light-mode .arcade-cabinet-card h3,
+body.light-mode .arcade-cabinet-card h2,
+body.light-mode .card h3,
+body.light-mode .marquee-hero-card h1,
+body.light-mode .marquee-hero-card h2 {
+  color: var(--text-primary) !important;
+}
+
+body.light-mode .arcade-cabinet-card p,
+body.light-mode .card p,
+body.light-mode .marquee-hero-card p {
+  color: var(--text-secondary) !important;
+}
+
+/* ==========================================================================
    Font Size Scaling (WCAG 1.4.4 Resize Text)
    ========================================================================== */
 body.font-scale-115 {
