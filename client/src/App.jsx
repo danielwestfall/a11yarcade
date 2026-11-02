@@ -12,11 +12,12 @@ import SoloBossRaid from './components/SoloBossRaid';
 import WeeklyLeaderboard from './components/WeeklyLeaderboard';
 import MissedQuestionsReview from './components/MissedQuestionsReview';
 import QuestionBankExplorer from './components/QuestionBankExplorer';
-import { Users, GraduationCap, Trophy, BookOpen, Library, Bot, Zap } from 'lucide-react';
+import LearningModulesAcademy from './components/academy/LearningModulesAcademy';
+import { Users, GraduationCap, Trophy, BookOpen, Library, Bot, Zap, Sparkles } from 'lucide-react';
 import { soundManager } from './utils/sound';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('LIVE'); // 'LIVE' | 'SOLO_HUB' | 'LEADERBOARD' | 'STUDY' | 'EXPLORER'
+  const [activeTab, setActiveTab] = useState('ACADEMY'); // 'ACADEMY' | 'LIVE' | 'SOLO_HUB' | 'LEADERBOARD' | 'STUDY' | 'EXPLORER'
   const [soloSubMode, setSoloSubMode] = useState('MENU'); // 'MENU' | 'CLASSIC' | 'HOT_POTATO' | 'GRAND_PRIX'
 
   const handleTabChange = (tab) => {
@@ -59,6 +60,19 @@ export default function App() {
         <button
           type="button"
           role="tab"
+          id="tab-academy"
+          aria-selected={activeTab === 'ACADEMY'}
+          aria-controls="panel-academy"
+          className={`mode-tab ${activeTab === 'ACADEMY' ? 'active' : ''}`}
+          onClick={() => handleTabChange('ACADEMY')}
+        >
+          <GraduationCap size={18} />
+          <span>Learning Modules</span>
+        </button>
+
+        <button
+          type="button"
+          role="tab"
           id="tab-live"
           aria-selected={activeTab === 'LIVE'}
           aria-controls="panel-live"
@@ -78,7 +92,7 @@ export default function App() {
           className={`mode-tab ${activeTab === 'SOLO_HUB' ? 'active' : ''}`}
           onClick={() => handleTabChange('SOLO_HUB')}
         >
-          <GraduationCap size={18} />
+          <Bot size={18} />
           <span>Solo & AI Bots</span>
         </button>
 
@@ -648,6 +662,13 @@ export default function App() {
         {activeTab === 'EXPLORER' && (
           <div role="tabpanel" id="panel-explorer" aria-labelledby="tab-explorer">
             <QuestionBankExplorer />
+          </div>
+        )}
+
+        {/* TAB 6: LEARNING MODULES ACADEMY */}
+        {activeTab === 'ACADEMY' && (
+          <div role="tabpanel" id="panel-academy" aria-labelledby="tab-academy">
+            <LearningModulesAcademy />
           </div>
         )}
       </main>
