@@ -5,7 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -24,8 +23,11 @@ export default defineConfig({
           if (id.includes('was.json')) {
             return 'bank-was';
           }
-          if (id.includes('ads.json')) {
-            return 'bank-ads';
+          if (id.includes('ads-1.json')) {
+            return 'bank-ads-1';
+          }
+          if (id.includes('ads-2.json')) {
+            return 'bank-ads-2';
           }
         }
       }

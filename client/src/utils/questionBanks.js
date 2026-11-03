@@ -7,7 +7,9 @@ import cpaccRaw from '../data/questions.json';
 import wasRaw from '../data/questions_was.json';
 import cpaccBankRaw from '../data/quiz-bank/cpacc.json';
 import wasBankRaw from '../data/quiz-bank/was.json';
-import adsBankRaw from '../data/quiz-bank/ads.json';
+import adsBankPart1Raw from '../data/quiz-bank/ads-1.json';
+import adsBankPart2Raw from '../data/quiz-bank/ads-2.json';
+const adsBankRaw = [...adsBankPart1Raw, ...adsBankPart2Raw];
 import taxonomyRaw from '../data/quiz-bank/taxonomy.json';
 
 export const CERTIFICATION_TAXONOMY = taxonomyRaw;

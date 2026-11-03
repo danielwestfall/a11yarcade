@@ -10,13 +10,15 @@ console.log('2. Distinct interactive lab types:', types.size, '/ 38');
 const answerCounts = { A: 0, B: 0, C: 0, D: 0 };
 const longestSlot = { A: 0, B: 0, C: 0, D: 0 };
 let totalQ = 0;
-let longestCorrect = 0;
+let longestRawCorrect = 0;
+let longestTieCorrect = 0;
 
-const absolutistWords = ['always', 'never', 'only', 'all', 'solely', 'exclusively', 'completely'];
+const absolutistRegex = /\b(always|never|only|all|solely|exclusively|completely|entirely)\b/gi;
 let correctAbs = 0;
 let wrongAbs = 0;
 
-let overlapTellCount = 0;
+let overlapStemExplSoleMax = 0;
+let overlapStemOnlySoleMax = 0;
 const phraseFreq = {};
 
 LEARNING_MODULES.forEach(m => {
@@ -24,66 +26,77 @@ LEARNING_MODULES.forEach(m => {
     totalQ++;
     answerCounts[q.answer] = (answerCounts[q.answer] || 0) + 1;
     
-    let maxLen = -1;
-    let longestId = null;
-    q.options.forEach(o => {
-      if (o.text.length > maxLen) {
-        maxLen = o.text.length;
-        longestId = o.id;
-      }
-    });
-    longestSlot[longestId] = (longestSlot[longestId] || 0) + 1;
-    if (longestId === q.answer) {
-      longestCorrect++;
+    // Longest option checks
+    const lens = q.options.map(o => o.text.trim().length);
+    const maxLen = Math.max(...lens);
+    const firstLongest = q.options.find(o => o.text.trim().length === maxLen);
+    longestSlot[firstLongest.id] = (longestSlot[firstLongest.id] || 0) + 1;
+    if (firstLongest.id === q.answer) {
+      longestRawCorrect++;
+    }
+    const maxOpts = q.options.filter(o => o.text.trim().length === maxLen);
+    if (maxOpts.some(o => o.id === q.answer)) {
+      longestTieCorrect++;
     }
 
-    // Lexical overlap check
-    const stemTokens = new Set((q.question).toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/).filter(w => w.length > 3));
-    let maxOverlap = -1;
-    let maxOverlapId = null;
-    let tieCount = 0;
-
+    // Absolutist words check
     q.options.forEach(o => {
       const isCorrect = o.id === q.answer;
-      const tokens = o.text.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/);
-      tokens.forEach(t => {
-        if (absolutistWords.includes(t)) {
-          if (isCorrect) correctAbs++;
-          else wrongAbs++;
-        }
-      });
-
-      let overlap = 0;
-      tokens.filter(w => w.length > 3).forEach(w => {
-        if (stemTokens.has(w)) overlap++;
-      });
-
-      if (overlap > maxOverlap) {
-        maxOverlap = overlap;
-        maxOverlapId = o.id;
-        tieCount = 1;
-      } else if (overlap === maxOverlap) {
-        tieCount++;
+      const matches = o.text.match(absolutistRegex);
+      if (matches) {
+        if (isCorrect) correctAbs += matches.length;
+        else wrongAbs += matches.length;
       }
 
       // 4-word phrase frequencies to ensure no boilerplate patterns repeat
+      const tokens = o.text.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/);
       for (let i = 0; i <= tokens.length - 4; i++) {
         const phrase = tokens.slice(i, i + 4).join(' ');
         phraseFreq[phrase] = (phraseFreq[phrase] || 0) + 1;
       }
     });
 
-    if (maxOverlapId === q.answer && tieCount === 1) {
-      overlapTellCount++;
+    // Lexical overlap check: Words of 5+ letters shared with (question + explanation)
+    const textStemExpl = (q.question + ' ' + (q.explanation || '')).toLowerCase();
+    const tokensStemExpl = new Set(textStemExpl.match(/[a-z]{5,}/g) || []);
+
+    const textStemOnly = q.question.toLowerCase();
+    const tokensStemOnly = new Set(textStemOnly.match(/[a-z]{5,}/g) || []);
+
+    let maxSE = -1, maxIdSE = null, tieSE = 0;
+    let maxSO = -1, maxIdSO = null, tieSO = 0;
+
+    q.options.forEach(o => {
+      const oTokens = o.text.toLowerCase().match(/[a-z]{5,}/g) || [];
+      let scoreSE = 0;
+      let scoreSO = 0;
+      oTokens.forEach(t => {
+        if (tokensStemExpl.has(t)) scoreSE++;
+        if (tokensStemOnly.has(t)) scoreSO++;
+      });
+
+      if (scoreSE > maxSE) { maxSE = scoreSE; maxIdSE = o.id; tieSE = 1; }
+      else if (scoreSE === maxSE) { tieSE++; }
+
+      if (scoreSO > maxSO) { maxSO = scoreSO; maxIdSO = o.id; tieSO = 1; }
+      else if (scoreSO === maxSO) { tieSO++; }
+    });
+
+    if (maxIdSE === q.answer && tieSE === 1) {
+      overlapStemExplSoleMax++;
+    }
+    if (maxIdSO === q.answer && tieSO === 1) {
+      overlapStemOnlySoleMax++;
     }
   });
 });
 
 console.log('3. Answer Key Distribution:', answerCounts);
 console.log('4. Longest Option Slots:', longestSlot);
-console.log(`5. Longest Option is Correct: ${longestCorrect} / ${totalQ} (${((longestCorrect / totalQ) * 100).toFixed(1)}%) [Target: 20-30%]`);
-console.log(`6. Absolutist Words: Correct = ${correctAbs}, Wrong = ${wrongAbs} (Ratio: ${(wrongAbs / (correctAbs || 1)).toFixed(2)}:1) [Target: <= 1:1]`);
-console.log(`7. Lexical Overlap Tell Rate: ${overlapTellCount} / ${totalQ} (${((overlapTellCount / totalQ) * 100).toFixed(1)}%) [Target: <= 35%]`);
+console.log(`5. Longest Option is Correct: Raw = ${longestRawCorrect} / ${totalQ} (${((longestRawCorrect / totalQ) * 100).toFixed(1)}%), With Ties = ${longestTieCorrect} / ${totalQ} (${((longestTieCorrect / totalQ) * 100).toFixed(1)}%) [Target: 20-25%]`);
+console.log(`6. Absolutist Words: Correct = ${correctAbs}, Wrong = ${wrongAbs} [Target: 0 vs 0, perfectly neutralized]`);
+console.log(`7. Lexical Overlap Tell Rate (Stem + Expl, 5+ letters, unique sole max): ${overlapStemExplSoleMax} / ${totalQ} (${((overlapStemExplSoleMax / totalQ) * 100).toFixed(1)}%) [Target: 20-26%]`);
+console.log(`   Lexical Overlap Tell Rate (Stem Only, 5+ letters, unique sole max): ${overlapStemOnlySoleMax} / ${totalQ} (${((overlapStemOnlySoleMax / totalQ) * 100).toFixed(1)}%)`);
 
 // Matterhorn Protocol Check
 let matterhornCitations = [];

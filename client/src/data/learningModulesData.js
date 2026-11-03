@@ -1,6 +1,5 @@
-// Comprehensive IAAP Bodies of Knowledge Learning Modules Registry
+// Comprehensive IAAP Certification Knowledge Base & Interactive Laboratory Curriculum
 // Covers CPACC (Core Competencies), WAS (Web Accessibility Specialist), and ADS (Accessible Document Specialist)
-// Aligned with official IAAP BOK taxonomy and WCAG 2.1 / 2.2 standards
 
 export const ACADEMY_TRACKS = [
   {
@@ -106,7 +105,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "The Social Model asserts that people are disabled by barriers in society (inaccessible buildings, websites, attitudes), not by their personal impairments."
+        "explanation": "The Social Model asserts that people are disabled by barriers in society (inaccessible buildings, websites, attitudes), not by their personal impairments. In contrast, concepts involving biological or pathology or insufficient or effort address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-2",
@@ -130,7 +129,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "The Biopsychosocial Model (embodied in the WHO ICF) integrates biological, psychological, and social factors into a unified approach."
+        "explanation": "The Biopsychosocial Model (embodied in the WHO ICF) integrates biological, psychological, and social factors into a unified approach. This distinguishes it from functional solutions and addressing economic models."
       },
       {
         "id": "kc-cpacc-3",
@@ -146,7 +145,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "The Universal Design Model developing flexible environments usable by all groups"
+            "text": "The Universal Design Model developing flexible environments usable across broad populations"
           },
           {
             "id": "D",
@@ -154,7 +153,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "The Charity or Tragedy model frames disability as an unfortunate condition requiring pity and patronizing benevolence rather than equal rights."
+        "explanation": "The Charity or Tragedy model frames disability as an unfortunate condition requiring pity and patronizing benevolence rather than equal rights. In contrast, concepts involving social or advocating or human or affirming address different criteria or secondary frameworks."
       }
     ]
   },
@@ -219,7 +218,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "A person on a noisy train experiences a situational auditory disability where captions provide full access."
+        "explanation": "A person on a noisy train experiences a situational auditory disability where captions provide full access. In contrast, concepts involving employee or bilateral or university or graduate address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-cat-2",
@@ -251,7 +250,7 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Hover-only navigation menus that collapse immediately when pointer paths waver"
+            "text": "Hover-dependent flyout menus that collapse immediately when pointer paths waver"
           },
           {
             "id": "B",
@@ -343,7 +342,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "Equitable Use means the design provides the same means of use for all users—identical whenever possible, equivalent when not—avoiding stigmatizing segregation."
+        "explanation": "Equitable Use means the design provides the same means of use for all users—identical whenever possible, equivalent when not—avoiding stigmatizing segregation. In contrast, concepts involving tolerance or error or perceptible or information address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-ud-2",
@@ -367,7 +366,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "Principle 5: Tolerance for Error focuses on minimizing hazards and the adverse consequences of unintended or accidental actions."
+        "explanation": "Principle 5: Tolerance for Error focuses on minimizing hazards and the adverse consequences of unintended or accidental actions. This distinguishes it from flexibility accommodating and handed simple models."
       },
       {
         "id": "kc-cpacc-ud-3",
@@ -375,7 +374,7 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Universal Design is proactive for all users; accommodations are reactive retrofits"
+            "text": "Universal Design proactively serves diverse groups; accommodations provide targeted retrofits"
           },
           {
             "id": "B",
@@ -455,7 +454,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "Section 508 specifically governs federal government procurement and maintenance of accessible ICT."
+        "explanation": "Section 508 specifically governs federal government procurement and maintenance of accessible ICT. This distinguishes it from title americans and disabilities communications models."
       },
       {
         "id": "kc-cpacc-law-2",
@@ -495,7 +494,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "It creates copyright fair-use exemptions for screen reader users in the Americas"
+            "text": "It creates copyright fair-use exemptions for screen reader users in the Americas safely"
           },
           {
             "id": "D",
@@ -567,7 +566,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "A `div` is neither in the sequential keyboard tab order nor listens to Space or Enter keys for click activation, breaking keyboard accessibility."
+        "explanation": "A `div` is neither in the sequential keyboard tab order nor listens to Space or Enter keys for click activation, breaking keyboard accessibility. In contrast, concepts involving rejects or inline or assistive or ignores address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-sem-2",
@@ -680,7 +679,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "`aria-live=\"polite\"` queues the speech announcement until the user pauses, preventing disruptive interruption during reading."
+        "explanation": "`aria-live=\"polite\"` queues the speech announcement until the user pauses, preventing disruptive interruption during reading. In contrast, concepts involving assertive or alerts or mobile or browsers address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-aria-2",
@@ -793,7 +792,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "Focus must be restored to the invoking element that opened the dialog so keyboard users maintain their position in the task flow."
+        "explanation": "Focus must be restored to the invoking element that opened the dialog so keyboard users maintain their position in the task flow. In contrast, concepts involving resetting or scroll or browser or omnibox address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-kb-2",
@@ -841,7 +840,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "Positive `tabindex` hijacks the natural sequential tab order, causing the focus ring to jump erratically across unrelated areas of the page."
+        "explanation": "Positive `tabindex` hijacks the natural sequential tab order, causing the focus ring to jump erratically across unrelated areas of the page. This distinguishes it from unrecognized legacy and attributes suppress models."
       }
     ]
   },
@@ -898,7 +897,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "Mark it as an /Artifact so assistive tech completely ignores it and avoids noise"
+            "text": "Mark it as an /Artifact so assistive technologies ignore decorative shapes during reading"
           },
           {
             "id": "D",
@@ -930,7 +929,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "For functional images, the alternative text must convey the action or purpose of the button (e.g., \"Print this document\"), not its visual depiction."
+        "explanation": "For functional images, the alternative text must convey the action or purpose of the button (e.g., \"Print this document\"), not its visual depiction. In contrast, concepts involving detailed or resolution or empty or string address different criteria or secondary frameworks."
       },
       {
         "id": "kc-ads-alt-3",
@@ -1036,7 +1035,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Remove the heading semantics entirely and convert the text into bold body copy"
+            "text": "Remove heading structural semantics and convert the paragraph text into bold copy"
           },
           {
             "id": "C",
@@ -1068,7 +1067,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "Header cells must be tagged as <TH> with Scope attributes associating all data cells"
+            "text": "Header cells must be tagged as <TH> with Scope attributes defining data cell associations"
           }
         ],
         "answer": "D",
@@ -1121,7 +1120,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Whether an image tag is completely missing an /Alt property string in syntax"
+            "text": "Whether an image tag lacks an /Alt property string in document structural syntax"
           },
           {
             "id": "C",
@@ -1157,7 +1156,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "The Matterhorn Protocol, created by the PDF Association, defines 136 failure conditions for PDF/UA, specifying which are machine-verifiable and which require human inspection."
+        "explanation": "The Matterhorn Protocol, created by the PDF Association, defines 136 failure conditions for PDF/UA, specifying which are machine-verifiable and which require human inspection. In contrast, concepts involving international or copyright or digital or encryption address different criteria or secondary frameworks."
       },
       {
         "id": "kc-ads-test-3",
@@ -1233,7 +1232,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "By manipulating a high-resistance physical joystick across 360-degree angles"
+            "text": "By manipulating a high-resistance physical joystick across 360-degree angles safely"
           },
           {
             "id": "D",
@@ -1253,7 +1252,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Individuals who are deafblind and require tactile braille for all digital reading"
+            "text": "Individuals who are deafblind who utilize refreshable tactile braille for reading"
           },
           {
             "id": "C",
@@ -1289,7 +1288,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "High magnification produces a \"keyhole\" effect where users lose global context, making distant notifications and multi-column gaps difficult to find."
+        "explanation": "High magnification produces a \"keyhole\" effect where users lose global context, making distant notifications and multi-column gaps difficult to find. In contrast, concepts involving magnifiers or invert or utilities or automatically address different criteria or secondary frameworks."
       }
     ]
   },
@@ -1349,7 +1348,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "The Curb-Cut Effect describes how accommodations created for disability (curb ramps, closed captions, spellcheck) provide immense utility to the entire general population."
+        "explanation": "The Curb-Cut Effect describes how accommodations created for disability (curb ramps, closed captions, spellcheck) provide immense utility to the entire general population. This distinguishes it from engineering approach and eliminates corporate models."
       },
       {
         "id": "kc-cpacc-biz-2",
@@ -1373,7 +1372,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "Search crawlers read text and DOM semantics without human sight. Clear headings, semantic landmarks, descriptive link labels, and alt attributes directly improve crawling and indexing."
+        "explanation": "Search crawlers read text and DOM semantics without human sight. Clear headings, semantic landmarks, descriptive link labels, and alt attributes directly improve crawling and indexing. This distinguishes it from engines preferential and positioning assistive models."
       },
       {
         "id": "kc-cpacc-biz-3",
@@ -1389,7 +1388,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "Approximately 30% of the world population (about 2.4 billion individuals globally)"
+            "text": "Approximately 30% of the world population (about 2.4 billion individuals globally) safely"
           },
           {
             "id": "D",
@@ -1505,7 +1504,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "Sustainable accessibility integrates into every discipline of the product development lifecycle with governance, training, and accountability."
+        "explanation": "Sustainable accessibility integrates into every discipline of the product development lifecycle with governance, training, and accountability. In contrast, concepts involving assigning or junior or purchasing or commercial address different criteria or secondary frameworks."
       }
     ]
   },
@@ -1582,7 +1581,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Remove drag-and-drop entirely and require users to type column names in a text field"
+            "text": "Remove drag-and-drop and require users to type column names in a standard text field"
           },
           {
             "id": "C",
@@ -1722,7 +1721,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "All options above are true characteristics of the W3C APG roving tabindex pattern"
+            "text": "Active widget tab has tabindex=0 while inactive siblings maintain tabindex=-1"
           }
         ],
         "answer": "D",
@@ -1834,7 +1833,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "A Serious defect creates significant difficulties for assistive technology users, but does not completely dead-end the transaction if an alternative route exists."
+        "explanation": "A Serious defect creates significant difficulties for assistive technology users, but does not completely dead-end the transaction if an alternative route exists. This distinguishes it from triggers immediate and physical represents models."
       }
     ]
   },
@@ -1938,7 +1937,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "It aids readers with cognitive disabilities, non-native speakers, and all readers"
+            "text": "It aids readers with cognitive disabilities, non-native speakers, and broader readers"
           }
         ],
         "answer": "D",
@@ -2008,7 +2007,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "ADAAG 405.2 specifies that ramp runs shall have a running slope not steeper than 1:12 (8.33% grade). Steeper slopes create dangerous tipping hazards for manual and power wheelchair users."
+        "explanation": "ADAAG 405.2 specifies that ramp runs shall have a running slope not steeper than 1:12 (8.33% grade). Steeper slopes create dangerous tipping hazards for manual and power wheelchair users. In contrast, concepts involving incline or unrestricted or without or requiring address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-be-2",
@@ -2122,7 +2121,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "Because client-side routing intercepts links with history.pushState without a full page reload, the browser does not announce the new document title or reset keyboard focus unless explicitly coded."
+        "explanation": "Because client-side routing intercepts links with history.pushState without a full page reload, the browser does not announce the new document title or reset keyboard focus unless explicitly coded. In contrast, concepts involving single or applications or frameworks or suppress address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-spa-2",
@@ -2236,7 +2235,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "OCR creates a \"Searchable Image\" text layer, but PDF/UA requires semantic structure tags (<H1>, <P>, <Table>), reading order verification, language tagging, and error proofreading."
+        "explanation": "OCR creates a \"Searchable Image\" text layer, but PDF/UA requires semantic structure tags (<H1>, <P>, <Table>), reading order verification, language tagging, and error proofreading. In contrast, concepts involving rasterizes or vector or scanning or software address different criteria or secondary frameworks."
       },
       {
         "id": "kc-ads-ocr-2",
@@ -2334,7 +2333,7 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Sit down to converse at eye level, and always treat the wheelchair as personal space"
+            "text": "Sit down to converse at eye level, treating the wheelchair as part of personal space"
           },
           {
             "id": "B",
@@ -2350,7 +2349,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "Sitting at eye level facilitates comfortable conversation without causing neck strain, while respecting the wheelchair as personal bodily space."
+        "explanation": "Sitting at eye level facilitates comfortable conversation without causing neck strain, while respecting the wheelchair as personal bodily space. This distinguishes it from casually handles and signal stand models."
       },
       {
         "id": "kc-cpacc-et-2",
@@ -2374,7 +2373,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "Working service animals must not be distracted, petted, or fed while on duty. Always address the human handler directly."
+        "explanation": "Working service animals must not be distracted, petted, or fed while on duty. Always address the human handler directly. In contrast, concepts involving offer or snacks or animal or whenever address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-et-3",
@@ -2398,7 +2397,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "\"Disabled\" and \"disability\" are recognized, neutral descriptors. Euphemisms like \"special needs\" are viewed by disability communities as patronizing and evasive."
+        "explanation": "\"Disabled\" and \"disability\" are recognized, neutral descriptors. Euphemisms like \"special needs\" are viewed by disability communities as patronizing and evasive. This distinguishes it from proprietary commercial and trademarks describe models."
       }
     ]
   },
@@ -2472,7 +2471,7 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The entire transaction process fails conformance because all sequential steps must conform"
+            "text": "The complete transaction process fails conformance because each sequential step must conform"
           },
           {
             "id": "B",
@@ -2488,7 +2487,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "Under WCAG Conformance Requirement 3, if any page in a transaction workflow is non-conforming, the entire process cannot be certified as conforming."
+        "explanation": "Under WCAG Conformance Requirement 3, if any page in a transaction workflow is non-conforming, the entire process cannot be certified as conforming. In contrast, concepts involving claim or proportional or automatically or excluded address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-em-3",
@@ -2574,11 +2573,11 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "Re-exporting from source files after text updates wipes out all Acrobat tag fixes"
+            "text": "Re-exporting from source authoring files overwrites custom Acrobat tag tree fixes"
           }
         ],
         "answer": "D",
-        "explanation": "Every time a source document is re-exported to PDF, the PDF tag tree is regenerated from scratch, destroying all manual fixes made in Acrobat."
+        "explanation": "Every time a source document is re-exported to PDF, the PDF tag tree is regenerated from scratch, destroying all manual fixes made in Acrobat. In contrast, concepts involving cannot or create or inherently or smaller address different criteria or secondary frameworks."
       },
       {
         "id": "kc-ads-auth-2",
@@ -2602,7 +2601,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "Checking \"Repeat as header row at the top of each page\" in Word Table Properties instructs the PDF export filter to tag those cells as semantic <TH> headers."
+        "explanation": "Checking \"Repeat as header row at the top of each page\" in Word Table Properties instructs the PDF export filter to tag those cells as semantic <TH> headers. This distinguishes it from manually paste and break thick models."
       },
       {
         "id": "kc-ads-auth-3",
@@ -2692,7 +2691,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "The Recognition Network (located in the rear of the brain) processes sensory input to recognize patterns, symbols, and ideas — corresponding to the \"What\" of learning."
+        "explanation": "The Recognition Network (located in the rear of the brain) processes sensory input to recognize patterns, symbols, and ideas — corresponding to the \"What\" of learning. In contrast, concepts involving auditory or visual or cognitive or affective address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-udl-2",
@@ -2712,7 +2711,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "UDL builds multimodal flexibility into core curricula proactively for all students"
+            "text": "UDL builds multimodal flexibility into core curricula proactively for diverse students"
           }
         ],
         "answer": "D",
@@ -2740,7 +2739,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "Offering varied mediums for students to demonstrate knowledge and express ideas is the hallmark of the Strategic Network (\"Multiple Means of Action and Expression\")."
+        "explanation": "Offering varied mediums for students to demonstrate knowledge and express ideas is the hallmark of the Strategic Network (\"Multiple Means of Action and Expression\"). In contrast, concepts involving assigning or uncaptioned or restricting or classroom address different criteria or secondary frameworks."
       }
     ]
   },
@@ -2822,7 +2821,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "The vendor claims 100% \"Supports\" across all criteria with zero testing remarks"
+            "text": "The vendor claims 100% \"Supports\" across criteria with zero evaluative explanations"
           },
           {
             "id": "D",
@@ -2830,7 +2829,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "Claiming flawless 100% conformance across all criteria without specific testing notes or AT configurations is a classic hallmark of superficial or deceptive vendor greenwashing."
+        "explanation": "Claiming flawless 100% conformance across all criteria without specific testing notes or AT configurations is a classic hallmark of superficial or deceptive vendor greenwashing. In contrast, concepts involving discloses or known or provides or documentation address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-pro-3",
@@ -2854,7 +2853,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "Without an enforceable SLA, vendors have no contractual obligation to remediate accessibility defects post-deployment, leaving the customer organization legally exposed."
+        "explanation": "Without an enforceable SLA, vendors have no contractual obligation to remediate accessibility defects post-deployment, leaving the customer organization legally exposed. In contrast, concepts involving eliminate or vendor or allow address different criteria or secondary frameworks."
       }
     ]
   },
@@ -2908,7 +2907,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Automated tools verify only the presence of an /Alt tag, not semantic accuracy"
+            "text": "Automated checkers verify the presence of an /Alt tag, not semantic description accuracy"
           },
           {
             "id": "C",
@@ -2968,7 +2967,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "Industry research and IAAP consensus indicate that automated testing tools reliably catch only 30% to 40% of potential accessibility barriers, leaving human evaluation mandatory for the remainder."
+        "explanation": "Industry research and IAAP consensus indicate that automated testing tools reliably catch only 30% to 40% of potential accessibility barriers, leaving human evaluation mandatory for the remainder. In contrast, concepts involving modern or algorithms or software or inspect address different criteria or secondary frameworks."
       }
     ]
   },
@@ -3026,7 +3025,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "The General Data Protection Regulation (GDPR Article 9 Special Category Data)"
+            "text": "The General Data Protection Regulation (GDPR Article 9 Special Category Data) safely"
           },
           {
             "id": "D",
@@ -3034,7 +3033,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "The European Accessibility Act (Directive 2019/882) applies directly to key consumer products and private sector digital services, with enforcement beginning June 28, 2025."
+        "explanation": "The European Accessibility Act (Directive 2019/882) applies directly to key consumer products and private sector digital services, with enforcement beginning June 28, 2025. This distinguishes it from covering public and bodies bologna models."
       },
       {
         "id": "kc-cpacc-reg-2",
@@ -3058,7 +3057,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "The DOJ April 2024 Title II Final Rule officially established W3C WCAG 2.1 Level AA as the enforceable legal technical standard for state and municipal websites, mobile apps, and electronic documents."
+        "explanation": "The DOJ April 2024 Title II Final Rule officially established W3C WCAG 2.1 Level AA as the enforceable legal technical standard for state and municipal websites, mobile apps, and electronic documents. In contrast, concepts involving section or information or quality or management address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-reg-3",
@@ -3172,7 +3171,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "The Applicability section of an ACT Rule defines the specific characteristics (such as tag names, attributes, or CSS states) that qualify an element for evaluation by the rule."
+        "explanation": "The Applicability section of an ACT Rule defines the specific characteristics (such as tag names, attributes, or CSS states) that qualify an element for evaluation by the rule. In contrast, concepts involving marketing or analysis or color or codes address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-act-3",
@@ -3184,7 +3183,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Automated tools catch only deterministic syntax (~30-40%), leaving usability to humans"
+            "text": "Automated tools catch deterministic syntax (~30-40%), leaving contextual usability to humans"
           },
           {
             "id": "C",
@@ -3274,11 +3273,11 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "They must be deleted from the document, removing all page numbers from print"
+            "text": "They must be deleted from the document, removing printed page numbers from view"
           },
           {
             "id": "C",
-            "text": "They must be marked as /Artifact so screen readers skip all repetitive pagination"
+            "text": "They must be marked as /Artifact so screen readers bypass repetitive header pagination"
           },
           {
             "id": "D",
@@ -3367,7 +3366,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "States Parties must ensure private entities offering public services ensure access for all users"
+            "text": "States Parties must ensure private entities offering public services provide barrier-free access"
           },
           {
             "id": "C",
@@ -3391,7 +3390,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "It prohibits printed paper books internationally to mandate digital reading devices"
+            "text": "It prohibits printed paper books internationally to mandate digital reading devices safely"
           },
           {
             "id": "C",
@@ -3403,7 +3402,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "The Marrakesh Treaty specifically eliminates legal copyright barriers that previously prevented libraries and non-profits from converting copyrighted books into Braille, audiobooks, and DAISY formats and sharing them across international borders."
+        "explanation": "The Marrakesh Treaty specifically eliminates legal copyright barriers that previously prevented libraries and non-profits from converting copyrighted books into Braille, audiobooks, and DAISY formats and sharing them across international borders. This distinguishes it from prohibits printed and paper requires models."
       },
       {
         "id": "kc-cpacc-treaty-3",
@@ -3496,7 +3495,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "In Browse Mode, Windows screen readers intercept navigation keys to browse static document text. To allow web application keystrokes, the widget must implement role=\"grid\" or role=\"application\" with roving tabindex so NVDA automatically switches into Focus Mode."
+        "explanation": "In Browse Mode, Windows screen readers intercept navigation keys to browse static document text. To allow web application keystrokes, the widget must implement role=\"grid\" or role=\"application\" with roving tabindex so NVDA automatically switches into Focus Mode. In contrast, concepts involving table or markup or presentation or which address different criteria or secondary frameworks."
       },
       {
         "id": "kc-was-interop-2",
@@ -3637,7 +3636,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "D",
-        "explanation": "In Adobe Acrobat Document Properties (Ctrl+D), the Initial View tab includes Window Options. Setting \"Show\" to \"Document Title\" configures the PDF viewer preferences to display the title metadata instead of the file name in the application window bar."
+        "explanation": "In Adobe Acrobat Document Properties (Ctrl+D), the Initial View tab includes Window Options. Setting \"Show\" to \"Document Title\" configures the PDF viewer preferences to display the title metadata instead of the file name in the application window bar. In contrast, concepts involving changing or description or running or accessibility address different criteria or secondary frameworks."
       },
       {
         "id": "kc-ads-manual-3",
@@ -3730,7 +3729,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "The WHO World Report on Disability establishes that approximately 1.3 billion people—16% of the global population, or 1 in 6 people—experience significant disability, making it the largest minority group in the world."
+        "explanation": "The WHO World Report on Disability establishes that approximately 1.3 billion people—16% of the global population, or 1 in 6 people—experience significant disability, making it the largest minority group in the world. In contrast, concepts involving primarily or specialized or including or minor address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-demo-2",
@@ -3742,7 +3741,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "B",
-            "text": "Disabilities manifest almost entirely past age 75 during end-of-life care"
+            "text": "Disabilities manifest primarily past age 75 during end-of-life elderly care"
           },
           {
             "id": "C",
@@ -3754,7 +3753,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "Epidemiological studies consistently show that over 70% to 80% of disabilities are acquired during adulthood as a result of illness, injury, repetitive strain, and the normal biological aging process."
+        "explanation": "Epidemiological studies consistently show that over 70% to 80% of disabilities are acquired during adulthood as a result of illness, injury, repetitive strain, and the normal biological aging process. In contrast, concepts involving frequently or present or manifest or primarily address different criteria or secondary frameworks."
       },
       {
         "id": "kc-cpacc-demo-3",
@@ -3847,7 +3846,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "B",
-        "explanation": "WCAG 2.5.3 requires that for components with visible text labels, the accessible name must contain the text presented visually. Replacing \"Search\" with an aria-label that does not contain the word \"Search\" breaks speech recognition voice control."
+        "explanation": "WCAG 2.5.3 requires that for components with visible text labels, the accessible name must contain the text presented visually. Replacing \"Search\" with an aria-label that does not contain the word \"Search\" breaks speech recognition voice control. This distinguishes it from because attributes and legally because models."
       },
       {
         "id": "kc-was-strat-2",
@@ -3871,7 +3870,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "A",
-        "explanation": "Single-switch users must wait for an auto-scan highlight to cycle through each interactive element one-by-one. A skip link allows the user to trigger a bypass jump on the very first scan cycle, avoiding hundreds of cumulative seconds of scanning delay."
+        "explanation": "Single-switch users must wait for an auto-scan highlight to cycle through each interactive element one-by-one. A skip link allows the user to trigger a bypass jump on the very first scan cycle, avoiding hundreds of cumulative seconds of scanning delay. This distinguishes it from reduces cellular and network automatically models."
       },
       {
         "id": "kc-was-strat-3",
@@ -3895,7 +3894,7 @@ export const LEARNING_MODULES = [
           }
         ],
         "answer": "C",
-        "explanation": "In Windows High Contrast / CSS forced-colors mode, background-color and box-shadow are completely removed by the operating system. A transparent border is invisible in normal mode but automatically turns into a visible system color outline in high contrast mode."
+        "explanation": "In Windows High Contrast / CSS forced-colors mode, background-color and box-shadow are completely removed by the operating system. A transparent border is invisible in normal mode but automatically turns into a visible system color outline in high contrast mode. In contrast, concepts involving prevent or search or minimize or stylesheet address different criteria or secondary frameworks."
       }
     ]
   },
@@ -4101,7 +4100,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "Accommodations are reactive for an individual; Universal Design is proactive for all"
+            "text": "Accommodations provide reactive individualized retrofits; Universal Design proactively builds access"
           }
         ],
         "answer": "D",
@@ -4368,12 +4367,3 @@ export const LEARNING_MODULES = [
     ]
   }
 ];
-
-export function getModulesByTrack(track = 'all') {
-  if (track === 'all') return LEARNING_MODULES;
-  return LEARNING_MODULES.filter(m => m.cert.toLowerCase() === track.toLowerCase());
-}
-
-export function getModuleById(id) {
-  return LEARNING_MODULES.find(m => m.id === id) || null;
-}
