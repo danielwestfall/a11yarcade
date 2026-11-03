@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import {
   BookOpen,
   FlaskConical,
@@ -268,6 +268,10 @@ export default function LearningModulesAcademy() {
     }
   };
 
+  const handleCloseModal = useCallback(() => {
+    setActiveModule(null);
+  }, []);
+
   return (
     <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '6rem' }}>
       {/* Marquee Header Banner */}
@@ -348,6 +352,7 @@ export default function LearningModulesAcademy() {
               <button
                 key={track.id}
                 type="button"
+                aria-pressed={isSelected}
                 onClick={() => {
                   soundManager.playClick();
                   setSelectedTrack(track.id);
@@ -370,7 +375,7 @@ export default function LearningModulesAcademy() {
                     {track.badge}
                   </span>
                   {isSelected && (
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: track.color }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: track.color }} aria-hidden="true" />
                   )}
                 </div>
                 <div style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--text-primary)' }}>
@@ -421,6 +426,7 @@ export default function LearningModulesAcademy() {
               <button
                 key={filter.id}
                 type="button"
+                aria-pressed={isFilterActive}
                 onClick={() => {
                   soundManager.playClick();
                   setInteractiveFilter(filter.id);
@@ -439,7 +445,7 @@ export default function LearningModulesAcademy() {
                   gap: '0.35rem'
                 }}
               >
-                <Icon size={12} />
+                <Icon size={12} aria-hidden="true" />
                 <span>{filter.label}</span>
               </button>
             );
@@ -450,7 +456,12 @@ export default function LearningModulesAcademy() {
       {/* Modules Grid */}
       <section aria-label="Available Teaching Modules">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-          <h2 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
+          <h2
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}
+          >
             Curriculum Sections ({filteredModules.length} Modules Available)
           </h2>
         </div>
@@ -571,7 +582,7 @@ export default function LearningModulesAcademy() {
         <ModuleDetailModal
           module={activeModule}
           isCompleted={completedModules.includes(activeModule.id)}
-          onClose={() => setActiveModule(null)}
+          onClose={handleCloseModal}
           onComplete={handleCompleteModule}
         />
       )}

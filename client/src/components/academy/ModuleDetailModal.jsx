@@ -38,6 +38,9 @@ import ExportArchitectureLab from './interactives/ExportArchitectureLab';
 import AccommodationsVsUniversalDesignLab from './interactives/AccommodationsVsUniversalDesignLab';
 import WcagPourPrinciplesLab from './interactives/WcagPourPrinciplesLab';
 import IctStandardsProcurementLab from './interactives/IctStandardsProcurementLab';
+import A11yLawsRegulationsLab from './interactives/A11yLawsRegulationsLab';
+import BusinessCaseCurbCutLab from './interactives/BusinessCaseCurbCutLab';
+import PacAutomatedAuditLab from './interactives/PacAutomatedAuditLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -49,6 +52,11 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
   const closeBtnRef = useRef(null);
   const previouslyFocusedElementRef = useRef(null);
   const tabRefs = useRef([]);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   // Focus trap management and Escape key dismissal
   useEffect(() => {
@@ -58,7 +66,7 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         e.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -68,7 +76,10 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
           modalRef.current.querySelectorAll(
             'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
           )
-        ).filter(el => el.offsetParent !== null || el.offsetWidth > 0 || el.offsetHeight > 0);
+        ).filter(el => {
+          if (el.closest('[hidden]')) return false;
+          return el.offsetParent !== null || el.offsetWidth > 0 || el.offsetHeight > 0;
+        });
 
         if (focusableElements.length === 0) {
           e.preventDefault();
@@ -99,7 +110,7 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         previouslyFocusedElementRef.current.focus();
       }
     };
-  }, [onClose]);
+  }, []); // Run ONLY once on mount to prevent stealing focus on parent re-render
 
   if (!module) return null;
 
@@ -164,6 +175,24 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
     setQuizAnswers({});
     setQuizSubmitted(false);
     setQuizScore(0);
+  };
+
+  const handleQuizOptionKeyDown = (e, qId, options, currentOptIdx) => {
+    if (quizSubmitted) return;
+    let nextIdx = currentOptIdx;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextIdx = (currentOptIdx + 1) % options.length;
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      nextIdx = (currentOptIdx - 1 + options.length) % options.length;
+    }
+    if (nextIdx !== currentOptIdx) {
+      const nextOpt = options[nextIdx];
+      handleSelectQuizOption(qId, nextOpt.id);
+      const targetBtn = document.getElementById(`quiz-opt-${qId}-${nextOpt.id}`);
+      targetBtn?.focus();
+    }
   };
 
   const renderInteractive = () => {
@@ -238,6 +267,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <WcagPourPrinciplesLab />;
       case 'ict-standards-procurement-lab':
         return <IctStandardsProcurementLab />;
+      case 'a11y-laws-regulations-lab':
+        return <A11yLawsRegulationsLab />;
+      case 'business-case-curb-cut-lab':
+        return <BusinessCaseCurbCutLab />;
+      case 'pac-automated-audit-lab':
+        return <PacAutomatedAuditLab />;
       default:
         return <DisabilityModelClassifier />;
     }
@@ -439,336 +474,377 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         {/* Modal Scrollable Body */}
         <div style={{ flex: 1, overflowY: 'auto', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {/* TAB 1: STUDY GUIDE */}
-          {activeTab === 'STUDY' && (
-            <div
-              role="tabpanel"
-              id="modal-panel-study"
-              aria-labelledby="modal-tab-study"
-              tabIndex={0}
-              style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
-            >
-              {/* Summary Banner */}
-              <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: certColor, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Section Summary
+          <div
+            role="tabpanel"
+            id="modal-panel-study"
+            aria-labelledby="modal-tab-study"
+            tabIndex={0}
+            hidden={activeTab !== 'STUDY'}
+            style={{ display: activeTab === 'STUDY' ? 'flex' : 'none', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
+          >
+            {/* Summary Banner */}
+            <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: certColor, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Section Summary
+              </span>
+              <p style={{ margin: '0.4rem 0 0 0', fontSize: '1rem', lineHeight: 1.6, color: 'var(--text-primary)' }}>
+                {module.summary}
+              </p>
+              <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                Source: <strong>{module.citation}</strong>
+              </div>
+            </div>
+
+            {/* Learning Objectives */}
+            <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem' }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <ShieldCheck size={18} color="var(--arcade-green)" />
+                <span>Learning Objectives</span>
+              </h3>
+              <ul style={{ margin: '0.75rem 0 0 0', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                {(module.learningObjectives || []).map((obj, idx) => (
+                  <li key={idx} style={{ lineHeight: 1.5 }}>{obj}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Key Concepts Deep Dive */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
+                Detailed Theoretical Concepts
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
+                {(module.keyConcepts || []).map((concept, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      background: 'var(--bg-surface-elevated)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '6px',
+                      padding: '1rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.35rem'
+                    }}
+                  >
+                    <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: certColor }}>
+                      {concept.title}
+                    </h4>
+                    <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+                      {concept.explanation}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Exam Tip Alert */}
+            {module.examTips && (
+              <div style={{ padding: '1.25rem', borderRadius: '8px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid #f59e0b', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>
+                  💡 IAAP Exam Strategy & Trap Alerts
                 </span>
-                <p style={{ margin: '0.4rem 0 0 0', fontSize: '1rem', lineHeight: 1.6, color: 'var(--text-primary)' }}>
-                  {module.summary}
+                <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.5, color: 'var(--text-primary)' }}>
+                  {module.examTips}
                 </p>
-                <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                  Source: <strong>{module.citation}</strong>
-                </div>
               </div>
+            )}
 
-              {/* Learning Objectives */}
-              <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem' }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <ShieldCheck size={18} color="var(--arcade-green)" />
-                  <span>Learning Objectives</span>
+            {/* Next Step CTA */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '0.5rem' }}>
+              <button
+                type="button"
+                onClick={() => handleTabChange('LAB')}
+                className="primary-btn"
+                style={{ padding: '0.65rem 1.5rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <span>Proceed to Interactive Lab</span>
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+
+          {/* TAB 2: INTERACTIVE LAB */}
+          <div
+            role="tabpanel"
+            id="modal-panel-lab"
+            aria-labelledby="modal-tab-lab"
+            tabIndex={0}
+            hidden={activeTab !== 'LAB'}
+            style={{ display: activeTab === 'LAB' ? 'flex' : 'none', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
+          >
+            {renderInteractive()}
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
+              <button
+                type="button"
+                onClick={() => handleTabChange('STUDY')}
+                className="secondary-btn"
+                style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
+              >
+                ← Back to Study Guide
+              </button>
+              <button
+                type="button"
+                onClick={() => handleTabChange('QUIZ')}
+                className="primary-btn"
+                style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+              >
+                <span>Take Knowledge Check</span>
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+
+          {/* TAB 3: KNOWLEDGE CHECK */}
+          <div
+            role="tabpanel"
+            id="modal-panel-quiz"
+            aria-labelledby="modal-tab-quiz"
+            tabIndex={0}
+            hidden={activeTab !== 'QUIZ'}
+            style={{ display: activeTab === 'QUIZ' ? 'flex' : 'none', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
+                  Module Mastery Assessment
                 </h3>
-                <ul style={{ margin: '0.75rem 0 0 0', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                  {(module.learningObjectives || []).map((obj, idx) => (
-                    <li key={idx} style={{ lineHeight: 1.5 }}>{obj}</li>
-                  ))}
-                </ul>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '0.25rem 0 0 0' }}>
+                  Score 100% on these questions to master this Body of Knowledge section.
+                </p>
               </div>
 
-              {/* Key Concepts Deep Dive */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
-                  Detailed Theoretical Concepts
-                </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
-                  {(module.keyConcepts || []).map((concept, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        background: 'var(--bg-surface-elevated)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '6px',
-                        padding: '1rem',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.35rem'
-                      }}
-                    >
-                      <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: certColor }}>
-                        {concept.title}
-                      </h4>
-                      <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-                        {concept.explanation}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Exam Tip Alert */}
-              {module.examTips && (
-                <div style={{ padding: '1.25rem', borderRadius: '8px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid #f59e0b', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>
-                    💡 IAAP Exam Strategy & Trap Alerts
-                  </span>
-                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.5, color: 'var(--text-primary)' }}>
-                    {module.examTips}
-                  </p>
+              {quizSubmitted && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+                >
+                  <div style={{ padding: '0.4rem 0.8rem', borderRadius: '6px', background: quizScore === module.knowledgeCheck.length ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)', color: quizScore === module.knowledgeCheck.length ? '#10b981' : '#ef4444', fontWeight: 800, fontSize: '0.9rem' }}>
+                    Score: {quizScore} / {module.knowledgeCheck.length} {quizScore === module.knowledgeCheck.length ? '— Perfect!' : '— Try again!'}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleResetQuiz}
+                    className="secondary-btn"
+                    style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem' }}
+                  >
+                    Retry Quiz
+                  </button>
                 </div>
               )}
+            </div>
 
-              {/* Next Step CTA */}
-              <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '0.5rem' }}>
+            {/* Questions List */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              {(module.knowledgeCheck || []).map((q, qIdx) => {
+                const selected = quizAnswers[q.id];
+                const isCorrect = selected === q.answer;
+
+                return (
+                  <fieldset
+                    key={q.id}
+                    role="radiogroup"
+                    aria-labelledby={`q-stem-${q.id}`}
+                    style={{
+                      background: 'var(--bg-surface)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '8px',
+                      padding: '1.25rem',
+                      margin: 0,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.75rem'
+                    }}
+                  >
+                    <legend
+                      id={`q-stem-${q.id}`}
+                      style={{
+                        display: 'flex',
+                        gap: '0.5rem',
+                        alignItems: 'flex-start',
+                        padding: 0,
+                        margin: 0,
+                        width: '100%'
+                      }}
+                    >
+                      <span style={{ fontWeight: 800, color: certColor, fontSize: '0.9rem' }}>
+                        Q{qIdx + 1}.
+                      </span>
+                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.5 }}>
+                        {q.question}
+                      </span>
+                    </legend>
+
+                    {/* Options */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.25rem' }}>
+                      {q.options.map((opt, optIdx) => {
+                        const isOptionSelected = selected === opt.id;
+                        const isOptionCorrect = q.answer === opt.id;
+                        // Roving tabindex: if an option is selected, only that option has tabIndex=0. Otherwise opt 0 has tabIndex=0.
+                        const isFocusable = selected ? isOptionSelected : optIdx === 0;
+
+                        let bg = 'var(--bg-surface-elevated)';
+                        let border = '1px solid var(--border-color)';
+                        let color = 'var(--text-secondary)';
+
+                        if (quizSubmitted) {
+                          if (isOptionCorrect) {
+                            bg = 'rgba(16, 185, 129, 0.2)';
+                            border = '2px solid #10b981';
+                            color = '#10b981';
+                          } else if (isOptionSelected && !isCorrect) {
+                            bg = 'rgba(239, 68, 68, 0.2)';
+                            border = '2px solid #ef4444';
+                            color = '#ef4444';
+                          }
+                        } else if (isOptionSelected) {
+                          bg = `${certColor}20`;
+                          border = `2px solid ${certColor}`;
+                          color = certColor;
+                        }
+
+                        return (
+                          <button
+                            key={opt.id}
+                            id={`quiz-opt-${q.id}-${opt.id}`}
+                            type="button"
+                            role="radio"
+                            aria-checked={isOptionSelected}
+                            tabIndex={isFocusable ? 0 : -1}
+                            onClick={() => handleSelectQuizOption(q.id, opt.id)}
+                            onKeyDown={(e) => handleQuizOptionKeyDown(e, q.id, q.options, optIdx)}
+                            disabled={quizSubmitted}
+                            style={{
+                              padding: '0.75rem 1rem',
+                              borderRadius: '6px',
+                              background: bg,
+                              border: border,
+                              color: color,
+                              textAlign: 'left',
+                              cursor: quizSubmitted ? 'default' : 'pointer',
+                              fontSize: '0.85rem',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '0.75rem',
+                              transition: 'all 0.15s ease'
+                            }}
+                          >
+                            <span style={{ fontWeight: 800, width: '20px' }}>
+                              {opt.id}.
+                            </span>
+                            <span style={{ flex: 1, lineHeight: 1.4 }}>
+                              {opt.text}
+                            </span>
+
+                            {/* Accessible Non-Color Indicators */}
+                            {quizSubmitted && isOptionCorrect && (
+                              <span
+                                style={{
+                                  marginLeft: 'auto',
+                                  fontWeight: 800,
+                                  fontSize: '0.8rem',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '0.3rem',
+                                  color: '#10b981',
+                                  padding: '0.2rem 0.5rem',
+                                  background: 'rgba(16, 185, 129, 0.15)',
+                                  borderRadius: '4px'
+                                }}
+                              >
+                                <CheckCircle2 size={15} aria-hidden="true" />
+                                <span>{isOptionSelected ? 'Your Choice (Correct)' : 'Correct Answer'}</span>
+                              </span>
+                            )}
+                            {quizSubmitted && isOptionSelected && !isOptionCorrect && (
+                              <span
+                                style={{
+                                  marginLeft: 'auto',
+                                  fontWeight: 800,
+                                  fontSize: '0.8rem',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '0.3rem',
+                                  color: '#ef4444',
+                                  padding: '0.2rem 0.5rem',
+                                  background: 'rgba(239, 68, 68, 0.15)',
+                                  borderRadius: '4px'
+                                }}
+                              >
+                                <span>✕ Your Choice</span>
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Explanation Reveal */}
+                    {quizSubmitted && (
+                      <div
+                        style={{
+                          marginTop: '0.5rem',
+                          padding: '0.75rem 1rem',
+                          borderRadius: '6px',
+                          background: isCorrect ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                          borderLeft: `4px solid ${isCorrect ? '#10b981' : '#ef4444'}`,
+                          fontSize: '0.85rem',
+                          lineHeight: 1.5,
+                          color: 'var(--text-primary)'
+                        }}
+                      >
+                        <strong>{isCorrect ? 'Correct! ' : 'Explanation: '}</strong>
+                        {q.explanation}
+                      </div>
+                    )}
+                  </fieldset>
+                );
+              })}
+            </div>
+
+            {/* Quiz Submit Button */}
+            {!quizSubmitted ? (
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
+                <button
+                  type="button"
+                  onClick={handleGradeQuiz}
+                  disabled={Object.keys(quizAnswers).length < module.knowledgeCheck.length}
+                  className="primary-btn"
+                  style={{
+                    padding: '0.75rem 2rem',
+                    fontSize: '0.95rem',
+                    fontWeight: 800,
+                    opacity: Object.keys(quizAnswers).length === module.knowledgeCheck.length ? 1 : 0.5,
+                    cursor: Object.keys(quizAnswers).length === module.knowledgeCheck.length ? 'pointer' : 'not-allowed'
+                  }}
+                >
+                  Submit Knowledge Check
+                </button>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem' }}>
                 <button
                   type="button"
                   onClick={() => handleTabChange('LAB')}
-                  className="primary-btn"
-                  style={{ padding: '0.65rem 1.5rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                >
-                  <span>Proceed to Interactive Lab</span>
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 2: INTERACTIVE LAB */}
-          {activeTab === 'LAB' && (
-            <div
-              role="tabpanel"
-              id="modal-panel-lab"
-              aria-labelledby="modal-tab-lab"
-              tabIndex={0}
-              style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
-            >
-              {renderInteractive()}
-
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
-                <button
-                  type="button"
-                  onClick={() => handleTabChange('STUDY')}
                   className="secondary-btn"
-                  style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
+                  style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem' }}
                 >
-                  ← Back to Study Guide
+                  ← Review Interactive Lab
                 </button>
+
                 <button
                   type="button"
-                  onClick={() => handleTabChange('QUIZ')}
+                  onClick={onClose}
                   className="primary-btn"
-                  style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                  style={{ padding: '0.6rem 1.5rem', fontSize: '0.85rem' }}
                 >
-                  <span>Take Knowledge Check</span>
-                  <ChevronRight size={16} />
+                  Done / Return to Academy
                 </button>
               </div>
-            </div>
-          )}
-
-          {/* TAB 3: KNOWLEDGE CHECK */}
-          {activeTab === 'QUIZ' && (
-            <div
-              role="tabpanel"
-              id="modal-panel-quiz"
-              aria-labelledby="modal-tab-quiz"
-              tabIndex={0}
-              style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-                <div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
-                    Module Mastery Assessment
-                  </h3>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '0.25rem 0 0 0' }}>
-                    Score 100% on these questions to master this Body of Knowledge section.
-                  </p>
-                </div>
-
-                {quizSubmitted && (
-                  <div
-                    role="status"
-                    aria-live="polite"
-                    style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
-                  >
-                    <div style={{ padding: '0.4rem 0.8rem', borderRadius: '6px', background: quizScore === module.knowledgeCheck.length ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)', color: quizScore === module.knowledgeCheck.length ? '#10b981' : '#ef4444', fontWeight: 800, fontSize: '0.9rem' }}>
-                      Score: {quizScore} / {module.knowledgeCheck.length} {quizScore === module.knowledgeCheck.length ? '— Perfect!' : '— Try again!'}
-                    </div>
-                    <button
-                      type="button"
-                      onClick={handleResetQuiz}
-                      className="secondary-btn"
-                      style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem' }}
-                    >
-                      Retry Quiz
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Questions List */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                {(module.knowledgeCheck || []).map((q, qIdx) => {
-                  const selected = quizAnswers[q.id];
-                  const isCorrect = selected === q.answer;
-
-                  return (
-                    <fieldset
-                      key={q.id}
-                      role="radiogroup"
-                      aria-labelledby={`q-stem-${q.id}`}
-                      style={{
-                        background: 'var(--bg-surface)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '8px',
-                        padding: '1.25rem',
-                        margin: 0,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.75rem'
-                      }}
-                    >
-                      <legend
-                        id={`q-stem-${q.id}`}
-                        style={{
-                          display: 'flex',
-                          gap: '0.5rem',
-                          alignItems: 'flex-start',
-                          padding: 0,
-                          margin: 0,
-                          width: '100%'
-                        }}
-                      >
-                        <span style={{ fontWeight: 800, color: certColor, fontSize: '0.9rem' }}>
-                          Q{qIdx + 1}.
-                        </span>
-                        <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.5 }}>
-                          {q.question}
-                        </span>
-                      </legend>
-
-                      {/* Options */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {q.options.map((opt) => {
-                          const isOptionSelected = selected === opt.id;
-                          const isOptionCorrect = q.answer === opt.id;
-
-                          let bg = 'var(--bg-surface-elevated)';
-                          let border = '1px solid var(--border-color)';
-                          let color = 'var(--text-secondary)';
-
-                          if (quizSubmitted) {
-                            if (isOptionCorrect) {
-                              bg = 'rgba(16, 185, 129, 0.2)';
-                              border = '2px solid #10b981';
-                              color = '#10b981';
-                            } else if (isOptionSelected && !isCorrect) {
-                              bg = 'rgba(239, 68, 68, 0.2)';
-                              border = '2px solid #ef4444';
-                              color = '#ef4444';
-                            }
-                          } else if (isOptionSelected) {
-                            bg = `${certColor}20`;
-                            border = `2px solid ${certColor}`;
-                            color = certColor;
-                          }
-
-                          return (
-                            <button
-                              key={opt.id}
-                              type="button"
-                              role="radio"
-                              aria-checked={isOptionSelected}
-                              onClick={() => handleSelectQuizOption(q.id, opt.id)}
-                              disabled={quizSubmitted}
-                              style={{
-                                padding: '0.75rem 1rem',
-                                borderRadius: '6px',
-                                background: bg,
-                                border: border,
-                                color: color,
-                                textAlign: 'left',
-                                cursor: quizSubmitted ? 'default' : 'pointer',
-                                fontSize: '0.85rem',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '0.75rem',
-                                transition: 'all 0.15s ease'
-                              }}
-                            >
-                              <span style={{ fontWeight: 800, width: '20px' }}>
-                                {opt.id}.
-                              </span>
-                              <span style={{ flex: 1, lineHeight: 1.4 }}>
-                                {opt.text}
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-
-                      {/* Explanation Reveal */}
-                      {quizSubmitted && (
-                        <div
-                          style={{
-                            marginTop: '0.5rem',
-                            padding: '0.75rem 1rem',
-                            borderRadius: '6px',
-                            background: isCorrect ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
-                            borderLeft: `4px solid ${isCorrect ? '#10b981' : '#ef4444'}`,
-                            fontSize: '0.85rem',
-                            lineHeight: 1.5,
-                            color: 'var(--text-primary)'
-                          }}
-                        >
-                          <strong>{isCorrect ? 'Correct! ' : 'Explanation: '}</strong>
-                          {q.explanation}
-                        </div>
-                      )}
-                    </fieldset>
-                  );
-                })}
-              </div>
-
-              {/* Quiz Submit Button */}
-              {!quizSubmitted ? (
-                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
-                  <button
-                    type="button"
-                    onClick={handleGradeQuiz}
-                    disabled={Object.keys(quizAnswers).length < module.knowledgeCheck.length}
-                    className="primary-btn"
-                    style={{
-                      padding: '0.75rem 2rem',
-                      fontSize: '0.95rem',
-                      fontWeight: 800,
-                      opacity: Object.keys(quizAnswers).length === module.knowledgeCheck.length ? 1 : 0.5,
-                      cursor: Object.keys(quizAnswers).length === module.knowledgeCheck.length ? 'pointer' : 'not-allowed'
-                    }}
-                  >
-                    Submit Knowledge Check
-                  </button>
-                </div>
-              ) : (
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem' }}>
-                  <button
-                    type="button"
-                    onClick={() => handleTabChange('LAB')}
-                    className="secondary-btn"
-                    style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem' }}
-                  >
-                    ← Review Interactive Lab
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={onClose}
-                    className="primary-btn"
-                    style={{ padding: '0.6rem 1.5rem', fontSize: '0.85rem' }}
-                  >
-                    Done / Return to Academy
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -24,6 +24,8 @@
   --arcade-amber: #f59e0b;
   --arcade-purple: #c084fc;
   --arcade-gold: #facc15;
+  --arcade-yellow: #facc15;
+  --bg-secondary: rgba(255, 255, 255, 0.05);
 
   /* Dual-Coded Shapes & Question Choice Accents */
   --color-triangle: #ef4444; /* Crimson Red */
@@ -57,6 +59,8 @@ body.high-contrast {
   --arcade-amber: #ffbb00;
   --arcade-purple: #e066ff;
   --arcade-gold: #ffff00;
+  --arcade-yellow: #ffff00;
+  --bg-secondary: #000000;
 
   --color-triangle: #ff0055;
   --color-diamond: #00ffff;
@@ -824,6 +828,8 @@ body.skin-kawaii.high-contrast {
   --arcade-amber: #ffff00;
   --arcade-purple: #ff69b4;
   --arcade-gold: #ffff00;
+  --arcade-yellow: #ffff00;
+  --bg-secondary: #000000;
 }
 
 body.skin-kawaii.high-contrast .card,
@@ -1191,6 +1197,8 @@ body.skin-anime.high-contrast {
   --arcade-amber: #ffff00;
   --arcade-purple: #e066ff;
   --arcade-gold: #ffff00;
+  --arcade-yellow: #ffff00;
+  --bg-secondary: #000000;
 
   --shadow-card: 5px 5px 0px 0px #ffffff;
   --shadow-cabinet: 6px 6px 0px 0px #ffffff;

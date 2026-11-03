@@ -444,9 +444,10 @@ export default function AdaptiveStrategiesLab() {
                     padding: '0.3rem 0.6rem',
                     fontSize: '0.75rem',
                     borderRadius: '4px',
-                    background: zoomLevel === z ? 'var(--arcade-green)' : 'var(--bg-secondary)',
-                    color: zoomLevel === z ? '#ffffff' : 'var(--text-primary)',
-                    border: '1px solid var(--border-color)',
+                    background: zoomLevel === z ? 'var(--arcade-green)' : 'var(--bg-surface-elevated)',
+                    color: zoomLevel === z ? '#090d16' : 'var(--text-primary)',
+                    fontWeight: 700,
+                    border: zoomLevel === z ? '1px solid var(--arcade-green)' : '1px solid var(--border-color)',
                     cursor: 'pointer'
                   }}
                 >

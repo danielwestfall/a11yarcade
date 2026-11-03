@@ -976,6 +976,41 @@ export const soundManager = {
       osc.start(start);
       osc.stop(start + 0.6);
     });
+  },
+
+  // Streak celebration chime
+  playStreak() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const freqs = [587.33, 739.99, 880, 1174.66]; // D5, F#5, A5, D6
+    freqs.forEach((f, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      const time = ctx.currentTime + i * 0.08;
+      osc.frequency.setValueAtTime(f, time);
+
+      gain.gain.setValueAtTime(0, time);
+      gain.gain.linearRampToValueAtTime(volume * 0.25, time + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, time + 0.35);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(time);
+      osc.stop(time + 0.35);
+    });
+  },
+
+  // Alias for winner fanfare
+  playWinnerFanfare() {
+    this.playVictoryFanfare();
+  },
+
+  // Alias for error tone
+  playError() {
+    this.playIncorrect();
   }
 };
 

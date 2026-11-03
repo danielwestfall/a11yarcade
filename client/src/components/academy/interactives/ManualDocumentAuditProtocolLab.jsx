@@ -47,7 +47,7 @@ const AUDIT_STEPS = [
     short: 'Title Bar Display',
     icon: Sliders,
     desc: 'Verifies File -> Properties -> Initial View. Tests whether the window title bar displays the human-readable Document Title instead of the raw file name.',
-    matterhornCheckpoint: 'Matterhorn Protocol 06-001 (Document Title in Title Bar)',
+    matterhornCheckpoint: 'Matterhorn Protocol 07-001 (Document Title in Title Bar)',
     testProtocol:
       'Open Document Properties (Ctrl+D). Under Initial View -> Window Options, inspect "Show". If set to "File Name", screen readers announce cryptic file names like "annual_report_v3_final.pdf" instead of the accessible title.'
   },
@@ -158,7 +158,7 @@ const SCENARIOS = [
       }
     ],
     explanation:
-      'Under WCAG 2.4.2 (Page Titled) and Matterhorn Protocol 06-001 (ISO 14289-1), the document title must be displayed in the application window bar. Setting Document Title in metadata is insufficient on its own; the document\'s Initial View dictionary must explicitly specify /ViewerPreferences << /DisplayDocTitle true >>.'
+      'Under WCAG 2.4.2 (Page Titled) and Matterhorn Protocol 07-001 (ISO 14289-1), the document title must be displayed in the application window bar. Setting Document Title in metadata is insufficient on its own; the document\'s Initial View dictionary must explicitly specify /ViewerPreferences << /DisplayDocTitle true >>.'
   },
   {
     id: 'case-4',

@@ -79,9 +79,11 @@ export default function PlainLanguageAndLinksFixer() {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
+      <div role="tablist" aria-label="Plain language and link exercises" style={{ display: 'flex', gap: '0.5rem' }}>
         <button
           type="button"
+          role="tab"
+          aria-selected={activeTab === 'links'}
           onClick={() => {
             soundManager.playClick();
             setActiveTab('links');
@@ -102,6 +104,8 @@ export default function PlainLanguageAndLinksFixer() {
 
         <button
           type="button"
+          role="tab"
+          aria-selected={activeTab === 'plain'}
           onClick={() => {
             soundManager.playClick();
             setActiveTab('plain');

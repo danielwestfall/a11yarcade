@@ -2,21 +2,25 @@ import React, { useState, useMemo } from 'react';
 import { Eye, ShieldCheck, AlertTriangle, RefreshCw, Sparkles, Layers, Sliders } from 'lucide-react';
 import { soundManager } from '../../../utils/sound';
 
-// Relative Luminance calculation per WCAG 2.1 / 2.2 specs
+// Relative Luminance calculation per WCAG 2.1 / 2.2 specs (including 0.04045 erratum)
 function getLuminance(r, g, b) {
   const [rs, gs, bs] = [r, g, b].map(c => {
     c = c / 255;
-    return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
   });
   return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
 }
 
 function hexToRgb(hex) {
-  let clean = hex.replace('#', '');
-  if (clean.length === 3) {
-    clean = clean.split('').map(c => c + c).join('');
+  if (typeof hex !== 'string') return null;
+  const clean = hex.trim().replace(/^#/, '');
+  // Strictly validate 3 or 6 valid hexadecimal characters
+  if (!/^[0-9a-fA-F]{3}$|^[0-9a-fA-F]{6}$/.test(clean)) {
+    return null;
   }
-  const num = parseInt(clean, 16);
+  const full = clean.length === 3 ? clean.split('').map(c => c + c).join('') : clean;
+  const num = parseInt(full, 16);
+  if (isNaN(num)) return null;
   return {
     r: (num >> 16) & 255,
     g: (num >> 8) & 255,
@@ -28,13 +32,14 @@ function getContrastRatio(fgHex, bgHex) {
   try {
     const fg = hexToRgb(fgHex);
     const bg = hexToRgb(bgHex);
+    if (!fg || !bg) return null;
     const l1 = getLuminance(fg.r, fg.g, fg.b);
     const l2 = getLuminance(bg.r, bg.g, bg.b);
     const lighter = Math.max(l1, l2);
     const darker = Math.min(l1, l2);
     return ((lighter + 0.05) / (darker + 0.05));
   } catch {
-    return 1;
+    return null;
   }
 }
 
@@ -65,13 +70,14 @@ export default function VisionContrastSimulator() {
   const [textSize, setTextSize] = useState('normal'); // 'normal' | 'large'
 
   const ratio = useMemo(() => getContrastRatio(fgColor, bgColor), [fgColor, bgColor]);
-  const formattedRatio = ratio.toFixed(2);
+  const isValidHex = ratio !== null;
+  const formattedRatio = isValidHex ? `${ratio.toFixed(2)}:1` : 'Invalid Hex';
 
-  const passesAaNormal = ratio >= 4.5;
-  const passesAaLarge = ratio >= 3.0;
-  const passesAaaNormal = ratio >= 7.0;
-  const passesAaaLarge = ratio >= 4.5;
-  const passesUi = ratio >= 3.0;
+  const passesAaNormal = isValidHex && ratio >= 4.5;
+  const passesAaLarge = isValidHex && ratio >= 3.0;
+  const passesAaaNormal = isValidHex && ratio >= 7.0;
+  const passesAaaLarge = isValidHex && ratio >= 4.5;
+  const passesUi = isValidHex && ratio >= 3.0;
 
   const handleModeChange = (modeId) => {
     soundManager.playClick();
@@ -171,7 +177,7 @@ export default function VisionContrastSimulator() {
           }}>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>RATIO:</span>
             <span style={{ color: passesAaNormal ? 'var(--arcade-green)' : 'var(--arcade-crimson)', fontSize: '1.15rem' }}>
-              {formattedRatio}:1
+              {formattedRatio}
             </span>
           </div>
         </div>
@@ -235,7 +241,9 @@ export default function VisionContrastSimulator() {
                   style={{ width: '40px', height: '36px', border: '1px solid var(--border-color)', borderRadius: '4px', cursor: 'pointer', background: 'transparent', padding: 0 }}
                 />
                 <input
+                  id="fg-hex-text"
                   type="text"
+                  aria-label="Foreground Hex Color"
                   value={fgColor}
                   onChange={(e) => setFgColor(e.target.value)}
                   style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem', background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', borderRadius: '4px', fontFamily: 'monospace' }}
@@ -256,7 +264,9 @@ export default function VisionContrastSimulator() {
                   style={{ width: '40px', height: '36px', border: '1px solid var(--border-color)', borderRadius: '4px', cursor: 'pointer', background: 'transparent', padding: 0 }}
                 />
                 <input
+                  id="bg-hex-text"
                   type="text"
+                  aria-label="Background Hex Color"
                   value={bgColor}
                   onChange={(e) => setBgColor(e.target.value)}
                   style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem', background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', borderRadius: '4px', fontFamily: 'monospace' }}

@@ -287,12 +287,14 @@ export default function BuiltEnvironmentBlueprintLab() {
           {activeZone === 'ramp' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
+                <label htmlFor="ramp-slope-slider" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
                   Ramp Slope Ratio (1 : X) — Max Allowed: 1:12
                 </label>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <input
+                    id="ramp-slope-slider"
                     type="range"
+                    aria-label="Ramp Slope Ratio (1 to X)"
                     min="6"
                     max="16"
                     step="1"
@@ -333,12 +335,14 @@ export default function BuiltEnvironmentBlueprintLab() {
           {activeZone === 'door' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
+                <label htmlFor="door-width-slider" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
                   Door Clear Opening Width (Inches) — Min Required: 32"
                 </label>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <input
+                    id="door-width-slider"
                     type="range"
+                    aria-label="Door Clear Opening Width in inches"
                     min="26"
                     max="38"
                     step="1"
@@ -413,12 +417,14 @@ export default function BuiltEnvironmentBlueprintLab() {
           {activeZone === 'turning' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
+                <label htmlFor="turning-diameter-slider" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
                   Turning Space Diameter (Inches) — Min Required: 60"
                 </label>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <input
+                    id="turning-diameter-slider"
                     type="range"
+                    aria-label="Turning Space Diameter in inches"
                     min="42"
                     max="66"
                     step="2"
@@ -445,12 +451,14 @@ export default function BuiltEnvironmentBlueprintLab() {
           {activeZone === 'sign' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
+                <label htmlFor="sign-height-slider" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
                   Mounting Height to Character Baseline (Inches) — Allowed: 48" to 60"
                 </label>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <input
+                    id="sign-height-slider"
                     type="range"
+                    aria-label="Mounting Height to Character Baseline in inches"
                     min="36"
                     max="72"
                     step="2"

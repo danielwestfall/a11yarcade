@@ -37,11 +37,11 @@ This document tracks all Body of Knowledge (BoK) sub-domains across **CPACC**, *
 | **CPACC** | `CPACC-D2-D` | Accessibility Principles for Built Environment (`BuiltEnvironmentBlueprintLab.jsx`) | **LIVE ✓** |
 | **CPACC** | `CPACC-D1-A` | Theoretical Models of Disability (`DisabilityModelClassifier.jsx`) | **LIVE ✓** |
 | **CPACC** | `CPACC-D1-B` | Disability Categories, Barriers & Assistive Tech (`VisionContrastSimulator.jsx`) | **LIVE ✓** |
-| **CPACC** | `CPACC-D2-B` | The 7 Principles of Universal Design (`UniversalDesignSorter.jsx`) | **LIVE ✓** |
-| **CPACC** | `CPACC-D3-B` | Accessibility Laws, Regulations & Standards (`GlobalLegalCompassLab.jsx`) | **LIVE ✓** |
+| **CPACC** | `CPACC-D2-B` | The Business Case, Curb-Cut Effect & Social Inclusion (`BusinessCaseCurbCutLab.jsx`) | **LIVE ✓** |
+| **CPACC** | `CPACC-D3-D` | Accessibility Laws, Regulations & Standards (`A11yLawsRegulationsLab.jsx`) | **LIVE ✓** |
 | **CPACC** | `CPACC-D1-C` | Assistive Technologies & Adaptive Strategies (`AssistiveTechSimulator.jsx`) | **LIVE ✓** |
-| **CPACC** | `CPACC-D2-E` | Business Case and Benefits of Accessibility (`A11yMaturityModelAuditor.jsx`) | **LIVE ✓** |
-| **CPACC** | `CPACC-D3-D` | Integrating ICT Accessibility Across the Org (`A11yMaturityModelAuditor.jsx`) | **LIVE ✓** |
+| **CPACC** | `CPACC-D2-E` | The 7 Principles of Universal Design (`UniversalDesignSorter.jsx`) | **LIVE ✓** |
+| **CPACC** | `CPACC-D3-F` | Integrating ICT Accessibility Across the Org (`A11yMaturityModelAuditor.jsx`) | **LIVE ✓** |
 | **WAS** | `WAS-D1-B` | Semantic HTML vs Custom Controls ("Div Soup") (`SemanticHtmlFixer.jsx`) | **LIVE ✓** |
 | **WAS** | `WAS-D1-D` | WAI-ARIA: Live Regions, States & The First Rule (`AriaLiveLab.jsx`) | **LIVE ✓** |
 | **WAS** | `WAS-D1-C` | Keyboard Navigation & Focus Management (`KeyboardNavigationSandbox.jsx`) | **LIVE ✓** |
@@ -50,7 +50,7 @@ This document tracks all Body of Knowledge (BoK) sub-domains across **CPACC**, *
 | **WAS** | `WAS-D3-A` | Defect Severity & Prioritization Matrix (`IssueSeverityTriageLab.jsx`) | **LIVE ✓** |
 | **ADS** | `ADS-D2-A` | Alternative Text & Graphic Classification (`AltTextDecisionTree.jsx`) | **LIVE ✓** |
 | **ADS** | `ADS-D2-B` | Document Structure & PDF Tag Tree Remediation (`PdfTagTreeFixer.jsx`) | **LIVE ✓** |
-| **ADS** | `ADS-D3-A` | Automated vs Manual Document Auditing (`PdfTagTreeFixer.jsx`) | **LIVE ✓** |
+| **ADS** | `ADS-D3-A` | Automated vs Manual Document Auditing (`PacAutomatedAuditLab.jsx`) | **LIVE ✓** |
 | **ADS** | `ADS-D1-A` | Plain Language & Clear Link Purpose (`PlainLanguageAndLinksFixer.jsx`) | **LIVE ✓** |
 
 ---
