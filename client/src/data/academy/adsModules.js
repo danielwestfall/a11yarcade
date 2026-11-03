@@ -1,4 +1,3 @@
-// IAAP ADS (Accessible Document Specialist) Modules (10 Modules)
 export const ADS_MODULES = [
   {
     "id": "mod-ads-alt-text",
@@ -1135,6 +1134,1126 @@ export const ADS_MODULES = [
         ],
         "answer": "A",
         "explanation": "Floating unanchored objects are placed at the end of the page content stream or in arbitrary order based on visual z-index. Anchoring the graphic inline guarantees it appears adjacent to its textual reference in the reading order."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-screen-reader-testing",
+    "cert": "ADS",
+    "domainId": "ADS-D3",
+    "domainLabel": "Domain 3: Auditing and Testing Document Accessibility",
+    "sectionId": "ADS-D3-D",
+    "title": "Assistive Tech PDF Auditing with NVDA, JAWS & VoiceOver",
+    "badge": "Document Auditing",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 13,
+    "interactiveType": "document-screen-reader-testing-lab",
+    "citation": "ADS BoK 2024, Section 3.4 (Perform tests with assistive technologies)",
+    "summary": "Audit electronic PDF documents using desktop screen readers: verify reading order across multi-column layouts, inspect table header announcements, and test interactive form controls in Adobe Acrobat.",
+    "learningObjectives": [
+      "Configure Adobe Acrobat Pro and Reader settings for representative screen reader evaluation.",
+      "Verify that multi-column and sidebar document layouts linearize in meaningful reading order.",
+      "Audit complex data tables to ensure row and column headers announce during cell navigation."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Acrobat Reading Preferences",
+        "explanation": "In Adobe Acrobat, the reading options dialog specifies whether documents linearize page-by-page or process the entire document at once. Auditors must test with tagged document reading order enabled."
+      },
+      {
+        "title": "Multi-Column Text Linearization",
+        "explanation": "Visual multi-column articles, callout sidebars, and footnotes must read sequentially through column one before moving to column two, rather than reading horizontally across columns."
+      },
+      {
+        "title": "Data Table Navigation Keystrokes",
+        "explanation": "Screen reader users navigate PDF data tables using specialized shortcuts (Ctrl+Alt+Arrows in JAWS/NVDA). Properly tagged `<TH>` headers with Scope attributes announce dynamically on each cell move."
+      },
+      {
+        "title": "Form Tooltips as Accessible Names",
+        "explanation": "In fillable PDF forms, screen readers announce the form field's Tooltip property as its primary accessible name, rather than the visual adjacent text."
+      }
+    ],
+    "examTips": "ADS exam questions frequently ask why a screen reader reads across two columns instead of down column one first. The answer is that the underlying tag tree order was not structured into separate sequential content blocks.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-sr-1",
+        "question": "When navigating an interactive PDF form with NVDA or JAWS, what field property provides the accessible name announced to the user?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The Tooltip property defined in the PDF form field properties dialog"
+          },
+          {
+            "id": "B",
+            "text": "The underlying PostScript printer font encoding name embedded in PDF"
+          },
+          {
+            "id": "C",
+            "text": "The default tab index number calculated by the authoring layout engine"
+          },
+          {
+            "id": "D",
+            "text": "The visual watermark text displayed behind the interactive signature line"
+          }
+        ],
+        "answer": "A",
+        "explanation": "In PDF forms, the Tooltip field property serves as the accessible name for assistive technology, matching the functional role of the HTML label element."
+      },
+      {
+        "id": "kc-ads-sr-2",
+        "question": "A multi-column magazine article visually displays text in two side-by-side columns, but a screen reader reads line 1 of column 1 followed immediately by line 1 of column 2. What is the root cause?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The monitor resolution is too low to support multi-column layout reflow"
+          },
+          {
+            "id": "B",
+            "text": "The document tag tree was structured in horizontal visual lines instead of sequential columns"
+          },
+          {
+            "id": "C",
+            "text": "Adobe Reader requires an automated third-party accessibility plugin to read columns"
+          },
+          {
+            "id": "D",
+            "text": "The operating system speech synthesizer encountered unsupported kerning ligatures"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Screen readers strictly follow the sequence of tags in the PDF tag tree; if authoring tools emit tags line-by-line horizontally rather than column-by-column, the reading flow is scrambled."
+      },
+      {
+        "id": "kc-ads-sr-3",
+        "question": "When auditing a data table in a tagged PDF using screen reader table navigation keys, how does the user confirm that header cells are properly associated?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The screen reader speech synthesizer switches output voices to announce pixel coordinate bounds on the monitor"
+          },
+          {
+            "id": "B",
+            "text": "The screen reader reads the total pixel dimensions of the surrounding page margins"
+          },
+          {
+            "id": "C",
+            "text": "The screen reader announces the corresponding row and column header text before data"
+          },
+          {
+            "id": "D",
+            "text": "The PDF viewer automatically downloads an Excel spreadsheet version of the table"
+          }
+        ],
+        "answer": "C",
+        "explanation": "When moving between table cells using table navigation keystrokes, a properly tagged PDF table causes the screen reader to announce the parent column and row `<TH>` headers before reading cell data."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-authoring-reference-guides",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-A",
+    "title": "Authoring Reference Guides & Style Manuals",
+    "badge": "Process Engineering",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 11,
+    "interactiveType": "authoring-reference-guide-lab",
+    "citation": "ADS BoK 2024, Section 4.1 (Create related reference guides and instructional materials)",
+    "summary": "Create enterprise authoring style guides, checklists, and quick-reference job aids that embed accessible typography, color palettes, and structural conventions directly into document creation workflows.",
+    "learningObjectives": [
+      "Incorporate accessibility baselines (4.5:1 text contrast, heading styles) into corporate brand guidelines.",
+      "Design practical authoring checklists for Microsoft Word, PowerPoint, and Adobe InDesign.",
+      "Standardize alternative text writing rubrics for complex charts, diagrams, and decorative artwork."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Brand Guideline Integration",
+        "explanation": "Integrating accessible color palettes (ensuring brand primary and secondary hues satisfy 4.5:1 for normal text) prevents corporate design teams from creating inherently inaccessible materials."
+      },
+      {
+        "title": "Authoring Checklists",
+        "explanation": "Concise checklists guide authors through essential milestones: applying true Paragraph Styles rather than visual bolding, writing alt text, designating table headers, and adding document titles."
+      },
+      {
+        "title": "Alt Text Decision Trees in Style Manuals",
+        "explanation": "Style manuals should define standardized criteria for image classification: decorative images marked as artifacts, organizational logos including company names, and data charts paired with tables."
+      },
+      {
+        "title": "Quick-Reference Job Aids",
+        "explanation": "Laminated or digital one-page guides showing exact software menu locations (e.g. Word Table Properties > Repeat Header Row) lower cognitive friction for occasional document creators."
+      }
+    ],
+    "examTips": "ADS exam questions highlight that the most effective time to create accessible documents is during initial drafting in authoring software, supported by clear style guides, rather than remediating exported PDFs.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-ref-1",
+        "question": "Why is it advantageous to integrate accessibility color contrast criteria directly into an organization's primary brand guidelines?",
+        "options": [
+          {
+            "id": "A",
+            "text": "It eliminates the need for software engineers to write semantic HTML heading tags"
+          },
+          {
+            "id": "B",
+            "text": "It eliminates the traditional engineering need for front-end developers to write semantic HTML heading structures"
+          },
+          {
+            "id": "C",
+            "text": "It restricts corporate document creation to monochrome desktop printers"
+          },
+          {
+            "id": "D",
+            "text": "It prevents designers from creating collateral with inherently inaccessible color combinations"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Baking minimum 4.5:1 text contrast into approved brand color palettes ensures that marketing and communication teams produce accessible designs by default."
+      },
+      {
+        "id": "kc-ads-ref-2",
+        "question": "What instruction should an authoring reference guide provide regarding headings in Microsoft Word?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Apply native Heading Styles (Heading 1 through Heading 6) in hierarchical order"
+          },
+          {
+            "id": "B",
+            "text": "Enlarge body text font size and apply bold formatting with manual space breaks"
+          },
+          {
+            "id": "C",
+            "text": "Insert text boxes positioned over paragraphs with high-contrast drop shadows"
+          },
+          {
+            "id": "D",
+            "text": "Highlight section titles with yellow background fill colors in print layouts"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Native Heading Styles (Heading 1, 2, 3) carry semantic heading tags (`<H1>`, `<H2>`) into exported PDF tag trees, whereas manual bolding produces untagged body text."
+      },
+      {
+        "id": "kc-ads-ref-3",
+        "question": "How should an instructional job aid direct document authors to treat purely decorative horizontal separator lines and background flourishes?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Write alternative text describing the color and thickness of each divider line"
+          },
+          {
+            "id": "B",
+            "text": "Mark them as decorative or /Artifact so assistive tech bypasses them during reading"
+          },
+          {
+            "id": "C",
+            "text": "Assign the image title attribute as 'Separator graphic for visual spacing'"
+          },
+          {
+            "id": "D",
+            "text": "Convert the separator graphic lines into hidden hyperlinks pointing to corporate landing pages and legal footers"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Decorative elements that convey no information must be marked as decorative in authoring software or as /Artifact in PDF structures, preventing screen reader clutter."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-training-curriculum",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-B",
+    "title": "Developing Organizational Document Accessibility Training",
+    "badge": "Instructional Design",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 12,
+    "interactiveType": "a11y-training-curriculum-lab",
+    "citation": "ADS BoK 2024, Section 4.2 (Assist in developing digital accessibility training)",
+    "summary": "Design role-tailored document accessibility training programs: build curricula for administrative authors, graphic designers, and leadership, and measure pre- and post-training document compliance.",
+    "learningObjectives": [
+      "Develop modular accessibility training curricula customized to specific authoring job roles.",
+      "Facilitate practical, hands-on document remediation workshops using realistic broken files.",
+      "Establish quantitative assessment rubrics to measure organizational training efficacy over time."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Role-Based Training Modules",
+        "explanation": "A single generic training session fails: administrative staff need Word and PowerPoint structure training; creative teams need InDesign export and color training; procurement officers need VPAT review training."
+      },
+      {
+        "title": "Hands-On Practice Documents",
+        "explanation": "Effective adult learning requires active problem solving: learners remediate realistic sample files containing skipped headings, merged data table cells, and missing alt text."
+      },
+      {
+        "title": "Measuring Knowledge Retention",
+        "explanation": "Evaluating document pass rates using automated checkers (PAC, Word Accessibility Checker) on production documents before and after training cohorts provides concrete proof of program impact."
+      },
+      {
+        "title": "Sustained Reinforcement",
+        "explanation": "Single training events fade without ongoing reinforcement: quarterly micro-learning sessions, drop-in remediation clinics, and peer mentoring sustain accessibility capability."
+      }
+    ],
+    "examTips": "ADS exam questions stress that training programs must include hands-on document remediation practice rather than purely theoretical slide presentations, ensuring authors develop tactical software skills.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-trn-1",
+        "question": "When developing an enterprise document accessibility training program, why should instructional content be tailored by authoring role?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Union regulations prohibit mixing managerial and operational staff in training rooms"
+          },
+          {
+            "id": "B",
+            "text": "Federal accessibility statutes mandate separate licensing for Word and InDesign users"
+          },
+          {
+            "id": "C",
+            "text": "Different roles use distinct authoring tools and have different compliance responsibilities"
+          },
+          {
+            "id": "D",
+            "text": "Graphic designers are legally exempt from understanding digital document accessibility"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Content authors, designers, and procurement managers operate in different authoring environments and address distinct accessibility challenges, requiring tailored instruction."
+      },
+      {
+        "id": "kc-ads-trn-2",
+        "question": "What instructional method has been shown to produce the highest knowledge retention during document accessibility workshops?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Lecturing on the chronological history of international digital publishing treaty negotiations for several hours"
+          },
+          {
+            "id": "B",
+            "text": "Requiring participants to memorize W3C success criteria numbering schemes"
+          },
+          {
+            "id": "C",
+            "text": "Distributing printed copies of the ISO 14289 specification for home reading"
+          },
+          {
+            "id": "D",
+            "text": "Hands-on remediation practice repairing intentionally defective sample documents"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Hands-on practice fixing realistic broken documents allows authors to apply software tools directly, building practical muscle memory and retention."
+      },
+      {
+        "id": "kc-ads-trn-3",
+        "question": "How can a training program coordinator objectively evaluate the real-world effectiveness of a document accessibility training series?",
+        "options": [
+          {
+            "id": "A",
+            "text": "By measuring the reduction in accessibility checker errors across post-training documents"
+          },
+          {
+            "id": "B",
+            "text": "By counting how many slides were reviewed during the workshop presentation"
+          },
+          {
+            "id": "C",
+            "text": "By conducting qualitative surveys asking whether attendees found the venue temperature and event refreshments enjoyable"
+          },
+          {
+            "id": "D",
+            "text": "By verifying that attendees downloaded the latest operating system update"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Measuring the decrease in accessibility checker errors (in PAC or Word) in production documents created after training provides an objective metric of learning transfer."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-training-resources",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-C",
+    "title": "Curating Digital Accessibility Resources & Knowledge Bases",
+    "badge": "Knowledge Management",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 10,
+    "interactiveType": "training-resource-learning-path-lab",
+    "citation": "ADS BoK 2024, Section 4.3 (Identify and provide training opportunities and resources)",
+    "summary": "Curate accessible document template libraries (.dotx, .potx, .indt), organize centralized micro-learning repositories, and build an internal community of practice across enterprise departments.",
+    "learningObjectives": [
+      "Build pre-tagged, accessible document template repositories that enforce accessible typography and structures.",
+      "Curate reputable industry standards, tutorials, and micro-learning video modules for self-paced learning.",
+      "Establish an organizational Accessibility Champions network to drive peer-to-peer document support."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Accessible Template Repositories",
+        "explanation": "Providing staff with pre-formatted Word (.dotx) and PowerPoint (.potx) templates with configured color contrast, heading styles, and table formatting ensures 80% of accessibility is built in automatically."
+      },
+      {
+        "title": "Asynchronous Micro-Learning",
+        "explanation": "Short 2-3 minute video demonstrations showing how to perform single tasks (e.g. adding alternative text in Word or setting table headers in PowerPoint) achieve high engagement when authors encounter specific questions."
+      },
+      {
+        "title": "Accessibility Champions Network",
+        "explanation": "Trained champions embedded within marketing, human resources, finance, and legal departments serve as accessible authoring points of contact, scaling expertise throughout the enterprise."
+      },
+      {
+        "title": "Centralized Resource Portals",
+        "explanation": "An internal accessibility knowledge hub housing software export guides, PAC validation tools, and brand color palettes creates a single source of truth for the organization."
+      }
+    ],
+    "examTips": "ADS questions frequently highlight that pre-built accessible templates are the single most cost-effective tool for scaling document accessibility across large non-technical employee bases.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-res-1",
+        "question": "Why is deploying standardized accessible templates (.dotx, .potx) considered a highly efficient enterprise accessibility strategy?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Templates prevent document creators from typing grammatical spelling errors into high-level executive summaries"
+          },
+          {
+            "id": "B",
+            "text": "Templates embed accessible styles, contrast, and layouts into files before authors begin writing"
+          },
+          {
+            "id": "C",
+            "text": "Templates allow Word documents to bypass Adobe Acrobat preflight validation tests"
+          },
+          {
+            "id": "D",
+            "text": "Templates encrypt document metadata against unauthorized external viewing"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Pre-configured templates build in accessible color palettes, heading hierarchies, margins, and table styles, ensuring documents start compliant without requiring deep technical knowledge from authors."
+      },
+      {
+        "id": "kc-ads-res-2",
+        "question": "What is the primary role of an 'Accessibility Champion' embedded within a departmental business unit?",
+        "options": [
+          {
+            "id": "A",
+            "text": "To issue disciplinary write-ups to colleagues who author untagged PDF files"
+          },
+          {
+            "id": "B",
+            "text": "To issue formal disciplinary write-up notices to staff members who author untagged portable document files"
+          },
+          {
+            "id": "C",
+            "text": "To act as a localized peer mentor and first-line reviewer for document accessibility"
+          },
+          {
+            "id": "D",
+            "text": "To rewrite corporate marketing copy to maintain a fifth-grade reading level"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Champions act as peer advocates and mentors, answering authoring questions, reviewing critical documents, and escalating complex remediation challenges to central accessibility teams."
+      },
+      {
+        "id": "kc-ads-res-3",
+        "question": "How does micro-learning (2-3 minute targeted video demonstrations) benefit busy enterprise staff compared to annual multi-hour seminars?",
+        "options": [
+          {
+            "id": "A",
+            "text": "It satisfies international human rights treaty reporting mandates across United Nations member jurisdiction panels"
+          },
+          {
+            "id": "B",
+            "text": "It eliminates the need for software vendors to maintain accessible authoring tools"
+          },
+          {
+            "id": "C",
+            "text": "It restricts document authoring training to certified corporate executives"
+          },
+          {
+            "id": "D",
+            "text": "It delivers immediate, just-in-time answers at the exact moment authors encounter barriers"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Micro-learning offers timely, focused problem-solving when authors are actively drafting documents, leading to higher engagement and immediate practical application."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-enterprise-workflow",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-D",
+    "title": "Enterprise Document Ingestion, Remediation & Approvals",
+    "badge": "Enterprise Operations",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 14,
+    "interactiveType": "enterprise-remediation-workflow-lab",
+    "citation": "ADS BoK 2024, Section 4.4 (Develop workflow for requests, submissions, remediation, and approvals)",
+    "summary": "Establish robust intake triage protocols, implement remediation quality gates, mandate source-first authoring fixes, and formalize sign-off workflows prior to electronic document publication.",
+    "learningObjectives": [
+      "Design document ingestion and intake triage protocols based on audience reach and legal exposure.",
+      "Enforce publication quality gates combining automated PAC validation and human manual review.",
+      "Implement source-first remediation policies to eliminate throwaway Acrobat tag-patching workflows."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Intake Triage & Prioritization",
+        "explanation": "Documents are prioritized by risk: public-facing customer notices and high-volume billing forms receive priority Tier 1 remediation, while internal drafts follow standard baseline checks."
+      },
+      {
+        "title": "Publication Quality Gates",
+        "explanation": "No PDF can be uploaded to public websites without passing two gates: an automated PAC validation report with zero errors, and manual sign-off by a certified document accessibility reviewer."
+      },
+      {
+        "title": "Source-First Remediation Rule",
+        "explanation": "Fixes must be implemented in Word or InDesign source files first. Remediating tags solely in Acrobat produces a throwaway fix that is wiped out the moment an author edits the original source and re-exports."
+      },
+      {
+        "title": "Document Lifecycle Accountability",
+        "explanation": "Clear hand-off agreements between content creators, internal remediators, and publishing webmasters ensure accessibility is verified at each stage rather than deferred to post-launch."
+      }
+    ],
+    "examTips": "ADS exam questions emphasize that remediating solely in Adobe Acrobat without updating the Word or InDesign source file is an unsustainable practice that leads to repeated rework when documents are updated.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-flow-1",
+        "question": "Why do enterprise accessibility policies mandate a 'Source-First' remediation rule rather than fixing tags exclusively in Adobe Acrobat Pro?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Acrobat Pro fixes are overwritten whenever the author updates the source and re-exports"
+          },
+          {
+            "id": "B",
+            "text": "Adobe Acrobat Pro software licenses are restricted on enterprise workstations due to high annual operating costs"
+          },
+          {
+            "id": "C",
+            "text": "Source authoring programs run faster encryption algorithms during document export"
+          },
+          {
+            "id": "D",
+            "text": "PDF/UA standards require PDF documents to stay under 1 megabyte in size"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Fixing accessibility in source documents (Word, InDesign) preserves structural tags across future revisions, whereas fixing only the exported PDF requires re-doing all tag edits upon re-export."
+      },
+      {
+        "id": "kc-ads-flow-2",
+        "question": "What criteria should a digital publishing webmaster require before approving a public-facing PDF for upload to the corporate website?",
+        "options": [
+          {
+            "id": "A",
+            "text": "A signed affidavit confirming the document was printed and scanned at 300 DPI"
+          },
+          {
+            "id": "B",
+            "text": "Passing automated validation (e.g. PAC) and certified manual assistive tech review"
+          },
+          {
+            "id": "C",
+            "text": "Corporate communications departments must route every memorandum through external third-party testing consultants"
+          },
+          {
+            "id": "D",
+            "text": "Corporate communications departments must route every memorandum through external third-party testing consultants"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Quality publication gates require both automated validation (zero PAC/Preflight errors) and manual review (logical reading order and alt text quality) before external publishing."
+      },
+      {
+        "id": "kc-ads-flow-3",
+        "question": "How should an enterprise document intake triage workflow prioritize incoming remediation requests during a high-volume publishing cycle?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Assign full manual PDF remediation responsibilities to software database administrators during quarterly sprint reviews"
+          },
+          {
+            "id": "B",
+            "text": "Remediate documents authored by department vice presidents and directors"
+          },
+          {
+            "id": "C",
+            "text": "Prioritize documents based on public audience reach, legal exposure, and core utility"
+          },
+          {
+            "id": "D",
+            "text": "Defer PDF remediations until the end of the annual accounting fiscal year"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Risk-based triage prioritizes documents with high public visibility, regulatory impact, and essential transaction paths (e.g. healthcare forms, billing notices, public policies)."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-production-planning",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-E",
+    "title": "Document Production Planning, Scheduling & Capacity",
+    "badge": "Program Management",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 11,
+    "interactiveType": "document-production-plan-lab",
+    "citation": "ADS BoK 2024, Section 4.5 (Document production plan)",
+    "summary": "Estimate remediation hours across diverse document formats, schedule accessibility milestones within publishing deadlines, manage outsourced remediation vendors, and forecast team capacity.",
+    "learningObjectives": [
+      "Calculate realistic remediation effort estimates based on page volume, table density, and graphic complexity.",
+      "Embed remediation sprints into enterprise publishing calendars to eliminate last-minute release delays.",
+      "Establish vendor evaluation rubrics to monitor third-party outsourced remediation quality."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Complexity-Based Estimation",
+        "explanation": "A 50-page narrative text document may require only 2 hours of remediation, whereas a 20-page financial report with 40 complex nested data tables and charts can require 15+ hours."
+      },
+      {
+        "title": "Parallel Production Schedules",
+        "explanation": "Document accessibility remediation should begin as soon as content is finalized, running in parallel with final proofreading and layout styling rather than treated as an afterthought."
+      },
+      {
+        "title": "Vendor Quality Assurance",
+        "explanation": "When outsourcing remediation, contracts must stipulate PDF/UA ISO 14289 conformance deliverables, requiring vendors to submit clean PAC validation reports and sample screen reader logs."
+      },
+      {
+        "title": "Capacity & Seasonal Forecasting",
+        "explanation": "Anticipating annual organizational surges (open enrollment benefits guides, annual financial reports, academic semester kickoffs) allows managers to scale capacity proactively."
+      }
+    ],
+    "examTips": "ADS exam questions emphasize that estimating remediation effort based solely on page count without assessing table density and graphic complexity leads to severe schedule overruns.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-plan-1",
+        "question": "When estimating the hours required to remediate a PDF document for accessibility, why is page count alone an unreliable metric?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Adobe Acrobat Pro charges software licensing fees per word rather than per page"
+          },
+          {
+            "id": "B",
+            "text": "Document page count changes dynamically depending on the user's monitor size"
+          },
+          {
+            "id": "C",
+            "text": "PDF/UA standards mandate that documents must feature an even number of pages"
+          },
+          {
+            "id": "D",
+            "text": "Remediation time is heavily driven by data table density, formula complexity, and graphics"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Complex elements like nested data tables, technical diagrams, and interactive forms require significantly more remediation time per page than continuous narrative prose."
+      },
+      {
+        "id": "kc-ads-plan-2",
+        "question": "What is the best practice for integrating accessibility remediation into corporate publication timelines to prevent release delays?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Schedule remediation in parallel with editorial reviews once text content is locked"
+          },
+          {
+            "id": "B",
+            "text": "Wait until after print distribution has finished before beginning accessibility checks"
+          },
+          {
+            "id": "C",
+            "text": "Convert corporate publications into plain text emails without formatting"
+          },
+          {
+            "id": "D",
+            "text": "Eliminate final proofreading reviews to reserve time for accessibility audits"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Scheduling accessibility remediation in parallel with final layout and editorial reviews prevents accessibility from becoming a last-minute barrier to launch."
+      },
+      {
+        "id": "kc-ads-plan-3",
+        "question": "When contracting a third-party vendor to remediate a backlog of five hundred legacy PDF documents, what quality deliverable should be required?",
+        "options": [
+          {
+            "id": "A",
+            "text": "A guarantee that file sizes will be compressed by at least fifty percent"
+          },
+          {
+            "id": "B",
+            "text": "Validated PDF/UA compliance reports (e.g. PAC) and sample assistive tech testing logs"
+          },
+          {
+            "id": "C",
+            "text": "A promise that document text has been converted into high-resolution bitmap graphics"
+          },
+          {
+            "id": "D",
+            "text": "A statement asserting that the vendor executes proprietary automated repair scripts without manual review"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Requiring automated PDF/UA validation reports (PAC/Preflight) alongside manual screen reader verification logs holds vendors accountable to verifiable technical standards."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-automated-pipeline-ingestion",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-F",
+    "title": "Auditing Automated Systems Emitting Inaccessible Documents",
+    "badge": "Systems Architecture",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 13,
+    "interactiveType": "automated-pipeline-ingestion-lab",
+    "citation": "ADS BoK 2024, Section 4.6 (Identify automated processes that result in inaccessible documents)",
+    "summary": "Audit automated backend document generation pipelines (JasperReports, Crystal Reports, Puppeteer, Apache FOP), inject PDF/UA tagging into transactional statements, and establish automated PDF smoke tests.",
+    "learningObjectives": [
+      "Identify backend reporting and document engines that emit untagged or non-conformant PDF streams.",
+      "Configure automated template engines to emit valid tagged headings, tables, and alternative text.",
+      "Integrate automated command-line PDF validators (PAC CLI, veraPDF) into continuous delivery pipelines."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Transactional Document Challenges",
+        "explanation": "Organizations emit millions of automated transactional documents (utility bills, account statements, explanations of benefits). Manual remediation is impossible at this scale; accessibility must be engineered into the generation template."
+      },
+      {
+        "title": "Server-Side Engine Tagging Flags",
+        "explanation": "Reporting engines (Apache FOP, JasperReports, iText) often have accessibility tagging disabled by default. Enabling PDF/UA configuration flags ensures output streams include `<Document>`, `<P>`, and `<Table>` structures."
+      },
+      {
+        "title": "Dynamic Data Table Markup",
+        "explanation": "Templates that generate tables from database queries must be explicitly coded to generate `<TH>` header cells with Scope attributes for each data column, rather than emitting repeating rows of generic `<TD>` cells."
+      },
+      {
+        "title": "Automated Build Pipeline Smoke Tests",
+        "explanation": "Running automated PDF validators (such as veraPDF or PAC command-line runners) on generated sample artifacts in CI/CD pipelines alerts developers to tagging regressions before deployment."
+      }
+    ],
+    "examTips": "ADS exam questions emphasize that when high-volume transactional documents are inaccessible, the solution is NOT manual remediation, but updating the backend generation templates and engine configuration.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-auto-1",
+        "question": "A bank generates two million PDF credit card statements each month, and customers report that screen readers cannot read the transaction tables. What is the appropriate remediation strategy?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Hire an offshore remediation team to manually fix two million PDFs each month"
+          },
+          {
+            "id": "B",
+            "text": "Require customers with disabilities to visit a physical bank branch to hear statements"
+          },
+          {
+            "id": "C",
+            "text": "Update the server-side statement generation engine template to emit valid PDF/UA tags"
+          },
+          {
+            "id": "D",
+            "text": "Convert monthly credit card statements into password-protected raster JPEG images"
+          }
+        ],
+        "answer": "C",
+        "explanation": "At enterprise scale, high-volume transactional documents must be made accessible at the template engine level so that every automatically generated document is tagged compliant."
+      },
+      {
+        "id": "kc-ads-auto-2",
+        "question": "Why do automated server-side PDF reporting engines (such as older versions of Apache FOP or iText) frequently output inaccessible PDFs by default?",
+        "options": [
+          {
+            "id": "A",
+            "text": "International web standards prohibit backend Linux servers from generating dynamically compiled binary files"
+          },
+          {
+            "id": "B",
+            "text": "Screen readers are technically incapable of rendering documents generated by Java"
+          },
+          {
+            "id": "C",
+            "text": "Server operating systems lack the font libraries required for PDF/UA conformance"
+          },
+          {
+            "id": "D",
+            "text": "Their configuration settings often have accessibility tagging options disabled by default"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Many backend reporting libraries prioritize rendering speed and file size, disabling tagging by default unless developers explicitly configure the engine for PDF/UA tagged output."
+      },
+      {
+        "id": "kc-ads-auto-3",
+        "question": "How can software engineering teams detect accessibility regressions in automated PDF document generation pipelines before code reaches production?",
+        "options": [
+          {
+            "id": "A",
+            "text": "By running command-line PDF validators (e.g. veraPDF) in automated CI/CD build tests"
+          },
+          {
+            "id": "B",
+            "text": "By printing five sample documents and measuring paper thickness with calipers"
+          },
+          {
+            "id": "C",
+            "text": "By checking whether software database queries complete in time"
+          },
+          {
+            "id": "D",
+            "text": "By surveying customer service call logs three months after statement releases"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Integrating command-line PDF validation tools into automated test suites evaluates generated artifacts during CI/CD, catching missing tags before deployment."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-complex-format-support",
+    "cert": "ADS",
+    "domainId": "ADS-D4",
+    "domainLabel": "Domain 4: Document Accessibility Planning and Training",
+    "sectionId": "ADS-D4-G",
+    "title": "Complex Formats: MathML, LaTeX, Data Visualizations & Forms",
+    "badge": "Specialized Media",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 14,
+    "interactiveType": "complex-document-escalation-lab",
+    "citation": "ADS BoK 2024, Section 4.7 (Provide support related to accessibility)",
+    "summary": "Remediate specialized and complex document media: convert raster math equations into MathML, link multi-layered charts with accessible data tables, and configure interactive fillable PDF form tab structures.",
+    "learningObjectives": [
+      "Encode mathematical and scientific expressions using MathML and accessible speech alternative text.",
+      "Remediate dense data visualizations using dual-presentation strategies (narrative summary + data table).",
+      "Configure fillable interactive PDF forms with proper tab ordering, required flags, and tooltip labels."
+    ],
+    "keyConcepts": [
+      {
+        "title": "STEM & Mathematical Equations",
+        "explanation": "Equations rendered as images cannot be explored by screen readers or output to braille. Using MathML or providing detailed spoken-text expansions allows learners to inspect numerator, denominator, and exponents."
+      },
+      {
+        "title": "Dual Presentation for Infographics",
+        "explanation": "Complex multi-variable charts cannot be summarized in a 100-character alt attribute. Authors must provide a high-level summary in text followed by a tagged data table containing the raw metrics."
+      },
+      {
+        "title": "Interactive PDF Form Controls",
+        "explanation": "Fillable forms must set Page Properties > Tab Order to 'Use Document Structure'. Each field must have a unique name, tooltip, and clear visual focus indicator."
+      },
+      {
+        "title": "Technical Blueprints & Schematics",
+        "explanation": "For dense engineering or architectural diagrams, provide text-based callout descriptions, layer controls, and high-contrast vector lines so low-vision readers can distinguish components."
+      }
+    ],
+    "examTips": "ADS exam questions emphasize that Math equations must never be left as bare raster images; they must be provided as MathML or accompanied by unambiguous text equivalents.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-cpx-1",
+        "question": "Why is saving a complex mathematical equation as a bitmap graphic (JPEG/PNG) considered an accessibility failure in educational materials?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Bitmap graphics cannot be displayed on monitors running at sixty hertz refresh rates"
+          },
+          {
+            "id": "B",
+            "text": "Screen readers cannot navigate the formula's internal hierarchy or output Nemeth braille"
+          },
+          {
+            "id": "C",
+            "text": "Mathematical symbols automatically trigger heuristic antivirus warnings inside enterprise desktop browser extensions"
+          },
+          {
+            "id": "D",
+            "text": "Mathematical symbols automatically trigger heuristic antivirus warnings inside enterprise desktop browser extensions"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Equations as images prevent screen readers from navigating through fractions, exponents, and sub-expressions step-by-step, and cannot be converted to refreshable braille displays."
+      },
+      {
+        "id": "kc-ads-cpx-2",
+        "question": "When including a complex infographic showing ten years of quarterly financial performance across four business units, what is the most accessible presentation?",
+        "options": [
+          {
+            "id": "A",
+            "text": "A single text string entered in the complex graphic properties dialog"
+          },
+          {
+            "id": "B",
+            "text": "A prompt asking users with visual disabilities to email the CFO for a phone call"
+          },
+          {
+            "id": "C",
+            "text": "A short text summary of key trends paired with an accessible, properly tagged data table structure"
+          },
+          {
+            "id": "D",
+            "text": "A low-resolution thumbnail image linking to an uncompressed vector EPS file"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Dual presentation combines a concise narrative summary in body text with an accessible data table (`<TH>` headers), allowing all users to explore the data points comfortably."
+      },
+      {
+        "id": "kc-ads-cpx-3",
+        "question": "What setting in Adobe Acrobat Pro ensures that interactive form fields follow the logical flow of the tag tree during keyboard tabbing?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Document Processing > Set Reflow Zoom to two hundred percent"
+          },
+          {
+            "id": "B",
+            "text": "Security Properties > Password Protect Form Fields from Editing"
+          },
+          {
+            "id": "C",
+            "text": "Print Production > Convert interactive form fields to static raster curves"
+          },
+          {
+            "id": "D",
+            "text": "Page Properties > Tab Order > Set to 'Use Document Structure'"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Configuring Tab Order to 'Use Document Structure' guarantees that tabbing through form fields moves in the logical order defined by the structure tree rather than raw creation order."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-policy-advising",
+    "cert": "ADS",
+    "domainId": "ADS-D5",
+    "domainLabel": "Domain 5: Policy Promotion, Advocacy, and Advising",
+    "sectionId": "ADS-D5-A",
+    "title": "Advising Leadership on Enterprise Document Policy & Governance",
+    "badge": "Governance & Strategy",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 12,
+    "interactiveType": "document-policy-governance-lab",
+    "citation": "ADS BoK 2024, Section 5.1 (Advise staff on organizational policy and best practices)",
+    "summary": "Formulate comprehensive electronic document accessibility policies, establish executive governance and accountability matrices, mitigate ADA Title III litigation risk, and design formal exception protocols.",
+    "learningObjectives": [
+      "Draft enterprise document accessibility policy statements specifying standards, scope, and milestone timelines.",
+      "Establish governance frameworks with executive sponsorship and departmental accountability scorecards.",
+      "Architect formal exception and accommodation procedures for legacy document repositories."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Policy Scope & Clear Standards",
+        "explanation": "A robust policy explicitly defines what is covered (all public-facing electronic documents, employee-facing intranet resources) and cites clear normative standards (WCAG 2.1/2.2 AA and PDF/UA ISO 14289)."
+      },
+      {
+        "title": "Executive Sponsorship & Accountability",
+        "explanation": "Without executive buy-in and clear accountability metrics across business units, document accessibility efforts stall. Departmental leaders must be measured on compliance scorecards."
+      },
+      {
+        "title": "Risk Management & Legal Exposure",
+        "explanation": "Inaccessible electronic documents are prominent triggers in digital accessibility litigation. Proactive governance drastically reduces legal settlement liability and protects organizational reputation."
+      },
+      {
+        "title": "Exception & Accommodation Protocols",
+        "explanation": "When vast legacy archives cannot be remediated immediately, policies must define formal exception procedures: establishing alternative access paths (accessible HTML or on-demand remediation within 48 hours)."
+      }
+    ],
+    "examTips": "ADS exam questions highlight that an effective accessibility policy must define measurable criteria, deadlines, and responsible roles, rather than vague aspirations like 'we strive to be accessible'.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-pol-1",
+        "question": "What core element must be clearly defined within an enterprise electronic document accessibility policy to ensure effective governance?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Explicit technical standards, defined document scope, and measurable milestone dates"
+          },
+          {
+            "id": "B",
+            "text": "A catalog of employee residential addresses and personal computer hardware serial registration identifiers"
+          },
+          {
+            "id": "C",
+            "text": "An agreement that the organization will publish documents written in English"
+          },
+          {
+            "id": "D",
+            "text": "A requirement that staff members must purchase personally owned screen reading tools"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Actionable governance requires stating specific technical benchmarks (WCAG 2.1 AA, PDF/UA), what documents are covered, and realistic deadlines for compliance."
+      },
+      {
+        "id": "kc-ads-pol-2",
+        "question": "When an organization has a repository of fifty thousand legacy PDF documents that cannot be remediated immediately, what policy protocol should be implemented?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Delete the entire archive immediately to prevent any potential legal exposure"
+          },
+          {
+            "id": "B",
+            "text": "A documented exception policy with on-demand remediation upon request within 48 hours"
+          },
+          {
+            "id": "C",
+            "text": "Add a disclaimer stating that users with disabilities should avoid the website"
+          },
+          {
+            "id": "D",
+            "text": "Delete the entire historical archive immediately to eliminate potential legal exposure from public records"
+          }
+        ],
+        "answer": "B",
+        "explanation": "A formal exception policy paired with an accessible on-demand fulfillment procedure provides equally effective alternative access while the organization systematically remediates high-traffic legacy files."
+      },
+      {
+        "id": "kc-ads-pol-3",
+        "question": "Why is executive leadership sponsorship critical for the success of an enterprise document accessibility initiative?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Executives are required by law to personally audit every corporate document produced"
+          },
+          {
+            "id": "B",
+            "text": "Executive officers are required by statutory law to inspect every corporate document produced across divisions"
+          },
+          {
+            "id": "C",
+            "text": "Executive sponsorship allocates necessary budgets, tools, and cross-departmental accountability"
+          },
+          {
+            "id": "D",
+            "text": "Accessibility policies cannot take effect without approval from the United Nations"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Executive sponsorship secures necessary funding for tools and training, and holds business unit leaders accountable for document compliance across the organization."
+      }
+    ]
+  },
+  {
+    "id": "mod-ads-standards-consulting",
+    "cert": "ADS",
+    "domainId": "ADS-D5",
+    "domainLabel": "Domain 5: Policy Promotion, Advocacy, and Advising",
+    "sectionId": "ADS-D5-B",
+    "title": "Consulting on Global Standards, PDF/UA & ICT Procurement",
+    "badge": "Regulatory Advisory",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 13,
+    "interactiveType": "document-regulations-procurement-lab",
+    "citation": "ADS BoK 2024, Section 5.2 (Consult on current policies, regulations, standards, and practice)",
+    "summary": "Consult on global document compliance: harmonize PDF/UA (ISO 14289) with WCAG 2.1/2.2 AA, verify Section 508 and EN 301 549 conformance, and audit vendor VPAT statements during procurement.",
+    "learningObjectives": [
+      "Harmonize file format requirements under PDF/UA (ISO 14289) with web standards under WCAG 2.1/2.2.",
+      "Understand Section 508 Chapter 5 and European Standard EN 301 549 Chapter 10 document requirements.",
+      "Audit vendor VPATs/ACRs during procurement to identify inaccurate or unsupported vendor claims."
+    ],
+    "keyConcepts": [
+      {
+        "title": "PDF/UA (ISO 14289-1) Purpose",
+        "explanation": "PDF/UA is the international technical standard that defines how PDF reading tools and assistive technologies interpret tagged PDF files, guaranteeing universal accessibility for conforming documents."
+      },
+      {
+        "title": "WCAG Harmonization in Section 508 & EN 301 549",
+        "explanation": "Both US Section 508 (Chapter 5) and European EN 301 549 (Chapter 10) apply WCAG 2.1 AA success criteria directly to electronic non-web documents, creating global regulatory consistency."
+      },
+      {
+        "title": "ATAG 2.0 & Authoring Software",
+        "explanation": "Enterprise authoring software procurement must evaluate ATAG 2.0 (Authoring Tool Accessibility Guidelines): tools must be accessible to authors with disabilities and support exporting accessible output."
+      },
+      {
+        "title": "VPAT & ACR Evaluation",
+        "explanation": "Procurement teams must critically review vendor Accessibility Conformance Reports (ACRs). Blanket claims of 100% 'Supports' without test methodology notes indicate unverified vendor marketing."
+      }
+    ],
+    "examTips": "ADS exam questions highlight that PDF/UA ISO 14289-1 is a technical file format standard, while WCAG is a broad content guideline; achieving PDF/UA conformance generally satisfies WCAG 2.1 AA requirements for PDFs.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-ads-std-1",
+        "question": "What is the relationship between the PDF/UA (ISO 14289-1) standard and W3C WCAG 2.1 Level AA?",
+        "options": [
+          {
+            "id": "A",
+            "text": "PDF/UA was officially repealed and replaced by WCAG 2.0 in early 2012"
+          },
+          {
+            "id": "B",
+            "text": "PDF/UA applies to printed paper documents, whereas WCAG applies to digital PDFs"
+          },
+          {
+            "id": "C",
+            "text": "The two standards are mutually incompatible and cannot be achieved simultaneously"
+          },
+          {
+            "id": "D",
+            "text": "PDF/UA defines specific technical PDF file requirements that harmonize with WCAG guidelines"
+          }
+        ],
+        "answer": "D",
+        "explanation": "PDF/UA provides the exact technical file format rules (syntax, tagging, metadata) for implementing the broad functional accessibility principles of WCAG within PDF documents."
+      },
+      {
+        "id": "kc-ads-std-2",
+        "question": "When reviewing a vendor's Voluntary Product Accessibility Template (VPAT) for a document authoring tool, what is a major red flag indicating poor credibility?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The vendor claims 100% 'Supports' across every criterion with no testing remarks or notes"
+          },
+          {
+            "id": "B",
+            "text": "The vendor includes links to third-party screen reader audit recordings"
+          },
+          {
+            "id": "C",
+            "text": "The vendor acknowledges partial compliance support on complex dynamic data visualization exports and charting widgets"
+          },
+          {
+            "id": "D",
+            "text": "The report is signed by the vendor's chief accessibility engineering officer"
+          }
+        ],
+        "answer": "A",
+        "explanation": "A VPAT that claims complete compliance across all criteria without providing testing remarks, software version numbers, or evaluation methodologies is typically unverified marketing copy."
+      },
+      {
+        "id": "kc-ads-std-3",
+        "question": "Under the Authoring Tool Accessibility Guidelines (ATAG 2.0), what dual responsibility does an enterprise document creation software package have?",
+        "options": [
+          {
+            "id": "A",
+            "text": "It must be free open-source software and operate without an internet connection"
+          },
+          {
+            "id": "B",
+            "text": "It must be accessible for authors with disabilities and support generating accessible output"
+          },
+          {
+            "id": "C",
+            "text": "It must convert document text into spoken audio recordings upon saving files"
+          },
+          {
+            "id": "D",
+            "text": "It must restrict document authoring permissions to staff members holding professional accessibility certificates"
+          }
+        ],
+        "answer": "B",
+        "explanation": "ATAG 2.0 Part A requires the authoring user interface to be accessible, while Part B requires the tool to enable and preserve the creation of accessible content."
       }
     ]
   }

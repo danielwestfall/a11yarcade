@@ -1,11 +1,11 @@
 import { LEARNING_MODULES } from '../client/src/data/learningModulesData.js';
 
 console.log('=== COMPLETE REMEDIATION, ARCHITECTURE & PSYCHOMETRIC VERIFICATION ===');
-console.log('1. Module count:', LEARNING_MODULES.length);
+console.log('1. Module count:', LEARNING_MODULES.length, '/ 55');
 
 const types = new Set();
 LEARNING_MODULES.forEach(m => types.add(m.interactiveType));
-console.log('2. Distinct interactive lab types:', types.size, '/ 38');
+console.log('2. Distinct interactive lab types:', types.size, '/ 55');
 
 const answerCounts = { A: 0, B: 0, C: 0, D: 0 };
 const longestSlot = { A: 0, B: 0, C: 0, D: 0 };

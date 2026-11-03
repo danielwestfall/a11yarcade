@@ -89,19 +89,19 @@ export default function LearningModulesAcademy() {
 
       // Interactive type match
       if (interactiveFilter === 'simulator') {
-        if (!['vision-contrast-simulator', 'keyboard-navigation-sandbox', 'assistive-tech-simulator', 'built-environment-blueprint-lab', 'adaptive-strategies-lab'].includes(mod.interactiveType)) {
+        if (!['vision-contrast-simulator', 'keyboard-navigation-sandbox', 'assistive-tech-simulator', 'built-environment-blueprint-lab', 'adaptive-strategies-lab', 'screen-reader-speech-testing-lab', 'platform-at-compatibility-lab', 'document-screen-reader-testing-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'code') {
-        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab', 'act-rules-linter-lab', 'cross-browser-compatibility-lab'].includes(mod.interactiveType)) {
+        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab', 'act-rules-linter-lab', 'cross-browser-compatibility-lab', 'a11y-qa-regression-matrix-lab', 'deep-web-audit-tooling-lab', 'code-remediation-architect-lab', 'automated-pipeline-ingestion-lab', 'complex-document-escalation-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab', 'demographics-census-lab', 'accommodations-vs-universal-design-lab', 'wcag-pour-principles-lab', 'ict-standards-procurement-lab'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab', 'demographics-census-lab', 'accommodations-vs-universal-design-lab', 'wcag-pour-principles-lab', 'ict-standards-procurement-lab', 'accessibility-supported-baseline-lab', 'end-user-impact-scenarios-lab', 'a11y-training-curriculum-lab', 'training-resource-learning-path-lab', 'document-policy-governance-lab', 'document-regulations-procurement-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab', 'manual-document-audit-protocol-lab', 'export-architecture-lab'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab', 'manual-document-audit-protocol-lab', 'export-architecture-lab', 'document-screen-reader-testing-lab', 'authoring-reference-guide-lab', 'enterprise-remediation-workflow-lab', 'document-production-plan-lab', 'automated-pipeline-ingestion-lab', 'complex-document-escalation-lab'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -263,6 +263,40 @@ export default function LearningModulesAcademy() {
         return 'WCAG POUR Principles Lab';
       case 'ict-standards-procurement-lab':
         return 'ICT Standards & Procurement';
+      case 'accessibility-supported-baseline-lab':
+        return 'Accessibility-Supported Baseline Lab';
+      case 'screen-reader-speech-testing-lab':
+        return 'Screen Reader Rotor Simulator';
+      case 'a11y-qa-regression-matrix-lab':
+        return 'A11y QA Pipeline Matrix';
+      case 'platform-at-compatibility-lab':
+        return 'Alternative AT Hardware Lab';
+      case 'end-user-impact-scenarios-lab':
+        return 'Ethical User Testing Protocol Lab';
+      case 'deep-web-audit-tooling-lab':
+        return 'DevTools A11y Tree Inspector';
+      case 'code-remediation-architect-lab':
+        return 'Enterprise Code Remediation Architect';
+      case 'document-screen-reader-testing-lab':
+        return 'PDF Screen Reader Virtual Buffer Lab';
+      case 'authoring-reference-guide-lab':
+        return 'Authoring Style Guide Builder';
+      case 'a11y-training-curriculum-lab':
+        return 'Training Curriculum Architect';
+      case 'training-resource-learning-path-lab':
+        return 'A11y Resource Hub & Champions Lab';
+      case 'enterprise-remediation-workflow-lab':
+        return 'Enterprise Remediation Workflow Lab';
+      case 'document-production-plan-lab':
+        return 'Document Production Capacity Planner';
+      case 'automated-pipeline-ingestion-lab':
+        return 'Automated Document Pipeline Auditor';
+      case 'complex-document-escalation-lab':
+        return 'Complex Formats & MathML Lab';
+      case 'document-policy-governance-lab':
+        return 'Document Policy Governance Lab';
+      case 'document-regulations-procurement-lab':
+        return 'Document Software Procurement Lab';
       default:
         return 'Interactive Lab';
     }

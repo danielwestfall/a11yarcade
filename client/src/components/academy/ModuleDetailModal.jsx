@@ -41,6 +41,23 @@ const IctStandardsProcurementLab = lazy(() => import('./interactives/IctStandard
 const A11yLawsRegulationsLab = lazy(() => import('./interactives/A11yLawsRegulationsLab'));
 const BusinessCaseCurbCutLab = lazy(() => import('./interactives/BusinessCaseCurbCutLab'));
 const PacAutomatedAuditLab = lazy(() => import('./interactives/PacAutomatedAuditLab'));
+const AccessibilitySupportedBaselineLab = lazy(() => import('./interactives/AccessibilitySupportedBaselineLab'));
+const ScreenReaderSpeechTestingLab = lazy(() => import('./interactives/ScreenReaderSpeechTestingLab'));
+const A11yQaRegressionMatrixLab = lazy(() => import('./interactives/A11yQaRegressionMatrixLab'));
+const PlatformAtCompatibilityLab = lazy(() => import('./interactives/PlatformAtCompatibilityLab'));
+const EndUserImpactScenariosLab = lazy(() => import('./interactives/EndUserImpactScenariosLab'));
+const DeepWebAuditToolingLab = lazy(() => import('./interactives/DeepWebAuditToolingLab'));
+const CodeRemediationArchitectLab = lazy(() => import('./interactives/CodeRemediationArchitectLab'));
+const DocumentScreenReaderTestingLab = lazy(() => import('./interactives/DocumentScreenReaderTestingLab'));
+const AuthoringReferenceGuideLab = lazy(() => import('./interactives/AuthoringReferenceGuideLab'));
+const A11yTrainingCurriculumLab = lazy(() => import('./interactives/A11yTrainingCurriculumLab'));
+const TrainingResourceLearningPathLab = lazy(() => import('./interactives/TrainingResourceLearningPathLab'));
+const EnterpriseRemediationWorkflowLab = lazy(() => import('./interactives/EnterpriseRemediationWorkflowLab'));
+const DocumentProductionPlanLab = lazy(() => import('./interactives/DocumentProductionPlanLab'));
+const AutomatedPipelineIngestionLab = lazy(() => import('./interactives/AutomatedPipelineIngestionLab'));
+const ComplexDocumentEscalationLab = lazy(() => import('./interactives/ComplexDocumentEscalationLab'));
+const DocumentPolicyGovernanceLab = lazy(() => import('./interactives/DocumentPolicyGovernanceLab'));
+const DocumentRegulationsProcurementLab = lazy(() => import('./interactives/DocumentRegulationsProcurementLab'));
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -273,6 +290,40 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <BusinessCaseCurbCutLab />;
       case 'pac-automated-audit-lab':
         return <PacAutomatedAuditLab />;
+      case 'accessibility-supported-baseline-lab':
+        return <AccessibilitySupportedBaselineLab />;
+      case 'screen-reader-speech-testing-lab':
+        return <ScreenReaderSpeechTestingLab />;
+      case 'a11y-qa-regression-matrix-lab':
+        return <A11yQaRegressionMatrixLab />;
+      case 'platform-at-compatibility-lab':
+        return <PlatformAtCompatibilityLab />;
+      case 'end-user-impact-scenarios-lab':
+        return <EndUserImpactScenariosLab />;
+      case 'deep-web-audit-tooling-lab':
+        return <DeepWebAuditToolingLab />;
+      case 'code-remediation-architect-lab':
+        return <CodeRemediationArchitectLab />;
+      case 'document-screen-reader-testing-lab':
+        return <DocumentScreenReaderTestingLab />;
+      case 'authoring-reference-guide-lab':
+        return <AuthoringReferenceGuideLab />;
+      case 'a11y-training-curriculum-lab':
+        return <A11yTrainingCurriculumLab />;
+      case 'training-resource-learning-path-lab':
+        return <TrainingResourceLearningPathLab />;
+      case 'enterprise-remediation-workflow-lab':
+        return <EnterpriseRemediationWorkflowLab />;
+      case 'document-production-plan-lab':
+        return <DocumentProductionPlanLab />;
+      case 'automated-pipeline-ingestion-lab':
+        return <AutomatedPipelineIngestionLab />;
+      case 'complex-document-escalation-lab':
+        return <ComplexDocumentEscalationLab />;
+      case 'document-policy-governance-lab':
+        return <DocumentPolicyGovernanceLab />;
+      case 'document-regulations-procurement-lab':
+        return <DocumentRegulationsProcurementLab />;
       default:
         return <DisabilityModelClassifier />;
     }

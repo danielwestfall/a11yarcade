@@ -1,4 +1,3 @@
-// IAAP WAS (Web Accessibility Specialist) Modules (12 Modules)
 export const WAS_MODULES = [
   {
     "id": "mod-was-semantic-html",
@@ -1354,6 +1353,790 @@ export const WAS_MODULES = [
         ],
         "answer": "C",
         "explanation": "Adding type=\"button\" prevents a <button> inside a <form> from acting as type=\"submit\" and triggering an unexpected page reload, rather than changing its accessibility tree role, hiding it from search crawlers, or applying mobile browser touch styling."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-access-supported",
+    "cert": "WAS",
+    "domainId": "WAS-D1",
+    "domainLabel": "Domain 1: Creating Accessible Web Solutions",
+    "sectionId": "WAS-D1-E",
+    "title": "Accessibility-Supported Technologies & Conformance Baselines",
+    "badge": "Core Conformance",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 12,
+    "interactiveType": "accessibility-supported-baseline-lab",
+    "citation": "WAS BoK 2024, Section 1.5 (Accessibility-Supported Technologies)",
+    "summary": "Define organizational accessibility-supported baselines, evaluate whether emerging web features interoperate with assistive technologies, and establish non-interference guarantees under WCAG Conformance Requirement 4 and 5.",
+    "learningObjectives": [
+      "Define what constitutes an accessibility-supported web technology according to W3C WCAG guidelines.",
+      "Understand how organizations establish realistic user agent and assistive technology conformance baselines.",
+      "Apply WCAG Conformance Requirement 5 (Non-Interference) to prevent unsupported content from blocking accessible flows."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Accessibility-Supported Definition",
+        "explanation": "Under WCAG, a web technology feature is accessibility-supported only if it is supported by both user agents (browsers) and users' assistive technologies (screen readers, magnifiers, voice input)."
+      },
+      {
+        "title": "The Conformance Baseline",
+        "explanation": "A conformance baseline documents the exact target matrix of browsers, operating systems, and assistive technologies that an organization supports. Relying on features unsupported within the baseline causes conformance failure."
+      },
+      {
+        "title": "WCAG Requirement 5: Non-Interference",
+        "explanation": "If non-accessibility-supported technologies are included on a page, they must not interfere with accessible content: they must not trap keyboard focus, flash beyond thresholds, or play unpausable audio."
+      },
+      {
+        "title": "Native HTML Fallback Architectures",
+        "explanation": "When utilizing advanced elements like HTML5 canvas or WebGL, providing an accessible DOM fallback sub-tree ensures users with screen readers can interact with equivalent controls."
+      }
+    ],
+    "examTips": "WAS exam questions frequently test whether relying on a valid W3C specification feature that lacks assistive technology implementation conforms to WCAG. The answer is NO: valid syntax alone does not equal accessibility-supported conformance.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-base-1",
+        "question": "When is a modern web technology feature considered 'accessibility-supported' under WCAG Conformance Requirement 4?",
+        "options": [
+          {
+            "id": "A",
+            "text": "When it passes formal W3C Recommendation syntax validation without warnings"
+          },
+          {
+            "id": "B",
+            "text": "When supported by users' assistive technologies and user agents in baseline"
+          },
+          {
+            "id": "C",
+            "text": "When bundled with automated polyfills downloaded by modern Chromium browsers"
+          },
+          {
+            "id": "D",
+            "text": "When designated as an ECMAScript Stage 4 standard feature by TC39 committee"
+          }
+        ],
+        "answer": "B",
+        "explanation": "WCAG Conformance Requirement 4 specifies that technologies relied upon must interoperate with both user agents and assistive technologies in the defined baseline."
+      },
+      {
+        "id": "kc-was-base-2",
+        "question": "An organization specifies a baseline of NVDA with Chrome/Firefox and VoiceOver with Safari. A developer relies on an experimental web feature that only works on Chrome with desktop screen readers. What is the conformance outcome?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The page fails conformance because the feature is unsupported across the baseline"
+          },
+          {
+            "id": "B",
+            "text": "The page conforms because Chrome represents the majority global browser share"
+          },
+          {
+            "id": "C",
+            "text": "The page conforms if an automated overlay script injects assistive ARIA nodes"
+          },
+          {
+            "id": "D",
+            "text": "The page passes because WCAG allows vendor-specific single-browser baselines"
+          }
+        ],
+        "answer": "A",
+        "explanation": "If content relies on a technology that is not supported across the designated organizational baseline, the content fails conformance."
+      },
+      {
+        "id": "kc-was-base-3",
+        "question": "Under WCAG Conformance Requirement 5 (Non-Interference), what must be true for technologies that are NOT accessibility-supported?",
+        "options": [
+          {
+            "id": "A",
+            "text": "They must be rendered in hidden iframes invisible to search engine crawlers and web bots"
+          },
+          {
+            "id": "B",
+            "text": "They must not trap keyboard focus, flash excessively, or play unpausable audio"
+          },
+          {
+            "id": "C",
+            "text": "They must be converted into raster images accompanied by longdesc links"
+          },
+          {
+            "id": "D",
+            "text": "They must be disabled automatically whenever mobile viewports are detected"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Non-interference mandates that unsupported content must never cause keyboard traps (SC 2.1.2), hazardous flashing (SC 2.3.1), or unpausable background audio (SC 1.4.2)."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-screen-reader-eval",
+    "cert": "WAS",
+    "domainId": "WAS-D2",
+    "domainLabel": "Domain 2: Identifying Accessibility Issues in Web Solutions",
+    "sectionId": "WAS-D2-C",
+    "title": "Screen Reader Testing & Practical Rotor Navigation",
+    "badge": "Technical Auditing",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 14,
+    "interactiveType": "screen-reader-speech-testing-lab",
+    "citation": "WAS BoK 2024, Section 2.3 (Testing with Assistive Technologies)",
+    "summary": "Master screen reader evaluation methodologies across NVDA, JAWS, VoiceOver, and TalkBack. Test element lists, rotor navigation, and distinguish virtual cursor reading from forms interaction mode.",
+    "learningObjectives": [
+      "Execute standardized screen reader navigation testing using standard browser and assistive technology combinations.",
+      "Audit heading lists, landmarks, and link rotors for meaningful, context-independent accessible names.",
+      "Understand the behavioral shift between browse/virtual cursor mode and forms/focus mode."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Standard Platform Pairings",
+        "explanation": "Industry-standard test pairings reflect real-world user distributions: NVDA + Firefox/Chrome, JAWS + Chrome/Edge on Windows, VoiceOver + Safari on macOS/iOS, and TalkBack + Chrome on Android."
+      },
+      {
+        "title": "Rotor & Element Lists",
+        "explanation": "Screen reader users frequently navigate out of visual context by pulling up lists of links, headings, and landmarks. Links labeled 'Click Here' or 'Read More' become unintelligible when isolated in the rotor."
+      },
+      {
+        "title": "Virtual Mode vs Focus Mode",
+        "explanation": "In browse/virtual cursor mode, the screen reader intercepts keystrokes to read text by line, word, or character. In focus/forms mode, keystrokes pass directly to the browser to allow typing or custom widget interaction."
+      },
+      {
+        "title": "Reading Order vs Visual Layout",
+        "explanation": "Screen readers read content strictly according to the underlying DOM sequence. CSS flexbox order or grid positioning that rearranges visual layout without changing DOM order violates WCAG 1.3.2 Meaningful Sequence."
+      }
+    ],
+    "examTips": "WAS exam questions frequently present CSS layouts using `order: -1` or `flex-direction: row-reverse` and ask why the screen reader reads in unexpected order. The answer is that assistive tech strictly linearizes the DOM tree, ignoring visual CSS layout shifts.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-sr-1",
+        "question": "When evaluating an interface with VoiceOver on macOS, which browser pairing represents the primary standard test configuration?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Google Chrome running with accessibility developer extensions enabled on desktop"
+          },
+          {
+            "id": "B",
+            "text": "Mozilla Firefox running in high-contrast gecko compatibility mode"
+          },
+          {
+            "id": "C",
+            "text": "Apple Safari utilizing native WebKit accessibility object architecture"
+          },
+          {
+            "id": "D",
+            "text": "Microsoft Edge running in cross-platform Chromium compatibility mode"
+          }
+        ],
+        "answer": "C",
+        "explanation": "VoiceOver on macOS and iOS is built and optimized directly for Safari using WebKit accessibility APIs, making it the primary testing combination for Apple platforms."
+      },
+      {
+        "id": "kc-was-sr-2",
+        "question": "Why does a screen reader user experience disorientation when navigating a card grid styled with CSS `order: -1`?",
+        "options": [
+          {
+            "id": "A",
+            "text": "CSS order properties automatically disable keyboard focus on interactive links"
+          },
+          {
+            "id": "B",
+            "text": "Assistive tech rotors skip elements styled with modern flexbox declarations"
+          },
+          {
+            "id": "C",
+            "text": "Chromium engines suppress speech synthesis whenever order tags are detected"
+          },
+          {
+            "id": "D",
+            "text": "Screen readers linearize the DOM tree, creating a mismatch with visual order"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Screen readers follow the structural DOM sequence rather than visual CSS ordering, creating confusion when visual focus jumps counter to the linear reading flow."
+      },
+      {
+        "id": "kc-was-sr-3",
+        "question": "What occurs when a screen reader switches from Browse/Virtual Cursor mode into Focus/Forms mode?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The synthesizer increases speech pitch and temporarily mutes audio description tracks"
+          },
+          {
+            "id": "B",
+            "text": "The browser reloads the DOM tree in a simplified high-contrast view"
+          },
+          {
+            "id": "C",
+            "text": "The operating system accessibility API restricts focus to native button nodes"
+          },
+          {
+            "id": "D",
+            "text": "Single-key reading shortcuts are disabled so keystrokes pass to the input control"
+          }
+        ],
+        "answer": "D",
+        "explanation": "In Focus/Forms mode, screen readers pass keystrokes directly to the browser input or custom widget rather than using letters as navigation commands, enabling standard data entry."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-qa-regression",
+    "cert": "WAS",
+    "domainId": "WAS-D2",
+    "domainLabel": "Domain 2: Identifying Accessibility Issues in Web Solutions",
+    "sectionId": "WAS-D2-E",
+    "title": "Accessibility Quality Assurance & Regression Integration",
+    "badge": "Engineering & QA",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 12,
+    "interactiveType": "a11y-qa-regression-matrix-lab",
+    "citation": "WAS BoK 2024, Section 2.5 (Accessibility Quality Assurance)",
+    "summary": "Integrate automated accessibility linters into CI/CD pipelines, establish repeatable regression test matrices, and balance automated test coverage with manual assistive technology verification.",
+    "learningObjectives": [
+      "Differentiate between defects detectable by automated scanners versus those requiring manual human inspection.",
+      "Architect a shift-left CI/CD pipeline using axe-core and linting tools to catch syntax defects before deployment.",
+      "Build regression test matrices tracking operating systems, browsers, and assistive technologies across releases."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Automated Tool Scope (~30-40%)",
+        "explanation": "Automated scanners (axe-core, Lighthouse) detect approximately 30-40% of WCAG defects: missing alt attributes, color contrast on static backgrounds, invalid ARIA attributes, and duplicate IDs."
+      },
+      {
+        "title": "Manual Verification Scope (~60-70%)",
+        "explanation": "Critical functional criteria require human testing: keyboard focus order, keyboard traps, meaningful alt text quality, dynamic ARIA live region timing, and error recovery clarity."
+      },
+      {
+        "title": "Shift-Left Pipeline Testing",
+        "explanation": "Running automated accessibility assertions in unit tests (Jest/Vitest), component tests (Storybook a11y addon), and pre-merge pull request checks stops regressions early when remediation is least costly."
+      },
+      {
+        "title": "Regression Test Cases",
+        "explanation": "Every resolved accessibility bug should receive an accompanying automated test assertion or documented manual test scenario to ensure future refactors do not reintroduce the barrier."
+      }
+    ],
+    "examTips": "WAS questions frequently test organizational claims that automated tooling guarantees WCAG compliance. Remember: automated tools can never verify conformance alone; manual testing with keyboard and assistive technology is mandatory.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-qa-1",
+        "question": "Which of the following accessibility defects can be reliably identified by automated scanning tools in a CI/CD pipeline?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Whether an image element in the DOM lacks an alt attribute in its markup"
+          },
+          {
+            "id": "B",
+            "text": "Whether alternative text accurately conveys the emotional intent of a photograph"
+          },
+          {
+            "id": "C",
+            "text": "Whether a custom multi-step form possesses a logical and intuitive tab order"
+          },
+          {
+            "id": "D",
+            "text": "Whether synthesized error announcements sound clear to cognitive users"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Automated linters can deterministically check for the presence of the alt attribute in markup, whereas assessing alt text accuracy or reading order requires human cognitive evaluation."
+      },
+      {
+        "id": "kc-was-qa-2",
+        "question": "Why is integrating automated accessibility checks into pre-commit hooks and pull requests referred to as a 'shift-left' strategy?",
+        "options": [
+          {
+            "id": "A",
+            "text": "It reallocates accessibility testing tasks to junior front-end designers"
+          },
+          {
+            "id": "B",
+            "text": "It forces navigation menus to align to the left margin of the screen"
+          },
+          {
+            "id": "C",
+            "text": "It restricts automated scanning to Western left-to-right written languages"
+          },
+          {
+            "id": "D",
+            "text": "It catches syntax regressions early in development before code merges"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Shift-left moves quality verification earlier in the software development lifecycle, identifying defects during development and code review where fixes are straightforward."
+      },
+      {
+        "id": "kc-was-qa-3",
+        "question": "An engineering team claims that because their build pipeline passes axe-core with zero violations, the application conforms to WCAG 2.1 AA. How should a lead auditor respond?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Confirm full compliance if the axe-core ruleset was configured in strict mode"
+          },
+          {
+            "id": "B",
+            "text": "Approve the build provided the application passes Lighthouse performance scores"
+          },
+          {
+            "id": "C",
+            "text": "Advise that automated tools evaluate 30-40% of criteria, requiring manual audits"
+          },
+          {
+            "id": "D",
+            "text": "Demand that the team switch to a proprietary scanner with machine learning models"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Automated testing catches roughly one-third of accessibility issues; critical requirements like keyboard traps, alt text accuracy, and logical focus sequence require manual verification."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-at-platform-matrix",
+    "cert": "WAS",
+    "domainId": "WAS-D2",
+    "domainLabel": "Domain 2: Identifying Accessibility Issues in Web Solutions",
+    "sectionId": "WAS-D2-F",
+    "title": "Alternative AT & Platform Hardware Accessibility",
+    "badge": "AT Specialization",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 11,
+    "interactiveType": "platform-at-compatibility-lab",
+    "citation": "WAS BoK 2024, Section 2.6 (Alternative Assistive Technologies)",
+    "summary": "Audit interfaces for alternative assistive hardware and software: screen magnifiers (ZoomText), speech recognition (Dragon), switch access scanning, and operating system contrast modes.",
+    "learningObjectives": [
+      "Evaluate responsive interfaces under 400% screen magnification without horizontal scrolling (WCAG 1.4.10 Reflow).",
+      "Verify voice input activation compatibility under WCAG 2.5.3 (Label in Name).",
+      "Understand the mechanics of single-switch scanning and reduce cognitive/physical fatigue for switch users."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Screen Magnification (ZoomText)",
+        "explanation": "Users magnifying content 200% to 500% view a small viewport window. Placing related items (such as a form input and its error message) far apart causes the error to sit outside the magnified field of view."
+      },
+      {
+        "title": "Speech Input & Visible Labels",
+        "explanation": "Speech recognition software (Dragon, Voice Control) allows users to click elements by speaking their visible text. If an element's accessible name does not match its visual label, voice commands fail."
+      },
+      {
+        "title": "Switch Access & Scanning Efficiency",
+        "explanation": "Switch users navigate through sequential highlight scanning. Requiring hundreds of button clicks to reach main content causes severe physical fatigue without proper skip links and landmark structures."
+      },
+      {
+        "title": "Windows Contrast Themes",
+        "explanation": "High contrast themes strip CSS background images and override text colors with system tokens. Interactive elements must use CSS borders and system color keywords to remain visible."
+      }
+    ],
+    "examTips": "WAS exam questions often ask what happens when a button visually says 'Search' but has `aria-label=\"Find articles\"`. For a voice input user speaking 'Click Search', the software cannot activate the button because the accessible name lacks the visible text.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-at-1",
+        "question": "A button visually displays the text 'Submit Application', but the developer authored `aria-label=\"Process transaction form\"`. Which assistive technology user experiences the most direct barrier?",
+        "options": [
+          {
+            "id": "A",
+            "text": "A screen reader user navigating with an electronic refreshable braille display terminal"
+          },
+          {
+            "id": "B",
+            "text": "A keyboard user pressing the standard Tab key to move through document links"
+          },
+          {
+            "id": "C",
+            "text": "A speech recognition user speaking 'Click Submit Application' to trigger the button"
+          },
+          {
+            "id": "D",
+            "text": "A deaf user relying on closed captions during pre-recorded training videos"
+          }
+        ],
+        "answer": "C",
+        "explanation": "WCAG 2.5.3 (Label in Name) ensures speech recognition users can speak the visible text label to activate controls; when the accessible name fails to contain the visible label, voice targeting fails."
+      },
+      {
+        "id": "kc-was-at-2",
+        "question": "Under WCAG 1.4.10 (Reflow), how must a web application respond when viewed at a width of 320 CSS pixels (equivalent to 400% zoom on a 1280px display)?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The application must prompt the user to download an accessible native desktop app"
+          },
+          {
+            "id": "B",
+            "text": "Secondary layout sidebars must be removed and converted into downloadable PDFs"
+          },
+          {
+            "id": "C",
+            "text": "Typography must automatically scale down to 10px to preserve horizontal margins"
+          },
+          {
+            "id": "D",
+            "text": "Content must reflow into a single column without requiring two-dimensional scrolling"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Reflow mandates that content can be viewed without loss of information and without requiring scrolling in two dimensions (horizontal and vertical) at 320 CSS pixels wide."
+      },
+      {
+        "id": "kc-was-at-3",
+        "question": "Why do single-switch scanning users experience severe fatigue when navigating a web page lacking ARIA landmark regions and skip links?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Switch software disconnects automatically if more than twenty interface items are scanned sequentially"
+          },
+          {
+            "id": "B",
+            "text": "The user must wait through sequential scanning of every link before reaching main content"
+          },
+          {
+            "id": "C",
+            "text": "Switch hardware requires manual battery resets whenever complex tables load"
+          },
+          {
+            "id": "D",
+            "text": "Operating systems prevent switch activation on pages lacking semantic footer tags"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Switch scanning moves sequentially through focusable elements; without skip links or landmarks to bypass repetitive headers and navigation menus, users face substantial physical fatigue."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-end-user-impact",
+    "cert": "WAS",
+    "domainId": "WAS-D2",
+    "domainLabel": "Domain 2: Identifying Accessibility Issues in Web Solutions",
+    "sectionId": "WAS-D2-G",
+    "title": "Testing with Users with Disabilities & Functional Impact",
+    "badge": "Inclusive Research",
+    "difficulty": "Intermediate",
+    "estimatedMinutes": 12,
+    "interactiveType": "end-user-impact-scenarios-lab",
+    "citation": "WAS BoK 2024, Section 2.7 (Testing for End-user Impact)",
+    "summary": "Plan and facilitate authentic usability testing with participants with disabilities, distinguish technical compliance from practical usability, and measure real-world task completion.",
+    "learningObjectives": [
+      "Understand the ethical, recruiting, and compensation standards for usability testing with people with disabilities.",
+      "Recognize why technically compliant WCAG implementations can still fail functional user experience testing.",
+      "Identify authentic behavioral adaptations across screen reader, low-vision, motor, and cognitive user groups."
+    ],
+    "keyConcepts": [
+      {
+        "title": "Conformance vs Functional Usability",
+        "explanation": "A page can pass every WCAG success criterion while offering a terrible user experience: excessively verbose ARIA live announcements, cluttered heading structures, and awkward keyboard paths create functional barriers."
+      },
+      {
+        "title": "Fair Compensation & Ethics",
+        "explanation": "Participants with disabilities are expert consultants providing specialized technical insight. They must be compensated at professional market rates matching other specialized user researchers."
+      },
+      {
+        "title": "Observer & Facilitator Decorum",
+        "explanation": "Facilitators should never attempt to guide participants on how to use their own assistive technology or configure their settings. Observers document interface frictions without intervening."
+      },
+      {
+        "title": "Diverse User Representation",
+        "explanation": "User testing should include people with varying skill levels: power users navigate quickly via shortcuts, while novice or casual assistive technology users uncover interface ambiguities that experts bypass."
+      }
+    ],
+    "examTips": "WAS exam questions emphasize that usability testing with people with disabilities does NOT replace expert WCAG technical evaluation, and technical audits do NOT replace user testing; both methodologies are complementary.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-user-1",
+        "question": "Why does an expert technical accessibility audit remain necessary even when usability testing with people with disabilities is conducted?",
+        "options": [
+          {
+            "id": "A",
+            "text": "A small group of participants cannot cover the full spectrum of assistive technologies"
+          },
+          {
+            "id": "B",
+            "text": "Participants with disabilities are legally prohibited from inspecting source HTML"
+          },
+          {
+            "id": "C",
+            "text": "Automated regulatory reporting tools reject qualitative observational study data"
+          },
+          {
+            "id": "D",
+            "text": "Usability testing evaluates visual branding rather than functional interactions"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Usability testing reveals functional barriers within specific task flows, but cannot verify every normative WCAG criterion across all platform and assistive technology combinations."
+      },
+      {
+        "id": "kc-was-user-2",
+        "question": "What is an essential ethical requirement when recruiting participants with disabilities for digital accessibility user research sessions?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Requiring participants to provide medical proof of their clinical disability"
+          },
+          {
+            "id": "B",
+            "text": "Providing pre-configured standardized laptops rather than their personal devices"
+          },
+          {
+            "id": "C",
+            "text": "Compensating participants equitably at professional consultation market rates"
+          },
+          {
+            "id": "D",
+            "text": "Mandating that participants sign waivers forfeiting intellectual property claims"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Ethical research mandates equitable compensation recognizing participants' specialized expertise and lived experience, while allowing them to use their familiar personal assistive technology setups."
+      },
+      {
+        "id": "kc-was-user-3",
+        "question": "During a usability session, a screen reader user encounters a confusing menu and navigates in an unexpected direction. How should the session facilitator respond?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Immediately take control of the mouse and demonstrate the proper menu trigger"
+          },
+          {
+            "id": "B",
+            "text": "Instruct the participant to switch their screen reader settings to verbosity level 1"
+          },
+          {
+            "id": "C",
+            "text": "Terminate the test session and log the participant as an unqualified test candidate"
+          },
+          {
+            "id": "D",
+            "text": "Quietly observe and document where the interface caused confusion or failure"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Facilitators should observe without interrupting or instructing, allowing natural interaction patterns to expose interface ambiguities and design barriers."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-deep-web-tooling",
+    "cert": "WAS",
+    "domainId": "WAS-D2",
+    "domainLabel": "Domain 2: Identifying Accessibility Issues in Web Solutions",
+    "sectionId": "WAS-D2-H",
+    "title": "Browser DevTools, Accessibility Trees & DOM Inspection",
+    "badge": "Developer Tools",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 13,
+    "interactiveType": "deep-web-audit-tooling-lab",
+    "citation": "WAS BoK 2024, Section 2.8 (Testing Tools for the Web)",
+    "summary": "Inspect the computed Accessibility Tree, trace the accessible name computation algorithm (AccName), audit dynamic DOM state mutations, and evaluate color contrast over complex gradient surfaces.",
+    "learningObjectives": [
+      "Inspect computed accessibility properties (role, name, value, description) in Chrome and Firefox DevTools.",
+      "Understand the step-by-step W3C Accessible Name and Description Computation (AccName) algorithm.",
+      "Accurately evaluate color contrast over CSS gradients, translucent backdrops, and image backgrounds."
+    ],
+    "keyConcepts": [
+      {
+        "title": "The Computed Accessibility Tree",
+        "explanation": "The browser parses HTML and ARIA to create the Accessibility Tree, which is exposed to operating system accessibility APIs (UIA, NSAccessibility, ATK). Inspecting this tree reveals what assistive tech actually perceives."
+      },
+      {
+        "title": "Accessible Name Computation (AccName)",
+        "explanation": "The browser determines an element's accessible name via a strict hierarchy: `aria-labelledby` takes precedence over `aria-label`, which takes precedence over native labels (`<label>`, `alt`), which takes precedence over inner text."
+      },
+      {
+        "title": "Complex Contrast Evaluation",
+        "explanation": "Automated scanners frequently flag gradients and background images as 'needs review' because they sample single pixels. Auditors must use DevTools color eyedroppers to sample the lowest-contrast point against text."
+      },
+      {
+        "title": "Emulation Tools in DevTools",
+        "explanation": "Modern DevTools allow simulating color vision deficiencies (protanopia, deuteranopia, tritanopia), CSS media queries (`prefers-reduced-motion`, `prefers-contrast`), and forced colors modes."
+      }
+    ],
+    "examTips": "WAS exam questions frequently test accessible name precedence: if an element has both `aria-label=\"Cart\"` and `aria-labelledby=\"heading\"`, `aria-labelledby` wins according to the W3C AccName specification.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-tool-1",
+        "question": "According to the W3C Accessible Name Computation (AccName) specification, which attribute has the highest priority when computing an element's accessible name?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The visible text content enclosed between the element's start and end tags"
+          },
+          {
+            "id": "B",
+            "text": "The aria-labelledby attribute referencing valid ID tokens in the document"
+          },
+          {
+            "id": "C",
+            "text": "The title attribute authored on the element or its parent container"
+          },
+          {
+            "id": "D",
+            "text": "The placeholder attribute authored inside the interactive input element"
+          }
+        ],
+        "answer": "B",
+        "explanation": "The AccName specification establishes that `aria-labelledby` takes highest priority over all other naming mechanisms, including `aria-label`, native host markup, and inner text content."
+      },
+      {
+        "id": "kc-was-tool-2",
+        "question": "Why do automated accessibility linters frequently return 'Needs Review' or fail to score text rendered over a background gradient?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Automated tools cannot programmatically determine the worst-case color ratio point"
+          },
+          {
+            "id": "B",
+            "text": "W3C guidelines explicitly exempt CSS linear gradients from contrast requirements"
+          },
+          {
+            "id": "C",
+            "text": "Browser security models prevent automated scripts from reading CSS gradient rules"
+          },
+          {
+            "id": "D",
+            "text": "Gradients automatically disable operating system subpixel antialiasing filters"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Automated tools cannot reliably predict where text intersects the gradient's lowest-contrast color stop, requiring manual color picker sampling at the point of least contrast."
+      },
+      {
+        "id": "kc-was-tool-3",
+        "question": "When inspecting an element in browser DevTools, what is the primary benefit of reviewing the computed Accessibility Tree rather than raw HTML?",
+        "options": [
+          {
+            "id": "A",
+            "text": "It displays how minified JavaScript bundles were transpiled into dedicated web workers"
+          },
+          {
+            "id": "B",
+            "text": "It benchmarks the network latency of loading third-party tracking scripts"
+          },
+          {
+            "id": "C",
+            "text": "It exposes the exact role, name, and state transmitted to assistive technology"
+          },
+          {
+            "id": "D",
+            "text": "It identifies CSS memory leaks in hardware-accelerated 3D transform layers"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The Accessibility Tree represents the computed output that the browser sends to the platform accessibility API, showing the actual role, name, and states perceived by screen readers."
+      }
+    ]
+  },
+  {
+    "id": "mod-was-remediation-architecture",
+    "cert": "WAS",
+    "domainId": "WAS-D3",
+    "domainLabel": "Domain 3: Remediating Issues in Web Solutions",
+    "sectionId": "WAS-D3-B",
+    "title": "Architecting Enterprise Code Remediation Strategies",
+    "badge": "Strategic Engineering",
+    "difficulty": "Advanced",
+    "estimatedMinutes": 15,
+    "interactiveType": "code-remediation-architect-lab",
+    "citation": "WAS BoK 2024, Section 3.2 (Recommending Remediation Strategies)",
+    "summary": "Architect sustainable enterprise accessibility remediations: eliminate fragile third-party overlay widgets, fix design system components at the root, and integrate accessibility acceptance criteria into the Definition of Done.",
+    "learningObjectives": [
+      "Understand why third-party accessibility overlay widgets fail to resolve underlying architectural defects and introduce legal risk.",
+      "Formulate component-level design system remediation plans that resolve hundreds of instances across products.",
+      "Embed accessibility acceptance criteria into agile user stories and engineering Definition of Done (DoD)."
+    ],
+    "keyConcepts": [
+      {
+        "title": "The Failure of Accessibility Overlays",
+        "explanation": "Automated 'overlay' widgets and injected JavaScript scripts cannot modify underlying server-side code, resolve complex keyboard traps, repair custom ARIA application widgets, or fix inaccessible PDF documents."
+      },
+      {
+        "title": "Design System Core Component Remediation",
+        "explanation": "Remediating an accessibility defect at the design system core component level (e.g. making the shared Modal or Combobox accessible) instantly fixes every instance across the entire product ecosystem."
+      },
+      {
+        "title": "Prioritization Matrix",
+        "explanation": "Triage remediations by severity: Blockers (keyboard traps, broken authentication, unlabelled submit buttons) are resolved in the current sprint; major usability hurdles in the next; minor visual defects in backlog grooming."
+      },
+      {
+        "title": "Definition of Done (DoD)",
+        "explanation": "Engineering teams must include accessibility requirements in their sprint Definition of Done: features must be keyboard operable, pass automated linting with zero errors, and verify with a screen reader before merging."
+      }
+    ],
+    "examTips": "WAS exam questions strongly emphasize source code remediation over automated overlays. Overlays are widely rejected by the accessibility community and regulatory bodies because they do not achieve true WCAG conformance.",
+    "knowledgeCheck": [
+      {
+        "id": "kc-was-rem-1",
+        "question": "Why do regulatory bodies and digital accessibility experts advise against relying on third-party automated accessibility 'overlay' tools?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Overlay tools cannot modify underlying source code or fix complex interaction barriers"
+          },
+          {
+            "id": "B",
+            "text": "Third-party overlays violate international copyright protection agreements"
+          },
+          {
+            "id": "C",
+            "text": "Web standards mandate that accessibility tools must be written in Rust"
+          },
+          {
+            "id": "D",
+            "text": "Overlay scripts automatically block users from accessing browser developer tools settings panels"
+          }
+        ],
+        "answer": "A",
+        "explanation": "Overlays apply surface-level script patches that cannot repair structural markup, keyboard traps, broken custom widgets, or inaccessible media, often introducing additional usability hurdles."
+      },
+      {
+        "id": "kc-was-rem-2",
+        "question": "When remediating accessibility across a portfolio of forty web applications, where should an engineering organization focus remediation efforts first?",
+        "options": [
+          {
+            "id": "A",
+            "text": "In the footer privacy policy links on the least visited internal corporate intranet pages"
+          },
+          {
+            "id": "B",
+            "text": "In the central shared design system component library powering the applications"
+          },
+          {
+            "id": "C",
+            "text": "In the marketing blog post archives published more than five years prior"
+          },
+          {
+            "id": "D",
+            "text": "In the CSS animation keyframe timings for background splash particle effects"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Remediating shared design system components permanently fixes issues at the root across all downstream products, maximizing efficiency and preventing defect recurrence."
+      },
+      {
+        "id": "kc-was-rem-3",
+        "question": "How does incorporating accessibility criteria into an agile team's Definition of Done (DoD) prevent accessibility debt?",
+        "options": [
+          {
+            "id": "A",
+            "text": "It requires software engineers to hold formal IAAP WAS certifications"
+          },
+          {
+            "id": "B",
+            "text": "It reassigns front-end development tasks directly to legal compliance teams"
+          },
+          {
+            "id": "C",
+            "text": "It automatically doubles the sprint planning points for every engineering ticket"
+          },
+          {
+            "id": "D",
+            "text": "It prevents user stories from being marked complete until accessibility passes verification"
+          }
+        ],
+        "answer": "D",
+        "explanation": "Embedding accessibility into the Definition of Done ensures code is verified for keyboard navigation, contrast, and screen reader compatibility before release, preventing backlog accumulation."
       }
     ]
   }
