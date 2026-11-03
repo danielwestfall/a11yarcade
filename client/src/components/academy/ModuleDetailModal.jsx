@@ -17,6 +17,9 @@ import PlainLanguageAndLinksFixer from './interactives/PlainLanguageAndLinksFixe
 import AccessibleTabsComboboxLab from './interactives/AccessibleTabsComboboxLab';
 import IssueSeverityTriageLab from './interactives/IssueSeverityTriageLab';
 import A11yMaturityModelAuditor from './interactives/A11yMaturityModelAuditor';
+import SpaRoutingLab from './interactives/SpaRoutingLab';
+import OcrDocumentRemediator from './interactives/OcrDocumentRemediator';
+import BuiltEnvironmentBlueprintLab from './interactives/BuiltEnvironmentBlueprintLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -175,6 +178,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <IssueSeverityTriageLab />;
       case 'a11y-maturity-model-auditor':
         return <A11yMaturityModelAuditor />;
+      case 'spa-routing-lab':
+        return <SpaRoutingLab />;
+      case 'ocr-document-remediator':
+        return <OcrDocumentRemediator />;
+      case 'built-environment-blueprint-lab':
+        return <BuiltEnvironmentBlueprintLab />;
       default:
         return <DisabilityModelClassifier />;
     }

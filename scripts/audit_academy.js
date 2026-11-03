@@ -160,6 +160,55 @@ if (mentionsArtifact && mentionsHeading && mentionsTables) {
   issues.push(`PDF/UA modules missing critical rules: Artifact=${mentionsArtifact}, Headings=${mentionsHeading}, Tables=${mentionsTables}`);
 }
 
+// Built Environment (CPACC-D2-D)
+const modBuiltEnv = LEARNING_MODULES.find(m => m.id === 'mod-cpacc-built-environment');
+if (modBuiltEnv) {
+  const beStr = JSON.stringify(modBuiltEnv);
+  const mentionsRamp = beStr.includes('1:12') || beStr.includes('8.33%');
+  const mentionsDoor = beStr.includes('32') || beStr.includes('clear opening');
+  const mentionsTurn = beStr.includes('60') || beStr.includes('turning');
+  const mentionsSign = beStr.includes('48') && beStr.includes('60');
+  if (mentionsRamp && mentionsDoor && mentionsTurn && mentionsSign) {
+    passedChecks.push('CPACC Built Environment criteria (1:12 ramp slope, 32" door width, 60" turning circle, 48"-60" signage height) verified.');
+  } else {
+    issues.push(`mod-cpacc-built-environment missing specifications: Ramp=${mentionsRamp}, Door=${mentionsDoor}, Turning=${mentionsTurn}, Sign=${mentionsSign}`);
+  }
+} else {
+  issues.push('Module mod-cpacc-built-environment not found!');
+}
+
+// SPA Routing (WAS-D1-G)
+const modSpa = LEARNING_MODULES.find(m => m.id === 'mod-was-spa-routing');
+if (modSpa) {
+  const spaStr = JSON.stringify(modSpa);
+  const mentionsTitle = spaStr.includes('2.4.2') || spaStr.includes('title');
+  const mentionsFocus = spaStr.includes('2.4.3') || spaStr.includes('tabIndex') || spaStr.includes('-1');
+  const mentionsLive = spaStr.includes('4.1.3') || spaStr.includes('aria-live') || spaStr.includes('announcer');
+  if (mentionsTitle && mentionsFocus && mentionsLive) {
+    passedChecks.push('WAS SPA Routing standards (WCAG 2.4.2 title sync, WCAG 2.4.3 focus transfer, WCAG 4.1.3 live route announcer) verified.');
+  } else {
+    issues.push(`mod-was-spa-routing missing standards: Title=${mentionsTitle}, Focus=${mentionsFocus}, Live=${mentionsLive}`);
+  }
+} else {
+  issues.push('Module mod-was-spa-routing not found!');
+}
+
+// OCR Remediation (ADS-D2-E)
+const modOcr = LEARNING_MODULES.find(m => m.id === 'mod-ads-ocr-remediation');
+if (modOcr) {
+  const ocrStr = JSON.stringify(modOcr);
+  const mentionsSearchable = ocrStr.includes('Searchable Image');
+  const mentionsGlyphs = ocrStr.includes('glyph') || ocrStr.includes('rn');
+  const mentionsLang = ocrStr.includes('language') || ocrStr.includes('xml:lang');
+  if (mentionsSearchable && mentionsGlyphs && mentionsLang) {
+    passedChecks.push('ADS OCR Remediation standards (Searchable Image myth, glyph error proofreading, document language tagging) verified.');
+  } else {
+    issues.push(`mod-ads-ocr-remediation missing criteria: SearchableImage=${mentionsSearchable}, Glyphs=${mentionsGlyphs}, Language=${mentionsLang}`);
+  }
+} else {
+  issues.push('Module mod-ads-ocr-remediation not found!');
+}
+
 console.log('\n--- PASSED CHECKS ---');
 passedChecks.forEach(p => console.log('  [PASS] ' + p));
 

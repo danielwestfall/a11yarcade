@@ -1367,6 +1367,240 @@ export const LEARNING_MODULES = [
         explanation: 'Plain language directly aids comprehension for people with intellectual disabilities, dyslexia, or ADHD, while simultaneously boosting reading speed and clarity for everyone.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-built-environment',
+    cert: 'CPACC',
+    domainId: 'CPACC-D2',
+    domainLabel: 'Domain 2: Accessibility and Universal Design',
+    sectionId: 'CPACC-D2-D',
+    title: 'Accessibility Principles for the Built Environment',
+    badge: 'Physical Accessibility',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 12,
+    interactiveType: 'built-environment-blueprint-lab',
+    citation: 'IAAP CPACC BoK V3, Domain 2.D (Accessibility Principles for the Built Environment), ADAAG (2010 ADA Standards) & ISO 21542',
+    summary: 'Explore physical and architectural accessibility principles in the built environment. Master critical dimensional standards: wheelchair ramp slopes (1:12 maximum), doorway clear opening widths (32" minimum), 360-degree wheelchair turning clearances (60" diameter), closed-fist operable hardware, and tactile/Braille signage placement.',
+    learningObjectives: [
+      'Calculate maximum running slopes for wheelchair ramps (1:12 ratio / 8.33% grade) and landing spacing requirements.',
+      'Specify minimum doorway clear opening width (32 inches) and accessible hardware operable without tight grasping or twisting.',
+      'Apply spatial standards for wheelchair turning (60-inch diameter circle or T-shaped turn) in hallways, restrooms, and vestibules.',
+      'Determine compliant tactile and Braille signage mounting heights (48"-60" character baseline) and latch-side wall locations.',
+      'Understand the interplay between physical accessibility (ADA Title III / ISO 21542) and digital accessibility kiosk/terminal design.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Ramp Running Slopes & Restings (ADAAG 405)',
+        explanation: 'Under ADAAG Section 405, ramp runs shall have a running slope not steeper than 1:12 (8.33% grade). Cross slope must not exceed 1:48. Level landings of at least 60" x 60" are required at the top, bottom, and at every 30 inches of maximum vertical rise to allow wheelchair users to rest.'
+      },
+      {
+        title: 'Accessible Doorways & Operable Hardware (ADAAG 404)',
+        explanation: 'Door openings must provide a minimum clear width of 32 inches (815 mm) measured between the face of the door and the opposite stop with the door open 90 degrees. Door hardware must be operable with one hand without tight grasping, pinching, or twisting of the wrist (operable with a closed fist; maximum 5 lbf of operational force).'
+      },
+      {
+        title: 'Wheelchair Turning Space (ADAAG 304)',
+        explanation: 'A full 360-degree wheelchair turn requires a circular space of 60 inches (1525 mm) minimum diameter, or a T-shaped turning space within a 60" by 60" boundary with 36" wide arms.'
+      },
+      {
+        title: 'Tactile & Braille Signage Mounting (ADAAG 703)',
+        explanation: 'Tactile signs identifying permanent rooms must be mounted on the wall on the latch side of the door. Tactile character baselines must be between 48 inches minimum and 60 inches maximum above the finish floor, with an 18" x 18" clear floor space centered on the tactile sign.'
+      }
+    ],
+    examTips: 'CPACC Exam Alert: Remember the rule of thumb "1:12" for ramps (1 inch of vertical rise requires at least 12 inches of horizontal run). Watch out for trap questions claiming 1:8 or 1:10 is standard — those are illegal tipping hazards. For door hardware, the key test is "operable with a closed fist" with 5 pounds of force or less. For signs, NEVER place them on the door face itself if the door swings into the user.',
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-be-1',
+        question: 'Under the 2010 ADA Standards (ADAAG 405.2), what is the maximum running slope allowed for an accessible wheelchair ramp in new construction?',
+        options: [
+          { id: 'A', text: '1:8 (12.5% slope)' },
+          { id: 'B', text: '1:10 (10% slope)' },
+          { id: 'C', text: '1:12 (8.33% slope)' },
+          { id: 'D', text: '1:20 (5% slope)' }
+        ],
+        answer: 'C',
+        explanation: 'ADAAG 405.2 specifies that ramp runs shall have a running slope not steeper than 1:12 (8.33% grade). Steeper slopes create dangerous tipping hazards for manual and power wheelchair users.'
+      },
+      {
+        id: 'kc-cpacc-be-2',
+        question: 'What is the minimum clear opening width required for accessible doors and gates under ADAAG 404.2.3?',
+        options: [
+          { id: 'A', text: '28 inches (710 mm)' },
+          { id: 'B', text: '30 inches (760 mm)' },
+          { id: 'C', text: '32 inches (815 mm)' },
+          { id: 'D', text: '36 inches (915 mm)' }
+        ],
+        answer: 'C',
+        explanation: 'Door openings must provide a minimum clear width of 32 inches (815 mm), measured between the face of the door and the stop with the door open 90 degrees.'
+      },
+      {
+        id: 'kc-cpacc-be-3',
+        question: 'Where must tactile and Braille signs identifying permanent interior rooms be mounted according to ADAAG 703.4?',
+        options: [
+          { id: 'A', text: 'Directly in the center of the push side of the door leaf at 72 inches' },
+          { id: 'B', text: 'On the wall adjacent to the latch side of the door, with character baselines between 48 and 60 inches above the finish floor' },
+          { id: 'C', text: 'Hanging from the ceiling at 80 inches minimum clearance' },
+          { id: 'D', text: 'On the floor directly in front of the door threshold' },
+        ],
+        answer: 'B',
+        explanation: 'Mounting tactile signs on the wall on the latch side of the door between 48" and 60" ensures that blind individuals reading Braille do not get struck by a swinging door.'
+      }
+    ]
+  },
+  {
+    id: 'mod-was-spa-routing',
+    cert: 'WAS',
+    domainId: 'WAS-D1',
+    domainLabel: 'Domain 1: Creating Accessible Web Solutions',
+    sectionId: 'WAS-D1-G',
+    title: 'Single-Page Applications (SPA) Routing & Focus Management',
+    badge: 'SPA Accessibility',
+    difficulty: 'Advanced',
+    estimatedMinutes: 14,
+    interactiveType: 'spa-routing-lab',
+    citation: 'IAAP WAS BoK 2024, Domain 1.G (Single-Page Applications), W3C WCAG 2.1/2.2 SC 2.4.2, 2.4.3, 4.1.3 & WAI-ARIA 1.2',
+    summary: 'Architect accessible client-side routing in React, Vue, and Angular SPAs. Solve the three primary SPA accessibility failures: missing page title updates (WCAG 2.4.2), stranded keyboard focus (WCAG 2.4.3), and silent screen reader transitions (WCAG 4.1.3) through programmatic focus management and ARIA live route announcers.',
+    learningObjectives: [
+      'Identify why client-side route transitions in Single-Page Applications fail default browser accessibility behaviors.',
+      'Implement automated document title synchronization on route change to satisfy WCAG 2.4.2 Page Titled.',
+      'Manage programmatic keyboard focus to the new page primary heading (<h1 tabIndex="-1">) or main landmark (WCAG 2.4.3).',
+      'Build an off-screen ARIA live region route announcer (aria-live="polite", aria-atomic="true") to notify screen readers of view changes.',
+      'Prevent focus traps and skipped content when dynamically mounting and unmounting virtual DOM components.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The SPA Navigation Breakdown',
+        explanation: 'In multi-page apps (MPAs), clicking a link causes the browser to fetch HTML, update the window title, reset scroll position, and announce the new page to screen readers. In client-side SPAs (history.pushState / virtual DOM), none of these native actions occur automatically.'
+      },
+      {
+        title: 'Document Title Synchronization (WCAG 2.4.2)',
+        explanation: 'WCAG 2.4.2 requires web pages to have descriptive titles. In SPAs, routing hooks (e.g., React useEffect or Vue router afterEach) must dynamically synchronize document.title on every view transition.'
+      },
+      {
+        title: 'Programmatic Focus Transfer (WCAG 2.4.3)',
+        explanation: 'When client-side navigation occurs, keyboard focus remains stranded on the clicked link in the navbar unless programmatically moved. Shifting focus to the main route heading with <h1 tabIndex="-1"> guides the keyboard user directly to the new content.'
+      },
+      {
+        title: 'ARIA Live Route Announcers (WCAG 4.1.3)',
+        explanation: 'An off-screen container with aria-live="polite" and aria-atomic="true" announces the newly loaded view name to screen readers without interrupting immediate user input.'
+      }
+    ],
+    examTips: 'WAS Exam Alert: Remember that <h1 tabIndex="-1"> is NOT added to the sequential keyboard Tab order, but IT CAN BE focused via JavaScript (element.focus()). This is the industry-standard APG pattern for SPA focus management. Always pair title updates with an ARIA live route announcement or focus move.',
+    knowledgeCheck: [
+      {
+        id: 'kc-was-spa-1',
+        question: 'Why do default client-side route transitions in SPAs create severe accessibility barriers for screen reader users?',
+        options: [
+          { id: 'A', text: 'SPAs cannot render semantic HTML elements in the virtual DOM' },
+          { id: 'B', text: 'Client-side routing bypasses native page reloads, leaving the browser title unchanged, keyboard focus stranded, and screen readers silent' },
+          { id: 'C', text: 'JavaScript is completely unsupported by modern screen readers' },
+          { id: 'D', text: 'Client-side routers automatically disable all ARIA attributes' }
+        ],
+        answer: 'B',
+        explanation: 'Because client-side routing intercepts links with history.pushState without a full page reload, the browser does not announce the new document title or reset keyboard focus unless explicitly coded.'
+      },
+      {
+        id: 'kc-was-spa-2',
+        question: 'When shifting programmatic keyboard focus to a new page heading in a SPA, why should tabindex="-1" be used on the <h1>?',
+        options: [
+          { id: 'A', text: 'It permanently prevents the heading from receiving focus' },
+          { id: 'B', text: 'It allows programmatic focus via .focus() while keeping the heading out of the natural sequential Tab order' },
+          { id: 'C', text: 'It converts the heading into an interactive button' },
+          { id: 'D', text: 'It suppresses screen reader announcements of the heading text' }
+        ],
+        answer: 'B',
+        explanation: 'tabIndex="-1" makes any element programmatically focusable via script without injecting non-interactive elements into the keyboard Tab sequence.'
+      },
+      {
+        id: 'kc-was-spa-3',
+        question: 'Which ARIA configuration is recommended for an off-screen SPA route change announcer?',
+        options: [
+          { id: 'A', text: 'aria-live="assertive" aria-atomic="false"' },
+          { id: 'B', text: 'aria-live="polite" aria-atomic="true"' },
+          { id: 'C', text: 'role="alert" aria-busy="true"' },
+          { id: 'D', text: 'aria-hidden="true"' }
+        ],
+        answer: 'B',
+        explanation: 'aria-live="polite" queues the route change notification so it does not rudely interrupt ongoing speech, and aria-atomic="true" ensures the entire announcement is read as a complete unit.'
+      }
+    ]
+  },
+  {
+    id: 'mod-ads-ocr-remediation',
+    cert: 'ADS',
+    domainId: 'ADS-D2',
+    domainLabel: 'Domain 2: Remediating Electronic Documents',
+    sectionId: 'ADS-D2-E',
+    title: 'Optical Character Recognition (OCR) & Scanned Document Remediation',
+    badge: 'Scanned Document Remediation',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 12,
+    interactiveType: 'ocr-document-remediator',
+    citation: 'IAAP ADS BoK 2021, Section 2.5 (Use OCR) & ISO 14289-1 (PDF/UA-1)',
+    summary: 'Remediate scanned paper documents and image-only PDFs into fully accessible PDF/UA files. Understand OCR limitations, proofread and correct optical glyph misrecognitions (1 vs l, 0 vs O, rn vs m), define document natural languages, and transform raw OCR text into structured PDF/UA tag trees.',
+    learningObjectives: [
+      'Explain why a scanned PDF without OCR is completely inaccessible to assistive technology (0% PAC conformance).',
+      'Understand the difference between "Searchable Image" (OCR text layer behind pixels) and fully tagged PDF/UA-1.',
+      'Identify and correct high-frequency optical recognition glyph errors that distort screen reader pronunciation.',
+      'Assign document natural language metadata (xml:lang) to ensure accurate screen reader speech synthesis engines.',
+      'Structure OCR text layers into semantic PDF tags (<H1>, <H2>, <P>, <Table>, <L>) to pass ISO 14289-1 validation.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The "Searchable Image" Myth',
+        explanation: 'Running OCR in Acrobat generates a "Searchable Image" (an invisible text layer placed behind the scanned bitmap). While this enables text searching, IT IS NOT YET ACCESSIBLE under PDF/UA because it lacks structure tags, reading order, and table semantics.'
+      },
+      {
+        title: 'Optical Glyph Misrecognitions',
+        explanation: 'OCR engines work via pattern matching on pixel clusters. Visual artifacts, speckles, or font ligatures routinely cause misreadings: "rn" becomes "m", "cl" becomes "d", "1" becomes "l", and "O" becomes "0". Uncorrected glyphs cause severe screen reader pronunciation distortion.'
+      },
+      {
+        title: 'Language Tagging (PDF/UA 7.2)',
+        explanation: 'ISO 14289-1 mandates that the natural language of all text content must be specified (e.g. en-US, es-ES). Without language tags, screen readers use default synthesizer phonetics, rendering foreign or localized text unintelligible.'
+      },
+      {
+        title: 'Document Structuring',
+        explanation: 'Once OCR text is proofread, it must be tagged. Headings must be nested (<H1> to <H2>), lists must use <L> and <LI>, and background paper artifacts must be marked as /Artifact.'
+      }
+    ],
+    examTips: 'ADS Exam Alert: Remember that running OCR is necessary but NOT sufficient for PDF/UA conformance. An exam question asking "Is a scanned PDF accessible once OCR has been run?" has the answer NO — it still requires manual proofreading for glyph errors, document language declaration, and logical tag tree structuring.',
+    knowledgeCheck: [
+      {
+        id: 'kc-ads-ocr-1',
+        question: 'Why is running Optical Character Recognition (OCR) alone insufficient to make a scanned PDF accessible under PDF/UA (ISO 14289-1)?',
+        options: [
+          { id: 'A', text: 'OCR permanently flattens all fonts and disables text search' },
+          { id: 'B', text: 'OCR only generates an unformatted text layer; it does not assign heading hierarchies, table headers, document language, or logical reading order tags' },
+          { id: 'C', text: 'OCR is prohibited by Section 508 procurement standards' },
+          { id: 'D', text: 'Screen readers cannot read any PDF that contains images' }
+        ],
+        answer: 'B',
+        explanation: 'OCR creates a "Searchable Image" text layer, but PDF/UA requires semantic structure tags (<H1>, <P>, <Table>), reading order verification, language tagging, and error proofreading.'
+      },
+      {
+        id: 'kc-ads-ocr-2',
+        question: 'Which high-frequency OCR transcription defect can severely impair screen reader pronunciation if left uncorrected?',
+        options: [
+          { id: 'A', text: 'Vector path compression' },
+          { id: 'B', text: 'Look-alike glyph errors such as mistaking "rn" for "m", numeral "1" for letter "l", or numeral "0" for uppercase "O"' },
+          { id: 'C', text: 'Excessive DPI resolution in raster layers' },
+          { id: 'D', text: 'Automatic font embedding' }
+        ],
+        answer: 'B',
+        explanation: 'Optical character engines frequently confuse visually similar character pairs (such as "rn" vs "m" or "1" vs "l"), causing screen reader text-to-speech synthesizers to mispronounce words.'
+      },
+      {
+        id: 'kc-ads-ocr-3',
+        question: 'Under ISO 14289-1 (PDF/UA), what metadata attribute must be defined for an OCR-remediated document so that screen readers pronounce words with correct phonetics?',
+        options: [
+          { id: 'A', text: 'The document author\'s employee ID' },
+          { id: 'B', text: 'The document primary natural language (e.g. en-US or fr-FR)' },
+          { id: 'C', text: 'The DPI resolution of the scanner scanner hardware' },
+          { id: 'D', text: 'The color space profile (CMYK vs RGB)' }
+        ],
+        answer: 'B',
+        explanation: 'PDF/UA requires the document natural language to be explicitly specified so screen readers activate the correct phonetic pronunciation rules and accent engines.'
+      }
+    ]
   }
 ];
 

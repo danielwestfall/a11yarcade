@@ -14,7 +14,10 @@ import {
   FileText,
   Keyboard,
   ChevronRight,
-  RotateCcw
+  RotateCcw,
+  Globe,
+  Scan,
+  Compass
 } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
@@ -74,11 +77,11 @@ export default function LearningModulesAcademy() {
 
       // Interactive type match
       if (interactiveFilter === 'simulator') {
-        if (!['vision-contrast-simulator', 'keyboard-navigation-sandbox', 'assistive-tech-simulator'].includes(mod.interactiveType)) {
+        if (!['vision-contrast-simulator', 'keyboard-navigation-sandbox', 'assistive-tech-simulator', 'built-environment-blueprint-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'code') {
-        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab'].includes(mod.interactiveType)) {
+        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
@@ -86,7 +89,7 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -129,6 +132,12 @@ export default function LearningModulesAcademy() {
         return <FileText size={14} color="var(--arcade-amber)" />;
       case 'keyboard-navigation-sandbox':
         return <Keyboard size={14} color="var(--arcade-cyan)" />;
+      case 'spa-routing-lab':
+        return <Globe size={14} color="var(--arcade-cyan)" />;
+      case 'ocr-document-remediator':
+        return <Scan size={14} color="var(--arcade-amber)" />;
+      case 'built-environment-blueprint-lab':
+        return <Compass size={14} color="var(--arcade-green)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -164,6 +173,12 @@ export default function LearningModulesAcademy() {
         return 'Defect Severity Triage Lab';
       case 'a11y-maturity-model-auditor':
         return 'Enterprise Maturity Auditor';
+      case 'spa-routing-lab':
+        return 'SPA Focus & Routing Lab';
+      case 'ocr-document-remediator':
+        return 'PDF OCR & Glyph Remediator';
+      case 'built-environment-blueprint-lab':
+        return 'Built Environment Blueprint Lab';
       default:
         return 'Interactive Lab';
     }
