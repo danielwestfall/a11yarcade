@@ -1,20 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import A11yHeader from './components/A11yHeader';
-import LiveMode from './components/LiveMode';
-import PracticeMode from './components/PracticeMode';
-import SoloHotPotato from './components/SoloHotPotato';
-import SoloGrandPrix from './components/SoloGrandPrix';
-import SoloHighRoller from './components/SoloHighRoller';
-import SoloFlawFinder from './components/SoloFlawFinder';
-import SoloSaboteur from './components/SoloSaboteur';
-import SoloBoundaryBrawl from './components/SoloBoundaryBrawl';
-import SoloBossRaid from './components/SoloBossRaid';
-import WeeklyLeaderboard from './components/WeeklyLeaderboard';
-import MissedQuestionsReview from './components/MissedQuestionsReview';
-import QuestionBankExplorer from './components/QuestionBankExplorer';
-import LearningModulesAcademy from './components/academy/LearningModulesAcademy';
-import { Users, GraduationCap, Trophy, BookOpen, Library, Bot, Zap, Sparkles } from 'lucide-react';
+import { Users, GraduationCap, Trophy, BookOpen, Library, Bot, Zap, Sparkles, Loader2 } from 'lucide-react';
 import { soundManager } from './utils/sound';
+
+// Lazy-load game modes and heavy sub-views to optimize bundle size and startup performance
+const LiveMode = lazy(() => import('./components/LiveMode'));
+const PracticeMode = lazy(() => import('./components/PracticeMode'));
+const SoloHotPotato = lazy(() => import('./components/SoloHotPotato'));
+const SoloGrandPrix = lazy(() => import('./components/SoloGrandPrix'));
+const SoloHighRoller = lazy(() => import('./components/SoloHighRoller'));
+const SoloFlawFinder = lazy(() => import('./components/SoloFlawFinder'));
+const SoloSaboteur = lazy(() => import('./components/SoloSaboteur'));
+const SoloBoundaryBrawl = lazy(() => import('./components/SoloBoundaryBrawl'));
+const SoloBossRaid = lazy(() => import('./components/SoloBossRaid'));
+const WeeklyLeaderboard = lazy(() => import('./components/WeeklyLeaderboard'));
+const MissedQuestionsReview = lazy(() => import('./components/MissedQuestionsReview'));
+const QuestionBankExplorer = lazy(() => import('./components/QuestionBankExplorer'));
+const LearningModulesAcademy = lazy(() => import('./components/academy/LearningModulesAcademy'));
+
+function ModeLoadingFallback({ label = "Loading module..." }) {
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '280px',
+        gap: '1rem',
+        color: 'var(--text-muted)',
+        fontFamily: "'Space Mono', monospace",
+        fontSize: '0.9rem',
+      }}
+    >
+      <Loader2 size={32} className="animate-spin" color="var(--arcade-cyan)" aria-hidden="true" />
+      <span>{label}</span>
+    </div>
+  );
+}
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('ACADEMY'); // 'ACADEMY' | 'LIVE' | 'SOLO_HUB' | 'LEADERBOARD' | 'STUDY' | 'EXPLORER'
@@ -138,66 +163,66 @@ export default function App() {
 
       {/* Main Content Area */}
       <main id="main-content" className="main-stage">
-        {/* TAB 1: LIVE MEETING MODE */}
-        {activeTab === 'LIVE' && (
-          <div role="tabpanel" id="panel-live" aria-labelledby="tab-live">
-            <LiveMode />
+        <Suspense fallback={<ModeLoadingFallback label="Loading game cartridge..." />}>
+          {/* TAB 1: LIVE MEETING MODE */}
+          <div role="tabpanel" id="panel-live" aria-labelledby="tab-live" tabIndex={0} hidden={activeTab !== 'LIVE'}>
+            {activeTab === 'LIVE' && <LiveMode />}
           </div>
-        )}
 
-        {/* TAB 2: SOLO & AI BOT MODES */}
-        {activeTab === 'SOLO_HUB' && (
-          <div role="tabpanel" id="panel-solo" aria-labelledby="tab-solo">
-            {soloSubMode === 'MENU' && (
-              <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '6rem' }}>
-                {/* Marquee Hero Header */}
-                <section aria-labelledby="solo-marquee-title" className="marquee-hero-card">
-                  <div aria-hidden="true" style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: '12rem', height: '12rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
-                  <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '12rem', height: '12rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
+          {/* TAB 2: SOLO & AI BOT MODES */}
+          <div role="tabpanel" id="panel-solo" aria-labelledby="tab-solo" tabIndex={0} hidden={activeTab !== 'SOLO_HUB'}>
+            {activeTab === 'SOLO_HUB' && (
+              <>
+                {soloSubMode === 'MENU' && (
+                <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '6rem' }}>
+                  {/* Marquee Hero Header */}
+                  <section aria-labelledby="solo-marquee-title" className="marquee-hero-card">
+                    <div aria-hidden="true" style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: '12rem', height: '12rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
+                    <div aria-hidden="true" style={{ position: 'absolute', bottom: '-3rem', left: '-3rem', width: '12rem', height: '12rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '9999px', filter: 'blur(40px)', pointerEvents: 'none' }} />
 
-                  <div style={{ position: 'relative', zIndex: 10 }}>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                        <span>✓</span>
-                        <span>[DOM-1/2/3 HYBRID]</span>
-                      </span>
-                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #38bdf8', color: '#7dd3fc', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.1)' }}>
-                        [BOT CPU MATRIX // TURING V4.2]
-                      </span>
-                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                        <span>🛡️</span>
-                        <span>WCAG 2.2 AAA VERIFIED</span>
-                      </span>
-                      <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
-                        [OFFLINE CACHE READY]
-                      </span>
-                    </div>
+                    <div style={{ position: 'relative', zIndex: 10 }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                        <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #c084fc', color: '#e9d5ff', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(192, 132, 252, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                          <span>✓</span>
+                          <span>[DOM-1/2/3 HYBRID]</span>
+                        </span>
+                        <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #38bdf8', color: '#7dd3fc', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.1)' }}>
+                          [BOT CPU MATRIX // TURING V4.2]
+                        </span>
+                        <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #10b981', color: '#6ee7b7', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                          <span>🛡️</span>
+                          <span>WCAG 2.2 AAA VERIFIED</span>
+                        </span>
+                        <span style={{ padding: '0.2rem 0.6rem', border: '1px solid #334155', color: '#94a3b8', fontFamily: "'Space Mono', monospace", fontSize: '0.75rem', borderRadius: '4px', background: '#0b1326' }}>
+                          [OFFLINE CACHE READY]
+                        </span>
+                      </div>
 
-                    <h1 id="solo-marquee-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
-                      SOLO DRILLS & SIMULATED AI CADETS
-                    </h1>
-                    <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.5 }}>
-                      Sharpen your Digital Accessibility IAAP certification muscle memory (CPACC · WAS · ADS) without peer pressure! Spar against simulated neural bot peers: <strong style={{ color: '#38bdf8' }}>Ada Lovelace Bot</strong> (relentless logic & criteria recall), <strong style={{ color: '#ef4444' }}>Turbo Tina</strong> (speed demon & timer rusher), and <strong style={{ color: '#10b981' }}>Safe Sal</strong> (risk-averse legal compliance counsel). Every cartridge simulates realistic exam curveballs.
-                    </p>
+                      <h1 id="solo-marquee-title" style={{ fontSize: '2.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em', color: '#ffffff', margin: 0, fontFamily: "'Space Grotesk', sans-serif" }}>
+                        SOLO DRILLS & SIMULATED AI CADETS
+                      </h1>
+                      <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.5 }}>
+                        Sharpen your Digital Accessibility IAAP certification muscle memory (CPACC · WAS · ADS) without peer pressure! Spar against simulated neural bot peers: <strong style={{ color: '#38bdf8' }}>Ada Lovelace Bot</strong> (relentless logic & criteria recall), <strong style={{ color: '#ef4444' }}>Turbo Tina</strong> (speed demon & timer rusher), and <strong style={{ color: '#10b981' }}>Safe Sal</strong> (risk-averse legal compliance counsel). Every cartridge simulates realistic exam curveballs.
+                      </p>
 
-                    {/* Bot Roster Quick-Preview Bar */}
-                    <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem' }}>
-                      <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1', fontWeight: 800 }}>
-                        SIMULATED PEER ROSTER:
-                      </span>
-                      <span style={{ background: '#0b1326', border: '1px solid #38bdf8', color: '#38bdf8', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
-                        🤖 Ada Lovelace [ARIA Core • 99.4% Acc]
-                      </span>
-                      <span style={{ background: '#0b1326', border: '1px solid #ef4444', color: '#f87171', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
-                        🏎️ Turbo Tina [Speed Demon • 4.2s Avg]
-                      </span>
-                      <span style={{ background: '#0b1326', border: '1px solid #10b981', color: '#6ee7b7', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
-                        🛡️ Safe Sal [VPAT Shield • Risk Aversion]
-                      </span>
-                      <span style={{ background: '#0b1326', border: '1px solid #c084fc', color: '#e9d5ff', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
-                        🎨 Dana Design [UD Cartographer]
-                      </span>
-                    </div>
+                      {/* Bot Roster Quick-Preview Bar */}
+                      <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem' }}>
+                        <span style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#cbd5e1', fontWeight: 800 }}>
+                          SIMULATED PEER ROSTER:
+                        </span>
+                        <span style={{ background: '#0b1326', border: '1px solid #38bdf8', color: '#38bdf8', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                          🤖 Ada Lovelace [ARIA Core • 99.4% Acc]
+                        </span>
+                        <span style={{ background: '#0b1326', border: '1px solid #ef4444', color: '#f87171', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                          🏎️ Turbo Tina [Speed Demon • 4.2s Avg]
+                        </span>
+                        <span style={{ background: '#0b1326', border: '1px solid #10b981', color: '#6ee7b7', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                          🛡️ Safe Sal [VPAT Shield • Risk Aversion]
+                        </span>
+                        <span style={{ background: '#0b1326', border: '1px solid #c084fc', color: '#e9d5ff', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.72rem', fontFamily: "'Space Mono', monospace" }}>
+                          🎨 Dana Design [UD Cartographer]
+                        </span>
+                      </div>
                   </div>
                 </section>
 
@@ -641,36 +666,30 @@ export default function App() {
             {soloSubMode === 'BOSS_RAID' && (
               <SoloBossRaid onBack={() => setSoloSubMode('MENU')} />
             )}
+            </>
+            )}
           </div>
-        )}
 
-        {/* TAB 3: LEADERBOARD */}
-        {activeTab === 'LEADERBOARD' && (
-          <div role="tabpanel" id="panel-leaderboard" aria-labelledby="tab-leaderboard">
-            <WeeklyLeaderboard />
+          {/* TAB 3: LEADERBOARD */}
+          <div role="tabpanel" id="panel-leaderboard" aria-labelledby="tab-leaderboard" tabIndex={0} hidden={activeTab !== 'LEADERBOARD'}>
+            {activeTab === 'LEADERBOARD' && <WeeklyLeaderboard />}
           </div>
-        )}
 
-        {/* TAB 4: MISSED QUESTIONS */}
-        {activeTab === 'STUDY' && (
-          <div role="tabpanel" id="panel-study" aria-labelledby="tab-study">
-            <MissedQuestionsReview />
+          {/* TAB 4: MISSED QUESTIONS */}
+          <div role="tabpanel" id="panel-study" aria-labelledby="tab-study" tabIndex={0} hidden={activeTab !== 'STUDY'}>
+            {activeTab === 'STUDY' && <MissedQuestionsReview />}
           </div>
-        )}
 
-        {/* TAB 5: QUESTION BANK */}
-        {activeTab === 'EXPLORER' && (
-          <div role="tabpanel" id="panel-explorer" aria-labelledby="tab-explorer">
-            <QuestionBankExplorer />
+          {/* TAB 5: QUESTION BANK */}
+          <div role="tabpanel" id="panel-explorer" aria-labelledby="tab-explorer" tabIndex={0} hidden={activeTab !== 'EXPLORER'}>
+            {activeTab === 'EXPLORER' && <QuestionBankExplorer />}
           </div>
-        )}
 
-        {/* TAB 6: LEARNING MODULES ACADEMY */}
-        {activeTab === 'ACADEMY' && (
-          <div role="tabpanel" id="panel-academy" aria-labelledby="tab-academy">
-            <LearningModulesAcademy />
+          {/* TAB 6: LEARNING MODULES ACADEMY */}
+          <div role="tabpanel" id="panel-academy" aria-labelledby="tab-academy" tabIndex={0} hidden={activeTab !== 'ACADEMY'}>
+            {activeTab === 'ACADEMY' && <LearningModulesAcademy />}
           </div>
-        )}
+        </Suspense>
       </main>
 
       {/* Footer with A11y & Attribution */}

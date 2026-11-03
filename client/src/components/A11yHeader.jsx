@@ -262,7 +262,7 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
               setIsModalOpen(true);
             }}
             className="a11y-pill-btn active"
-            aria-label="Open comprehensive accessibility & display controls (Alt + A)"
+            aria-label="A11y Menu (Alt+A) - Open comprehensive accessibility & display controls"
             title="Open Accessibility Controls (Alt + A)"
             style={{
               background: '#facc15',
@@ -276,73 +276,81 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
           </button>
 
           {/* Theme Quick Switcher Pill */}
-          <button
-            type="button"
-            onClick={cycleTheme}
-            className="a11y-pill-btn"
-            aria-label={`Cycle color theme. Current theme is ${preferences.theme}. Hotkey H.`}
-            title="Cycle Theme (H)"
-          >
-            {preferences.theme === 'light' ? (
-              <Sun size={16} color="#0284c7" />
-            ) : preferences.theme === 'high-contrast' ? (
-              <span style={{ fontSize: '1rem', color: '#facc15' }}>⚡</span>
-            ) : (
-              <Moon size={16} color="#38bdf8" />
-            )}
-            <span>
-              {preferences.theme === 'light'
-                ? 'Light Mode'
-                : preferences.theme === 'high-contrast'
-                ? 'High Contrast'
-                : 'Dark Mode'}
-            </span>
-          </button>
+          {(() => {
+            const themeLabel = preferences.theme === 'light' ? 'Light Mode' : preferences.theme === 'high-contrast' ? 'High Contrast' : 'Dark Mode';
+            return (
+              <button
+                type="button"
+                onClick={cycleTheme}
+                className="a11y-pill-btn"
+                aria-label={`${themeLabel} - Cycle color theme (Hotkey H)`}
+                title="Cycle Theme (H)"
+              >
+                {preferences.theme === 'light' ? (
+                  <Sun size={16} color="#0284c7" />
+                ) : preferences.theme === 'high-contrast' ? (
+                  <span style={{ fontSize: '1rem', color: '#facc15' }}>⚡</span>
+                ) : (
+                  <Moon size={16} color="#38bdf8" />
+                )}
+                <span>{themeLabel}</span>
+              </button>
+            );
+          })()}
 
           {/* Skin Quick Switcher Pill */}
-          <button
-            type="button"
-            onClick={cycleSkin}
-            className="a11y-pill-btn"
-            aria-label={`Cycle art style skin. Current skin is ${preferences.skin === 'kawaii' ? 'Kawaii Pastel' : preferences.skin === 'anime' ? 'Manga Action' : 'Neo-Arcade'}. Hotkey S.`}
-            title="Cycle Visual Skin (S)"
-          >
-            <span style={{ fontSize: '1rem' }}>
-              {preferences.skin === 'kawaii' ? '🎀' : preferences.skin === 'anime' ? '💥' : '🕹️'}
-            </span>
-            <span>
-              {preferences.skin === 'kawaii'
-                ? 'Kawaii Pop'
-                : preferences.skin === 'anime'
-                ? 'Manga Action'
-                : 'Neo-Arcade'}
-            </span>
-          </button>
+          {(() => {
+            const skinLabel = preferences.skin === 'kawaii' ? 'Kawaii Pop' : preferences.skin === 'anime' ? 'Manga Action' : 'Neo-Arcade';
+            return (
+              <button
+                type="button"
+                onClick={cycleSkin}
+                className="a11y-pill-btn"
+                aria-label={`${skinLabel} - Cycle art style skin (Hotkey S)`}
+                title="Cycle Visual Skin (S)"
+              >
+                <span style={{ fontSize: '1rem' }}>
+                  {preferences.skin === 'kawaii' ? '🎀' : preferences.skin === 'anime' ? '💥' : '🕹️'}
+                </span>
+                <span>{skinLabel}</span>
+              </button>
+            );
+          })()}
 
           {/* Sound Mute Quick Pill */}
-          <button
-            type="button"
-            onClick={toggleSound}
-            className={`a11y-pill-btn ${preferences.soundMuted ? '' : 'active'}`}
-            aria-label={preferences.soundMuted ? 'Unmute game audio effects (M)' : 'Mute game audio effects (M)'}
-            title="Toggle Sound Effects (M)"
-          >
-            {preferences.soundMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-            <span>{preferences.soundMuted ? 'Muted' : 'Sound On'}</span>
-          </button>
+          {(() => {
+            const soundLabel = preferences.soundMuted ? 'Muted' : 'Sound On';
+            return (
+              <button
+                type="button"
+                onClick={toggleSound}
+                className={`a11y-pill-btn ${preferences.soundMuted ? '' : 'active'}`}
+                aria-label={`${soundLabel} - Toggle audio sound effects (Hotkey M)`}
+                title="Toggle Sound Effects (M)"
+              >
+                {preferences.soundMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                <span>{soundLabel}</span>
+              </button>
+            );
+          })()}
 
           {/* Motion Quick Pill */}
-          <button
-            type="button"
-            onClick={toggleMotion}
-            className={`a11y-pill-btn ${preferences.reducedMotion ? 'active' : ''}`}
-            aria-pressed={preferences.reducedMotion}
-            aria-label="Toggle Reduced Motion (R)"
-            title="Toggle Reduced Motion (R)"
-          >
-            <Zap size={16} />
-            <span>{preferences.reducedMotion ? 'Motion: Reduced' : 'Motion: Standard'}</span>
-          </button>
+          {(() => {
+            const motionLabel = preferences.reducedMotion ? 'Motion: Reduced' : 'Motion: Standard';
+            return (
+              <button
+                type="button"
+                onClick={toggleMotion}
+                className={`a11y-pill-btn ${preferences.reducedMotion ? 'active' : ''}`}
+                aria-pressed={preferences.reducedMotion}
+                aria-label={`${motionLabel} - Toggle reduced motion animations (Hotkey R)`}
+                title="Toggle Reduced Motion (R)"
+              >
+                <Zap size={16} />
+                <span>{motionLabel}</span>
+              </button>
+            );
+          })()}
         </div>
 
         {/* The Comprehensive A11y Features Modal */}

@@ -1,46 +1,46 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { X, BookOpen, FlaskConical, Award, CheckCircle2, ChevronRight, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { soundManager } from '../../utils/sound';
 
-import DisabilityModelClassifier from './interactives/DisabilityModelClassifier';
-import VisionContrastSimulator from './interactives/VisionContrastSimulator';
-import SemanticHtmlFixer from './interactives/SemanticHtmlFixer';
-import AriaLiveLab from './interactives/AriaLiveLab';
-import AltTextDecisionTree from './interactives/AltTextDecisionTree';
-import PdfTagTreeFixer from './interactives/PdfTagTreeFixer';
-import UniversalDesignSorter from './interactives/UniversalDesignSorter';
-import KeyboardNavigationSandbox from './interactives/KeyboardNavigationSandbox';
-import Wcag22NewCriteriaLab from './interactives/Wcag22NewCriteriaLab';
-import AssistiveTechSimulator from './interactives/AssistiveTechSimulator';
-import PlainLanguageAndLinksFixer from './interactives/PlainLanguageAndLinksFixer';
-import AccessibleTabsComboboxLab from './interactives/AccessibleTabsComboboxLab';
-import IssueSeverityTriageLab from './interactives/IssueSeverityTriageLab';
-import A11yMaturityModelAuditor from './interactives/A11yMaturityModelAuditor';
-import SpaRoutingLab from './interactives/SpaRoutingLab';
-import OcrDocumentRemediator from './interactives/OcrDocumentRemediator';
-import BuiltEnvironmentBlueprintLab from './interactives/BuiltEnvironmentBlueprintLab';
-import DisabilityEtiquetteLab from './interactives/DisabilityEtiquetteLab';
-import WcagEmAuditPlannerLab from './interactives/WcagEmAuditPlannerLab';
-import AuthoringFormatRemediator from './interactives/AuthoringFormatRemediator';
-import UdlCourseDesignerLab from './interactives/UdlCourseDesignerLab';
-import VpatProcurementAuditorLab from './interactives/VpatProcurementAuditorLab';
-import AutomatedTestingLimitationsLab from './interactives/AutomatedTestingLimitationsLab';
-import GlobalLegalCompassLab from './interactives/GlobalLegalCompassLab';
-import ActRulesLinterLab from './interactives/ActRulesLinterLab';
-import AcrobatTagsTableEditorLab from './interactives/AcrobatTagsTableEditorLab';
-import UnCrpdTreatyExplorerLab from './interactives/UnCrpdTreatyExplorerLab';
-import CrossBrowserCompatibilityLab from './interactives/CrossBrowserCompatibilityLab';
-import ManualDocumentAuditProtocolLab from './interactives/ManualDocumentAuditProtocolLab';
-import DemographicsCensusLab from './interactives/DemographicsCensusLab';
-import AdaptiveStrategiesLab from './interactives/AdaptiveStrategiesLab';
-import ExportArchitectureLab from './interactives/ExportArchitectureLab';
-import AccommodationsVsUniversalDesignLab from './interactives/AccommodationsVsUniversalDesignLab';
-import WcagPourPrinciplesLab from './interactives/WcagPourPrinciplesLab';
-import IctStandardsProcurementLab from './interactives/IctStandardsProcurementLab';
-import A11yLawsRegulationsLab from './interactives/A11yLawsRegulationsLab';
-import BusinessCaseCurbCutLab from './interactives/BusinessCaseCurbCutLab';
-import PacAutomatedAuditLab from './interactives/PacAutomatedAuditLab';
+const DisabilityModelClassifier = lazy(() => import('./interactives/DisabilityModelClassifier'));
+const VisionContrastSimulator = lazy(() => import('./interactives/VisionContrastSimulator'));
+const SemanticHtmlFixer = lazy(() => import('./interactives/SemanticHtmlFixer'));
+const AriaLiveLab = lazy(() => import('./interactives/AriaLiveLab'));
+const AltTextDecisionTree = lazy(() => import('./interactives/AltTextDecisionTree'));
+const PdfTagTreeFixer = lazy(() => import('./interactives/PdfTagTreeFixer'));
+const UniversalDesignSorter = lazy(() => import('./interactives/UniversalDesignSorter'));
+const KeyboardNavigationSandbox = lazy(() => import('./interactives/KeyboardNavigationSandbox'));
+const Wcag22NewCriteriaLab = lazy(() => import('./interactives/Wcag22NewCriteriaLab'));
+const AssistiveTechSimulator = lazy(() => import('./interactives/AssistiveTechSimulator'));
+const PlainLanguageAndLinksFixer = lazy(() => import('./interactives/PlainLanguageAndLinksFixer'));
+const AccessibleTabsComboboxLab = lazy(() => import('./interactives/AccessibleTabsComboboxLab'));
+const IssueSeverityTriageLab = lazy(() => import('./interactives/IssueSeverityTriageLab'));
+const A11yMaturityModelAuditor = lazy(() => import('./interactives/A11yMaturityModelAuditor'));
+const SpaRoutingLab = lazy(() => import('./interactives/SpaRoutingLab'));
+const OcrDocumentRemediator = lazy(() => import('./interactives/OcrDocumentRemediator'));
+const BuiltEnvironmentBlueprintLab = lazy(() => import('./interactives/BuiltEnvironmentBlueprintLab'));
+const DisabilityEtiquetteLab = lazy(() => import('./interactives/DisabilityEtiquetteLab'));
+const WcagEmAuditPlannerLab = lazy(() => import('./interactives/WcagEmAuditPlannerLab'));
+const AuthoringFormatRemediator = lazy(() => import('./interactives/AuthoringFormatRemediator'));
+const UdlCourseDesignerLab = lazy(() => import('./interactives/UdlCourseDesignerLab'));
+const VpatProcurementAuditorLab = lazy(() => import('./interactives/VpatProcurementAuditorLab'));
+const AutomatedTestingLimitationsLab = lazy(() => import('./interactives/AutomatedTestingLimitationsLab'));
+const GlobalLegalCompassLab = lazy(() => import('./interactives/GlobalLegalCompassLab'));
+const ActRulesLinterLab = lazy(() => import('./interactives/ActRulesLinterLab'));
+const AcrobatTagsTableEditorLab = lazy(() => import('./interactives/AcrobatTagsTableEditorLab'));
+const UnCrpdTreatyExplorerLab = lazy(() => import('./interactives/UnCrpdTreatyExplorerLab'));
+const CrossBrowserCompatibilityLab = lazy(() => import('./interactives/CrossBrowserCompatibilityLab'));
+const ManualDocumentAuditProtocolLab = lazy(() => import('./interactives/ManualDocumentAuditProtocolLab'));
+const DemographicsCensusLab = lazy(() => import('./interactives/DemographicsCensusLab'));
+const AdaptiveStrategiesLab = lazy(() => import('./interactives/AdaptiveStrategiesLab'));
+const ExportArchitectureLab = lazy(() => import('./interactives/ExportArchitectureLab'));
+const AccommodationsVsUniversalDesignLab = lazy(() => import('./interactives/AccommodationsVsUniversalDesignLab'));
+const WcagPourPrinciplesLab = lazy(() => import('./interactives/WcagPourPrinciplesLab'));
+const IctStandardsProcurementLab = lazy(() => import('./interactives/IctStandardsProcurementLab'));
+const A11yLawsRegulationsLab = lazy(() => import('./interactives/A11yLawsRegulationsLab'));
+const BusinessCaseCurbCutLab = lazy(() => import('./interactives/BusinessCaseCurbCutLab'));
+const PacAutomatedAuditLab = lazy(() => import('./interactives/PacAutomatedAuditLab'));
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -573,7 +573,29 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
             hidden={activeTab !== 'LAB'}
             style={{ display: activeTab === 'LAB' ? 'flex' : 'none', flexDirection: 'column', gap: '1.5rem', outline: 'none' }}
           >
-            {renderInteractive()}
+            <Suspense
+              fallback={
+                <div
+                  role="status"
+                  aria-live="polite"
+                  style={{
+                    padding: '3rem',
+                    textAlign: 'center',
+                    color: 'var(--text-muted)',
+                    fontSize: '0.9rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '0.75rem'
+                  }}
+                >
+                  <FlaskConical size={24} color="var(--arcade-cyan)" className="animate-spin" aria-hidden="true" />
+                  <span>Loading interactive laboratory environment...</span>
+                </div>
+              }
+            >
+              {renderInteractive()}
+            </Suspense>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
               <button

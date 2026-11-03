@@ -456,13 +456,11 @@ export default function LearningModulesAcademy() {
       {/* Modules Grid */}
       <section aria-label="Available Teaching Modules">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-          <h2
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-            style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}
-          >
-            Curriculum Sections ({filteredModules.length} Modules Available)
+          <h2 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
+            <span>Curriculum Sections </span>
+            <span role="status" aria-live="polite" aria-atomic="true">
+              ({filteredModules.length} Modules Available)
+            </span>
           </h2>
         </div>
 
