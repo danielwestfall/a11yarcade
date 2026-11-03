@@ -394,6 +394,9 @@ export default function LearningModulesAcademy() {
       <section style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1rem 1.25rem' }}>
         {/* Search Input */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-color)', borderRadius: '6px', padding: '0.4rem 0.75rem', minWidth: '280px', flex: 1 }}>
+          <label htmlFor="academy-module-search" className="visually-hidden">
+            Search concepts, sections, and modules
+          </label>
           <Search size={16} color="var(--text-muted)" aria-hidden="true" />
           <input
             id="academy-module-search"
@@ -547,6 +550,7 @@ export default function LearningModulesAcademy() {
                   {/* Launch CTA Button */}
                   <button
                     type="button"
+                    aria-label={`${isCompleted ? 'Review Module & Lab' : 'Start Learning Module'}: ${mod.title}`}
                     onClick={() => {
                       soundManager.playClick();
                       setActiveModule(mod);
@@ -564,9 +568,9 @@ export default function LearningModulesAcademy() {
                       marginTop: '0.25rem'
                     }}
                   >
-                    <BookOpen size={16} />
+                    <BookOpen size={16} aria-hidden="true" />
                     <span>{isCompleted ? 'Review Module & Lab' : 'Start Learning Module'}</span>
-                    <ChevronRight size={16} />
+                    <ChevronRight size={16} aria-hidden="true" />
                   </button>
                 </div>
               );

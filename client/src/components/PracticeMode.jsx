@@ -252,9 +252,9 @@ export default function PracticeMode({ onBack }) {
           <form onSubmit={(e) => { e.preventDefault(); startQuiz(false); }}>
             {/* 1. Certification Track Selection */}
             <div style={{ marginBottom: '1.75rem' }}>
-              <label style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <div style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
                 1. Select Certification Exam Track:
-              </label>
+              </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.75rem' }}>
                 {CERTIFICATION_TRACKS.map(track => {
                   const isSelected = selectedTrack === track.id;
@@ -301,9 +301,9 @@ export default function PracticeMode({ onBack }) {
 
             {/* 2. Curriculum Focus: Domain / Sections / Subject Switch */}
             <div style={{ marginBottom: '1.75rem' }}>
-              <label style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <div style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
                 2. Select Curriculum Scope:
-              </label>
+              </div>
 
               <div
                 role="tablist"
@@ -381,8 +381,13 @@ export default function PracticeMode({ onBack }) {
               {/* Sub-Panel A: By Domain */}
               {filterType === 'domain' && (
                 <div>
+                  <label htmlFor="domain-select" className="visually-hidden">
+                    Select Curriculum Domain
+                  </label>
                   <select
                     id="domain-select"
+                    name="domain-select"
+                    aria-label="Select Curriculum Domain"
                     className="input-field"
                     value={selectedDomain}
                     onChange={(e) => setSelectedDomain(e.target.value)}
@@ -589,9 +594,9 @@ export default function PracticeMode({ onBack }) {
 
             {/* 3. Question Count Selection */}
             <div style={{ marginBottom: '2rem' }}>
-              <label style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <div style={{ display: 'block', fontWeight: 800, fontSize: '1rem', color: '#ffffff', marginBottom: '0.65rem', fontFamily: "'Space Grotesk', sans-serif" }}>
                 3. Number of Questions:
-              </label>
+              </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.75rem' }}>
                 {[

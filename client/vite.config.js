@@ -17,6 +17,12 @@ export default defineConfig({
           if (id.includes('node_modules/canvas-confetti/')) {
             return 'vendor-confetti';
           }
+          if (id.includes('node_modules/socket.io') || id.includes('node_modules/engine.io') || id.includes('node_modules/qrcode')) {
+            return 'vendor-realtime';
+          }
+          if (id.includes('src/data/academy/')) {
+            return 'academy-curriculum-data';
+          }
           if (id.includes('cpacc.json')) {
             return 'bank-cpacc';
           }

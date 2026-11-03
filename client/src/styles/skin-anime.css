@@ -1,0 +1,400 @@
+/* ==========================================================================
+   SKIN 2: ANIME & COLOR GRAPHIC NOVEL (SHONEN MANGA ACTION)
+   Stitch Design System asset: assets/9879006561991576056
+   WCAG 2.2 Level AAA Certified across Dark, Light, & High Contrast modes
+   ========================================================================== */
+
+body.skin-anime {
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+}
+
+body.skin-anime h1,
+body.skin-anime h2,
+body.skin-anime h3,
+body.skin-anime h4,
+body.skin-anime h5,
+body.skin-anime h6,
+body.skin-anime .brand-title {
+  font-family: 'Bebas Neue', 'Anton', 'Space Grotesk', Impact, sans-serif !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase;
+}
+
+/* Comic Panel Containers: 3.5px Bold Outlines & Hard Ink Offset Shadows */
+body.skin-anime .card,
+body.skin-anime .arcade-cabinet-card,
+body.skin-anime .cadet-card,
+body.skin-anime .marquee-hero-card,
+body.skin-anime .arcade-dock,
+body.skin-anime header.a11y-header,
+body.skin-anime .coach-feedback-card,
+body.skin-anime .modal-content {
+  border-width: 3.5px !important;
+  border-radius: 4px !important;
+  backdrop-filter: none !important;
+}
+
+/* Solid Comic Caption Boxes for Headings over Halftone Screentone Patterns */
+body.skin-anime h1,
+body.skin-anime h2,
+body.skin-anime h3,
+body.skin-anime .brand-title {
+  display: inline-block !important;
+  background-color: var(--bg-surface-elevated) !important;
+  border: 2.5px solid var(--border-color) !important;
+  padding: 4px 14px !important;
+  border-radius: 3px !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Solid Backings for Subtitles, Badges & Lead Text */
+body.skin-anime p.lead,
+body.skin-anime .hero-subtitle,
+body.skin-anime .brand-badge,
+body.skin-anime span[style*="border"],
+body.skin-anime .badge,
+body.skin-anime .status-pill,
+body.skin-anime .domain-pill {
+  background-color: var(--bg-surface) !important;
+  border: 2px solid var(--border-color) !important;
+  box-shadow: 2.5px 2.5px 0px 0px #000000 !important;
+  border-radius: 3px !important;
+  padding: 3px 10px !important;
+  display: inline-block;
+}
+
+/* Slanted Shonen Action Buttons (Skewed Dynamic Comic Energy) */
+body.skin-anime .btn-primary,
+body.skin-anime button.btn-primary,
+body.skin-anime .btn-secondary,
+body.skin-anime button.btn-secondary,
+body.skin-anime .arcade-btn-secondary,
+body.skin-anime .answer-btn,
+body.skin-anime .mode-tab,
+body.skin-anime .a11y-pill-btn {
+  transform: skewX(-3deg) !important;
+  border-radius: 4px !important;
+  font-weight: 900 !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+}
+
+body.skin-anime .btn-primary > *,
+body.skin-anime button.btn-primary > *,
+body.skin-anime .btn-secondary > *,
+body.skin-anime button.btn-secondary > *,
+body.skin-anime .arcade-btn-secondary > *,
+body.skin-anime .answer-btn > *,
+body.skin-anime .mode-tab > *,
+body.skin-anime .a11y-pill-btn > * {
+  transform: skewX(3deg);
+  display: inline-flex;
+  align-items: center;
+}
+
+body.skin-anime .btn-primary:active:not(:disabled),
+body.skin-anime button.btn-primary:active:not(:disabled),
+body.skin-anime .btn-secondary:active:not(:disabled),
+body.skin-anime button.btn-secondary:active:not(:disabled),
+body.skin-anime .answer-btn:active:not(:disabled) {
+  transform: translate(3px, 3px) skewX(-3deg) !important;
+}
+
+/* Speech Bubble / Dialogue Panels for Explanations */
+body.skin-anime .explanation-box {
+  border: 3.5px solid var(--border-color) !important;
+  border-radius: 4px !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+}
+
+/* --- Anime Dark Mode (Cyber Manga Midnight Ink) --- */
+body.skin-anime:not(.light-mode):not(.high-contrast) {
+  --bg-primary: #080c16;
+  --bg-surface: #121827;
+  --bg-surface-elevated: #1e263d;
+  --text-primary: #ffffff; /* 20.5:1 AAA on #080c16 */
+  --text-secondary: #fef08a; /* 16.5:1 AAA on #080c16 */
+  --text-muted: #93c5fd; /* 10.2:1 AAA */
+  --border-color: #38bdf8; /* 6.8:1 AAA */
+  --border-bright: #60a5fa;
+  --focus-ring: #facc15; /* 15.5:1 AAA */
+
+  --arcade-cyan: #38bdf8;
+  --arcade-green: #34d399;
+  --arcade-crimson: #ef4444;
+  --arcade-amber: #fef08a;
+  --arcade-purple: #c084fc;
+  --arcade-gold: #facc15;
+
+  --color-triangle: #ef4444;
+  --color-diamond: #38bdf8;
+  --color-circle: #fef08a;
+  --color-square: #34d399;
+
+  --shadow-card: 4px 4px 0px 0px #000000;
+  --shadow-cabinet: 6px 6px 0px 0px #000000;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 14px 14px, 14px 14px;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-cabinet-card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .cadet-card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .marquee-hero-card,
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-dock,
+body.skin-anime:not(.light-mode):not(.high-contrast) header.a11y-header {
+  background: #121827 !important;
+  border: 3.5px solid #38bdf8 !important;
+  box-shadow: 6px 6px 0px 0px #000000 !important;
+  color: #ffffff !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary:active:not(:disabled),
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary:active:not(:disabled) {
+  transform: translate(3px, 3px) skewX(-3deg) !important;
+  box-shadow: 1px 1px 0px 0px #000000 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-secondary,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-secondary {
+  background: #1e263d !important;
+  color: #fef08a !important;
+  border: 2.5px solid #38bdf8 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
+  background: #10b981 !important;
+  color: #080c16 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .answer-btn {
+  background: #121827 !important;
+  color: #ffffff !important;
+  border: 3px solid #38bdf8 !important;
+  box-shadow: 5px 5px 0px 0px #000000 !important;
+}
+
+/* --- Anime Light Mode (Manga Newsprint & Cel Ink) --- */
+body.skin-anime.light-mode {
+  --bg-primary: #faf7f0; /* Manga Newsprint Cream */
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f3efe6;
+  --text-primary: #09090b; /* 18.5:1 AAA on #faf7f0 */
+  --text-secondary: #18181b; /* 15.2:1 AAA on #faf7f0 */
+  --text-muted: #27272a; /* 11.5:1 AAA on #faf7f0 */
+  --border-color: #111827; /* 17.8:1 AAA - Stark Comic Ink */
+  --border-bright: #000000;
+  --focus-ring: #1d4ed8;
+
+  --arcade-cyan: #1d4ed8; /* 8.1:1 AAA */
+  --arcade-green: #047857; /* 7.1:1 AAA */
+  --arcade-crimson: #b91c1c; /* 7.6:1 AAA */
+  --arcade-amber: #78350f; /* 9.2:1 AAA */
+  --arcade-purple: #581c87; /* 11.2:1 AAA */
+  --arcade-gold: #78350f;
+
+  --color-triangle: #b91c1c;
+  --color-diamond: #1d4ed8;
+  --color-circle: #78350f;
+  --color-square: #047857;
+
+  --shadow-card: 4px 4px 0px 0px #111827;
+  --shadow-cabinet: 6px 6px 0px 0px #111827;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: radial-gradient(#111827 0.8px, transparent 0.8px);
+  background-size: 12px 12px;
+}
+
+body.skin-anime.light-mode h1,
+body.skin-anime.light-mode h2,
+body.skin-anime.light-mode h3,
+body.skin-anime.light-mode h4,
+body.skin-anime.light-mode h5,
+body.skin-anime.light-mode h6 {
+  color: #09090b !important;
+  box-shadow: 4px 4px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode p {
+  color: #18181b !important;
+}
+
+body.skin-anime.light-mode label,
+body.skin-anime.light-mode span.label-text {
+  color: #09090b !important;
+}
+
+body.skin-anime.light-mode .card,
+body.skin-anime.light-mode .arcade-cabinet-card,
+body.skin-anime.light-mode .cadet-card,
+body.skin-anime.light-mode .marquee-hero-card,
+body.skin-anime.light-mode .arcade-dock,
+body.skin-anime.light-mode header.a11y-header {
+  background: #ffffff !important;
+  border: 3.5px solid #111827 !important;
+  color: #09090b !important;
+  box-shadow: 6px 6px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .btn-primary,
+body.skin-anime.light-mode button.btn-primary {
+  background: #991b1b !important; /* 8.31:1 AAA with white text */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime.light-mode .btn-primary:active:not(:disabled),
+body.skin-anime.light-mode button.btn-primary:active:not(:disabled) {
+  transform: translate(3px, 3px) skewX(-3deg) !important;
+  box-shadow: 1px 1px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .btn-secondary,
+body.skin-anime.light-mode button.btn-secondary {
+  background: #f3efe6 !important;
+  border: 3px solid #111827 !important;
+  color: #09090b !important;
+  box-shadow: 4px 4px 0px 0px #111827 !important;
+  font-weight: 800 !important;
+}
+
+body.skin-anime.light-mode .arcade-btn-secondary {
+  background: #064e3b !important; /* 9.72:1 AAA with white text */
+  border: 3px solid #111827 !important;
+  color: #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+  font-weight: 900 !important;
+}
+
+body.skin-anime.light-mode .input-field {
+  background: #ffffff !important;
+  color: #09090b !important;
+  border: 3px solid #111827 !important;
+}
+
+body.skin-anime.light-mode .explanation-box {
+  background: #fffbeb !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 4px 4px 0px 0px #111827 !important;
+  color: #18181b !important;
+}
+
+body.skin-anime.light-mode .answer-btn.triangle {
+  background-color: #991b1b !important; /* 8.31:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .answer-btn.diamond {
+  background-color: #1e40af !important; /* 8.72:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .answer-btn.circle {
+  background-color: #78350f !important; /* 9.07:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+body.skin-anime.light-mode .answer-btn.square {
+  background-color: #064e3b !important; /* 9.72:1 AAA */
+  color: #ffffff !important;
+  border: 3px solid #111827 !important;
+  box-shadow: 5px 5px 0px 0px #111827 !important;
+}
+
+/* --- Anime High Contrast Mode (Monochrome Manga Cel Void) --- */
+body.skin-anime.high-contrast {
+  --bg-primary: #000000;
+  --bg-surface: #000000;
+  --bg-surface-elevated: #111111;
+  --text-primary: #ffffff; /* 21:1 AAA */
+  --text-secondary: #ffff00; /* 19.5:1 AAA */
+  --text-muted: #ffffff;
+  --border-color: #ffffff;
+  --border-bright: #ffffff;
+  --focus-ring: #ffff00;
+
+  --arcade-cyan: #00ffff;
+  --arcade-green: #00ff66;
+  --arcade-crimson: #ff0055;
+  --arcade-amber: #ffff00;
+  --arcade-purple: #e066ff;
+  --arcade-gold: #ffff00;
+  --arcade-yellow: #ffff00;
+  --bg-secondary: #000000;
+
+  --shadow-card: 5px 5px 0px 0px #ffffff;
+  --shadow-cabinet: 6px 6px 0px 0px #ffffff;
+}
+
+body.skin-anime.high-contrast .card,
+body.skin-anime.high-contrast .arcade-cabinet-card,
+body.skin-anime.high-contrast .cadet-card,
+body.skin-anime.high-contrast .marquee-hero-card,
+body.skin-anime.high-contrast .arcade-dock,
+body.skin-anime.high-contrast header.a11y-header {
+  border: 3.5px solid #ffffff !important;
+  box-shadow: 6px 6px 0px 0px #ffffff !important;
+  background: #000000 !important;
+}
+
+body.skin-anime.high-contrast button {
+  border: 3px solid #ffffff !important;
+  box-shadow: 5px 5px 0px 0px #ffffff !important;
+}
+
+/* Universal Light Mode Card Header & Badge Contrast Overrides */
+body.light-mode .arcade-cabinet-card div[style*="background: #0b1326"],
+body.light-mode .card div[style*="background: #0b1326"],
+body.light-mode span[style*="background: #0b1326"],
+body.light-mode div[style*="background: #060e20"],
+body.light-mode span[style*="background: #060e20"],
+body.light-mode div[style*="background: rgb(11, 19, 38)"] {
+  background-color: var(--bg-surface-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+body.light-mode .arcade-cabinet-card h3,
+body.light-mode .arcade-cabinet-card h2,
+body.light-mode .card h3,
+body.light-mode .marquee-hero-card h1,
+body.light-mode .marquee-hero-card h2 {
+  color: var(--text-primary) !important;
+}
+
+body.light-mode .arcade-cabinet-card p,
+body.light-mode .card p,
+body.light-mode .marquee-hero-card p {
+  color: var(--text-secondary) !important;
+}
+

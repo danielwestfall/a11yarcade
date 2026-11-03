@@ -576,16 +576,19 @@ export default function HighRollerMode({ socket, role, roomPin, onLeave }) {
               {/* Custom Slider */}
               <div style={{ marginBottom: '1.25rem', textAlign: 'left' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
-                  <span>Custom Wager:</span>
+                  <label htmlFor="live-high-roller-wager">Custom Wager:</label>
                   <strong style={{ color: '#eab308' }}>{selectedWager} Chips</strong>
                 </div>
                 <input
+                  id="live-high-roller-wager"
+                  name="live-high-roller-wager"
                   type="range"
                   min="10"
                   max={Math.max(10, myChips)}
                   step="10"
                   value={selectedWager}
                   onChange={(e) => setSelectedWager(parseInt(e.target.value, 10))}
+                  aria-label="Custom Wager in Chips"
                   style={{ width: '100%', accentColor: '#eab308', cursor: 'pointer' }}
                 />
               </div>

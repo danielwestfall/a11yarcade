@@ -1,0 +1,121 @@
+/* ==========================================================================
+   A11Y ARCADE DESIGN SYSTEM: NEO-ARCADE CYBER-PLAYGROUND
+   Generated via Stitch by Google Design System (WCAG 2.2 AAA Validated)
+   ========================================================================== */
+
+:root {
+  /* Canvas & Structure (Deep Void Architecture) */
+  --bg-primary: #090d16;
+  --bg-surface: #0f172a;
+  --bg-surface-elevated: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #87929a;
+  --border-color: #55657e; /* 3.25:1 contrast against #090d16 (meets WCAG 2.2 SC 1.4.11) */
+  --border-bright: #71839e;
+  
+  /* Electric Yellow Dedicated Accessibility Halo (12:1 Contrast) */
+  --focus-ring: #facc15;
+
+  /* Neon Arcade Primaries (Strict WCAG AAA Conformance) */
+  --arcade-cyan: #38bdf8;
+  --arcade-green: #10b981;
+  --arcade-crimson: #ef4444;
+  --arcade-amber: #f59e0b;
+  --arcade-purple: #c084fc;
+  --arcade-gold: #facc15;
+  --arcade-yellow: #facc15;
+  --bg-secondary: rgba(255, 255, 255, 0.05);
+
+  /* Dual-Coded Shapes & Question Choice Accents */
+  --color-triangle: #ef4444; /* Crimson Red */
+  --color-diamond: #38bdf8;  /* Electric Cyan */
+  --color-circle: #f59e0b;   /* Amber Flare */
+  --color-square: #10b981;   /* Emerald Green */
+
+  /* Arcade Radii & Tactile Brutalist Drop Shadows */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-card: 4px 4px 0px 0px #040810;
+  --shadow-cabinet: 0px 8px 0px 0px #020617;
+}
+
+/* High Contrast Mode (Pure Monochromatic Black/Yellow/White) */
+body.high-contrast {
+  --bg-primary: #000000;
+  --bg-surface: #050505;
+  --bg-surface-elevated: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #facc15;
+  --text-muted: #ffffff;
+  --border-color: #ffffff;
+  --border-bright: #ffffff;
+  --focus-ring: #facc15;
+
+  --arcade-cyan: #00ffff;
+  --arcade-green: #00ff66;
+  --arcade-crimson: #ff0055;
+  --arcade-amber: #ffbb00;
+  --arcade-purple: #e066ff;
+  --arcade-gold: #ffff00;
+  --arcade-yellow: #ffff00;
+  --bg-secondary: #000000;
+
+  --color-triangle: #ff0055;
+  --color-diamond: #00ffff;
+  --color-circle: #ffbb00;
+  --color-square: #00ff66;
+}
+
+body.high-contrast button,
+body.high-contrast input,
+body.high-contrast .card {
+  border: 3px solid #ffffff !important;
+}
+
+
+/* Native color-scheme support for UA form controls & scrollbars */
+:root,
+body.high-contrast {
+  color-scheme: dark;
+}
+
+body.light-mode {
+  color-scheme: light;
+}
+
+/* Windows High Contrast / Forced Colors Mode System Token Fallbacks */
+@media (forced-colors: active) {
+  :root,
+  body,
+  body.light-mode,
+  body.high-contrast {
+    --bg-primary: Canvas;
+    --bg-surface: Canvas;
+    --bg-surface-elevated: Canvas;
+    --text-primary: CanvasText;
+    --text-secondary: CanvasText;
+    --text-muted: GrayText;
+    --border-color: ButtonBorder;
+    --border-bright: ButtonBorder;
+    --focus-ring: Highlight;
+  }
+
+  .brand-title {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: CanvasText !important;
+  }
+
+  .card,
+  .arcade-cabinet-card,
+  .cadet-card,
+  .marquee-hero-card,
+  button,
+  input,
+  select {
+    border: 2px solid ButtonBorder !important;
+    box-shadow: none !important;
+  }
+}

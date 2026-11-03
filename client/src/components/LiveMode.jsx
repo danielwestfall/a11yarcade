@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy } from 'react';
 import { io } from 'socket.io-client';
 import confetti from 'canvas-confetti';
 import QRCode from 'qrcode';
@@ -25,14 +25,15 @@ import {
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import { getSocketUrl } from '../utils/api';
-import HotPotatoMode from './HotPotatoMode';
-import GrandPrixMode from './GrandPrixMode';
-import HighRollerMode from './HighRollerMode';
-import FlawFinderMode from './FlawFinderMode';
-import SaboteurMode from './SaboteurMode';
-import BoundaryBrawlMode from './BoundaryBrawlMode';
-import BossRaidMode from './BossRaidMode';
 import CoachFeedbackCard from './CoachFeedbackCard';
+
+const HotPotatoMode = lazy(() => import('./HotPotatoMode'));
+const GrandPrixMode = lazy(() => import('./GrandPrixMode'));
+const HighRollerMode = lazy(() => import('./HighRollerMode'));
+const FlawFinderMode = lazy(() => import('./FlawFinderMode'));
+const SaboteurMode = lazy(() => import('./SaboteurMode'));
+const BoundaryBrawlMode = lazy(() => import('./BoundaryBrawlMode'));
+const BossRaidMode = lazy(() => import('./BossRaidMode'));
 import TauntNotificationToast from './TauntNotificationToast';
 import TauntTriggerButton from './TauntTriggerButton';
 import CelebrationBroadcastOverlay from './CelebrationBroadcastOverlay';
@@ -1508,7 +1509,9 @@ export default function LiveMode() {
                   </label>
                   <input
                     id="role-passcode-input"
+                    name="role-passcode-input"
                     type="password"
+                    autoComplete="current-password"
                     inputMode="numeric"
                     pattern="[0-9]*"
                     maxLength={4}
@@ -1525,9 +1528,9 @@ export default function LiveMode() {
                 </div>
 
                 <div style={{ marginBottom: '1.5rem' }}>
-                  <label style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
+                  <div style={{ display: 'block', fontWeight: 800, fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '0.4rem' }}>
                     Avatar Selection:
-                  </label>
+                  </div>
                   <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {AVATARS.map((av) => (
                       <button
@@ -1968,8 +1971,14 @@ export default function LiveMode() {
                   </label>
                   {hostSettings.hostParticipates && (
                     <div style={{ marginTop: '0.6rem' }}>
+                      <label htmlFor="host-nickname-input" className="visually-hidden">
+                        Host Nickname
+                      </label>
                       <input
+                        id="host-nickname-input"
+                        name="host-nickname-input"
                         type="text"
+                        aria-label="Host Nickname"
                         className="input-field"
                         placeholder="Your Nickname (e.g. Captain Host)"
                         value={hostSettings.hostNickname || ''}
@@ -3087,7 +3096,9 @@ export default function LiveMode() {
               </label>
               <input
                 id="passcode-input"
+                name="passcode-input"
                 type="password"
+                autoComplete="current-password"
                 inputMode="numeric"
                 pattern="[0-9]*"
                 maxLength={4}
@@ -3104,9 +3115,9 @@ export default function LiveMode() {
             </div>
 
             <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', fontWeight: 700, marginBottom: '0.4rem' }}>
+              <div style={{ display: 'block', fontWeight: 700, marginBottom: '0.4rem' }}>
                 Pick an Avatar:
-              </label>
+              </div>
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {AVATARS.map((av) => (
                   <button

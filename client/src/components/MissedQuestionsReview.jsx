@@ -180,8 +180,13 @@ export default function MissedQuestionsReview() {
 
             {/* Keyword Search Input */}
             <div style={{ position: 'relative', minWidth: '260px', flex: 1, maxWidth: '420px' }}>
+              <label htmlFor="missed-questions-search" className="visually-hidden">
+                Search missed questions
+              </label>
               <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
               <input
+                id="missed-questions-search"
+                name="missed-questions-search"
                 type="text"
                 className="input-field"
                 placeholder="Search topic, WCAG criterion, or law..."

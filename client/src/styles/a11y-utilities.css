@@ -1,0 +1,151 @@
+/* ==========================================================================
+   Font Size Scaling (WCAG 1.4.4 Resize Text)
+   ========================================================================== */
+body.font-scale-115 {
+  font-size: 1.15rem;
+}
+body.font-scale-130 {
+  font-size: 1.3rem;
+}
+body.font-scale-150 {
+  font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   Font Families (WCAG 3.0 Cognitive & Dyslexia Readability)
+   ========================================================================== */
+body.font-atkinson {
+  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif !important;
+}
+body.font-opendyslexic {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive, sans-serif !important;
+}
+body.font-mono {
+  font-family: 'Space Mono', 'Courier New', monospace !important;
+}
+body.font-system {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* ==========================================================================
+   Enhanced Text Spacing (WCAG 1.4.12 Text Spacing)
+   ========================================================================== */
+body.text-spacing-enhanced * {
+  line-height: 1.8 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+body.text-spacing-enhanced p {
+  margin-bottom: 2em !important;
+}
+
+/* ==========================================================================
+   High-Visibility Focus Halo (WCAG 2.4.13 Focus Appearance)
+   ========================================================================== */
+body.focus-ring-enhanced *:focus-visible {
+  outline: 5px solid #facc15 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 8px rgba(250, 204, 21, 0.35) !important;
+}
+
+/* ==========================================================================
+   Reading Focus Ruler Guide
+   ========================================================================== */
+.reading-ruler-guide {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: rgba(250, 204, 21, 0.12);
+  border-top: 2px solid #facc15;
+  border-bottom: 2px solid #facc15;
+  pointer-events: none;
+  z-index: 9999;
+  transition: top 0.05s ease-out;
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.05) 0%, transparent 65%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Accessibility Focus Outline — Offset Electric Yellow Ring */
+*:focus-visible {
+  outline: 3px solid var(--focus-ring) !important;
+  outline-offset: 4px !important;
+  z-index: 50;
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* Visually Hidden Utility with focus-within opt-out for skip links */
+.visually-hidden:where(:not(:focus-within, :active)),
+.sr-only:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Target Size Minimum (WCAG 2.2 SC 2.5.8) using logical min dimensions */
+button,
+a:any-link,
+input,
+select,
+[role="button"],
+[role="tab"],
+[role="radio"] {
+  min-block-size: 24px;
+  min-inline-size: 24px;
+}

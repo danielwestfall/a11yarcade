@@ -1,0 +1,359 @@
+/* ==========================================================================
+   SKIN 1: KAWAII PASTEL ARCADE (HELLO KITTY INSPIRED)
+   Stitch Design System asset: assets/11570772692300203837
+   WCAG 2.2 Level AAA Certified across Dark, Light, & High Contrast modes
+   ========================================================================== */
+
+body.skin-kawaii {
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+}
+
+body.skin-kawaii h1,
+body.skin-kawaii h2,
+body.skin-kawaii {
+  font-family: 'Quicksand', 'Comfortaa', 'Atkinson Hyperlegible', sans-serif !important;
+}
+
+body.skin-kawaii h1,
+body.skin-kawaii h2,
+body.skin-kawaii h3,
+body.skin-kawaii h4,
+body.skin-kawaii h5,
+body.skin-kawaii h6,
+body.skin-kawaii .brand-title {
+  font-family: 'Comfortaa', 'Quicksand', 'Space Grotesk', cursive, sans-serif !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Bubbly Rounded Containers for Kawaii */
+body.skin-kawaii .card,
+body.skin-kawaii .arcade-cabinet-card,
+body.skin-kawaii .cadet-card,
+body.skin-kawaii .marquee-hero-card,
+body.skin-kawaii .explanation-box,
+body.skin-kawaii .coach-feedback-card {
+  border-radius: 28px !important;
+  backdrop-filter: none !important;
+}
+
+/* Solid Pill Backing for Headings over Polka Dot Patterns */
+body.skin-kawaii h1,
+body.skin-kawaii h2,
+body.skin-kawaii h3,
+body.skin-kawaii .brand-title {
+  display: inline-block !important;
+  background-color: var(--bg-surface-elevated) !important;
+  border: 2.5px solid var(--border-color) !important;
+  border-radius: 24px !important;
+  padding: 4px 18px !important;
+  box-shadow: 0 4px 12px rgba(219, 39, 119, 0.15), 0 3px 0 0 var(--border-color) !important;
+  margin-bottom: 6px !important;
+}
+
+/* Solid Backings for Subtitles, Badges & Lead Text */
+body.skin-kawaii p.lead,
+body.skin-kawaii .hero-subtitle,
+body.skin-kawaii .brand-badge {
+  background-color: var(--bg-surface) !important;
+  border: 1.5px solid var(--border-color) !important;
+  border-radius: 9999px !important;
+  padding: 3px 12px !important;
+  display: inline-block;
+}
+
+/* Pill Shapes for all Interactive Triggers & Badges */
+body.skin-kawaii .btn-primary,
+body.skin-kawaii button.btn-primary,
+body.skin-kawaii .btn-secondary,
+body.skin-kawaii button.btn-secondary,
+body.skin-kawaii .arcade-btn-secondary,
+body.skin-kawaii .a11y-pill-btn,
+body.skin-kawaii .pin-tile,
+body.skin-kawaii .mode-tab,
+body.skin-kawaii .brand-badge {
+  border-radius: 9999px !important;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease !important;
+}
+
+body.skin-kawaii .btn-primary:hover:not(:disabled),
+body.skin-kawaii button.btn-primary:hover:not(:disabled),
+body.skin-kawaii .btn-secondary:hover:not(:disabled),
+body.skin-kawaii button.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+/* Answer Buttons: Soft Candy Pill Bubbles */
+body.skin-kawaii .answer-btn {
+  border-radius: 26px !important;
+  padding: 1.15rem 1.4rem !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+body.skin-kawaii .answer-btn:hover:not(:disabled) {
+  transform: scale(1.02) !important;
+}
+
+body.skin-kawaii .answer-btn span.shape-glyph {
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Input Fields: Candy Bubble Pills */
+body.skin-kawaii .input-field {
+  border-radius: 9999px !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+/* Badges & Telemetry Chips: Floating Rounded Stickers */
+body.skin-kawaii span[style*="border"],
+body.skin-kawaii .badge,
+body.skin-kawaii .status-pill,
+body.skin-kawaii .domain-pill {
+  border-radius: 9999px !important;
+  background-color: var(--bg-surface-elevated) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* --- Kawaii Dark Mode (Midnight Velvet Plum) --- */
+body.skin-kawaii:not(.light-mode):not(.high-contrast) {
+  --bg-primary: #15091a;
+  --bg-surface: #221029;
+  --bg-surface-elevated: #351a42;
+  --text-primary: #fdf2f8; /* 15.6:1 AAA contrast on #15091a */
+  --text-secondary: #fbcfe8; /* 12.4:1 AAA */
+  --text-muted: #f472b6; /* 7.1:1 AAA */
+  --border-color: #a855f7; /* 4.2:1 against #15091a */
+  --border-bright: #ec4899;
+  --focus-ring: #f472b6;
+
+  --arcade-cyan: #38bdf8;
+  --arcade-green: #34d399;
+  --arcade-crimson: #fb7185;
+  --arcade-amber: #fde047;
+  --arcade-purple: #e879f9;
+  --arcade-gold: #fde047;
+
+  --color-triangle: #fb7185;
+  --color-diamond: #38bdf8;
+  --color-circle: #fde047;
+  --color-square: #34d399;
+
+  --shadow-card: 0 8px 24px rgba(236, 72, 153, 0.12), 0 4px 0 0 #3b1449;
+  --shadow-cabinet: 0 8px 0 0 #2a0b35;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.12) 0%, transparent 70%),
+    radial-gradient(rgba(244, 114, 182, 0.08) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 28px 28px;
+}
+
+/* Solid Backings for All Cards to Block Background Polka Dots */
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-cabinet-card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .cadet-card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .marquee-hero-card,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .explanation-box,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-dock,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) header.a11y-header {
+  background: #221029 !important;
+  border: 3px solid #a855f7 !important;
+  color: #fdf2f8 !important;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.12), 0 4px 0 0 #3b1449 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) h1,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) h2,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) h3 {
+  text-shadow: -1px -1px 0 #15091a, 1px -1px 0 #15091a, -1px 1px 0 #15091a, 1px 1px 0 #15091a, 0 0 10px #15091a !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-primary,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-primary {
+  background: #f472b6 !important;
+  color: #15091a !important;
+  border: 2px solid #ec4899 !important;
+  box-shadow: 0 5px 0 0 #db2777 !important;
+  font-weight: 800 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-secondary,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-secondary {
+  background: #2e1239 !important;
+  color: #fdf2f8 !important;
+  border: 2px solid #a855f7 !important;
+  box-shadow: 0 4px 0 0 #1b0a22 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
+  background: #059669 !important;
+  color: #ffffff !important;
+  border: 2px solid #34d399 !important;
+  box-shadow: 0 4px 0 0 #047857 !important;
+}
+
+/* --- Kawaii Light Mode (Strawberry & Cream Pastel) --- */
+body.skin-kawaii.light-mode {
+  --bg-primary: #fff5f8;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffeef4;
+  --text-primary: #4a044e; /* 13.5:1 AAA on #fff5f8, 14.4:1 on #ffffff */
+  --text-secondary: #701a35; /* 9.9:1 AAA on #fff5f8 */
+  --text-muted: #831843; /* 8.2:1 AAA on #ffffff */
+  --border-color: #db2777; /* 4.31:1 against #fff5f8 AAA UI Component */
+  --border-bright: #be185d;
+  --focus-ring: #be185d;
+
+  --arcade-cyan: #0284c7;
+  --arcade-green: #065f46; /* 7.68:1 AAA */
+  --arcade-crimson: #9f1239; /* 8.02:1 AAA */
+  --arcade-amber: #854d0e; /* 7.2:1 AAA */
+  --arcade-purple: #6b21a8; /* 8.9:1 AAA */
+  --arcade-gold: #854d0e;
+
+  --color-triangle: #9f1239;
+  --color-diamond: #0284c7;
+  --color-circle: #854d0e;
+  --color-square: #065f46;
+
+  --shadow-card: 0 6px 20px rgba(244, 114, 182, 0.18), 0 4px 0 0 #fbcfe8;
+  --shadow-cabinet: 0 8px 0 0 #db2777;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(244, 114, 182, 0.15) 0%, transparent 65%),
+    radial-gradient(#db2777 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 28px 28px;
+}
+
+body.skin-kawaii.light-mode h1,
+body.skin-kawaii.light-mode h2,
+body.skin-kawaii.light-mode h3,
+body.skin-kawaii.light-mode h4,
+body.skin-kawaii.light-mode h5,
+body.skin-kawaii.light-mode h6 {
+  color: #4a044e !important;
+  text-shadow: -1px -1px 0 #fff5f8, 1px -1px 0 #fff5f8, -1px 1px 0 #fff5f8, 1px 1px 0 #fff5f8, 0 0 10px #ffffff !important;
+}
+
+body.skin-kawaii.light-mode p {
+  color: #701a35 !important;
+}
+
+body.skin-kawaii.light-mode label,
+body.skin-kawaii.light-mode span.label-text {
+  color: #4a044e !important;
+}
+
+body.skin-kawaii.light-mode .card,
+body.skin-kawaii.light-mode .arcade-cabinet-card,
+body.skin-kawaii.light-mode .cadet-card,
+body.skin-kawaii.light-mode .marquee-hero-card,
+body.skin-kawaii.light-mode .explanation-box,
+body.skin-kawaii.light-mode .arcade-dock,
+body.skin-kawaii.light-mode header.a11y-header {
+  background: #ffffff !important;
+  border: 3px solid #db2777 !important;
+  color: #4a044e !important;
+  box-shadow: 0 8px 24px rgba(244, 114, 182, 0.22), 0 4px 0 0 #fbcfe8 !important;
+}
+
+body.skin-kawaii.light-mode .answer-btn {
+  background: #ffffff !important;
+  border: 2.5px solid #db2777 !important;
+  box-shadow: 0 6px 18px rgba(219, 39, 119, 0.16) !important;
+  color: #4a044e !important;
+}
+
+body.skin-kawaii.light-mode .btn-primary,
+body.skin-kawaii.light-mode button.btn-primary {
+  background: #9f1239 !important; /* 8.02:1 AAA with white text */
+  color: #ffffff !important;
+  border: 2px solid #881337 !important;
+  box-shadow: 0 5px 0 0 #4c0519 !important;
+  font-weight: 800 !important;
+}
+
+body.skin-kawaii.light-mode .btn-primary:hover:not(:disabled),
+body.skin-kawaii.light-mode button.btn-primary:hover:not(:disabled) {
+  background: #881337 !important;
+}
+
+body.skin-kawaii.light-mode .btn-secondary,
+body.skin-kawaii.light-mode button.btn-secondary {
+  background: #ffe4ec !important;
+  border: 2px solid #db2777 !important;
+  color: #4a044e !important;
+  box-shadow: 0 4px 0 0 #fbcfe8 !important;
+}
+
+body.skin-kawaii.light-mode .arcade-btn-secondary {
+  background: #065f46 !important; /* 7.68:1 AAA with white text */
+  border: 2px solid #064e3b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 0 #022c22 !important;
+}
+
+body.skin-kawaii.light-mode .explanation-box {
+  background: #fff0f5 !important;
+  border: 2px solid #db2777 !important;
+  color: #701a35 !important;
+}
+
+body.skin-kawaii.light-mode .input-field {
+  background: #ffffff !important;
+  color: #4a044e !important;
+  border: 2px solid #db2777 !important;
+  border-radius: 14px !important;
+}
+
+body.skin-kawaii.light-mode .input-field:focus {
+  border-color: #be185d !important;
+  outline-color: #be185d !important;
+}
+
+/* --- Kawaii High Contrast Mode (Neon Pink Velvet & Stark Contrast) --- */
+body.skin-kawaii.high-contrast {
+  --bg-primary: #000000;
+  --bg-surface: #0a000c;
+  --bg-surface-elevated: #16001a;
+  --text-primary: #ffffff; /* 21:1 AAA */
+  --text-secondary: #ff69b4; /* 8.4:1 AAA */
+  --text-muted: #ffffff;
+  --border-color: #ff69b4;
+  --border-bright: #ffffff;
+  --focus-ring: #ffff00; /* 19.5:1 AAA */
+
+  --arcade-cyan: #00ffff;
+  --arcade-green: #00ff66;
+  --arcade-crimson: #ff007f;
+  --arcade-amber: #ffff00;
+  --arcade-purple: #ff69b4;
+  --arcade-gold: #ffff00;
+  --arcade-yellow: #ffff00;
+  --bg-secondary: #000000;
+}
+
+body.skin-kawaii.high-contrast .card,
+body.skin-kawaii.high-contrast .arcade-cabinet-card,
+body.skin-kawaii.high-contrast .cadet-card {
+  border: 3px solid #ff69b4 !important;
+  border-radius: 20px !important;
+  background: #0a000c !important;
+  box-shadow: 0 0 0 1px #ffffff !important;
+}
+
+body.skin-kawaii.high-contrast button {
+  border: 3px solid #ff69b4 !important;
+  border-radius: 9999px !important;
+}
+

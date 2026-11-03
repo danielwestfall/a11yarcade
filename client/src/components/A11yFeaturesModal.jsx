@@ -28,8 +28,13 @@ export default function A11yFeaturesModal({
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
   const previousActiveElement = useRef(null);
+  const onCloseRef = useRef(onClose);
 
-  // Focus trap & Escape key handler
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  // Focus trap & Escape key handler (runs strictly when modal opens/closes)
   useEffect(() => {
     if (isOpen) {
       previousActiveElement.current = document.activeElement;
@@ -40,12 +45,12 @@ export default function A11yFeaturesModal({
       const handleKeyDown = (e) => {
         if (e.key === 'Escape') {
           e.preventDefault();
-          onClose();
+          onCloseRef.current();
         }
 
         if (e.key === 'Tab' && modalRef.current) {
           const focusable = modalRef.current.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
           );
           if (focusable.length === 0) return;
 
@@ -65,12 +70,12 @@ export default function A11yFeaturesModal({
       window.addEventListener('keydown', handleKeyDown);
       return () => {
         window.removeEventListener('keydown', handleKeyDown);
-        if (previousActiveElement.current) {
+        if (previousActiveElement.current && typeof previousActiveElement.current.focus === 'function') {
           previousActiveElement.current.focus();
         }
       };
     }
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -123,7 +128,8 @@ export default function A11yFeaturesModal({
         justifyContent: 'center',
         zIndex: 2000,
         padding: '1rem',
-        overflowY: 'auto'
+        overflowY: 'auto',
+        overscrollBehavior: 'contain'
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -144,6 +150,7 @@ export default function A11yFeaturesModal({
           width: '100%',
           maxHeight: '90vh',
           overflowY: 'auto',
+          overscrollBehavior: 'contain',
           border: '2px solid var(--border-bright)',
           boxShadow: '8px 8px 0px 0px #040810',
           background: 'var(--bg-surface)',
@@ -155,7 +162,7 @@ export default function A11yFeaturesModal({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '2px solid var(--border-color)', paddingBottom: '1rem', marginBottom: '1.5rem', gap: '1rem' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-              <span style={{ fontSize: '1.5rem' }}>♿</span>
+              <span aria-hidden="true" style={{ fontSize: '1.5rem' }}>♿</span>
               <h2 id="a11y-modal-title" style={{ fontSize: '1.45rem', fontWeight: 900, fontFamily: "'Space Grotesk', sans-serif", color: '#ffffff', margin: 0 }}>
                 ACCESSIBILITY & DISPLAY CONTROLS
               </h2>
@@ -174,9 +181,9 @@ export default function A11yFeaturesModal({
             }}
             className="a11y-pill-btn"
             style={{ padding: '0.4rem 0.65rem' }}
-            aria-label="Close accessibility controls modal (Escape)"
+            aria-label="ESC: Close accessibility controls modal"
           >
-            <X size={20} />
+            <X size={20} aria-hidden="true" />
             <span style={{ fontSize: '0.78rem' }}>ESC</span>
           </button>
         </div>
@@ -620,10 +627,10 @@ export default function A11yFeaturesModal({
               {/* Audio Synthesizer Controls */}
               <div style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-color)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 800, fontSize: '0.88rem' }}>
-                    {preferences.soundMuted ? <VolumeX size={16} color="#ef4444" /> : <Volume2 size={16} color="#10b981" />}
+                  <label htmlFor="a11y-volume-slider" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 800, fontSize: '0.88rem', cursor: 'pointer' }}>
+                    {preferences.soundMuted ? <VolumeX size={16} color="#ef4444" aria-hidden="true" /> : <Volume2 size={16} color="#10b981" aria-hidden="true" />}
                     <span>Sound Volume: {preferences.soundMuted ? 'Muted' : `${Math.round(preferences.soundVolume * 100)}%`}</span>
-                  </div>
+                  </label>
                   <button
                     type="button"
                     onClick={() => {
@@ -639,6 +646,7 @@ export default function A11yFeaturesModal({
                 </div>
 
                 <input
+                  id="a11y-volume-slider"
                   type="range"
                   min="0"
                   max="1"
@@ -655,7 +663,6 @@ export default function A11yFeaturesModal({
                     soundManager.playTick(1);
                   }}
                   style={{ width: '100%', cursor: 'pointer' }}
-                  aria-label="Sound effects volume slider"
                 />
               </div>
             </div>

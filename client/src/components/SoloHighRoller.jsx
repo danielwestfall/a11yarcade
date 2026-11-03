@@ -285,16 +285,19 @@ export default function SoloHighRoller({ onBack }) {
             {/* Slider */}
             <div style={{ textAlign: 'left', marginBottom: '1.25rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
-                <span>Custom Wager:</span>
+                <label htmlFor="solo-high-roller-wager">Custom Wager:</label>
                 <strong style={{ color: '#eab308' }}>{myWager} Chips</strong>
               </div>
               <input
+                id="solo-high-roller-wager"
+                name="solo-high-roller-wager"
                 type="range"
                 min="10"
                 max={Math.max(10, myChips)}
                 step="10"
                 value={myWager}
                 onChange={(e) => setMyWager(parseInt(e.target.value, 10))}
+                aria-label="Custom Wager in Chips"
                 style={{ width: '100%', accentColor: '#eab308', cursor: 'pointer' }}
               />
             </div>

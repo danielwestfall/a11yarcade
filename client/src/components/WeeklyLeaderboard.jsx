@@ -228,8 +228,13 @@ export default function WeeklyLeaderboard() {
 
           {/* Search Cadet Input */}
           <div style={{ position: 'relative', minWidth: '260px', flex: 1, maxWidth: '400px' }}>
+            <label htmlFor="leaderboard-search-input" className="visually-hidden">
+              Search leaderboard by cadet nickname
+            </label>
             <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
             <input
+              id="leaderboard-search-input"
+              name="leaderboard-search-input"
               type="text"
               className="input-field"
               placeholder="Search cadet or specialist..."

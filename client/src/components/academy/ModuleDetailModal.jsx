@@ -296,6 +296,7 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         alignItems: 'center',
         justifyContent: 'center',
         padding: '1rem',
+        overscrollBehavior: 'contain',
         animation: 'fadeIn 0.15s ease'
       }}
       onClick={(e) => {
@@ -317,7 +318,8 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
           display: 'flex',
           flexDirection: 'column',
           boxShadow: '0 20px 40px rgba(0,0,0,0.7)',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          overscrollBehavior: 'contain'
         }}
       >
         {/* Modal Top Bar */}

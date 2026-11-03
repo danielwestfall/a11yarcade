@@ -271,8 +271,13 @@ export default function QuestionBankExplorer() {
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
             {/* Search Input */}
             <div style={{ position: 'relative', flex: 1, minWidth: '280px' }}>
+              <label htmlFor="explorer-search-input" className="visually-hidden">
+                Search questions by topic, keyword or law
+              </label>
               <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
               <input
+                id="explorer-search-input"
+                name="explorer-search-input"
                 type="text"
                 className="input-field"
                 placeholder="Search by topic, keyword, WCAG criterion, law, or citation..."
