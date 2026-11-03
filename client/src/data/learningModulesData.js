@@ -2789,6 +2789,249 @@ export const LEARNING_MODULES = [
         explanation: 'Floating unanchored objects are placed at the end of the page content stream or in arbitrary order based on visual z-index. Anchoring the graphic inline guarantees it appears adjacent to its textual reference in the reading order.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-accommodations-ud',
+    cert: 'CPACC',
+    domainId: 'CPACC-D2',
+    domainLabel: 'Domain 2: Accessibility & Universal Design',
+    sectionId: 'CPACC-D2-A',
+    sectionLabel: 'Individualized Accommodations and Universal Design',
+    citation: 'IAAP CPACC BoK V3, Domain 2.A (Individualized Accommodations and Universal Design), Job Accommodation Network (JAN) & ADA Title I',
+    title: 'Individual Accommodations vs Systemic Universal Design',
+    summary: 'Distinguish between reactive individualized accommodations (retrofits for an individual upon medical disclosure) and proactive systemic universal design (built-in, stigma-free access for all), backed by Job Accommodation Network (JAN) cost metrics.',
+    duration: '22 mins',
+    level: 'Core',
+    interactiveType: 'accommodations-vs-universal-design-lab',
+    learningObjectives: [
+      'Distinguish the philosophical, operational, and legal differences between individualized accommodations and universal design.',
+      'Cite empirical research from the Job Accommodation Network (JAN) establishing that over 50% of workplace accommodations cost $0.',
+      'Analyze the economic and social benefits of systemic universal design over continuous reactive retrofits.',
+      'Apply the legal thresholds of "Undue Hardship" and the "Interactive Process" under ADA Title I and international employment conventions.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Reactive Accommodation vs Proactive Universal Design',
+        explanation: 'Individualized accommodations are reactive, bespoke modifications implemented only after an individual formally discloses a disability and requests adjustments (e.g. purchasing a specialized screen magnifier). Universal design is proactive and systemic—designing tools, environments, and curricula from the start so that virtually everyone can use them naturally without retrofits.'
+      },
+      {
+        title: 'JAN Workplace Cost Realities (56% Cost $0)',
+        explanation: 'Hiring managers often fear that accommodating employees with disabilities requires immense financial expense. Long-term studies by the Job Accommodation Network (JAN) demonstrate that 56% of workplace accommodations cost nothing ($0), and the median one-time cost for the remaining minority is approximately $500.'
+      },
+      {
+        title: 'The Legal Threshold of "Undue Hardship"',
+        explanation: 'Under ADA Title I and global labor statutes, an employer must provide reasonable accommodations unless doing so imposes an "undue hardship"—defined legally as requiring significant difficulty or expense relative to the overall financial resources, size, and operational budget of the entire employer.'
+      },
+      {
+        title: 'Privacy & The Interactive Dialogue Process',
+        explanation: 'Accommodations must be determined through a collaborative, confidential "interactive process" between employee and employer. Inquiries and medical documentation must be strictly confined to verifying the functional limitations that impact essential job duties, protecting employee privacy.'
+      }
+    ],
+    practicalTakeaways: [
+      'Proactive universal design eliminates the need for 80% of individual accommodation requests by making standard tools accessible by default.',
+      'Over 50% of workplace accommodations cost $0 (flexible hours, telework, quiet desk, existing software feature toggles).',
+      'Accommodations can never be denied on financial grounds unless the cost constitutes an undue hardship on the entire organization.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-accom-1',
+        question: 'According to empirical data collected by the Job Accommodation Network (JAN), what is the cost of the majority of workplace accommodations?',
+        options: [
+          { id: 'A', text: 'More than $10,000 per employee' },
+          { id: 'B', text: '56% of accommodations cost exactly $0, and the median cost for the remainder is around $500' },
+          { id: 'C', text: 'Accommodations must legally equal 15% of annual company profit' },
+          { id: 'D', text: 'Every accommodation requires a permanent paid personal assistant' }
+        ],
+        answer: 'B',
+        explanation: 'The Job Accommodation Network (JAN) has consistently shown that 56% of workplace accommodations have zero direct cost (such as schedule adjustments or telework), and the median one-time expenditure for those that do have a cost is approximately $500.'
+      },
+      {
+        id: 'kc-cpacc-accom-2',
+        question: 'How does Universal Design differ from Individualized Accommodations in an educational or corporate environment?',
+        options: [
+          { id: 'A', text: 'Accommodations are reactive retrofits for a specific individual after disclosure; Universal Design is proactive systemic design usable by all without retrofits or disclosure' },
+          { id: 'B', text: 'Accommodations are legally required, whereas Universal Design is outlawed' },
+          { id: 'C', text: 'Universal Design only applies to architecture, while accommodations only apply to software' },
+          { id: 'D', text: 'Accommodations are always free, while Universal Design is always expensive' }
+        ],
+        answer: 'A',
+        explanation: 'Accommodations are reactive, one-off modifications tailored to a single individual after formal disability disclosure. Universal design is proactive and systemic, creating environments and digital tools that work for the widest possible audience by default without requiring disclosure.'
+      },
+      {
+        id: 'kc-cpacc-accom-3',
+        question: 'Under ADA Title I, what standard must an employer meet to lawfully deny a requested reasonable accommodation on financial grounds?',
+        options: [
+          { id: 'A', text: 'The employer must prove that the accommodation creates an Undue Hardship—requiring significant difficulty or expense relative to the total financial resources of the entire employer' },
+          { id: 'B', text: 'The employer simply needs to show that the department spent its annual petty cash budget' },
+          { id: 'C', text: 'The employer must obtain unanimous permission from the employee\'s coworkers' },
+          { id: 'D', text: 'The employer only needs to state that the request is inconvenient' }
+        ],
+        answer: 'A',
+        explanation: 'An employer can only deny a reasonable accommodation under the ADA if it can demonstrate that providing it would impose an "undue hardship"—defined as an action requiring significant difficulty or expense when assessed against the employer\'s overall budget and operational resources.'
+      }
+    ]
+  },
+  {
+    id: 'mod-cpacc-pour-principles',
+    cert: 'CPACC',
+    domainId: 'CPACC-D2',
+    domainLabel: 'Domain 2: Accessibility & Universal Design',
+    sectionId: 'CPACC-D2-C',
+    sectionLabel: 'WCAG Principles and Application',
+    citation: 'IAAP CPACC BoK V3, Domain 2.C (WCAG Principles and Application), W3C WCAG 2.1/2.2 & W3C WCAG2ICT Guidance',
+    title: 'WCAG POUR Principles & Non-Web ICT Application',
+    summary: 'Master the four foundational pillars of digital accessibility—Perceivable, Operable, Understandable, Robust (POUR)—and learn how to apply them across web pages, mobile apps, digital documents, and closed self-service kiosks (WCAG2ICT).',
+    duration: '24 mins',
+    level: 'Core',
+    interactiveType: 'wcag-pour-principles-lab',
+    learningObjectives: [
+      'Define each of the 4 WCAG foundational principles: Perceivable, Operable, Understandable, and Robust (POUR).',
+      'Map specific user barriers and WCAG success criteria to their governing POUR principle.',
+      'Apply the W3C WCAG2ICT guidance to extend POUR principles to non-web software, mobile applications, and electronic documents.',
+      'Evaluate closed-functionality products (ATMs, ticketing kiosks) under Principle 1 (speech output) and Principle 2 (tactile keys).'
+    ],
+    keyConcepts: [
+      {
+        title: 'Principle 1: Perceivable (Sensory Access)',
+        explanation: 'Information and user interface components must be presentable to users in ways they can perceive; content cannot be invisible to all of a user\'s senses. Governs text alternatives for non-text content (1.1.1), captions and transcripts for multimedia (1.2), color contrast (1.4.3), and responsive reflow (1.4.10).'
+      },
+      {
+        title: 'Principle 2: Operable (Interaction & Navigation)',
+        explanation: 'User interface components and navigation must be operable; the interface cannot require an interaction that a user cannot perform. Governs keyboard accessibility (2.1.1), absence of keyboard traps (2.1.2), sufficient time (2.2.1), seizure prevention (2.3), and minimum touch target sizes (2.5.8).'
+      },
+      {
+        title: 'Principle 3: Understandable (Comprehension & Predictability)',
+        explanation: 'Information and the operation of the user interface must be understandable; the content or operation cannot be beyond the user\'s understanding. Governs language identification (3.1.1), predictable focus and input behavior (3.2.1, 3.2.2), and clear error identification and correction suggestions (3.3.1, 3.3.3).'
+      },
+      {
+        title: 'Principle 4: Robust (Compatibility & Longevity)',
+        explanation: 'Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies. Governs semantic markup, exposing accessible Name, Role, and Value for all interactive components (4.1.2), and status messages via ARIA live regions (4.1.3).'
+      }
+    ],
+    practicalTakeaways: [
+      'Every accessibility failure maps directly back to a breakdown in one of the 4 POUR principles.',
+      'Under WCAG2ICT, closed kiosks fulfill Principle 1 by providing speech output via a headphone jack because users cannot connect personal screen readers.',
+      'Principle 4 (Robust) requires code to work with future assistive technologies by adhering strictly to standard platform accessibility APIs.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-pour-1',
+        question: 'Which WCAG foundation principle is violated when an interactive website requires a user to perform complex multi-touch gestures (like pinching or 3-finger swiping) with no simple single-pointer alternative?',
+        options: [
+          { id: 'A', text: 'Principle 1: Perceivable' },
+          { id: 'B', text: 'Principle 2: Operable' },
+          { id: 'C', text: 'Principle 3: Understandable' },
+          { id: 'D', text: 'Principle 4: Robust' }
+        ],
+        answer: 'B',
+        explanation: 'Principle 2 (Operable) requires that users be able to interact with and control the interface. Requiring multi-finger gestures with no single-pointer alternative violates WCAG 2.5.1 (Pointer Gestures), which is an Operable criterion.'
+      },
+      {
+        id: 'kc-cpacc-pour-2',
+        question: 'Under W3C WCAG2ICT guidance, how does a closed-functionality touchscreen ticketing kiosk satisfy Principle 1 (Perceivable) for blind users who cannot install their own screen reader?',
+        options: [
+          { id: 'A', text: 'By providing an on-board speech synthesizer that outputs audio instructions through a standard 3.5mm headphone jack' },
+          { id: 'B', text: 'By printing an informational paper flyer and placing it on top of the kiosk' },
+          { id: 'C', text: 'By flashing bright strobe lights when a button is pressed' },
+          { id: 'D', text: 'Closed kiosks are exempt from all POUR requirements' }
+        ],
+        answer: 'A',
+        explanation: 'In closed products where users cannot attach personal assistive technologies, Principle 1 (Perceivable) requires the hardware to provide built-in speech output (auditory presentation of visual content) accessible via a standard audio jack or speaker.'
+      },
+      {
+        id: 'kc-cpacc-pour-3',
+        question: 'When a web application uses non-standard HTML <div> tags to build custom tabs and buttons without exposing their ARIA role, name, or expanded state to assistive technologies, which POUR principle is violated?',
+        options: [
+          { id: 'A', text: 'Principle 1: Perceivable' },
+          { id: 'B', text: 'Principle 2: Operable' },
+          { id: 'C', text: 'Principle 3: Understandable' },
+          { id: 'D', text: 'Principle 4: Robust' }
+        ],
+        answer: 'D',
+        explanation: 'Principle 4 (Robust) mandates that content must be interpretable reliably by user agents and assistive technologies. WCAG 4.1.2 (Name, Role, Value) is the core criterion of Principle 4, requiring semantic roles and states to be exposed to accessibility APIs.'
+      }
+    ]
+  },
+  {
+    id: 'mod-cpacc-ict-procurement',
+    cert: 'CPACC',
+    domainId: 'CPACC-D3',
+    domainLabel: 'Domain 3: Standards, Laws & Management',
+    sectionId: 'CPACC-D3-E',
+    sectionLabel: 'Applying Accessibility Standards and Regulations to ICT',
+    citation: 'IAAP CPACC BoK V3, Domain 3.E (Applying Accessibility Standards and Regulations to ICT), Section 508 (36 CFR 1194) & EN 301 549 V3.2.1',
+    title: 'Applying Standards to ICT & Technical Specifications',
+    summary: 'Master the scoping and application of digital accessibility standards across information and communication technology (ICT): Section 508, EN 301 549, closed functionality kiosks, Real-Time Text (RTT), and procurement RFP requirements.',
+    duration: '24 mins',
+    level: 'Core',
+    interactiveType: 'ict-standards-procurement-lab',
+    learningObjectives: [
+      'Identify how technical accessibility standards apply across diverse ICT domains: web, electronic documents, non-web software, telecommunications, and closed hardware.',
+      'Explain the global harmonization of Section 508, EN 301 549, and JIS X 8341-3 around W3C WCAG 2.1 Level AA.',
+      'Evaluate specific requirements for closed functionality products (Section 508 Chapter 4 / EN 301 549 Clause 5), including audio output and tactile orientation.',
+      'Draft and enforce contractual accessibility specifications, VPAT/ACR evaluation criteria, and remediation service level agreements (SLAs).'
+    ],
+    keyConcepts: [
+      {
+        title: 'Global Technical Harmonization (WCAG 2.1 AA)',
+        explanation: 'Rather than maintaining divergent national standards, major global procurement frameworks—including US Revised Section 508, European Standard EN 301 549, and Japanese Standard JIS X 8341-3—have harmonized around W3C WCAG 2.1 Level AA as their unified technical core.'
+      },
+      {
+        title: 'Closed Functionality Hardware (Kiosks, ATMs, Printers)',
+        explanation: 'Closed functionality refers to ICT where users cannot attach their own assistive technologies or install software. Standards mandate that closed systems must provide built-in speech output, standard 3.5mm audio jacks, volume amplification (up to 20 dB gain), tactile key markers (dot on the "5"), and operable reach ranges between 15" and 48" above the floor.'
+      },
+      {
+        title: 'Real-Time Text (RTT) for Telecommunications',
+        explanation: 'Under Section 508 Section 412 and EN 301 549 Clause 6, two-way voice communication systems must support Real-Time Text (RTT). Unlike conventional messaging where text is transmitted after clicking "send", RTT transmits characters instantaneously as typed, enabling natural conversation and vital 911 emergency communication.'
+      },
+      {
+        title: 'Procurement Governance & Contractual SLAs',
+        explanation: 'Procuring accessible ICT requires embedding technical requirements into Requests for Proposals (RFPs), evaluating vendor Accessibility Conformance Reports (ACRs), and binding vendors to contractual warranties with mandatory 30-to-60-day defect remediation SLAs at the vendor\'s expense.'
+      }
+    ],
+    practicalTakeaways: [
+      'WCAG 2.1 AA applies not just to websites, but across PDFs, native mobile apps, desktop software, and closed self-service hardware.',
+      'Closed products must provide built-in speech synthesis and an audio jack because users cannot run personal screen readers on them.',
+      'Never accept a vendor VPAT at face value without an enforceable contractual remediation SLA in the Master Services Agreement.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-ict-1',
+        question: 'Under US Revised Section 508 Chapter 4 and European Standard EN 301 549 Clause 5, what must a closed-functionality ATM or self-service airport kiosk provide for blind users?',
+        options: [
+          { id: 'A', text: 'A magnifying glass chained to the machine' },
+          { id: 'B', text: 'Built-in speech output, volume control, a standard 3.5mm audio headphone jack, and tactile key indicators' },
+          { id: 'C', text: 'An emergency phone to call a taxi' },
+          { id: 'D', text: 'A printed braille sheet containing every possible screen permutation' }
+        ],
+        answer: 'B',
+        explanation: 'Because users cannot connect their own assistive technology to closed hardware, standards mandate built-in speech output accessible via a standard audio jack, volume control, and physical tactile keys (such as a raised dot on the "5" key).'
+      },
+      {
+        id: 'kc-cpacc-ict-2',
+        question: 'What is the primary technical baseline that harmonizes US Section 508, European EN 301 549, and Japanese JIS X 8341-3 across web content and software?',
+        options: [
+          { id: 'A', text: 'W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA' },
+          { id: 'B', text: 'IEEE 802.11 Wireless Networking Standards' },
+          { id: 'C', text: 'ANSI Z87.1 Occupational Safety Standards' },
+          { id: 'D', text: 'Bluetooth 5.0 Core Specifications' }
+        ],
+        answer: 'A',
+        explanation: 'Global digital accessibility standards are unified around W3C WCAG 2.1 Level AA, which forms the normative technical benchmark for Section 508, EN 301 549, and JIS X 8341-3.'
+      },
+      {
+        id: 'kc-cpacc-ict-3',
+        question: 'Why is Real-Time Text (RTT) mandated for two-way voice telecommunications under Section 508 Section 412 and EN 301 549 Clause 6?',
+        options: [
+          { id: 'A', text: 'Because RTT transmits characters instantaneously as typed, enabling real-time conversational cadence and emergency communication for deaf callers' },
+          { id: 'B', text: 'Because RTT automatically records all phone calls for government surveillance' },
+          { id: 'C', text: 'Because RTT reduces cellular voice licensing fees' },
+          { id: 'D', text: 'Because RTT prevents users from sending text messages during business hours' }
+        ],
+        answer: 'A',
+        explanation: 'RTT transmits characters as they are being typed in real-time without buffering, enabling immediate two-way conversational flow, life-saving 911 responsiveness, and full communication parity for deaf and speech-disabled individuals.'
+      }
+    ]
   }
 ];
 

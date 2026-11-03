@@ -27,7 +27,9 @@ import {
   FileEdit,
   Users,
   Sliders,
-  Columns
+  Columns,
+  Scale,
+  Server
 } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
@@ -95,7 +97,7 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab', 'demographics-census-lab'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab', 'demographics-census-lab', 'accommodations-vs-universal-design-lab', 'wcag-pour-principles-lab', 'ict-standards-procurement-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
@@ -178,6 +180,12 @@ export default function LearningModulesAcademy() {
         return <Sliders size={14} color="var(--arcade-green)" />;
       case 'export-architecture-lab':
         return <Columns size={14} color="var(--arcade-amber)" />;
+      case 'accommodations-vs-universal-design-lab':
+        return <Scale size={14} color="var(--arcade-cyan)" />;
+      case 'wcag-pour-principles-lab':
+        return <Compass size={14} color="var(--arcade-green)" />;
+      case 'ict-standards-procurement-lab':
+        return <Server size={14} color="var(--arcade-cyan)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -249,6 +257,12 @@ export default function LearningModulesAcademy() {
         return 'Adaptive Strategies & Input Lab';
       case 'export-architecture-lab':
         return 'InDesign & Word Architecture Lab';
+      case 'accommodations-vs-universal-design-lab':
+        return 'Accommodations vs Universal Design';
+      case 'wcag-pour-principles-lab':
+        return 'WCAG POUR Principles Lab';
+      case 'ict-standards-procurement-lab':
+        return 'ICT Standards & Procurement';
       default:
         return 'Interactive Lab';
     }

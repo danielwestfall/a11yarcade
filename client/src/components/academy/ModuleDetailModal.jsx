@@ -35,6 +35,9 @@ import ManualDocumentAuditProtocolLab from './interactives/ManualDocumentAuditPr
 import DemographicsCensusLab from './interactives/DemographicsCensusLab';
 import AdaptiveStrategiesLab from './interactives/AdaptiveStrategiesLab';
 import ExportArchitectureLab from './interactives/ExportArchitectureLab';
+import AccommodationsVsUniversalDesignLab from './interactives/AccommodationsVsUniversalDesignLab';
+import WcagPourPrinciplesLab from './interactives/WcagPourPrinciplesLab';
+import IctStandardsProcurementLab from './interactives/IctStandardsProcurementLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -229,6 +232,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <AdaptiveStrategiesLab />;
       case 'export-architecture-lab':
         return <ExportArchitectureLab />;
+      case 'accommodations-vs-universal-design-lab':
+        return <AccommodationsVsUniversalDesignLab />;
+      case 'wcag-pour-principles-lab':
+        return <WcagPourPrinciplesLab />;
+      case 'ict-standards-procurement-lab':
+        return <IctStandardsProcurementLab />;
       default:
         return <DisabilityModelClassifier />;
     }
