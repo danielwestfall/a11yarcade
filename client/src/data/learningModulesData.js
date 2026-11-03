@@ -1835,6 +1835,240 @@ export const LEARNING_MODULES = [
         explanation: 'InDesign\'s Export Tagging tab in Paragraph Style Options enables designers to explicitly map custom print styles to semantic PDF/UA tags.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-udl',
+    cert: 'CPACC',
+    domainId: 'CPACC-D2',
+    domainLabel: 'Domain 2: Accessibility and Universal Design',
+    sectionId: 'CPACC-D2-F',
+    title: 'Universal Design for Learning (UDL) & Inclusive Pedagogy',
+    badge: 'Educational Accessibility',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 12,
+    interactiveType: 'udl-course-designer-lab',
+    citation: 'IAAP CPACC BoK V3, Domain 2.F (Universal Design for Learning) & CAST UDL Guidelines 2.2',
+    summary: 'Explore the Universal Design for Learning (UDL) framework developed by CAST. Understand how proactive curricular design based on cognitive neuroscience eliminates educational barriers across 3 brain networks: Multiple Means of Engagement (Affective Networks), Multiple Means of Representation (Recognition Networks), and Multiple Means of Action & Expression (Strategic Networks).',
+    learningObjectives: [
+      'Map CAST\'s 3 UDL pillars to the underlying brain networks: Affective ("Why"), Recognition ("What"), and Strategic ("How").',
+      'Differentiate proactive universal instructional design from reactive post-enrollment accommodations.',
+      'Apply multiple means of engagement through student choice, authentic tasks, and self-regulation scaffolding.',
+      'Provide multiple means of representation via multimodal media, synchronized captions, transcripts, and customizable display options.',
+      'Support multiple means of action and expression with flexible response formats, assistive technology integration, and executive function supports.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Affective Networks & Engagement (The "Why" of Learning)',
+        explanation: 'The affective brain network determines what captures learners\' interest, how they sustain effort, and how they self-regulate. Providing options for student choice, real-world authenticity, and low-stakes progress milestones fosters intrinsically motivated, purposeful learners.'
+      },
+      {
+        title: 'Recognition Networks & Representation (The "What" of Learning)',
+        explanation: 'The recognition network identifies facts, letters, symbols, and concepts. Relying solely on printed text erects barriers for blind, dyslexic, or ESL students. Offering multimodal media (captioned video, transcripts, interactive diagrams) and embedded vocabulary supports ensures perception and comprehension for all.'
+      },
+      {
+        title: 'Strategic Networks & Action/Expression (The "How" of Learning)',
+        explanation: 'The strategic network plans, executes, and monitors physical and communicative activities. Forcing a single evaluation medium (e.g. handwritten paper) discriminates against students with physical or motor disabilities, dysgraphia, or speech impediments. Providing multiple channels (typed report, podcast, video presentation) allows learners to demonstrate mastery authentically.'
+      },
+      {
+        title: 'Universal Design vs Individual Accommodations',
+        explanation: 'Individual accommodations (e.g., granting 1.5x time or brailling a test after a student discloses a disability) are reactive, costly, and can isolate the student. Universal Design for Learning proactively designs flexibility into the syllabus so the greatest number of diverse learners succeed without needing to petition for separate accommodations.'
+      }
+    ],
+    examTips: 'CPACC Exam Alert: Be prepared to match each of the 3 UDL pillars to its corresponding brain network and question: Engagement = Affective Network ("Why"), Representation = Recognition Network ("What"), Action & Expression = Strategic Network ("How"). Also remember: UDL benefits ALL students (curb-cut effect in education), not just students with diagnosed disabilities.',
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-udl-1',
+        question: 'Which neurological network corresponds to the UDL principle of providing "Multiple Means of Representation" and the "What" of learning?',
+        options: [
+          { id: 'A', text: 'The Affective Network' },
+          { id: 'B', text: 'The Recognition Network' },
+          { id: 'C', text: 'The Strategic Network' },
+          { id: 'D', text: 'The Vestibular Network' }
+        ],
+        answer: 'B',
+        explanation: 'The Recognition Network (located in the rear of the brain) processes sensory input to recognize patterns, symbols, and ideas — corresponding to the "What" of learning.'
+      },
+      {
+        id: 'kc-cpacc-udl-2',
+        question: 'How does Universal Design for Learning (UDL) fundamentally differ from traditional individualized accommodations in higher education?',
+        options: [
+          { id: 'A', text: 'UDL completely eliminates the need for any grading or student evaluation' },
+          { id: 'B', text: 'UDL proactively designs multimodal flexibility into the core curriculum for all learners, whereas accommodations are reactive modifications arranged for individual students' },
+          { id: 'C', text: 'UDL is applied exclusively to physical campus architecture' },
+          { id: 'D', text: 'Accommodations are designed by CAST while UDL is administered by state medical boards' }
+        ],
+        answer: 'B',
+        explanation: 'UDL is proactive and universal: flexible learning options are built into the initial course architecture, drastically reducing the need for retrofitted, reactive individual accommodations.'
+      },
+      {
+        id: 'kc-cpacc-udl-3',
+        question: 'Allowing students to submit an assignment as a written essay, an audio podcast, or an interactive demonstration directly embodies which UDL principle?',
+        options: [
+          { id: 'A', text: 'Multiple Means of Engagement' },
+          { id: 'B', text: 'Multiple Means of Representation' },
+          { id: 'C', text: 'Multiple Means of Action and Expression' },
+          { id: 'D', text: 'The Medical Model of Disability' }
+        ],
+        answer: 'C',
+        explanation: 'Offering varied mediums for students to demonstrate knowledge and express ideas is the hallmark of the Strategic Network ("Multiple Means of Action and Expression").'
+      }
+    ]
+  },
+  {
+    id: 'mod-was-procurement',
+    cert: 'WAS',
+    domainId: 'WAS-D3',
+    domainLabel: 'Domain 3: Remediating Issues in Web Solutions',
+    sectionId: 'WAS-D3-C',
+    title: 'Accessibility in ICT Procurement & Vendor Management',
+    badge: 'Procurement & VPAT',
+    difficulty: 'Advanced',
+    estimatedMinutes: 14,
+    interactiveType: 'vpat-procurement-auditor-lab',
+    citation: 'IAAP WAS BoK 2024, Domain 3.C (Accessibility Procurement Process), Section 508 & EN 301 549',
+    summary: 'Manage accessibility throughout the ICT procurement lifecycle. Draft binding RFP requirements, evaluate vendor Voluntary Product Accessibility Templates (VPATs) and Accessibility Conformance Reports (ACRs), detect vendor "greenwashing", conduct validation audits, and negotiate enforceable contract remediation SLAs and indemnification clauses.',
+    learningObjectives: [
+      'Integrate accessibility requirements (WCAG 2.2 AA, Section 508, EN 301 549) into procurement Statements of Work (SOWs) and RFPs.',
+      'Analyze vendor Accessibility Conformance Reports (ACRs) based on VPAT 2.x standards.',
+      'Identify vendor "greenwashing" red flags: 100% "Supports" claims with generic copy-pasted text and suspicious "Not Applicable" ratings.',
+      'Require and execute independent hands-on verification audits of vendor demo environments prior to contract signature.',
+      'Negotiate binding contractual safeguards: vendor remediation timelines (e.g. 30 days for Blocker defects) and legal indemnification.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The ICT Procurement Risk',
+        explanation: 'Acquiring third-party commercial-off-the-shelf (COTS) software without accessibility vetting is the leading cause of enterprise digital accessibility compliance failures. Once locked into a multi-year enterprise license, organizations inherit the vendor\'s legal liability under ADA Title III or Section 508.'
+      },
+      {
+        title: 'VPAT vs ACR',
+        explanation: 'A Voluntary Product Accessibility Template (VPAT) is the blank standardized template maintained by the Information Technology Industry Council (ITI). When a vendor completes the template evaluating their product against accessibility standards, the resulting document is called an Accessibility Conformance Report (ACR).'
+      },
+      {
+        title: 'Spotting Vendor "Greenwashing"',
+        explanation: 'Dishonest vendors often claim 100% "Supports" across all 50 WCAG criteria to pass automated procurement filters. Key red flags: identical copy-pasted remarks for every criterion, listing core web criteria (contrast, keyboard) as "Not Applicable", and failing to document assistive technology testing configurations (e.g. NVDA, JAWS, VoiceOver).'
+      },
+      {
+        title: 'Contractual Enforcement Clauses',
+        explanation: 'A trustworthy ACR is only the first step. Commercial contracts must include: (1) Vendor Warranty of Accessibility, (2) Liquidated damages or withholding payments for non-compliance, (3) Binding Remediation SLAs (e.g. Critical defects fixed within 30 days), and (4) Buyer\'s right to perform independent third-party audits.'
+      }
+    ],
+    examTips: 'WAS Exam Alert: Remember that an ACR is only a vendor claim — it is NOT a certification. Due diligence ALWAYS requires independent manual verification testing. Also know the VPAT 2.x editions: 508 (US Federal), WCAG (W3C standard), EU (EN 301 549), and INT (International combining all three).',
+    knowledgeCheck: [
+      {
+        id: 'kc-was-pro-1',
+        question: 'What is the critical distinction between a VPAT and an ACR in the accessibility procurement process?',
+        options: [
+          { id: 'A', text: 'A VPAT is for hardware while an ACR is exclusively for cloud software' },
+          { id: 'B', text: 'A VPAT is the blank evaluation template published by ITI, whereas an ACR is the completed report detailing a specific product\'s conformance' },
+          { id: 'C', text: 'A VPAT is legally binding under federal law while an ACR is an informal marketing document' },
+          { id: 'D', text: 'An ACR is authored only by government regulators while a VPAT is created by lawyers' }
+        ],
+        answer: 'B',
+        explanation: 'ITI publishes the blank VPAT template; once an organization fills it out with product-specific audit findings, it becomes an Accessibility Conformance Report (ACR).'
+      },
+      {
+        id: 'kc-was-pro-2',
+        question: 'When evaluating a vendor\'s submitted Accessibility Conformance Report (ACR), which of the following is a major red flag indicating potential "vendor greenwashing"?',
+        options: [
+          { id: 'A', text: 'The vendor discloses 3 known contrast issues with committed fix dates in their engineering roadmap' },
+          { id: 'B', text: 'The vendor claims 100% "Supports" across all criteria using identical copy-pasted remarks with zero assistive technology testing notes' },
+          { id: 'C', text: 'The vendor provides testing documentation conducted with NVDA and JAWS' },
+          { id: 'D', text: 'The vendor completed the report using the modern VPAT 2.5 WCAG Edition' }
+        ],
+        answer: 'B',
+        explanation: 'Claiming flawless 100% conformance across all criteria without specific testing notes or AT configurations is a classic hallmark of superficial or deceptive vendor greenwashing.'
+      },
+      {
+        id: 'kc-was-pro-3',
+        question: 'Why must enterprise contracts incorporate a binding Accessibility Remediation Service Level Agreement (SLA)?',
+        options: [
+          { id: 'A', text: 'To eliminate the need for the vendor to provide customer support' },
+          { id: 'B', text: 'To legally obligate the vendor to fix newly discovered critical accessibility barriers within a defined timeframe (e.g. 30 days) at no extra cost' },
+          { id: 'C', text: 'To prevent users from using screen magnification' },
+          { id: 'D', text: 'To allow the vendor to increase licensing fees annually' }
+        ],
+        answer: 'B',
+        explanation: 'Without an enforceable SLA, vendors have no contractual obligation to remediate accessibility defects post-deployment, leaving the customer organization legally exposed.'
+      }
+    ]
+  },
+  {
+    id: 'mod-ads-testing-limitations',
+    cert: 'ADS',
+    domainId: 'ADS-D3',
+    domainLabel: 'Domain 3: Auditing and Testing Document Accessibility',
+    sectionId: 'ADS-D3-C',
+    title: 'Limitations of Automated Testing & Assistive Tech Document Auditing',
+    badge: 'Audit Limitations',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 12,
+    interactiveType: 'automated-testing-limitations-lab',
+    citation: 'IAAP ADS BoK 2021, Section 3.3 (Identify limitations of automated testing) & ISO 14289-1 (PDF/UA)',
+    summary: 'Understand the strict boundary between automated PDF syntax validation (PAC, Acrobat Accessibility Checker) and genuine human accessibility. Discover why automated checkers catch only 30-40% of document barriers, leaving critical defects undetected: filename alt text, scrambled reading order, layout tables, and color contrast over complex raster images.',
+    learningObjectives: [
+      'Differentiate syntactic structural conformance (checked by automated tools) from semantic and cognitive usability.',
+      'Identify the critical defects automated PDF validators pass as valid: filename alt text, layout tables, and scrambled multi-column reading order.',
+      'Understand why automated PDF validators cannot reliably compute color contrast against raster photographs and background graphics.',
+      'Execute manual assistive technology inspection protocols using screen readers (NVDA, JAWS) and keyboard navigation.',
+      'Formulate a comprehensive document audit workflow integrating automated screening with mandatory manual inspection.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The Illusion of the Automated Green Checkmark',
+        explanation: 'Automated PDF checkers (like PAC 2024 or Acrobat Accessibility Checker) inspect only programmatically verifiable metadata: "Does an /Alt attribute exist on the tag?", "Does the table have a <TH> tag?", "Are heading levels sequential?". They cannot evaluate whether the alt text is accurate, whether reading order makes sense, or whether table headers are semantically related.'
+      },
+      {
+        title: 'Filename & Nonsense Alt Text',
+        explanation: 'If a complex bar chart has Alt="figure_2026_q3_final_v2.png", automated tools give it a 100% green checkmark because the attribute is populated. For a blind user, however, the image remains completely inaccessible and uninformative.'
+      },
+      {
+        title: 'Reading Order & Content Stream Mismatches',
+        explanation: 'Automated checkers verify that all content elements reside inside tags in the logical structure tree. They cannot detect if a multi-column article has been tagged across columns instead of down each column, causing sentences to interleave into gibberish.'
+      },
+      {
+        title: 'Limitations on Visual Contrast',
+        explanation: 'Automated tools cannot evaluate text contrast against complex background images, gradients, or photographs in PDF content streams. Contrast must be inspected manually using an eyedropper tool over worst-case pixel highlights.'
+      }
+    ],
+    examTips: 'ADS Exam Alert: Remember that automated checkers can never certify a document as 100% accessible. A document that passes PAC with zero automated errors can still be completely unusable. Manual screen reader testing and human verification of reading order and alternative text are ALWAYS mandatory for true ISO 14289-1 compliance.',
+    knowledgeCheck: [
+      {
+        id: 'kc-ads-lim-1',
+        question: 'Why can an automated PDF accessibility checker (such as PAC) award a 100% pass rating to a document with useless image descriptions?',
+        options: [
+          { id: 'A', text: 'Automated checkers permanently disable image inspection to improve performance' },
+          { id: 'B', text: 'Automated checkers verify only the mechanical presence of an alternative text attribute, not the semantic accuracy or usefulness of the description' },
+          { id: 'C', text: 'ISO 14289-1 exempts images from accessibility requirements' },
+          { id: 'D', text: 'Screen readers do not read alternative text in PDF files' }
+        ],
+        answer: 'B',
+        explanation: 'Automated validators check syntax (e.g. "Is the /Alt key present and non-empty?"). They cannot evaluate whether "chart_v2.png" provides meaningful content to a human listener.'
+      },
+      {
+        id: 'kc-ads-lim-2',
+        question: 'Which critical document defect is virtually impossible for automated PDF validators to detect without manual human auditing?',
+        options: [
+          { id: 'A', text: 'Missing document title in Document Properties' },
+          { id: 'B', text: 'An untagged heading skipping from H1 directly to H4' },
+          { id: 'C', text: 'A multi-column newspaper layout whose reading order interleaves lines between columns instead of following column order' },
+          { id: 'D', text: 'Missing document language tag (xml:lang)' }
+        ],
+        answer: 'C',
+        explanation: 'Automated validators verify that text is enclosed in tags, but cannot assess whether the logical reading order matches the human visual reading sequence across multi-column layouts.'
+      },
+      {
+        id: 'kc-ads-lim-3',
+        question: 'Approximately what percentage of WCAG and PDF/UA accessibility requirements can be reliably and fully evaluated using automated testing tools alone?',
+        options: [
+          { id: 'A', text: '100% — modern AI checkers have fully replaced human auditors' },
+          { id: 'B', text: 'Approximately 30% to 40% — the majority require human cognitive judgment and assistive technology verification' },
+          { id: 'C', text: 'Less than 1%' },
+          { id: 'D', text: '95% for government documents' }
+        ],
+        answer: 'B',
+        explanation: 'Industry research and IAAP consensus indicate that automated testing tools reliably catch only 30% to 40% of potential accessibility barriers, leaving human evaluation mandatory for the remainder.'
+      }
+    ]
   }
 ];
 

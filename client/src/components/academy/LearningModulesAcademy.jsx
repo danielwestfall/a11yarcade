@@ -20,7 +20,10 @@ import {
   Compass,
   Heart,
   ClipboardList,
-  FileCode
+  FileCode,
+  Brain,
+  Briefcase,
+  FileSearch
 } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
@@ -88,11 +91,11 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -147,6 +150,12 @@ export default function LearningModulesAcademy() {
         return <ClipboardList size={14} color="var(--arcade-green)" />;
       case 'authoring-format-remediator':
         return <FileCode size={14} color="var(--arcade-amber)" />;
+      case 'udl-course-designer-lab':
+        return <Brain size={14} color="var(--arcade-purple)" />;
+      case 'vpat-procurement-auditor-lab':
+        return <Briefcase size={14} color="var(--arcade-cyan)" />;
+      case 'automated-testing-limitations-lab':
+        return <FileSearch size={14} color="var(--arcade-amber)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -194,6 +203,12 @@ export default function LearningModulesAcademy() {
         return 'WCAG-EM Audit Planner Lab';
       case 'authoring-format-remediator':
         return 'Source Format Remediator';
+      case 'udl-course-designer-lab':
+        return 'UDL Course Designer Lab';
+      case 'vpat-procurement-auditor-lab':
+        return 'VPAT & Procurement Auditor';
+      case 'automated-testing-limitations-lab':
+        return 'Testing Limitations Lab';
       default:
         return 'Interactive Lab';
     }

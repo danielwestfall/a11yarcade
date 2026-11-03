@@ -259,6 +259,54 @@ if (modAuth) {
   issues.push('Module mod-ads-authoring-format not found!');
 }
 
+// Universal Design for Learning (CPACC-D2-F)
+const modUdl = LEARNING_MODULES.find(m => m.id === 'mod-cpacc-udl');
+if (modUdl) {
+  const udlStr = JSON.stringify(modUdl);
+  const mentionsNetworks = udlStr.includes('Affective') && udlStr.includes('Recognition') && udlStr.includes('Strategic');
+  const mentionsPillars = udlStr.includes('Engagement') && udlStr.includes('Representation') && udlStr.includes('Action');
+  const mentionsCast = udlStr.includes('CAST');
+  if (mentionsNetworks && mentionsPillars && mentionsCast) {
+    passedChecks.push('CPACC UDL standards (CAST guidelines, 3 brain networks [Affective, Recognition, Strategic], 3 pillars) verified.');
+  } else {
+    issues.push(`mod-cpacc-udl missing criteria: Networks=${mentionsNetworks}, Pillars=${mentionsPillars}, CAST=${mentionsCast}`);
+  }
+} else {
+  issues.push('Module mod-cpacc-udl not found!');
+}
+
+// ICT Procurement & VPAT/ACR (WAS-D3-C)
+const modProc = LEARNING_MODULES.find(m => m.id === 'mod-was-procurement');
+if (modProc) {
+  const procStr = JSON.stringify(modProc);
+  const mentionsVpatAcr = procStr.includes('VPAT') && procStr.includes('ACR');
+  const mentionsGreenwash = procStr.includes('greenwashing') || procStr.includes('greenwash');
+  const mentionsSla = procStr.includes('SLA') || procStr.includes('indemnification');
+  if (mentionsVpatAcr && mentionsGreenwash && mentionsSla) {
+    passedChecks.push('WAS Procurement standards (VPAT vs ACR distinction, greenwashing detection, contractual remediation SLAs) verified.');
+  } else {
+    issues.push(`mod-was-procurement missing criteria: VpatAcr=${mentionsVpatAcr}, Greenwash=${mentionsGreenwash}, SLA=${mentionsSla}`);
+  }
+} else {
+  issues.push('Module mod-was-procurement not found!');
+}
+
+// Testing Limitations (ADS-D3-C)
+const modLimits = LEARNING_MODULES.find(m => m.id === 'mod-ads-testing-limitations');
+if (modLimits) {
+  const limStr = JSON.stringify(modLimits);
+  const mentionsPct = limStr.includes('30%') || limStr.includes('30-40%') || limStr.includes('40%');
+  const mentionsFilename = limStr.includes('filename') || limStr.includes('.png');
+  const mentionsReadingOrder = limStr.includes('reading order') || limStr.includes('multi-column');
+  if (mentionsPct && mentionsFilename && mentionsReadingOrder) {
+    passedChecks.push('ADS Automated Testing Limitations (30-40% automation ceiling, filename alt text deception, reading order mismatch) verified.');
+  } else {
+    issues.push(`mod-ads-testing-limitations missing criteria: Percent=${mentionsPct}, Filename=${mentionsFilename}, ReadingOrder=${mentionsReadingOrder}`);
+  }
+} else {
+  issues.push('Module mod-ads-testing-limitations not found!');
+}
+
 console.log('\n--- PASSED CHECKS ---');
 passedChecks.forEach(p => console.log('  [PASS] ' + p));
 

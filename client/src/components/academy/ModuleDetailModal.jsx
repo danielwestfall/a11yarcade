@@ -23,6 +23,9 @@ import BuiltEnvironmentBlueprintLab from './interactives/BuiltEnvironmentBluepri
 import DisabilityEtiquetteLab from './interactives/DisabilityEtiquetteLab';
 import WcagEmAuditPlannerLab from './interactives/WcagEmAuditPlannerLab';
 import AuthoringFormatRemediator from './interactives/AuthoringFormatRemediator';
+import UdlCourseDesignerLab from './interactives/UdlCourseDesignerLab';
+import VpatProcurementAuditorLab from './interactives/VpatProcurementAuditorLab';
+import AutomatedTestingLimitationsLab from './interactives/AutomatedTestingLimitationsLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -193,6 +196,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <WcagEmAuditPlannerLab />;
       case 'authoring-format-remediator':
         return <AuthoringFormatRemediator />;
+      case 'udl-course-designer-lab':
+        return <UdlCourseDesignerLab />;
+      case 'vpat-procurement-auditor-lab':
+        return <VpatProcurementAuditorLab />;
+      case 'automated-testing-limitations-lab':
+        return <AutomatedTestingLimitationsLab />;
       default:
         return <DisabilityModelClassifier />;
     }
