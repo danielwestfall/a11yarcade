@@ -26,6 +26,9 @@ import AuthoringFormatRemediator from './interactives/AuthoringFormatRemediator'
 import UdlCourseDesignerLab from './interactives/UdlCourseDesignerLab';
 import VpatProcurementAuditorLab from './interactives/VpatProcurementAuditorLab';
 import AutomatedTestingLimitationsLab from './interactives/AutomatedTestingLimitationsLab';
+import GlobalLegalCompassLab from './interactives/GlobalLegalCompassLab';
+import ActRulesLinterLab from './interactives/ActRulesLinterLab';
+import AcrobatTagsTableEditorLab from './interactives/AcrobatTagsTableEditorLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -202,6 +205,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <VpatProcurementAuditorLab />;
       case 'automated-testing-limitations-lab':
         return <AutomatedTestingLimitationsLab />;
+      case 'global-legal-compass-lab':
+        return <GlobalLegalCompassLab />;
+      case 'act-rules-linter-lab':
+        return <ActRulesLinterLab />;
+      case 'acrobat-tags-table-editor-lab':
+        return <AcrobatTagsTableEditorLab />;
       default:
         return <DisabilityModelClassifier />;
     }

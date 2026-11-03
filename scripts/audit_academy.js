@@ -307,6 +307,55 @@ if (modLimits) {
   issues.push('Module mod-ads-testing-limitations not found!');
 }
 
+// Regional Civil Rights Legislation (CPACC-D3-B)
+const modRegLaws = LEARNING_MODULES.find(m => m.id === 'mod-cpacc-regional-laws');
+if (modRegLaws) {
+  const regStr = JSON.stringify(modRegLaws);
+  const mentionsEaa = regStr.includes('European Accessibility Act') || regStr.includes('2019/882');
+  const mentionsEn = regStr.includes('EN 301 549');
+  const mentionsAdaTitle2 = regStr.includes('Title II') && regStr.includes('2024');
+  const mentionsCanada = regStr.includes('AODA') || regStr.includes('ACA');
+  if (mentionsEaa && mentionsEn && mentionsAdaTitle2 && mentionsCanada) {
+    passedChecks.push('CPACC Regional Legislation standards (EAA Directive 2019/882, EN 301 549, ADA Title II 2024 rule, ACA/AODA) verified.');
+  } else {
+    issues.push(`mod-cpacc-regional-laws missing criteria: EAA=${mentionsEaa}, EN=${mentionsEn}, ADA=${mentionsAdaTitle2}, Canada=${mentionsCanada}`);
+  }
+} else {
+  issues.push('Module mod-cpacc-regional-laws not found!');
+}
+
+// W3C ACT Rules (WAS-D2-D)
+const modActRules = LEARNING_MODULES.find(m => m.id === 'mod-was-act-rules');
+if (modActRules) {
+  const actStr = JSON.stringify(modActRules);
+  const mentionsFormat = actStr.includes('ACT Rules') || actStr.includes('ACT Rules Format');
+  const mentionsAspects = actStr.includes('Input Aspects') && actStr.includes('Applicability');
+  const mentionsExpect = actStr.includes('Expectations');
+  if (mentionsFormat && mentionsAspects && mentionsExpect) {
+    passedChecks.push('WAS ACT Rules standards (W3C ACT Rules Format 1.0, Input Aspects, Applicability, Expectations) verified.');
+  } else {
+    issues.push(`mod-was-act-rules missing criteria: Format=${mentionsFormat}, Aspects=${mentionsAspects}, Expectations=${mentionsExpect}`);
+  }
+} else {
+  issues.push('Module mod-was-act-rules not found!');
+}
+
+// Acrobat Final Format TouchUp (ADS-D2-C)
+const modAcrobat = LEARNING_MODULES.find(m => m.id === 'mod-ads-acrobat-touchup');
+if (modAcrobat) {
+  const acroStr = JSON.stringify(modAcrobat);
+  const mentionsTable = acroStr.includes('Table Editor') || acroStr.includes('ColSpan');
+  const mentionsArtifact = acroStr.includes('Artifact') || acroStr.includes('/Artifact');
+  const mentionsObjr = acroStr.includes('OBJR') || acroStr.includes('/OBJR');
+  if (mentionsTable && mentionsArtifact && mentionsObjr) {
+    passedChecks.push('ADS Final Format Remediation standards (Acrobat Table Editor ColSpan, Artifacting footers, Link OBJR tagging) verified.');
+  } else {
+    issues.push(`mod-ads-acrobat-touchup missing criteria: Table=${mentionsTable}, Artifact=${mentionsArtifact}, OBJR=${mentionsObjr}`);
+  }
+} else {
+  issues.push('Module mod-ads-acrobat-touchup not found!');
+}
+
 console.log('\n--- PASSED CHECKS ---');
 passedChecks.forEach(p => console.log('  [PASS] ' + p));
 

@@ -23,7 +23,8 @@ import {
   FileCode,
   Brain,
   Briefcase,
-  FileSearch
+  FileSearch,
+  FileEdit
 } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
@@ -87,15 +88,15 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'code') {
-        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab'].includes(mod.interactiveType)) {
+        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab', 'act-rules-linter-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -156,6 +157,12 @@ export default function LearningModulesAcademy() {
         return <Briefcase size={14} color="var(--arcade-cyan)" />;
       case 'automated-testing-limitations-lab':
         return <FileSearch size={14} color="var(--arcade-amber)" />;
+      case 'global-legal-compass-lab':
+        return <Globe size={14} color="var(--arcade-cyan)" />;
+      case 'act-rules-linter-lab':
+        return <Code size={14} color="var(--arcade-green)" />;
+      case 'acrobat-tags-table-editor-lab':
+        return <FileEdit size={14} color="var(--arcade-amber)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -209,6 +216,12 @@ export default function LearningModulesAcademy() {
         return 'VPAT & Procurement Auditor';
       case 'automated-testing-limitations-lab':
         return 'Testing Limitations Lab';
+      case 'global-legal-compass-lab':
+        return 'Global Legal Compass Lab';
+      case 'act-rules-linter-lab':
+        return 'W3C ACT Rules Linter Lab';
+      case 'acrobat-tags-table-editor-lab':
+        return 'Acrobat Tags & Table Editor';
       default:
         return 'Interactive Lab';
     }

@@ -2069,6 +2069,240 @@ export const LEARNING_MODULES = [
         explanation: 'Industry research and IAAP consensus indicate that automated testing tools reliably catch only 30% to 40% of potential accessibility barriers, leaving human evaluation mandatory for the remainder.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-regional-laws',
+    cert: 'CPACC',
+    domainId: 'CPACC-D3',
+    domainLabel: 'Domain 3: Standards, Laws, and Management Strategies',
+    sectionId: 'CPACC-D3-B',
+    title: 'Regional & National Civil Rights Legislation (EU, US, Canada, UK, Japan)',
+    badge: 'International Law',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 14,
+    interactiveType: 'global-legal-compass-lab',
+    citation: 'IAAP CPACC BoK V3, Domain 3.B (Regional Instruments), EAA Directive 2019/882, ADA Title II DOJ Final Rule 2024, ACA 2019 & EN 301 549',
+    summary: 'Master the landscape of regional and national disability rights and digital accessibility statutes. Analyze the European Accessibility Act (EAA Directive 2019/882, June 2025 enforcement) and EN 301 549, the US Americans with Disabilities Act (2024 Title II DOJ final rule mandating WCAG 2.1 AA) and Section 508, Canada\'s ACA and AODA, the UK Equality Act 2010, and Japan\'s JIS X 8341-3.',
+    learningObjectives: [
+      'Distinguish the scope, deadlines, and technical standards of the European Accessibility Act (EAA Directive 2019/882) and EN 301 549.',
+      'Analyze US legal mandates: ADA Title II (2024 DOJ final rule mandating WCAG 2.1 AA), ADA Title III commercial application, and Section 508.',
+      'Understand Canadian federal and provincial frameworks: the Accessible Canada Act (ACA 2019) vs Ontario\'s AODA.',
+      'Identify UK (Equality Act 2010, PSBAR 2018) and Japanese (JIS X 8341-3, 2024 private sector mandate) accessibility statutes.',
+      'Compare civil rights / anti-discrimination frameworks against procurement and standard harmonization models.'
+    ],
+    keyConcepts: [
+      {
+        title: 'European Union Frameworks (EAA & EN 301 549)',
+        explanation: 'The EU Web Accessibility Directive (2016/2102) covers public sector bodies. The European Accessibility Act (Directive 2019/882) expands mandatory compliance to the private commercial sector (e-commerce, online banking, e-books, transport, ATMs) with strict enforcement starting June 28, 2025. Technical standard EN 301 549 harmonizes requirements across all 27 EU member states.'
+      },
+      {
+        title: 'United States Regulatory Evolution',
+        explanation: 'The Americans with Disabilities Act (ADA 1990) contains Title II (state and local governments) and Title III (public accommodations). In April 2024, the DOJ issued a historic Final Rule under Title II explicitly adopting WCAG 2.1 Level AA as the mandatory technical standard for state/local websites and mobile apps. Section 508 of the Rehabilitation Act governs federal agencies and their ICT vendors.'
+      },
+      {
+        title: 'Canadian Federal & Provincial Governance',
+        explanation: 'The Accessible Canada Act (ACA 2019) aims for a barrier-free Canada by 2040, applying to federally regulated industries (telecoms, banking, transport). At the provincial level, Ontario\'s Accessibility for Ontarians with Disabilities Act (AODA 2005) mandates WCAG Level AA conformance for organizations with 50+ employees.'
+      },
+      {
+        title: 'UK & Asia-Pacific Legal Instruments',
+        explanation: 'The UK Equality Act 2010 mandates reasonable adjustments in goods, services, and employment, reinforced by the Public Sector Bodies Accessibility Regulations 2018 (PSBAR). In Japan, the Act on Elimination of Discrimination Against Persons with Disabilities (amended April 2024) mandates reasonable accommodation for private businesses, supported by technical standard JIS X 8341-3.'
+      }
+    ],
+    examTips: 'CPACC Exam Alert: Be prepared for questions testing specific jurisdictional scopes: EAA = EU private commercial sector (June 28, 2025); EN 301 549 = EU ICT standard; DOJ Title II 2024 Rule = US state/local government mandating WCAG 2.1 AA; AODA = Ontario, Canada; ACA = Canadian federal sector.',
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-reg-1',
+        question: 'Starting June 28, 2025, which European Union statute mandates accessibility for private sector e-commerce, banking, e-books, and ticketing services across all member states?',
+        options: [
+          { id: 'A', text: 'EU Web Accessibility Directive 2016/2102' },
+          { id: 'B', text: 'European Accessibility Act (Directive 2019/882)' },
+          { id: 'C', text: 'General Data Protection Regulation (GDPR)' },
+          { id: 'D', text: 'Bologna Declaration' }
+        ],
+        answer: 'B',
+        explanation: 'The European Accessibility Act (Directive 2019/882) applies directly to key consumer products and private sector digital services, with enforcement beginning June 28, 2025.'
+      },
+      {
+        id: 'kc-cpacc-reg-2',
+        question: 'In April 2024, the United States Department of Justice (DOJ) published a landmark Final Rule under ADA Title II. What technical standard does it officially codify for state and local government web content and mobile apps?',
+        options: [
+          { id: 'A', text: 'Section 508 legacy standards from 1998' },
+          { id: 'B', text: 'W3C WCAG 2.1 Level AA' },
+          { id: 'C', text: 'ISO 9001:2015' },
+          { id: 'D', text: 'WCAG 1.0 Priority 1' }
+        ],
+        answer: 'B',
+        explanation: 'The DOJ April 2024 Title II Final Rule officially established W3C WCAG 2.1 Level AA as the enforceable legal technical standard for state and municipal websites, mobile apps, and electronic documents.'
+      },
+      {
+        id: 'kc-cpacc-reg-3',
+        question: 'Which European standard specifies the functional accessibility requirements for ICT products and services, harmonizing WCAG 2.1 AA with non-web hardware, software, and kiosk technologies?',
+        options: [
+          { id: 'A', text: 'EN 301 549' },
+          { id: 'B', text: 'ISO 14001' },
+          { id: 'C', text: 'IEEE 802.11' },
+          { id: 'D', text: 'DIN 5008' }
+        ],
+        answer: 'A',
+        explanation: 'EN 301 549 is the European standard that maps WCAG 2.1 Level AA to web content, software, documents, and hardware in European procurement and regulatory contexts.'
+      }
+    ]
+  },
+  {
+    id: 'mod-was-act-rules',
+    cert: 'WAS',
+    domainId: 'WAS-D2',
+    domainLabel: 'Domain 2: Identifying Accessibility Issues in Web Solutions',
+    sectionId: 'WAS-D2-D',
+    title: 'Testing Tools for the Web & W3C ACT (Accessibility Conformance Testing) Rules',
+    badge: 'ACT Rules & Testing Tools',
+    difficulty: 'Advanced',
+    estimatedMinutes: 14,
+    interactiveType: 'act-rules-linter-lab',
+    citation: 'IAAP WAS BoK 2024, Domain 2.D (Testing Tools for the Web and ACT Rules) & W3C ACT Rules Format 1.0',
+    summary: 'Master automated and semi-automated testing tools and the W3C Accessibility Conformance Testing (ACT) Rules Format 1.0. Understand how ACT Rules harmonize testing engines (axe-core, ARC, Lighthouse) to produce transparent, reproducible results. Configure automated CI/CD accessibility gates, debug ACT test cases, and distinguish false positives from true defects.',
+    learningObjectives: [
+      'Explain the architecture and purpose of the W3C ACT Rules Format 1.0 in harmonizing web accessibility tools.',
+      'Analyze the four structural components of an ACT Rule: Input Aspects, Applicability, Expectations, and Test Cases.',
+      'Differentiate automated rules (deterministic), semi-automated checks (requiring human confirmation), and manual test requirements.',
+      'Integrate automated rule engines (axe-core, linting plugins) into CI/CD build gates with severity thresholds.',
+      'Identify and resolve common false positive and false negative scenarios generated by automated linters.'
+    ],
+    keyConcepts: [
+      {
+        title: 'What is an ACT Rule?',
+        explanation: 'Different accessibility test engines historically interpreted WCAG criteria differently, causing the same webpage to pass in one tool and fail in another. The W3C ACT Rules Format 1.0 establishes vendor-neutral, unambiguous, algorithmic test definitions to standardize test results across all compliance engines.'
+      },
+      {
+        title: 'ACT Structural Architecture',
+        explanation: 'An ACT Rule specifies: (1) Input Aspects (DOM tree, CSS styling, Accessibility Tree), (2) Applicability (the exact CSS/DOM conditions identifying test targets), (3) Expectations (what properties must be true for the target to pass), and (4) Test Cases (passed, failed, and inapplicable examples).'
+      },
+      {
+        title: 'Automated vs Semi-Automated vs Manual',
+        explanation: 'Fully automated tests are 100% deterministic (e.g. checking whether an <img> tag has an alt attribute or calculating contrast ratio). Semi-automated tools flag items for human verification (e.g. "Does this alt text accurately describe the chart?"). Manual testing evaluates cognitive flow, reading order, and complex custom widget interactions.'
+      },
+      {
+        title: 'CI/CD Build Gates & Regression Prevention',
+        explanation: 'Embedding automated linters (e.g. axe-core in Playwright/Cypress/Jest) into continuous integration prevents accessibility regressions from merging into production. Build gates should block PRs on Critical and Serious violations.'
+      }
+    ],
+    examTips: 'WAS Exam Alert: Remember that automated tools alone can only evaluate ~30-40% of WCAG criteria. Automated tools excel at catching syntax flaws (missing attributes, duplicate IDs, invalid ARIA attributes, color contrast math), but CANNOT evaluate subjective or semantic criteria (e.g. alt text quality, focus logical order, clear heading wording).',
+    knowledgeCheck: [
+      {
+        id: 'kc-was-act-1',
+        question: 'What is the primary objective of the W3C Accessibility Conformance Testing (ACT) Rules Format 1.0?',
+        options: [
+          { id: 'A', text: 'To replace WCAG 2.2 with a brand new set of legal criteria' },
+          { id: 'B', text: 'To provide vendor-neutral, unambiguous test definitions so different automated testing tools and human auditors evaluate accessibility criteria consistently' },
+          { id: 'C', text: 'To mandate that all websites be rewritten in Python' },
+          { id: 'D', text: 'To eliminate the need for any human manual auditing' }
+        ],
+        answer: 'B',
+        explanation: 'The W3C ACT Rules Format standardizes testing procedures across different software engines (like axe-core, QualWeb, ARC) so that compliance determinations are consistent and reproducible.'
+      },
+      {
+        id: 'kc-was-act-2',
+        question: 'Which structural component of a W3C ACT Rule identifies the exact conditions and DOM elements that must be evaluated by the rule?',
+        options: [
+          { id: 'A', text: 'Input Aspects' },
+          { id: 'B', text: 'Applicability' },
+          { id: 'C', text: 'Expectations' },
+          { id: 'D', text: 'Conformance Claims' }
+        ],
+        answer: 'B',
+        explanation: 'The Applicability section of an ACT Rule defines the specific characteristics (such as tag names, attributes, or CSS states) that qualify an element for evaluation by the rule.'
+      },
+      {
+        id: 'kc-was-act-3',
+        question: 'Why is automated accessibility testing in CI/CD pipelines considered necessary but insufficient for complete WCAG compliance?',
+        options: [
+          { id: 'A', text: 'Automated testing cannot run in continuous integration servers' },
+          { id: 'B', text: 'Automated test tools reliably test only deterministic syntax and math (approximately 30-40% of criteria), leaving semantic, cognitive, and narrative usability to human evaluation' },
+          { id: 'C', text: 'Automated tests are prohibited under Section 508' },
+          { id: 'D', text: 'Screen readers automatically crash when automated tests are running' }
+        ],
+        answer: 'B',
+        explanation: 'Automated engines easily evaluate deterministic rules (like contrast ratios and missing labels), but cannot evaluate semantic validity, reading order flow, or manual assistive technology compatibility.'
+      }
+    ]
+  },
+  {
+    id: 'mod-ads-acrobat-touchup',
+    cert: 'ADS',
+    domainId: 'ADS-D2',
+    domainLabel: 'Domain 2: Remediating Electronic Documents',
+    sectionId: 'ADS-D2-C',
+    title: 'PDF Final Format Remediation in Adobe Acrobat Pro',
+    badge: 'Final Format Remediation',
+    difficulty: 'Advanced',
+    estimatedMinutes: 14,
+    interactiveType: 'acrobat-tags-table-editor-lab',
+    citation: 'IAAP ADS BoK 2021, Section 2.3 (Remediate in final format) & ISO 14289-1 (PDF/UA)',
+    summary: 'Remediate accessibility defects directly in final format PDFs using Adobe Acrobat Pro when source authoring files are unavailable. Master the Acrobat Tags Tree, Reading Order Tool, and Table Editor. Remediate multi-column cell spans (ColSpan/RowSpan), artifact decorative page furniture, repair unassociated link annotations, and resolve content stream mismatches.',
+    learningObjectives: [
+      'Navigate and restructure the logical structure tree in Adobe Acrobat Pro\'s Tags Navigation Pane.',
+      'Configure multi-column and multi-row header cell spans (ColSpan, RowSpan) and scope attributes using the Acrobat Table Editor.',
+      'Utilize the Reading Order Tool to mark decorative lines, background shapes, and running footers as /Artifact.',
+      'Repair broken interactive hyperlinks by associating link annotations with semantic <Link> tags and child /OBJR objects.',
+      'Resolve reading order discrepancies between the visual document stream, Reading Order panel, and logical Tag Tree.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Final Format Remediation When Source is Missing',
+        explanation: 'While source-level remediation (in Word or InDesign) is preferred, accessibility specialists frequently receive legacy PDFs where source files are lost, locked, or proprietary. In these scenarios, complete PDF/UA conformance must be achieved directly in Adobe Acrobat Pro or dedicated PDF tag editors.'
+      },
+      {
+        title: 'Acrobat Table Editor & Cell Properties',
+        explanation: 'Data tables with merged cells frequently fail PAC automated checks ("Irregular table structure"). In Acrobat Pro, remediators use the Table Editor to inspect cell properties, changing cells from <TD> to <TH>, specifying Scope (Row or Column), and declaring multi-cell spanning (ColSpan="2" or RowSpan="2").'
+      },
+      {
+        title: 'Artifacting Page Furniture',
+        explanation: 'Headers and footers (e.g. "Page 4 of 24", chapter titles, decorative rules) repeated across every page interrupt screen reader reading flow. Using Acrobat\'s Reading Order tool, remediators select these elements and click "Background / Artifact" to remove them from the tag tree while preserving visual appearance.'
+      },
+      {
+        title: 'Link Annotations & the /OBJR Dictionary',
+        explanation: 'In PDF architecture, visual link text (e.g. "Visit our portal") and the interactive click rectangle (/Link annotation) exist as separate objects in the PDF stream. For a link to be accessible under ISO 14289-1, the visual text must be enclosed in a <Link> tag, and the interactive annotation must be attached as an Object Reference (/OBJR) child tag.'
+      }
+    ],
+    examTips: 'ADS Exam Alert: Remember the distinction between the visual Reading Order panel (often called TouchUp Reading Order or TURO) and the logical Tags Tree. Screen readers read from the TAGS TREE. Never rely on the Reading Order panel alone to verify reading order — always verify the hierarchy in the Tags navigation pane.',
+    knowledgeCheck: [
+      {
+        id: 'kc-ads-acro-1',
+        question: 'In Adobe Acrobat Pro, which tool must be used to configure ColSpan and RowSpan attributes for header cells that span multiple columns or rows in a data table?',
+        options: [
+          { id: 'A', text: 'The TouchUp Text Tool' },
+          { id: 'B', text: 'The Table Editor (accessible via Table Cell Properties)' },
+          { id: 'C', text: 'The Optical Character Recognition (OCR) Engine' },
+          { id: 'D', text: 'The Preflight Color Profiler' }
+        ],
+        answer: 'B',
+        explanation: 'The Acrobat Table Editor allows remediators to right-click individual table cells and set Table Cell Properties, including Header vs Data type, Scope, and Column/Row Span counts.'
+      },
+      {
+        id: 'kc-ads-acro-2',
+        question: 'Under ISO 14289-1 (PDF/UA), what must be done with repetitive running headers and page number footers in Adobe Acrobat Pro?',
+        options: [
+          { id: 'A', text: 'They must be tagged as <H1> headings on every single page' },
+          { id: 'B', text: 'They must be marked as /Artifact so screen readers ignore them and read the main document body uninterrupted' },
+          { id: 'C', text: 'They must be deleted completely from the visual page' },
+          { id: 'D', text: 'They must be converted into high-resolution bitmap graphics' }
+        ],
+        answer: 'B',
+        explanation: 'Running headers and footers are pagination furniture that disrupt text reading flow. Marking them as an /Artifact removes them from the screen reader speech stream while preserving print aesthetics.'
+      },
+      {
+        id: 'kc-ads-acro-3',
+        question: 'Why does an underlined hyperlink in a PDF sometimes fail to work for screen reader users even though it is visually blue and clickable with a mouse?',
+        options: [
+          { id: 'A', text: 'Screen readers cannot navigate internet URLs' },
+          { id: 'B', text: 'The interactive /Link annotation in the PDF content stream is missing an Object Reference (/OBJR) child tag inside the semantic <Link> structure tag' },
+          { id: 'C', text: 'PDF links only work on macOS operating systems' },
+          { id: 'D', text: 'The document author did not pay the Adobe licensing fee' }
+        ],
+        answer: 'B',
+        explanation: 'In PDF architecture, the visual text and the interactive link rectangle are distinct objects. Unless the link annotation is linked to the <Link> tag via an /OBJR tag, screen readers treat the text as plain un-clickable text.'
+      }
+    ]
   }
 ];
 
