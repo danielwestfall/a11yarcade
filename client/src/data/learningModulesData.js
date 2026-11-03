@@ -90,22 +90,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Barriers created by societal structures, physical environments, and attitudes"
+            "text": "The medical pathology or physiological impairment diagnosed within the individual person"
           },
           {
             "id": "B",
-            "text": "The medical diagnosis or physiological impairment of the individual, disregarding environmental barriers and architectural design constraints"
+            "text": "Barriers created by societal structures, physical environments, and systemic attitudes"
           },
           {
             "id": "C",
-            "text": "Lack of personal motivation and physical rehabilitation"
+            "text": "A biological failure of personal physical rehabilitation and functional compensation"
           },
           {
             "id": "D",
-            "text": "Economic dependence on governmental welfare systems"
+            "text": "Economic dependence resulting from insufficient vocational motivation and social welfare"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "The Social Model asserts that people are disabled by barriers in society (inaccessible buildings, websites, attitudes), not by their personal impairments."
       },
       {
@@ -114,19 +114,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Functional Solutions Model"
+            "text": "The Functional Solutions Framework prioritizing pragmatic engineering over civil rights"
           },
           {
             "id": "B",
-            "text": "The Economic Model"
+            "text": "The Economic Market Paradigm assessing productivity loss against governmental welfare"
           },
           {
             "id": "C",
-            "text": "The Biopsychosocial Model"
+            "text": "The Biopsychosocial Model combining biological, individual, and social factors (WHO ICF)"
           },
           {
             "id": "D",
-            "text": "The Charity Model, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "The Charity Model viewing disability as an unfortunate tragedy requiring benevolent care"
           }
         ],
         "answer": "C",
@@ -138,19 +138,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Social Model under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "The Social Model emphasizing barrier removal and societal inclusion"
           },
           {
             "id": "B",
-            "text": "Human Rights Model"
+            "text": "The Human Rights Model asserting autonomy, dignity, and equal civil standing"
           },
           {
             "id": "C",
-            "text": "Universal Design Model"
+            "text": "The Universal Design Model prioritizing inclusive proactive architecture"
           },
           {
             "id": "D",
-            "text": "Charity / Tragedy Model"
+            "text": "The Charity / Tragedy Model depicting individuals as helpless victims deserving pity"
           }
         ],
         "answer": "D",
@@ -203,7 +203,7 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A person born with profound hearing loss"
+            "text": "An office worker born with profound bilateral sensorineural hearing loss"
           },
           {
             "id": "B",
@@ -211,11 +211,11 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "C",
-            "text": "A student with diagnosed dyslexia without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "A university student diagnosed with severe developmental reading dyslexia"
           },
           {
             "id": "D",
-            "text": "A developer recovering from wrist surgery over six weeks"
+            "text": "A software engineer recovering from dominant wrist surgery over six weeks"
           }
         ],
         "answer": "B",
@@ -227,19 +227,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "4.5:1"
+            "text": "At least 4.5:1 for standard text (3:1 for large text 18pt+ or 14pt+ bold)"
           },
           {
             "id": "B",
-            "text": "3:1, disregarding environmental barriers and architectural design constraints"
+            "text": "At least 3:1 for all text sizes regardless of font weight or dimensions"
           },
           {
             "id": "C",
-            "text": "7:1"
+            "text": "At least 7:1 for standard text (recommended for enhanced AAA compliance)"
           },
           {
             "id": "D",
-            "text": "10:1"
+            "text": "At least 10:1 for high contrast modes across all body copy and user inputs"
           }
         ],
         "answer": "A",
@@ -251,19 +251,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Autoplaying instructional audio"
+            "text": "Auditory sound cues that trigger automatically upon page load without controls"
           },
           {
             "id": "B",
-            "text": "Complex multi-finger gestures for shortcuts"
+            "text": "Complex multi-touch swipe gestures and rapid double-tap shortcut sequences"
           },
           {
             "id": "C",
-            "text": "Generous target sizes (at least 24x24 or 44x44 CSS pixels) with adequate spacing"
+            "text": "Generous target sizes (at least 24×24 or 44×44 CSS pixels) with adequate spacing"
           },
           {
             "id": "D",
-            "text": "Strict 5-second countdown timers on form submission, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Strict timed countdown dialogs that automatically submit forms within 5 seconds"
           }
         ],
         "answer": "C",
@@ -327,19 +327,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Tolerance for Error"
+            "text": "Tolerance for Error by preventing accidental activation and hazard states"
           },
           {
             "id": "B",
-            "text": "Perceptible Information"
+            "text": "Perceptible Information by presenting redundant audio and visual alerts"
           },
           {
             "id": "C",
-            "text": "Low Physical Effort alone"
+            "text": "Low Physical Effort by reducing the force required to open physical doors"
           },
           {
             "id": "D",
-            "text": "Equitable Use"
+            "text": "Equitable Use by providing the exact same means of entry for all individuals"
           }
         ],
         "answer": "D",
@@ -351,19 +351,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Flexibility in Use"
+            "text": "Flexibility in Use accommodating left-handed and right-handed scissor users"
           },
           {
             "id": "B",
-            "text": "Tolerance for Error"
+            "text": "Tolerance for Error minimizing hazards and consequences of accidental clicks"
           },
           {
             "id": "C",
-            "text": "Equitable Use without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Simple and Intuitive Use eliminating unnecessary operational complexity"
           },
           {
             "id": "D",
-            "text": "Size and Space for Approach"
+            "text": "Size and Space for Approach and Use ensuring reach ranges for wheelchair users"
           }
         ],
         "answer": "B",
@@ -375,19 +375,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Universal Design is proactive and benefits all people from the start; accommodations are reactive retrofits for a specific person"
+            "text": "Universal Design is proactive and benefits all people; accommodations are reactive retrofits"
           },
           {
             "id": "B",
-            "text": "Accommodations are always cheaper than Universal Design, disregarding environmental barriers and architectural design constraints"
+            "text": "Accommodations are always cheaper to implement than upfront Universal Design architecture"
           },
           {
             "id": "C",
-            "text": "Accommodations are only used in physical buildings, whereas Universal Design is for websites"
+            "text": "Accommodations apply exclusively to physical buildings, while Universal Design is for websites"
           },
           {
             "id": "D",
-            "text": "There is no difference; the terms are completely interchangeable"
+            "text": "Universal Design is legally enforceable under Title I, while accommodations are voluntary"
           }
         ],
         "answer": "A",
@@ -439,19 +439,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "ADA Title III"
+            "text": "Title III of the Americans with Disabilities Act (Places of Public Accommodation)"
           },
           {
             "id": "B",
-            "text": "The Telecommunications Act of 1996 alone"
+            "text": "The Federal Communications Commission Telecommunications Act of 1996 alone"
           },
           {
             "id": "C",
-            "text": "Section 508 of the Rehabilitation Act"
+            "text": "Section 508 of the Rehabilitation Act of 1973 (as amended in 1998 and 2017)"
           },
           {
             "id": "D",
-            "text": "Section 504 of the Rehabilitation Act under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Section 504 of the Rehabilitation Act covering federally funded grant recipients"
           }
         ],
         "answer": "C",
@@ -463,22 +463,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "WCAG 2.0 Level A and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "State and local governments under Title II must ensure WCAG 2.1 AA compliance"
           },
           {
             "id": "B",
-            "text": "Section 255 Guidelines only"
+            "text": "Commercial mobile applications are permanently exempted from federal oversight"
           },
           {
             "id": "C",
-            "text": "WCAG 2.2 Level AAA"
+            "text": "Public websites may satisfy legal mandates by posting a telephone contact number"
           },
           {
             "id": "D",
-            "text": "WCAG 2.1 Level AA"
+            "text": "Federal agencies are granted an indefinite exemption from Section 508 rules"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "The US Department of Justice finalized its ADA Title II rule requiring public entities to conform to WCAG 2.1 Level AA."
       },
       {
@@ -487,19 +487,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It establishes strict US fines for non-compliant software"
+            "text": "It establishes statutory monetary damages and civil fines for defective software"
           },
           {
             "id": "B",
-            "text": "It obligates State Parties to enable persons with disabilities to live independently and participate fully through accessibility in physical and digital spaces"
+            "text": "It obligates State Parties to ensure equal access to physical and digital environments"
           },
           {
             "id": "C",
-            "text": "It outlines copyright exemptions for screen reader users exclusively in Canada without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "It outlines copyright fair-use exemptions for screen reader users in North America"
           },
           {
             "id": "D",
-            "text": "It creates the W3C Web Accessibility Initiative"
+            "text": "It grants the World Wide Web Consortium formal global regulatory enforcement power"
           }
         ],
         "answer": "B",
@@ -551,22 +551,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Because a div is not naturally focusable and does not fire onclick upon Space or Enter keypress without manual handlers"
+            "text": "Standard HTML divs reject inline event attributes like onclick in modern browsers"
           },
           {
             "id": "B",
-            "text": "Because divs can never execute JavaScript, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "A div is not naturally focusable and fails to fire on Enter/Space without script handlers"
           },
           {
             "id": "C",
-            "text": "Because the text \"Save\" is too short to be recognized"
+            "text": "Assistive tech ignores click handlers unless the label contains at least 5 characters"
           },
           {
             "id": "D",
-            "text": "Because onclick is deprecated in HTML5"
+            "text": "HTML5 deprecated the onclick attribute in favor of CSS pointer-event pseudoclasses"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "A `div` is neither in the sequential keyboard tab order nor listens to Space or Enter keys for click activation, breaking keyboard accessibility."
       },
       {
@@ -575,19 +575,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "<a href=\"#\">Filters</a>"
+            "text": "Visual CSS bolding (font-weight: 700) is automatically parsed as an <H2> by screen readers"
           },
           {
             "id": "B",
-            "text": "<span role=\"link\">Filters</span>"
+            "text": "Assistive technology automatically generates a heading hierarchy based on font size"
           },
           {
             "id": "C",
-            "text": "<button type=\"button\">Filters</button>"
+            "text": "Screen readers allow users to skim pages by pressing \"H\" to jump through real headings"
           },
           {
             "id": "D",
-            "text": "<div class=\"filter-action\">Filters</div>"
+            "text": "Semantic heading tags are strictly prohibited from having custom CSS color properties"
           }
         ],
         "answer": "C",
@@ -599,19 +599,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "<div id=\"primary\">"
+            "text": "It forces mobile touchscreen devices to display full-width call-to-action banners"
           },
           {
             "id": "B",
-            "text": "<article>"
+            "text": "It hides the text from visual web browsers while keeping it readable for search bots"
           },
           {
             "id": "C",
-            "text": "<section class=\"content\">"
+            "text": "It prevents desktop users from double-clicking the text to copy it to the clipboard"
           },
           {
             "id": "D",
-            "text": "<main>"
+            "text": "Clicking the label focuses the input, expanding the hit area and binding accessible name"
           }
         ],
         "answer": "D",
@@ -664,19 +664,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-live=\"assertive\""
+            "text": "aria-live=\"assertive\" queues alerts politely until current speech finishes"
           },
           {
             "id": "B",
-            "text": "aria-live=\"polite\""
+            "text": "aria-live=\"polite\" waits until idle, while aria-live=\"assertive\" interrupts speech"
           },
           {
             "id": "C",
-            "text": "aria-live=\"off\", disregarding environmental barriers and architectural design constraints"
+            "text": "aria-live=\"polite\" is for mobile browsers, while assertive is for desktop browsers"
           },
           {
             "id": "D",
-            "text": "role=\"alert\""
+            "text": "aria-live=\"assertive\" plays a chime sound, while polite displays visual captions"
           }
         ],
         "answer": "B",
@@ -688,19 +688,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "If you can use a native HTML element with the semantics already built in, do so instead of repurposing an element and adding ARIA"
+            "text": "If you can use a native HTML element with built-in semantics, do so instead of ARIA"
           },
           {
             "id": "B",
-            "text": "Always add role attributes to every HTML element for clarity, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Always add role attributes to every single HTML element for maximum clarity"
           },
           {
             "id": "C",
-            "text": "Only use ARIA on touchscreens and mobile viewports"
+            "text": "Only implement ARIA attributes on mobile responsive layouts and touch displays"
           },
           {
             "id": "D",
-            "text": "All interactive elements must have aria-describedby"
+            "text": "All interactive elements must declare both aria-label and aria-describedby"
           }
         ],
         "answer": "A",
@@ -712,19 +712,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-pressed"
+            "text": "The entire container element must be deleted and re-created in the DOM on update"
           },
           {
             "id": "B",
-            "text": "aria-selected"
+            "text": "The live region container must be assigned role=\"presentation\" with tabIndex=\"0\""
           },
           {
             "id": "C",
-            "text": "aria-expanded=\"true\" / \"false\""
+            "text": "The live region container must exist in the DOM before dynamic content is injected"
           },
           {
             "id": "D",
-            "text": "aria-hidden under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "The live region must be styled with display: none until text content is injected"
           }
         ],
         "answer": "C",
@@ -777,19 +777,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The top of the web page (body) without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "The top of the web page body element, resetting keyboard scroll coordinates to zero"
           },
           {
             "id": "B",
-            "text": "The browser URL address bar"
+            "text": "The browser URL omnibox address bar, allowing the user to type a new destination"
           },
           {
             "id": "C",
-            "text": "The first focusable element in the footer"
+            "text": "The first focusable anchor link located within the global website footer landmark"
           },
           {
             "id": "D",
-            "text": "The trigger element (button or link) that opened the modal"
+            "text": "The trigger element (button or link) that originally invoked the modal dialog"
           }
         ],
         "answer": "D",
@@ -801,19 +801,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The element is completely hidden from screen readers"
+            "text": "The element is permanently hidden from assistive technologies and accessibility APIs"
           },
           {
             "id": "B",
-            "text": "The element is removed from sequential Tab navigation, but can receive programmatic focus via JavaScript .focus()"
+            "text": "The element leaves sequential Tab order, but can receive focus via script .focus()"
           },
           {
             "id": "C",
-            "text": "The element cannot receive focus under any circumstances, disregarding environmental barriers and architectural design constraints"
+            "text": "The element is completely prevented from receiving keyboard or programmatic focus"
           },
           {
             "id": "D",
-            "text": "The element receives focus before all other elements"
+            "text": "The element is placed first in the sequential Tab navigation order on page load"
           }
         ],
         "answer": "B",
@@ -825,19 +825,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "They override the natural DOM reading order and create confusing, unpredictable keyboard navigation flows"
+            "text": "They override natural DOM order, creating confusing and unpredictable focus jumps"
           },
           {
             "id": "B",
-            "text": "They are unsupported in modern browsers, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "They are completely unrecognized and thrown as syntax errors by modern web engines"
           },
           {
             "id": "C",
-            "text": "They disable the Spacebar key"
+            "text": "They permanently disable the Spacebar key on all interactive controls in the DOM"
           },
           {
             "id": "D",
-            "text": "They prevent screen readers from reading text"
+            "text": "They prevent screen readers from reading text content within adjacent containers"
           }
         ],
         "answer": "A",
@@ -890,19 +890,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Tag it with alt=\"Decorative wavy line\""
+            "text": "Assign alternative text describing it: alt=\"Decorative wavy graphic divider\""
           },
           {
             "id": "B",
-            "text": "Convert it into an empty heading tag (<H3></H3>)"
+            "text": "Tag it as an empty sub-heading structure tag (<H3></H3>) to preserve vertical spacing"
           },
           {
             "id": "C",
-            "text": "Mark it as an Artifact so assistive technology completely ignores it"
+            "text": "Mark it as an /Artifact so screen readers ignore it and avoid announcing noise"
           },
           {
             "id": "D",
-            "text": "Delete the entire section divider from the visual layout and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Delete the divider completely from the print layout to avoid PDF tagging issues"
           }
         ],
         "answer": "C",
@@ -914,19 +914,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "alt=\"Black and grey inkjet printer with paper tray\""
+            "text": "alt=\"Detailed high-resolution visual rendering of a black office inkjet printer\""
           },
           {
             "id": "B",
-            "text": "alt=\"\""
+            "text": "alt=\"\" (empty string marking the functional control as decorative background)"
           },
           {
             "id": "C",
-            "text": "alt=\"Icon graphic\""
+            "text": "alt=\"Button graphic icon depicting hardware machinery for document output\""
           },
           {
             "id": "D",
-            "text": "alt=\"Print this document\""
+            "text": "alt=\"Print this document\" (describing the action performed upon activation)"
           }
         ],
         "answer": "D",
@@ -938,19 +938,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Provide a 1,000-word paragraph directly in the alt attribute"
+            "text": "Paste a comprehensive 1,000-word descriptive essay directly into the /Alt attribute"
           },
           {
             "id": "B",
-            "text": "Provide a concise summary in the alt attribute and a full accessible data table or text description in the surrounding document text"
+            "text": "Provide a concise summary in alt text and a full accessible data table in the body"
           },
           {
             "id": "C",
-            "text": "Mark the chart as an Artifact, disregarding environmental barriers and architectural design constraints"
+            "text": "Mark the complex statistical chart as an /Artifact to reduce screen reader verbosity"
           },
           {
             "id": "D",
-            "text": "Replace the chart with an image of raw code"
+            "text": "Replace the chart visual with a raster screenshot of the raw statistical source code"
           }
         ],
         "answer": "B",
@@ -1008,22 +1008,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Tags Tree panel"
+            "text": "The chronological timestamp when each text block was typed by the author"
           },
           {
             "id": "B",
-            "text": "The Visual Reading Order panel"
+            "text": "The visual z-index arrangement of layers in graphic design software"
           },
           {
             "id": "C",
-            "text": "The Page Thumbnails panel"
+            "text": "The physical coordinates of text bounding boxes from top-left to bottom-right"
           },
           {
             "id": "D",
-            "text": "The Bookmarks panel"
+            "text": "The Logical Structure Tree (Tags panel) dictates screen reader reading order"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Under ISO 14289-1 (PDF/UA), screen readers rely exclusively on the logical Tags Tree structure to read content and announce semantics."
       },
       {
@@ -1032,19 +1032,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Leave the <H4> tag because visual font size dictates tag selection"
+            "text": "Retain the <H4> tag because visual font styling takes precedence over hierarchy"
           },
           {
             "id": "B",
-            "text": "Replace the heading with a bold paragraph <P>"
+            "text": "Remove the heading semantics entirely and convert the text into bold body copy in production environments"
           },
           {
             "id": "C",
-            "text": "Change the tag to <H2> and adjust the visual font styling in the authoring application"
+            "text": "Change the tag to <H2> and adjust the visual font styling in the authoring tool"
           },
           {
             "id": "D",
-            "text": "Insert two blank headings (<H2></H2><H3></H3>) to fill the gap and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Inject empty headings (<H2></H2><H3></H3>) to fill the skipped numerical gap"
           }
         ],
         "answer": "C",
@@ -1056,19 +1056,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "All cells must be tagged as <TD> with no headers without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "All table cells must be tagged strictly as <TD> data cells with no header tags"
           },
           {
             "id": "B",
-            "text": "The entire table must be converted into an image with an alt tag"
+            "text": "The entire table must be rasterized into an image with an alternative text tag"
           },
           {
             "id": "C",
-            "text": "Tables must never contain numbers"
+            "text": "Data tables are restricted from containing currency numbers or statistical symbols"
           },
           {
             "id": "D",
-            "text": "Column and row header cells must be properly tagged as <TH> with scope attributes"
+            "text": "Header cells must be tagged as <TH> with Scope attributes associating data cells"
           }
         ],
         "answer": "D",
@@ -1117,19 +1117,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Whether the alternative text accurately describes the emotional meaning of a photograph"
+            "text": "Whether the alternative text conveys the emotional intent of an editorial photo"
           },
           {
             "id": "B",
-            "text": "Whether an image is completely missing an alternative text attribute or tag"
+            "text": "Whether an image tag is completely missing an /Alt property string in syntax"
           },
           {
             "id": "C",
-            "text": "Whether a document is written in clear, concise plain language, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Whether narrative paragraphs are written in concise, readable plain language"
           },
           {
             "id": "D",
-            "text": "Whether the reading sequence makes logical editorial sense"
+            "text": "Whether the reading order sequence makes logical sense across complex columns"
           }
         ],
         "answer": "B",
@@ -1141,19 +1141,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A technical specification that categorizes PDF/UA failure conditions into automated and human-verifiable tests"
+            "text": "A technical specification categorizing PDF/UA failure conditions for testing"
           },
           {
             "id": "B",
-            "text": "A Swiss treaty regulating web browsers under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "An international copyright treaty regulating European web browser rendering"
           },
           {
             "id": "C",
-            "text": "An encryption method for secure PDF transmission"
+            "text": "A digital encryption standard for transmitting confidential PDF documents across all platforms"
           },
           {
             "id": "D",
-            "text": "A font formatting standard for European e-books"
+            "text": "A typographic formatting standard for commercial digital publishing software"
           }
         ],
         "answer": "A",
@@ -1165,19 +1165,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated checkers only work on Windows, not Mac"
+            "text": "Automated validators operate exclusively on Windows, not macOS or Linux"
           },
           {
             "id": "B",
-            "text": "Because Adobe Acrobat prohibits automated validation"
+            "text": "Because Adobe Acrobat Pro terms of service prohibit automated validator scripts"
           },
           {
             "id": "C",
-            "text": "To verify that the reading flow, link announcements, table associations, and contextual alt-text provide an equivalent experience in practice"
+            "text": "To verify reading order, table announcements, and alt text equivalence in speech"
           },
           {
             "id": "D",
-            "text": "Screen readers automatically repair broken tags during playback and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Screen readers automatically repair corrupt document tags during playback under all circumstances"
           }
         ],
         "answer": "C",
@@ -1225,19 +1225,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By rapidly typing letters on a specialized physical keyboard, disregarding environmental barriers and architectural design constraints"
+            "text": "By rapidly typing text strings on an ergonomic chorded mechanical keyboard"
           },
           {
             "id": "B",
-            "text": "By relying entirely on third-party voice assistants"
+            "text": "By relying exclusively on conversational cloud AI voice dictation engines"
           },
           {
             "id": "C",
-            "text": "By tilting a handheld joystick in 360 degrees"
+            "text": "By manipulating an analog multidirectional joystick with high tactile force"
           },
           {
             "id": "D",
-            "text": "By waiting for the software to automatically cycle through rows/items and clicking their switch when the desired item is highlighted"
+            "text": "By waiting for an auto-scan highlight to cycle through items and clicking a switch"
           }
         ],
         "answer": "D",
@@ -1249,19 +1249,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Users with mild presbyopia"
+            "text": "Older adults experiencing mild age-related presbyopia during reading tasks"
           },
           {
             "id": "B",
-            "text": "Individuals who are deafblind"
+            "text": "Individuals who are deafblind and require tactile braille for all communication"
           },
           {
             "id": "C",
-            "text": "Users with situational color blindness in bright sunlight"
+            "text": "Users with situational low vision caused by glare on mobile screens outdoors"
           },
           {
             "id": "D",
-            "text": "Individuals with speech stutter"
+            "text": "Individuals with vocal cord paralysis who rely primarily on text-to-speech output"
           }
         ],
         "answer": "B",
@@ -1273,19 +1273,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "At high zoom levels (e.g. 400%), users view only a small fraction of the screen at a time, easily missing distant error messages or action buttons"
+            "text": "At high zoom levels (e.g. 400%), users see a small viewport area and miss distant items"
           },
           {
             "id": "B",
-            "text": "Magnifiers invert all colors on the display under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Screen magnifiers invert all high-resolution graphics into unreadable black blocks"
           },
           {
             "id": "C",
-            "text": "Screen magnifiers disable the mouse cursor"
+            "text": "Hardware screen magnification utilities automatically disable mouse pointer clicks"
           },
           {
             "id": "D",
-            "text": "High zoom levels disable browser JavaScript"
+            "text": "Browser magnification triggers automatic script execution timeouts on form submit"
           }
         ],
         "answer": "A",
@@ -1333,19 +1333,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A cost-cutting method that eliminates testing budgets"
+            "text": "A cost-reduction strategy that minimizes automated code auditing and human QA cycles"
           },
           {
             "id": "B",
-            "text": "A legal strategy for avoiding ADA lawsuits"
+            "text": "A procedural legal loophole used to dismiss commercial accessibility class action suits"
           },
           {
             "id": "C",
-            "text": "The phenomenon where solutions designed specifically for people with disabilities end up benefiting society as a whole"
+            "text": "Features designed for disability (e.g. curb ramps, captions) that benefit all users"
           },
           {
             "id": "D",
-            "text": "A visual design trend featuring rounded corners without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "A modern design aesthetic prioritizing minimalist sans-serif typography on dark themes"
           }
         ],
         "answer": "C",
@@ -1357,19 +1357,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Search engines give secret rank bonuses to W3C members, disregarding environmental barriers and architectural design constraints"
+            "text": "Search engines secretly award direct ranking bonuses to verified W3C member firms"
           },
           {
             "id": "B",
-            "text": "Screen readers automatically click search ads"
+            "text": "Assistive technology screen readers generate automated paid ad-click referral traffic"
           },
           {
             "id": "C",
-            "text": "Accessibility code hides tracking cookies"
+            "text": "Accessible semantic code obfuscates third-party analytics scripts from tracking bots"
           },
           {
             "id": "D",
-            "text": "Search engine crawlers lack vision and rely on semantic HTML tags, headings, descriptive link text, and alt attributes to understand page content"
+            "text": "Search crawlers browse like blind users, parsing semantic HTML headings, links, and alt tags"
           }
         ],
         "answer": "D",
@@ -1381,19 +1381,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "About 2%"
+            "text": "Approximately 2% of the global population (representing roughly 160 million people)"
           },
           {
             "id": "B",
-            "text": "About 16% (1.3 billion people)"
+            "text": "Approximately 16% of the global population (representing roughly 1.3 billion people)"
           },
           {
             "id": "C",
-            "text": "About 8%, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Approximately 32% of the global population (representing roughly 2.6 billion people)"
           },
           {
             "id": "D",
-            "text": "Over 50%"
+            "text": "Over 50% of the global population (representing the absolute majority of humanity)"
           }
         ],
         "answer": "B",
@@ -1441,19 +1441,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Level 1 (Initial / Ad-Hoc)"
+            "text": "Level 1: Initial / Ad Hoc, relying on sporadic individual efforts without governance"
           },
           {
             "id": "B",
-            "text": "Level 3 (Defined) and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Level 3: Defined, where processes are formally documented across all departments"
           },
           {
             "id": "C",
-            "text": "Level 5 (Optimizing)"
+            "text": "Level 5: Optimizing, driven by continuous automated metrics and proactive innovation"
           },
           {
             "id": "D",
-            "text": "Level 4 (Managed)"
+            "text": "Level 4: Managed, where quantitative quality metrics dictate executive performance"
           }
         ],
         "answer": "A",
@@ -1465,19 +1465,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A visual color palette generator"
+            "text": "An automated color contrast analyzer tool developed for front-end web developers"
           },
           {
             "id": "B",
-            "text": "A free screen reader download"
+            "text": "An open-source screen reader software utility distributed by federal agencies"
           },
           {
             "id": "C",
-            "text": "A standardized document format used by vendors to state how their ICT product conforms to WCAG and Section 508 accessibility standards"
+            "text": "A standardized reporting format documenting product conformance to WCAG and 508"
           },
           {
             "id": "D",
-            "text": "An ISO encryption certificate without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "An ISO-certified digital encryption security protocol for web applications"
           }
         ],
         "answer": "C",
@@ -1489,19 +1489,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Assigning a single junior developer to manually fix all errors after every production release, disregarding environmental barriers and architectural design constraints"
+            "text": "Assigning a single junior engineer to manually patch all accessibility tickets post-launch"
           },
           {
             "id": "B",
-            "text": "Purchasing insurance against disability discrimination lawsuits"
+            "text": "Purchasing commercial insurance policies to defend against civil rights litigation"
           },
           {
             "id": "C",
-            "text": "Relying exclusively on automated web overlay widgets"
+            "text": "Installing third-party automated JavaScript overlay widgets across the domain"
           },
           {
             "id": "D",
-            "text": "Embedding role-based accessibility responsibilities, training, and testing gates across design, engineering, QA, content authoring, and procurement"
+            "text": "Embedding role-based accessibility training, testing gates, and governance across teams"
           }
         ],
         "answer": "D",
@@ -1554,19 +1554,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "12×12 CSS pixels"
+            "text": "12×12 CSS pixels (or 24×24 CSS pixels with tight circular inline margins)"
           },
           {
             "id": "B",
-            "text": "24×24 CSS pixels (or equivalent spacing offset)"
+            "text": "24×24 CSS pixels (or an equivalent spacing offset ensuring 24px diameter clearance)"
           },
           {
             "id": "C",
-            "text": "48×48 CSS pixels under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "44×44 CSS pixels (mandatory for all Level AA components on touch screens)"
           },
           {
             "id": "D",
-            "text": "100×100 CSS pixels"
+            "text": "48×48 CSS pixels (recommended under legacy mobile Android design guidelines)"
           }
         ],
         "answer": "B",
@@ -1578,19 +1578,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By providing buttons (e.g. \"Move Left\" / \"Move Right\") or a dropdown menu that allows single-click column assignment without dragging"
+            "text": "Provide single-pointer click alternatives (e.g. Move Left/Right buttons or menus)"
           },
           {
             "id": "B",
-            "text": "By removing the drag-and-drop feature entirely and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Remove drag-and-drop entirely and require users to type column names in a text field"
           },
           {
             "id": "C",
-            "text": "By adding an audio chime whenever a card is dragged"
+            "text": "Play an auditory confirmation sound effect whenever a card drag movement starts"
           },
           {
             "id": "D",
-            "text": "By increasing the mouse drag velocity"
+            "text": "Increase the required pointer drag distance to prevent accidental card movements"
           }
         ],
         "answer": "A",
@@ -1602,19 +1602,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "SC 1.1.1 Non-text Content"
+            "text": "SC 4.1.1 was strengthened to mandate full XML schema validation on all web pages"
           },
           {
             "id": "B",
-            "text": "SC 2.1.1 Keyboard"
+            "text": "SC 4.1.1 was elevated from Level A to Level AAA conformance requirements"
           },
           {
             "id": "C",
-            "text": "SC 4.1.1 Parsing"
+            "text": "SC 4.1.1 was marked obsolete and removed because modern browsers handle parsing"
           },
           {
             "id": "D",
-            "text": "SC 1.4.3 Contrast (Minimum)"
+            "text": "SC 4.1.1 was renamed to \"Consistent Identification and Accessible Naming\""
           }
         ],
         "answer": "C",
@@ -1662,22 +1662,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By pressing the Tab key for every single tab"
+            "text": "Arrow keys (Left/Right or Up/Down) move focus, while Tab moves out to the tabpanel"
           },
           {
             "id": "B",
-            "text": "By pressing the Escape key"
+            "text": "Tab moves focus through every tab button sequentially before entering the panel"
           },
           {
             "id": "C",
-            "text": "By double-clicking the mouse wheel"
+            "text": "The Spacebar permanently locks focus inside the active tab until Escape is pressed"
           },
           {
             "id": "D",
-            "text": "By using the Left and Right Arrow keys"
+            "text": "Mouse hover is mandatory to activate tab selection; keyboard operation is optional"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "In the standard APG Tabs pattern, the Tab key enters/exits the tablist, while Arrow keys navigate between individual tabs without cluttering sequential tab stops."
       },
       {
@@ -1686,22 +1686,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "tabindex=\"0\""
+            "text": "aria-selected=\"true\" on every option in the listbox regardless of selection state"
           },
           {
             "id": "B",
-            "text": "tabindex=\"-1\""
+            "text": "aria-hidden=\"true\" on the input field whenever the dropdown menu is visible comprehensively"
           },
           {
             "id": "C",
-            "text": "tabindex=\"1\" under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "aria-expanded indicating listbox visibility, and aria-activedescendant for active option"
           },
           {
             "id": "D",
-            "text": "tabindex=\"auto\""
+            "text": "role=\"radiogroup\" declared directly on the combobox <input> element"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Unselected tabs receive `tabindex=\"-1\"` so they cannot be reached via the Tab key, while remaining focusable programmatically via JavaScript arrow handlers."
       },
       {
@@ -1710,22 +1710,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-controls=\"panel-id\""
+            "text": "Only the active tab button possesses tabIndex=\"0\", while inactive tabs have tabIndex=\"-1\""
           },
           {
             "id": "B",
-            "text": "aria-haspopup=\"true\" and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Focus moves between widget items using arrow keys without Tab stops at every item"
           },
           {
             "id": "C",
-            "text": "aria-live=\"polite\""
+            "text": "It reduces keyboard clutter by presenting the entire compound widget as a single Tab stop"
           },
           {
             "id": "D",
-            "text": "aria-expanded=\"true\""
+            "text": "All options above are true characteristics of the W3C APG roving tabindex pattern"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "`aria-controls` references the `id` of the `<div role=\"tabpanel\">` that this tab button activates and displays."
       }
     ]
@@ -1770,19 +1770,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A decorative footer logo lacks an alt attribute"
+            "text": "A decorative corporate copyright icon in the footer lacks an alternative text attribute"
           },
           {
             "id": "B",
-            "text": "A copyright statement in the footer has a 4.2:1 contrast ratio instead of 4.5:1"
+            "text": "A secondary paragraph in the footer exhibits a 4.2:1 contrast ratio instead of 4.5:1"
           },
           {
             "id": "C",
-            "text": "An accessible modal dialog traps keyboard focus, preventing the user from closing it or accessing the rest of the application"
+            "text": "A modal dialog traps keyboard focus, preventing users from exiting or navigating"
           },
           {
             "id": "D",
-            "text": "A bulleted list is coded as paragraphs instead of <ul>, disregarding environmental barriers and architectural design constraints"
+            "text": "A multi-item bulleted list is coded visually using raw paragraphs instead of <ul>"
           }
         ],
         "answer": "C",
@@ -1794,19 +1794,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Because Level AAA is legally mandated in all countries, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Level AAA success criteria are legally enforced in all international jurisdictions"
           },
           {
             "id": "B",
-            "text": "Because automated testing tools cannot read Level A criteria"
+            "text": "Automated testing tools cannot parse or evaluate Level A success criteria across all platforms"
           },
           {
             "id": "C",
-            "text": "Because WCAG levels change every month"
+            "text": "WCAG conformance levels are re-indexed and altered every month by the W3C"
           },
           {
             "id": "D",
-            "text": "Because a minor Level A defect (e.g. missing alt on decorative icon) has far less real-world user impact than a Level AA defect blocking the main navigation"
+            "text": "A minor Level A flaw has far less user impact than a Level AA flaw blocking checkout"
           }
         ],
         "answer": "D",
@@ -1818,19 +1818,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It poses an immediate physical health hazard like flashing lights"
+            "text": "It triggers immediate physical health hazards like photosensitive seizures"
           },
           {
             "id": "B",
-            "text": "It creates a significant barrier and high friction, but an alternative workaround pathway is available to complete the task"
+            "text": "It creates high friction, but an alternative workaround pathway exists to complete tasks"
           },
           {
             "id": "C",
-            "text": "It is a typo in a privacy policy under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "It represents an editorial typo in an organization's public privacy policy page"
           },
           {
             "id": "D",
-            "text": "It only affects users on legacy operating systems from the 1990s"
+            "text": "It affects only users running legacy operating systems manufactured before 2005 under all circumstances"
           }
         ],
         "answer": "B",
@@ -1878,22 +1878,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Download Employee Benefits Guide 2025 (PDF, 1.2 MB)"
+            "text": "Read More about our comprehensive organization policies and annual plans"
           },
           {
             "id": "B",
-            "text": "Read more without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Click Here to open the new corporate human resources benefits document"
           },
           {
             "id": "C",
-            "text": "https://example.com/files/download?id=9841"
+            "text": "https://benefits.example.com/download/secure?doc_id=984128&format=pdf"
           },
           {
             "id": "D",
-            "text": "Click here"
+            "text": "Download Employee Benefits Guide 2025 (PDF, 1.2 MB)"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Accessible links clearly state the destination, subject, file format, and file size so users know exactly what will occur when activated."
       },
       {
@@ -1902,19 +1902,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Because manual dashes cause printer jams"
+            "text": "Manual dashes cause physical paper paper jams when printed on high-speed copiers"
           },
           {
             "id": "B",
-            "text": "Dashes are prohibited under copyright law"
+            "text": "Typing manual dashes is prohibited under international digital copyright treaties"
           },
           {
             "id": "C",
-            "text": "Native list tools generate semantic <L> and <LI> tags in PDF, allowing screen readers to announce the total number of items and current position"
+            "text": "Native list tools generate semantic <L>/<LI> tags, announcing count and position"
           },
           {
             "id": "D",
-            "text": "Manual dashes increase file size by 500%, disregarding environmental barriers and architectural design constraints"
+            "text": "Manual dashes increase exported PDF document file sizes by more than 500%"
           }
         ],
         "answer": "C",
@@ -1926,19 +1926,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It allows documents to be read faster by automated OCR scanners, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "It enables electronic documents to be indexed faster by automated OCR scanning software"
           },
           {
             "id": "B",
-            "text": "It removes all styling formatting"
+            "text": "It completely strips visual font styling, colors, and margins from document layouts"
           },
           {
             "id": "C",
-            "text": "It eliminates the need for alternative text on images"
+            "text": "It eliminates the mandatory requirement for providing alternative text on illustrations"
           },
           {
             "id": "D",
-            "text": "It benefits people with cognitive and learning disabilities, non-native speakers, and all readers by ensuring information is quickly understood"
+            "text": "It aids readers with cognitive disabilities, non-native speakers, and all readers"
           }
         ],
         "answer": "D",
@@ -1992,22 +1992,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "1:8 (12.5% slope)"
+            "text": "1:6 steep slope provided that tactile warning pavers are installed at top"
           },
           {
             "id": "B",
-            "text": "1:12 (8.33% slope)"
+            "text": "1:8 maximum running slope (12.5% grade) with unrestricted cross-slope"
           },
           {
             "id": "C",
-            "text": "1:10 (10% slope) and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "1:20 running slope without requiring handrails or level resting landings"
           },
           {
             "id": "D",
-            "text": "1:20 (5% slope)"
+            "text": "1:12 maximum running slope (8.33% grade) with a 1:48 maximum cross-slope"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "ADAAG 405.2 specifies that ramp runs shall have a running slope not steeper than 1:12 (8.33% grade). Steeper slopes create dangerous tipping hazards for manual and power wheelchair users."
       },
       {
@@ -2016,22 +2016,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "32 inches (815 mm)"
+            "text": "A minimum clear width of 24 inches operated with smooth round twist knobs"
           },
           {
             "id": "B",
-            "text": "30 inches (760 mm) without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "A minimum clear width of 28 inches equipped with high-resistance deadbolts"
           },
           {
             "id": "C",
-            "text": "28 inches (710 mm)"
+            "text": "A minimum clear width of 48 inches with automated revolving turnstile doors"
           },
           {
             "id": "D",
-            "text": "36 inches (915 mm)"
+            "text": "A minimum clear width of 32 inches operated with closed-fist lever hardware"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Door openings must provide a minimum clear width of 32 inches (815 mm), measured between the face of the door and the stop with the door open 90 degrees."
       },
       {
@@ -2040,19 +2040,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Directly in the center of the push side of the door leaf at 72 inches"
+            "text": "Directly on the push face of the door leaf at 72 inches above the floor"
           },
           {
             "id": "B",
-            "text": "Hanging from the ceiling at 80 inches minimum clearance"
+            "text": "Suspended from the ceiling at 80 inches minimum vertical head clearance"
           },
           {
             "id": "C",
-            "text": "On the wall adjacent to the latch side of the door, with character baselines between 48 and 60 inches above the finish floor"
+            "text": "On the wall adjacent to the latch side of the door, 48 to 60 inches to baseline"
           },
           {
             "id": "D",
-            "text": "On the floor directly in front of the door threshold, disregarding environmental barriers and architectural design constraints"
+            "text": "Embedded flat in the carpet threshold directly centered in front of the door"
           }
         ],
         "answer": "C",
@@ -2106,19 +2106,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "SPAs cannot render semantic HTML elements in the virtual DOM under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Single page applications cannot render semantic HTML tags within virtual DOM nodes in production environments"
           },
           {
             "id": "B",
-            "text": "Client-side routers automatically disable all ARIA attributes"
+            "text": "Client-side routing libraries automatically suppress all WAI-ARIA live attributes"
           },
           {
             "id": "C",
-            "text": "JavaScript is completely unsupported by modern screen readers"
+            "text": "JavaScript execution is completely unsupported by modern screen reader software"
           },
           {
             "id": "D",
-            "text": "Client-side routing bypasses native page reloads, leaving the browser title unchanged, keyboard focus stranded, and screen readers silent"
+            "text": "Client-side routing bypasses native page reloads, leaving focus stranded and AT silent"
           }
         ],
         "answer": "D",
@@ -2130,19 +2130,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It permanently prevents the heading from receiving focus"
+            "text": "It permanently prevents the heading from ever receiving programmatic focus via script"
           },
           {
             "id": "B",
-            "text": "It allows programmatic focus via .focus() while keeping the heading out of the natural sequential Tab order"
+            "text": "It enables script .focus() while keeping the heading out of the natural Tab sequence"
           },
           {
             "id": "C",
-            "text": "It converts the heading into an interactive button and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "It converts the static heading into an interactive button in the browser accessibility tree"
           },
           {
             "id": "D",
-            "text": "It suppresses screen reader announcements of the heading text"
+            "text": "It suppresses screen reader synthesized speech when announcing the heading text"
           }
         ],
         "answer": "B",
@@ -2154,19 +2154,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-live=\"polite\" aria-atomic=\"true\""
+            "text": "aria-live=\"polite\" aria-atomic=\"true\" to announce the new page title without cutting speech"
           },
           {
             "id": "B",
-            "text": "aria-live=\"assertive\" aria-atomic=\"false\""
+            "text": "aria-live=\"assertive\" aria-atomic=\"false\" to immediately interrupt all ongoing audio"
           },
           {
             "id": "C",
-            "text": "role=\"alert\" aria-busy=\"true\""
+            "text": "role=\"alert\" aria-busy=\"true\" to indicate background network routing is underway"
           },
           {
             "id": "D",
-            "text": "aria-hidden=\"true\""
+            "text": "aria-hidden=\"true\" to hide the route announcer from all assistive technologies throughout the organization"
           }
         ],
         "answer": "A",
@@ -2220,19 +2220,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "OCR permanently flattens all fonts and disables text search"
+            "text": "OCR permanently rasterizes all typography and removes digital search capability across desktop and mobile devices"
           },
           {
             "id": "B",
-            "text": "OCR is prohibited by Section 508 procurement standards"
+            "text": "OCR scanning software is prohibited under federal Section 508 guidelines"
           },
           {
             "id": "C",
-            "text": "OCR only generates an unformatted text layer; it does not assign heading hierarchies, table headers, document language, or logical reading order tags"
+            "text": "OCR generates raw text; it does not tag headings, tables, reading order, or language"
           },
           {
             "id": "D",
-            "text": "Screen readers cannot read any PDF that contains images, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Screen reader software cannot process any PDF document containing raster images"
           }
         ],
         "answer": "C",
@@ -2244,19 +2244,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Vector path compression under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Lossless vector path compression artifacts in technical architectural drawings"
           },
           {
             "id": "B",
-            "text": "Automatic font embedding"
+            "text": "Automatic font subset embedding errors during document print spooling"
           },
           {
             "id": "C",
-            "text": "Excessive DPI resolution in raster layers"
+            "text": "Excessive scanning DPI resolution in underlying bitmap document background layers"
           },
           {
             "id": "D",
-            "text": "Look-alike glyph errors such as mistaking \"rn\" for \"m\", numeral \"1\" for letter \"l\", or numeral \"0\" for uppercase \"O\""
+            "text": "Look-alike glyph errors (e.g. mistaking \"rn\" for \"m\", or \"1\" for lowercase \"l\")"
           }
         ],
         "answer": "D",
@@ -2268,19 +2268,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The document author's employee ID"
+            "text": "The personal employee identification number of the scanning machine operator"
           },
           {
             "id": "B",
-            "text": "The document primary natural language (e.g. en-US or fr-FR)"
+            "text": "The document primary natural language (e.g. en-US or fr-FR) for pronunciation"
           },
           {
             "id": "C",
-            "text": "The DPI resolution of the scanner scanner hardware and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "The optical DPI hardware scanning resolution calibrated during page capture"
           },
           {
             "id": "D",
-            "text": "The color space profile (CMYK vs RGB)"
+            "text": "The color separation profile (CMYK vs RGB) for commercial print machinery for all users by default"
           }
         ],
         "answer": "B",
@@ -2334,19 +2334,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Sit down or pull up a chair so you are conversing at eye level, and never touch the wheelchair without explicit consent"
+            "text": "Sit down or pull up a chair to converse at eye level, and never lean on the chair"
           },
           {
             "id": "B",
-            "text": "Lean on the wheelchair handles to demonstrate closeness, disregarding environmental barriers and architectural design constraints"
+            "text": "Lean casually on the wheelchair handles to signal informal warmth and friendship"
           },
           {
             "id": "C",
-            "text": "Stand directly behind them and speak loudly"
+            "text": "Stand directly behind the wheelchair and raise your voice so they hear clearly"
           },
           {
             "id": "D",
-            "text": "Push their wheelchair to the front of the room without asking"
+            "text": "Immediately take control of the wheelchair and push it to the conference table"
           }
         ],
         "answer": "A",
@@ -2358,19 +2358,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Offer the dog treats to establish positive team rapport"
+            "text": "Offer food treats to the working animal to establish friendly office rapport"
           },
           {
             "id": "B",
-            "text": "Pet the dog whenever you enter the room"
+            "text": "Pet the service animal whenever entering the room to signal welcoming empathy"
           },
           {
             "id": "C",
-            "text": "Address and greet the colleague directly while ignoring the working dog so its focus remains on its handler"
+            "text": "Speak directly to the colleague while ignoring the service animal during duty"
           },
           {
             "id": "D",
-            "text": "Demand to inspect the dog's veterinary health records, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Request to examine the animal's certified government vaccination credentials"
           }
         ],
         "answer": "C",
@@ -2382,19 +2382,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "They are trademarked terms owned by private medical corporations under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "They are legally trademarked terms owned by commercial healthcare corporations"
           },
           {
             "id": "B",
-            "text": "They refer exclusively to temporary cognitive impairments"
+            "text": "They refer strictly to clinical cognitive impairments in pediatric medicine"
           },
           {
             "id": "C",
-            "text": "They are only permissible in legal statutes outside the United States"
+            "text": "They are only permissible under regional civil rights statutes outside North America"
           },
           {
             "id": "D",
-            "text": "They are patronizing euphemisms that avoid the neutral, factual terms \"disability\" and \"disabled\""
+            "text": "They are patronizing euphemisms that avoid the direct, neutral word \"disabled\""
           }
         ],
         "answer": "D",
@@ -2448,19 +2448,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "To reduce the audit fee for commercial clients"
+            "text": "To reduce the audit consultancy billing rate for enterprise commercial clients across desktop and mobile devices"
           },
           {
             "id": "B",
-            "text": "To uncover unexpected systemic defects, legacy sub-templates, and atypical page layouts not captured in curated core pages"
+            "text": "To uncover unexpected systemic defects and atypical templates omitted from curated samples"
           },
           {
             "id": "C",
-            "text": "Because automated screen readers can only parse randomly generated URLs without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Because screen readers can only parse URLs generated through random seeds"
           },
           {
             "id": "D",
-            "text": "To satisfy ISO 9001 factory manufacturing audits"
+            "text": "To satisfy international ISO 9001 industrial manufacturing audit protocols"
           }
         ],
         "answer": "B",
@@ -2472,19 +2472,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The entire transaction process fails conformance because all steps in a complete process must conform"
+            "text": "The entire transaction process fails conformance because all steps must conform"
           },
           {
             "id": "B",
-            "text": "The website can claim 80% proportional conformance for the process, disregarding environmental barriers and architectural design constraints"
+            "text": "The site can claim 80% proportional conformance for the completed pages"
           },
           {
             "id": "C",
-            "text": "The payment page is automatically exempted from audit scope"
+            "text": "The non-conforming payment page is automatically excluded from the audit report for all users by default"
           },
           {
             "id": "D",
-            "text": "Conformance defaults to WCAG Level AAA"
+            "text": "Conformance automatically defaults to Level AAA for the conforming steps"
           }
         ],
         "answer": "A",
@@ -2496,11 +2496,11 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Scan, Lint, Fix, Test, Deploy"
+            "text": "Lint Code, Automated Scan, Manual Screen Reader Test, Bug Fix, Deployment"
           },
           {
             "id": "B",
-            "text": "Identify, Isolate, Refactor, Document, Certify"
+            "text": "Identify Barriers, Isolate Code, Refactor DOM, Retest Components, Certification"
           },
           {
             "id": "C",
@@ -2508,7 +2508,7 @@ export const LEARNING_MODULES = [
           },
           {
             "id": "D",
-            "text": "Procure, Audit, Train, Remediate, Litigate, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Vendor Procurement, Gap Analysis, Staff Training, Remediation, Litigation Defense"
           }
         ],
         "answer": "C",
@@ -2562,19 +2562,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Adobe Acrobat Pro cannot create <H1> tags and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Adobe Acrobat Pro cannot create semantic <H1> or <H2> heading tags for all users by default"
           },
           {
             "id": "B",
-            "text": "Source files have smaller file sizes than PDFs"
+            "text": "Source authoring files inherently have smaller file sizes than exported PDFs"
           },
           {
             "id": "C",
-            "text": "Section 508 prohibits the use of PDF editing software"
+            "text": "Federal Section 508 standards strictly prohibit editing PDFs post-export"
           },
           {
             "id": "D",
-            "text": "Re-exporting a document from Word or InDesign after future text edits completely wipes out all downstream Acrobat PDF remediation"
+            "text": "Re-exporting from source files after text updates wipes out all Acrobat tag fixes"
           }
         ],
         "answer": "D",
@@ -2586,19 +2586,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Manually copy and paste the header row text at the top of each page"
+            "text": "Manually copy and paste the header row text at the top of each page break"
           },
           {
             "id": "B",
-            "text": "Right-click the header row, open Table Properties, and check \"Repeat as header row at the top of each page\""
+            "text": "In Word Table Properties, check \"Repeat as header row at the top of each page\""
           },
           {
             "id": "C",
-            "text": "Draw a black border around the top row without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Draw a thick visual border around the top row to designate header semantics comprehensively"
           },
           {
             "id": "D",
-            "text": "Convert the table into an image with alternative text"
+            "text": "Convert the multi-page table into a series of static images with alt text"
           }
         ],
         "answer": "B",
@@ -2610,19 +2610,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Export Tagging in Paragraph Style Options"
+            "text": "Export Tagging in InDesign Paragraph Style Options (mapping styles to PDF tags)"
           },
           {
             "id": "B",
-            "text": "Preflight Panel, disregarding environmental barriers and architectural design constraints"
+            "text": "The InDesign Preflight Panel configuring automated document print profiles"
           },
           {
             "id": "C",
-            "text": "Glyphs Panel"
+            "text": "The InDesign Glyphs Panel inserting specialized typographic Unicode symbols"
           },
           {
             "id": "D",
-            "text": "Object State Manager"
+            "text": "The Object State Manager configuring interactive multi-state presentation buttons"
           }
         ],
         "answer": "A",
@@ -2676,22 +2676,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Affective Network"
+            "text": "Auditory, Visual, and Kinesthetic rote sensory learning modalities"
           },
           {
             "id": "B",
-            "text": "The Strategic Network"
+            "text": "Multiple Means of Engagement, Representation, and Action & Expression (CAST)"
           },
           {
             "id": "C",
-            "text": "The Recognition Network"
+            "text": "Cognitive, Affective, and Psychomotor classical behavioral objectives"
           },
           {
             "id": "D",
-            "text": "The Vestibular Network under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Formative Assessment, Summative Testing, and Standardized Normalization"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "The Recognition Network (located in the rear of the brain) processes sensory input to recognize patterns, symbols, and ideas — corresponding to the \"What\" of learning."
       },
       {
@@ -2700,19 +2700,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "UDL completely eliminates the need for any grading or student evaluation and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "UDL completely removes all academic assessments, examinations, and final grades"
           },
           {
             "id": "B",
-            "text": "Accommodations are designed by CAST while UDL is administered by state medical boards"
+            "text": "Individual accommodations are managed by CAST, whereas UDL is governed by courts"
           },
           {
             "id": "C",
-            "text": "UDL is applied exclusively to physical campus architecture"
+            "text": "UDL applies solely to physical campus architectural ramps, dorms, and walkways"
           },
           {
             "id": "D",
-            "text": "UDL proactively designs multimodal flexibility into the core curriculum for all learners, whereas accommodations are reactive modifications arranged for individual students"
+            "text": "UDL builds multimodal flexibility into core curricula proactively for all students"
           }
         ],
         "answer": "D",
@@ -2724,22 +2724,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Multiple Means of Engagement"
+            "text": "Providing lecture material as video with captions, audio podcasts, and transcripts"
           },
           {
             "id": "B",
-            "text": "Multiple Means of Action and Expression"
+            "text": "Mandating that all students read an uncaptioned physical textbook under timed tests"
           },
           {
             "id": "C",
-            "text": "Multiple Means of Representation without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Restricting all classroom communications to spoken verbal lectures without notes"
           },
           {
             "id": "D",
-            "text": "The Medical Model of Disability"
+            "text": "Requiring all student assignment submissions to be delivered as handwritten essays"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "Offering varied mediums for students to demonstrate knowledge and express ideas is the hallmark of the Strategic Network (\"Multiple Means of Action and Expression\")."
       }
     ]
@@ -2790,19 +2790,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A VPAT is the blank evaluation template published by ITI, whereas an ACR is the completed report detailing a specific product's conformance"
+            "text": "A VPAT is the blank reporting template; an ACR is the completed product conformance report"
           },
           {
             "id": "B",
-            "text": "A VPAT is for hardware while an ACR is exclusively for cloud software, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "A VPAT evaluates physical hardware, whereas an ACR is used solely for SaaS software"
           },
           {
             "id": "C",
-            "text": "A VPAT is legally binding under federal law while an ACR is an informal marketing document"
+            "text": "A VPAT is legally binding under federal law, while an ACR is an informal marketing document"
           },
           {
             "id": "D",
-            "text": "An ACR is authored only by government regulators while a VPAT is created by lawyers"
+            "text": "An ACR is authored exclusively by government inspectors, while a VPAT is written by vendors"
           }
         ],
         "answer": "A",
@@ -2814,19 +2814,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The vendor discloses 3 known contrast issues with committed fix dates in their engineering roadmap"
+            "text": "The vendor discloses 3 known contrast issues with committed engineering fix dates"
           },
           {
             "id": "B",
-            "text": "The vendor provides testing documentation conducted with NVDA and JAWS"
+            "text": "The vendor provides testing documentation conducted with both NVDA and JAWS"
           },
           {
             "id": "C",
-            "text": "The vendor claims 100% \"Supports\" across all criteria using identical copy-pasted remarks with zero assistive technology testing notes"
+            "text": "The vendor claims 100% \"Supports\" across all criteria with zero testing remarks"
           },
           {
             "id": "D",
-            "text": "The vendor completed the report using the modern VPAT 2.5 WCAG Edition under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "The vendor completed the report using the current VPAT 2.5 WCAG Edition"
           }
         ],
         "answer": "C",
@@ -2838,19 +2838,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "To eliminate the need for the vendor to provide customer support and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "To eliminate the need for the vendor to provide ongoing customer technical support"
           },
           {
             "id": "B",
-            "text": "To allow the vendor to increase licensing fees annually"
+            "text": "To allow the vendor to raise recurring enterprise software subscription rates annually"
           },
           {
             "id": "C",
-            "text": "To prevent users from using screen magnification"
+            "text": "To prevent employees from utilizing third-party screen magnification utilities"
           },
           {
             "id": "D",
-            "text": "To legally obligate the vendor to fix newly discovered critical accessibility barriers within a defined timeframe (e.g. 30 days) at no extra cost"
+            "text": "To legally obligate the vendor to remediate newly discovered barriers within 30 days"
           }
         ],
         "answer": "D",
@@ -2904,19 +2904,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated checkers permanently disable image inspection to improve performance"
+            "text": "Automated validators disable graphic inspection to accelerate document processing"
           },
           {
             "id": "B",
-            "text": "Automated checkers verify only the mechanical presence of an alternative text attribute, not the semantic accuracy or usefulness of the description"
+            "text": "Automated tools verify only the presence of an /Alt tag, not semantic accuracy"
           },
           {
             "id": "C",
-            "text": "ISO 14289-1 exempts images from accessibility requirements, disregarding environmental barriers and architectural design constraints"
+            "text": "ISO 14289-1 officially exempts photographic graphics from accessibility rules"
           },
           {
             "id": "D",
-            "text": "Screen readers do not read alternative text in PDF files"
+            "text": "Screen readers do not announce alternative text in electronic PDF documents"
           }
         ],
         "answer": "B",
@@ -2928,19 +2928,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A multi-column newspaper layout whose reading order interleaves lines between columns instead of following column order"
+            "text": "A multi-column article whose reading order reads horizontally across columns"
           },
           {
             "id": "B",
-            "text": "An untagged heading skipping from H1 directly to H4, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "A heading structure that skips numerically from an <H1> directly to an <H4>"
           },
           {
             "id": "C",
-            "text": "Missing document title in Document Properties"
+            "text": "A missing document title string in Document Properties Initial View settings"
           },
           {
             "id": "D",
-            "text": "Missing document language tag (xml:lang)"
+            "text": "A missing document primary natural language identifier in metadata (xml:lang)"
           }
         ],
         "answer": "A",
@@ -2952,19 +2952,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "100% — modern AI checkers have fully replaced human auditors"
+            "text": "100% — modern AI accessibility algorithms have completely replaced human auditing"
           },
           {
             "id": "B",
-            "text": "Less than 1%"
+            "text": "Less than 1% — automated software tools can only inspect basic file encryption"
           },
           {
             "id": "C",
-            "text": "Approximately 30% to 40% — the majority require human cognitive judgment and assistive technology verification"
+            "text": "Approximately 30% to 40% — the remainder requires human cognitive verification"
           },
           {
             "id": "D",
-            "text": "95% for government documents under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Over 95% — automated checkers evaluate all criteria except color preferences"
           }
         ],
         "answer": "C",
@@ -3018,19 +3018,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "EU Web Accessibility Directive 2016/2102 without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "EU Web Accessibility Directive 2016/2102 (covering only public sector bodies)"
           },
           {
             "id": "B",
-            "text": "Bologna Declaration"
+            "text": "The Bologna Declaration on Higher Education European Harmonization and Mobility"
           },
           {
             "id": "C",
-            "text": "General Data Protection Regulation (GDPR)"
+            "text": "The General Data Protection Regulation (GDPR Article 9 Sensitive Processing)"
           },
           {
             "id": "D",
-            "text": "European Accessibility Act (Directive 2019/882)"
+            "text": "European Accessibility Act (Directive 2019/882 covering key private services)"
           }
         ],
         "answer": "D",
@@ -3042,19 +3042,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Section 508 legacy standards from 1998"
+            "text": "Original Section 508 legacy procurement standards enacted in October 1998"
           },
           {
             "id": "B",
-            "text": "W3C WCAG 2.1 Level AA"
+            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA"
           },
           {
             "id": "C",
-            "text": "ISO 9001:2015, disregarding environmental barriers and architectural design constraints"
+            "text": "ISO 9001:2015 Quality Management Systems Software Quality Metrics"
           },
           {
             "id": "D",
-            "text": "WCAG 1.0 Priority 1"
+            "text": "W3C WCAG 1.0 Priority 1 Checkpoints with voluntary compliance targets"
           }
         ],
         "answer": "B",
@@ -3066,19 +3066,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "EN 301 549"
+            "text": "The Accessible Canada Act (ACA) aiming for a barrier-free Canada by 2040"
           },
           {
             "id": "B",
-            "text": "ISO 14001, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "The UK Equality Act 2010 public sector digital equality statutory instrument"
           },
           {
             "id": "C",
-            "text": "IEEE 802.11"
+            "text": "The Australian Disability Discrimination Act (DDA) Federal Court Precedents"
           },
           {
             "id": "D",
-            "text": "DIN 5008"
+            "text": "The European Accessibility Act Transposition Guidance Framework 2025"
           }
         ],
         "answer": "A",
@@ -3132,19 +3132,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "To replace WCAG 2.2 with a brand new set of legal criteria"
+            "text": "To replace WCAG 2.2 criteria with a brand new set of legally binding standards comprehensively"
           },
           {
             "id": "B",
-            "text": "To mandate that all websites be rewritten in Python"
+            "text": "To mandate that all commercial web applications be authored in TypeScript"
           },
           {
             "id": "C",
-            "text": "To provide vendor-neutral, unambiguous test definitions so different automated testing tools and human auditors evaluate accessibility criteria consistently"
+            "text": "To provide unambiguous test definitions so tools and auditors evaluate criteria consistently"
           },
           {
             "id": "D",
-            "text": "To eliminate the need for any human manual auditing and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "To eliminate the requirement for any human verification in accessibility testing"
           }
         ],
         "answer": "C",
@@ -3156,22 +3156,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Input Aspects without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Input Aspects, Applicability, Expectations, and Inapplicable / Passed / Failed Cases"
           },
           {
             "id": "B",
-            "text": "Conformance Claims"
+            "text": "Marketing Analysis, Legal Liability Assessment, and Financial Remediation Estimates"
           },
           {
             "id": "C",
-            "text": "Expectations"
+            "text": "Color Hex Codes, Pixel Measurements, and Browser Version Compatibility Matrices across all platforms"
           },
           {
             "id": "D",
-            "text": "Applicability"
+            "text": "Corporate Governance Policies, Procurement VPAT Forms, and Staff Training Syllabi"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "The Applicability section of an ACT Rule defines the specific characteristics (such as tag names, attributes, or CSS states) that qualify an element for evaluation by the rule."
       },
       {
@@ -3180,19 +3180,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated testing cannot run in continuous integration servers"
+            "text": "Automated testing cannot execute inside modern Linux continuous integration runners"
           },
           {
             "id": "B",
-            "text": "Automated test tools reliably test only deterministic syntax and math (approximately 30-40% of criteria), leaving semantic, cognitive, and narrative usability to human evaluation"
+            "text": "Automated tools catch only deterministic syntax (~30-40%), leaving usability to humans"
           },
           {
             "id": "C",
-            "text": "Automated tests are prohibited under Section 508, disregarding environmental barriers and architectural design constraints"
+            "text": "Automated accessibility testing in CI/CD is prohibited under Section 508 rules"
           },
           {
             "id": "D",
-            "text": "Screen readers automatically crash when automated tests are running"
+            "text": "Screen readers automatically crash if automated linters execute during page loads under all circumstances"
           }
         ],
         "answer": "B",
@@ -3246,19 +3246,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Table Editor (accessible via Table Cell Properties)"
+            "text": "The Acrobat Table Editor (accessed via Table Cell Properties in TouchUp Reading Order)"
           },
           {
             "id": "B",
-            "text": "The TouchUp Text Tool under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "The Acrobat TouchUp Text Tool designed for minor visual character edits throughout the organization"
           },
           {
             "id": "C",
-            "text": "The Optical Character Recognition (OCR) Engine"
+            "text": "The Optical Character Recognition (OCR) Engine running in search mode"
           },
           {
             "id": "D",
-            "text": "The Preflight Color Profiler"
+            "text": "The Preflight Color Management panel configuring PDF/X print separations"
           }
         ],
         "answer": "A",
@@ -3270,19 +3270,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "They must be tagged as <H1> headings on every single page"
+            "text": "They must be tagged as <H1> headings at the top and bottom of every single page"
           },
           {
             "id": "B",
-            "text": "They must be deleted completely from the visual page"
+            "text": "They must be deleted completely from the document, removing all page numbers across desktop and mobile devices"
           },
           {
             "id": "C",
-            "text": "They must be marked as /Artifact so screen readers ignore them and read the main document body uninterrupted"
+            "text": "They must be marked as /Artifact so screen readers skip them and read body copy"
           },
           {
             "id": "D",
-            "text": "They must be converted into high-resolution bitmap graphics and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "They must be converted into high-resolution 600 DPI bitmap image layers"
           }
         ],
         "answer": "C",
@@ -3294,19 +3294,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Screen readers cannot navigate internet URLs without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Screen readers are technically incapable of launching internet web browser URLs"
           },
           {
             "id": "B",
-            "text": "The document author did not pay the Adobe licensing fee"
+            "text": "The document author did not pay the required Adobe Acrobat URL licensing fee"
           },
           {
             "id": "C",
-            "text": "PDF links only work on macOS operating systems"
+            "text": "Hyperlinks in PDF documents function exclusively on Apple macOS operating systems"
           },
           {
             "id": "D",
-            "text": "The interactive /Link annotation in the PDF content stream is missing an Object Reference (/OBJR) child tag inside the semantic <Link> structure tag"
+            "text": "The /Link annotation lacks an Object Reference (/OBJR) tag inside the <Link> tag"
           }
         ],
         "answer": "D",
@@ -3363,19 +3363,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Private companies are completely exempt from all CRPD obligations"
+            "text": "Private commercial enterprises are permanently exempt from all UN CRPD mandates"
           },
           {
             "id": "B",
-            "text": "States Parties must take appropriate measures to ensure that private entities that offer facilities and services to the public take into account all aspects of accessibility"
+            "text": "States Parties must ensure private entities offering public services ensure accessibility"
           },
           {
             "id": "C",
-            "text": "Private companies are only regulated if they receive more than 90% direct UN funding, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Commercial enterprises are only bound if receiving more than 90% direct UN subsidies"
           },
           {
             "id": "D",
-            "text": "Private entities may replace accessible websites with printed paper brochures upon written request"
+            "text": "Private entities may substitute accessible websites with paper flyers upon request"
           }
         ],
         "answer": "B",
@@ -3387,19 +3387,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It creates copyright exceptions allowing authorized entities to produce accessible format copies and exchange them across international borders without publisher authorization"
+            "text": "It creates copyright exceptions to exchange accessible format copies across borders"
           },
           {
             "id": "B",
-            "text": "It bans all printed paper books worldwide to encourage digital adoption under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "It bans all physical paper books worldwide to enforce universal digital reading"
           },
           {
             "id": "C",
-            "text": "It requires authors to write books only in Simplified English"
+            "text": "It requires commercial book publishers to author works strictly in Basic English"
           },
           {
             "id": "D",
-            "text": "It sets a mandatory minimum price of $50 for all audiobooks"
+            "text": "It establishes a mandatory $50 tariff on commercial audiobook sales internationally"
           }
         ],
         "answer": "A",
@@ -3411,19 +3411,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Geneva Convention Protocol IV"
+            "text": "Geneva Convention Protocol IV protecting civilians from commercial surcharges"
           },
           {
             "id": "B",
-            "text": "Berne Convention Article 7 on copyright terms"
+            "text": "Berne Convention Article 7 establishing standard international copyright terms"
           },
           {
             "id": "C",
-            "text": "UN CRPD Article 21(a), which mandates accessible formats in a timely manner and without additional cost"
+            "text": "UN CRPD Article 21(a) mandating accessible formats in a timely manner at no extra cost"
           },
           {
             "id": "D",
-            "text": "No violation exists as long as the fee covers material paper costs and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "No violation exists under international treaties provided fees cover raw paper costs"
           }
         ],
         "answer": "C",
@@ -3480,19 +3480,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The monitor refresh rate is lower than 60Hz, disregarding environmental barriers and architectural design constraints"
+            "text": "The computer monitor refresh rate is lower than the required 60Hz baseline in production environments"
           },
           {
             "id": "B",
-            "text": "Mozilla Firefox does not support JavaScript keystroke listeners"
+            "text": "Mozilla Firefox does not support standard ECMAScript keyboard event listeners"
           },
           {
             "id": "C",
-            "text": "The user has enabled Windows Speech Recognition by mistake"
+            "text": "The end-user has accidentally activated Windows Speech Recognition audio mode"
           },
           {
             "id": "D",
-            "text": "NVDA is currently operating in Browse Mode (Virtual Buffer), intercepting arrow keys for document reading rather than Focus Mode"
+            "text": "NVDA is in Browse Mode, reading document text rather than passing keys in Focus Mode"
           }
         ],
         "answer": "D",
@@ -3504,19 +3504,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The CSS font size is too small"
+            "text": "The CSS font size on the search results container is smaller than 14pt"
           },
           {
             "id": "B",
-            "text": "The developer completely removes and re-creates the entire <div aria-live=\"polite\"> element in the DOM on each search update"
+            "text": "The developer tears down and re-creates the entire live region DOM node on search"
           },
           {
             "id": "C",
-            "text": "VoiceOver on Safari only allows aria-live=\"assertive\", without considering the role of accessible user interfaces or assistive technologies"
+            "text": "VoiceOver on macOS Safari strictly permits aria-live=\"assertive\" declarations throughout the organization"
           },
           {
             "id": "D",
-            "text": "The search box is using an HTML5 <input type=\"search\">"
+            "text": "The search input control is coded as an HTML5 <input type=\"search\"> element"
           }
         ],
         "answer": "B",
@@ -3528,19 +3528,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "NSAccessibility"
+            "text": "JAWS + Chrome on Windows, NVDA + Firefox on Windows, and VoiceOver + Safari on macOS/iOS"
           },
           {
             "id": "B",
-            "text": "Microsoft UI Automation (UIA)"
+            "text": "NVDA + Safari on Windows, VoiceOver + Chrome on Linux, and Narrator on macOS"
           },
           {
             "id": "C",
-            "text": "Linux AT-SPI2"
+            "text": "JAWS + Edge on Android, VoiceOver + Firefox on Windows, and TalkBack on iOS"
           },
           {
             "id": "D",
-            "text": "IAccessible2"
+            "text": "Screen readers are completely browser-independent and behave identically on all engines across desktop and mobile devices"
           }
         ],
         "answer": "A",
@@ -3597,22 +3597,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "F12"
+            "text": "Ctrl + 4 (or Cmd + 4 on macOS) activating Acrobat Reflow single-column mode"
           },
           {
             "id": "B",
-            "text": "Ctrl + Alt + Delete"
+            "text": "Ctrl + Alt + Delete opening the Windows task management dialog window in production environments"
           },
           {
             "id": "C",
-            "text": "Ctrl + 4"
+            "text": "F12 opening browser developer tools inspection panels on the desktop"
           },
           {
             "id": "D",
-            "text": "Shift + Esc"
+            "text": "Shift + Escape closing all active background background utility processes"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "In Adobe Acrobat Pro, pressing Ctrl+4 (or Cmd+4 on macOS) activates Reflow mode (View -> Zoom -> Reflow), which linearizes tagged content into a single column."
       },
       {
@@ -3621,19 +3621,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Rename the file in Windows Explorer without opening Acrobat, disregarding environmental barriers and architectural design constraints"
+            "text": "Rename the file in Windows Explorer without opening Acrobat Document Properties"
           },
           {
             "id": "B",
-            "text": "Delete the PDF metadata entirely"
+            "text": "Delete all metadata fields in Acrobat to let the application guess the title"
           },
           {
             "id": "C",
-            "text": "Change the screen resolution to 4K"
+            "text": "Change the monitor screen resolution to 4K to expand the window title bar"
           },
           {
             "id": "D",
-            "text": "Open Document Properties (Ctrl+D) -> Initial View tab -> Set \"Show\" under Window Options to \"Document Title\", then save the PDF"
+            "text": "In Acrobat Properties (Ctrl+D) -> Initial View, set \"Show: Document Title\""
           }
         ],
         "answer": "D",
@@ -3645,19 +3645,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Delete the entire table and replace it with a screenshot of the table"
+            "text": "Delete the entire table and replace it with a raster screenshot of the cells"
           },
           {
             "id": "B",
-            "text": "Ensure header cells are tagged as <TH> rather than <TD>, and verify Scope (Column/Row) or ID/Headers associations are declared in Table Cell Properties"
+            "text": "Ensure header cells are tagged as <TH> with Scope declared in Table Cell Properties"
           },
           {
             "id": "C",
-            "text": "Turn off the screen reader volume, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Mute the screen reader speech synthesizer volume during keyboard navigation"
           },
           {
             "id": "D",
-            "text": "Change the table font color to yellow"
+            "text": "Change the table background color to bright yellow to force high contrast throughout the organization"
           }
         ],
         "answer": "B",
@@ -3714,19 +3714,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Approximately 16% of the global population (1.3 billion people)"
+            "text": "Approximately 16% of the global population (about 1.3 billion individuals worldwide)"
           },
           {
             "id": "B",
-            "text": "Approximately 1% of the global population and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "Approximately 2% of the global population (primarily institutionalized populations)"
           },
           {
             "id": "C",
-            "text": "Over 65% of the global population"
+            "text": "Over 45% of the global population (including minor refractive vision conditions)"
           },
           {
             "id": "D",
-            "text": "Less than 0.1% worldwide"
+            "text": "Less than 0.5% of the global population (restricted solely to permanent motor deficits)"
           }
         ],
         "answer": "A",
@@ -3738,19 +3738,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Disabilities only occur after the age of 80"
+            "text": "Almost all disabilities (over 95%) are congenital and diagnosed at or before birth"
           },
           {
             "id": "B",
-            "text": "Almost all disabilities (98%) are genetic and identified at birth"
+            "text": "Disabilities exclusively manifest after retirement age (65 years and older)"
           },
           {
             "id": "C",
-            "text": "The vast majority of disabilities (>70%) are acquired during working adulthood or later life rather than being present at birth"
+            "text": "The vast majority of disabilities (>70%) are acquired during working adult life"
           },
           {
             "id": "D",
-            "text": "Acquired disabilities are legally excluded from ADA and European Accessibility Act coverage without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "Acquired disabilities are formally excluded from international civil rights treaties"
           }
         ],
         "answer": "C",
@@ -3762,19 +3762,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A Permanent disability, disregarding environmental barriers and architectural design constraints"
+            "text": "The Washington Group Short Set on Functioning focusing on universal activity limitations"
           },
           {
             "id": "B",
-            "text": "A Medical deficit"
+            "text": "Official national census surveys that require clinical medical diagnostic validation"
           },
           {
             "id": "C",
-            "text": "A Chronic physiological disorder"
+            "text": "Voluntary corporate employee resource group self-identification enrollment records"
           },
           {
             "id": "D",
-            "text": "A Situational limitation"
+            "text": "Asking the binary question \"Do you have a disability?\" without specifying functional domains"
           }
         ],
         "answer": "D",
@@ -3831,19 +3831,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Because aria-label is prohibited on HTML buttons"
+            "text": "Because aria-label attributes are legally prohibited on interactive button controls"
           },
           {
             "id": "B",
-            "text": "Because speech recognition users who say \"Click Search\" will fail to activate the button, as the accessible name completely omits the visible word \"Search\""
+            "text": "Speech recognition users saying \"Click Search\" fail because the name omits \"Search\""
           },
           {
             "id": "C",
-            "text": "Because Search is a reserved HTML keyword under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "Because the string \"Search\" is a reserved keyword in modern ECMAScript specifications"
           },
           {
             "id": "D",
-            "text": "Because the button font size is smaller than 18pt"
+            "text": "Because the button font size is smaller than the required 18pt touch target size"
           }
         ],
         "answer": "B",
@@ -3855,19 +3855,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It prevents the switch user from having to wait through dozens of auto-scan intervals across repetitive header navigation links on every page load"
+            "text": "It lets switch users jump past repetitive header links without waiting through scan cycles"
           },
           {
             "id": "B",
-            "text": "It reduces internet bandwidth usage on mobile connections and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "It reduces cellular network bandwidth consumption when loading responsive images"
           },
           {
             "id": "C",
-            "text": "It automatically turns off all JavaScript on the web page"
+            "text": "It automatically disables third-party JavaScript tracking scripts on the web page for all users by default"
           },
           {
             "id": "D",
-            "text": "It converts the web page into an audio podcast"
+            "text": "It converts the web page into an automated synthesized podcast stream on load"
           }
         ],
         "answer": "A",
@@ -3879,19 +3879,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "To prevent web crawlers from indexing the button"
+            "text": "To prevent search engine web crawlers from indexing the button destination link"
           },
           {
             "id": "B",
-            "text": "To increase the download speed of the CSS stylesheet"
+            "text": "To minimize stylesheet download sizes across low-bandwidth mobile connections"
           },
           {
             "id": "C",
-            "text": "To ensure button boundaries remain clearly visible when users activate operating system High Contrast (forced-colors: active) mode"
+            "text": "To ensure button outlines remain visible when High Contrast mode removes backgrounds"
           },
           {
             "id": "D",
-            "text": "To force the button to render only on Android devices without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "To force the button to render exclusively on Android and ChromeOS mobile devices comprehensively"
           }
         ],
         "answer": "C",
@@ -3948,19 +3948,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The font size must be increased to 72pt, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "The document visual font sizes must be enlarged to a minimum of 24pt bold across all platforms"
           },
           {
             "id": "B",
-            "text": "InDesign cannot export tagged PDFs without installing a third-party plugin"
+            "text": "InDesign requires installing third-party Acrobat plugins to output tagged PDFs"
           },
           {
             "id": "C",
-            "text": "The document must be saved in CMYK color mode before tagging works"
+            "text": "The document color profile must be set to CMYK before PDF export tagging works"
           },
           {
             "id": "D",
-            "text": "The designer forgot to check \"Use for Tagging Order in Tagged PDF\" in the Articles panel options menu"
+            "text": "The author must check \"Use for Tagging Order in Tagged PDF\" in the Articles panel menu"
           }
         ],
         "answer": "D",
@@ -3972,19 +3972,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It automatically translates English text into Spanish"
+            "text": "It automatically translates English document text into French and Spanish languages"
           },
           {
             "id": "B",
-            "text": "It links the frames into a unified story flow, ensuring sentences that break across columns are read continuously without semantic fragmentation"
+            "text": "It links frames into a unified story, ensuring cross-column text is read continuously"
           },
           {
             "id": "C",
-            "text": "It locks the PDF so it cannot be copied or printed under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "It applies password encryption so the document cannot be printed or edited under all circumstances"
           },
           {
             "id": "D",
-            "text": "It reduces the PDF file size by 90%"
+            "text": "It compresses high-resolution raster images, shrinking the overall PDF file size"
           }
         ],
         "answer": "B",
@@ -3996,19 +3996,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The chart and its alt text are often exported at the very end of the page's tag structure, out of context from the paragraph discussing it"
+            "text": "The chart is exported at the end of the page tag tree, detached from context"
           },
           {
             "id": "B",
-            "text": "The chart is automatically converted into an interactive HTML canvas and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "The chart graphic is automatically converted into an interactive HTML5 canvas tag"
           },
           {
             "id": "C",
-            "text": "The PDF fails to open on Windows computers"
+            "text": "The exported PDF fails to open in standard Adobe Acrobat viewer software"
           },
           {
             "id": "D",
-            "text": "The image resolution is automatically downsampled to 72 DPI"
+            "text": "The graphic resolution is automatically compressed to 72 DPI monochrome bitmap"
           }
         ],
         "answer": "A",
@@ -4065,19 +4065,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "More than $10,000 per employee"
+            "text": "The average accommodation requires an upfront capital investment exceeding $10,000"
           },
           {
             "id": "B",
-            "text": "Accommodations must legally equal 15% of annual company profit"
+            "text": "Workplace accommodations are required to consume exactly 5% of corporate payroll"
           },
           {
             "id": "C",
-            "text": "56% of accommodations cost exactly $0, and the median cost for the remainder is around $500"
+            "text": "56% of accommodations cost exactly $0, with a median cost of $500 for the rest"
           },
           {
             "id": "D",
-            "text": "Every accommodation requires a permanent paid personal assistant, disregarding environmental barriers and architectural design constraints"
+            "text": "Accommodations universally require hiring a dedicated full-time personal aide"
           }
         ],
         "answer": "C",
@@ -4089,19 +4089,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Accommodations are always free, while Universal Design is always expensive, without considering the role of accessible user interfaces or assistive technologies"
+            "text": "Accommodations are always free of cost, whereas Universal Design is cost-prohibitive"
           },
           {
             "id": "B",
-            "text": "Accommodations are legally required, whereas Universal Design is outlawed"
+            "text": "Individual accommodations are legally required, while Universal Design is banned"
           },
           {
             "id": "C",
-            "text": "Universal Design only applies to architecture, while accommodations only apply to software"
+            "text": "Universal Design applies solely to physical ramps, while accommodations are digital"
           },
           {
             "id": "D",
-            "text": "Accommodations are reactive retrofits for a specific individual after disclosure; Universal Design is proactive systemic design usable by all without retrofits or disclosure"
+            "text": "Accommodations are reactive retrofits; Universal Design is proactive and systemic"
           }
         ],
         "answer": "D",
@@ -4113,19 +4113,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The employer simply needs to show that the department spent its annual petty cash budget"
+            "text": "The employer simply demonstrates that the department depleted its quarterly travel budget"
           },
           {
             "id": "B",
-            "text": "The employer must prove that the accommodation creates an Undue Hardship—requiring significant difficulty or expense relative to the total financial resources of the entire employer"
+            "text": "The employer proves Undue Hardship: significant difficulty or expense relative to budget"
           },
           {
             "id": "C",
-            "text": "The employer must obtain unanimous permission from the employee's coworkers under legacy technical frameworks prior to the introduction of modern accessibility standards"
+            "text": "The employer gathers anonymous objections from a majority of the employee's peers"
           },
           {
             "id": "D",
-            "text": "The employer only needs to state that the request is inconvenient"
+            "text": "The employer asserts that the requested workplace modification causes minor disruption"
           }
         ],
         "answer": "B",
@@ -4182,19 +4182,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Principle 2: Operable"
+            "text": "Principle 4 (Robust) requiring compatibility with diverse assistive technologies"
           },
           {
             "id": "B",
-            "text": "Principle 1: Perceivable"
+            "text": "Principle 1 (Perceivable) requiring high visual contrast against dark backgrounds"
           },
           {
             "id": "C",
-            "text": "Principle 3: Understandable"
+            "text": "Principle 3 (Understandable) requiring plain language and predictable form fields"
           },
           {
             "id": "D",
-            "text": "Principle 4: Robust"
+            "text": "Principle 2 (Operable) requiring all interactive controls to respond to mouse hover"
           }
         ],
         "answer": "A",
@@ -4206,19 +4206,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By flashing bright strobe lights when a button is pressed"
+            "text": "By flashing high-frequency strobe lights whenever a transaction button is pressed"
           },
           {
             "id": "B",
-            "text": "By printing an informational paper flyer and placing it on top of the kiosk"
+            "text": "By placing a printed paper user guide on top of the physical kiosk enclosure"
           },
           {
             "id": "C",
-            "text": "By providing an on-board speech synthesizer that outputs audio instructions through a standard 3.5mm headphone jack"
+            "text": "By providing speech output through a standard 3.5mm headphone jack with tactile keys"
           },
           {
             "id": "D",
-            "text": "Closed kiosks are exempt from all POUR requirements, disregarding environmental barriers and architectural design constraints"
+            "text": "Closed self-service hardware kiosks are legally exempted from all POUR principles"
           }
         ],
         "answer": "C",
@@ -4230,22 +4230,22 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Principle 1: Perceivable"
+            "text": "Principle 1 (Perceivable) ensuring visual colors match branding guidelines"
           },
           {
             "id": "B",
-            "text": "Principle 2: Operable"
+            "text": "Principle 2 (Operable) requiring full keyboard accessibility without mouse traps"
           },
           {
             "id": "C",
-            "text": "Principle 3: Understandable"
+            "text": "Principle 3 (Understandable) ensuring documents are authored at an 8th-grade level"
           },
           {
             "id": "D",
-            "text": "Principle 4: Robust"
+            "text": "Principle 4 (Robust) ensuring markup passes HTML5 validation without warnings"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Principle 4 (Robust) mandates that content must be interpretable reliably by user agents and assistive technologies. WCAG 4.1.2 (Name, Role, Value) is the core criterion of Principle 4, requiring semantic roles and states to be exposed to accessibility APIs."
       }
     ]
@@ -4299,19 +4299,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A magnifying glass chained to the machine"
+            "text": "An analog optical magnifying lens attached to the kiosk casing with security wire"
           },
           {
             "id": "B",
-            "text": "Built-in speech output, volume control, a standard 3.5mm audio headphone jack, and tactile key indicators"
+            "text": "Built-in speech output, 3.5mm headphone jack, volume control, and tactile keys"
           },
           {
             "id": "C",
-            "text": "An emergency phone to call a taxi and assuming individual responsibility rather than systemic organizational compliance"
+            "text": "A dedicated analog telephone handset connected directly to customer support"
           },
           {
             "id": "D",
-            "text": "A printed braille sheet containing every possible screen permutation"
+            "text": "A printed braille document binder cataloging every possible interactive screen"
           }
         ],
         "answer": "B",
@@ -4323,19 +4323,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA"
+            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA conformance"
           },
           {
             "id": "B",
-            "text": "IEEE 802.11 Wireless Networking Standards without implementing verified automated linting or manual assistive technology testing protocols"
+            "text": "IEEE 802.11ac Wireless Networking Standards for Local Area Networks"
           },
           {
             "id": "C",
-            "text": "ANSI Z87.1 Occupational Safety Standards"
+            "text": "ANSI Z87.1 Occupational and Educational Personal Eye Protection Standards"
           },
           {
             "id": "D",
-            "text": "Bluetooth 5.0 Core Specifications"
+            "text": "Bluetooth SIG Core Specification 5.2 Low Energy Audio Profiles"
           }
         ],
         "answer": "A",
@@ -4347,19 +4347,19 @@ export const LEARNING_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Because RTT reduces cellular voice licensing fees"
+            "text": "Because RTT reduces cellular network carrier bandwidth overhead and licensing fees"
           },
           {
             "id": "B",
-            "text": "Because RTT automatically records all phone calls for government surveillance"
+            "text": "Because RTT automatically transcribes all telephone conversations for audit files"
           },
           {
             "id": "C",
-            "text": "Because RTT transmits characters instantaneously as typed, enabling real-time conversational cadence and emergency communication for deaf callers"
+            "text": "Because RTT transmits characters as typed, enabling real-time conversational cadence"
           },
           {
             "id": "D",
-            "text": "Because RTT prevents users from sending text messages during business hours, disregarding environmental barriers and architectural design constraints"
+            "text": "Because RTT restricts end-users from transmitting text messages during business hours"
           }
         ],
         "answer": "C",
