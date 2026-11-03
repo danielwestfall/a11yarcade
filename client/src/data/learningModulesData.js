@@ -1601,6 +1601,240 @@ export const LEARNING_MODULES = [
         explanation: 'PDF/UA requires the document natural language to be explicitly specified so screen readers activate the correct phonetic pronunciation rules and accent engines.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-etiquette',
+    cert: 'CPACC',
+    domainId: 'CPACC-D1',
+    domainLabel: 'Domain 1: Disabilities, Challenges, and Assistive Technologies',
+    sectionId: 'CPACC-D1-E',
+    title: 'Disability Etiquette & Respectful Professional Interactions',
+    badge: 'Disability Etiquette',
+    difficulty: 'Beginner',
+    estimatedMinutes: 10,
+    interactiveType: 'disability-etiquette-lab',
+    citation: 'IAAP CPACC BoK V3, Domain 1.E (Disability Etiquette) & ADA Title III Guidance',
+    summary: 'Master professional disability etiquette and interpersonal communication principles. Understand the boundary between personal bodily space and assistive equipment, working service dog protocol, direct communication with Deaf individuals working with sign language interpreters, and community-driven terminology preferences (Person-First vs Identity-First language).',
+    learningObjectives: [
+      'Treat wheelchairs, guide dogs, white canes, and assistive devices as extensions of personal bodily space.',
+      'Apply service animal etiquette: never distract, pet, or feed a working service animal.',
+      'Maintain direct communication and eye contact with the person with a disability rather than addressing an interpreter, companion, or caregiver.',
+      'Navigate the nuances of Person-First language ("person with a disability") and Identity-First language ("Deaf person", "Autistic person") across distinct communities.',
+      'Recognize and eliminate patronizing euphemisms ("differently abled", "special needs", "handi-capable").'
+    ],
+    keyConcepts: [
+      {
+        title: 'Assistive Devices as Bodily Space',
+        explanation: 'A wheelchair, white cane, guide dog harness, or walker is an integral extension of an individual\'s personal physical space. Leaning on someone\'s wheelchair, touching equipment without permission, or grabbing handles to push them is equivalent to touching their physical body without consent.'
+      },
+      {
+        title: 'Service Animal Protocol',
+        explanation: 'Service animals (primarily dogs trained to perform specific tasks related to a person\'s disability under ADA Title II/III) are working medical equipment. Distracting, petting, or feeding them disrupts their focus on medical alerts, navigation, or seizure detection.'
+      },
+      {
+        title: 'Direct Address & Eye Contact',
+        explanation: 'When speaking with a person who uses an ASL interpreter, speech synthesizer, or personal assistant, always look directly at the person and speak in the first person ("What is your goal?"). Never say "Ask them..." or look exclusively at the interpreter. For wheelchair users, pull up a chair to speak at eye level to prevent neck strain and patronizing posturing.'
+      },
+      {
+        title: 'Terminology: Person-First vs Identity-First Language',
+        explanation: 'Person-First Language ("person who is blind", "people with disabilities") emphasizes humanity before disability and is common in legal/policy contexts. Identity-First Language ("Autistic adult", "Deaf individual") views disability as an inseparable, proud cultural identity. Both are valid within their respective communities; patronizing euphemisms like "differently abled" or "special needs" are rejected by disability advocacy groups.'
+      }
+    ],
+    examTips: 'CPACC Exam Alert: Watch out for questions offering "helpful" actions that violate autonomy — such as pushing someone\'s wheelchair without asking or speaking to an interpreter instead of the individual. Remember the core rule: ALWAYS ask before offering assistance, and respect their answer if they decline.',
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-et-1',
+        question: 'When conversing with a person who uses a wheelchair during an extended meeting, what is the recommended etiquette?',
+        options: [
+          { id: 'A', text: 'Lean on the wheelchair handles to demonstrate closeness' },
+          { id: 'B', text: 'Sit down or pull up a chair so you are conversing at eye level, and never touch the wheelchair without explicit consent' },
+          { id: 'C', text: 'Stand directly behind them and speak loudly' },
+          { id: 'D', text: 'Push their wheelchair to the front of the room without asking' }
+        ],
+        answer: 'B',
+        explanation: 'Sitting at eye level facilitates comfortable conversation without causing neck strain, while respecting the wheelchair as personal bodily space.'
+      },
+      {
+        id: 'kc-cpacc-et-2',
+        question: 'When interacting with a colleague who is accompanied by a certified working guide dog in the office, what is the correct behavioral rule?',
+        options: [
+          { id: 'A', text: 'Offer the dog treats to establish positive team rapport' },
+          { id: 'B', text: 'Pet the dog whenever you enter the room' },
+          { id: 'C', text: 'Address and greet the colleague directly while ignoring the working dog so its focus remains on its handler' },
+          { id: 'D', text: 'Demand to inspect the dog\'s veterinary health records' }
+        ],
+        answer: 'C',
+        explanation: 'Working service animals must not be distracted, petted, or fed while on duty. Always address the human handler directly.'
+      },
+      {
+        id: 'kc-cpacc-et-3',
+        question: 'Why do disability rights organizations and the IAAP strongly discourage the use of terms like "differently abled", "special needs", or "handi-capable"?',
+        options: [
+          { id: 'A', text: 'They are trademarked terms owned by private medical corporations' },
+          { id: 'B', text: 'They are patronizing euphemisms that avoid the neutral, factual terms "disability" and "disabled"' },
+          { id: 'C', text: 'They are only permissible in legal statutes outside the United States' },
+          { id: 'D', text: 'They refer exclusively to temporary cognitive impairments' }
+        ],
+        answer: 'B',
+        explanation: '"Disabled" and "disability" are recognized, neutral descriptors. Euphemisms like "special needs" are viewed by disability communities as patronizing and evasive.'
+      }
+    ]
+  },
+  {
+    id: 'mod-was-wcag-em',
+    cert: 'WAS',
+    domainId: 'WAS-D2',
+    domainLabel: 'Domain 2: Identifying Accessibility Issues in Web Solutions',
+    sectionId: 'WAS-D2-B',
+    title: 'Guidelines, Conformance Requirements & WCAG-EM 1.0',
+    badge: 'Audit Methodology',
+    difficulty: 'Advanced',
+    estimatedMinutes: 15,
+    interactiveType: 'wcag-em-audit-planner-lab',
+    citation: 'IAAP WAS BoK 2024, Domain 2.B (Guidelines, Conformance Requirements and WCAG-EM) & W3C WCAG-EM 1.0',
+    summary: 'Master the W3C Website Accessibility Conformance Evaluation Methodology (WCAG-EM 1.0). Plan and execute comprehensive accessibility audits across 5 structured steps: defining evaluation scope and baseline, exploring website functionality, curating representative and random sample pages, evaluating success criteria, and reporting formal conformance claims.',
+    learningObjectives: [
+      'Execute the 5 core steps of the official W3C WCAG-EM 1.0 auditing methodology.',
+      'Define an audit scope boundary, conformance target (WCAG 2.2 AA), and accessibility-supported baseline.',
+      'Apply the Complete Processes rule: ensure end-to-end transactional workflows (e.g. cart to confirmation) are audited without omission.',
+      'Curate a statistically valid representative sample combining structured template pages with randomly selected URLs.',
+      'Author a formal WCAG-EM Conformance Statement with clear executive findings and remediation guidance.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The 5 Steps of WCAG-EM',
+        explanation: 'WCAG-EM 1.0 consists of 5 sequential steps: 1. Define Evaluation Scope, 2. Explore Target Website, 3. Select Representative Sample, 4. Audit Selected Sample, 5. Report Evaluation Findings.'
+      },
+      {
+        title: 'Scoping & Complete Processes',
+        explanation: 'Under WCAG Conformance Requirement 3 (Complete Processes), an audit cannot claim conformance for a process (e.g. ordering a product) if any single page in that workflow is excluded or non-conforming.'
+      },
+      {
+        title: 'Representative Sampling Strategy',
+        explanation: 'A reliable audit must evaluate: (1) Key web pages (home, contact), (2) All steps in complete processes, (3) Pages with diverse functionality/technologies (data grids, canvas, multimedia), and (4) Approximately 10% randomly selected URLs to uncover systemic template bugs.'
+      },
+      {
+        title: 'Conformance Statements & Claims',
+        explanation: 'A conformance claim must state the date of evaluation, the guidelines version (WCAG 2.2), conformance level (Level AA), scope of web pages, and accessibility-supported baseline.'
+      }
+    ],
+    examTips: 'WAS Exam Alert: Remember that you cannot claim partial conformance for a single page — conformance is all-or-nothing per page. Also remember the "Complete Processes" mandate: if any single step in a multi-step form fails, the entire process fails conformance.',
+    knowledgeCheck: [
+      {
+        id: 'kc-was-em-1',
+        question: 'Under W3C WCAG-EM Step 3 (Select a Representative Sample), why is it mandatory to include a randomly selected sample alongside structured key pages?',
+        options: [
+          { id: 'A', text: 'To reduce the audit fee for commercial clients' },
+          { id: 'B', text: 'To uncover unexpected systemic defects, legacy sub-templates, and atypical page layouts not captured in curated core pages' },
+          { id: 'C', text: 'Because automated screen readers can only parse randomly generated URLs' },
+          { id: 'D', text: 'To satisfy ISO 9001 factory manufacturing audits' }
+        ],
+        answer: 'B',
+        explanation: 'Including approximately 10% randomly drawn URLs prevents auditor bias and exposes uncurated template variations or forgotten site sections.'
+      },
+      {
+        id: 'kc-was-em-2',
+        question: 'According to WCAG Conformance Requirement 3 (Complete Processes), what happens if a multi-step checkout flow has 4 accessible pages but 1 page with an inaccessible payment button?',
+        options: [
+          { id: 'A', text: 'The website can claim 80% proportional conformance for the process' },
+          { id: 'B', text: 'The entire transaction process fails conformance because all steps in a complete process must conform' },
+          { id: 'C', text: 'The payment page is automatically exempted from audit scope' },
+          { id: 'D', text: 'Conformance defaults to WCAG Level AAA' }
+        ],
+        answer: 'B',
+        explanation: 'Under WCAG Conformance Requirement 3, if any page in a transaction workflow is non-conforming, the entire process cannot be certified as conforming.'
+      },
+      {
+        id: 'kc-was-em-3',
+        question: 'What are the 5 official sequential steps of the W3C WCAG-EM 1.0 methodology?',
+        options: [
+          { id: 'A', text: 'Scan, Lint, Fix, Test, Deploy' },
+          { id: 'B', text: 'Define Scope, Explore Website, Select Sample, Audit Sample, Report Findings' },
+          { id: 'C', text: 'Identify, Isolate, Refactor, Document, Certify' },
+          { id: 'D', text: 'Procure, Audit, Train, Remediate, Litigate' }
+        ],
+        answer: 'B',
+        explanation: 'WCAG-EM 1.0 is structured into: 1. Define Scope, 2. Explore Target Website, 3. Select Representative Sample, 4. Audit Selected Sample, 5. Report Evaluation Findings.'
+      }
+    ]
+  },
+  {
+    id: 'mod-ads-authoring-format',
+    cert: 'ADS',
+    domainId: 'ADS-D2',
+    domainLabel: 'Domain 2: Remediating Electronic Documents',
+    sectionId: 'ADS-D2-D',
+    title: 'Remediating Documents in Authoring Formats (Word & InDesign)',
+    badge: 'Source Remediation',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 12,
+    interactiveType: 'authoring-format-remediator',
+    citation: 'IAAP ADS BoK 2021, Section 2.4 (Remediate in authoring format) & ISO 14289-1 (PDF/UA)',
+    summary: 'Remediate accessibility defects directly in source authoring applications (Microsoft Word, Adobe InDesign, Google Docs) before PDF export. Master built-in paragraph styles, "Repeat as Header Row" for data tables, InDesign Export Tagging rules, and embedded graphic metadata to ensure repeatable, permanent PDF/UA conformance.',
+    learningObjectives: [
+      'Explain why remediating document accessibility in source authoring tools is exponentially more sustainable than downstream PDF touchups.',
+      'Replace visual font bolding/resizing with native Heading Styles (Heading 1, Heading 2) in Microsoft Word and InDesign.',
+      'Configure multi-page table properties ("Repeat as Header Row at Top of Each Page") to generate valid PDF/UA <TH> headers.',
+      'Configure Adobe InDesign Paragraph Style Export Tagging to map custom print layouts to semantic PDF tags (<Aside>, <BlockQuote>).',
+      'Embed alternative text directly into source image object properties to persist across all future PDF document revisions.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The Fragility of Downstream PDF Remediation',
+        explanation: 'Remediating a PDF in Adobe Acrobat Pro modifies only the exported PDF tag tree. If an author later edits a single typo in Microsoft Word or InDesign and re-exports, ALL downstream Acrobat tags, alt text, and reading order touchups are completely overwritten and lost.'
+      },
+      {
+        title: 'Native Heading Styles vs Visual Bolding',
+        explanation: 'Changing font size to 24pt and bolding text creates visually large text, but exports to a <P> (paragraph) tag in PDF. Applying true built-in styles (Heading 1, Heading 2) maps automatically to <H1> and <H2> in the exported PDF tag tree.'
+      },
+      {
+        title: 'Accessible Data Tables in Word',
+        explanation: 'To pass PDF/UA table requirements from Word, tables must have a designated header row with "Repeat as header row at the top of each page" checked in Table Properties, and "Allow row to break across pages" unchecked for data consistency.'
+      },
+      {
+        title: 'InDesign Export Tagging',
+        explanation: 'Professional desktop publishing layouts often use non-standard style names (e.g., "PullQuote_Red", "Sidebar_Note"). In InDesign, the Export Tagging panel allows creators to explicitly map styles to semantic PDF tags (<BlockQuote>, <Aside>, <H1>, <P>).'
+      }
+    ],
+    examTips: 'ADS Exam Alert: Remember that source remediation is the primary defense against the "Re-Export Trap". When a question asks how to handle recurring quarterly reports, the correct strategy is ALWAYS configuring templates and styles in the authoring tool (Word/InDesign), never manually re-tagging the PDF in Acrobat every quarter.',
+    knowledgeCheck: [
+      {
+        id: 'kc-ads-auth-1',
+        question: 'Why is remediating accessibility in source authoring files (Word/InDesign) preferred over fixing tags downstream in Adobe Acrobat Pro?',
+        options: [
+          { id: 'A', text: 'Adobe Acrobat Pro cannot create <H1> tags' },
+          { id: 'B', text: 'Re-exporting a document from Word or InDesign after future text edits completely wipes out all downstream Acrobat PDF remediation' },
+          { id: 'C', text: 'Section 508 prohibits the use of PDF editing software' },
+          { id: 'D', text: 'Source files have smaller file sizes than PDFs' }
+        ],
+        answer: 'B',
+        explanation: 'Every time a source document is re-exported to PDF, the PDF tag tree is regenerated from scratch, destroying all manual fixes made in Acrobat.'
+      },
+      {
+        id: 'kc-ads-auth-2',
+        question: 'In Microsoft Word, what action is necessary to ensure a table spanning multiple pages exports to PDF with valid <TH> table header tags on every page?',
+        options: [
+          { id: 'A', text: 'Manually copy and paste the header row text at the top of each page' },
+          { id: 'B', text: 'Right-click the header row, open Table Properties, and check "Repeat as header row at the top of each page"' },
+          { id: 'C', text: 'Draw a black border around the top row' },
+          { id: 'D', text: 'Convert the table into an image with alternative text' }
+        ],
+        answer: 'B',
+        explanation: 'Checking "Repeat as header row at the top of each page" in Word Table Properties instructs the PDF export filter to tag those cells as semantic <TH> headers.'
+      },
+      {
+        id: 'kc-ads-auth-3',
+        question: 'In Adobe InDesign, what feature must be configured so that custom paragraph styles (such as "Feature_Callout") export to semantic PDF tags like <Aside> instead of generic <Div> tags?',
+        options: [
+          { id: 'A', text: 'Preflight Panel' },
+          { id: 'B', text: 'Export Tagging in Paragraph Style Options' },
+          { id: 'C', text: 'Glyphs Panel' },
+          { id: 'D', text: 'Object State Manager' }
+        ],
+        answer: 'B',
+        explanation: 'InDesign\'s Export Tagging tab in Paragraph Style Options enables designers to explicitly map custom print styles to semantic PDF/UA tags.'
+      }
+    ]
   }
 ];
 

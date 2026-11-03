@@ -20,6 +20,9 @@ import A11yMaturityModelAuditor from './interactives/A11yMaturityModelAuditor';
 import SpaRoutingLab from './interactives/SpaRoutingLab';
 import OcrDocumentRemediator from './interactives/OcrDocumentRemediator';
 import BuiltEnvironmentBlueprintLab from './interactives/BuiltEnvironmentBlueprintLab';
+import DisabilityEtiquetteLab from './interactives/DisabilityEtiquetteLab';
+import WcagEmAuditPlannerLab from './interactives/WcagEmAuditPlannerLab';
+import AuthoringFormatRemediator from './interactives/AuthoringFormatRemediator';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -184,6 +187,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <OcrDocumentRemediator />;
       case 'built-environment-blueprint-lab':
         return <BuiltEnvironmentBlueprintLab />;
+      case 'disability-etiquette-lab':
+        return <DisabilityEtiquetteLab />;
+      case 'wcag-em-audit-planner-lab':
+        return <WcagEmAuditPlannerLab />;
+      case 'authoring-format-remediator':
+        return <AuthoringFormatRemediator />;
       default:
         return <DisabilityModelClassifier />;
     }

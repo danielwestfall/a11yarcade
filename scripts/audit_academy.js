@@ -209,6 +209,56 @@ if (modOcr) {
   issues.push('Module mod-ads-ocr-remediation not found!');
 }
 
+// Disability Etiquette (CPACC-D1-E)
+const modEtiquette = LEARNING_MODULES.find(m => m.id === 'mod-cpacc-etiquette');
+if (modEtiquette) {
+  const etStr = JSON.stringify(modEtiquette);
+  const mentionsDog = etStr.includes('service') || etStr.includes('dog');
+  const mentionsChair = etStr.includes('wheelchair') || etStr.includes('bodily space');
+  const mentionsInterp = etStr.includes('interpreter') || etStr.includes('eye contact');
+  const mentionsLang = etStr.includes('Person-First') && etStr.includes('Identity-First');
+  if (mentionsDog && mentionsChair && mentionsInterp && mentionsLang) {
+    passedChecks.push('CPACC Disability Etiquette standards (service dog rules, wheelchair bodily space, interpreter direct address, Person-First vs Identity-First) verified.');
+  } else {
+    issues.push(`mod-cpacc-etiquette missing standards: Dog=${mentionsDog}, Chair=${mentionsChair}, Interp=${mentionsInterp}, Lang=${mentionsLang}`);
+  }
+} else {
+  issues.push('Module mod-cpacc-etiquette not found!');
+}
+
+// WCAG-EM Methodology (WAS-D2-B)
+const modWcagEm = LEARNING_MODULES.find(m => m.id === 'mod-was-wcag-em');
+if (modWcagEm) {
+  const emStr = JSON.stringify(modWcagEm);
+  const mentionsSteps = emStr.includes('Define Scope') && emStr.includes('Explore');
+  const mentionsProcess = emStr.includes('Complete Processes');
+  const mentionsSample = emStr.includes('Representative') || emStr.includes('random');
+  if (mentionsSteps && mentionsProcess && mentionsSample) {
+    passedChecks.push('WAS WCAG-EM standards (5-step methodology, Complete Processes rule, representative + random sampling) verified.');
+  } else {
+    issues.push(`mod-was-wcag-em missing criteria: Steps=${mentionsSteps}, Process=${mentionsProcess}, Sample=${mentionsSample}`);
+  }
+} else {
+  issues.push('Module mod-was-wcag-em not found!');
+}
+
+// Source Authoring Format Remediation (ADS-D2-D)
+const modAuth = LEARNING_MODULES.find(m => m.id === 'mod-ads-authoring-format');
+if (modAuth) {
+  const authStr = JSON.stringify(modAuth);
+  const mentionsFragile = authStr.includes('Acrobat') || authStr.includes('re-export');
+  const mentionsHeadings = authStr.includes('Heading 1') || authStr.includes('Heading Styles');
+  const mentionsTable = authStr.includes('Header Row') || authStr.includes('Table Properties');
+  const mentionsInDesign = authStr.includes('InDesign') && authStr.includes('Export Tagging');
+  if (mentionsFragile && mentionsHeadings && mentionsTable && mentionsInDesign) {
+    passedChecks.push('ADS Authoring Format Remediation standards (re-export trap, Word heading styles, table header repeat, InDesign export tagging) verified.');
+  } else {
+    issues.push(`mod-ads-authoring-format missing criteria: Fragile=${mentionsFragile}, Headings=${mentionsHeadings}, Table=${mentionsTable}, InDesign=${mentionsInDesign}`);
+  }
+} else {
+  issues.push('Module mod-ads-authoring-format not found!');
+}
+
 console.log('\n--- PASSED CHECKS ---');
 passedChecks.forEach(p => console.log('  [PASS] ' + p));
 

@@ -17,7 +17,10 @@ import {
   RotateCcw,
   Globe,
   Scan,
-  Compass
+  Compass,
+  Heart,
+  ClipboardList,
+  FileCode
 } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
@@ -85,11 +88,11 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -138,6 +141,12 @@ export default function LearningModulesAcademy() {
         return <Scan size={14} color="var(--arcade-amber)" />;
       case 'built-environment-blueprint-lab':
         return <Compass size={14} color="var(--arcade-green)" />;
+      case 'disability-etiquette-lab':
+        return <Heart size={14} color="var(--arcade-purple)" />;
+      case 'wcag-em-audit-planner-lab':
+        return <ClipboardList size={14} color="var(--arcade-green)" />;
+      case 'authoring-format-remediator':
+        return <FileCode size={14} color="var(--arcade-amber)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -179,6 +188,12 @@ export default function LearningModulesAcademy() {
         return 'PDF OCR & Glyph Remediator';
       case 'built-environment-blueprint-lab':
         return 'Built Environment Blueprint Lab';
+      case 'disability-etiquette-lab':
+        return 'Disability Etiquette Simulator';
+      case 'wcag-em-audit-planner-lab':
+        return 'WCAG-EM Audit Planner Lab';
+      case 'authoring-format-remediator':
+        return 'Source Format Remediator';
       default:
         return 'Interactive Lab';
     }
