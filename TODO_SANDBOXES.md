@@ -4,10 +4,13 @@ This document tracks all Body of Knowledge (BoK) sub-domains across **CPACC**, *
 
 ---
 
-## ✅ Live Completed Sandboxes (32 Total Academy Modules)
+## ✅ Live Completed Sandboxes (35 Total Academy Modules)
 
 | Certification | Taxonomy Section | Module Title & Interactive Component | Status |
 | :--- | :--- | :--- | :---: |
+| **CPACC** | `CPACC-D1-D` | Disability Demographics, Global Census & Aging Simulator (`DemographicsCensusLab.jsx`) | **LIVE ✓** |
+| **WAS** | `WAS-D1-H` | Assistive Strategies & Adaptive Hardware Input Simulator (`AdaptiveStrategiesLab.jsx`) | **LIVE ✓** |
+| **ADS** | `ADS-D1-B` | InDesign & Word Authoring Layout Architecture Remediator (`ExportArchitectureLab.jsx`) | **LIVE ✓** |
 | **CPACC** | `CPACC-D3-A` | UN CRPD & International Human Rights Conventions (`UnCrpdTreatyExplorerLab.jsx`) | **LIVE ✓** |
 | **WAS** | `WAS-D2-A` | Screen Reader & Browser Interoperability Matrix (`CrossBrowserCompatibilityLab.jsx`) | **LIVE ✓** |
 | **ADS** | `ADS-D3-B` | Manual PDF Accessibility Testing & Reflow Protocol (`ManualDocumentAuditProtocolLab.jsx`) | **LIVE ✓** |
@@ -45,42 +48,42 @@ This document tracks all Body of Knowledge (BoK) sub-domains across **CPACC**, *
 
 ## 🎯 Next Top 3 Priority Sandbox Labs (TODO)
 
-### 1. 📊 Disability Demographics, Global Census & Aging Simulator
+### 1. 🤝 Individualized Accommodations vs Universal Design Simulator
 - **Certification Track:** CPACC (Certified Professional in Accessibility Core Competencies)
-- **Taxonomy Section:** `CPACC-D1-D` (*Disability Demographics and Statistics*)
-- **Core A11y Problem:** Development and design teams frequently underestimate accessibility user populations by assuming disabilities are rare or strictly congenital, failing to account for aging-acquired limitations and situational/temporary impairments.
+- **Taxonomy Section:** `CPACC-D2-A` (*Individualized Accommodations vs Universal Design*)
+- **Core A11y Problem:** Organizations frequently confuse reactive individual accommodations (expensive, bespoke, medicalized) with proactive universal design (systemic, equitable, built-in), leading to unsustainable accommodation backlogs and employee friction.
 - **Interactive Sandbox Concept:**
-  - An interactive demographic calculator and aging simulation bench:
-    1. **WHO World Report on Disability Standard:** Interactive visualization of the 16% global benchmark (~1.3 billion individuals).
-    2. **Acquired vs Congenital Disproportions:** Demographics showing over 70% of functional limitations are acquired during working-age or late adulthood.
-    3. **Global Demographic Shifts:** Interactive age pyramid simulating vision, hearing, cognitive, and motor decline across populations over 65.
-    4. **Situational & Temporary Matrix:** The Microsoft Inclusive Design spectrum (Permanent, Temporary, Situational) mapped to business return on investment.
+  - An interactive accommodation triage and systemic redesign bench:
+    1. **JAN (Job Accommodation Network) Decision Matrix:** Interactive workplace scenario evaluator matching functional limitations with reasonable adjustments.
+    2. **Cost & Sustainability Comparison:** Visual graph calculating cost/time curves of one-off retrofits versus built-in universal design features.
+    3. **Interactive Dialogue Simulator:** Respectful interactive accommodation dialogues without violating privacy or medical confidentiality laws.
+    4. **Undue Hardship Evaluation:** Legal thresholds under ADA Title I and global disability employment statutes.
 
 ---
 
-### 2. 🎛️ Assistive Strategies & Adaptive Hardware Input Simulator
+### 2. 🎧 Manual Assistive Technology Testing Protocol Lab
 - **Certification Track:** WAS (Web Accessibility Specialist)
-- **Taxonomy Section:** `WAS-D1-H` (*Strategies of Persons with Disabilities*)
-- **Core A11y Problem:** Developers frequently design only for screen reader users or standard desktop keyboard users, ignoring switch device users, speech recognition users, and high-magnification screen magnifier tracking.
+- **Taxonomy Section:** `WAS-D2-C` (*Testing with Assistive Technologies*)
+- **Core A11y Problem:** Engineers frequently test web components with only a mouse or visual inspection, lacking a standardized protocol for executing and documenting assistive technology test passes across screen readers, speech input, and keyboard shortcuts.
 - **Interactive Sandbox Concept:**
-  - A multi-modal assistive interaction simulator testing:
-    1. **Screen Magnification Viewport & Mouse Tracking (200%-800%):** Viewport pan tracking, focus-following behavior, and the problem of off-screen modals and notifications.
-    2. **Single-Switch & Dual-Switch Scanning:** Auto-scan versus step-scan rates (timings, item highlight grids, row-column scanning) and how excessive DOM depth penalizes switch users.
-    3. **Speech Recognition Command Grammar (Dragon / Voice Access):** Testing "Click [Button Name]" targeting rules, accessible name calculation mismatches, and visual vs programmatic label divergence.
-    4. **High-Contrast OS Modes:** Custom color palette overrides and CSS `forced-colors: active` system color mapping.
+  - An interactive AT testing plan generator and execution console:
+    1. **AT Test Matrix Protocol:** Structured test passes covering NVDA + Firefox, JAWS + Chrome, VoiceOver + Safari.
+    2. **Keyboard Shortcut Reference Bench:** Quick lookup and simulation of essential screen reader keystrokes (<kbd>H</kbd>, <kbd>K</kbd>, <kbd>T</kbd>, <kbd>Tab</kbd>, <kbd>Shift+Tab</kbd>, <kbd>VO+U</kbd> Rotor).
+    3. **Speech Log Auditor:** Simulated audio transcription recorder capturing exact announcements for bug tickets.
+    4. **Interactive Audit Scoring:** Grading components against pass/fail criteria and generating reproducible bug tickets.
 
 ---
 
-### 3. 📐 InDesign & Word Authoring Layout Architecture Remediator
+### 3. 📄 Document Assistive Technology Testing & Screen Reader Rotor Lab
 - **Certification Track:** ADS (Accessible Document Specialist)
-- **Taxonomy Section:** `ADS-D1-B` (*Design, create, assemble and produce in the final format*)
-- **Core A11y Problem:** Document authors frequently design complex multi-column or magazine-style publications in desktop publishing tools (Adobe InDesign, Microsoft Word) without configuring export tagging rules, creating chaotic tagged PDF reading orders.
+- **Taxonomy Section:** `ADS-D3-D` (*Testing with Assistive Tech for Electronic Documents*)
+- **Core A11y Problem:** Document remediators frequently rely solely on Adobe Acrobat's built-in "Read Out Loud" feature (which does not use accessibility APIs and gives false confidence), rather than testing with real screen readers (NVDA, JAWS) navigating the PDF DOM.
 - **Interactive Sandbox Concept:**
-  - An interactive desktop publishing layout architect simulator:
-    1. **Threaded Story Frames vs Floating Frames:** Demonstrating how unthreaded text boxes export in random geometric order rather than story flow.
-    2. **InDesign Articles Panel Mapping:** Dragging story components into the Articles panel with "Use for Tagging Order" enabled.
-    3. **Export Tagging Rules Mapping:** Mapping visual Paragraph Styles (`Heading-Main`, `Sidebar-Text`, `Pull-Quote`) to semantic PDF/UA tags (`<H1>`, `<Aside>`, `<Blockquote>`).
-    4. **Anchored Objects & Flow Continuity:** Anchoring figures and callout boxes into the text flow so screen readers encounter them in context.
+  - An interactive document AT testing bench:
+    1. **Acrobat Read Out Loud vs NVDA / JAWS Comparison:** Visualizing how Read Out Loud reads visual text without tag relationships, whereas NVDA/JAWS rely on the PDF Accessibility Tree.
+    2. **Virtual Cursor Document Buffer Navigation:** Testing PDF table rotor (<kbd>T</kbd>), link lists (<kbd>Insert+F7</kbd>), and heading skimming (<kbd>H</kbd>).
+    3. **Form Field Fill & Signature Inspection:** Testing interactive form fields in PDFs (<kbd>Tab</kbd>, <kbd>Space</kbd>, field description announcements).
+    4. **Matterhorn Protocol Defect Mapping:** Mapping manual AT findings directly to Matterhorn Protocol failure codes.
 
 ---
 
@@ -91,8 +94,7 @@ Below is the updated taxonomy analysis of remaining certification sections curre
 ### 🎓 CPACC (Core Competencies)
 | Section ID | Domain | Sub-Domain Label | Core BoK Topic |
 | :--- | :--- | :--- | :--- |
-| `CPACC-D1-D` | Domain 1 | Disability Demographics and Statistics | WHO global stats, census variations, aging populations *(Queued in TODO #1)* |
-| `CPACC-D2-A` | Domain 2 | Individualized Accommodations vs Universal Design | Workplace adjustments vs systemic universal design |
+| `CPACC-D2-A` | Domain 2 | Individualized Accommodations vs Universal Design | Workplace adjustments vs systemic universal design *(Queued in TODO #1)* |
 | `CPACC-D2-C` | Domain 2 | WCAG Principles and Application (POUR) | Overarching POUR framework across non-web ICT |
 | `CPACC-D3-E` | Domain 3 | Applying Standards to ICT Procurement | VPAT/ACR evaluation, Section 508 procurement checklists |
 
@@ -102,8 +104,7 @@ Below is the updated taxonomy analysis of remaining certification sections curre
 | Section ID | Domain | Sub-Domain Label | Core BoK Topic |
 | :--- | :--- | :--- | :--- |
 | `WAS-D1-E` | Domain 1 | Accessibility-Supported Technologies | User agent and AT support baselines across browser engines |
-| `WAS-D1-H` | Domain 1 | Strategies of Persons with Disabilities | Screen magnification, switch devices, speech input mechanics *(Queued in TODO #2)* |
-| `WAS-D2-C` | Domain 2 | Testing with Assistive Technologies | Manual AT testing protocols (NVDA + Firefox, VoiceOver + Safari) |
+| `WAS-D2-C` | Domain 2 | Testing with Assistive Technologies | Manual AT testing protocols (NVDA + Firefox, VoiceOver + Safari) *(Queued in TODO #2)* |
 | `WAS-D2-E` | Domain 2 | Accessibility Quality Assurance | CI/CD pipeline integration, regression testing gates |
 | `WAS-D2-G` | Domain 2 | Testing for End-user Impact | Usability testing with people with disabilities |
 | `WAS-D2-H` | Domain 2 | Testing Tools for the Web | Evaluation engines and accessibility scanners |
@@ -114,7 +115,6 @@ Below is the updated taxonomy analysis of remaining certification sections curre
 ### 📑 ADS (Accessible Document Specialist)
 | Section ID | Domain | Sub-Domain Label | Core BoK Topic |
 | :--- | :--- | :--- | :--- |
-| `ADS-D1-B` | Domain 1 | Design, Create & Assemble Final Form | Multi-column layouts, master pages, export settings *(Queued in TODO #3)* |
-| `ADS-D3-D` | Domain 3 | Testing with Assistive Tech | JAWS, NVDA, and ReadOutLoud document reading behavior |
+| `ADS-D3-D` | Domain 3 | Testing with Assistive Tech | JAWS, NVDA, and ReadOutLoud document reading behavior *(Queued in TODO #3)* |
 | `ADS-D4-A-G`| Domain 4 | Planning, Training & Workflows | Document lifecycle, intake forms, organizational SLAs |
 | `ADS-D5-A-B`| Domain 5 | Policy Promotion, Advocacy & Advising | Institutional document compliance roadmaps and executive reporting |

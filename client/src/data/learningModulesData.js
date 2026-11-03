@@ -2546,6 +2546,249 @@ export const LEARNING_MODULES = [
         explanation: 'Screen readers require explicit <TH> tags with proper Scope attributes (Column or Row) to associate header text with data cells during cell-by-cell navigation.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-demographics',
+    cert: 'CPACC',
+    domainId: 'CPACC-D1',
+    domainLabel: 'Domain 1: Disabilities, Challenges & Assistive Tech',
+    sectionId: 'CPACC-D1-D',
+    sectionLabel: 'Disability Demographics and Statistics',
+    citation: 'IAAP CPACC BoK V3, Domain 1.D (Disability Demographics and Statistics), WHO World Report on Disability & UN Washington Group on Disability Statistics',
+    title: 'Disability Demographics, Global Census & Aging Simulator',
+    summary: 'Explore global disability prevalence: the WHO 16% benchmark (~1.3 billion individuals), the high proportion of acquired versus congenital limitations (>70%), population aging curves, and the Microsoft Persona Spectrum.',
+    duration: '22 mins',
+    level: 'Core',
+    interactiveType: 'demographics-census-lab',
+    learningObjectives: [
+      'Cite and interpret the World Health Organization standard for global disability prevalence (16% / 1.3 billion individuals).',
+      'Analyze the disproportionate prevalence of acquired disabilities (>70-80%) occurring in working adulthood and later life compared to congenital disabilities.',
+      'Evaluate how global population aging drives compounding functional limitations across vision, hearing, motor dexterity, and cognition.',
+      'Apply the Microsoft Inclusive Design Persona Spectrum (Permanent, Temporary, Situational) to demonstrate the exponential market reach of accessible design.'
+    ],
+    keyConcepts: [
+      {
+        title: 'WHO World Report Benchmark: 16% of Humanity',
+        explanation: 'The World Health Organization (WHO) and World Bank establish that approximately 1.3 billion people—about 16% of the global population, or 1 in every 6 individuals—experience significant disability, making people with disabilities the world\'s largest minority group.'
+      },
+      {
+        title: 'Acquired vs Congenital Limitations (>70% Acquired)',
+        explanation: 'A common misconception is that disability is predominantly congenital (present at birth). In reality, over 70% to 80% of functional limitations are acquired during working-age adulthood or later life due to chronic conditions (diabetes, arthritis), accidents, and natural physiological aging.'
+      },
+      {
+        title: 'Global Aging & the Demographic Transition',
+        explanation: 'Advancements in medicine and falling birth rates mean populations are living significantly longer. Disability rates surge from ~9% in young adulthood to ~49% for individuals aged 75 and older, meaning nearly everyone will experience temporary or permanent disability if they live long enough.'
+      },
+      {
+        title: 'The Persona Spectrum (Permanent, Temporary, Situational)',
+        explanation: 'Developed by Microsoft Inclusive Design, the Persona Spectrum shows that designing for a small permanent disability cohort (e.g., 25,000 people with one arm) creates solutions that naturally benefit millions with temporary limitations (broken arm in a cast) and situational constraints (holding an infant).'
+      }
+    ],
+    practicalTakeaways: [
+      'Never treat accessibility as an edge-case for a 1% minority; 1 in 6 people globally have a significant disability.',
+      'Most people with acquired limitations do not identify as "disabled"; they simply need scalable text, high contrast, and forgiving click targets.',
+      'Designing for accessibility expands your customer base exponentially by capturing temporary and situational needs.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-demo-1',
+        question: 'According to the World Health Organization (WHO), what proportion of the global population experiences a significant disability?',
+        options: [
+          { id: 'A', text: 'Approximately 1% of the global population' },
+          { id: 'B', text: 'Approximately 16% of the global population (1.3 billion people)' },
+          { id: 'C', text: 'Over 65% of the global population' },
+          { id: 'D', text: 'Less than 0.1% worldwide' }
+        ],
+        answer: 'B',
+        explanation: 'The WHO World Report on Disability establishes that approximately 1.3 billion people—16% of the global population, or 1 in 6 people—experience significant disability, making it the largest minority group in the world.'
+      },
+      {
+        id: 'kc-cpacc-demo-2',
+        question: 'Which of the following statements accurately reflects global demographic data on the acquisition of disabilities?',
+        options: [
+          { id: 'A', text: 'The vast majority of disabilities (>70%) are acquired during working adulthood or later life rather than being present at birth' },
+          { id: 'B', text: 'Almost all disabilities (98%) are genetic and identified at birth' },
+          { id: 'C', text: 'Disabilities only occur after the age of 80' },
+          { id: 'D', text: 'Acquired disabilities are legally excluded from ADA and European Accessibility Act coverage' }
+        ],
+        answer: 'A',
+        explanation: 'Epidemiological studies consistently show that over 70% to 80% of disabilities are acquired during adulthood as a result of illness, injury, repetitive strain, and the normal biological aging process.'
+      },
+      {
+        id: 'kc-cpacc-demo-3',
+        question: 'In Microsoft\'s Inclusive Design Persona Spectrum, a person carrying a crying baby in one arm while trying to tap a phone screen is an example of what type of constraint?',
+        options: [
+          { id: 'A', text: 'A Permanent disability' },
+          { id: 'B', text: 'A Medical deficit' },
+          { id: 'C', text: 'A Situational limitation' },
+          { id: 'D', text: 'A Chronic physiological disorder' }
+        ],
+        answer: 'C',
+        explanation: 'The Persona Spectrum categorizes constraints into Permanent (one arm), Temporary (arm in a cast), and Situational (holding a baby or groceries with one arm).'
+      }
+    ]
+  },
+  {
+    id: 'mod-was-strategies',
+    cert: 'WAS',
+    domainId: 'WAS-D1',
+    domainLabel: 'Domain 1: Creating Accessible Web Solutions',
+    sectionId: 'WAS-D1-H',
+    sectionLabel: 'Strategies of Persons with Disabilities in Using Web Solutions',
+    citation: 'IAAP WAS BoK 2024, Domain 1.H (Strategies of Persons with Disabilities in Using Web Solutions), W3C WAI Guidelines & WCAG 2.5.3 (Label in Name)',
+    title: 'Assistive Strategies & Adaptive Hardware Input Simulator',
+    summary: 'Examine diverse user strategies beyond screen readers: high-power screen magnification viewport panning, single/dual-switch device scanning rates, speech recognition command grammars, and high-contrast system overrides.',
+    duration: '26 mins',
+    level: 'Advanced',
+    interactiveType: 'adaptive-strategies-lab',
+    learningObjectives: [
+      'Evaluate the perceptual and navigational impact of high-magnification screen viewports (200%-800%) on spatial layout and off-screen notifications.',
+      'Calculate the motor and temporal cost of linear item scanning for single-switch and dual-switch users, reinforcing WCAG 2.4.1 Skip Links.',
+      'Apply WCAG 2.5.3 (Label in Name) to ensure visual button labels match speech recognition voice command grammars (e.g. Dragon, Windows Voice Access).',
+      'Implement robust CSS borders and color variables compatible with Windows High Contrast and CSS forced-colors mode.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Screen Magnification Viewport & Visual Context Loss',
+        explanation: 'Users with low vision frequently utilize magnification software (ZoomText, MAGic, OS magnifiers) at 200% to 800%. At high magnification, users see only a small portion of the screen, losing all peripheral vision. Floating alerts or off-screen error messages are invisible unless accompanied by programmatic focus shifts or live region announcements.'
+      },
+      {
+        title: 'Switch Device Scanning & Temporal Navigation Cost',
+        explanation: 'Users with severe physical motor limitations (quadriplegia, ALS, cerebral palsy) may operate computers via single or dual physical switches (head switches, sip-and-puff). Single switches rely on auto-scanning, where the system highlights elements sequentially on a timer. Bypassing repetitive navigation blocks with Skip Links (WCAG 2.4.1) saves switch users dozens of exhausting minutes per session.'
+      },
+      {
+        title: 'Speech Recognition Command Grammar (WCAG 2.5.3 Label in Name)',
+        explanation: 'Speech-to-text users (Dragon NaturallySpeaking, Apple Voice Control) speak the visual text they see to trigger controls (e.g. "Click Submit"). Under WCAG 2.5.3, the accessible name must contain the visual label. If aria-label replaces the visual text with something completely different, voice commands fail silently.'
+      },
+      {
+        title: 'OS High Contrast & CSS forced-colors: active',
+        explanation: 'In Windows High Contrast and CSS forced-colors mode, the operating system strips author-defined background colors, gradients, and box-shadows to ensure high contrast text. Buttons that rely solely on background color without a border become completely invisible unless an explicit transparent border is defined.'
+      }
+    ],
+    practicalTakeaways: [
+      'Always ensure the accessible name of an interactive element starts with or contains its visible text label (WCAG 2.5.3).',
+      'Provide visible Skip Links on the first keyboard stop to prevent switch and keyboard users from suffering extreme linear scanning fatigue.',
+      'Add border: 1px solid transparent to all flat button designs so they render with crisp visible borders in forced-colors mode.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-was-strat-1',
+        question: 'A button displays the visible label "Search". Its HTML is coded as: <button aria-label="Find catalog items by keyword">Search</button>. Why does this fail WCAG 2.5.3 (Label in Name)?',
+        options: [
+          { id: 'A', text: 'Because speech recognition users who say "Click Search" will fail to activate the button, as the accessible name completely omits the visible word "Search"' },
+          { id: 'B', text: 'Because aria-label is prohibited on HTML buttons' },
+          { id: 'C', text: 'Because Search is a reserved HTML keyword' },
+          { id: 'D', text: 'Because the button font size is smaller than 18pt' }
+        ],
+        answer: 'A',
+        explanation: 'WCAG 2.5.3 requires that for components with visible text labels, the accessible name must contain the text presented visually. Replacing "Search" with an aria-label that does not contain the word "Search" breaks speech recognition voice control.'
+      },
+      {
+        id: 'kc-was-strat-2',
+        question: 'How does providing a "Skip to Main Content" link (WCAG 2.4.1) primarily benefit single-switch assistive technology users?',
+        options: [
+          { id: 'A', text: 'It reduces internet bandwidth usage on mobile connections' },
+          { id: 'B', text: 'It prevents the switch user from having to wait through dozens of auto-scan intervals across repetitive header navigation links on every page load' },
+          { id: 'C', text: 'It automatically turns off all JavaScript on the web page' },
+          { id: 'D', text: 'It converts the web page into an audio podcast' }
+        ],
+        answer: 'B',
+        explanation: 'Single-switch users must wait for an auto-scan highlight to cycle through each interactive element one-by-one. A skip link allows the user to trigger a bypass jump on the very first scan cycle, avoiding hundreds of cumulative seconds of scanning delay.'
+      },
+      {
+        id: 'kc-was-strat-3',
+        question: 'Why is adding `border: 1px solid transparent` recommended for buttons that otherwise use only CSS background-color and box-shadow for styling?',
+        options: [
+          { id: 'A', text: 'To ensure button boundaries remain clearly visible when users activate operating system High Contrast (forced-colors: active) mode' },
+          { id: 'B', text: 'To increase the download speed of the CSS stylesheet' },
+          { id: 'C', text: 'To prevent web crawlers from indexing the button' },
+          { id: 'D', text: 'To force the button to render only on Android devices' }
+        ],
+        answer: 'A',
+        explanation: 'In Windows High Contrast / CSS forced-colors mode, background-color and box-shadow are completely removed by the operating system. A transparent border is invisible in normal mode but automatically turns into a visible system color outline in high contrast mode.'
+      }
+    ]
+  },
+  {
+    id: 'mod-ads-authoring-layout',
+    cert: 'ADS',
+    domainId: 'ADS-D1',
+    domainLabel: 'Domain 1: Creating Electronic Documents',
+    sectionId: 'ADS-D1-B',
+    sectionLabel: '1.2 Design, create, and assemble final form documents',
+    citation: 'IAAP ADS BoK 2021, Section 1.2 (Design, create, assemble and produce in the final format), Adobe InDesign Accessibility Guide & ISO 14289-1 (PDF/UA-1)',
+    title: 'InDesign & Word Authoring Layout Architecture Remediator',
+    summary: 'Master layout authoring architecture in Adobe InDesign and Microsoft Word: threading story frames to establish reading sequence, configuring the Articles Panel, mapping Paragraph Styles to PDF/UA tags, and anchoring figures inline.',
+    duration: '25 mins',
+    level: 'Professional',
+    interactiveType: 'export-architecture-lab',
+    learningObjectives: [
+      'Construct continuous threaded story frames in InDesign and Word to prevent multi-column sentence fragmentation during PDF reflow.',
+      'Configure the InDesign Articles Panel and enable the mandatory "Use for Tagging Order in Tagged PDF" option to override layer-based tag chaos.',
+      'Map custom visual Paragraph Styles (e.g. Chapter_Title, Sidebar_Blurb) directly to semantic PDF tags (<H1>, <H2>, <P>, <Blockquote>) in Export Tagging.',
+      'Anchor floating pasteboard figures and callouts inline within the narrative text flow to preserve logical reading order.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Story Threading vs Isolated Text Frames',
+        explanation: 'When creating multi-column layouts, designers must link text frames together via InDesign\'s in-ports and out-ports. Unthreaded text frames export as disconnected content streams ordered by visual layer stacking or creation order, breaking sentences and paragraph continuity when read by screen readers.'
+      },
+      {
+        title: 'The InDesign Articles Panel & Tagging Order',
+        explanation: 'By default, Adobe InDesign exports PDF tags according to the visual stacking order in the Layers panel (bottom layer first). The Articles Panel allows authors to define the exact sequence of content blocks. However, authors MUST enable "Use for Tagging Order in Tagged PDF" in the panel menu, or InDesign ignores the Articles order.'
+      },
+      {
+        title: 'Paragraph Style Export Tagging Mapping',
+        explanation: 'In InDesign Paragraph Style Options -> Export Tagging, authors should map visual styling rules directly to semantic PDF/UA tags. Leaving tags set to "[Automatic]" frequently results in headings being exported as generic <P> tags, requiring tedious manual remediation in Acrobat Pro.'
+      },
+      {
+        title: 'Anchored Objects vs Floating Pasteboard Elements',
+        explanation: 'Floating images placed loose on the pasteboard or page margins are exported at the end of the page or in arbitrary sequence. Anchoring the image frame into the text story flow ensures that assistive technologies read the image and its alt text immediately following the referencing paragraph.'
+      }
+    ],
+    practicalTakeaways: [
+      'Always thread multi-column text frames so sentences flow across column boundaries seamlessly in the PDF structure tree.',
+      'Remember to check "Use for Tagging Order in Tagged PDF" in InDesign\'s Articles panel flyout menu.',
+      'Anchor all figures, callouts, and charts inline with text so they do not export at the bottom of the page.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-ads-arch-1',
+        question: 'A designer populates the Adobe InDesign Articles panel with all page elements in logical order. When exported to PDF, the reading order is still scrambled. What setting was missed?',
+        options: [
+          { id: 'A', text: 'The designer forgot to check "Use for Tagging Order in Tagged PDF" in the Articles panel options menu' },
+          { id: 'B', text: 'InDesign cannot export tagged PDFs without installing a third-party plugin' },
+          { id: 'C', text: 'The document must be saved in CMYK color mode before tagging works' },
+          { id: 'D', text: 'The font size must be increased to 72pt' }
+        ],
+        answer: 'A',
+        explanation: 'In Adobe InDesign, the Articles panel only controls PDF tag order if the option "Use for Tagging Order in Tagged PDF" is explicitly checked in the Articles panel flyout menu.'
+      },
+      {
+        id: 'kc-ads-arch-2',
+        question: 'Why is threading text frames across a two-column magazine layout essential for accessibility?',
+        options: [
+          { id: 'A', text: 'It automatically translates English text into Spanish' },
+          { id: 'B', text: 'It links the frames into a unified story flow, ensuring sentences that break across columns are read continuously without semantic fragmentation' },
+          { id: 'C', text: 'It locks the PDF so it cannot be copied or printed' },
+          { id: 'D', text: 'It reduces the PDF file size by 90%' }
+        ],
+        answer: 'B',
+        explanation: 'Unthreaded text frames are treated as distinct independent content containers, causing screen readers and reflow mode (<Ctrl+4>) to fragment sentences that break across columns.'
+      },
+      {
+        id: 'kc-ads-arch-3',
+        question: 'What happens when a chart graphic is placed as a floating unanchored object on the margin of a page in Adobe InDesign or Microsoft Word?',
+        options: [
+          { id: 'A', text: 'The chart and its alt text are often exported at the very end of the page\'s tag structure, out of context from the paragraph discussing it' },
+          { id: 'B', text: 'The chart is automatically converted into an interactive HTML canvas' },
+          { id: 'C', text: 'The PDF fails to open on Windows computers' },
+          { id: 'D', text: 'The image resolution is automatically downsampled to 72 DPI' }
+        ],
+        answer: 'A',
+        explanation: 'Floating unanchored objects are placed at the end of the page content stream or in arbitrary order based on visual z-index. Anchoring the graphic inline guarantees it appears adjacent to its textual reference in the reading order.'
+      }
+    ]
   }
 ];
 

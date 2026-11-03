@@ -24,7 +24,10 @@ import {
   Brain,
   Briefcase,
   FileSearch,
-  FileEdit
+  FileEdit,
+  Users,
+  Sliders,
+  Columns
 } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
@@ -84,7 +87,7 @@ export default function LearningModulesAcademy() {
 
       // Interactive type match
       if (interactiveFilter === 'simulator') {
-        if (!['vision-contrast-simulator', 'keyboard-navigation-sandbox', 'assistive-tech-simulator', 'built-environment-blueprint-lab'].includes(mod.interactiveType)) {
+        if (!['vision-contrast-simulator', 'keyboard-navigation-sandbox', 'assistive-tech-simulator', 'built-environment-blueprint-lab', 'adaptive-strategies-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'code') {
@@ -92,11 +95,11 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab', 'demographics-census-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab', 'manual-document-audit-protocol-lab'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab', 'manual-document-audit-protocol-lab', 'export-architecture-lab'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -169,6 +172,12 @@ export default function LearningModulesAcademy() {
         return <Layers size={14} color="var(--arcade-purple)" />;
       case 'manual-document-audit-protocol-lab':
         return <FileSearch size={14} color="var(--arcade-amber)" />;
+      case 'demographics-census-lab':
+        return <Users size={14} color="var(--arcade-cyan)" />;
+      case 'adaptive-strategies-lab':
+        return <Sliders size={14} color="var(--arcade-green)" />;
+      case 'export-architecture-lab':
+        return <Columns size={14} color="var(--arcade-amber)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -234,6 +243,12 @@ export default function LearningModulesAcademy() {
         return 'Cross-Browser A11y Matrix';
       case 'manual-document-audit-protocol-lab':
         return 'Manual PDF Audit Protocol';
+      case 'demographics-census-lab':
+        return 'Demographics & Aging Simulator';
+      case 'adaptive-strategies-lab':
+        return 'Adaptive Strategies & Input Lab';
+      case 'export-architecture-lab':
+        return 'InDesign & Word Architecture Lab';
       default:
         return 'Interactive Lab';
     }

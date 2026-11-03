@@ -32,6 +32,9 @@ import AcrobatTagsTableEditorLab from './interactives/AcrobatTagsTableEditorLab'
 import UnCrpdTreatyExplorerLab from './interactives/UnCrpdTreatyExplorerLab';
 import CrossBrowserCompatibilityLab from './interactives/CrossBrowserCompatibilityLab';
 import ManualDocumentAuditProtocolLab from './interactives/ManualDocumentAuditProtocolLab';
+import DemographicsCensusLab from './interactives/DemographicsCensusLab';
+import AdaptiveStrategiesLab from './interactives/AdaptiveStrategiesLab';
+import ExportArchitectureLab from './interactives/ExportArchitectureLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -220,6 +223,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <CrossBrowserCompatibilityLab />;
       case 'manual-document-audit-protocol-lab':
         return <ManualDocumentAuditProtocolLab />;
+      case 'demographics-census-lab':
+        return <DemographicsCensusLab />;
+      case 'adaptive-strategies-lab':
+        return <AdaptiveStrategiesLab />;
+      case 'export-architecture-lab':
+        return <ExportArchitectureLab />;
       default:
         return <DisabilityModelClassifier />;
     }
