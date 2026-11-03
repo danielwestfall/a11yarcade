@@ -88,15 +88,15 @@ export default function LearningModulesAcademy() {
           return false;
         }
       } else if (interactiveFilter === 'code') {
-        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab', 'act-rules-linter-lab'].includes(mod.interactiveType)) {
+        if (!['semantic-html-fixer', 'aria-live-lab', 'wcag22-new-criteria-lab', 'accessible-tabs-combobox-lab', 'spa-routing-lab', 'act-rules-linter-lab', 'cross-browser-compatibility-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'decision') {
-        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab'].includes(mod.interactiveType)) {
+        if (!['model-classifier', 'alt-text-decision-tree', 'universal-design-sorter', 'issue-severity-triage-lab', 'a11y-maturity-model-auditor', 'disability-etiquette-lab', 'wcag-em-audit-planner-lab', 'udl-course-designer-lab', 'vpat-procurement-auditor-lab', 'global-legal-compass-lab', 'uncrpd-treaty-explorer-lab'].includes(mod.interactiveType)) {
           return false;
         }
       } else if (interactiveFilter === 'pdf') {
-        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab'].includes(mod.interactiveType)) {
+        if (!['pdf-tag-tree-fixer', 'plain-language-links-fixer', 'ocr-document-remediator', 'authoring-format-remediator', 'automated-testing-limitations-lab', 'acrobat-tags-table-editor-lab', 'manual-document-audit-protocol-lab'].includes(mod.interactiveType)) {
           return false;
         }
       }
@@ -163,6 +163,12 @@ export default function LearningModulesAcademy() {
         return <Code size={14} color="var(--arcade-green)" />;
       case 'acrobat-tags-table-editor-lab':
         return <FileEdit size={14} color="var(--arcade-amber)" />;
+      case 'uncrpd-treaty-explorer-lab':
+        return <Globe size={14} color="var(--arcade-cyan)" />;
+      case 'cross-browser-compatibility-lab':
+        return <Layers size={14} color="var(--arcade-purple)" />;
+      case 'manual-document-audit-protocol-lab':
+        return <FileSearch size={14} color="var(--arcade-amber)" />;
       default:
         return <FlaskConical size={14} color="var(--arcade-cyan)" />;
     }
@@ -222,6 +228,12 @@ export default function LearningModulesAcademy() {
         return 'W3C ACT Rules Linter Lab';
       case 'acrobat-tags-table-editor-lab':
         return 'Acrobat Tags & Table Editor';
+      case 'uncrpd-treaty-explorer-lab':
+        return 'UN CRPD & Treaties Explorer';
+      case 'cross-browser-compatibility-lab':
+        return 'Cross-Browser A11y Matrix';
+      case 'manual-document-audit-protocol-lab':
+        return 'Manual PDF Audit Protocol';
       default:
         return 'Interactive Lab';
     }

@@ -2303,6 +2303,249 @@ export const LEARNING_MODULES = [
         explanation: 'In PDF architecture, the visual text and the interactive link rectangle are distinct objects. Unless the link annotation is linked to the <Link> tag via an /OBJR tag, screen readers treat the text as plain un-clickable text.'
       }
     ]
+  },
+  {
+    id: 'mod-cpacc-treaties',
+    cert: 'CPACC',
+    domainId: 'CPACC-D3',
+    domainLabel: 'Domain 3: Standards, Laws & Management',
+    sectionId: 'CPACC-D3-A',
+    sectionLabel: 'International Declarations and Conventions on Disability Rights',
+    citation: 'IAAP CPACC BoK V3, Domain 3.A (International Declarations and Conventions on Disability Rights), UN CRPD (Articles 9 & 21) & Marrakesh Treaty (WIPO 2013)',
+    title: 'UN CRPD & International Human Rights Conventions',
+    summary: 'Master the international legal bedrock of disability rights: UN CRPD Article 9 (Accessibility), Article 21 (Freedom of Expression & Information), the Marrakesh Treaty (WIPO 2013), and the UDHR human-rights framework.',
+    duration: '22 mins',
+    level: 'Core',
+    interactiveType: 'uncrpd-treaty-explorer-lab',
+    learningObjectives: [
+      'Analyze the legal obligations created by UN CRPD Article 9 for physical, transportation, and ICT accessibility.',
+      'Distinguish how UN CRPD Article 9.2(b) obligates States Parties to ensure private sector public services are accessible.',
+      'Apply UN CRPD Article 21 regarding the provision of public information in accessible formats in a timely manner and without additional cost.',
+      'Evaluate the Marrakesh Treaty (WIPO 2013) provisions creating copyright exceptions and authorizing cross-border exchange of accessible works by Authorized Entities.'
+    ],
+    keyConcepts: [
+      {
+        title: 'UN CRPD Article 9: Accessibility Across Society',
+        explanation: 'Requires States Parties to enable persons with disabilities to live independently and participate fully in all aspects of life by ensuring equal access to the physical environment, transportation, information and communications (including ICT systems), and other public facilities and services in urban and rural areas.'
+      },
+      {
+        title: 'UN CRPD Article 21: Freedom of Expression & Prohibition of Surcharges',
+        explanation: 'Guarantees freedom to seek, receive and impart information through all forms of communication of choice. Article 21(a) explicitly mandates that public information must be provided in accessible formats and technologies in a timely manner and WITHOUT ADDITIONAL COST, outlawing disability surcharges.'
+      },
+      {
+        title: 'The Marrakesh Treaty (WIPO 2013): Ending the Global Book Famine',
+        explanation: 'Administered by WIPO, the Marrakesh Treaty requires contracting parties to create mandatory copyright exceptions permitting Authorized Entities (libraries, schools, NGOs) to convert published books into accessible formats without rights-holder royalties, and authorizes cross-border import and export between member states.'
+      },
+      {
+        title: 'The Human Rights Model vs Medical & Charity Paradigms',
+        explanation: 'Rooted in the Universal Declaration of Human Rights (UDHR 1948), modern international law views accessibility not as medical rehabilitation or discretionary charity, but as an inalienable, legally enforceable human right rooted in personal autonomy and non-discrimination.'
+      }
+    ],
+    practicalTakeaways: [
+      'International treaties like the UN CRPD set the constitutional mandate that directs national laws like the European Accessibility Act and Section 508.',
+      'Charging extra fees for accessible formats (braille, transcripts, large print) is explicitly prohibited under Article 21.',
+      'Authorized entities can legally share accessible books across borders between Marrakesh Treaty contracting parties without paying copyright royalties.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-cpacc-treaty-1',
+        question: 'Under UN CRPD Article 9.2(b), what obligation do States Parties have regarding private commercial companies that provide public services (such as e-commerce or private transportation)?',
+        options: [
+          { id: 'A', text: 'Private companies are completely exempt from all CRPD obligations' },
+          { id: 'B', text: 'States Parties must take appropriate measures to ensure that private entities that offer facilities and services to the public take into account all aspects of accessibility' },
+          { id: 'C', text: 'Private companies are only regulated if they receive more than 90% direct UN funding' },
+          { id: 'D', text: 'Private entities may replace accessible websites with printed paper brochures upon written request' }
+        ],
+        answer: 'B',
+        explanation: 'CRPD Article 9.2(b) explicitly requires States Parties to enact measures ensuring private entities offering public facilities and services take into account all aspects of accessibility for persons with disabilities.'
+      },
+      {
+        id: 'kc-cpacc-treaty-2',
+        question: 'What primary barrier to accessible literature does the Marrakesh Treaty (WIPO 2013) address?',
+        options: [
+          { id: 'A', text: 'It bans all printed paper books worldwide to encourage digital adoption' },
+          { id: 'B', text: 'It creates copyright exceptions allowing authorized entities to produce accessible format copies and exchange them across international borders without publisher authorization' },
+          { id: 'C', text: 'It requires authors to write books only in Simplified English' },
+          { id: 'D', text: 'It sets a mandatory minimum price of $50 for all audiobooks' }
+        ],
+        answer: 'B',
+        explanation: 'The Marrakesh Treaty specifically eliminates legal copyright barriers that previously prevented libraries and non-profits from converting copyrighted books into Braille, audiobooks, and DAISY formats and sharing them across international borders.'
+      },
+      {
+        id: 'kc-cpacc-treaty-3',
+        question: 'A state transportation authority charges passengers with disabilities an extra $10 administrative fee to receive monthly schedule updates in large print or Braille. Which international treaty clause is violated?',
+        options: [
+          { id: 'A', text: 'UN CRPD Article 21(a), which mandates accessible formats in a timely manner and without additional cost' },
+          { id: 'B', text: 'Berne Convention Article 7 on copyright terms' },
+          { id: 'C', text: 'Geneva Convention Protocol IV' },
+          { id: 'D', text: 'No violation exists as long as the fee covers material paper costs' }
+        ],
+        answer: 'A',
+        explanation: 'UN CRPD Article 21(a) explicitly prohibits charging persons with disabilities extra fees for accessible formats of public information, requiring information to be provided in accessible formats "in a timely manner and without additional cost".'
+      }
+    ]
+  },
+  {
+    id: 'mod-was-interoperability',
+    cert: 'WAS',
+    domainId: 'WAS-D2',
+    domainLabel: 'Domain 2: Identifying Accessibility Issues in Web Solutions',
+    sectionId: 'WAS-D2-A',
+    sectionLabel: 'Interoperability and Compatibility Issues',
+    citation: 'IAAP WAS BoK 2024, Domain 2.A (Interoperability and Compatibility Issues), W3C ARIA in HTML & Platform Accessibility APIs (IA2/UIA/NSAccessibility)',
+    title: 'Screen Reader & Browser Interoperability Matrix',
+    summary: 'Explore how HTML and WAI-ARIA translate through platform accessibility APIs (IAccessible2, UI Automation, NSAccessibility, Android) into screen reader speech, and troubleshoot cross-browser quirks.',
+    duration: '25 mins',
+    level: 'Advanced',
+    interactiveType: 'cross-browser-compatibility-lab',
+    learningObjectives: [
+      'Map the assistive technology processing pipeline: DOM/ARIA -> Browser Engine -> Platform Accessibility API -> Screen Reader.',
+      'Compare core screen reader / browser baselines: NVDA + Firefox, JAWS + Chrome/Edge, VoiceOver + Safari, TalkBack + Chrome.',
+      'Diagnose virtual buffer (Browse Mode) versus direct application (Focus Mode) switching in desktop Windows screen readers.',
+      'Remediate platform-specific anomalies such as WebKit/VoiceOver live region double-speech and Android AccessibilityNodeInfo touch event drops.'
+    ],
+    keyConcepts: [
+      {
+        title: 'The Accessibility API Translation Pipeline',
+        explanation: 'Web accessibility functions through an architectural chain: Authors write HTML/ARIA -> Browser engines (Blink, Gecko, WebKit) construct an Accessibility Tree -> Platform APIs (IAccessible2, UI Automation, NSAccessibility) expose nodes -> Screen readers query nodes and generate speech or Braille.'
+      },
+      {
+        title: 'Standard Screen Reader & Browser Testing Baselines',
+        explanation: 'Web applications must be tested against standard industry pairings: NVDA + Firefox (Gecko / IA2), JAWS + Chrome or Edge (Blink / UIA), VoiceOver + Safari (WebKit / NSAccessibility on macOS/iOS), and TalkBack + Chrome (Android Accessibility Framework).'
+      },
+      {
+        title: 'Browse Mode (Virtual Buffer) vs Focus Mode',
+        explanation: 'Windows screen readers (NVDA & JAWS) maintain an off-screen virtual buffer (Browse Mode) intercepting arrow keys for text navigation. Entering an editable input or composite widget (role="grid", role="tablist") switches the screen reader into Focus Mode, passing keystrokes directly to the web page.'
+      },
+      {
+        title: 'Common Interoperability Pitfalls & Best Practices',
+        explanation: 'Examples include: VoiceOver double-announcing aria-live regions when parent nodes are replaced in the DOM, JAWS failing to report listbox selection without aria-activedescendant, and mobile touch targets failing unless semantic button roles and actions are declared.'
+      }
+    ],
+    practicalTakeaways: [
+      'Always test with standard pairings: NVDA with Firefox, JAWS with Chrome or Edge, VoiceOver with Safari on macOS/iOS, and TalkBack with Chrome on Android.',
+      'When building composite interactive widgets (grids, tabs, toolbars), manage roving tabIndex and widget roles to trigger automatic switch from Browse Mode to Focus Mode.',
+      'Never re-create aria-live container elements in the DOM; keep the container static and mutate only its inner text to prevent duplicate speech announcements in WebKit.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-was-interop-1',
+        question: 'When navigating an interactive data spreadsheet with arrow keys in NVDA on Firefox, pressing the Down Arrow reads the next word of text instead of moving to the next spreadsheet cell. Why does this occur?',
+        options: [
+          { id: 'A', text: 'NVDA is currently operating in Browse Mode (Virtual Buffer), intercepting arrow keys for document reading rather than Focus Mode' },
+          { id: 'B', text: 'Mozilla Firefox does not support JavaScript keystroke listeners' },
+          { id: 'C', text: 'The user has enabled Windows Speech Recognition by mistake' },
+          { id: 'D', text: 'The monitor refresh rate is lower than 60Hz' }
+        ],
+        answer: 'A',
+        explanation: 'In Browse Mode, Windows screen readers intercept navigation keys to browse static document text. To allow web application keystrokes, the widget must implement role="grid" or role="application" with roving tabindex so NVDA automatically switches into Focus Mode.'
+      },
+      {
+        id: 'kc-was-interop-2',
+        question: 'A live search results box with aria-live="polite" produces duplicate spoken announcements in VoiceOver on Safari every time a query is executed. What coding anti-pattern is responsible?',
+        options: [
+          { id: 'A', text: 'The developer completely removes and re-creates the entire <div aria-live="polite"> element in the DOM on each search update' },
+          { id: 'B', text: 'The CSS font size is too small' },
+          { id: 'C', text: 'VoiceOver on Safari only allows aria-live="assertive"' },
+          { id: 'D', text: 'The search box is using an HTML5 <input type="search">' }
+        ],
+        answer: 'A',
+        explanation: 'In WebKit/VoiceOver, replacing a DOM element that contains aria-live triggers both a node insertion utterance and a live region text change utterance. To avoid duplicate speech, keep the live region container permanently in the DOM and mutate only its text content.'
+      },
+      {
+        id: 'kc-was-interop-3',
+        question: 'Which underlying platform accessibility API does VoiceOver interface with on macOS?',
+        options: [
+          { id: 'A', text: 'NSAccessibility' },
+          { id: 'B', text: 'Microsoft UI Automation (UIA)' },
+          { id: 'C', text: 'Linux AT-SPI2' },
+          { id: 'D', text: 'IAccessible2' }
+        ],
+        answer: 'A',
+        explanation: 'On macOS, Safari and other applications communicate with assistive technologies like VoiceOver through Apple\'s native NSAccessibility API (and UIAccessibility on iOS).'
+      }
+    ]
+  },
+  {
+    id: 'mod-ads-manual-testing',
+    cert: 'ADS',
+    domainId: 'ADS-D3',
+    domainLabel: 'Domain 3: Auditing & Testing Documents',
+    sectionId: 'ADS-D3-B',
+    sectionLabel: '3.2 Identify and run manual testing processes',
+    citation: 'IAAP ADS BoK 2021, Section 3.2 (Identify and run manual testing processes), ISO 14289-1 (PDF/UA-1) & Matterhorn Protocol 1.1',
+    title: 'Manual PDF Accessibility Testing & Reflow Protocol',
+    summary: 'Execute rigorous manual document testing protocols beyond automated PAC checks: Adobe Acrobat Reflow Mode (Ctrl+4), Screen Reader Quick Keys navigation (H, T, L), Initial View title bar display, and High Contrast inversion.',
+    duration: '24 mins',
+    level: 'Professional',
+    interactiveType: 'manual-document-audit-protocol-lab',
+    learningObjectives: [
+      'Verify logical reading order and multi-column linear flow using Adobe Acrobat Reflow Mode (Ctrl+4 / Cmd+4) at 400% zoom.',
+      'Audit semantic document structure using screen reader quick navigation keys (H for Headings, T for Tables, L for Links) under Matterhorn Protocol.',
+      'Inspect Document Properties (Ctrl+D) Initial View window options to guarantee the Document Title displays in the application title bar.',
+      'Test visual readability and artifact transparency under OS High Contrast and color inversion modes.'
+    ],
+    keyConcepts: [
+      {
+        title: 'Why Automated Testing Is Insufficient for PDF',
+        explanation: 'Automated validators (like Acrobat Accessibility Checker or PAC 2024) can verify syntax—confirming that tags exist and alt text strings are non-empty. However, they CANNOT evaluate whether reading order is logical, whether heading hierarchies make sense, or whether alt text accurately describes the image.'
+      },
+      {
+        title: 'Acrobat Reflow Mode (Ctrl+4 / Cmd+4)',
+        explanation: 'Reflow mode temporarily displays the PDF as a single responsive column at high magnification. It strips visual styling and linearizes content strictly according to the logical tag tree order, instantly exposing out-of-sequence callout boxes, disjointed columns, and overlapping text.'
+      },
+      {
+        title: 'Screen Reader Quick Keys Navigation (H, T, L)',
+        explanation: 'Testing in NVDA or JAWS with single-letter navigation keys (H for Headings, T for Tables, L for Links) allows auditors to experience how users skim documents, verifying that heading levels are not skipped (e.g., H1 directly to H4) and table headers are correctly announced.'
+      },
+      {
+        title: 'Initial View Document Title & High Contrast Verification',
+        explanation: 'Under ISO 14289-1 (Matterhorn Protocol 06-001) and WCAG 2.4.2, the PDF /ViewerPreferences must specify /DisplayDocTitle true so the title bar presents a meaningful title rather than cryptic filenames. Testing under High Contrast mode ensures decorative vectors marked as artifacts do not invert into opaque blocks that conceal text.'
+      }
+    ],
+    practicalTakeaways: [
+      'Automated validators cannot verify whether reading order makes sense; Reflow mode at 400% is the fastest manual check for reading order sequence.',
+      'Acrobat Document Properties Initial View must have "Show: Document Title" selected, or browsers will display cryptic server filenames instead of accessible titles.',
+      'Ensure decorative shapes and lines are tagged as /Artifact so they do not render as opaque solid white blocks in high-contrast inverted modes.'
+    ],
+    knowledgeCheck: [
+      {
+        id: 'kc-ads-manual-1',
+        question: 'Which key shortcut activates Reflow mode in Adobe Acrobat Pro on Windows to manually inspect responsive reading order at high magnification?',
+        options: [
+          { id: 'A', text: 'Ctrl + 4' },
+          { id: 'B', text: 'Ctrl + Alt + Delete' },
+          { id: 'C', text: 'F12' },
+          { id: 'D', text: 'Shift + Esc' }
+        ],
+        answer: 'A',
+        explanation: 'In Adobe Acrobat Pro, pressing Ctrl+4 (or Cmd+4 on macOS) activates Reflow mode (View -> Zoom -> Reflow), which linearizes tagged content into a single column.'
+      },
+      {
+        id: 'kc-ads-manual-2',
+        question: 'A PDF passes PAC 2024 automated validation with zero errors. However, when opened in Adobe Acrobat, the window title displays "FIN_DRAFT_DOC_REV8_FINAL.pdf". How do you resolve this under WCAG 2.4.2 and Matterhorn Protocol 06-001?',
+        options: [
+          { id: 'A', text: 'Open Document Properties (Ctrl+D) -> Initial View tab -> Set "Show" under Window Options to "Document Title", then save the PDF' },
+          { id: 'B', text: 'Delete the PDF metadata entirely' },
+          { id: 'C', text: 'Change the screen resolution to 4K' },
+          { id: 'D', text: 'Rename the file in Windows Explorer without opening Acrobat' }
+        ],
+        answer: 'A',
+        explanation: 'In Adobe Acrobat Document Properties (Ctrl+D), the Initial View tab includes Window Options. Setting "Show" to "Document Title" configures the PDF viewer preferences to display the title metadata instead of the file name in the application window bar.'
+      },
+      {
+        id: 'kc-ads-manual-3',
+        question: 'During manual screen reader testing of a PDF table with NVDA, pressing "T" jumps to the table, but the screen reader does not announce column headers when pressing Ctrl+Alt+Arrow keys. What manual remediation in the Acrobat Tags Tree is needed?',
+        options: [
+          { id: 'A', text: 'Ensure header cells are tagged as <TH> rather than <TD>, and verify Scope (Column/Row) or ID/Headers associations are declared in Table Cell Properties' },
+          { id: 'B', text: 'Delete the entire table and replace it with a screenshot of the table' },
+          { id: 'C', text: 'Turn off the screen reader volume' },
+          { id: 'D', text: 'Change the table font color to yellow' }
+        ],
+        answer: 'A',
+        explanation: 'Screen readers require explicit <TH> tags with proper Scope attributes (Column or Row) to associate header text with data cells during cell-by-cell navigation.'
+      }
+    ]
   }
 ];
 

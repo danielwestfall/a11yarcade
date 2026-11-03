@@ -29,6 +29,9 @@ import AutomatedTestingLimitationsLab from './interactives/AutomatedTestingLimit
 import GlobalLegalCompassLab from './interactives/GlobalLegalCompassLab';
 import ActRulesLinterLab from './interactives/ActRulesLinterLab';
 import AcrobatTagsTableEditorLab from './interactives/AcrobatTagsTableEditorLab';
+import UnCrpdTreatyExplorerLab from './interactives/UnCrpdTreatyExplorerLab';
+import CrossBrowserCompatibilityLab from './interactives/CrossBrowserCompatibilityLab';
+import ManualDocumentAuditProtocolLab from './interactives/ManualDocumentAuditProtocolLab';
 
 export default function ModuleDetailModal({ module, onClose, onComplete, isCompleted }) {
   const [activeTab, setActiveTab] = useState('STUDY'); // 'STUDY' | 'LAB' | 'QUIZ'
@@ -211,6 +214,12 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
         return <ActRulesLinterLab />;
       case 'acrobat-tags-table-editor-lab':
         return <AcrobatTagsTableEditorLab />;
+      case 'uncrpd-treaty-explorer-lab':
+        return <UnCrpdTreatyExplorerLab />;
+      case 'cross-browser-compatibility-lab':
+        return <CrossBrowserCompatibilityLab />;
+      case 'manual-document-audit-protocol-lab':
+        return <ManualDocumentAuditProtocolLab />;
       default:
         return <DisabilityModelClassifier />;
     }
