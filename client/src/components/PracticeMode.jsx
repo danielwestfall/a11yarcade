@@ -16,6 +16,8 @@ import { soundManager } from '../utils/sound';
 import questionsData from '../data/questions.json';
 import CoachFeedbackCard from './CoachFeedbackCard';
 import WinnerCelebrationSoundboard from './WinnerCelebrationSoundboard';
+import ThemeMascotBanner from './ThemeMascotBanner';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
 import {
   CERTIFICATION_TRACKS,
   CERTIFICATION_DOMAINS,
@@ -244,6 +246,13 @@ export default function PracticeMode({ onBack }) {
             <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '820px', lineHeight: 1.55 }}>
               Master official IAAP Digital Accessibility Certifications (CPACC · WAS · ADS) Body of Knowledge at your own speed with zero timer pressure, instant accredited citations, and witty real-world reality checks.
             </p>
+            <div style={{ marginTop: '1.15rem' }}>
+              <ThemeMascotBanner
+                pose="academy"
+                contextBadge="[UNTIMED BOK STUDY]"
+                customMessage="Configure your certification track, domain, and question count below! I'll illustrate each question scenario as we go!"
+              />
+            </div>
           </div>
         </section>
 
@@ -691,13 +700,25 @@ export default function PracticeMode({ onBack }) {
             PRACTICE DRILL COMPLETE!
           </h2>
 
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: 1.5 }}>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 1.5rem auto', lineHeight: 1.5 }}>
             {percentage >= 80
               ? 'Outstanding mastery! You demonstrated thorough command of the IAAP Digital Accessibility Body of Knowledge!'
               : percentage >= 60
               ? 'Solid performance! A few more practice iterations will cement your core competencies.'
               : 'Great training session! Remember that accessibility is an iterative journey of continuous improvement.'}
           </p>
+
+          <div style={{ textAlign: 'left', marginBottom: '1.75rem' }}>
+            <ThemeMascotBanner
+              pose={percentage >= 70 ? 'victory' : 'academy'}
+              contextBadge={`[ACCURACY: ${percentage}%]`}
+              customMessage={
+                percentage >= 80
+                  ? 'Sensational run! Your accessibility instincts are exam-ready!'
+                  : 'Every practice drill builds deeper mastery of the IAAP Body of Knowledge!'
+              }
+            />
+          </div>
 
           {/* Diagnostic Metrics HUD */}
           <div
@@ -830,6 +851,13 @@ export default function PracticeMode({ onBack }) {
             SCORE: {score} CORRECT
           </div>
         </div>
+
+        {/* Mascot Scene Illustration Accompanying the Text Question */}
+        <QuestionMascotCompanion
+          question={q}
+          isAnswered={isAnswered}
+          isCorrect={Boolean(q.choices.find(c => c.id === selectedAnswer)?.isCorrect)}
+        />
 
         {/* Question Stem */}
         <h2 style={{ fontSize: '1.5rem', fontWeight: 800, lineHeight: 1.45, color: '#ffffff', margin: '0 0 1.5rem 0', fontFamily: "'Atkinson Hyperlegible', sans-serif" }}>

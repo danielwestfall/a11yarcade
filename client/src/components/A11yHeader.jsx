@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Volume2, VolumeX, Eye, Zap, Sliders, Sun, Moon, Sparkles } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import A11yFeaturesModal from './A11yFeaturesModal';
-import { THEME_ICONS } from '../utils/useSkin';
+import { THEME_ICONS, THEME_MASCOTS } from '../utils/useSkin';
 
 const DEFAULT_PREFS = {
   theme: 'dark', // 'dark' | 'light' | 'high-contrast'
@@ -237,8 +237,34 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
 
       <header className="header-nav" role="banner">
         <div className="brand-group">
+          {(() => {
+            const activeMascot = THEME_MASCOTS[preferences.skin] || THEME_MASCOTS.arcade;
+            return (
+              <div
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: preferences.skin === 'kawaii' ? '50%' : preferences.skin === 'anime' ? '4px' : '8px',
+                  border: `2px solid ${activeMascot.accent}`,
+                  background: '#ffffff',
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  boxShadow: `0 0 10px ${activeMascot.accent}45`
+                }}
+              >
+                <img
+                  src={activeMascot.images.hero}
+                  alt={activeMascot.altText.hero}
+                  width={48}
+                  height={48}
+                  fetchPriority="high"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+            );
+          })()}
           <span
-            style={{ fontSize: '2rem' }}
+            style={{ fontSize: '1.75rem' }}
             role="img"
             aria-label={
               preferences.skin === 'kawaii'

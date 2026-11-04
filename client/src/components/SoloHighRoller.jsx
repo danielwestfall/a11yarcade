@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import allQuestions from '../data/questions.json';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -327,6 +329,8 @@ export default function SoloHighRoller({ onBack }) {
             </span>
           </div>
 
+          <QuestionMascotCompanion question={currentQ} compact={true} />
+
           <h3 style={{ fontSize: '1.4rem', fontWeight: 800, lineHeight: 1.4, margin: '0.5rem 0 1.5rem 0', color: '#ffffff' }}>
             {currentQ.question}
           </h3>
@@ -383,6 +387,13 @@ export default function SoloHighRoller({ onBack }) {
               </span>
             </div>
           )}
+
+          <QuestionMascotCompanion
+            question={currentQ}
+            isAnswered={true}
+            isCorrect={roundResults.isUserCorrect}
+            compact={true}
+          />
 
           <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem', color: '#ffffff' }}>
             {currentQ.question}
@@ -469,6 +480,9 @@ export default function SoloHighRoller({ onBack }) {
       {/* STAGE D: PODIUM */}
       {stage === 'PODIUM' && (
         <div className="card" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
+          <div style={{ maxWidth: '580px', margin: '0 auto 1.25rem auto' }}>
+            <ThemeMascotBanner pose="victory" compact={true} contextBadge="[HIGH-ROLLER PODIUM]" />
+          </div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '0.5rem', color: '#eab308' }}>
             👑 The High-Roller Champions Podium! 👑
           </h2>

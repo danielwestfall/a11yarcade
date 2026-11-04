@@ -4,6 +4,8 @@ import { Award, Users, Clock, RotateCcw, ArrowRight, Coins, Bot, Sparkles } from
 import { soundManager } from '../utils/sound';
 import rawQuestions from '../data/questions.json';
 import CoachFeedbackCard from './CoachFeedbackCard';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const BOTS = [
   { id: 'bot-1', nickname: 'Ada Alt-Text', avatar: '🤖', specialtyDomain: 2 },
@@ -341,6 +343,8 @@ export default function SoloHotPotato({ onBack }) {
             </div>
           </div>
 
+          <QuestionMascotCompanion question={currentQ} compact={true} />
+
           {hotSeatPlayer === 'player' ? (
             <div>
               <p style={{ color: '#94a3b8', marginBottom: '1.25rem', fontSize: '0.95rem' }}>
@@ -380,6 +384,7 @@ export default function SoloHotPotato({ onBack }) {
       {/* ==================================================== */}
       {gameState === 'QUESTION' && (
         <div>
+          <QuestionMascotCompanion question={currentQ} compact={true} />
           <div className="card" style={{ marginBottom: '1.25rem', textAlign: 'center' }}>
             <h3 style={{ fontSize: '1.35rem', fontWeight: 700, lineHeight: 1.4 }}>
               {currentQ.question}
@@ -472,6 +477,9 @@ export default function SoloHotPotato({ onBack }) {
       {/* ==================================================== */}
       {gameState === 'PODIUM' && (
         <div className="card" style={{ textAlign: 'center', padding: '3rem 1.5rem' }}>
+          <div style={{ maxWidth: '580px', margin: '0 auto 1.25rem auto' }}>
+            <ThemeMascotBanner pose="victory" compact={true} contextBadge="[HOT POTATO CHAMPION]" />
+          </div>
           <div style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>🏆🥔</div>
           <h2 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.5rem' }}>
             Practice Session Completed!

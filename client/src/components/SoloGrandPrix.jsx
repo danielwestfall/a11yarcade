@@ -3,6 +3,8 @@ import confetti from 'canvas-confetti';
 import { Gauge, Flame, Wrench, RotateCcw, ArrowRight, Zap, Trophy, Shield } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import rawQuestions from '../data/questions.json';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const SHAPE_ICONS = {
   triangle: '▲',
@@ -339,6 +341,8 @@ export default function SoloGrandPrix({ onBack }) {
                 <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>{currentQ.domainName}</span>
               </div>
 
+              <QuestionMascotCompanion question={currentQ} compact={true} />
+
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, lineHeight: 1.4, marginBottom: '1.25rem' }}>
                 {currentQ.question}
               </h3>
@@ -414,6 +418,9 @@ export default function SoloGrandPrix({ onBack }) {
       ) : (
         /* Podium View */
         <div className="card" style={{ textAlign: 'center', padding: '3rem 1.5rem' }}>
+          <div style={{ maxWidth: '580px', margin: '0 auto 1.25rem auto' }}>
+            <ThemeMascotBanner pose="victory" compact={true} contextBadge="[GRAND PRIX FINISH]" />
+          </div>
           <div style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>🏁🏆</div>
           <h2 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.5rem' }}>Grand Prix Finished!</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', maxWidth: '600px', margin: '2rem auto' }}>

@@ -16,6 +16,8 @@ import {
   UserCheck
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const AI_SNIPERS = [
   { name: 'Eagle-Eye Emma', avatar: '🦅', accuracy: 0.85, style: 'Expert Auditor' },
@@ -274,6 +276,9 @@ export default function SoloFlawFinder({ onBack }) {
 
     return (
       <div className="card" style={{ maxWidth: '750px', margin: '0 auto', textAlign: 'center', padding: '2.5rem 1.5rem' }}>
+        <div style={{ maxWidth: '580px', margin: '0 auto 1.25rem auto' }}>
+          <ThemeMascotBanner pose="victory" compact={true} contextBadge="[FLAW FINDER AUDITOR]" />
+        </div>
         <div style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>🏆🎯</div>
         <h2 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.5rem' }}>
           Solo Flaw Finder Complete!
@@ -422,6 +427,12 @@ export default function SoloFlawFinder({ onBack }) {
 
       {/* Document Reader Card */}
       <div className="card" style={{ padding: '1.75rem', marginBottom: '1.5rem' }}>
+        <QuestionMascotCompanion
+          question={{ ...currentScenario, domain: 3, question: currentScenario?.title }}
+          isAnswered={stage === 'HEATMAP'}
+          isCorrect={Boolean(userOutcome?.isCorrect)}
+          compact={true}
+        />
         <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem', marginBottom: '1.25rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#38bdf8', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.35rem' }}>
             <BookOpen size={16} />

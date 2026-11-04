@@ -26,6 +26,8 @@ import {
 import { soundManager } from '../utils/sound';
 import { getSocketUrl } from '../utils/api';
 import CoachFeedbackCard from './CoachFeedbackCard';
+import ThemeMascotBanner from './ThemeMascotBanner';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
 
 const HotPotatoMode = lazy(() => import('./HotPotatoMode'));
 const GrandPrixMode = lazy(() => import('./GrandPrixMode'));
@@ -1440,6 +1442,14 @@ export default function LiveMode() {
             <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '800px', lineHeight: 1.5 }}>
               Choose your combat station! Screen readers welcome, rogue bots will be alt-tagged. Compete live with your accessibility team to conquer Digital Accessibility IAAP certification questions (CPACC, WAS, and upcoming ADS) in rapid-fire arcade rounds.
             </p>
+            <div style={{ marginTop: '1.25rem' }}>
+              <ThemeMascotBanner
+                pose="hero"
+                contextBadge="[LIVE PARTY LOBBY]"
+                customMessage="Welcome to the Multiplayer Party Drill Lobby! Join with a 4-digit Room PIN or launch a Host Arcade Room below!"
+                isLcp={true}
+              />
+            </div>
           </div>
         </section>
 
@@ -2778,6 +2788,8 @@ export default function LiveMode() {
               {q.domainName}
             </div>
 
+            <QuestionMascotCompanion question={q} compact={true} />
+
             <h2 style={{ fontSize: '1.6rem', fontWeight: 800, lineHeight: 1.4, margin: '1rem 0 1.5rem 0', color: '#ffffff' }}>
               {q.question}
             </h2>
@@ -2815,6 +2827,7 @@ export default function LiveMode() {
         <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
           {renderHostInGameHeader()}
           <div className="card">
+            <QuestionMascotCompanion question={q} isAnswered={true} isCorrect={true} compact={true} />
             <h2 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '1.5rem' }}>
               {q.question}
             </h2>
@@ -2948,6 +2961,9 @@ export default function LiveMode() {
         <div style={{ maxWidth: '850px', margin: '0 auto', width: '100%' }}>
           {renderHostInGameHeader()}
           <div className="card" style={{ textAlign: 'center' }}>
+            <div style={{ maxWidth: '580px', margin: '0 auto 1.25rem auto' }}>
+              <ThemeMascotBanner pose="victory" compact={true} contextBadge="[CHAMPIONS PODIUM]" />
+            </div>
             <h2 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '0.5rem', background: 'linear-gradient(135deg, #eab308 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               🎉 The Digital Accessibility Champions Podium! 🎉
             </h2>
@@ -3269,6 +3285,10 @@ export default function LiveMode() {
             <span>Question in progress...</span>
             {timerLeft > 0 && <span style={{ fontWeight: 800, color: '#38bdf8' }}>{timerLeft}s remaining</span>}
           </div>
+
+          {currentQuestionData?.question && (
+            <QuestionMascotCompanion question={currentQuestionData.question} compact={true} />
+          )}
 
           {/* Dynamic Answers Grid (Supports True/False 2-choice & Multiple Choice 4-choice) */}
           <div

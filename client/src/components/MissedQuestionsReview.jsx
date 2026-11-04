@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BookOpen, CheckCircle, XCircle, RotateCcw, AlertCircle, Sparkles, Filter, User, Users, Search, Lightbulb, Play } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import { apiUrl } from '../utils/api';
+import ThemeMascotBanner from './ThemeMascotBanner';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
 
 export default function MissedQuestionsReview() {
   const [currentUser, setCurrentUser] = useState(() => {
@@ -103,6 +105,14 @@ export default function MissedQuestionsReview() {
           <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '820px', lineHeight: 1.5 }}>
             Every stumble in the arena is logged here with official Digital Accessibility IAAP Body of Knowledge citations (CPACC · WAS · ADS) and humorous explanations. Review missed items solo or test your memory with instant retakes!
           </p>
+
+          <div style={{ marginTop: '1.25rem' }}>
+            <ThemeMascotBanner
+              pose="academy"
+              contextBadge="[DIAGNOSTIC REVIEW]"
+              customMessage="Every missed question is a stepping stone to IAAP certification mastery! Let's review them together!"
+            />
+          </div>
 
           {/* Diagnostic Metrics Bar */}
           <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace" }}>
@@ -276,6 +286,14 @@ export default function MissedQuestionsReview() {
                 </div>
 
                 {/* Question Stem */}
+                <QuestionMascotCompanion
+                  question={{
+                    ...q,
+                    question: q.questionText,
+                    section_id: q.citation || q.cpaccRef || q.wasRef
+                  }}
+                  compact={true}
+                />
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, lineHeight: 1.5, margin: '0 0 1.25rem 0', color: '#ffffff', fontFamily: "'Atkinson Hyperlegible', sans-serif" }}>
                   {q.questionText}
                 </h3>

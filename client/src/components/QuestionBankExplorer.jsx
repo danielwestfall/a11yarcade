@@ -13,6 +13,8 @@ import {
   getFilteredQuestions
 } from '../utils/questionBanks';
 import { soundManager } from '../utils/sound';
+import ThemeMascotBanner from './ThemeMascotBanner';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
 
 const SHAPE_CONFIG = {
   triangle: { icon: '▲', color: '#ef4444', label: 'Crimson Triangle' },
@@ -196,6 +198,13 @@ export default function QuestionBankExplorer() {
           </p>
 
           {/* Diagnostic Metrics Bar */}
+          <div style={{ marginTop: '1.25rem' }}>
+            <ThemeMascotBanner
+              pose="academy"
+              contextBadge="[1,179 VERIFIED DRILLS]"
+              customMessage="Browse all 1,179 CPACC, WAS, and ADS questions! Expand any item to inspect my visual scene diagnostic and official BoK rationale."
+            />
+          </div>
           <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace" }}>
             <div>
               <span style={{ color: '#94a3b8' }}>Total Active Syllabus: </span>
@@ -626,6 +635,12 @@ export default function QuestionBankExplorer() {
                   {/* Expanded Syllabus Breakdown Drawer */}
                   {isExpanded && (
                     <div style={{ marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                      <QuestionMascotCompanion
+                        question={q}
+                        isAnswered={true}
+                        isCorrect={true}
+                        compact={true}
+                      />
                       {/* Dual-Coded Multiple Choice Options Grid */}
                       <div>
                         <div style={{ fontSize: '0.75rem', fontFamily: "'Space Mono', monospace", color: '#94a3b8', fontWeight: 800, marginBottom: '0.6rem' }}>

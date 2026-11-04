@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
 import bossRaidsData from '../data/boss_raids.json';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const SHAPE_CONFIG = {
   triangle: { icon: '▲', color: '#ef4444', label: 'Red Triangle' },
@@ -242,6 +244,10 @@ export default function SoloBossRaid({ onBack }) {
     return (
       <div style={{ maxWidth: '960px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <article className="card" style={{ textAlign: 'center', padding: '3.5rem 2rem', border: `3px solid ${won ? '#10b981' : '#ef4444'}`, boxShadow: '8px 8px 0px 0px #040810' }}>
+          <div style={{ maxWidth: '620px', margin: '0 auto 1.5rem auto' }}>
+            <ThemeMascotBanner pose={won ? 'victory' : 'hero'} compact={true} contextBadge={won ? '[MONOLITH DISMANTLED]' : '[RAID DEBRIEF]'} />
+          </div>
+
           <div style={{ fontSize: '5rem', marginBottom: '0.75rem' }}>
             {won ? '🏆🎉' : '💀💥'}
           </div>
@@ -526,6 +532,11 @@ export default function SoloBossRaid({ onBack }) {
               POTENTIAL REWARD: +{isCapstone ? 200 : activeNode?.damage} DMG
             </span>
           </div>
+
+          <QuestionMascotCompanion
+            question={activeQuestion}
+            compact={true}
+          />
 
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.45, margin: '0 0 1.5rem 0', fontFamily: "'Atkinson Hyperlegible', sans-serif" }}>
             {activeQuestion.question}

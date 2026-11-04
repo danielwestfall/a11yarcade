@@ -3,6 +3,7 @@ import { Award, Trophy, Calendar, Sparkles, Flame, RotateCcw, Search, Shield, Za
 import { soundManager } from '../utils/sound';
 import { apiUrl } from '../utils/api';
 import { CADET_SPECIALTIES } from './LiveMode';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 export default function WeeklyLeaderboard() {
   const [activeTab, setActiveTab] = useState('WEEKLY'); // 'WEEKLY' | 'ALL_TIME'
@@ -85,6 +86,14 @@ export default function WeeklyLeaderboard() {
           <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '820px', lineHeight: 1.5 }}>
             Honoring our keyboard warriors and accessibility champions! Scores are automatically recorded live during meeting multiplayer drills, live team calls, and solo gauntlets.
           </p>
+
+          <div style={{ marginTop: '1.25rem' }}>
+            <ThemeMascotBanner
+              pose="victory"
+              contextBadge="[HALL OF FAME]"
+              customMessage="Hail to the keyboard warriors and accessibility champions on the podium! Keep climbing the ranks!"
+            />
+          </div>
 
           {/* Quick Metrics Bar */}
           <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.5rem', fontSize: '0.85rem', fontFamily: "'Space Mono', monospace" }}>

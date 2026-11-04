@@ -1,5 +1,6 @@
 import React from 'react';
 import { soundManager } from '../utils/sound';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const SOLO_CABINETS = [
   {
@@ -169,6 +170,14 @@ export default function SoloArcadeHub({ onSelectMode }) {
           <p style={{ marginTop: '0.6rem', fontSize: '1.05rem', color: '#94a3b8', maxWidth: '850px', lineHeight: 1.5 }}>
             Sharpen your Digital Accessibility IAAP certification muscle memory (CPACC · WAS · ADS) without peer pressure! Spar against simulated neural bot peers: <strong style={{ color: '#38bdf8' }}>Ada Lovelace Bot</strong> (relentless logic & criteria recall), <strong style={{ color: '#ef4444' }}>Turbo Tina</strong> (speed demon & timer rusher), and <strong style={{ color: '#10b981' }}>Safe Sal</strong> (risk-averse legal compliance counsel). Every cartridge simulates realistic exam curveballs.
           </p>
+
+          <div style={{ marginTop: '1.15rem' }}>
+            <ThemeMascotBanner
+              pose="hero"
+              contextBadge="[8 SOLO & AI BOT CABINETS]"
+              customMessage="Drop a virtual token into any solo arcade cabinet below! I'll ride along on every question with visual diagnostics for Assistive Tech, WCAG 2.2, and Accessibility Laws!"
+            />
+          </div>
 
           {/* Bot Roster Quick-Preview Bar */}
           <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem' }}>

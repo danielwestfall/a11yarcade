@@ -219,10 +219,17 @@ export default function A11yFeaturesModal({
                 aria-pressed={!preferences.skin || preferences.skin === 'arcade'}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontSize: '1.4rem' }}>🕹️</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <img
+                      src="/mascots/arcade-hero.jpg"
+                      alt="Bit-Bot Neo-Arcade Mascot"
+                      width={44}
+                      height={44}
+                      loading="lazy"
+                      style={{ width: 44, height: 44, borderRadius: '8px', objectFit: 'cover', border: '2px solid #38bdf8', background: '#ffffff' }}
+                    />
                     <div>
-                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Neo-Arcade</div>
+                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Neo-Arcade (Bit-Bot)</div>
                       <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '3px', background: 'rgba(56,189,248,0.2)', color: 'var(--arcade-cyan)', border: '1px solid var(--arcade-cyan)' }}>
                         CLASSIC CABINET
                       </span>
@@ -233,7 +240,7 @@ export default function A11yFeaturesModal({
                   )}
                 </div>
                 <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
-                  Coin-op battle station, hard chamfered borders, scanlines & brutalist push-buttons.
+                  Coin-op battle station with Bit-Bot, hard chamfered borders, scanlines & brutalist push-buttons.
                 </p>
                 <div style={{ display: 'flex', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.25rem' }}>
                   <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#090d16', border: '1px solid #71839e' }} title="#090d16 Void" />
@@ -264,12 +271,19 @@ export default function A11yFeaturesModal({
                 aria-pressed={preferences.skin === 'kawaii'}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontSize: '1.4rem' }}>🎀</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <img
+                      src="/mascots/kawaii-hero.jpg"
+                      alt="Mochi-Bot Kawaii Pastel Mascot"
+                      width={44}
+                      height={44}
+                      loading="lazy"
+                      style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', border: '2px solid #ec4899', background: '#ffffff' }}
+                    />
                     <div>
-                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Kawaii Pastel</div>
+                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Kawaii Pastel (Mochi-Bot)</div>
                       <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '12px', background: 'rgba(236,72,153,0.25)', color: '#f472b6', border: '1px solid #f472b6' }}>
-                        HELLO KITTY STYLE
+                        PASTEL COMPANION
                       </span>
                     </div>
                   </div>
@@ -278,7 +292,7 @@ export default function A11yFeaturesModal({
                   )}
                 </div>
                 <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
-                  18px pill curves, strawberry & mint candy pastels, cute heart motifs, WCAG AAA certified.
+                  18px pill curves with Mochi-Bot, strawberry & mint candy pastels, cute heart motifs, WCAG AAA certified.
                 </p>
                 <div style={{ display: 'flex', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.25rem' }}>
                   <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#fff5f8', border: '1px solid #db2777' }} title="#fff5f8 Sakura Cream" />
@@ -310,10 +324,17 @@ export default function A11yFeaturesModal({
                 aria-pressed={preferences.skin === 'anime'}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontSize: '1.4rem' }}>💥</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <img
+                      src="/mascots/anime-hero.jpg"
+                      alt="A11y-Zero Manga Action Mascot"
+                      width={44}
+                      height={44}
+                      loading="lazy"
+                      style={{ width: 44, height: 44, borderRadius: '4px', objectFit: 'cover', border: '2px solid #ef4444', background: '#ffffff' }}
+                    />
                     <div>
-                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Manga & Comic</div>
+                      <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Manga & Comic (A11y-Zero)</div>
                       <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '2px', background: 'rgba(239,68,68,0.25)', color: '#ef4444', border: '1px solid #ef4444' }}>
                         SHONEN ACTION
                       </span>
@@ -324,7 +345,7 @@ export default function A11yFeaturesModal({
                   )}
                 </div>
                 <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
-                  Bold 3px ink borders, halftone screentone dots, cel-shaded shadows, WCAG AAA certified.
+                  Bold 3px ink borders with A11y-Zero, halftone screentone dots, cel-shaded shadows, WCAG AAA certified.
                 </p>
                 <div style={{ display: 'flex', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.25rem' }}>
                   <span style={{ width: 14, height: 14, borderRadius: '50%', background: '#faf7f0', border: '1px solid #111827' }} title="#faf7f0 Newsprint" />

@@ -34,6 +34,7 @@ import {
 import { soundManager } from '../../utils/sound';
 import { ACADEMY_TRACKS, LEARNING_MODULES } from '../../data/learningModulesData';
 import ModuleDetailModal from './ModuleDetailModal';
+import ThemeMascotBanner from '../ThemeMascotBanner';
 
 const STORAGE_KEY = 'a11yarcade_academy_completed';
 
@@ -334,6 +335,15 @@ export default function LearningModulesAcademy() {
           <p style={{ marginTop: '0.75rem', fontSize: '1rem', lineHeight: 1.6, color: 'var(--text-secondary)', maxWidth: '840px' }}>
             Master the official IAAP Bodies of Knowledge through deep conceptual lessons, visual simulators, live code and tag tree fixers, decision trees, and knowledge-check assessments.
           </p>
+
+          <div style={{ marginTop: '1.25rem' }}>
+            <ThemeMascotBanner
+              pose="academy"
+              isLcp={true}
+              contextBadge="[55 INTERACTIVE MODULES]"
+              customMessage="Welcome to the Learning Modules Academy! Pick any CPACC, WAS, or ADS module below to explore interactive labs and test your mastery with me!"
+            />
+          </div>
 
           {/* Overall Academy Progress Bar */}
           <div style={{ marginTop: '1.5rem', background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1rem 1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: '640px' }}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { X, BookOpen, FlaskConical, Award, CheckCircle2, ChevronRight, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { soundManager } from '../../utils/sound';
+import QuestionMascotCompanion from '../QuestionMascotCompanion';
 
 const DisabilityModelClassifier = lazy(() => import('./interactives/DisabilityModelClassifier'));
 const VisionContrastSimulator = lazy(() => import('./interactives/VisionContrastSimulator'));
@@ -751,6 +752,18 @@ export default function ModuleDetailModal({ module, onClose, onComplete, isCompl
                         {q.question}
                       </span>
                     </legend>
+
+                    <QuestionMascotCompanion
+                      question={{
+                        ...q,
+                        certification: module.cert,
+                        topic: module.title,
+                        section_id: module.sectionId
+                      }}
+                      isAnswered={quizSubmitted}
+                      isCorrect={isCorrect}
+                      compact={true}
+                    />
 
                     {/* Options */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.25rem' }}>

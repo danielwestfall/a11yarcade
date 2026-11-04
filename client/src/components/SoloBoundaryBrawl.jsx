@@ -19,6 +19,8 @@ import {
   Bot
 } from 'lucide-react';
 import { soundManager } from '../utils/sound';
+import QuestionMascotCompanion from './QuestionMascotCompanion';
+import ThemeMascotBanner from './ThemeMascotBanner';
 
 const FALLBACK_CARDS = [
   {
@@ -305,6 +307,9 @@ export default function SoloBoundaryBrawl({ onBack }) {
   if (stage === 'PODIUM') {
     return (
       <div className="card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', padding: '2.5rem' }}>
+        <div style={{ maxWidth: '580px', margin: '0 auto 1.25rem auto' }}>
+          <ThemeMascotBanner pose="victory" compact={true} contextBadge="[BOUNDARY BRAWL ARBITRATOR]" />
+        </div>
         <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏆⚖️</div>
         <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#ffffff', marginBottom: '0.5rem' }}>
           Solo Boundary Brawl: Adjudication Complete!
@@ -682,7 +687,16 @@ export default function SoloBoundaryBrawl({ onBack }) {
             🎉 All scenarios placed! Jump into the Debate Arena above to challenge AI placements!
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem' }}>
+          <>
+            <QuestionMascotCompanion
+              question={{
+                ...unplacedCards[0],
+                question: `${unplacedCards[0].title}: ${unplacedCards[0].description}`,
+                topic: unplacedCards[0].domainName
+              }}
+              compact={true}
+            />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem' }}>
             {unplacedCards.map((c) => (
               <div
                 key={c.id}
@@ -741,7 +755,8 @@ export default function SoloBoundaryBrawl({ onBack }) {
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          </>
         )}
       </div>
     </div>
