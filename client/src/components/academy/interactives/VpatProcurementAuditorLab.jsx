@@ -230,8 +230,9 @@ export default function VpatProcurementAuditorLab() {
           </span>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.6rem' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem', borderRadius: '4px', background: contractClauses.remediationSla ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)', border: `1px solid ${contractClauses.remediationSla ? 'var(--arcade-green)' : 'var(--border-color)'}`, cursor: 'pointer', fontSize: '0.8rem' }}>
+            <label htmlFor="chk-clause-sla" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem', borderRadius: '4px', background: contractClauses.remediationSla ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)', border: `1px solid ${contractClauses.remediationSla ? 'var(--arcade-green)' : 'var(--border-color)'}`, cursor: 'pointer', fontSize: '0.8rem' }}>
               <input
+                id="chk-clause-sla"
                 type="checkbox"
                 checked={contractClauses.remediationSla}
                 onChange={() => handleToggleClause('remediationSla')}
@@ -239,8 +240,9 @@ export default function VpatProcurementAuditorLab() {
               <span><strong>Remediation SLA:</strong> Vendor must resolve Blocker defects within 30 days.</span>
             </label>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem', borderRadius: '4px', background: contractClauses.indemnification ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)', border: `1px solid ${contractClauses.indemnification ? 'var(--arcade-green)' : 'var(--border-color)'}`, cursor: 'pointer', fontSize: '0.8rem' }}>
+            <label htmlFor="chk-clause-indemn" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem', borderRadius: '4px', background: contractClauses.indemnification ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)', border: `1px solid ${contractClauses.indemnification ? 'var(--arcade-green)' : 'var(--border-color)'}`, cursor: 'pointer', fontSize: '0.8rem' }}>
               <input
+                id="chk-clause-indemn"
                 type="checkbox"
                 checked={contractClauses.indemnification}
                 onChange={() => handleToggleClause('indemnification')}
@@ -248,8 +250,9 @@ export default function VpatProcurementAuditorLab() {
               <span><strong>Indemnification Clause:</strong> Vendor indemnifies buyer against accessibility lawsuits.</span>
             </label>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem', borderRadius: '4px', background: contractClauses.independentVerification ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)', border: `1px solid ${contractClauses.independentVerification ? 'var(--arcade-green)' : 'var(--border-color)'}`, cursor: 'pointer', fontSize: '0.8rem' }}>
+            <label htmlFor="chk-clause-verify" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem', borderRadius: '4px', background: contractClauses.independentVerification ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)', border: `1px solid ${contractClauses.independentVerification ? 'var(--arcade-green)' : 'var(--border-color)'}`, cursor: 'pointer', fontSize: '0.8rem' }}>
               <input
+                id="chk-clause-verify"
                 type="checkbox"
                 checked={contractClauses.independentVerification}
                 onChange={() => handleToggleClause('independentVerification')}

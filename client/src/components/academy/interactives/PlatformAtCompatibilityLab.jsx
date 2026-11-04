@@ -105,7 +105,16 @@ export default function PlatformAtCompatibilityLab() {
       </div>
 
       {/* Mode Selector Tabs */}
-      <div role="tablist" aria-label="Assistive Technology Modes" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.5rem' }}>
+      <div role="tablist" onKeyDown={(e) => {
+          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+          const idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : e.key === 'ArrowLeft' ? (idx - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : tabs.length - 1;
+          tabs[nextIdx]?.focus();
+          tabs[nextIdx]?.click();
+        }} aria-label="Assistive Technology Modes" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.5rem' }}>
         {AT_MODES.map(mode => {
           const isSelected = selectedAtId === mode.id;
           const Icon = mode.icon;
@@ -115,6 +124,7 @@ export default function PlatformAtCompatibilityLab() {
               type="button"
               role="tab"
               aria-selected={isSelected}
+              tabIndex={isSelected ? 0 : -1}
               onClick={() => handleSelectAt(mode.id)}
               style={{
                 minHeight: '44px',

@@ -139,7 +139,16 @@ export default function BusinessCaseCurbCutLab() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {/* Situation Buttons */}
           <div
-            role="tablist"
+            role="tablist" onKeyDown={(e) => {
+          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+          const idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : e.key === 'ArrowLeft' ? (idx - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : tabs.length - 1;
+          tabs[nextIdx]?.focus();
+          tabs[nextIdx]?.click();
+        }}
             aria-label="Curb cut situational scenarios"
             style={{
               display: 'grid',
@@ -156,6 +165,7 @@ export default function BusinessCaseCurbCutLab() {
                   type="button"
                   role="tab"
                   aria-selected={isSelected}
+              tabIndex={isSelected ? 0 : -1}
                   onClick={() => handleScenarioChange(s.id)}
                   style={{
                     display: 'flex',

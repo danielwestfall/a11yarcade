@@ -130,7 +130,7 @@ export default function EndUserImpactScenariosLab() {
           Step 2: Session Ethics & Research Protocol
         </legend>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-fair-comp" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-fair-comp"
@@ -147,7 +147,7 @@ export default function EndUserImpactScenariosLab() {
             </span>
           </label>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-own-device" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-own-device"
@@ -164,7 +164,7 @@ export default function EndUserImpactScenariosLab() {
             </span>
           </label>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-passive-obs" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-passive-obs"

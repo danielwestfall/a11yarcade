@@ -176,13 +176,14 @@ export default function WcagEmAuditPlannerLab() {
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
-              <div style={{ background: 'var(--bg-surface)', padding: '1rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.4rem' }}>
+              <fieldset style={{ background: 'var(--bg-surface)', padding: '1rem', borderRadius: '6px', border: '1px solid var(--border-color)', margin: 0 }}>
+                <legend style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', padding: '0 0.25rem', marginBottom: '0.4rem' }}>
                   1. Target Conformance Standard
-                </label>
+                </legend>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
+                  <label htmlFor="rad-std-wcag22" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
                     <input
+                      id="rad-std-wcag22"
                       type="radio"
                       name="conformanceTarget"
                       checked={targetStandard === 'wcag22-aa'}
@@ -190,8 +191,9 @@ export default function WcagEmAuditPlannerLab() {
                     />
                     <span>WCAG 2.2 Level AA (Current Official Standard)</span>
                   </label>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
+                  <label htmlFor="rad-std-wcag21" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
                     <input
+                      id="rad-std-wcag21"
                       type="radio"
                       name="conformanceTarget"
                       checked={targetStandard === 'wcag21-aa'}
@@ -200,15 +202,16 @@ export default function WcagEmAuditPlannerLab() {
                     <span>WCAG 2.1 Level AA (Legacy Regulatory Baseline)</span>
                   </label>
                 </div>
-              </div>
+              </fieldset>
 
-              <div style={{ background: 'var(--bg-surface)', padding: '1rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.4rem' }}>
+              <fieldset style={{ background: 'var(--bg-surface)', padding: '1rem', borderRadius: '6px', border: '1px solid var(--border-color)', margin: 0 }}>
+                <legend style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', padding: '0 0.25rem', marginBottom: '0.4rem' }}>
                   2. Scope Boundary & URL Definition
-                </label>
+                </legend>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
+                  <label htmlFor="rad-scope-full" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
                     <input
+                      id="rad-scope-full"
                       type="radio"
                       name="scopeBoundary"
                       checked={scopeBoundary === 'full-domain'}
@@ -216,8 +219,9 @@ export default function WcagEmAuditPlannerLab() {
                     />
                     <span>Full Website: https://shop.arcade.com/* (All sub-pages)</span>
                   </label>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
+                  <label htmlFor="rad-scope-custom" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
                     <input
+                      id="rad-scope-custom"
                       type="radio"
                       name="scopeBoundary"
                       checked={scopeBoundary === 'custom-exclude'}
@@ -226,7 +230,7 @@ export default function WcagEmAuditPlannerLab() {
                     <span>Defined Subset (Explicitly exclude 3rd-party payment iframe)</span>
                   </label>
                 </div>
-              </div>
+              </fieldset>
             </div>
 
             <div style={{ background: 'rgba(56, 189, 248, 0.08)', borderLeft: '4px solid var(--arcade-cyan)', padding: '0.75rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-primary)' }}>
@@ -309,6 +313,7 @@ export default function WcagEmAuditPlannerLab() {
               ].map(item => (
                 <label
                   key={item.key}
+                  htmlFor={`chk-sample-${item.key}`}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -321,6 +326,7 @@ export default function WcagEmAuditPlannerLab() {
                   }}
                 >
                   <input
+                    id={`chk-sample-${item.key}`}
                     type="checkbox"
                     checked={selectedPages[item.key]}
                     onChange={() => handleTogglePage(item.key)}

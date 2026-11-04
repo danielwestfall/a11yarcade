@@ -126,7 +126,7 @@ export default function A11yQaRegressionMatrixLab() {
         </legend>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
           {/* Gate 1 */}
-          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-gate-linter" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-gate-linter"
@@ -141,7 +141,7 @@ export default function A11yQaRegressionMatrixLab() {
           </label>
 
           {/* Gate 2 */}
-          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-gate-axe" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-gate-axe"
@@ -156,7 +156,7 @@ export default function A11yQaRegressionMatrixLab() {
           </label>
 
           {/* Gate 3 */}
-          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-gate-manual" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-gate-manual"

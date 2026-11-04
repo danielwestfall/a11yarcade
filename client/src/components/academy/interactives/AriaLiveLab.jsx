@@ -181,10 +181,10 @@ export default function AriaLiveLab() {
       </div>
 
       {/* Trigger Event Buttons Grid */}
-      <div>
-        <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-secondary)', marginBottom: '0.5rem', display: 'block' }}>
+      <div role="group" aria-labelledby="aria-live-events-heading">
+        <div id="aria-live-events-heading" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-secondary)', marginBottom: '0.5rem', display: 'block' }}>
           Dispatch Asynchronous Dynamic Events into DOM:
-        </label>
+        </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem' }}>
           {EVENT_PRESETS.map((p) => (
             <button

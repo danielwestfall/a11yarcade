@@ -79,7 +79,16 @@ export default function TrainingResourceLearningPathLab() {
       </div>
 
       {/* Resource Category Cards */}
-      <div role="tablist" aria-label="Knowledge Base Collections" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.5rem' }}>
+      <div role="tablist" onKeyDown={(e) => {
+          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+          const idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : e.key === 'ArrowLeft' ? (idx - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : tabs.length - 1;
+          tabs[nextIdx]?.focus();
+          tabs[nextIdx]?.click();
+        }} aria-label="Knowledge Base Collections" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.5rem' }}>
         {RESOURCE_COLLECTIONS.map(col => {
           const isSelected = activeCollectionId === col.id;
           return (
@@ -88,6 +97,7 @@ export default function TrainingResourceLearningPathLab() {
               type="button"
               role="tab"
               aria-selected={isSelected}
+              tabIndex={isSelected ? 0 : -1}
               onClick={() => handleSelectCollection(col.id)}
               style={{
                 minHeight: '44px',

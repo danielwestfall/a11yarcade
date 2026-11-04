@@ -102,6 +102,7 @@ export default function AuthoringReferenceGuideLab() {
             return (
               <label
                 key={rule.id}
+                htmlFor={`chk-${rule.id}`}
                 style={{
                   display: 'flex',
                   alignItems: 'flex-start',

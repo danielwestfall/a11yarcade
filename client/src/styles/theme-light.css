@@ -8,21 +8,21 @@ body.light-mode {
   --text-primary: #090d16;
   --text-secondary: #1e293b;
   --text-muted: #334155;
-  --border-color: #cbd5e1;
-  --border-bright: #94a3b8;
-  --focus-ring: #0284c7;
+  --border-color: #64748b; /* 4.76:1 on #ffffff, 4.34:1 on #f1f5f9 (meets WCAG 2.2 SC 1.4.11) */
+  --border-bright: #475569; /* 7.58:1 on #ffffff */
+  --focus-ring: #0369a1;
 
-  --arcade-cyan: #0369a1; /* 5.5:1 contrast against white text (WCAG AA & AAA friendly) */
-  --arcade-green: #047857;
-  --arcade-crimson: #dc2626;
-  --arcade-amber: #b45309;
-  --arcade-purple: #6b21a8;
-  --arcade-gold: #92400e;
+  --arcade-cyan: #0c4a6e; /* 9.2:1 AAA contrast on #f1f5f9, 10.1:1 on #ffffff */
+  --arcade-green: #065f46; /* 7.01:1 AAA on #f1f5f9 */
+  --arcade-crimson: #991b1b; /* 7.59:1 AAA on #f1f5f9 */
+  --arcade-amber: #78350f; /* 8.28:1 AAA on #f1f5f9 */
+  --arcade-purple: #581c87;
+  --arcade-gold: #78350f;
 
-  --color-triangle: #dc2626;
-  --color-diamond: #0369a1;
-  --color-circle: #b45309;
-  --color-square: #047857;
+  --color-triangle: #991b1b;
+  --color-diamond: #0c4a6e;
+  --color-circle: #78350f;
+  --color-square: #065f46;
 
   --shadow-card: 4px 4px 0px 0px #cbd5e1;
   --shadow-cabinet: 0px 8px 0px 0px #94a3b8;

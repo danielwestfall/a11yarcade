@@ -81,7 +81,16 @@ export default function ComplexDocumentEscalationLab() {
       </div>
 
       {/* Challenge Selector */}
-      <div role="tablist" aria-label="Complex Format Challenges" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.5rem' }}>
+      <div role="tablist" onKeyDown={(e) => {
+          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+          const idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : e.key === 'ArrowLeft' ? (idx - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : tabs.length - 1;
+          tabs[nextIdx]?.focus();
+          tabs[nextIdx]?.click();
+        }} aria-label="Complex Format Challenges" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.5rem' }}>
         {COMPLEX_CHALLENGES.map(ch => {
           const isSelected = selectedChallengeId === ch.id;
           const Icon = ch.icon;
@@ -91,6 +100,7 @@ export default function ComplexDocumentEscalationLab() {
               type="button"
               role="tab"
               aria-selected={isSelected}
+              tabIndex={isSelected ? 0 : -1}
               onClick={() => handleSelectChallenge(ch.id)}
               style={{
                 minHeight: '44px',

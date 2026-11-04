@@ -240,9 +240,11 @@ export default function A11yLawsRegulationsLab() {
           </legend>
           {categoryOptions.map(cat => {
             const isSelected = selectedCategory === cat.id;
+            const inputId = `rad-legal-cat-${cat.id}`;
             return (
               <label
                 key={cat.id}
+                htmlFor={inputId}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -257,6 +259,7 @@ export default function A11yLawsRegulationsLab() {
                 }}
               >
                 <input
+                  id={inputId}
                   type="radio"
                   name="legal-category"
                   value={cat.id}
@@ -287,11 +290,13 @@ export default function A11yLawsRegulationsLab() {
           <legend style={{ fontWeight: 800, fontSize: '0.85rem', color: 'var(--text-primary)', padding: '0 0.25rem' }}>
             2. Primary Governing Statute
           </legend>
-          {statuteOptions.map(statute => {
+          {statuteOptions.map((statute, sIdx) => {
             const isSelected = selectedStatute === statute;
+            const inputId = `rad-statute-${sIdx}`;
             return (
               <label
                 key={statute}
+                htmlFor={inputId}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -306,6 +311,7 @@ export default function A11yLawsRegulationsLab() {
                 }}
               >
                 <input
+                  id={inputId}
                   type="radio"
                   name="governing-statute"
                   value={statute}
@@ -336,11 +342,13 @@ export default function A11yLawsRegulationsLab() {
           <legend style={{ fontWeight: 800, fontSize: '0.85rem', color: 'var(--text-primary)', padding: '0 0.25rem' }}>
             3. Mandatory Technical Standard
           </legend>
-          {standardOptions.map(std => {
+          {standardOptions.map((std, stdIdx) => {
             const isSelected = selectedStandard === std;
+            const inputId = `rad-standard-${stdIdx}`;
             return (
               <label
                 key={std}
+                htmlFor={inputId}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -355,6 +363,7 @@ export default function A11yLawsRegulationsLab() {
                 }}
               >
                 <input
+                  id={inputId}
                   type="radio"
                   name="technical-standard"
                   value={std}

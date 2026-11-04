@@ -128,8 +128,8 @@ body.skin-kawaii:not(.light-mode):not(.high-contrast) {
   --bg-surface-elevated: #351a42;
   --text-primary: #fdf2f8; /* 15.6:1 AAA contrast on #15091a */
   --text-secondary: #fbcfe8; /* 12.4:1 AAA */
-  --text-muted: #f472b6; /* 7.1:1 AAA */
-  --border-color: #a855f7; /* 4.2:1 against #15091a */
+  --text-muted: #f9a8d4; /* 8.40:1 AAA on #351a42 */
+  --border-color: #a855f7; /* 3.85:1 on #351a42, 4.2:1 against #15091a */
   --border-bright: #ec4899;
   --focus-ring: #f472b6;
 
@@ -194,7 +194,7 @@ body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-secondary {
 }
 
 body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
-  background: #059669 !important;
+  background: #065f46 !important; /* 7.68:1 AAA with white text */
   color: #ffffff !important;
   border: 2px solid #34d399 !important;
   box-shadow: 0 4px 0 0 #047857 !important;
@@ -212,7 +212,7 @@ body.skin-kawaii.light-mode {
   --border-bright: #be185d;
   --focus-ring: #be185d;
 
-  --arcade-cyan: #0284c7;
+  --arcade-cyan: #0c4a6e; /* 8.46:1 AAA on #ffeef4 */
   --arcade-green: #065f46; /* 7.68:1 AAA */
   --arcade-crimson: #9f1239; /* 8.02:1 AAA */
   --arcade-amber: #854d0e; /* 7.2:1 AAA */

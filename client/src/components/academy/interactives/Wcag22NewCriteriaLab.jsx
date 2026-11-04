@@ -227,11 +227,15 @@ export default function Wcag22NewCriteriaLab() {
 
               {isRemediated ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--arcade-green)', cursor: 'pointer', fontWeight: 700 }}>
-                    <input type="checkbox" defaultChecked />
+                  <label htmlFor="chk-same-billing" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--arcade-green)', cursor: 'pointer', fontWeight: 700 }}>
+                    <input id="chk-same-billing" type="checkbox" defaultChecked />
                     <span>✓ Same as billing address (Auto-populate 123 Main St, Seattle WA)</span>
                   </label>
+                  <label htmlFor="shipping-auto-address" className="sr-only">
+                    Auto-populated Shipping Address
+                  </label>
                   <input
+                    id="shipping-auto-address"
                     type="text"
                     disabled
                     value="123 Main St, Apt 4B, Seattle, WA 98101"
@@ -243,12 +247,20 @@ export default function Wcag22NewCriteriaLab() {
                   <span style={{ fontSize: '0.75rem', color: '#ef4444' }}>
                     ⚠ No auto-fill provided. User must manually re-type all 5 fields.
                   </span>
+                  <label htmlFor="shipping-manual-street" className="sr-only">
+                    Street Address
+                  </label>
                   <input
+                    id="shipping-manual-street"
                     type="text"
                     placeholder="Enter Street Address manually..."
                     style={{ padding: '0.5rem', background: '#0f172a', border: '1px solid #ef4444', color: '#fff', borderRadius: '4px', fontSize: '0.85rem' }}
                   />
+                  <label htmlFor="shipping-manual-city" className="sr-only">
+                    City, State, and Zip Code
+                  </label>
                   <input
+                    id="shipping-manual-city"
                     type="text"
                     placeholder="Enter City, State, Zip manually..."
                     style={{ padding: '0.5rem', background: '#0f172a', border: '1px solid #ef4444', color: '#fff', borderRadius: '4px', fontSize: '0.85rem' }}

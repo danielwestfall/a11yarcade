@@ -10,9 +10,9 @@
   --bg-surface-elevated: #1e293b;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
-  --text-muted: #87929a;
-  --border-color: #55657e; /* 3.25:1 contrast against #090d16 (meets WCAG 2.2 SC 1.4.11) */
-  --border-bright: #71839e;
+  --text-muted: #b8c4ce; /* 8.24:1 AAA contrast on #1e293b, 11.4:1 on #090d16 */
+  --border-color: #6e8098; /* 3.63:1 on #1e293b, 5.02:1 on #090d16 (meets WCAG 2.2 SC 1.4.11) */
+  --border-bright: #8ba0ba;
   
   /* Electric Yellow Dedicated Accessibility Halo (12:1 Contrast) */
   --focus-ring: #facc15;

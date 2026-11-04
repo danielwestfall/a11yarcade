@@ -1,4 +1,4 @@
-// IAAP CPACC (Certified Professional in Accessibility Core Competencies) Modules (16 Modules)
+// IAAP CPACC (Certified Professional in Accessibility Core Competencies) Modules
 export const CPACC_MODULES = [
   {
     "id": "mod-cpacc-models",
@@ -48,22 +48,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Biological pathology and physiological impairments residing within the person's body"
-          },
-          {
-            "id": "B",
             "text": "Barriers created by societal structures, physical environments, and systemic attitudes"
           },
           {
+            "id": "B",
+            "text": "Biological pathology and physiological impairments residing within the person's body"
+          },
+          {
             "id": "C",
-            "text": "Insufficient personal effort toward physical rehabilitation and functional compensation"
+            "text": "Economic dependency resulting from public assistance programs and welfare structures"
           },
           {
             "id": "D",
-            "text": "Economic dependency resulting from public assistance programs and welfare structures"
+            "text": "Insufficient personal effort toward physical rehabilitation and functional compensation"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "The Social Model locates disability in societal barriers (inaccessible architecture, digital systems, and systemic attitudes), whereas the Medical Model focuses on biological pathology and physiological impairments within the person, and economic or rehabilitation paradigms focus on welfare dependency or personal functional compensation."
       },
       {
@@ -72,22 +72,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Functional Solutions Model addressing pragmatic engineering accommodations"
+            "text": "The Biopsychosocial Model integrating biological, personal, and social contexts"
           },
           {
             "id": "B",
-            "text": "The Economic Productivity Paradigm measuring workplace vocational output"
+            "text": "The Functional Solutions Model addressing pragmatic engineering accommodations"
           },
           {
             "id": "C",
-            "text": "The Biopsychosocial Model integrating biological, personal, and social contexts"
+            "text": "The Economic Productivity Paradigm measuring workplace vocational output"
           },
           {
             "id": "D",
             "text": "The Charity Framework portraying individuals as recipients of philanthropic care"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "The Biopsychosocial Model (used in the WHO ICF) synthesizes biological, personal, and social dimensions, unlike the Functional Solutions Model (which focuses on pragmatic engineering accommodations), the Economic Productivity Paradigm (workplace vocational output), or the Charity Framework (philanthropic care)."
       },
       {
@@ -96,22 +96,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Social Model advocating systemic barrier removal and environmental access"
+            "text": "The Charity / Tragedy Model depicting disabled persons as victims requiring pity"
           },
           {
             "id": "B",
-            "text": "The Human Rights Model affirming inherent dignity and equal legal participation"
+            "text": "The Social Model advocating systemic barrier removal and environmental access"
           },
           {
             "id": "C",
-            "text": "The Universal Design Model developing flexible environments usable across broad populations"
+            "text": "The Human Rights Model affirming inherent dignity and equal legal participation"
           },
           {
             "id": "D",
-            "text": "The Charity / Tragedy Model depicting disabled persons as victims requiring pity"
+            "text": "The Universal Design Model developing flexible environments usable across broad populations"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "The Charity / Tragedy Model portrays disabled people as pitiful victims needing benevolence, contrasting with the Social Model (systemic barrier removal), the Human Rights Model (inherent dignity and equal legal participation), and Universal Design (flexible environments for diverse populations)."
       }
     ]
@@ -161,22 +161,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A bank employee who has bilateral sensorineural deafness from early childhood"
-          },
-          {
-            "id": "B",
             "text": "A commuter trying to understand a video on a noisy train without earphones"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "A university graduate student with a long-term clinical dyslexia diagnosis"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "A software programmer whose fractured dominant arm is immobilized in a cast"
+          },
+          {
+            "id": "D",
+            "text": "A bank employee who has bilateral sensorineural deafness from early childhood"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "A commuter on a noisy train experiences a temporary, situational auditory barrier caused by the environment, unlike permanent congenital sensorineural deafness, a long-term clinical dyslexia diagnosis, or a temporary physical injury such as a fractured arm immobilized in a cast."
       },
       {
@@ -209,22 +209,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Hover-dependent flyout menus that collapse immediately when pointer paths waver"
+            "text": "Generous target sizes (at least 24×24px per SC 2.5.8) with adequate target spacing"
           },
           {
             "id": "B",
-            "text": "Touch targets grouped tightly together without spacing to conserve layout area"
+            "text": "Hover-dependent flyout menus that collapse immediately when pointer paths waver"
           },
           {
             "id": "C",
-            "text": "Generous target sizes (at least 24×24px per SC 2.5.8) with adequate target spacing"
+            "text": "Touch targets grouped tightly together without spacing to conserve layout area"
           },
           {
             "id": "D",
             "text": "Complex multi-finger gestures requiring synchronized simultaneous screen taps"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Large target sizes with spacing prevent accidental activation by users with hand tremors or motor limitations (WCAG 2.5.5 / 2.5.8)."
       }
     ]
@@ -285,7 +285,7 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Tolerance for Error by mitigating hazards during emergency building evacuations"
+            "text": "Equitable Use by providing the exact same automated entry pathway for everyone"
           },
           {
             "id": "B",
@@ -297,10 +297,10 @@ export const CPACC_MODULES = [
           },
           {
             "id": "D",
-            "text": "Equitable Use by providing the exact same automated entry pathway for everyone"
+            "text": "Tolerance for Error by mitigating hazards during emergency building evacuations"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Principle 1 (Equitable Use) provides the same entrance pathway for everyone, whereas Principle 5 (Tolerance for Error) mitigates hazards during emergencies, Principle 4 (Perceptible Information) adds redundant sensory cues, and Principle 6 (Low Physical Effort) reduces mechanical door resistance."
       },
       {
@@ -309,22 +309,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Flexibility in Use accommodating both left-handed and right-handed mouse devices"
-          },
-          {
-            "id": "B",
             "text": "Tolerance for Error providing warnings and undo mechanisms for accidental actions"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Simple and Intuitive Use eliminating unnecessary design and visual complexity"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Size and Space for Approach ensuring physical wheelchair reach ranges at desks"
+          },
+          {
+            "id": "D",
+            "text": "Flexibility in Use accommodating both left-handed and right-handed pointer input devices"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "Principle 5 (Tolerance for Error) provides warnings and undo mechanisms for accidental actions, whereas Flexibility in Use accommodates left- and right-handed mouse operation, Simple and Intuitive Use reduces cognitive complexity, and Size and Space for Approach addresses physical wheelchair reach ranges."
       },
       {
@@ -333,11 +333,11 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Universal Design proactively serves diverse groups; accommodations provide targeted retrofits"
+            "text": "Accommodations are designed for groups, while Universal Design is personalized"
           },
           {
             "id": "B",
-            "text": "Accommodations are designed for groups, while Universal Design is personalized"
+            "text": "Universal Design proactively serves diverse groups; accommodations provide targeted retrofits"
           },
           {
             "id": "C",
@@ -348,7 +348,7 @@ export const CPACC_MODULES = [
             "text": "Accommodations require civil court orders, whereas Universal Design is optional"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "Universal Design is proactive and universal; accommodations are reactive adjustments requested by and configured for a specific individual."
       }
     ]
@@ -397,22 +397,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Title III of the Americans with Disabilities Act (Public Accommodations)"
+            "text": "Section 508 of the Rehabilitation Act governing federal government ICT"
           },
           {
             "id": "B",
-            "text": "Section 255 of the Communications Act governing telecommunications gear"
+            "text": "Title III of the Americans with Disabilities Act (Public Accommodations)"
           },
           {
             "id": "C",
-            "text": "Section 508 of the Rehabilitation Act governing federal government ICT"
+            "text": "Section 255 of the Communications Act governing telecommunications gear"
           },
           {
             "id": "D",
             "text": "Section 504 of the Rehabilitation Act applying to federal grant recipients"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Section 508 of the Rehabilitation Act governs federal agency ICT procurement and development, whereas ADA Title III covers private-sector public accommodations, the Communications and Video Accessibility Act (CVAA) covers telecommunications/video, and Section 504 covers federally funded programs."
       },
       {
@@ -425,15 +425,15 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "Commercial web applications are permanently exempted from federal civil rights laws"
-          },
-          {
-            "id": "C",
             "text": "Public websites may fulfill compliance by offering an analog telephone helpline"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Federal agencies are granted indefinite waivers from Section 508 technical rules"
+          },
+          {
+            "id": "D",
+            "text": "Commercial web applications are permanently exempted from federal civil rights laws"
           }
         ],
         "answer": "A",
@@ -453,11 +453,11 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "It creates copyright fair-use exemptions for screen reader users in North/South America"
+            "text": "It gives the W3C direct legal authority to prosecute non-compliant companies"
           },
           {
             "id": "D",
-            "text": "It gives the W3C direct legal authority to prosecute non-compliant companies"
+            "text": "It creates copyright fair-use exemptions for screen reader users in North/South America"
           }
         ],
         "answer": "B",
@@ -505,22 +505,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By typing continuous chord combinations on an ergonomic mechanical keyboard"
-          },
-          {
-            "id": "B",
-            "text": "By speaking commands continuously into automated speech recognition engines"
-          },
-          {
-            "id": "C",
             "text": "By manipulating a high-resistance physical joystick across full 360-degree vectors"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "By waiting for an auto-scan highlight to reach an item and clicking a switch"
+          },
+          {
+            "id": "C",
+            "text": "By typing continuous chord combinations on an ergonomic mechanical keyboard"
+          },
+          {
+            "id": "D",
+            "text": "By speaking commands continuously into automated speech recognition engines"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Single-switch scanning automatically cycles focus through options at a configurable speed, allowing the user to select an item with a single physical activation."
       },
       {
@@ -529,7 +529,7 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Individuals with moderate presbyopia who require larger typographic font sizes"
+            "text": "Users with red-green color vision deficiency reviewing statistical data charts on mobile"
           },
           {
             "id": "B",
@@ -537,7 +537,7 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "Users with red-green color blindness reviewing statistical data charts outdoors"
+            "text": "Individuals with moderate presbyopia who require larger typographic font sizes"
           },
           {
             "id": "D",
@@ -553,22 +553,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "High zoom (e.g. 400%) creates a small viewport, making distant elements easy to miss"
+            "text": "Magnification utilities automatically suppress standard mouse pointer click interactions"
           },
           {
             "id": "B",
-            "text": "Screen magnifiers invert background graphics into solid black opaque rectangles"
+            "text": "High zoom (e.g. 400%) creates a small viewport, making distant elements easy to miss"
           },
           {
             "id": "C",
-            "text": "Magnification utilities automatically suppress standard pointer mouse interactions"
+            "text": "Screen magnifiers invert background graphics into solid black opaque rectangles"
           },
           {
             "id": "D",
             "text": "Operating system zoom settings disable client-side JavaScript execution loops"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "High screen magnification (400%�800%) creates a narrow keyhole viewport where distant toast alerts and wide multi-column gaps fall outside the visible area, rather than inverting CSS color tokens, stripping semantic heading tags, or disabling mouse pointer tracking."
       }
     ]
@@ -613,22 +613,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "An engineering approach that eliminates accessibility code auditing budgets"
-          },
-          {
-            "id": "B",
             "text": "A corporate risk-management strategy used to settle digital litigation out of court"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Features created for disability (e.g. ramps, captions) that benefit everyone"
+          },
+          {
+            "id": "C",
+            "text": "An engineering approach that eliminates accessibility code auditing budgets"
           },
           {
             "id": "D",
             "text": "A visual branding system featuring high-contrast neon palettes on mobile apps"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "The Curb-Cut Effect describes how features designed for people with disabilities (curb ramps, closed captions, voice control) benefit the broader public, rather than representing a municipal sidewalk engineering tax, a corporate charity write-off, or a replacement for WCAG audits."
       },
       {
@@ -637,22 +637,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Search engines give preferential search positioning to verified W3C member sites"
-          },
-          {
-            "id": "B",
             "text": "Assistive screen reader software automatically sends browsing telemetry to engines"
           },
           {
+            "id": "B",
+            "text": "Search engine crawlers rely on semantic markup, headings, links, and alt text"
+          },
+          {
             "id": "C",
-            "text": "Accessible semantic markups block search engine tracking cookies and crawler bots"
+            "text": "Search engines give preferential search positioning to verified W3C member sites"
           },
           {
             "id": "D",
-            "text": "Search engine crawlers rely on semantic markup, headings, links, and alt text"
+            "text": "Accessible semantic markups block search engine tracking cookies and crawler bots"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Search engine crawlers rely on the same machine-readable text semantics as screen readers�heading hierarchies, image alt attributes, descriptive link text, and video transcripts�rather than giving automatic ranking boosts to sites with third-party accessibility overlay widgets."
       },
       {
@@ -661,7 +661,7 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Approximately 2% of the world population (about 160 million individuals globally)"
+            "text": "Approximately 30% of the global population (nearly 2.4 billion individuals worldwide)"
           },
           {
             "id": "B",
@@ -669,7 +669,7 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "Approximately 30% of the global population (nearly 2.4 billion individuals worldwide)"
+            "text": "Approximately 2% of the world population (about 160 million individuals globally)"
           },
           {
             "id": "D",
@@ -721,11 +721,11 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Level 1: Initial / Ad Hoc, relying on sporadic individual efforts without governance"
+            "text": "Level 3: Defined, where processes are formally documented in standard operating plans"
           },
           {
             "id": "B",
-            "text": "Level 3: Defined, where processes are formally documented in standard operating plans"
+            "text": "Level 1: Initial / Ad Hoc, relying on sporadic individual efforts without governance"
           },
           {
             "id": "C",
@@ -736,7 +736,7 @@ export const CPACC_MODULES = [
             "text": "Level 4: Managed, where quantitative quality metrics dictate executive performance"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "Level 1 (Initial / Ad-hoc) is characterized by reactive, disorganized responses to external pressure with no documented strategy or proactive policies."
       },
       {
@@ -749,18 +749,18 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "An open-source screen reader software utility distributed by federal agencies"
+            "text": "A standardized reporting format documenting product conformance to WCAG and 508"
           },
           {
             "id": "C",
-            "text": "A standardized reporting format documenting product conformance to WCAG and 508"
+            "text": "An open-source screen reader software utility distributed by federal agencies"
           },
           {
             "id": "D",
             "text": "An ISO-certified digital encryption security protocol for web applications"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "A VPAT is the standardized reporting template created by the Information Technology Industry Council (ITI) that vendors fill out to create an Accessibility Conformance Report (ACR)."
       },
       {
@@ -777,14 +777,14 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "Installing third-party automated JavaScript overlay widgets across the domain"
+            "text": "Embedding role-based accessibility training, testing gates, and governance across teams"
           },
           {
             "id": "D",
-            "text": "Embedding role-based accessibility training, testing gates, and governance across teams"
+            "text": "Installing third-party automated JavaScript overlay widgets across the domain"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "At the Optimizing (Integrated) maturity stage, accessibility is embedded across executive governance, procurement, design systems, and CI/CD pipelines, rather than being delegated to a single junior QA tester, handled via ad-hoc legal patches, or outsourced to automated widgets."
       }
     ]
@@ -835,22 +835,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "1:8 maximum running slope (12.5% incline) with unrestricted cross-slope dimensions"
-          },
-          {
-            "id": "B",
             "text": "1:20 running slope without requiring handrail installations or level landings"
           },
           {
+            "id": "B",
+            "text": "1:8 maximum running slope (12.5% incline) with unrestricted cross-slope dimensions"
+          },
+          {
             "id": "C",
-            "text": "1:6 running slope provided that warning paver tiles are embedded at the top run"
+            "text": "1:12 maximum running slope (8.33% incline) with a 1:48 maximum cross-slope"
           },
           {
             "id": "D",
-            "text": "1:12 maximum running slope (8.33% incline) with a 1:48 maximum cross-slope"
+            "text": "1:6 running slope provided that warning paver tiles are embedded at the top run"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "ADAAG Section 405 specifies a maximum running slope of 1:12 (8.33% grade) for wheelchair ramps, whereas steeper inclines like 1:6 or 1:8 create tipping hazards and level landings are still required every 30 inches of vertical rise."
       },
       {
@@ -859,22 +859,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A minimum clear opening width of 24 inches operated with smooth round twist knobs"
-          },
-          {
-            "id": "B",
             "text": "A minimum clear opening width of 28 inches fitted with high-tension deadbolt bars"
           },
           {
+            "id": "B",
+            "text": "A minimum clear opening width of 24 inches operated with traditional round twist doorknobs"
+          },
+          {
             "id": "C",
-            "text": "A minimum clear opening width of 48 inches with automated revolving turnstiles"
+            "text": "A minimum clear opening width of 32 inches operated with closed-fist lever handles"
           },
           {
             "id": "D",
-            "text": "A minimum clear opening width of 32 inches operated with closed-fist lever handles"
+            "text": "A minimum clear opening width of 48 inches with automated revolving turnstiles"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Door openings must provide a minimum clear width of 32 inches (815 mm), measured between the face of the door and the stop with the door open 90 degrees."
       },
       {
@@ -883,11 +883,11 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Mounted directly on the push side of the door face at 72 inches from the floor"
+            "text": "Suspended from the ceiling with an 80-inch minimum vertical overhead clearance"
           },
           {
             "id": "B",
-            "text": "Suspended from the ceiling with an 80-inch minimum vertical overhead clearance"
+            "text": "Mounted directly on the push side of the swinging door face at 72 inches above the floor"
           },
           {
             "id": "C",
@@ -949,22 +949,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Sit down to converse at eye level, treating the wheelchair as part of personal space"
-          },
-          {
-            "id": "B",
             "text": "Lean casually on the wheelchair push handles to signal informal team warmth"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Stand directly behind the wheelchair backrest and speak with an elevated voice"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Take hold of the wheelchair handrims to steer the person toward conference rooms"
+          },
+          {
+            "id": "D",
+            "text": "Sit down to converse at eye level, treating the wheelchair as part of personal space"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Sitting down to converse at eye level avoids neck strain and respects the wheelchair as part of the user's personal space, whereas leaning on push handles, standing behind the backrest speaking loudly, or grabbing handrims to steer uninvited violates personal boundaries."
       },
       {
@@ -973,22 +973,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Offer food snacks to the service animal to build welcoming workplace rapport"
+            "text": "Direct your attention and speech to the handler while ignoring the working animal"
           },
           {
             "id": "B",
-            "text": "Pet the service animal whenever encountering it in office hallways or rooms"
+            "text": "Offer food snacks to the service animal to build welcoming workplace rapport"
           },
           {
             "id": "C",
-            "text": "Direct your attention and speech to the handler while ignoring the working animal"
+            "text": "Pet the service animal whenever encountering it in office hallways or rooms"
           },
           {
             "id": "D",
             "text": "Demand that the handler produce certified veterinary medical documentation"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "When a service animal is in harness and working, speak directly to the handler and never pet, feed,offer snacks, whistle at, or distract the animal, nor demand medical diagnostic paperwork beyond the two permissible ADA service-animal inquiries."
       },
       {
@@ -1001,18 +1001,18 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "They describe temporary occupational injuries in medical compensation charts"
+            "text": "They are specialized legal classifications codified in statutes outside of North America"
           },
           {
             "id": "C",
-            "text": "They are technical legal standards codified in statutes outside North America"
+            "text": "They are patronizing euphemisms that avoid the direct, accepted word \"disabled\""
           },
           {
             "id": "D",
-            "text": "They are patronizing euphemisms that avoid the direct, accepted word \"disabled\""
+            "text": "They describe temporary occupational injuries in medical compensation charts"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Person-first (\"person with a disability\") and identity-first (\"autistic person\", \"Deaf person\") are both respected community frameworks; best practice is to honor the individual's stated preference rather than enforcing medical diagnostic labels or euphemisms like \"differently abled\"."
       }
     ]
@@ -1063,22 +1063,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Affective Network regulating learner motivation, interest, and emotional engagement"
+            "text": "The Strategic Network governing executive function, planning, and motor expression"
           },
           {
             "id": "B",
-            "text": "The Recognition Network processing sensory patterns, symbols, and conceptual facts"
+            "text": "The Affective Network regulating learner motivation, interest, and emotional engagement"
           },
           {
             "id": "C",
-            "text": "The Strategic Network governing executive function, planning, and motor expression"
+            "text": "The Recognition Network processing sensory patterns, symbols, and conceptual facts"
           },
           {
             "id": "D",
             "text": "The Autonomic Somatic Network controlling involuntary physiological reflex responses"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "In CAST Universal Design for Learning, the Recognition Network (the \"What\" of learning) perceives and interprets information through Multiple Means of Representation, alongside the Affective (\"Why\") and Strategic (\"How\") networks."
       },
       {
@@ -1091,18 +1091,18 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "Accommodations are designed by CAST, while UDL is administered by state courts"
+            "text": "UDL builds multimodal flexibility into core curricula proactively for diverse students"
           },
           {
             "id": "C",
-            "text": "UDL applies strictly to physical architectural classrooms, desks, and campuses"
+            "text": "Accommodations are designed by CAST, while UDL is administered by state courts"
           },
           {
             "id": "D",
-            "text": "UDL builds multimodal flexibility into core curricula proactively for diverse students"
+            "text": "UDL applies strictly to physical architectural classrooms, desks, and campuses"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "UDL is proactive and universal: flexible learning options are built into the initial course architecture, drastically reducing the need for retrofitted, reactive individual accommodations."
       },
       {
@@ -1111,22 +1111,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Multiple Means of Action and Expression allowing flexible ways to demonstrate mastery"
-          },
-          {
-            "id": "B",
             "text": "Multiple Means of Engagement fostering learner autonomy and collaborative motivation"
           },
           {
+            "id": "B",
+            "text": "Multiple Means of Representation providing synchronized captions and audio descriptions"
+          },
+          {
             "id": "C",
-            "text": "Standardized Norm-Referenced Assessment ranking students along a fixed bell curve"
+            "text": "Multiple Means of Action and Expression allowing flexible ways to demonstrate mastery"
           },
           {
             "id": "D",
-            "text": "Multiple Means of Representation providing captions and transcripts for course videos"
+            "text": "Standardized Norm-Referenced Assessment ranking students along a fixed bell curve"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "Allowing learners to demonstrate knowledge through varied formats (written essay, podcast, or interactive demonstration) embodies Multiple Means of Action and Expression (the Strategic Network)."
       }
     ]
@@ -1181,18 +1181,18 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "The Bologna Declaration on European Higher Education Academic Qualifications"
-          },
-          {
-            "id": "C",
             "text": "The European General Data Protection Regulation (GDPR Article 9 Special Categories)"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "European Accessibility Act (Directive 2019/882 covering key private services)"
+          },
+          {
+            "id": "D",
+            "text": "The Bologna Declaration on European Higher Education Academic Qualifications"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "The European Accessibility Act (Directive 2019/882) regulates commercial private-sector products and services (e-commerce, banking, e-books, ticketing kiosks), whereas Directive 2016/2102 covers public-sector government bodies and the Bologna Process covers higher-education degree alignment."
       },
       {
@@ -1201,22 +1201,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.0 Level A baseline criteria"
+            "text": "ISO/IEC 40500 draft working group notes for voluntary federal agency adoption"
           },
           {
             "id": "B",
-            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA technical standard"
+            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.0 Level A foundational baseline rules"
           },
           {
             "id": "C",
-            "text": "ISO/IEC 40500 draft working group notes for voluntary federal agency adoption"
+            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA technical standard"
           },
           {
             "id": "D",
             "text": "Section 504 legacy architectural facility guidelines for physical courtrooms"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "In April 2024, the U.S. Department of Justice published its ADA Title II Final Rule codifying WCAG 2.1 Level AA as the mandatory technical standard for state and local government websites and mobile apps."
       },
       {
@@ -1229,7 +1229,7 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "The European General Data Protection Regulation (GDPR Article 9 Special Categories)"
+            "text": "The Berne Convention for the International Protection of Literary and Artistic Works"
           },
           {
             "id": "C",
@@ -1298,18 +1298,18 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "States Parties must ensure private entities offering public services provide barrier-free access"
+            "text": "Commercial firms are bound if receiving over 90% direct UN operating grants"
           },
           {
             "id": "C",
-            "text": "Commercial firms are bound if receiving over 90% direct UN operating grants"
+            "text": "States Parties must ensure private entities offering public services provide barrier-free access"
           },
           {
             "id": "D",
             "text": "Private firms may substitute accessible websites with paper brochures on demand"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "CRPD Article 9.2(b) explicitly requires States Parties to enact measures ensuring private entities offering public facilities and services take into account all aspects of accessibility for persons with disabilities."
       },
       {
@@ -1318,22 +1318,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It creates copyright exceptions to exchange accessible format copies across borders"
-          },
-          {
-            "id": "B",
-            "text": "It prohibits printed paper books internationally to mandate electronic reading devices"
-          },
-          {
-            "id": "C",
             "text": "It requires commercial publishing houses to author literature in Basic English"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "It sets a mandatory minimum price of $50 on commercial digital audiobook sales"
+          },
+          {
+            "id": "C",
+            "text": "It prohibits printed paper books internationally to mandate electronic reading devices"
+          },
+          {
+            "id": "D",
+            "text": "It creates copyright exceptions to exchange accessible format copies across borders"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "The WIPO Marrakesh Treaty creates mandatory copyright exceptions so authorized entities can produce and share accessible-format books (braille, DAISY audio, large print) across borders without publisher royalties, rather than banning printed paper books or regulating hardware tariffs."
       },
       {
@@ -1350,14 +1350,14 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "UN CRPD Article 21(a) mandating accessible formats in a timely manner at no extra cost"
+            "text": "No violation exists under international law provided fees match paper costs"
           },
           {
             "id": "D",
-            "text": "No violation exists under international law provided fees match paper costs"
+            "text": "UN CRPD Article 21(a) mandating accessible formats in a timely manner at no extra cost"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "UN CRPD Article 21(a) explicitly prohibits charging persons with disabilities extra fees for accessible formats of public information, requiring information to be provided in accessible formats \"in a timely manner and without additional cost\"."
       }
     ]
@@ -1411,22 +1411,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Approximately 16% of the global population (roughly 1.3 billion individuals)"
-          },
-          {
-            "id": "B",
             "text": "Approximately 3% of the global population (primarily specialized care cohorts)"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Approximately 35% of the global population (including minor optical refraction)"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Approximately 1% of the global population (restricted to permanent wheelchair users)"
+          },
+          {
+            "id": "D",
+            "text": "Approximately 16% of the global population (roughly 1.3 billion individuals)"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "The WHO and World Bank estimate that 16% of the global population (~1.3 billion people, or 1 in 6) experience significant disability, rather than 2% in specialized care, 8% in low-income regions, or 30% (2.4 billion) worldwide."
       },
       {
@@ -1443,14 +1443,14 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "The majority of disabilities (>70%) are acquired during working adulthood years"
+            "text": "Acquired conditions are excluded from international civil rights treaty coverage"
           },
           {
             "id": "D",
-            "text": "Acquired conditions are excluded from international civil rights treaty coverage"
+            "text": "The majority of disabilities (>70%) are acquired during working adulthood years"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "Epidemiological census data show that over 70%�80% of disabilities are acquired during working adulthood or later life through chronic health conditions, injury, and aging, rather than being predominantly congenital at birth or disappearing upon retirement."
       },
       {
@@ -1467,14 +1467,14 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "A Situational limitation caused by the person's current environment or task"
+            "text": "A Biopsychosocial diagnostic classification under the WHO ICD-11 medical code"
           },
           {
             "id": "D",
-            "text": "A Biopsychosocial diagnostic classification under the WHO ICD-11 medical code"
+            "text": "A Situational limitation caused by the person's current environment or task"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "Microsoft's Inclusive Design Persona Spectrum maps functional one-arm constraints across Permanent (one arm), Temporary (arm in a cast), and Situational (new parent holding a crying baby)."
       }
     ]
@@ -1536,14 +1536,14 @@ export const CPACC_MODULES = [
           },
           {
             "id": "C",
-            "text": "56% of workplace accommodations cost $0, with a median cost of $500 for the rest"
+            "text": "Workplace accommodations routinely mandate hiring a full-time dedicated personal assistant"
           },
           {
             "id": "D",
-            "text": "Workplace accommodations routinely mandate hiring an ongoing personal assistant"
+            "text": "56% of workplace accommodations cost $0, with a median cost of $500 for the rest"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "The Job Accommodation Network (JAN) has consistently shown that 56% of workplace accommodations have zero direct cost (such as schedule adjustments or telework), and the median one-time expenditure for those that do have a cost is approximately $500."
       },
       {
@@ -1552,22 +1552,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Accommodations are typically free, whereas Universal Design is often expensive"
+            "text": "Accommodations provide reactive individualized retrofits; Universal Design proactively builds access"
           },
           {
             "id": "B",
-            "text": "Accommodations are collective, whereas Universal Design is tailored to one person"
+            "text": "Accommodations are typically free, whereas Universal Design is often expensive"
           },
           {
             "id": "C",
-            "text": "Universal Design applies to buildings; accommodations govern operating systems"
+            "text": "Accommodations are collective, whereas Universal Design is tailored to one person"
           },
           {
             "id": "D",
-            "text": "Accommodations provide reactive individualized retrofits; Universal Design proactively builds access"
+            "text": "Universal Design applies to buildings; accommodations govern operating systems"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Accommodations are reactive, one-off modifications tailored to a single individual after formal disability disclosure. Universal design is proactive and systemic, creating environments and digital tools that work for the widest possible audience by default without requiring disclosure."
       },
       {
@@ -1645,15 +1645,15 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Principle 1 (Perceivable) requiring text alternatives and sufficient color contrast"
-          },
-          {
-            "id": "B",
             "text": "Principle 3 (Understandable) requiring predictable navigation and input error help"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Principle 4 (Robust) requiring valid ARIA roles and compatibility with user agents"
+          },
+          {
+            "id": "C",
+            "text": "Principle 1 (Perceivable) requiring text alternatives and sufficient color contrast"
           },
           {
             "id": "D",
@@ -1669,22 +1669,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By flashing high-frequency visual alert lights whenever a touchscreen button is hit"
-          },
-          {
-            "id": "B",
             "text": "By attaching a printed braille instruction booklet to the side of the metal casing"
           },
           {
+            "id": "B",
+            "text": "Closed hardware machines are exempt from POUR criteria under W3C guidance"
+          },
+          {
             "id": "C",
-            "text": "By providing speech output through a 3.5mm headphone jack with tactile keypad inputs"
+            "text": "By flashing high-frequency visual strobe alert lights whenever a touchscreen button is hit"
           },
           {
             "id": "D",
-            "text": "Closed hardware machines are exempt from POUR criteria under W3C guidance"
+            "text": "By providing speech output through a 3.5mm headphone jack with tactile keypad inputs"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "In closed products where users cannot attach personal assistive technologies, Principle 1 (Perceivable) requires the hardware to provide built-in speech output (auditory presentation of visual content) accessible via a standard audio jack or speaker."
       },
       {
@@ -1697,7 +1697,7 @@ export const CPACC_MODULES = [
           },
           {
             "id": "B",
-            "text": "Principle 4 (Robust) requiring semantic Name, Role, and Value exposure to AT APIs"
+            "text": "Principle 2 (Operable) providing enough time for users to read moving carousels"
           },
           {
             "id": "C",
@@ -1705,10 +1705,10 @@ export const CPACC_MODULES = [
           },
           {
             "id": "D",
-            "text": "Principle 2 (Operable) providing enough time for users to read moving carousels"
+            "text": "Principle 4 (Robust) requiring semantic Name, Role, and Value exposure to AT APIs"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Principle 4 (Robust) mandates that content can be reliably interpreted by user agents and assistive technologies; WCAG 4.1.2 (Name, Role, Value) requires custom widgets to expose their role and state programmatically."
       }
     ]
@@ -1762,22 +1762,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "An analog optical magnifying lens attached to the kiosk casing with security wire"
-          },
-          {
-            "id": "B",
-            "text": "Speech output, 3.5mm headphone jack, volume control, and tactile keys"
-          },
-          {
-            "id": "C",
             "text": "A dedicated telephone handset connecting users to customer support personnel"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "A printed braille document binder cataloging every possible interactive screen"
+          },
+          {
+            "id": "C",
+            "text": "An analog optical magnifying lens attached to the kiosk casing with security wire"
+          },
+          {
+            "id": "D",
+            "text": "Speech output, 3.5mm headphone jack, volume control, and tactile keys"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Because users cannot connect their own assistive technology to closed hardware, standards mandate built-in speech output accessible via a standard audio jack, volume control, and physical tactile keys (such as a raised dot on the \"5\" key)."
       },
       {
@@ -1786,22 +1786,22 @@ export const CPACC_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA conformance"
-          },
-          {
-            "id": "B",
             "text": "IEEE 802.11ac Wireless Networking Standards for Local Area Computer Networks"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "ANSI Z87.1 Occupational and Educational Personal Eye Protection Standards"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Bluetooth SIG Core Specification 5.2 Low Energy Audio Operating Profiles"
+          },
+          {
+            "id": "D",
+            "text": "W3C Web Content Accessibility Guidelines (WCAG) 2.1 Level AA conformance"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Global digital accessibility standards are unified around W3C WCAG 2.1 Level AA, which forms the normative technical benchmark for Section 508, EN 301 549, and JIS X 8341-3."
       },
       {

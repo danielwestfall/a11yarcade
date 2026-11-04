@@ -138,14 +138,20 @@ body {
   white-space: nowrap !important;
 }
 
-/* Target Size Minimum (WCAG 2.2 SC 2.5.8) using logical min dimensions */
+/* Target Size (WCAG 2.2 SC 2.5.8 AA 24x24 & SC 2.5.5 AAA 44x44) using logical min dimensions */
 button,
 a:any-link,
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select,
 [role="button"],
 [role="tab"],
 [role="radio"] {
+  min-block-size: 44px;
+  min-inline-size: 44px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
   min-block-size: 24px;
   min-inline-size: 24px;
 }

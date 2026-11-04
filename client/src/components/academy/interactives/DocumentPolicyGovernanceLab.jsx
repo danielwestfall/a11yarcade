@@ -80,7 +80,7 @@ export default function DocumentPolicyGovernanceLab() {
           </div>
 
           {/* Clause 2 */}
-          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-legacy-sla" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-legacy-sla"
@@ -99,7 +99,7 @@ export default function DocumentPolicyGovernanceLab() {
           </label>
 
           {/* Clause 3 */}
-          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-exec-sponsor" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-exec-sponsor"

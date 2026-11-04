@@ -62,7 +62,7 @@ export default function EnterpriseRemediationWorkflowLab() {
           Step 1: Document Ingestion Triage
         </legend>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.5rem' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-has-source" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-has-source"
@@ -140,7 +140,7 @@ export default function EnterpriseRemediationWorkflowLab() {
         <legend style={{ color: 'var(--arcade-yellow)', fontWeight: 700, padding: '0 0.5rem', fontSize: '0.95rem' }}>
           Step 3: Quality Gate Signoff
         </legend>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+        <label htmlFor="chk-pac-audit" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
           <input
             type="checkbox"
             id="chk-pac-audit"

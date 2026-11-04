@@ -111,7 +111,40 @@ LEARNING_MODULES.forEach(m => {
 });
 console.log('10. Target Size SC 2.5.8 (24x24 AA) vs SC 2.5.5 (44x44 AAA) Precision:', targetSizeDifferentiated ? 'PASSED' : 'FAILED');
 
-if (roboticExplCount > 0 || safelyPaddingCount > 0 || longestRawCorrect !== longestTieCorrect) {
+// 11. Per-track stratified balance & zero option duplicates check
+const seenOptionTexts = new Set();
+let duplicateOptions = 0;
+let maxLenTies = 0;
+
+for (const cert of ['CPACC', 'WAS', 'ADS']) {
+  const trackMods = LEARNING_MODULES.filter(m => m.cert === cert);
+  const trackAns = { A: 0, B: 0, C: 0, D: 0 };
+  const trackLong = { A: 0, B: 0, C: 0, D: 0 };
+  let trackLC = 0, trackTotal = 0;
+
+  trackMods.forEach(m => {
+    (m.knowledgeCheck || []).forEach(q => {
+      trackTotal++;
+      trackAns[q.answer]++;
+      const lens = q.options.map(o => o.text.trim().length);
+      const maxL = Math.max(...lens);
+      const maxOpts = q.options.filter(o => o.text.trim().length === maxL);
+      if (maxOpts.length > 1) maxLenTies++;
+      trackLong[maxOpts[0].id]++;
+      if (maxOpts[0].id === q.answer) trackLC++;
+      q.options.forEach(o => {
+        const norm = o.text.trim().toLowerCase();
+        if (seenOptionTexts.has(norm)) duplicateOptions++;
+        seenOptionTexts.add(norm);
+      });
+    });
+  });
+
+  console.log(`11.${cert}: Ans=${JSON.stringify(trackAns)}, Long=${JSON.stringify(trackLong)}, LongestCorrect=${trackLC}/${trackTotal} (${((trackLC / trackTotal) * 100).toFixed(1)}%)`);
+}
+console.log(`12. Option Uniqueness & Tie Check: Duplicate Options = ${duplicateOptions}, Max-Length Ties = ${maxLenTies}`);
+
+if (roboticExplCount > 0 || safelyPaddingCount > 0 || longestRawCorrect !== longestTieCorrect || duplicateOptions > 0 || maxLenTies > 0) {
   process.exit(1);
 }
 

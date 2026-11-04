@@ -125,39 +125,45 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
         return;
       }
 
-      // Quick hotkeys (single key only if not in modal)
-      if (!isModalOpen) {
-        if (e.key === 'm' || e.key === 'M') {
-          e.preventDefault();
-          const next = !preferences.soundMuted;
-          soundManager.setMuted(next);
-          const updated = { ...preferences, soundMuted: next };
-          setPreferences(updated);
-          localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
-          if (!next) soundManager.playClick();
-        } else if (e.key === 'h' || e.key === 'H') {
-          e.preventDefault();
-          soundManager.playClick();
-          const themes = ['dark', 'light', 'high-contrast'];
-          const nextIdx = (themes.indexOf(preferences.theme) + 1) % themes.length;
-          const updated = { ...preferences, theme: themes[nextIdx] };
-          setPreferences(updated);
-          localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
-        } else if (e.key === 's' || e.key === 'S') {
-          e.preventDefault();
-          soundManager.playClick();
-          const skins = ['arcade', 'kawaii', 'anime'];
-          const nextIdx = (skins.indexOf(preferences.skin || 'arcade') + 1) % skins.length;
-          const updated = { ...preferences, skin: skins[nextIdx] };
-          setPreferences(updated);
-          localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
-        } else if (e.key === 'r' || e.key === 'R') {
-          e.preventDefault();
-          soundManager.playClick();
-          const next = !preferences.reducedMotion;
-          const updated = { ...preferences, reducedMotion: next };
-          setPreferences(updated);
-          localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+      // WCAG 2.1.4 Character Key Shortcuts:
+      // Single-character shortcuts (M, H, S, R) require either Alt+<Key> globally
+      // OR keyboard focus inside the header quick-settings toolbar (.controls-group),
+      // and never fire when Ctrl/Meta modifiers are held (preserving Ctrl+R, Ctrl+S, etc.).
+      if (!isModalOpen && !e.ctrlKey && !e.metaKey) {
+        const isToolbarFocused = Boolean(e.target?.closest?.('.controls-group'));
+        if (e.altKey || isToolbarFocused) {
+          if (e.key === 'm' || e.key === 'M') {
+            e.preventDefault();
+            const next = !preferences.soundMuted;
+            soundManager.setMuted(next);
+            const updated = { ...preferences, soundMuted: next };
+            setPreferences(updated);
+            localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+            if (!next) soundManager.playClick();
+          } else if (e.key === 'h' || e.key === 'H') {
+            e.preventDefault();
+            soundManager.playClick();
+            const themes = ['dark', 'light', 'high-contrast'];
+            const nextIdx = (themes.indexOf(preferences.theme) + 1) % themes.length;
+            const updated = { ...preferences, theme: themes[nextIdx] };
+            setPreferences(updated);
+            localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+          } else if (e.key === 's' || e.key === 'S') {
+            e.preventDefault();
+            soundManager.playClick();
+            const skins = ['arcade', 'kawaii', 'anime'];
+            const nextIdx = (skins.indexOf(preferences.skin || 'arcade') + 1) % skins.length;
+            const updated = { ...preferences, skin: skins[nextIdx] };
+            setPreferences(updated);
+            localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+          } else if (e.key === 'r' || e.key === 'R') {
+            e.preventDefault();
+            soundManager.playClick();
+            const next = !preferences.reducedMotion;
+            const updated = { ...preferences, reducedMotion: next };
+            setPreferences(updated);
+            localStorage.setItem('a11yarcade_preferences', JSON.stringify(updated));
+          }
         }
       }
     };

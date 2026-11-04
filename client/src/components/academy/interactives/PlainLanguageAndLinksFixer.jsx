@@ -79,11 +79,26 @@ export default function PlainLanguageAndLinksFixer() {
       </div>
 
       {/* Tabs */}
-      <div role="tablist" aria-label="Plain language and link exercises" style={{ display: 'flex', gap: '0.5rem' }}>
+      <div
+        role="tablist"
+        aria-label="Plain language and link exercises"
+        style={{ display: 'flex', gap: '0.5rem' }}
+        onKeyDown={(e) => {
+          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+          const idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : e.key === 'ArrowLeft' ? (idx - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : tabs.length - 1;
+          tabs[nextIdx]?.focus();
+          tabs[nextIdx]?.click();
+        }}
+      >
         <button
           type="button"
           role="tab"
           aria-selected={activeTab === 'links'}
+          tabIndex={activeTab === 'links' ? 0 : -1}
           onClick={() => {
             soundManager.playClick();
             setActiveTab('links');
@@ -106,6 +121,7 @@ export default function PlainLanguageAndLinksFixer() {
           type="button"
           role="tab"
           aria-selected={activeTab === 'plain'}
+          tabIndex={activeTab === 'plain' ? 0 : -1}
           onClick={() => {
             soundManager.playClick();
             setActiveTab('plain');

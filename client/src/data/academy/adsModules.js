@@ -1,3 +1,4 @@
+// IAAP ADS (Accessible Document Specialist) Modules
 export const ADS_MODULES = [
   {
     "id": "mod-ads-alt-text",
@@ -44,22 +45,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Assign alternative text describing it: alt=\"Decorative wavy graphic divider\""
+            "text": "Mark it as an /Artifact so assistive technologies ignore decorative shapes during reading"
           },
           {
             "id": "B",
-            "text": "Tag it as an empty sub-heading structure tag (<H3></H3>) to preserve vertical spacing"
+            "text": "Assign alternative text describing it: alt=\"Decorative wavy graphic divider\""
           },
           {
             "id": "C",
-            "text": "Mark it as an /Artifact so assistive technologies ignore decorative shapes during reading"
+            "text": "Tag it as an empty sub-heading structure tag (<H3></H3>) to preserve vertical spacing"
           },
           {
             "id": "D",
             "text": "Delete the divider from the print layout to avoid PDF tagging structural issues"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "In PDF/UA and accessible document authoring, purely decorative graphics must be tagged as `/Artifact` so screen readers do not announce useless noise."
       },
       {
@@ -68,7 +69,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "alt=\"Detailed high-resolution visual rendering of a black office inkjet printer\""
+            "text": "alt=\"Print this document\" (describing the action performed upon activation)"
           },
           {
             "id": "B",
@@ -80,10 +81,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "alt=\"Print this document\" (describing the action performed upon activation)"
+            "text": "alt=\"Detailed high-resolution visual rendering of a black office inkjet printer\""
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "For a functional image inside a link or button, the alt text must state the destination or action (e.g., \"Download Annual Report PDF\"), rather than describing visual iconography/resolution, using an empty alt=\"\" string (which hides the link target), or repeating raw filenames."
       },
       {
@@ -96,11 +97,11 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Provide a concise summary in alt text and a full accessible data table in the body"
+            "text": "Provide a concise summary in alt text and a full accessible data table in the document"
           },
           {
             "id": "C",
-            "text": "Mark the complex statistical chart as an /Artifact to reduce screen reader verbosity"
+            "text": "Mark the complex statistical chart as an /Artifact to reduce screen reader output"
           },
           {
             "id": "D",
@@ -170,14 +171,14 @@ export const ADS_MODULES = [
           },
           {
             "id": "C",
-            "text": "The chronological timestamp when each text block was typed by the author"
+            "text": "The Logical Structure Tree (Tags panel) dictates the screen reader reading order"
           },
           {
             "id": "D",
-            "text": "The Logical Structure Tree (Tags panel) dictates screen reader reading order"
+            "text": "The chronological timestamp when each text block was typed by the author"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Under ISO 14289-1 (PDF/UA), screen readers rely exclusively on the logical Tags Tree structure to read content and announce semantics."
       },
       {
@@ -186,22 +187,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Retain the <H4> tag because visual font styling takes precedence over hierarchy"
+            "text": "Change the tag to <H2> and adjust the visual font styling in the authoring tool"
           },
           {
             "id": "B",
-            "text": "Remove heading structural semantics and convert the paragraph text into bold copy"
+            "text": "Retain the <H4> tag because visual font styling takes precedence over hierarchy"
           },
           {
             "id": "C",
-            "text": "Change the tag to <H2> and adjust the visual font styling in the authoring tool"
+            "text": "Remove heading structural semantics and convert the paragraph text into bold copy"
           },
           {
             "id": "D",
             "text": "Insert empty structural heading tags (<H2></H2><H3></H3>) to bridge the skipped numerical gap"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Heading levels must strictly follow a logical numerical hierarchy without skipping levels. Visual styling should be adjusted via styles or fonts, not by distorting semantic tags."
       },
       {
@@ -210,11 +211,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Table cells must be tagged strictly as <TD> data cells with no header tags"
+            "text": "Header cells must be tagged as <TH> with Scope attributes defining data cell associations"
           },
           {
             "id": "B",
-            "text": "The entire data table must be rasterized into a flat bitmap figure with an alternative text string"
+            "text": "Table cells must be tagged strictly as <TD> data cells with no header tags"
           },
           {
             "id": "C",
@@ -222,10 +223,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Header cells must be tagged as <TH> with Scope attributes defining data cell associations"
+            "text": "The entire data table must be rasterized into a flat bitmap figure with an alternative text string"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Data tables require header cells tagged as `<TH>` with scope, allowing screen readers to correlate data cells with their respective column and row headers."
       }
     ]
@@ -275,18 +276,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Whether an image tag lacks an /Alt property string in document structural syntax"
-          },
-          {
-            "id": "C",
             "text": "Whether narrative paragraphs are written in concise, readable plain language"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Whether the reading order sequence makes logical sense across complex columns"
+          },
+          {
+            "id": "D",
+            "text": "Whether an image tag lacks an /Alt property string in document structural syntax"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Automated tools can check for the physical presence or absence of alt text and tags, but human judgment is required to evaluate accuracy, quality, and logic."
       },
       {
@@ -299,15 +300,15 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "An international copyright convention governing cross-border distribution of braille publications"
-          },
-          {
-            "id": "C",
             "text": "A digital encryption standard for transmitting confidential PDF documents"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "A typographic formatting standard for commercial digital publishing software"
+          },
+          {
+            "id": "D",
+            "text": "An international copyright convention governing cross-border distribution of braille publications"
           }
         ],
         "answer": "A",
@@ -319,22 +320,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated validators run on Windows operating system desktop environments"
+            "text": "To verify reading order, table announcements, and alt text equivalence in speech"
           },
           {
             "id": "B",
-            "text": "Because Adobe Acrobat Pro terms of service prohibit automated validator scripts"
+            "text": "Automated validators run on Windows operating system desktop environments"
           },
           {
             "id": "C",
-            "text": "To verify reading order, table announcements, and alt text equivalence in speech"
+            "text": "Because Adobe Acrobat Pro terms of service prohibit automated validator scripts"
           },
           {
             "id": "D",
             "text": "Screen readers automatically reconstruct broken tag trees while reading the document aloud"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Manual testing with assistive technologies ensures the synthesized speech and navigation actually make sense to real human users in practical usage."
       }
     ]
@@ -379,22 +380,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Click Here to open the new corporate human resources benefits document"
+            "text": "Download Employee Benefits Guide 2025 (PDF, 1.2 MB)"
           },
           {
             "id": "B",
-            "text": "https://benefits.example.com/download/secure?doc_id=984128&format=pdf"
+            "text": "Click Here to open the new corporate human resources benefits document"
           },
           {
             "id": "C",
-            "text": "Read More about our comprehensive organization policies and annual plans"
+            "text": "https://benefits.example.com/download/secure?doc_id=984128&format=pdf"
           },
           {
             "id": "D",
-            "text": "Download Employee Benefits Guide 2025 (PDF, 1.2 MB)"
+            "text": "Read More about our comprehensive organization policies and annual plans"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Accessible links clearly state the destination, subject, file format, and file size so users know exactly what will occur when activated."
       },
       {
@@ -403,22 +404,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Manual dashes prevent automated spellcheck tools from parsing sentence grammar"
+            "text": "Native list tools generate semantic <L>/<LI> tags, announcing count and position"
           },
           {
             "id": "B",
-            "text": "Manual dashes violate ISO PDF/A long-term digital preservation standards"
+            "text": "Manual dashes prevent automated spellcheck tools from parsing sentence grammar"
           },
           {
             "id": "C",
-            "text": "Native list tools generate semantic <L>/<LI> tags, announcing count and position"
+            "text": "Manual dashes violate ISO PDF/A long-term digital preservation standards"
           },
           {
             "id": "D",
             "text": "Hyphenated bullet characters trigger PostScript rasterization failures on office laser printers"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Native list formatting tags items semantically (`<L>`, `<LI>`, `<Lbl>`, `<LBody>`), allowing assistive technology to announce \"List with 5 items, item 1\"."
       },
       {
@@ -427,7 +428,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It enables electronic documents to be indexed faster by automated OCR scanning software"
+            "text": "It aids readers with cognitive disabilities, non-native speakers, and broader readers"
           },
           {
             "id": "B",
@@ -439,10 +440,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "It aids readers with cognitive disabilities, non-native speakers, and broader readers"
+            "text": "It enables electronic PDF documents to be indexed faster by automated OCR scanning software"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Plain language directly aids comprehension for people with intellectual disabilities, dyslexia, or ADHD, while simultaneously boosting reading speed and clarity for everyone."
       }
     ]
@@ -493,22 +494,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "OCR rasterizes vector typography into low-resolution bitmap character layers"
-          },
-          {
-            "id": "B",
-            "text": "Optical Character Recognition software is disallowed under federal Section 508 ICT standards"
-          },
-          {
-            "id": "C",
             "text": "OCR generates raw text; it does not tag headings, tables, reading order, or language"
           },
           {
-            "id": "D",
+            "id": "B",
+            "text": "OCR rasterizes vector typography into low-resolution bitmap character layers"
+          },
+          {
+            "id": "C",
             "text": "Screen reader software cannot process any PDF document containing raster images"
+          },
+          {
+            "id": "D",
+            "text": "Optical Character Recognition software is disallowed under federal Section 508 ICT standards"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Optical Character Recognition converts scanned page bitmaps into selectable text characters, but it does not reliably generate PDF/UA semantic tags (<H1>, <Table>, <L>), verify logical reading order, or set document language metadata without human remediation."
       },
       {
@@ -517,22 +518,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Lossless vector path compression artifacts in technical architectural drawings"
+            "text": "Look-alike glyph errors (e.g. mistaking \"rn\" for \"m\", or \"1\" for lowercase \"l\")"
           },
           {
             "id": "B",
-            "text": "Automatic font subset embedding errors during document print spooling"
+            "text": "Lossless vector path compression artifacts in technical architectural drawings"
           },
           {
             "id": "C",
-            "text": "Excessive scanning DPI resolution in underlying bitmap document background layers"
+            "text": "Automatic font subset embedding errors during document print spooling"
           },
           {
             "id": "D",
-            "text": "Look-alike glyph errors (e.g. mistaking \"rn\" for \"m\", or \"1\" for lowercase \"l\")"
+            "text": "Excessive scanning DPI resolution in underlying bitmap document background layers"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Optical character engines frequently confuse visually similar character pairs (such as \"rn\" vs \"m\" or \"1\" vs \"l\"), causing screen reader text-to-speech synthesizers to mispronounce words."
       },
       {
@@ -541,22 +542,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The personal employee identification number of the scanning machine operator"
-          },
-          {
-            "id": "B",
             "text": "The document primary natural language (e.g. en-US or fr-FR) for pronunciation"
           },
           {
+            "id": "B",
+            "text": "The personal employee identification number of the scanning machine operator"
+          },
+          {
             "id": "C",
-            "text": "The optical dots-per-inch (DPI) scanner hardware resolution calibrated when capturing the page"
+            "text": "The color separation profile (CMYK vs RGB) for commercial print machinery"
           },
           {
             "id": "D",
-            "text": "The color separation profile (CMYK vs RGB) for commercial print machinery"
+            "text": "The optical dots-per-inch (DPI) scanner hardware resolution calibrated when capturing the page"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "PDF/UA requires the document natural language to be explicitly specified so screen readers activate the correct phonetic pronunciation rules and accent engines."
       }
     ]
@@ -607,11 +608,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Adobe Acrobat Pro lacks tools to create or modify <H1> and <H2> heading tags in the tag tree"
+            "text": "Source authoring files inherently have smaller file sizes than exported PDFs"
           },
           {
             "id": "B",
-            "text": "Source authoring files inherently have smaller file sizes than exported PDFs"
+            "text": "Re-exporting from source authoring files overwrites custom Acrobat tag tree fixes"
           },
           {
             "id": "C",
@@ -619,10 +620,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Re-exporting from source authoring files overwrites custom Acrobat tag tree fixes"
+            "text": "Adobe Acrobat Pro lacks tools to create or modify <H1> and <H2> heading tags in the tag tree"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Remediating in the source authoring tool (Word or InDesign) preserves native heading styles, table headers, and export templates across future revisions, whereas manual tag-tree edits inside Adobe Acrobat Pro must be redone whenever the source document is re-exported."
       },
       {
@@ -631,7 +632,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Manually copy and paste the header row text at the top of each page break"
+            "text": "Export the multi-page data table as a sequence of static PNG figures with descriptive alt text"
           },
           {
             "id": "B",
@@ -639,11 +640,11 @@ export const ADS_MODULES = [
           },
           {
             "id": "C",
-            "text": "Draw a thick visual border around the top row to designate header semantics"
+            "text": "Manually copy and paste the header row text at the top of each page break"
           },
           {
             "id": "D",
-            "text": "Export the multi-page data table as a sequence of static PNG figures with descriptive alt text"
+            "text": "Draw a thick visual border around the top row to designate header semantics"
           }
         ],
         "answer": "B",
@@ -655,22 +656,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Export Tagging in InDesign Paragraph Style Options (mapping styles to PDF tags)"
+            "text": "The Object State Manager configuring interactive multi-state presentation buttons"
           },
           {
             "id": "B",
-            "text": "The InDesign Preflight Panel configuring automated document print profiles"
+            "text": "Export Tagging in InDesign Paragraph Style Options (mapping styles to PDF tags)"
           },
           {
             "id": "C",
-            "text": "The InDesign Glyphs Panel inserting specialized typographic Unicode symbols"
+            "text": "The InDesign Preflight Panel configuring automated document print profiles"
           },
           {
             "id": "D",
-            "text": "The Object State Manager configuring interactive multi-state presentation buttons"
+            "text": "The InDesign Glyphs Panel inserting specialized typographic Unicode symbols"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "InDesign's Export Tagging tab in Paragraph Style Options enables designers to explicitly map custom print styles to semantic PDF/UA tags."
       }
     ]
@@ -721,11 +722,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated validators disable graphic inspection to accelerate document processing"
+            "text": "Automated checkers verify the presence of an /Alt tag, not semantic description accuracy"
           },
           {
             "id": "B",
-            "text": "Automated checkers verify the presence of an /Alt tag, not semantic description accuracy"
+            "text": "Automated validators disable graphic inspection to accelerate document processing"
           },
           {
             "id": "C",
@@ -736,7 +737,7 @@ export const ADS_MODULES = [
             "text": "Screen readers do not announce alternative text in electronic PDF documents"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "Automated validators check syntax (e.g. \"Is the /Alt key present and non-empty?\"). They cannot evaluate whether \"chart_v2.png\" provides meaningful content to a human listener."
       },
       {
@@ -745,11 +746,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A multi-column article whose reading order reads horizontally across columns"
+            "text": "A heading structure that skips numerically from an <H1> directly to an <H4>"
           },
           {
             "id": "B",
-            "text": "A heading structure that skips numerically from an <H1> directly to an <H4>"
+            "text": "A multi-column article whose reading order reads horizontally across the columns"
           },
           {
             "id": "C",
@@ -760,7 +761,7 @@ export const ADS_MODULES = [
             "text": "A missing document primary natural language identifier in metadata (xml:lang)"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "Automated validators verify that text is enclosed in tags, but cannot assess whether the logical reading order matches the human visual reading sequence across multi-column layouts."
       },
       {
@@ -769,22 +770,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "100% — modern AI accessibility algorithms have replaced human auditing tasks"
+            "text": "Over 95% � automated rule engines verify nearly every WCAG requirement except color aesthetics"
           },
           {
             "id": "B",
-            "text": "Less than 1% — automated software tools inspect basic file encryption keys"
-          },
-          {
-            "id": "C",
             "text": "Approximately 30% to 40% — the remainder requires human cognitive verification"
           },
           {
+            "id": "C",
+            "text": "100% — modern AI accessibility algorithms have replaced human auditing tasks"
+          },
+          {
             "id": "D",
-            "text": "Over 95% � automated rule engines verify nearly every WCAG requirement except color aesthetics"
+            "text": "Less than 1% — automated software tools inspect basic file encryption keys"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "Automated accessibility checkers catch roughly 25%�35% of WCAG criteria (syntactic rules like missing alt attributes or contrast ratios), while human evaluation is required for reading order, alt-text accuracy, keyboard traps, and cognitive clarity."
       }
     ]
@@ -835,11 +836,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Acrobat Table Editor (accessed via Table Cell Properties in TouchUp Reading Order)"
+            "text": "The Acrobat Edit PDF TouchUp tool designed for nudging individual glyphs on the visual canvas"
           },
           {
             "id": "B",
-            "text": "The Acrobat Edit PDF TouchUp tool designed for nudging individual glyphs on the visual canvas"
+            "text": "The Acrobat Table Editor (accessed via Table Cell Properties in TouchUp Reading Order)"
           },
           {
             "id": "C",
@@ -850,7 +851,7 @@ export const ADS_MODULES = [
             "text": "The Preflight Color Management panel configuring PDF/X print separations"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "The Acrobat Table Editor allows remediators to right-click individual table cells and set Table Cell Properties, including Header vs Data type, Scope, and Column/Row Span counts."
       },
       {
@@ -859,22 +860,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "They must be tagged as <H1> headings at the top and bottom of every single page"
+            "text": "Decorative headers must be flattened into 600 DPI raster background layers on each document page"
           },
           {
             "id": "B",
-            "text": "They must be deleted from the document, removing printed page numbers from view"
-          },
-          {
-            "id": "C",
             "text": "They must be marked as /Artifact so screen readers bypass repetitive header pagination"
           },
           {
+            "id": "C",
+            "text": "They must be tagged as <H1> headings at the top and bottom of every single page"
+          },
+          {
             "id": "D",
-            "text": "Decorative headers must be flattened into 600 DPI raster background layers on each document page"
+            "text": "They must be deleted from the document, removing printed page numbers from view"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "Running headers and footers are pagination furniture that disrupt text reading flow. Marking them as an /Artifact removes them from the screen reader speech stream while preserving print aesthetics."
       },
       {
@@ -883,22 +884,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Screen readers are technically incapable of launching internet web browser URLs"
-          },
-          {
-            "id": "B",
             "text": "The document author omitted a commercial Adobe Acrobat hyperlink encryption certificate key"
           },
           {
+            "id": "B",
+            "text": "The /Link annotation lacks an Object Reference (/OBJR) tag inside the <Link> tag"
+          },
+          {
             "id": "C",
-            "text": "Hyperlinks in PDF documents function when opened on macOS desktop viewers"
+            "text": "Screen readers are technically incapable of launching internet web browser URLs"
           },
           {
             "id": "D",
-            "text": "The /Link annotation lacks an Object Reference (/OBJR) tag inside the <Link> tag"
+            "text": "Hyperlinks in PDF documents function when opened on macOS desktop viewers"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "In PDF architecture, the visual text and the interactive link rectangle are distinct objects. Unless the link annotation is linked to the <Link> tag via an /OBJR tag, screen readers treat the text as plain un-clickable text."
       }
     ]
@@ -952,22 +953,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Ctrl + 4 (or Cmd + 4 on macOS) activating Acrobat Reflow single-column mode"
+            "text": "Pressing F12 to launch browser DOM inspector panels while viewing the PDF in a desktop reader"
           },
           {
             "id": "B",
-            "text": "Ctrl + Alt + Delete opening the Windows task management dialog window"
+            "text": "Ctrl + 4 (or Cmd + 4 on macOS) activating Acrobat Reflow single-column mode"
           },
           {
             "id": "C",
-            "text": "Pressing F12 to launch browser DOM inspector panels while viewing the PDF in a desktop reader"
+            "text": "Ctrl + Alt + Delete opening the Windows task management dialog window"
           },
           {
             "id": "D",
             "text": "Shift + Escape closing active background utility processes in the workspace"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "In Adobe Acrobat Pro, pressing Ctrl+4 (or Cmd+4 on macOS) activates Reflow mode (View -> Zoom -> Reflow), which linearizes tagged content into a single column."
       },
       {
@@ -980,18 +981,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Running Acrobat Accessibility Full Check with the Show Title flag disabled"
+            "text": "In Acrobat Properties (Ctrl+D) -> Initial View, set \"Show: Document Title\""
           },
           {
             "id": "C",
-            "text": "Re-tagging the root document catalog dictionary manually in the Preflight panel"
+            "text": "Running Acrobat Accessibility Full Check with the Show Title flag disabled"
           },
           {
             "id": "D",
-            "text": "In Acrobat Properties (Ctrl+D) -> Initial View, set \"Show: Document Title\""
+            "text": "Re-tagging the root document catalog dictionary manually in the Preflight panel"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "In Adobe Acrobat Pro, setting \"Show: Document Title\" under File > Properties > Initial View writes /DisplayDocTitle true into /ViewerPreferences (Matterhorn 07-001), whereas renaming the OS filename on disk or editing the Author/Subject fields does not change the window title bar behavior."
       },
       {
@@ -1000,7 +1001,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Delete the entire table and replace it with a raster screenshot of the cells"
+            "text": "Mute the screen reader audio synthesizer while stepping through the document with arrow keys"
           },
           {
             "id": "B",
@@ -1008,7 +1009,7 @@ export const ADS_MODULES = [
           },
           {
             "id": "C",
-            "text": "Mute the screen reader audio synthesizer while stepping through the document with arrow keys"
+            "text": "Delete the entire table and replace it with a raster screenshot of the cells"
           },
           {
             "id": "D",
@@ -1069,22 +1070,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The document visual font sizes must be enlarged to a minimum of 24pt bold"
-          },
-          {
-            "id": "B",
-            "text": "InDesign requires installing third-party Acrobat plugins to output tagged PDFs"
-          },
-          {
-            "id": "C",
             "text": "The document color space must be converted from RGB to CMYK before exporting tagged PDF files"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "The author must check \"Use for Tagging Order in Tagged PDF\" in the Articles panel menu"
+          },
+          {
+            "id": "C",
+            "text": "The document visual font sizes must be enlarged to a minimum of 24pt bold"
+          },
+          {
+            "id": "D",
+            "text": "InDesign requires installing third-party Acrobat plugins to output tagged PDFs"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "In Adobe InDesign, the Articles panel only controls PDF tag order if the option \"Use for Tagging Order in Tagged PDF\" is explicitly checked in the Articles panel flyout menu."
       },
       {
@@ -1097,18 +1098,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "It links frames into a unified story, ensuring cross-column text is read continuously"
+            "text": "It applies digital rights management encryption so end users cannot copy or print page text"
           },
           {
             "id": "C",
-            "text": "It applies digital rights management encryption so end users cannot copy or print page text"
+            "text": "It links frames into a unified story, ensuring cross-column text is read continuously"
           },
           {
             "id": "D",
             "text": "It compresses high-resolution raster images, shrinking the overall PDF file size"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Unthreaded text frames are treated as distinct independent content containers, causing screen readers and reflow mode (<Ctrl+4>) to fragment sentences that break across columns."
       },
       {
@@ -1117,7 +1118,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The chart is exported at the end of the page tag tree, detached from context"
+            "text": "The exported PDF fails to open in standard Adobe Acrobat viewer software"
           },
           {
             "id": "B",
@@ -1125,14 +1126,14 @@ export const ADS_MODULES = [
           },
           {
             "id": "C",
-            "text": "The exported PDF fails to open in standard Adobe Acrobat viewer software"
+            "text": "The chart is exported at the end of the page tag tree, detached from context"
           },
           {
             "id": "D",
             "text": "The graphic resolution is automatically compressed to 72 DPI monochrome bitmap"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "Floating unanchored objects are placed at the end of the page content stream or in arbitrary order based on visual z-index. Anchoring the graphic inline guarantees it appears adjacent to its textual reference in the reading order."
       }
     ]
@@ -1181,22 +1182,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The Tooltip property defined in the PDF form field properties dialog"
-          },
-          {
-            "id": "B",
             "text": "The underlying PostScript printer font encoding name embedded in PDF"
           },
           {
+            "id": "B",
+            "text": "The visual watermark text displayed behind the interactive signature line"
+          },
+          {
             "id": "C",
-            "text": "The default tab index number calculated by the authoring layout engine"
+            "text": "The Tooltip property defined in the PDF form field properties dialog"
           },
           {
             "id": "D",
-            "text": "The visual watermark text displayed behind the interactive signature line"
+            "text": "The default tab index number calculated by the authoring layout engine"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "In PDF forms, the Tooltip field property serves as the accessible name for assistive technology, matching the functional role of the HTML label element."
       },
       {
@@ -1209,18 +1210,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "The document tag tree was structured in horizontal visual lines instead of sequential columns"
+            "text": "Adobe Reader requires an automated third-party accessibility plugin to read columns"
           },
           {
             "id": "C",
-            "text": "Adobe Reader requires an automated third-party accessibility plugin to read columns"
+            "text": "The document tag tree was structured in horizontal visual lines instead of sequential columns"
           },
           {
             "id": "D",
             "text": "The operating system speech synthesizer encountered unsupported kerning ligatures"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Screen readers strictly follow the sequence of tags in the PDF tag tree; if authoring tools emit tags line-by-line horizontally rather than column-by-column, the reading flow is scrambled."
       },
       {
@@ -1229,11 +1230,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The screen reader speech synthesizer switches output voices to announce pixel coordinate bounds on the monitor"
+            "text": "The screen reader reads the total pixel dimensions of the surrounding page margins"
           },
           {
             "id": "B",
-            "text": "The screen reader reads the total pixel dimensions of the surrounding page margins"
+            "text": "The screen reader speech synthesizer switches output voices to announce pixel coordinate bounds on the monitor"
           },
           {
             "id": "C",
@@ -1293,7 +1294,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It eliminates the need for software engineers to write semantic HTML heading tags"
+            "text": "It automates the conversion of legacy scanned PDFs into EPUB 3 e-book packages"
           },
           {
             "id": "B",
@@ -1301,14 +1302,14 @@ export const ADS_MODULES = [
           },
           {
             "id": "C",
-            "text": "It restricts corporate document creation to monochrome desktop printers"
+            "text": "It prevents designers from creating collateral with inherently inaccessible color combinations"
           },
           {
             "id": "D",
-            "text": "It prevents designers from creating collateral with inherently inaccessible color combinations"
+            "text": "It restricts corporate document creation to monochrome desktop printers"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Baking minimum 4.5:1 text contrast into approved brand color palettes ensures that marketing and communication teams produce accessible designs by default."
       },
       {
@@ -1317,22 +1318,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Apply native Heading Styles (Heading 1 through Heading 6) in hierarchical order"
-          },
-          {
-            "id": "B",
             "text": "Enlarge body text font size and apply bold formatting with manual space breaks"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Insert text boxes positioned over paragraphs with high-contrast drop shadows"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Highlight section titles with yellow background fill colors in print layouts"
+          },
+          {
+            "id": "D",
+            "text": "Apply native Heading Styles (Heading 1 through Heading 6) in hierarchical order"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Native Heading Styles (Heading 1, 2, 3) carry semantic heading tags (`<H1>`, `<H2>`) into exported PDF tag trees, whereas manual bolding produces untagged body text."
       },
       {
@@ -1345,18 +1346,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Mark them as decorative or /Artifact so assistive tech bypasses them during reading"
+            "text": "Convert the separator graphic lines into hidden hyperlinks pointing to corporate landing pages and legal footers"
           },
           {
             "id": "C",
-            "text": "Assign the image title attribute as 'Separator graphic for visual spacing'"
+            "text": "Mark them as decorative or /Artifact so assistive tech bypasses them during reading"
           },
           {
             "id": "D",
-            "text": "Convert the separator graphic lines into hidden hyperlinks pointing to corporate landing pages and legal footers"
+            "text": "Assign the image title attribute as 'Separator graphic for visual spacing'"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Decorative elements that convey no information must be marked as decorative in authoring software or as /Artifact in PDF structures, preventing screen reader clutter."
       }
     ]
@@ -1405,22 +1406,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Union regulations prohibit mixing managerial and operational staff in training rooms"
+            "text": "Different roles use distinct authoring tools and have different compliance responsibilities"
           },
           {
             "id": "B",
-            "text": "Federal accessibility statutes mandate separate licensing for Word and InDesign users"
+            "text": "Union regulations prohibit mixing managerial and operational staff in training rooms"
           },
           {
             "id": "C",
-            "text": "Different roles use distinct authoring tools and have different compliance responsibilities"
+            "text": "Federal accessibility statutes mandate separate licensing for Word and InDesign users"
           },
           {
             "id": "D",
             "text": "Graphic designers are legally exempt from understanding digital document accessibility"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Content authors, designers, and procurement managers operate in different authoring environments and address distinct accessibility challenges, requiring tailored instruction."
       },
       {
@@ -1429,22 +1430,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Lecturing on the chronological history of international digital publishing treaty negotiations for several hours"
-          },
-          {
-            "id": "B",
             "text": "Requiring participants to memorize W3C success criteria numbering schemes"
           },
           {
+            "id": "B",
+            "text": "Lecturing on the chronological history of international digital publishing treaty negotiations for several hours"
+          },
+          {
             "id": "C",
-            "text": "Distributing printed copies of the ISO 14289 specification for home reading"
+            "text": "Hands-on remediation practice repairing intentionally defective sample documents"
           },
           {
             "id": "D",
-            "text": "Hands-on remediation practice repairing intentionally defective sample documents"
+            "text": "Distributing printed copies of the ISO 14289 specification for home reading"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Hands-on practice fixing realistic broken documents allows authors to apply software tools directly, building practical muscle memory and retention."
       },
       {
@@ -1453,22 +1454,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By measuring the reduction in accessibility checker errors across post-training documents"
-          },
-          {
-            "id": "B",
             "text": "By counting how many slides were reviewed during the workshop presentation"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "By conducting qualitative surveys asking whether attendees found the venue temperature and event refreshments enjoyable"
+          },
+          {
+            "id": "C",
+            "text": "By measuring the reduction in accessibility checker errors across post-training documents"
           },
           {
             "id": "D",
             "text": "By verifying that attendees downloaded the latest operating system update"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "Measuring the decrease in accessibility checker errors (in PAC or Word) in production documents created after training provides an objective metric of learning transfer."
       }
     ]
@@ -1517,22 +1518,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Templates prevent document creators from typing grammatical spelling errors into high-level executive summaries"
+            "text": "Templates allow Word documents to bypass Adobe Acrobat preflight validation tests"
           },
           {
             "id": "B",
-            "text": "Templates embed accessible styles, contrast, and layouts into files before authors begin writing"
+            "text": "Templates prevent document creators from typing grammatical spelling errors into high-level executive summaries"
           },
           {
             "id": "C",
-            "text": "Templates allow Word documents to bypass Adobe Acrobat preflight validation tests"
+            "text": "Templates embed accessible styles, contrast, and layouts into files before authors begin writing"
           },
           {
             "id": "D",
             "text": "Templates encrypt document metadata against unauthorized external viewing"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Pre-configured templates build in accessible color palettes, heading hierarchies, margins, and table styles, ensuring documents start compliant without requiring deep technical knowledge from authors."
       },
       {
@@ -1541,7 +1542,7 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "To issue disciplinary write-ups to colleagues who author untagged PDF files"
+            "text": "To approve third-party software vendor invoices for enterprise legal department audits"
           },
           {
             "id": "B",
@@ -1565,22 +1566,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It satisfies international human rights treaty reporting mandates across United Nations member jurisdiction panels"
-          },
-          {
-            "id": "B",
             "text": "It eliminates the need for software vendors to maintain accessible authoring tools"
           },
           {
+            "id": "B",
+            "text": "It satisfies international human rights treaty reporting mandates across United Nations member jurisdiction panels"
+          },
+          {
             "id": "C",
-            "text": "It restricts document authoring training to certified corporate executives"
+            "text": "It delivers immediate, just-in-time answers at the exact moment authors encounter barriers"
           },
           {
             "id": "D",
-            "text": "It delivers immediate, just-in-time answers at the exact moment authors encounter barriers"
+            "text": "It restricts document authoring training to certified corporate executives"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Micro-learning offers timely, focused problem-solving when authors are actively drafting documents, leading to higher engagement and immediate practical application."
       }
     ]
@@ -1629,22 +1630,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Acrobat Pro fixes are overwritten whenever the author updates the source and re-exports"
-          },
-          {
-            "id": "B",
             "text": "Adobe Acrobat Pro software licenses are restricted on enterprise workstations due to high annual operating costs"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Source authoring programs run faster encryption algorithms during document export"
+          },
+          {
+            "id": "C",
+            "text": "Acrobat Pro fixes are overwritten whenever the author updates the source and re-exports"
           },
           {
             "id": "D",
             "text": "PDF/UA standards require PDF documents to stay under 1 megabyte in size"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "Fixing accessibility in source documents (Word, InDesign) preserves structural tags across future revisions, whereas fixing only the exported PDF requires re-doing all tag edits upon re-export."
       },
       {
@@ -1657,7 +1658,7 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Passing automated validation (e.g. PAC) and certified manual assistive tech review"
+            "text": "Verification that the document uses twelve-point serif typography across every chapter"
           },
           {
             "id": "C",
@@ -1665,10 +1666,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Corporate communications departments must route every memorandum through external third-party testing consultants"
+            "text": "Passing automated validation (e.g. PAC) and certified manual assistive tech review"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Quality publication gates require both automated validation (zero PAC/Preflight errors) and manual review (logical reading order and alt text quality) before external publishing."
       },
       {
@@ -1677,22 +1678,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Assign full manual PDF remediation responsibilities to software database administrators during quarterly sprint reviews"
-          },
-          {
-            "id": "B",
             "text": "Remediate documents authored by department vice presidents and directors"
           },
           {
+            "id": "B",
+            "text": "Defer PDF remediations until the end of the annual accounting fiscal year"
+          },
+          {
             "id": "C",
-            "text": "Prioritize documents based on public audience reach, legal exposure, and core utility"
+            "text": "Assign full manual PDF remediation responsibilities to software database administrators during quarterly sprint reviews"
           },
           {
             "id": "D",
-            "text": "Defer PDF remediations until the end of the annual accounting fiscal year"
+            "text": "Prioritize documents based on public audience reach, legal exposure, and core utility"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "Risk-based triage prioritizes documents with high public visibility, regulatory impact, and essential transaction paths (e.g. healthcare forms, billing notices, public policies)."
       }
     ]
@@ -1745,18 +1746,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Document page count changes dynamically depending on the user's monitor size"
+            "text": "Remediation time is heavily driven by data table density, formula complexity, and graphics"
           },
           {
             "id": "C",
-            "text": "PDF/UA standards mandate that documents must feature an even number of pages"
+            "text": "Document page count changes dynamically depending on the user's monitor size"
           },
           {
             "id": "D",
-            "text": "Remediation time is heavily driven by data table density, formula complexity, and graphics"
+            "text": "PDF/UA standards mandate that documents must feature an even number of pages"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Complex elements like nested data tables, technical diagrams, and interactive forms require significantly more remediation time per page than continuous narrative prose."
       },
       {
@@ -1765,22 +1766,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Schedule remediation in parallel with editorial reviews once text content is locked"
-          },
-          {
-            "id": "B",
-            "text": "Wait until after print distribution has finished before beginning accessibility checks"
-          },
-          {
-            "id": "C",
             "text": "Convert corporate publications into plain text emails without formatting"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "Eliminate final proofreading reviews to reserve time for accessibility audits"
+          },
+          {
+            "id": "C",
+            "text": "Wait until after print distribution has finished before beginning accessibility checks"
+          },
+          {
+            "id": "D",
+            "text": "Schedule remediation in parallel with editorial reviews once text content is locked"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Scheduling accessibility remediation in parallel with final layout and editorial reviews prevents accessibility from becoming a last-minute barrier to launch."
       },
       {
@@ -1793,18 +1794,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Validated PDF/UA compliance reports (e.g. PAC) and sample assistive tech testing logs"
-          },
-          {
-            "id": "C",
             "text": "A promise that document text has been converted into high-resolution bitmap graphics"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "A statement asserting that the vendor executes proprietary automated repair scripts without manual review"
+          },
+          {
+            "id": "D",
+            "text": "Validated PDF/UA compliance reports (e.g. PAC) and sample assistive tech testing logs"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Requiring automated PDF/UA validation reports (PAC/Preflight) alongside manual screen reader verification logs holds vendors accountable to verifiable technical standards."
       }
     ]
@@ -1861,7 +1862,7 @@ export const ADS_MODULES = [
           },
           {
             "id": "C",
-            "text": "Update the server-side statement generation engine template to emit valid PDF/UA tags"
+            "text": "Update the server-side statement generation engine template to emit valid PDF/UA tag trees"
           },
           {
             "id": "D",
@@ -1877,15 +1878,15 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "International web standards prohibit backend Linux servers from generating dynamically compiled binary files"
-          },
-          {
-            "id": "B",
             "text": "Screen readers are technically incapable of rendering documents generated by Java"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Server operating systems lack the font libraries required for PDF/UA conformance"
+          },
+          {
+            "id": "C",
+            "text": "International web standards prohibit backend Linux servers from generating dynamically compiled binary files"
           },
           {
             "id": "D",
@@ -1901,22 +1902,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "By running command-line PDF validators (e.g. veraPDF) in automated CI/CD build tests"
-          },
-          {
-            "id": "B",
             "text": "By printing five sample documents and measuring paper thickness with calipers"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "By checking whether software database queries complete in time"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "By surveying customer service call logs three months after statement releases"
+          },
+          {
+            "id": "D",
+            "text": "By running command-line PDF validators (e.g. veraPDF) in automated CI/CD build tests"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Integrating command-line PDF validation tools into automated test suites evaluates generated artifacts during CI/CD, catching missing tags before deployment."
       }
     ]
@@ -1969,7 +1970,7 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Screen readers cannot navigate the formula's internal hierarchy or output Nemeth braille"
+            "text": "Vector mathematical fonts require dedicated graphics cards to render inside web browsers"
           },
           {
             "id": "C",
@@ -1977,10 +1978,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Mathematical symbols automatically trigger heuristic antivirus warnings inside enterprise desktop browser extensions"
+            "text": "Screen readers cannot navigate the formula's internal hierarchy or output Nemeth braille"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Equations as images prevent screen readers from navigating through fractions, exponents, and sub-expressions step-by-step, and cannot be converted to refreshable braille displays."
       },
       {
@@ -1989,22 +1990,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A single text string entered in the complex graphic properties dialog"
+            "text": "A short text summary of key trends paired with an accessible, properly tagged data table structure"
           },
           {
             "id": "B",
-            "text": "A prompt asking users with visual disabilities to email the CFO for a phone call"
+            "text": "A single text string entered in the complex graphic properties dialog"
           },
           {
             "id": "C",
-            "text": "A short text summary of key trends paired with an accessible, properly tagged data table structure"
+            "text": "A prompt asking users with visual disabilities to email the CFO for a phone call"
           },
           {
             "id": "D",
             "text": "A low-resolution thumbnail image linking to an uncompressed vector EPS file"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Dual presentation combines a concise narrative summary in body text with an accessible data table (`<TH>` headers), allowing all users to explore the data points comfortably."
       },
       {
@@ -2077,22 +2078,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Explicit technical standards, defined document scope, and measurable milestone dates"
-          },
-          {
-            "id": "B",
-            "text": "A catalog of employee residential addresses and personal computer hardware serial registration identifiers"
-          },
-          {
-            "id": "C",
             "text": "An agreement that the organization will publish documents written in English"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "A requirement that staff members must purchase personally owned screen reading tools"
+          },
+          {
+            "id": "C",
+            "text": "A catalog of employee residential addresses and personal computer hardware serial registration identifiers"
+          },
+          {
+            "id": "D",
+            "text": "Explicit technical standards, defined document scope, and measurable milestone dates"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Actionable governance requires stating specific technical benchmarks (WCAG 2.1 AA, PDF/UA), what documents are covered, and realistic deadlines for compliance."
       },
       {
@@ -2101,22 +2102,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Delete the entire archive immediately to prevent any potential legal exposure"
+            "text": "Convert the historical PDF repository into unindexed raster TIFF archive files"
           },
           {
             "id": "B",
-            "text": "A documented exception policy with on-demand remediation upon request within 48 hours"
-          },
-          {
-            "id": "C",
             "text": "Add a disclaimer stating that users with disabilities should avoid the website"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Delete the entire historical archive immediately to eliminate potential legal exposure from public records"
+          },
+          {
+            "id": "D",
+            "text": "A documented exception policy with on-demand remediation upon request within 48 hours"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "A formal exception policy paired with an accessible on-demand fulfillment procedure provides equally effective alternative access while the organization systematically remediates high-traffic legacy files."
       },
       {
@@ -2125,22 +2126,22 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Executives are required by law to personally audit every corporate document produced"
+            "text": "Executive signatures automatically exempt digital publications from federal procurement audits"
           },
           {
             "id": "B",
-            "text": "Executive officers are required by statutory law to inspect every corporate document produced across divisions"
+            "text": "Accessibility policies cannot take effect without approval from the United Nations"
           },
           {
             "id": "C",
-            "text": "Executive sponsorship allocates necessary budgets, tools, and cross-departmental accountability"
+            "text": "Executive officers are required by statutory law to inspect every corporate document produced across divisions"
           },
           {
             "id": "D",
-            "text": "Accessibility policies cannot take effect without approval from the United Nations"
+            "text": "Executive sponsorship allocates necessary budgets, tools, and cross-departmental accountability"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "Executive sponsorship secures necessary funding for tools and training, and holds business unit leaders accountable for document compliance across the organization."
       }
     ]
@@ -2193,18 +2194,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "PDF/UA applies to printed paper documents, whereas WCAG applies to digital PDFs"
+            "text": "PDF/UA defines specific technical PDF file requirements that harmonize with WCAG guidelines"
           },
           {
             "id": "C",
-            "text": "The two standards are mutually incompatible and cannot be achieved simultaneously"
+            "text": "PDF/UA applies to printed paper documents, whereas WCAG applies to digital PDFs"
           },
           {
             "id": "D",
-            "text": "PDF/UA defines specific technical PDF file requirements that harmonize with WCAG guidelines"
+            "text": "The two standards are mutually incompatible and cannot be achieved simultaneously"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "PDF/UA provides the exact technical file format rules (syntax, tagging, metadata) for implementing the broad functional accessibility principles of WCAG within PDF documents."
       },
       {
@@ -2213,11 +2214,11 @@ export const ADS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The vendor claims 100% 'Supports' across every criterion with no testing remarks or notes"
+            "text": "The vendor includes links to third-party screen reader audit recordings"
           },
           {
             "id": "B",
-            "text": "The vendor includes links to third-party screen reader audit recordings"
+            "text": "The report is signed by the vendor's chief accessibility engineering officer"
           },
           {
             "id": "C",
@@ -2225,10 +2226,10 @@ export const ADS_MODULES = [
           },
           {
             "id": "D",
-            "text": "The report is signed by the vendor's chief accessibility engineering officer"
+            "text": "The vendor claims 100% 'Supports' across every criterion with no testing remarks or notes"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "A VPAT that claims complete compliance across all criteria without providing testing remarks, software version numbers, or evaluation methodologies is typically unverified marketing copy."
       },
       {
@@ -2241,18 +2242,18 @@ export const ADS_MODULES = [
           },
           {
             "id": "B",
-            "text": "It must be accessible for authors with disabilities and support generating accessible output"
-          },
-          {
-            "id": "C",
             "text": "It must convert document text into spoken audio recordings upon saving files"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "It must restrict document authoring permissions to staff members holding professional accessibility certificates"
+          },
+          {
+            "id": "D",
+            "text": "It must be accessible for authors with disabilities and support generating accessible output"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "ATAG 2.0 Part A requires the authoring user interface to be accessible, while Part B requires the tool to enable and preserve the creation of accessible content."
       }
     ]

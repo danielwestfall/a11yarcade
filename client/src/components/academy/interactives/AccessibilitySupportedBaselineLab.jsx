@@ -173,7 +173,7 @@ export default function AccessibilitySupportedBaselineLab() {
           Step 2: Architecture Mitigation Strategies
         </legend>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-polyfill" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-polyfill"
@@ -190,7 +190,7 @@ export default function AccessibilitySupportedBaselineLab() {
             </span>
           </label>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+          <label htmlFor="chk-semantic" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
             <input
               type="checkbox"
               id="chk-semantic"

@@ -151,7 +151,7 @@ export default function CodeRemediationArchitectLab() {
         <legend style={{ color: 'var(--arcade-green)', fontWeight: 700, padding: '0 0.5rem', fontSize: '0.95rem' }}>
           Step 2: Agile Sprint Governance
         </legend>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+        <label htmlFor="chk-dod" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
           <input
             type="checkbox"
             id="chk-dod"

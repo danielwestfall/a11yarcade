@@ -277,10 +277,11 @@ export default function AssistiveTechSimulator() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
+            <label htmlFor="magnifier-zoom-slider" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
               Zoom Level: {zoomLevel}00%
-            </span>
+            </label>
             <input
+              id="magnifier-zoom-slider"
               type="range"
               min="2"
               max="5"

@@ -150,7 +150,7 @@ export default function A11yTrainingCurriculumLab() {
         <legend style={{ color: 'var(--arcade-yellow)', fontWeight: 700, padding: '0 0.5rem', fontSize: '0.95rem' }}>
           Step 2: Pedagogical Method Selection
         </legend>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
+        <label htmlFor="chk-hands-on" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minHeight: '44px', userSelect: 'none' }}>
           <input
             type="checkbox"
             id="chk-hands-on"

@@ -294,7 +294,6 @@ export default function BuiltEnvironmentBlueprintLab() {
                   <input
                     id="ramp-slope-slider"
                     type="range"
-                    aria-label="Ramp Slope Ratio (1 to X)"
                     min="6"
                     max="16"
                     step="1"
@@ -312,8 +311,9 @@ export default function BuiltEnvironmentBlueprintLab() {
               </div>
 
               <div>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
+                <label htmlFor="chk-resting-landing" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-primary)', cursor: 'pointer' }}>
                   <input
+                    id="chk-resting-landing"
                     type="checkbox"
                     checked={hasRestingLanding}
                     onChange={(e) => {
@@ -342,7 +342,6 @@ export default function BuiltEnvironmentBlueprintLab() {
                   <input
                     id="door-width-slider"
                     type="range"
-                    aria-label="Door Clear Opening Width in inches"
                     min="26"
                     max="38"
                     step="1"
@@ -359,10 +358,10 @@ export default function BuiltEnvironmentBlueprintLab() {
                 </div>
               </div>
 
-              <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.4rem' }}>
+              <div role="group" aria-labelledby="door-hw-heading">
+                <div id="door-hw-heading" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.4rem' }}>
                   Operable Door Hardware (ADAAG 404.2.7)
-                </label>
+                </div>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   <button
                     type="button"
@@ -424,7 +423,6 @@ export default function BuiltEnvironmentBlueprintLab() {
                   <input
                     id="turning-diameter-slider"
                     type="range"
-                    aria-label="Turning Space Diameter in inches"
                     min="42"
                     max="66"
                     step="2"
@@ -458,7 +456,6 @@ export default function BuiltEnvironmentBlueprintLab() {
                   <input
                     id="sign-height-slider"
                     type="range"
-                    aria-label="Mounting Height to Character Baseline in inches"
                     min="36"
                     max="72"
                     step="2"
@@ -475,10 +472,10 @@ export default function BuiltEnvironmentBlueprintLab() {
                 </div>
               </div>
 
-              <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.4rem' }}>
+              <div role="group" aria-labelledby="sign-placement-heading">
+                <div id="sign-placement-heading" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-primary)', display: 'block', marginBottom: '0.4rem' }}>
                   Sign Placement Location (ADAAG 703.4.2)
-                </label>
+                </div>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   <button
                     type="button"

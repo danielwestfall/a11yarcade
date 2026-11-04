@@ -293,7 +293,16 @@ export default function WcagPourPrinciplesLab() {
         <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
           Select WCAG Principle (POUR):
         </div>
-        <div role="tablist" aria-label="POUR Principles" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <div role="tablist" onKeyDown={(e) => {
+          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const tabs = Array.from(e.currentTarget.querySelectorAll('[role="tab"]'));
+          const idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : e.key === 'ArrowLeft' ? (idx - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : tabs.length - 1;
+          tabs[nextIdx]?.focus();
+          tabs[nextIdx]?.click();
+        }} aria-label="POUR Principles" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           {POUR_PRINCIPLES.map((p) => {
             const isSelected = p.id === selectedPrincipleId;
             const Icon = p.icon;

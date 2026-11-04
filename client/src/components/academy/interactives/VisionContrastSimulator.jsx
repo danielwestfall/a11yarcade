@@ -184,10 +184,10 @@ export default function VisionContrastSimulator() {
       </div>
 
       {/* Vision Mode Filter Tabs */}
-      <div>
-        <label style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'block' }}>
+      <div role="group" aria-labelledby="vision-condition-heading">
+        <div id="vision-condition-heading" style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', display: 'block' }}>
           Simulated Vision Condition:
-        </label>
+        </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
           {VISION_MODES.map(mode => {
             const isActive = visionMode === mode.id;

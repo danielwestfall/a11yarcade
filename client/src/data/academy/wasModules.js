@@ -1,3 +1,4 @@
+// IAAP WAS (Web Accessibility Specialist) Modules
 export const WAS_MODULES = [
   {
     "id": "mod-was-semantic-html",
@@ -43,22 +44,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A div rejects inline event attributes like onclick in modern Chromium engines"
-          },
-          {
-            "id": "B",
             "text": "A div is not naturally focusable and fails to fire on Enter/Space without script"
           },
           {
+            "id": "B",
+            "text": "A div rejects inline event attributes like onclick in modern Chromium engines"
+          },
+          {
             "id": "C",
-            "text": "Assistive tech ignores click handlers unless the label contains at least 5 letters"
+            "text": "HTML5 deprecated the onclick attribute in favor of CSS pointer-event pseudoclasses"
           },
           {
             "id": "D",
-            "text": "HTML5 deprecated the onclick attribute in favor of CSS pointer-event pseudoclasses"
+            "text": "Assistive technologies ignore click handlers unless the label contains at least 5 letters"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "A generic <div> is excluded from the sequential keyboard tab order and lacks built-in Space/Enter key activation, whereas browsers do not reject inline CSS on divs, assistive tech does not ignore text inside divs, and divs do not block mouse click events."
       },
       {
@@ -71,15 +72,15 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "<div class=\"filter-action\" onclick=\"openFilters()\">Filters</div> without keyboard support"
-          },
-          {
-            "id": "C",
             "text": "<a href=\"#\">Filters</a> navigating to a hash fragment at the top of the document"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "<span role=\"link\" tabindex=\"0\">Filters</span> styled as an interactive button control"
+          },
+          {
+            "id": "D",
+            "text": "<div class=\"filter-action\" onclick=\"openFilters()\">Filters</div> without keyboard support"
           }
         ],
         "answer": "A",
@@ -156,11 +157,11 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-live=\"assertive\" queues alerts politely until current speech finishes"
+            "text": "aria-live=\"polite\" waits until idle, while aria-live=\"assertive\" interrupts speech"
           },
           {
             "id": "B",
-            "text": "aria-live=\"polite\" waits until idle, while aria-live=\"assertive\" interrupts speech"
+            "text": "aria-live=\"assertive\" queues alerts politely until current speech finishes"
           },
           {
             "id": "C",
@@ -171,7 +172,7 @@ export const WAS_MODULES = [
             "text": "aria-live=\"assertive\" plays an auditory chime, whereas polite displays visual closed captions"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "aria-live=\"polite\" waits until the user pauses before speaking, whereas aria-live=\"assertive\" interrupts speech immediately for time-critical alerts; live regions control speech politeness rather than playing chime sounds or restricting support to mobile browsers."
       },
       {
@@ -188,11 +189,11 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "Restricting WAI-ARIA attributes to mobile responsive layouts and touchscreen device viewports"
+            "text": "Interactive elements must declare both aria-label and aria-describedby"
           },
           {
             "id": "D",
-            "text": "Interactive elements must declare both aria-label and aria-describedby"
+            "text": "Restricting WAI-ARIA attributes to mobile responsive layouts and touchscreen device viewports"
           }
         ],
         "answer": "A",
@@ -204,22 +205,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-pressed=\"true\" / \"false\" indicating the current state of a toggle button"
+            "text": "aria-expanded=\"true\" / \"false\" indicating whether the controlled panel is open"
           },
           {
             "id": "B",
-            "text": "aria-selected=\"true\" / \"false\" indicating the active tab inside a tablist widget"
+            "text": "aria-pressed=\"true\" / \"false\" indicating the current state of a toggle button"
           },
           {
             "id": "C",
-            "text": "aria-expanded=\"true\" / \"false\" indicating whether the controlled panel is open"
+            "text": "aria-selected=\"true\" / \"false\" indicating the active tab inside a tablist widget"
           },
           {
             "id": "D",
             "text": "aria-hidden=\"true\" / \"false\" removing the trigger button from the accessibility tree"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "aria-expanded=\"true\" or \"false\" on the accordion trigger button communicates to screen readers whether its associated disclosure panel is currently expanded or collapsed."
       }
     ]
@@ -269,7 +270,7 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The top of the web page body element, resetting keyboard scroll coordinates to zero"
+            "text": "The trigger element (button or link) that originally invoked the modal dialog"
           },
           {
             "id": "B",
@@ -281,10 +282,10 @@ export const WAS_MODULES = [
           },
           {
             "id": "D",
-            "text": "The trigger element (button or link) that originally invoked the modal dialog"
+            "text": "The top of the web page body element, resetting keyboard scroll coordinates to zero"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "When a modal dialog closes, focus must return to the invoking trigger button so keyboard users keep their place, rather than resetting scroll position to the top of the document, moving focus to the browser address omnibox, or leaving focus on an unmounted node."
       },
       {
@@ -293,22 +294,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The interactive element is removed from the accessibility tree and hidden from screen readers"
-          },
-          {
-            "id": "B",
             "text": "The element leaves sequential Tab order, but can receive focus via script .focus()"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "The element is prevented from receiving keyboard or programmatic script focus"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "The element is placed first in the sequential Tab navigation order on page load"
+          },
+          {
+            "id": "D",
+            "text": "The interactive element is removed from the accessibility tree and hidden from screen readers"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "`tabindex=\"-1\"` removes an element from sequential keyboard navigation while keeping it eligible for programmatic focus (e.g. error messages, modal containers)."
       },
       {
@@ -382,22 +383,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "12×12 CSS pixels (or 24×24 CSS pixels with tight circular inline margins)"
-          },
-          {
-            "id": "B",
             "text": "24×24 CSS pixels (or an equivalent spacing offset ensuring 24px diameter clearance)"
           },
           {
+            "id": "B",
+            "text": "12×12 CSS pixels (or 24×24 CSS pixels with tight circular inline margins)"
+          },
+          {
             "id": "C",
-            "text": "44�44 CSS pixels (required for Level AA interactive controls on mobile touchscreen viewports)"
+            "text": "48×48 CSS pixels (recommended under legacy mobile Android design guidelines)"
           },
           {
             "id": "D",
-            "text": "48×48 CSS pixels (recommended under legacy mobile Android design guidelines)"
+            "text": "44�44 CSS pixels (required for Level AA interactive controls on mobile touchscreen viewports)"
           }
         ],
-        "answer": "B",
+        "answer": "A",
         "explanation": "WCAG 2.2 SC 2.5.8 requires at least 24×24 CSS pixels for Level AA (while Level AAA SC 2.5.5 Target Size Enhanced recommends 44×44 CSS pixels)."
       },
       {
@@ -406,22 +407,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Provide single-pointer click alternatives (e.g. Move Left/Right buttons or menus)"
-          },
-          {
-            "id": "B",
-            "text": "Remove drag-and-drop and require users to type column names in a standard text field"
-          },
-          {
-            "id": "C",
             "text": "Play an auditory confirmation sound effect whenever a card drag movement starts"
           },
           {
-            "id": "D",
+            "id": "B",
+            "text": "Provide single-pointer click alternatives (e.g. Move Left/Right buttons or menus)"
+          },
+          {
+            "id": "C",
             "text": "Increase the required pointer drag distance to prevent accidental card movements"
+          },
+          {
+            "id": "D",
+            "text": "Remove drag-and-drop and require users to type column names in a standard text field"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "SC 2.5.7 requires that any functionality achievable via dragging can also be operated using single pointer clicks/taps without sustained movement."
       },
       {
@@ -430,22 +431,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "SC 4.1.1 was updated to require strict XML schema validation across web pages"
-          },
-          {
-            "id": "B",
             "text": "SC 4.1.1 was elevated from Level A to Level AAA conformance for mission-critical web portals"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "SC 4.1.1 was marked obsolete and removed because modern browsers handle parsing"
+          },
+          {
+            "id": "C",
+            "text": "SC 4.1.1 was updated to require strict XML schema validation across web pages"
           },
           {
             "id": "D",
             "text": "SC 4.1.1 was renamed to \"Consistent Identification and Accessible Naming\""
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "SC 4.1.1 Parsing was obsoleted in WCAG 2.2 because modern browser HTML parsers handle missing end tags and duplicate attributes predictably in DOM construction."
       }
     ]
@@ -490,11 +491,11 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Arrow keys (Left/Right or Up/Down) move focus, while Tab moves out to the tabpanel"
+            "text": "The Tab key moves focus through every individual tab button before entering the active tabpanel"
           },
           {
             "id": "B",
-            "text": "The Tab key moves focus through every individual tab button before entering the active tabpanel"
+            "text": "Arrow keys (Left/Right or Up/Down) move focus, while Tab moves out to the tabpanel"
           },
           {
             "id": "C",
@@ -505,7 +506,7 @@ export const WAS_MODULES = [
             "text": "Mouse hover is mandatory to activate tab selection; keyboard operation is optional"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "In the standard APG Tabs pattern, the Tab key enters/exits the tablist, while Arrow keys navigate between individual tabs without cluttering sequential tab stops."
       },
       {
@@ -514,22 +515,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "tabindex=\"0\" placing every inactive tab into the sequential keyboard Tab order"
+            "text": "tabindex=\"auto\" delegating tablist focus management to browser default heuristics"
           },
           {
             "id": "B",
-            "text": "tabindex=\"1\" forcing inactive tabs ahead of document header links in Tab order"
-          },
-          {
-            "id": "C",
             "text": "tabindex=\"-1\" removing inactive tabs from Tab order while allowing arrow focus"
           },
           {
+            "id": "C",
+            "text": "tabindex=\"0\" placing every inactive tab into the sequential keyboard Tab order"
+          },
+          {
             "id": "D",
-            "text": "tabindex=\"auto\" delegating tablist focus management to browser default heuristics"
+            "text": "tabindex=\"1\" forcing inactive tabs ahead of document header links in Tab order"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "Under the WAI-ARIA APG roving tabindex pattern, unselected tabs receive tabindex=\"-1\" so Tab skips past them into the active tabpanel while Left/Right Arrow keys call .focus() programmatically."
       },
       {
@@ -538,22 +539,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-labelledby=\"panel-id\" overriding the accessible name of the tab button itself"
-          },
-          {
-            "id": "B",
             "text": "aria-owns=\"panel-id\" rearranging the parent-child hierarchy in the accessibility tree"
           },
           {
+            "id": "B",
+            "text": "aria-controls=\"panel-id\" referencing the DOM id of the associated tabpanel element"
+          },
+          {
             "id": "C",
-            "text": "aria-current=\"page\" indicating the active navigation link within a site breadcrumb"
+            "text": "aria-labelledby=\"panel-id\" overriding the accessible name of the tab button itself"
           },
           {
             "id": "D",
-            "text": "aria-controls=\"panel-id\" referencing the DOM id of the associated tabpanel element"
+            "text": "aria-current=\"page\" indicating the active navigation link within a site breadcrumb"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "aria-controls on each <button role=\"tab\"> points to the id of the corresponding <div role=\"tabpanel\"> that the tab activates."
       }
     ]
@@ -602,18 +603,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "A secondary paragraph in the footer exhibits a 4.2:1 contrast ratio instead of 4.5:1"
+            "text": "A modal dialog traps keyboard focus, preventing users from exiting or navigating"
           },
           {
             "id": "C",
-            "text": "A modal dialog traps keyboard focus, preventing users from exiting or navigating"
+            "text": "A secondary paragraph in the footer exhibits a 4.2:1 contrast ratio instead of 4.5:1"
           },
           {
             "id": "D",
             "text": "A multi-item bulleted list is coded visually using raw paragraphs instead of <ul>"
           }
         ],
-        "answer": "C",
+        "answer": "B",
         "explanation": "Keyboard focus traps are severe blockers (violating SC 2.1.2) that completely strand keyboard-only and screen reader users with no exit path."
       },
       {
@@ -626,18 +627,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Automated testing tools cannot parse or evaluate Level A success criteria"
+            "text": "A minor Level A flaw has far less user impact than a Level AA flaw blocking checkout"
           },
           {
             "id": "C",
-            "text": "WCAG conformance levels are re-indexed and altered every month by the W3C"
+            "text": "Automated testing tools cannot parse or evaluate Level A success criteria"
           },
           {
             "id": "D",
-            "text": "A minor Level A flaw has far less user impact than a Level AA flaw blocking checkout"
+            "text": "WCAG conformance levels are re-indexed and altered every month by the W3C"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Conformity levels reflect technical applicability and consensus, not business criticality. Real-world prioritization must weigh user impact and task completion."
       },
       {
@@ -646,7 +647,7 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It triggers immediate physical health hazards like photosensitive seizures"
+            "text": "It impacts end users running legacy desktop operating systems released prior to Windows XP"
           },
           {
             "id": "B",
@@ -654,11 +655,11 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "It represents an editorial typo in an organization's public privacy policy page"
+            "text": "It triggers immediate physical health hazards like photosensitive seizures"
           },
           {
             "id": "D",
-            "text": "It impacts end users running legacy desktop operating systems released prior to Windows XP"
+            "text": "It represents an editorial typo in an organization's public privacy policy page"
           }
         ],
         "answer": "B",
@@ -712,22 +713,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Single page applications cannot render semantic HTML tags within virtual DOM nodes"
-          },
-          {
-            "id": "B",
             "text": "Client-side routing libraries disable ARIA live region announcements inside virtual DOM trees"
           },
           {
+            "id": "B",
+            "text": "Client-side routing bypasses native page reloads, leaving focus stranded and AT silent"
+          },
+          {
             "id": "C",
-            "text": "JavaScript execution is fundamentally unparsed by screen reader virtual buffers"
+            "text": "Single page applications cannot render semantic HTML tags within virtual DOM nodes"
           },
           {
             "id": "D",
-            "text": "Client-side routing bypasses native page reloads, leaving focus stranded and AT silent"
+            "text": "JavaScript execution is fundamentally unparsed by screen reader virtual buffers"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Client-side SPA routers update the view via history.pushState without a browser page reload, leaving keyboard focus stranded and screen readers silent unless managed, rather than blocking semantic HTML in virtual DOMs or halting JavaScript execution in screen reader buffers."
       },
       {
@@ -736,7 +737,7 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It permanently prevents the heading from ever receiving programmatic focus via script"
+            "text": "It converts the static heading into an interactive button in the browser accessibility tree"
           },
           {
             "id": "B",
@@ -744,7 +745,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "It converts the static heading into an interactive button in the browser accessibility tree"
+            "text": "It permanently prevents the heading from ever receiving programmatic focus via script"
           },
           {
             "id": "D",
@@ -760,11 +761,11 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "aria-live=\"polite\" aria-atomic=\"true\" to announce the new page title without cutting speech"
+            "text": "aria-live=\"assertive\" aria-atomic=\"false\" to immediately interrupt ongoing audio"
           },
           {
             "id": "B",
-            "text": "aria-live=\"assertive\" aria-atomic=\"false\" to immediately interrupt ongoing audio"
+            "text": "aria-live=\"polite\" aria-atomic=\"true\" to announce the new page title without cutting speech"
           },
           {
             "id": "C",
@@ -775,7 +776,7 @@ export const WAS_MODULES = [
             "text": "aria-hidden=\"true\" to hide the route announcer from assistive technologies"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "aria-live=\"polite\" queues the route change notification so it does not rudely interrupt ongoing speech, and aria-atomic=\"true\" ensures the entire announcement is read as a complete unit."
       }
     ]
@@ -826,7 +827,7 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "To minimize hourly consulting fees billed to commercial enterprise clients during site reviews"
+            "text": "Because screen readers parse URLs generated through randomized seed lists"
           },
           {
             "id": "B",
@@ -834,7 +835,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "Because screen readers parse URLs generated through randomized seed lists"
+            "text": "To minimize hourly consulting fees billed to commercial enterprise clients during site reviews"
           },
           {
             "id": "D",
@@ -862,7 +863,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Overall conformance defaults to Level AAA for the individual steps that pass technical checks"
+            "text": "Overall conformance defaults to Level AAA for the steps that pass technical checks"
           }
         ],
         "answer": "A",
@@ -878,7 +879,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Identify Barriers, Isolate Code, Refactor DOM, Retest Components, Certification"
+            "text": "Vendor Procurement, Gap Analysis, Staff Training, Remediation, Litigation Defense"
           },
           {
             "id": "C",
@@ -886,7 +887,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Vendor Procurement, Gap Analysis, Staff Training, Remediation, Litigation Defense"
+            "text": "Identify Barriers, Isolate Code, Refactor DOM, Retest Components, Certification"
           }
         ],
         "answer": "C",
@@ -940,22 +941,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A VPAT is the blank reporting template; an ACR is the completed product conformance report"
-          },
-          {
-            "id": "B",
             "text": "A VPAT evaluates physical hardware, whereas an ACR is used for cloud software"
           },
           {
+            "id": "B",
+            "text": "A VPAT is the blank reporting template; an ACR is the completed product conformance report"
+          },
+          {
             "id": "C",
-            "text": "A VPAT is legally binding under federal law, while an ACR is an informal marketing document"
+            "text": "A VPAT is legally binding under federal law, while an ACR is an informal brochure"
           },
           {
             "id": "D",
             "text": "An ACR is authored independently by government compliance review inspectors"
           }
         ],
-        "answer": "A",
+        "answer": "B",
         "explanation": "ITI publishes the blank VPAT template; once an organization fills it out with product-specific audit findings, it becomes an Accessibility Conformance Report (ACR)."
       },
       {
@@ -996,14 +997,14 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "To prevent employees from utilizing third-party screen magnification utilities"
+            "text": "To legally obligate the vendor to remediate newly discovered barriers within 30 days"
           },
           {
             "id": "D",
-            "text": "To legally obligate the vendor to remediate newly discovered barriers within 30 days"
+            "text": "To prevent employees from utilizing third-party screen magnification utilities"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Contractual procurement clauses should mandate an independent audit roadmap with binding remediation milestones before deployment, rather than accepting a vendor VPAT at face value without verification or granting indefinite waivers for customer-facing barriers."
       }
     ]
@@ -1062,14 +1063,14 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "To provide unambiguous test definitions so tools and auditors evaluate criteria consistently"
+            "text": "To replace manual assistive tech testing with deterministic source-code analysis"
           },
           {
             "id": "D",
-            "text": "To replace manual assistive technology testing with deterministic static source-code analysis"
+            "text": "To provide unambiguous test definitions so tools and auditors evaluate criteria consistently"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "The W3C ACT Rules Format standardizes testing procedures across different software engines (like axe-core, QualWeb, ARC) so that compliance determinations are consistent and reproducible."
       },
       {
@@ -1078,11 +1079,11 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Applicability (defining the specific target DOM elements and testing conditions)"
+            "text": "Applicability (defining the exact target DOM elements and rule evaluation conditions)"
           },
           {
             "id": "B",
-            "text": "Expectations (stating the invariant assertions that applicable targets must pass)"
+            "text": "Expectations (stating the invariant assertions that applicable targets pass)"
           },
           {
             "id": "C",
@@ -1102,22 +1103,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated accessibility linters cannot execute inside containerized Linux CI/CD build pipelines"
+            "text": "Automated accessibility testing in CI/CD is prohibited under Section 508 rules"
           },
           {
             "id": "B",
-            "text": "Automated tools catch deterministic syntax (~30-40%), leaving contextual usability to humans"
+            "text": "Automated accessibility linters cannot execute inside containerized Linux CI/CD build pipelines"
           },
           {
             "id": "C",
-            "text": "Automated accessibility testing in CI/CD is prohibited under Section 508 rules"
+            "text": "Automated tools catch deterministic syntax (~30-40%), leaving contextual usability to humans"
           },
           {
             "id": "D",
             "text": "Screen readers automatically crash if automated linters execute during page loads"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Automated engines easily evaluate deterministic rules (like contrast ratios and missing labels), but cannot evaluate semantic validity, reading order flow, or manual assistive technology compatibility."
       }
     ]
@@ -1175,18 +1176,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "The spreadsheet uses role=\"presentation\" which strips keyboard coordinate listeners"
-          },
-          {
-            "id": "C",
             "text": "The operating system speech-to-text dictation engine is intercepting directional arrow keystrokes"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "NVDA is in Browse Mode, reading document text rather than passing keys in Focus Mode"
+          },
+          {
+            "id": "D",
+            "text": "The spreadsheet uses role=\"presentation\" which strips keyboard coordinate listeners"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "When NVDA is in Browse Mode, arrow keys navigate the virtual document buffer line-by-line or word-by-word; interactive grid widgets require switching to Focus/Application Mode so keystrokes pass through to JavaScript listeners, unrelated to 60Hz monitor refresh rates or OS speech dictation."
       },
       {
@@ -1199,18 +1200,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "The developer tears down and re-creates the entire live region DOM node on search"
+            "text": "VoiceOver on macOS Safari ignores polite regions and announces aria-live=\"assertive\" updates"
           },
           {
             "id": "C",
-            "text": "VoiceOver on macOS Safari ignores polite regions and announces aria-live=\"assertive\" updates"
+            "text": "The developer tears down and re-creates the entire live region DOM node on search"
           },
           {
             "id": "D",
             "text": "The search input control is coded as an HTML5 <input type=\"search\"> element"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "In WebKit/VoiceOver, replacing a DOM element that contains aria-live triggers both a node insertion utterance and a live region text change utterance. To avoid duplicate speech, keep the live region container permanently in the DOM and mutate only its text content."
       },
       {
@@ -1219,22 +1220,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Apple NSAccessibility on macOS (and UIAccessibility on iOS and iPadOS devices)"
-          },
-          {
-            "id": "B",
             "text": "Microsoft UI Automation (UIA) and legacy MSAA/IAccessible2 on Windows desktops"
           },
           {
+            "id": "B",
+            "text": "Android AccessibilityService APIs powering TalkBack on mobile touchscreen phones"
+          },
+          {
             "id": "C",
-            "text": "GNOME ATK and AT-SPI2 inter-process communication buses on Linux distributions"
+            "text": "Apple NSAccessibility on macOS (and UIAccessibility on iOS and iPadOS devices)"
           },
           {
             "id": "D",
-            "text": "Android AccessibilityService APIs powering TalkBack on mobile touchscreen phones"
+            "text": "GNOME ATK and AT-SPI2 inter-process communication buses on Linux distributions"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "On macOS, Safari and native desktop applications expose accessibility tree semantics to VoiceOver through Apple's NSAccessibility API (and UIAccessibility on iOS/iPadOS)."
       }
     ]
@@ -1292,7 +1293,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Speech recognition users saying \"Click Search\" fail because the name omits \"Search\""
+            "text": "Speech recognition users saying \"Click Search\" fail because the accessible name omits \"Search\""
           },
           {
             "id": "C",
@@ -1312,7 +1313,7 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It lets switch users jump past repetitive header links without waiting through scan cycles"
+            "text": "It automatically disables third-party JavaScript tracking scripts on the web page"
           },
           {
             "id": "B",
@@ -1320,14 +1321,14 @@ export const WAS_MODULES = [
           },
           {
             "id": "C",
-            "text": "It automatically disables third-party JavaScript tracking scripts on the web page"
+            "text": "It lets switch users jump past repetitive header links without waiting through scan cycles"
           },
           {
             "id": "D",
             "text": "It converts the web page into an automated synthesized podcast stream on load"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "Single-switch users wait for an auto-scan highlight to step through interactive controls sequentially; a \"Skip to Main Content\" link (WCAG 2.4.1) lets them bypass dozens of header navigation items on the first scan step."
       },
       {
@@ -1340,7 +1341,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "To minimize stylesheet download sizes across low-bandwidth mobile connections"
+            "text": "To instruct mobile WebKit and Blink layout engines to apply hardware-accelerated touch styling"
           },
           {
             "id": "C",
@@ -1348,7 +1349,7 @@ export const WAS_MODULES = [
           },
           {
             "id": "D",
-            "text": "To instruct mobile WebKit and Blink layout engines to apply hardware-accelerated touch styling"
+            "text": "To minimize stylesheet download sizes across low-bandwidth mobile connections"
           }
         ],
         "answer": "C",
@@ -1404,18 +1405,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "When supported by users' assistive technologies and user agents in baseline"
+            "text": "When bundled with automated polyfills downloaded by modern Chromium browsers"
           },
           {
             "id": "C",
-            "text": "When bundled with automated polyfills downloaded by modern Chromium browsers"
+            "text": "When supported by users' assistive technologies and user agents in the baseline"
           },
           {
             "id": "D",
             "text": "When designated as an ECMAScript Stage 4 standard feature by TC39 committee"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "WCAG Conformance Requirement 4 specifies that technologies relied upon must interoperate with both user agents and assistive technologies in the defined baseline."
       },
       {
@@ -1424,22 +1425,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The page fails conformance because the feature is unsupported across the baseline"
-          },
-          {
-            "id": "B",
             "text": "The page conforms because Chrome represents the majority global browser share"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "The page conforms if an automated overlay script injects assistive ARIA nodes"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "The page passes because WCAG allows vendor-specific single-browser baselines"
+          },
+          {
+            "id": "D",
+            "text": "The page fails conformance because the feature is unsupported across the baseline"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "If content relies on a technology that is not supported across the designated organizational baseline, the content fails conformance."
       },
       {
@@ -1448,22 +1449,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "They must be rendered in hidden iframes invisible to search engine crawlers and web bots"
+            "text": "They must be converted into raster images accompanied by longdesc links"
           },
           {
             "id": "B",
-            "text": "They must not trap keyboard focus, flash excessively, or play unpausable audio"
+            "text": "They must be rendered in hidden iframes invisible to search engine crawlers and web bots"
           },
           {
             "id": "C",
-            "text": "They must be converted into raster images accompanied by longdesc links"
+            "text": "They must not trap keyboard focus, flash excessively, or play unpausable audio"
           },
           {
             "id": "D",
             "text": "They must be disabled automatically whenever mobile viewports are detected"
           }
         ],
-        "answer": "B",
+        "answer": "C",
         "explanation": "Non-interference mandates that unsupported content must never cause keyboard traps (SC 2.1.2), hazardous flashing (SC 2.3.1), or unpausable background audio (SC 1.4.2)."
       }
     ]
@@ -1512,11 +1513,11 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Google Chrome running with accessibility developer extensions enabled on desktop"
+            "text": "Mozilla Firefox running in high-contrast gecko compatibility mode"
           },
           {
             "id": "B",
-            "text": "Mozilla Firefox running in high-contrast gecko compatibility mode"
+            "text": "Google Chrome running with accessibility developer extensions enabled on desktop"
           },
           {
             "id": "C",
@@ -1536,22 +1537,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "CSS order properties automatically disable keyboard focus on interactive links"
-          },
-          {
-            "id": "B",
             "text": "Assistive tech rotors skip elements styled with modern flexbox declarations"
           },
           {
+            "id": "B",
+            "text": "CSS order properties automatically disable keyboard focus on interactive links"
+          },
+          {
             "id": "C",
-            "text": "Chromium engines suppress speech synthesis whenever order tags are detected"
+            "text": "Screen readers linearize the DOM tree, creating a mismatch with visual order"
           },
           {
             "id": "D",
-            "text": "Screen readers linearize the DOM tree, creating a mismatch with visual order"
+            "text": "Chromium engines suppress speech synthesis whenever order tags are detected"
           }
         ],
-        "answer": "D",
+        "answer": "C",
         "explanation": "Screen readers follow the structural DOM sequence rather than visual CSS ordering, creating confusion when visual focus jumps counter to the linear reading flow."
       },
       {
@@ -1560,15 +1561,15 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The synthesizer increases speech pitch and temporarily mutes audio description tracks"
-          },
-          {
-            "id": "B",
             "text": "The browser reloads the DOM tree in a simplified high-contrast view"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "The operating system accessibility API restricts focus to native button nodes"
+          },
+          {
+            "id": "C",
+            "text": "The synthesizer increases speech pitch and temporarily mutes audio description tracks"
           },
           {
             "id": "D",
@@ -1624,22 +1625,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Whether an image element in the DOM lacks an alt attribute in its markup"
-          },
-          {
-            "id": "B",
-            "text": "Whether alternative text accurately conveys the emotional intent of a photograph"
-          },
-          {
-            "id": "C",
             "text": "Whether a custom multi-step form possesses a logical and intuitive tab order"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "Whether synthesized error announcements sound clear to cognitive users"
+          },
+          {
+            "id": "C",
+            "text": "Whether alternative text accurately conveys the emotional intent of a photograph"
+          },
+          {
+            "id": "D",
+            "text": "Whether an image element in the DOM lacks an alt attribute in its markup"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Automated linters can deterministically check for the presence of the alt attribute in markup, whereas assessing alt text accuracy or reading order requires human cognitive evaluation."
       },
       {
@@ -1672,22 +1673,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Confirm full compliance if the axe-core ruleset was configured in strict mode"
+            "text": "Advise that automated tools evaluate 30-40% of criteria, requiring manual AT audits"
           },
           {
             "id": "B",
-            "text": "Approve the build provided the application passes Lighthouse performance scores"
+            "text": "Confirm full compliance if the axe-core ruleset was configured in strict mode"
           },
           {
             "id": "C",
-            "text": "Advise that automated tools evaluate 30-40% of criteria, requiring manual audits"
+            "text": "Approve the build provided the application passes Lighthouse performance scores"
           },
           {
             "id": "D",
             "text": "Demand that the team switch to a proprietary scanner with machine learning models"
           }
         ],
-        "answer": "C",
+        "answer": "A",
         "explanation": "Automated testing catches roughly one-third of accessibility issues; critical requirements like keyboard traps, alt text accuracy, and logical focus sequence require manual verification."
       }
     ]
@@ -1736,22 +1737,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A screen reader user navigating with an electronic refreshable braille display terminal"
-          },
-          {
-            "id": "B",
             "text": "A keyboard user pressing the standard Tab key to move through document links"
           },
           {
+            "id": "B",
+            "text": "A deaf user relying on closed captions during pre-recorded training videos"
+          },
+          {
             "id": "C",
-            "text": "A speech recognition user speaking 'Click Submit Application' to trigger the button"
+            "text": "A screen reader user navigating with an electronic refreshable braille display terminal"
           },
           {
             "id": "D",
-            "text": "A deaf user relying on closed captions during pre-recorded training videos"
+            "text": "A speech recognition user speaking 'Click Submit Application' to trigger the button"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "WCAG 2.5.3 (Label in Name) ensures speech recognition users can speak the visible text label to activate controls; when the accessible name fails to contain the visible label, voice targeting fails."
       },
       {
@@ -1764,18 +1765,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Secondary layout sidebars must be removed and converted into downloadable PDFs"
+            "text": "Content must reflow into a single column without requiring two-dimensional scrolling"
           },
           {
             "id": "C",
-            "text": "Typography must automatically scale down to 10px to preserve horizontal margins"
+            "text": "Secondary layout sidebars must be removed and converted into downloadable PDFs"
           },
           {
             "id": "D",
-            "text": "Content must reflow into a single column without requiring two-dimensional scrolling"
+            "text": "Typography must automatically scale down to 10px to preserve horizontal margins"
           }
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "Reflow mandates that content can be viewed without loss of information and without requiring scrolling in two dimensions (horizontal and vertical) at 320 CSS pixels wide."
       },
       {
@@ -1784,22 +1785,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Switch software disconnects automatically if more than twenty interface items are scanned sequentially"
-          },
-          {
-            "id": "B",
-            "text": "The user must wait through sequential scanning of every link before reaching main content"
-          },
-          {
-            "id": "C",
             "text": "Switch hardware requires manual battery resets whenever complex tables load"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "Operating systems prevent switch activation on pages lacking semantic footer tags"
+          },
+          {
+            "id": "C",
+            "text": "Switch software disconnects automatically if more than twenty interface items are scanned sequentially"
+          },
+          {
+            "id": "D",
+            "text": "The user must wait through sequential scanning of every link before reaching main content"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Switch scanning moves sequentially through focusable elements; without skip links or landmarks to bypass repetitive headers and navigation menus, users face substantial physical fatigue."
       }
     ]
@@ -1848,22 +1849,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "A small group of participants cannot cover the full spectrum of assistive technologies"
-          },
-          {
-            "id": "B",
             "text": "Participants with disabilities are legally prohibited from inspecting source HTML"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Automated regulatory reporting tools reject qualitative observational study data"
+          },
+          {
+            "id": "C",
+            "text": "A small group of participants cannot cover the full spectrum of assistive technologies"
           },
           {
             "id": "D",
             "text": "Usability testing evaluates visual branding rather than functional interactions"
           }
         ],
-        "answer": "A",
+        "answer": "C",
         "explanation": "Usability testing reveals functional barriers within specific task flows, but cannot verify every normative WCAG criterion across all platform and assistive technology combinations."
       },
       {
@@ -1876,18 +1877,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Providing pre-configured standardized laptops rather than their personal devices"
+            "text": "Mandating that participants sign waivers forfeiting intellectual property claims"
           },
           {
             "id": "C",
-            "text": "Compensating participants equitably at professional consultation market rates"
+            "text": "Providing pre-configured standardized lab laptops rather than their personal AT devices"
           },
           {
             "id": "D",
-            "text": "Mandating that participants sign waivers forfeiting intellectual property claims"
+            "text": "Compensating participants equitably at professional consultation market rates"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "Ethical research mandates equitable compensation recognizing participants' specialized expertise and lived experience, while allowing them to use their familiar personal assistive technology setups."
       },
       {
@@ -1900,11 +1901,11 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "Instruct the participant to switch their screen reader settings to verbosity level 1"
+            "text": "Terminate the test session and log the participant as an unqualified test candidate"
           },
           {
             "id": "C",
-            "text": "Terminate the test session and log the participant as an unqualified test candidate"
+            "text": "Instruct the participant to switch their screen reader settings to verbosity level 1"
           },
           {
             "id": "D",
@@ -1960,22 +1961,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "The visible text content enclosed between the element's start and end tags"
-          },
-          {
-            "id": "B",
-            "text": "The aria-labelledby attribute referencing valid ID tokens in the document"
-          },
-          {
-            "id": "C",
             "text": "The title attribute authored on the element or its parent container"
           },
           {
-            "id": "D",
+            "id": "B",
             "text": "The placeholder attribute authored inside the interactive input element"
+          },
+          {
+            "id": "C",
+            "text": "The visible text content enclosed between the element's start and end tags"
+          },
+          {
+            "id": "D",
+            "text": "The aria-labelledby attribute referencing valid ID tokens in the document"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "The AccName specification establishes that `aria-labelledby` takes highest priority over all other naming mechanisms, including `aria-label`, native host markup, and inner text content."
       },
       {
@@ -1984,22 +1985,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Automated tools cannot programmatically determine the worst-case color ratio point"
-          },
-          {
-            "id": "B",
             "text": "W3C guidelines explicitly exempt CSS linear gradients from contrast requirements"
           },
           {
-            "id": "C",
+            "id": "B",
             "text": "Browser security models prevent automated scripts from reading CSS gradient rules"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "Gradients automatically disable operating system subpixel antialiasing filters"
+          },
+          {
+            "id": "D",
+            "text": "Automated tools cannot programmatically determine the worst-case color ratio point"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Automated tools cannot reliably predict where text intersects the gradient's lowest-contrast color stop, requiring manual color picker sampling at the point of least contrast."
       },
       {
@@ -2008,22 +2009,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It displays how minified JavaScript bundles were transpiled into dedicated web workers"
-          },
-          {
-            "id": "B",
             "text": "It benchmarks the network latency of loading third-party tracking scripts"
           },
           {
+            "id": "B",
+            "text": "It identifies CSS memory leaks in hardware-accelerated 3D transform layers"
+          },
+          {
             "id": "C",
-            "text": "It exposes the exact role, name, and state transmitted to assistive technology"
+            "text": "It displays how minified JavaScript bundles were transpiled into dedicated web workers"
           },
           {
             "id": "D",
-            "text": "It identifies CSS memory leaks in hardware-accelerated 3D transform layers"
+            "text": "It exposes the exact role, name, and state transmitted to assistive technology"
           }
         ],
-        "answer": "C",
+        "answer": "D",
         "explanation": "The Accessibility Tree represents the computed output that the browser sends to the platform accessibility API, showing the actual role, name, and states perceived by screen readers."
       }
     ]
@@ -2072,11 +2073,11 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "Overlay tools cannot modify underlying source code or fix complex interaction barriers"
+            "text": "Third-party overlays violate international copyright protection agreements"
           },
           {
             "id": "B",
-            "text": "Third-party overlays violate international copyright protection agreements"
+            "text": "Overlay scripts automatically block users from accessing browser developer tools settings panels"
           },
           {
             "id": "C",
@@ -2084,10 +2085,10 @@ export const WAS_MODULES = [
           },
           {
             "id": "D",
-            "text": "Overlay scripts automatically block users from accessing browser developer tools settings panels"
+            "text": "Overlay tools cannot modify underlying source code or fix complex interaction barriers"
           }
         ],
-        "answer": "A",
+        "answer": "D",
         "explanation": "Overlays apply surface-level script patches that cannot repair structural markup, keyboard traps, broken custom widgets, or inaccessible media, often introducing additional usability hurdles."
       },
       {
@@ -2100,18 +2101,18 @@ export const WAS_MODULES = [
           },
           {
             "id": "B",
-            "text": "In the central shared design system component library powering the applications"
-          },
-          {
-            "id": "C",
             "text": "In the marketing blog post archives published more than five years prior"
           },
           {
-            "id": "D",
+            "id": "C",
             "text": "In the CSS animation keyframe timings for background splash particle effects"
+          },
+          {
+            "id": "D",
+            "text": "In the central shared design system component library powering the applications"
           }
         ],
-        "answer": "B",
+        "answer": "D",
         "explanation": "Remediating shared design system components permanently fixes issues at the root across all downstream products, maximizing efficiency and preventing defect recurrence."
       },
       {
@@ -2120,22 +2121,22 @@ export const WAS_MODULES = [
         "options": [
           {
             "id": "A",
-            "text": "It requires software engineers to hold formal IAAP WAS certifications"
+            "text": "It prevents user stories from being marked complete until accessibility passes verification"
           },
           {
             "id": "B",
-            "text": "It reassigns front-end development tasks directly to legal compliance teams"
+            "text": "It requires software engineers to hold formal IAAP WAS certifications"
           },
           {
             "id": "C",
-            "text": "It automatically doubles the sprint planning points for every engineering ticket"
+            "text": "It reassigns front-end development tasks directly to legal compliance teams"
           },
           {
             "id": "D",
-            "text": "It prevents user stories from being marked complete until accessibility passes verification"
+            "text": "It automatically doubles the sprint planning points for every engineering ticket"
           }
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "Embedding accessibility into the Definition of Done ensures code is verified for keyboard navigation, contrast, and screen reader compatibility before release, preventing backlog accumulation."
       }
     ]

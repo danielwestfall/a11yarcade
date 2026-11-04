@@ -445,8 +445,7 @@ export default function LearningModulesAcademy() {
               border: 'none',
               color: 'var(--text-primary)',
               fontSize: '0.85rem',
-              width: '100%',
-              outline: 'none'
+              width: '100%'
             }}
           />
         </div>
