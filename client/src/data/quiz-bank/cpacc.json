@@ -14352,5 +14352,1979 @@
       }
     ],
     "answer": "C"
+  },
+  {
+    "id": "cpacc-d2-udl-networks-01",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-brain-networks",
+    "variant_group_id": "cpacc-udl-networks-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the Universal Design for Learning framework, which neurological network corresponds to the 'Why' of learning, focusing on motivation, sustained effort, and self-regulation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The Affective network mediating emotional engagement and personal relevance"
+      },
+      {
+        "id": "B",
+        "text": "The Recognition network situated in the rear occipital cortex regions of the human brain"
+      },
+      {
+        "id": "C",
+        "text": "The Strategic network overseeing motor planning and physical bodily organization"
+      },
+      {
+        "id": "D",
+        "text": "The Auditory cortex processing phonemic awareness during reading practice sessions"
+      }
+    ],
+    "answer": "A",
+    "explanation": "CAST's UDL framework maps learning to three brain networks: Affective networks address the 'Why' (engagement and motivation), Recognition networks address the 'What' (representation), and Strategic networks address the 'How' (action and expression).",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "affective-network",
+      "engagement"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-representation-02",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-multiple-representation",
+    "variant_group_id": "cpacc-udl-rep-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "A university chemistry professor provides textbook readings accompanied by interactive 3D molecular models and narrated video simulations. Which UDL principle is directly demonstrated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mandating individualized medical accommodations through disability services"
+      },
+      {
+        "id": "B",
+        "text": "Providing multiple means of representation to perceive foundational concepts"
+      },
+      {
+        "id": "C",
+        "text": "Restricting course examinations to unproctored open-book online formats"
+      },
+      {
+        "id": "D",
+        "text": "Standardizing instruction to a single uniform auditory lecture delivery"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Offering information through varied sensory modalities (text, 3D interactive models, narrated video) demonstrates multiple means of representation (the 'What' of learning), allowing learners to perceive and comprehend concepts through diverse pathways.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "representation",
+      "perception"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-action-expression-03",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-multiple-action",
+    "variant_group_id": "cpacc-udl-action-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "For a final project on environmental policy, high school students may submit a research essay, deliver a recorded podcast, or build a multimedia web presentation. How does this practice align with UDL?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It lowers academic rigor so struggling students obtain passing marks"
+      },
+      {
+        "id": "B",
+        "text": "It replaces standard curricula with individualized education programs"
+      },
+      {
+        "id": "C",
+        "text": "It provides multiple means of action and expression to demonstrate mastery"
+      },
+      {
+        "id": "D",
+        "text": "It eliminates the need for instructors to evaluate student work against rubrics"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Allowing learners choice in media and tools to express their knowledge demonstrates multiple means of action and expression (the 'How' of learning), removing construct-irrelevant barriers while maintaining rigorous learning objectives.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "action-expression",
+      "assessment"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-construct-irrelevant-04",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-construct-barriers",
+    "variant_group_id": "cpacc-udl-construct-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "When assessing historical analysis skills, a teacher requires students to write handwritten essays in 45 minutes without assistive software. Why does UDL identify this format as flawed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Standard history curricula should omit timed evaluations across academic settings"
+      },
+      {
+        "id": "B",
+        "text": "Universal Design for Learning strictly discourages written communication as an assessment format"
+      },
+      {
+        "id": "C",
+        "text": "State educational testing standards require automated multiple-choice scoring methods"
+      },
+      {
+        "id": "D",
+        "text": "Handwriting speed introduces a construct-irrelevant barrier to historical knowledge"
+      }
+    ],
+    "answer": "D",
+    "explanation": "A construct-irrelevant barrier tests abilities unrelated to the targeted learning construct. In a history exam, fine motor handwriting speed and physical endurance can artificially suppress scores without reflecting actual mastery of historical concepts.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "assessment",
+      "construct-relevance"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-proactive-vs-reactive-05",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-proactive-design",
+    "variant_group_id": "cpacc-udl-proactive-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "How does Universal Design for Learning (UDL) fundamentally differ from traditional retroactive disability accommodations?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UDL proactively designs flexible curricula upfront rather than retrofitting after enrollment"
+      },
+      {
+        "id": "B",
+        "text": "UDL applies to elementary schools while accommodations apply to corporate workplaces"
+      },
+      {
+        "id": "C",
+        "text": "UDL requires students to present verified clinical medical documentation to participate"
+      },
+      {
+        "id": "D",
+        "text": "UDL focuses on architectural ramp access rather than cognitive learning environments"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Traditional accommodations react after a student self-identifies with medical documentation, retrofitting individual fixes. UDL proactively anticipates learner variability from the curriculum design phase, building flexibility into course materials for everyone.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "proactive-design",
+      "accommodations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-executive-functions-06",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-executive-scaffolds",
+    "variant_group_id": "cpacc-udl-exec-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An online learning portal embeds progress checklists, milestone schedule reminders, and visual planning organizers. Which specific UDL checkpoint guideline is supported?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Exempting individual learners from completing scheduled course milestone deadlines"
+      },
+      {
+        "id": "B",
+        "text": "Supporting executive functions and goal-directed academic self-monitoring"
+      },
+      {
+        "id": "C",
+        "text": "Providing alternative auditory descriptions for recorded visual video graphics"
+      },
+      {
+        "id": "D",
+        "text": "Converting academic reading assignments into automated gamified online quizzes"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Providing checklists, reminders, and organizers supports executive functions (part of multiple means of action and expression), helping learners manage cognitive load, estimate effort, and monitor their own progress toward goals.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "executive-functions",
+      "action-expression"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-cast-guidelines-07",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-cast-organization",
+    "variant_group_id": "cpacc-udl-cast-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "recall",
+    "difficulty": "easy",
+    "stem": "Which non-profit research and development organization authored and maintains the globally recognized Universal Design for Learning (UDL) Guidelines?",
+    "options": [
+      {
+        "id": "A",
+        "text": "W3C Web Accessibility Initiative (WAI guidelines)"
+      },
+      {
+        "id": "B",
+        "text": "International Organization for Standardization (ISO standards)"
+      },
+      {
+        "id": "C",
+        "text": "Center for Applied Special Technology (CAST)"
+      },
+      {
+        "id": "D",
+        "text": "United Nations Educational, Scientific and Cultural Organization (UNESCO)"
+      }
+    ],
+    "answer": "C",
+    "explanation": "CAST (Center for Applied Special Technology), founded in 1984 by David Rose, Anne Meyer, and colleagues, developed and maintains the Universal Design for Learning framework and guidelines.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "cast",
+      "standards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-language-symbols-08",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-symbols-clarification",
+    "variant_group_id": "cpacc-udl-symbols-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "How does embedding an interactive vocabulary glossary and explicit formula breakdowns directly into course modules advance UDL representation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It prevents students from using personal dictionary applications on mobile handheld devices"
+      },
+      {
+        "id": "B",
+        "text": "It forces students to memorize technical terminology without conceptual explanatory models"
+      },
+      {
+        "id": "C",
+        "text": "It eliminates the need for instructors to author introductory chapter syllabi and outlines"
+      },
+      {
+        "id": "D",
+        "text": "It clarifies specialized vocabulary, mathematical symbols, and linguistic syntax"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Under UDL Guideline 2 (Provide options for language and symbols), embedding interactive glossaries, syntax guides, and symbol decoders clarifies complex terms, supporting non-native speakers, students with dyslexia, and novice learners.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "representation",
+      "vocabulary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-threats-distractions-09",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-threats-reduction",
+    "variant_group_id": "cpacc-udl-threats-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An educator creates structured classroom routines, provides quiet sensory zones, and permits students to preview discussion prompts before public speaking. Which UDL goal is addressed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Minimizing threats, anxiety, and sensory distractions to optimize engagement"
+      },
+      {
+        "id": "B",
+        "text": "Restricting interactive collaboration to quiet individual seatwork assignments"
+      },
+      {
+        "id": "C",
+        "text": "Exempting students with social anxiety from participating in oral class discussions"
+      },
+      {
+        "id": "D",
+        "text": "Implementing disciplinary behavioral controls during group learning exercises"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Under UDL Guideline 7 (Provide options for recruiting interest), minimizing threats and distractions creates a safe learning environment, reducing anxiety for neurodivergent students and empowering emotional engagement.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "engagement",
+      "threats-distractions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d2-udl-accessible-ed-materials-10",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D2",
+    "section_id": "CPACC-D2-F",
+    "concept_id": "cpacc-udl-aem-harmony",
+    "variant_group_id": "cpacc-udl-aem-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "How do Accessible Educational Materials (AEM) technically intersect with Universal Design for Learning (UDL) in modern digital education?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AEM replaces the need for faculty members to design flexible pedagogical learning strategies"
+      },
+      {
+        "id": "B",
+        "text": "AEM provides technical accessibility baseline while UDL provides pedagogical flexibility"
+      },
+      {
+        "id": "C",
+        "text": "AEM applies to printed braille textbooks while UDL applies to virtual online learning portals"
+      },
+      {
+        "id": "D",
+        "text": "The two concepts represent conflicting regulatory standards that cannot operate simultaneously"
+      }
+    ],
+    "answer": "B",
+    "explanation": "AEM ensures that learning materials conform to technical accessibility specifications (e.g. WCAG, EPUB3, Section 508), providing the operable foundation upon which UDL pedagogical strategies can be enacted.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Two F, Universal Design for Learning",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "udl",
+      "aem",
+      "pedagogy"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-sec508-01",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-procure-section-508",
+    "variant_group_id": "cpacc-508-procure-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the Revised Section 508 of the US Rehabilitation Act (FAR Subpart 39.2), when is a federal agency required to consider accessibility requirements in procurement?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Section 508 applies to commercial software applications sold on public consumer retail enterprise markets"
+      },
+      {
+        "id": "B",
+        "text": "Section 508 regulates commercial airlines while the ADA regulates municipal bus transit services"
+      },
+      {
+        "id": "C",
+        "text": "Section 508 applies to federal agencies, whereas ADA applies to state/local gov and public entities"
+      },
+      {
+        "id": "D",
+        "text": "Section 508 governs European procurement while ADA governs federal executive agency purchases"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Section 508 mandates that federal agencies incorporate accessibility into every phase of developing, procuring, maintaining, or using Information and Communication Technology (ICT), regardless of contract value or litigation status.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "section-508",
+      "far-39-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-en301549-02",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-procure-en-301549",
+    "variant_group_id": "cpacc-en301549-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "recall",
+    "difficulty": "medium",
+    "stem": "Which European harmonized technical standard specifies accessibility requirements for public procurement of ICT products and services across European Union member states?",
+    "options": [
+      {
+        "id": "A",
+        "text": "European Union directive specifying minimum corporate cybersecurity encryption algorithms and protocols"
+      },
+      {
+        "id": "B",
+        "text": "European telecommunications standard defining high-speed broadband cellular radio frequencies"
+      },
+      {
+        "id": "C",
+        "text": "European commercial framework regulating international maritime shipping logistics tariffs"
+      },
+      {
+        "id": "D",
+        "text": "European standard specifying accessibility requirements for public procurement of ICT products"
+      }
+    ],
+    "answer": "D",
+    "explanation": "EN 301 549 is the European harmonized standard for ICT accessibility in public procurement, mapping web, software, and electronic documents to WCAG 2.1 Level AA criteria.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "en-301-549",
+      "eu-procurement"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-acaa-03",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-procure-acaa",
+    "variant_group_id": "cpacc-acaa-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the US Air Carrier Access Act (14 CFR Part 382), what specific accessibility mandate applies to commercial airline websites and airport automated kiosks?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Core booking websites and automated check-in kiosks must conform to accessibility standards"
+      },
+      {
+        "id": "B",
+        "text": "Airlines must provide complimentary tablet computers to passengers with visual impairments"
+      },
+      {
+        "id": "C",
+        "text": "Flight reservation phone lines must operate without automated voice response menus"
+      },
+      {
+        "id": "D",
+        "text": "Airlines are exempt from digital accessibility provided customer service counters exist"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Department of Transportation regulations under the ACAA require commercial airlines operating flights to/from the US to make primary website booking channels and airport self-service kiosks accessible to passengers with disabilities.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "acaa",
+      "transportation"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-cvaa-04",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-procure-cvaa",
+    "variant_group_id": "cpacc-cvaa-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What major communication sector requirement did the 21st Century Communications and Video Accessibility Act (CVAA) establish in the United States?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Commercial airline passenger flight entertainment systems and aircraft cockpit avionics hardware"
+      },
+      {
+        "id": "B",
+        "text": "Advanced Communications Services including VoIP, electronic messaging, and video conferencing"
+      },
+      {
+        "id": "C",
+        "text": "Automated teller machines and physical banking kiosk equipment installed in financial branches"
+      },
+      {
+        "id": "D",
+        "text": "Broadband internet routing hardware deployed across municipal enterprise telecommunications data centers"
+      }
+    ],
+    "answer": "B",
+    "explanation": "The CVAA brought 1930s communications law into the digital age, requiring Advanced Communications Services (interconnected VoIP, messaging, video conferencing) and IP-delivered video programming previously shown on TV to be accessible.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "cvaa",
+      "telecommunications"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-ada-title2-rule-05",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-ada-title2-final-rule",
+    "variant_group_id": "cpacc-ada2-rule-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "In April 2024, the US Department of Justice published a landmark Title II ADA final rule. What technical standard was formally codified for state and local government web content and mobile applications?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Section 508 Chapter 5 technical criteria"
+      },
+      {
+        "id": "B",
+        "text": "WCAG 2.0 Level AAA compliance benchmark"
+      },
+      {
+        "id": "C",
+        "text": "WCAG 2.1 Level AA conformance standard"
+      },
+      {
+        "id": "D",
+        "text": "EN 301 549 Clause 9 web requirements guideline"
+      }
+    ],
+    "answer": "C",
+    "explanation": "The DOJ's 2024 Title II ADA final rule formally adopted WCAG 2.1 Level AA as the technical standard that state and local government public entities must meet across websites and mobile applications.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ada-title-ii",
+      "doj-rule",
+      "wcag-21-aa"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-vpat-editions-06",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-vpat-editions",
+    "variant_group_id": "cpacc-vpat-editions-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "recall",
+    "difficulty": "medium",
+    "stem": "Which industry standard document template, produced by ITI, is used by technology vendors to generate Accessibility Conformance Reports (ACRs)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Accessibility Maturity Model Matrix (AMMM)"
+      },
+      {
+        "id": "B",
+        "text": "Standardized Procurement Software Guarantee (SPSG)"
+      },
+      {
+        "id": "C",
+        "text": "International Corporate Conformance Affidavit (ICCA)"
+      },
+      {
+        "id": "D",
+        "text": "Voluntary Product Accessibility Template (VPAT)"
+      }
+    ],
+    "answer": "D",
+    "explanation": "The VPAT (Voluntary Product Accessibility Template), developed by the Information Technology Industry Council (ITI), is the leading global template vendors use to document their product's accessibility conformance in an ACR.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "vpat",
+      "acr",
+      "procurement"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-acr-evaluation-07",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-acr-red-flags",
+    "variant_group_id": "cpacc-acr-eval-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "When evaluating an Accessibility Conformance Report (ACR) submitted by a software vendor, which pattern is a major red flag indicating questionable report credibility?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The report states 100% 'Supports' on every criterion with zero testing methodology notes"
+      },
+      {
+        "id": "B",
+        "text": "The report acknowledges minor contrast defects with scheduled engineering fix dates"
+      },
+      {
+        "id": "C",
+        "text": "The vendor identifies specific screen reader versions used during manual testing"
+      },
+      {
+        "id": "D",
+        "text": "The document was prepared by an independent third-party accessibility testing firm"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Claiming 100% 'Supports' without remarks, evaluation testing details, or assistive technology configurations is a classic sign of vendor 'greenwashing.' Transparent, credible ACRs document known gaps and remediation roadmaps.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "vpat",
+      "acr",
+      "evaluation"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-contract-sla-08",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-procure-contract-terms",
+    "variant_group_id": "cpacc-contract-terms-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "Why should enterprise procurement teams insert binding remediation Service Level Agreements (SLAs) directly into software vendor contracts?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They transfer standard regulatory liability to customer internal software engineering teams"
+      },
+      {
+        "id": "B",
+        "text": "They legally obligate vendors to remediate accessibility defects within defined calendar timeframes"
+      },
+      {
+        "id": "C",
+        "text": "They establish financial escrow accounts that hold vendor royalty payments until software audits conclude"
+      },
+      {
+        "id": "D",
+        "text": "They permit software vendors to substitute non-conforming web portals with alternative phone hotlines"
+      }
+    ],
+    "answer": "B",
+    "explanation": "A contract SLA requires the vendor to repair critical accessibility defects within established timeframes (e.g. 30 days for blocker bugs), protecting the procuring organization from acquiring persistent non-compliant technical debt.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "contracts",
+      "sla"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-exceptions-09",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-procure-undue-burden",
+    "variant_group_id": "cpacc-exceptions-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under federal procurement regulations, what constitutes a valid 'undue burden' exception for accessibility compliance?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Software products developed by commercial startup firms employing fewer than twenty full-time staff members"
+      },
+      {
+        "id": "B",
+        "text": "Public-facing web portals accessed by fewer than one thousand distinct registered users per month"
+      },
+      {
+        "id": "C",
+        "text": "National security systems, commercial non-availability, undue burden, and fundamental alteration"
+      },
+      {
+        "id": "D",
+        "text": "Software utilities purchased using corporate discretionary executive entertainment budget funds"
+      }
+    ],
+    "answer": "C",
+    "explanation": "An 'undue burden' exception requires demonstrating that compliance would impose significant difficulty or expense relative to the agency's total available resources, and requires official documentation from agency leadership.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "exceptions",
+      "undue-burden"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-procure-commercial-nonavail-10",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-D",
+    "concept_id": "cpacc-commercial-nonavail",
+    "variant_group_id": "cpacc-nonavail-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "If market research reveals that no commercially available software product fully meets Section 508 standards, what is the agency's procurement obligation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cancel the planned software procurement project indefinitely until fully conforming software exists"
+      },
+      {
+        "id": "B",
+        "text": "Purchase the lowest cost software package regardless of accessibility performance scores"
+      },
+      {
+        "id": "C",
+        "text": "Develop proprietary custom software in-house using internal federal engineering personnel alone"
+      },
+      {
+        "id": "D",
+        "text": "Procure the commercial product that best meets the standards and document non-availability"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Under Section 508 Commercial Non-Availability provisions, if no product fully conforms, the agency must purchase the product that best meets the standards and document the market research justification.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three D, Procurement Laws and Regulations",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "procurement",
+      "commercial-non-availability",
+      "section-508"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-eaa-01",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-european-a11y-act",
+    "variant_group_id": "cpacc-eaa-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What is the primary scope of the European Accessibility Act (Directive 2019/882), which member states must enforce starting in June 2025?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Private sector consumer products and digital services such as e-commerce, banking, and ticketing"
+      },
+      {
+        "id": "B",
+        "text": "Government administrative buildings and municipal courtroom physical architecture"
+      },
+      {
+        "id": "C",
+        "text": "Military defense telecommunications and national border security checkpoints"
+      },
+      {
+        "id": "D",
+        "text": "Academic research laboratory cleanrooms and industrial pharmaceutical manufacturing"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Unlike the earlier EU Web Accessibility Directive which applied to public sector websites, the European Accessibility Act (EAA) targets key private sector commercial products and services (computers, ATMs, ticketing, e-commerce, banking, e-books).",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "eaa",
+      "europe"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-uk-equality-02",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-uk-equality-act",
+    "variant_group_id": "cpacc-uk-equality-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the UK Equality Act 2010, what unique legal characteristic defines a service provider's duty to make 'reasonable adjustments' for disabled people?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The duty takes effect once an affected customer issues formal written litigation notice"
+      },
+      {
+        "id": "B",
+        "text": "The duty is anticipatory and owed to disabled people generally, not just after a complaint"
+      },
+      {
+        "id": "C",
+        "text": "The duty applies to physical brick-and-mortar storefronts while exempting online e-commerce portals"
+      },
+      {
+        "id": "D",
+        "text": "The duty requires service providers to obtain pre-approval from the House of Commons"
+      }
+    ],
+    "answer": "B",
+    "explanation": "In UK equality law, the duty to make reasonable adjustments is 'anticipatory.' Organizations must foresee potential barriers and address them in advance for disabled people as a class, rather than waiting for an individual to encounter a barrier.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "uk-equality-act",
+      "anticipatory-duty"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-accessible-canada-03",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-accessible-canada-act",
+    "variant_group_id": "cpacc-aca-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "recall",
+    "difficulty": "easy",
+    "stem": "What is the statutory goal of the Accessible Canada Act (ACA), passed in 2019 by the Parliament of Canada?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mandating bilingual French and English voice synthesis on standard consumer mobile phones"
+      },
+      {
+        "id": "B",
+        "text": "Providing subsidized public transit passes to eligible senior citizens across provinces"
+      },
+      {
+        "id": "C",
+        "text": "Achieving a barrier-free Canada by January 1, 2040 in federally regulated sectors"
+      },
+      {
+        "id": "D",
+        "text": "Replacing provincial human rights tribunals with federal criminal court hearings"
+      }
+    ],
+    "answer": "C",
+    "explanation": "The Accessible Canada Act sets the ambitious target of realizing a barrier-free Canada by 2040, creating proactive accessibility requirements, published accessibility plans, and compliance reporting for federally regulated entities.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "accessible-canada-act",
+      "canada"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-japan-jis-04",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-japan-jis",
+    "variant_group_id": "cpacc-jis-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "recall",
+    "difficulty": "medium",
+    "stem": "Which national industrial standard serves as Japan's technical benchmark for web content accessibility, harmonizing with W3C guidelines?",
+    "options": [
+      {
+        "id": "A",
+        "text": "JIS B 0001-A (Technical drawing specifications for mechanical engineering blueprints)"
+      },
+      {
+        "id": "B",
+        "text": "JIS C 9901-2 (Energy efficiency standards for household electrical refrigeration appliances)"
+      },
+      {
+        "id": "C",
+        "text": "JIS Z 8802-F (Industrial chemical safety classifications for hazardous laboratory reagents)"
+      },
+      {
+        "id": "D",
+        "text": "JIS X 8341-3 (Guidelines for older persons and persons with disabilities - Web content)"
+      }
+    ],
+    "answer": "D",
+    "explanation": "JIS X 8341 (Guidelines for older persons and persons with disabilities - Information and communications equipment, software and services - Part 3: Web content) is Japan's national standard harmonized with WCAG.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "jis-x-8341",
+      "japan"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-australia-maguire-05",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-australia-dda",
+    "variant_group_id": "cpacc-dda-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "In the landmark 2000 Australian case Maguire v SOCOG, what legal precedent was established regarding website accessibility under the Disability Discrimination Act 1992?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The Disability Discrimination Act 1992 applies to web-based information and digital online ticketing"
+      },
+      {
+        "id": "B",
+        "text": "The Human Rights Commission dismissed the complaint because the internet was not considered a public space"
+      },
+      {
+        "id": "C",
+        "text": "The Sydney Organising Committee was legally exempt from federal accessibility regulations during games"
+      },
+      {
+        "id": "D",
+        "text": "Discrimination claims can be formally filed against physical stadium ticketing booth structures"
+      }
+    ],
+    "answer": "A",
+    "explanation": "In Maguire v Sydney Organising Committee for the Olympic Games (SOCOG), the Australian Human Rights and Equal Opportunity Commission ruled that failing to provide an accessible website violated Section 24 of the DDA.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "australia-dda",
+      "maguire-v-socog"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-eu-web-directive-06",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-eu-web-directive",
+    "variant_group_id": "cpacc-eu-web-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the EU Web Accessibility Directive (Directive 2016/2102), what transparency mechanism must public sector websites publish on their pages?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A list of employee home addresses and emergency mobile phone contacts"
+      },
+      {
+        "id": "B",
+        "text": "A detailed Accessibility Statement with a feedback mechanism for reporting barriers"
+      },
+      {
+        "id": "C",
+        "text": "An annual commercial software audit receipt stamped by local tax authorities"
+      },
+      {
+        "id": "D",
+        "text": "A disclaimer directing visitors with disabilities to telephone customer support"
+      }
+    ],
+    "answer": "B",
+    "explanation": "The EU Web Accessibility Directive mandates that public sector websites publish an Accessibility Statement detailing conformance status, non-accessible content explanations, and an accessible feedback contact mechanism.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "eu-web-directive",
+      "accessibility-statement"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-ontario-aoda-07",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-ontario-aoda",
+    "variant_group_id": "cpacc-aoda-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "recall",
+    "difficulty": "easy",
+    "stem": "What is the primary province-level accessibility statute in Canada that establishes enforceable standards across customer service, employment, and information/communications?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ontario Human Rights Digital Compliance Charter (OHRDCC)"
+      },
+      {
+        "id": "B",
+        "text": "Accessible Canada Information Standards Implementation Framework (ACISF)"
+      },
+      {
+        "id": "C",
+        "text": "Accessibility for Ontarians with Disabilities Act (AODA)"
+      },
+      {
+        "id": "D",
+        "text": "Ontario Public Sector Web Modernization Statute (OPSWMS)"
+      }
+    ],
+    "answer": "C",
+    "explanation": "The Accessibility for Ontarians with Disabilities Act (AODA 2005) is Ontario's pioneering provincial accessibility law, featuring mandatory standards across five key areas of daily life.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "regional-laws",
+      "aoda",
+      "ontario"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-reg-uncrpd-article9-08",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-B",
+    "concept_id": "cpacc-reg-uncrpd-art9",
+    "variant_group_id": "cpacc-uncrpd-art9-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Which specific article of the UN Convention on the Rights of Persons with Disabilities explicitly obligates States Parties to enable access to information, communications, and electronic services?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Article 2 (Definitions of Terms)"
+      },
+      {
+        "id": "B",
+        "text": "Article 15 (Freedom from Torture)"
+      },
+      {
+        "id": "C",
+        "text": "Article 32 (International Cooperation)"
+      },
+      {
+        "id": "D",
+        "text": "Article 9 (Accessibility)"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Article 9 of the UN CRPD is the foundational global treaty provision on Accessibility, requiring governments to identify and eliminate obstacles to information, communications, and other services, including electronic services and emergency services.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three B, Regional Instruments",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "un-crpd",
+      "article-9",
+      "treaty"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-biopsychosocial-01",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-biopsychosocial",
+    "variant_group_id": "cpacc-biopsych-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Which framework, embodied in the World Health Organization's ICF, synthesizes biological body functions with individual psychology and environmental social participation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The Biopsychosocial Model of Disability"
+      },
+      {
+        "id": "B",
+        "text": "The Pure Biomedical Determinism Model"
+      },
+      {
+        "id": "C",
+        "text": "The Classical Industrial Ergonomics Theory"
+      },
+      {
+        "id": "D",
+        "text": "The Traditional Moral-Spiritual Retribution Model"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The WHO International Classification of Functioning, Disability and Health (ICF) uses the Biopsychosocial model, integrating the biological (impairment), psychological (personal factors), and social (environmental barriers) aspects of health.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "biopsychosocial",
+      "who-icf"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-economic-02",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-economic",
+    "variant_group_id": "cpacc-economic-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the Economic Model of Disability, how is an individual's disability primarily characterized and evaluated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "By clinical laboratory measurements of genetic cellular abnormalities"
+      },
+      {
+        "id": "B",
+        "text": "By the person's functional capacity to participate in the competitive economic workforce"
+      },
+      {
+        "id": "C",
+        "text": "By theological assessments of personal spiritual character and moral worth"
+      },
+      {
+        "id": "D",
+        "text": "By aesthetic harmony with historical classical architectural environments"
+      }
+    ],
+    "answer": "B",
+    "explanation": "The Economic Model defines disability in terms of a person's ability to work and generate economic productivity, focusing on lost earnings capacity and social welfare policy determinations.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "economic-model",
+      "vocational"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-functional-solutions-03",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-functional-solutions",
+    "variant_group_id": "cpacc-func-sol-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "An engineering team bypasses philosophical debates about disability and immediately focuses on creating assistive software, tactile hardware, and accessible code. Which model guides their thinking?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The Classical Tragedy Model"
+      },
+      {
+        "id": "B",
+        "text": "The Religious Purity Model"
+      },
+      {
+        "id": "C",
+        "text": "The Functional Solutions Model"
+      },
+      {
+        "id": "D",
+        "text": "The Medical Institutional Model"
+      }
+    ],
+    "answer": "C",
+    "explanation": "The Functional Solutions Model takes an applied, pragmatic perspective, focusing on developing practical technological, design, and engineering innovations to overcome functional limitations without delving deeply into sociopolitical discourse.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "functional-solutions",
+      "technology"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-charity-04",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-charity",
+    "variant_group_id": "cpacc-charity-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "Why do disability rights advocates strongly criticize the traditional Charity (or Tragedy) Model of disability?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It views disability as a natural dimension of human diversity celebrated through pride and culture"
+      },
+      {
+        "id": "B",
+        "text": "It attributes functional impairments to spiritual punishment for past personal or ancestral sins"
+      },
+      {
+        "id": "C",
+        "text": "It defines disability strictly as an economic failure of individual worker productivity in open labor markets"
+      },
+      {
+        "id": "D",
+        "text": "It positions disabled people as passive, tragic victims reliant on pity and benevolent financial aid"
+      }
+    ],
+    "answer": "D",
+    "explanation": "The Charity model infantilizes individuals with disabilities by framing them as tragic victims requiring philanthropic benevolence, which undermines dignity, self-determination, and legal civil rights recognition.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "charity-model",
+      "rights"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-affirmation-05",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-affirmation",
+    "variant_group_id": "cpacc-affirm-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Which theoretical perspective celebrates disability as a positive social identity and culture (such as Deaf Culture), rejecting the assumption that impairment is inherently a loss?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It views disability identity positively as a valid, celebrated human difference"
+      },
+      {
+        "id": "B",
+        "text": "It attributes physical disability to spiritual karmic punishment and historical fate"
+      },
+      {
+        "id": "C",
+        "text": "It defines functional impairment as a temporary medical condition requiring surgery and clinical treatment"
+      },
+      {
+        "id": "D",
+        "text": "It analyzes disability through corporate labor market economic productivity and employment output"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Pioneered by Swain and French, the Affirmation Model reframes impairment as a valid, valued dimension of human diversity, community, and personal identity, explicitly challenging tragedy and deficit assumptions.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "affirmation-model",
+      "identity"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-social-relational-06",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-social-relational",
+    "variant_group_id": "cpacc-soc-rel-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "How does Carol Thomas's Social Relational Model expand upon the classic British Social Model of Disability?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It redefines disability strictly as a physiological brain defect requiring clinical surgery"
+      },
+      {
+        "id": "B",
+        "text": "It incorporates emotional, interpersonal, and psycho-emotional barriers alongside structural obstacles"
+      },
+      {
+        "id": "C",
+        "text": "It eliminates physical architectural barriers from consideration in urban building planning"
+      },
+      {
+        "id": "D",
+        "text": "It restricts disability analysis to commercial software code repository contributions"
+      }
+    ],
+    "answer": "B",
+    "explanation": "The Social Relational Model recognizes that disability results not only from physical and structural barriers, but also from interpersonal interactions and 'psycho-emotional disablism' that undermine self-esteem and social confidence.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "social-relational",
+      "carol-thomas"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d1-model-policy-impact-07",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D1",
+    "section_id": "CPACC-D1-A",
+    "concept_id": "cpacc-model-policy-drivers",
+    "variant_group_id": "cpacc-model-policy-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "How does an organization's underlying model of disability influence its enterprise digital accessibility policy?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A charity model produces stronger legal compliance warranties than a human rights model"
+      },
+      {
+        "id": "B",
+        "text": "An economic model requires organizations to eliminate digital screen reader testing protocols across departments"
+      },
+      {
+        "id": "C",
+        "text": "A social model drives proactive universal design, whereas a medical model yields reactive case-by-case fixes"
+      },
+      {
+        "id": "D",
+        "text": "The choice of disability model has zero measurable effect on software engineering workflows"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Organizations adopting the social model see accessibility as fundamental design quality and human rights, building accessible systems upfront. Organizations bound to the medical model treat disability as an individual defect, leading to reactive, piecemeal accommodation fixes.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain One A, Theoretical Models",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "models",
+      "policy",
+      "social-model"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-closed-func-01",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-closed-functionality",
+    "variant_group_id": "cpacc-closed-func-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "In accessibility standards (Section 508 and EN 301 549), what distinguishes ICT with 'closed functionality' from open platforms?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The computer operates behind an enterprise firewall disconnected from local area network systems and servers"
+      },
+      {
+        "id": "B",
+        "text": "The source code is released under proprietary commercial licenses rather than open source"
+      },
+      {
+        "id": "C",
+        "text": "The software is designed for desktop personal workstations running Linux operating systems"
+      },
+      {
+        "id": "D",
+        "text": "Users cannot attach or install personal assistive technology (e.g. self-service kiosks and ATMs)"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Closed functionality refers to ICT where end users cannot install personal assistive technology (like personal screen readers) due to design or security limitations (e.g. airport check-in kiosks, smart ticket vending machines), necessitating built-in accessible features.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "closed-functionality",
+      "standards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-wcag2ict-02",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-wcag2ict-mapping",
+    "variant_group_id": "cpacc-wcag2ict-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What is the purpose of the W3C 'WCAG2ICT' guidance document in digital accessibility standards harmonisation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It explains how WCAG principles apply to non-web documents and native software applications"
+      },
+      {
+        "id": "B",
+        "text": "It repeals WCAG success criteria for desktop computers running modern operating systems"
+      },
+      {
+        "id": "C",
+        "text": "It establishes a separate testing protocol designed for automated web scraping spiders across public websites"
+      },
+      {
+        "id": "D",
+        "text": "It requires software engineers to compile standard web application code using WebAssembly runtimes"
+      }
+    ],
+    "answer": "A",
+    "explanation": "WCAG2ICT (Guidance on Applying WCAG to Non-Web Information and Communications Technologies) clarifies how WCAG criteria apply to native desktop apps, mobile operating systems, and standalone documents like PDFs.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "wcag2ict",
+      "non-web"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-fpc-03",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-functional-performance",
+    "variant_group_id": "cpacc-fpc-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "When are the Functional Performance Criteria (FPC) in Section 508 Chapter 3 or EN 301 549 Clause 4 applied during an evaluation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "When assessing software speed benchmarks on high-performance gaming hardware platforms"
+      },
+      {
+        "id": "B",
+        "text": "When technical provisions do not address a feature or when evaluating overall system capabilities"
+      },
+      {
+        "id": "C",
+        "text": "When conducting automated unit testing on continuous integration build servers during release cycles"
+      },
+      {
+        "id": "D",
+        "text": "When negotiating international currency exchange rates for foreign contractor payments"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Functional Performance Criteria (FPC) provide outcome-based performance metrics (e.g. usage without vision, usage with limited manipulation). They apply when technical standards don't address a technology or when assessing whether equivalent facilitation was achieved.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "fpc",
+      "functional-performance"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-reach-ranges-04",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-hardware-operable-parts",
+    "variant_group_id": "cpacc-hardware-reach-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under Section 508 Chapter 4 (Hardware) and Section 407 operable parts rules, what physical dimension constraint applies to hardware controls on standalone kiosks?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Keypad buttons must require at least ten pounds of physical pressing force to prevent slips"
+      },
+      {
+        "id": "B",
+        "text": "Display monitors must be mounted higher than five feet above the finished floor surface"
+      },
+      {
+        "id": "C",
+        "text": "Operable controls must be positioned within accessible reach ranges for seated wheelchair users"
+      },
+      {
+        "id": "D",
+        "text": "Hardware terminals must feature monochrome green cathode ray tube monitors"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Hardware standards specify physical reach ranges (typically 15 to 48 inches above the floor for unobstructed forward and side reach) and operable force limits (under 5 lbs) to ensure operable parts are accessible to wheelchair users.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "hardware",
+      "reach-ranges"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-speech-output-05",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-speech-output",
+    "variant_group_id": "cpacc-speech-kiosk-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "For closed-functionality transaction machines (like bank ATMs or self-service payment kiosks), what feature ensures privacy during speech output?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Broadcasting synthetic speech through loud external stereo speakers mounted overhead"
+      },
+      {
+        "id": "B",
+        "text": "Displaying high-contrast flashing text notifications across surrounding store monitors"
+      },
+      {
+        "id": "C",
+        "text": "Requiring a bystander or bank teller to speak account balances into a microphone"
+      },
+      {
+        "id": "D",
+        "text": "A standard 3.5mm audio headphone jack or private contactless personal audio channel"
+      }
+    ],
+    "answer": "D",
+    "explanation": "To protect privacy and security when handling sensitive financial or personal data on closed ICT machines, speech output must be delivered privately through a standard headphone jack or private audio connection.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "privacy",
+      "speech-output"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-support-docs-06",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-support-documentation",
+    "variant_group_id": "cpacc-supp-docs-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What requirement does Section 508 Chapter 6 mandate regarding ICT support services and technical user documentation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Support documentation and help desk services must be accessible and accommodate diverse needs"
+      },
+      {
+        "id": "B",
+        "text": "Help documentation is exempt from accessibility provided core software applications pass compliance audits"
+      },
+      {
+        "id": "C",
+        "text": "Technical manuals must be published as printed paper books delivered via postal mail"
+      },
+      {
+        "id": "D",
+        "text": "Customer service teams may charge additional support fees to users with disabilities"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Section 508 Chapter 6 requires that technical user documentation, online manuals, and customer support help desks must themselves be accessible and capable of communicating with people with disabilities.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "support-documentation",
+      "section-508"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "cpacc-d3-ict-authoring-atag-07",
+    "certification_id": "CPACC",
+    "domain_id": "CPACC-D3",
+    "section_id": "CPACC-D3-E",
+    "concept_id": "cpacc-ict-atag-duality",
+    "variant_group_id": "cpacc-atag-duality-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "When procuring an enterprise Content Management System (CMS), why must the procurement team evaluate ATAG 2.0 Part A and Part B?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Part A evaluates server database caching while Part B benchmarks browser networking speeds across client sessions"
+      },
+      {
+        "id": "B",
+        "text": "Part A applies to commercial software while Part B applies to free open-source utilities"
+      },
+      {
+        "id": "C",
+        "text": "Part A ensures disabled authors can use the tool, while Part B ensures the tool produces accessible output"
+      },
+      {
+        "id": "D",
+        "text": "The two parts represent redundant duplicate checklists that can be evaluated interchangeably"
+      }
+    ],
+    "answer": "C",
+    "explanation": "ATAG 2.0 has two distinct pillars: Part A mandates that the authoring interface itself is accessible to authors with disabilities; Part B mandates that the tool supports, preserves, and promotes the generation of accessible web content.",
+    "source_refs": [
+      {
+        "source_id": "cpacc-bok-v3",
+        "locator": "Domain Three E, Applying Standards to ICT",
+        "role": "scope",
+        "url": "../../resources/CPACCBoKmsft.docx"
+      }
+    ],
+    "tags": [
+      "ict",
+      "atag-20",
+      "authoring-tools"
+    ],
+    "status": "draft"
   }
 ]

@@ -14781,5 +14781,1880 @@
       }
     ],
     "answer": "C"
+  },
+  {
+    "id": "was-d1-access-supp-conformance-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-access-supported-def",
+    "variant_group_id": "was-access-supp-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under WCAG 2.1 Conformance Requirement 4, when is a web technology feature considered 'accessibility-supported'?",
+    "options": [
+      {
+        "id": "A",
+        "text": "When supported by users' assistive technologies and user agents within the specified baseline"
+      },
+      {
+        "id": "B",
+        "text": "When it passes formal W3C Recommendation syntax validation without parser warnings"
+      },
+      {
+        "id": "C",
+        "text": "When bundled with automated polyfills downloaded by modern Chromium desktop web browsers"
+      },
+      {
+        "id": "D",
+        "text": "When designated as an ECMAScript Stage 4 standard feature by the TC39 committee"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Accessibility support depends on real-world interoperability: the technology must be supported by user agents (browsers) AND assistive technologies (screen readers, magnifiers) available to the audience.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-22",
+        "locator": "Conformance Requirement 4: Only Accessibility-Supported Ways of Using Technologies",
+        "role": "support",
+        "url": "https://www.w3.org/TR/WCAG22/"
+      }
+    ],
+    "tags": [
+      "accessibility-supported",
+      "conformance-requirement-4",
+      "interoperability"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-polyfill-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-polyfill-accessibility",
+    "variant_group_id": "was-polyfill-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "A development team uses a JavaScript polyfill for the HTML dialog element. What must the polyfill provide to be considered truly accessibility-supported?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It must emulate visual CSS drop-shadow styles across older legacy web browser engines"
+      },
+      {
+        "id": "B",
+        "text": "It must manage focus trapping, inert background nodes, and dialog role exposure to AT"
+      },
+      {
+        "id": "C",
+        "text": "It must compress the JavaScript bundle payload to under five kilobytes minified on disk"
+      },
+      {
+        "id": "D",
+        "text": "It must convert standard dialog text content into synthetic Web Audio speech tracks in real-time mode"
+      }
+    ],
+    "answer": "B",
+    "explanation": "A polyfill for modal dialogs cannot just handle visual visibility; it must convey the dialog role, expose accessible names, trap keyboard focus within the dialog, and mark background content inert for screen readers.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "polyfills",
+      "dialog",
+      "focus-management"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-apis-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-platform-accessibility-apis",
+    "variant_group_id": "was-platform-apis-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "How do web browsers communicate HTML semantics and WAI-ARIA states to desktop screen readers on Windows operating systems?",
+    "options": [
+      {
+        "id": "A",
+        "text": "By executing synthetic JavaScript eval statements directly in the screen reader memory space"
+      },
+      {
+        "id": "B",
+        "text": "By sending raw unparsed HTML text strings over local TCP localhost loopback sockets"
+      },
+      {
+        "id": "C",
+        "text": "Via platform Accessibility APIs such as UI Automation, IAccessible2, and legacy MSAA"
+      },
+      {
+        "id": "D",
+        "text": "Through operating system GPU display drivers during hardware-accelerated rendering"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Browsers translate DOM nodes and ARIA attributes into platform Accessibility APIs (e.g. UIA and IAccessible2 on Windows, NSAccessibility on macOS, AT-SPI on Linux), which assistive technologies query to announce roles, names, and states.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "accessibility-apis",
+      "platform-apis",
+      "windows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-display-contents-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-css-display-contents-bug",
+    "variant_group_id": "was-display-contents-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "Historically, applying CSS display: contents to semantic HTML elements (like buttons, lists, or tables) caused a severe accessibility-support bug in multiple browsers. What was this bug?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The operating system speech synthesizer increased audio pitch by two full octaves"
+      },
+      {
+        "id": "B",
+        "text": "The browser forced the viewport to scroll continuously to the top of the document layout"
+      },
+      {
+        "id": "C",
+        "text": "Keyboard focus indicators became permanently stuck on the top-level document body tag element"
+      },
+      {
+        "id": "D",
+        "text": "The browser stripped the element and its semantic role from the accessibility tree"
+      }
+    ],
+    "answer": "D",
+    "explanation": "For several years, browser engines implemented `display: contents` by stripping elements from the rendering tree and inadvertently stripping their semantic roles (like list items or table rows) from the accessibility tree as well.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "css",
+      "display-contents",
+      "accessibility-tree"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-shadow-dom-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-shadow-dom-aria",
+    "variant_group_id": "was-shadow-dom-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "When designing accessible Web Components using Shadow DOM, what limitation exists when referencing IDs across shadow DOM encapsulation boundaries with aria-labelledby?",
+    "options": [
+      {
+        "id": "A",
+        "text": "ARIA ID references cannot cross shadow root boundaries to reference external elements"
+      },
+      {
+        "id": "B",
+        "text": "Shadow DOM elements cannot accept standard mouse click or keyboard focus events"
+      },
+      {
+        "id": "C",
+        "text": "Screen readers automatically suppress speech synthesis inside custom component templates"
+      },
+      {
+        "id": "D",
+        "text": "CSS variables cannot penetrate shadow boundaries to style custom focus outlines"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Standard ID references (`aria-labelledby`, `aria-describedby`, `aria-controls`) are scoped to their immediate Document or ShadowRoot. An ARIA attribute inside a shadow root cannot resolve an ID located in the light DOM.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "web-components",
+      "shadow-dom",
+      "aria-idref"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-mobile-rotor-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-mobile-at-navigation",
+    "variant_group_id": "was-mobile-at-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "How does mobile touch-screen screen reader navigation (such as VoiceOver on iOS or TalkBack on Android) fundamentally differ from desktop screen reader navigation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mobile AT ignores HTML heading structures and restricts virtual rotor navigation to hyperlinks"
+      },
+      {
+        "id": "B",
+        "text": "Mobile AT relies on gesture swipes and virtual rotors rather than physical keyboard quick keys"
+      },
+      {
+        "id": "C",
+        "text": "Mobile AT cannot navigate web pages rendered inside mobile Safari or Chrome viewports"
+      },
+      {
+        "id": "D",
+        "text": "Mobile AT requires web developers to author dedicated proprietary touchscreen gesture event handlers"
+      }
+    ],
+    "answer": "B",
+    "explanation": "While desktop screen reader users utilize physical keyboard shortcuts (e.g. H for next heading), touch screen AT users use touch gestures (flicking left/right, double tapping) and rotational gesture menus (the iOS Rotor or Android Reading Controls).",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "mobile-at",
+      "voiceover",
+      "talkback"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-canvas-fallback-07",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-canvas-fallback-dom",
+    "variant_group_id": "was-canvas-fallback-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "A team renders a complex interactive data chart using HTML5 canvas. What architecture is required to make the canvas data accessible to assistive technologies?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Drawing alt-text pixel letters directly onto the canvas bitmap buffer at sixty frames per second"
+      },
+      {
+        "id": "B",
+        "text": "Injecting CSS media queries that force mobile operating systems to invert canvas colors"
+      },
+      {
+        "id": "C",
+        "text": "Placing an accessible semantic fallback DOM structure (like an HTML table) inside the canvas element"
+      },
+      {
+        "id": "D",
+        "text": "Converting the canvas into an animated GIF graphic displayed inside a modal window"
+      }
+    ],
+    "answer": "C",
+    "explanation": "HTML5 canvas is a pixel drawing surface lacking native accessibility. Browsers expose content placed inside `<canvas>...</canvas>` as fallback DOM to assistive technologies when canvas hits are not accessibility-supported.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "canvas",
+      "fallback-dom",
+      "accessible-name"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-access-supp-baseline-definition-08",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-E",
+    "concept_id": "was-defining-baseline",
+    "variant_group_id": "was-baseline-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Why must an organization formally document its target 'accessibility conformance baseline' when evaluating web applications?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It legally excuses the organization from supporting any future versions of assistive software"
+      },
+      {
+        "id": "B",
+        "text": "It establishes the maximum number of daily active users permitted on web servers during peak traffic windows"
+      },
+      {
+        "id": "C",
+        "text": "It grants engineering teams permission to disable keyboard navigation on mobile viewports"
+      },
+      {
+        "id": "D",
+        "text": "It defines the specific browser and assistive technology versions against which conformance is measured"
+      }
+    ],
+    "answer": "D",
+    "explanation": "A conformance baseline defines the environment (operating systems, web browsers, assistive technologies, and versions) that an organization commits to supporting, establishing objective parameters for testing whether technologies are accessibility-supported.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One E, Accessibility-Supported Technologies",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "baseline",
+      "conformance",
+      "qa"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-a11y-tree-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-devtools-a11y-tree",
+    "variant_group_id": "was-devtools-tree-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What is the primary function of the Accessibility Tree panel in modern browser developer tools (Chrome, Edge, Firefox)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It inspects the browser-computed accessibility node hierarchy, accessible names, roles, and states"
+      },
+      {
+        "id": "B",
+        "text": "It displays the visual layout wireframe showing flexbox and CSS grid container bounds"
+      },
+      {
+        "id": "C",
+        "text": "It profiles JavaScript CPU execution time during CSS transitions and hardware-accelerated animations"
+      },
+      {
+        "id": "D",
+        "text": "It automatically repairs missing ARIA attributes by mutating live DOM attributes on the fly"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The DevTools Accessibility Tree displays the computed accessibility object created by the browser engine, revealing exactly how roles, accessible names, focusable states, and ARIA properties are communicated to platform APIs.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "devtools",
+      "accessibility-tree",
+      "computed-properties"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-accname-priority-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-accname-computation-steps",
+    "variant_group_id": "was-accname-priority-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "An interactive button has aria-labelledby, aria-label, and inner text content. According to the W3C Accessible Name Computation algorithm, which property takes highest precedence?",
+    "options": [
+      {
+        "id": "A",
+        "text": "aria-label authored on the element tag"
+      },
+      {
+        "id": "B",
+        "text": "aria-labelledby referencing valid element IDs"
+      },
+      {
+        "id": "C",
+        "text": "The inner text content enclosed between tags"
+      },
+      {
+        "id": "D",
+        "text": "The title attribute authored on the element"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Under the W3C Accessible Name Computation algorithm, `aria-labelledby` takes top priority, overriding `aria-label`, native labels/inner text, and title attributes.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "accname",
+      "algorithm",
+      "precedence"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-gradient-contrast-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-gradient-contrast-limit",
+    "variant_group_id": "was-gradient-contrast-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Why do automated accessibility testing tools frequently fail to evaluate color contrast for text displayed over CSS linear gradients or background images?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The Memory tab heap snapshot analyzer comparing detached DOM tree allocations"
+      },
+      {
+        "id": "B",
+        "text": "The Network panel request waterfall timing chart measuring SVG image asset download latency over connections"
+      },
+      {
+        "id": "C",
+        "text": "The eyedropper color picker in the Styles panel, evaluating contrast against the gradient extremities"
+      },
+      {
+        "id": "D",
+        "text": "The Application tab cookie inspector verifying third-party SameSite attribute values"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Automated scanners examine CSS background-color values. When backgrounds feature gradients or images, background colors vary across pixels, requiring human evaluators with eyedropper tools to locate the lowest-contrast point.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "contrast",
+      "automated-testing",
+      "gradients"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-live-region-debug-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-debugging-aria-live",
+    "variant_group_id": "was-aria-live-debug-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "A developer updates text inside an aria-live region via JavaScript, but a screen reader remains silent. What is the most common DOM cause discovered during DevTools inspection?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Inspecting the TCP WebSocket frame payloads in the browser Network monitor panel"
+      },
+      {
+        "id": "B",
+        "text": "Measuring GPU rasterization overhead in the Performance tab flame chart timeline"
+      },
+      {
+        "id": "C",
+        "text": "Enabling CSS grid overlays to measure vertical line-height spacing on dynamically injected paragraph nodes"
+      },
+      {
+        "id": "D",
+        "text": "Monitoring DOM mutations on aria-live containers and verifying announcements in console logs"
+      }
+    ],
+    "answer": "D",
+    "explanation": "For an `aria-live` region to announce dynamic text, the live container must already exist in the accessibility tree prior to the content change. Creating the container and populating its text simultaneously causes screen readers to miss the mutation.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "aria-live",
+      "devtools",
+      "debugging"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-emulation-rendering-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-devtools-vision-emulation",
+    "variant_group_id": "was-vision-emul-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Which DevTools panel capability allows accessibility auditors to visually preview interfaces as perceived by users with protanopia, deuteranopia, or blurred vision?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The Rendering drawer tab under 'Emulate vision deficiencies'"
+      },
+      {
+        "id": "B",
+        "text": "The Sources tab under 'Breakpoints on DOM subtree modifications'"
+      },
+      {
+        "id": "C",
+        "text": "The Performance monitor tab under 'Display frame rate metrics across viewports'"
+      },
+      {
+        "id": "D",
+        "text": "The Memory tab under 'Allocation instrumentation on timeline view'"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Modern browser developer tools provide an 'Emulate vision deficiencies' dropdown in the Rendering panel, enabling auditors to view pages through simulated color blindness (protanopia, deuteranopia, tritanopia, achromatopsia) and reduced contrast.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "devtools",
+      "rendering",
+      "color-blindness"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-name-from-contents-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-name-from-contents",
+    "variant_group_id": "was-name-contents-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "Which HTML element derives its default accessible name from its descendant child text nodes under the 'Name from Contents' rule?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A standard text input form element with a placeholder attribute"
+      },
+      {
+        "id": "B",
+        "text": "A standard HTML button element containing plain text"
+      },
+      {
+        "id": "C",
+        "text": "A native multi-line textarea input control"
+      },
+      {
+        "id": "D",
+        "text": "An embedded iframe element displaying external media"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Certain elements (like buttons, links, headings, and tab controls) support 'Name from Contents,' where the accessible name is computed from their child text nodes. Inputs, textareas, and iframes do not use name-from-contents.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "accname",
+      "name-from-contents",
+      "buttons"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-active-element-07",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-devtools-active-element",
+    "variant_group_id": "was-active-elem-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "When auditing keyboard navigation, focus appears to vanish into a hidden black hole. What JavaScript console command instantly reveals which DOM element currently possesses focus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "window.getComputedStyle()"
+      },
+      {
+        "id": "B",
+        "text": "console.traceFocusPath()"
+      },
+      {
+        "id": "C",
+        "text": "document.activeElement"
+      },
+      {
+        "id": "D",
+        "text": "navigator.accessibilityTarget"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Evaluating `document.activeElement` in the browser console immediately returns the specific DOM node currently holding keyboard focus, exposing off-screen links, unstyled wrappers, or hidden inputs.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "devtools",
+      "focus",
+      "activeElement"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-tools-synthetic-state-08",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-H",
+    "concept_id": "was-devtools-force-state",
+    "variant_group_id": "was-force-state-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "easy",
+    "stem": "How can an accessibility auditor reliably test the visual contrast of :focus and :focus-visible outlines without needing to hold down keyboard keys simultaneously?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Disable CSS stylesheets permanently in the Network tab configuration"
+      },
+      {
+        "id": "B",
+        "text": "Take a high-speed video recording of the monitor with a smartphone"
+      },
+      {
+        "id": "C",
+        "text": "Modify the operating system keyboard repeat rate in control panel settings"
+      },
+      {
+        "id": "D",
+        "text": "Use the DevTools ':hov' panel toggle to force the :focus-visible pseudo-class state"
+      }
+    ],
+    "answer": "D",
+    "explanation": "DevTools allows developers to force element pseudo-classes (`:hover`, `:active`, `:focus`, `:focus-visible`, `:focus-within`), locking the state so focus indicator contrast and styling can be inspected in peace.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two H, Testing Tools for the Web",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "devtools",
+      "pseudo-classes",
+      "focus-visible"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-native-button-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-button-vs-div",
+    "variant_group_id": "was-native-btn-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What critical keyboard interaction does a native HTML button provide automatically that a custom div element with role='button' and tabindex='0' lacks by default?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Native keyboard activation (Enter/Space), focusability, and role='button'"
+      },
+      {
+        "id": "B",
+        "text": "Automatic CSS gradient background shading applied to clickable UI controls"
+      },
+      {
+        "id": "C",
+        "text": "Automatic conversion of visual icon imagery into synthetic speech waveforms during mouse hovering"
+      },
+      {
+        "id": "D",
+        "text": "Automatic generation of REST API network telemetry payloads during click events"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Native `<button>` elements respond to both Enter and Space keys automatically and trigger form submissions. A custom `<div role=\"button\" tabindex=\"0\">` only receives focus; authors must write custom keydown listeners for Enter and Space.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "custom-controls",
+      "button",
+      "keyboard"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-native-select-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-select-vs-combobox",
+    "variant_group_id": "was-select-combo-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "When replacing a standard HTML select element with a custom ARIA combobox widget, what complex keyboard pattern must authors replicate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic translation of option text strings into forty foreign languages"
+      },
+      {
+        "id": "B",
+        "text": "Operating system native picker UI, accessible options, keyboard typing jump navigation"
+      },
+      {
+        "id": "C",
+        "text": "Hardware-accelerated 3D transform animations rendering dropdown menus using GPU graphics drivers"
+      },
+      {
+        "id": "D",
+        "text": "Automated spell-checking and autocomplete suggestion caching in local storage"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Native `<select>` elements provide rich out-of-the-box keyboard behaviors: Arrow keys to move selection, Escape/Alt+Up to close, Home/End, and typing letters to jump to matching options. Custom comboboxes must implement all of these.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "custom-controls",
+      "select",
+      "combobox"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-native-dialog-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-native-dialog-benefits",
+    "variant_group_id": "was-native-dialog-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Why is the HTML5 dialog element (invoked via showModal()) superior to custom modal div implementations?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It automatically converts modal form inputs into encrypted biometric hashes"
+      },
+      {
+        "id": "B",
+        "text": "It eliminates the need for software developers to author form submit handlers"
+      },
+      {
+        "id": "C",
+        "text": "It provides built-in focus trapping, Escape key closing, and renders background nodes inert"
+      },
+      {
+        "id": "D",
+        "text": "It prevents users from zooming interface text beyond one hundred percent"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Calling `dialog.showModal()` provides native top-layer placement, traps focus within the modal, dismisses on Escape, and marks outside content inert to assistive technologies without complex third-party scripting.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "dialog",
+      "native-controls",
+      "inert"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-link-vs-button-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-link-vs-button-semantics",
+    "variant_group_id": "was-link-btn-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "easy",
+    "stem": "What is the core semantic difference between an HTML hyperlink (anchor with href) and an HTML button?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Links display standard blue underlined text while buttons feature rectangular border outlines"
+      },
+      {
+        "id": "B",
+        "text": "Buttons operate with mouse pointer clicks while links require primary keyboard activation"
+      },
+      {
+        "id": "C",
+        "text": "Screen readers announce links during reading but skip button elements during virtual cursor navigation"
+      },
+      {
+        "id": "D",
+        "text": "Links navigate to new documents or anchors; buttons trigger actions or open interactive UI"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Semantically and functionally, links navigate users to a new document, location, or URL. Buttons perform actions (opening dialogs, submitting forms, toggling controls) without changing the page URL.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "semantics",
+      "link",
+      "button"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-details-summary-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-details-summary-pattern",
+    "variant_group_id": "was-details-summary-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What built-in accessibility capability does the native details and summary element combination provide for disclosure widgets?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Native keyboard toggle (Enter/Space), aria-expanded state, and built-in show/hide logic"
+      },
+      {
+        "id": "B",
+        "text": "Built-in full-text search indexing across closed hidden drawer panel content"
+      },
+      {
+        "id": "C",
+        "text": "Automated cloud backup synchronization storing collapsed content on remote distributed databases"
+      },
+      {
+        "id": "D",
+        "text": "Automatic CSS typography hyphenation and justified text paragraph alignment"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Native `<details>` and `<summary>` elements provide disclosure semantics out of the box: the summary acts as an accessible button with state, toggleable via Enter and Space, exposing open/closed states without ARIA scripting.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "native-controls",
+      "details-summary",
+      "disclosure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-custom-checkbox-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-F",
+    "concept_id": "was-custom-checkbox-state",
+    "variant_group_id": "was-custom-checkbox-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "When implementing a custom tri-state checkbox widget (checked, unchecked, partially checked), which ARIA attribute manages the third intermediate state?",
+    "options": [
+      {
+        "id": "A",
+        "text": "aria-selected='partial'"
+      },
+      {
+        "id": "B",
+        "text": "aria-checked='mixed'"
+      },
+      {
+        "id": "C",
+        "text": "aria-pressed='indeterminate'"
+      },
+      {
+        "id": "D",
+        "text": "aria-invalid='tri-state'"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Under WAI-ARIA, a tri-state checkbox uses `aria-checked=\"mixed\"` to represent an indeterminate state (e.g. when some but not all sub-options are selected in a nested checklist).",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One F, Standard Controls vs. Custom Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "checkbox",
+      "tri-state",
+      "aria-checked"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-act-rules-purpose-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-act-rules-harmonization",
+    "variant_group_id": "was-act-rules-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What is the primary objective of the W3C Accessibility Conformance Testing (ACT) Rules Format specification?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Developing a commercial automated scanner sold directly to corporate software enterprise organizations"
+      },
+      {
+        "id": "B",
+        "text": "Replacing human accessibility auditors with fully autonomous artificial intelligence agent bots"
+      },
+      {
+        "id": "C",
+        "text": "Harmonizing interpretation of WCAG success criteria across automated testing tools and methodologies"
+      },
+      {
+        "id": "D",
+        "text": "Establishing legal penalty fines for non-compliant public sector software systems"
+      }
+    ],
+    "answer": "C",
+    "explanation": "W3C ACT Rules define unambiguous, standardized test procedures to ensure different accessibility evaluation tools (like axe-core, Lighthouse, QualWeb) interpret WCAG criteria consistently without conflicting verdicts.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Testing Tools for the Web and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "wcag-act",
+        "locator": "ACT Rules Overview",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/standards-guidelines/act/rules/"
+      }
+    ],
+    "tags": [
+      "act-rules",
+      "standards",
+      "harmonization"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-act-structure-aspects-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-act-rule-structure",
+    "variant_group_id": "was-act-structure-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "hard",
+    "stem": "What core components comprise an individual W3C ACT Rule definition?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Commercial licensing terms, sales warranties, and pricing tiers"
+      },
+      {
+        "id": "B",
+        "text": "Browser network bandwidth throttling and memory allocation limits"
+      },
+      {
+        "id": "C",
+        "text": "Employee job descriptions and corporate organizational charts"
+      },
+      {
+        "id": "D",
+        "text": "Input Aspects, Applicability conditions, and measurable Expectations"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Every ACT Rule specifies: Input Aspects (what data the rule inspects, e.g. DOM tree, CSS styling), Applicability (which elements the rule applies to), and Expectations (the conditions applicable elements must satisfy).",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Testing Tools for the Web and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "act-rules",
+      "applicability",
+      "expectations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-act-outcomes-inapplicable-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-act-test-outcomes",
+    "variant_group_id": "was-act-outcomes-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the ACT Rules Format, what outcome is reported when a tested web page contains zero elements that match the rule's Applicability criteria?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Inapplicable"
+      },
+      {
+        "id": "B",
+        "text": "Satisfied Criterion"
+      },
+      {
+        "id": "C",
+        "text": "Failed Conformance"
+      },
+      {
+        "id": "D",
+        "text": "Not Applicable Target"
+      }
+    ],
+    "answer": "A",
+    "explanation": "When a page does not contain target elements defined in an ACT rule (e.g. testing video elements on a page with no video), the result is 'Inapplicable' rather than a false 'Passed' or 'Failed'.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Testing Tools for the Web and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "act-rules",
+      "inapplicable",
+      "outcomes"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-act-auto-vs-manual-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-act-automation-limits",
+    "variant_group_id": "was-act-limits-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Why can certain ACT rules only be classified as 'semi-automated' or 'manual' rather than fully automated?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Rules that run primarily on static pre-rendered HTML without JavaScript engines"
+      },
+      {
+        "id": "B",
+        "text": "Rules with automated applicability checks but requiring human cognitive judgment for outcomes"
+      },
+      {
+        "id": "C",
+        "text": "Rules that evaluate network transport encryption layers and SSL certificate cipher suite expiration"
+      },
+      {
+        "id": "D",
+        "text": "Rules that require testing hardware monitors in physical darkroom environments"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Evaluating whether alternative text conveys equivalent purpose (SC 1.1.1) or whether reading sequence is logical (SC 1.3.2) requires human understanding of context and authorial intent, which rules engines cannot deduce alone.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Testing Tools for the Web and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "act-rules",
+      "semi-automated",
+      "human-judgment"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-act-false-negatives-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-act-false-negatives",
+    "variant_group_id": "was-act-false-neg-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "In automated accessibility testing rule engines, why are 'false negatives' considered dangerous in continuous integration pipelines?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The automated scanner flags compliant code as a violation because it cannot resolve external CSS media query files"
+      },
+      {
+        "id": "B",
+        "text": "The automated tool crashes because the web application uses modern CSS flexbox layouts"
+      },
+      {
+        "id": "C",
+        "text": "The automated rule passes valid syntax, but alt text fails human review (e.g. alt='photo' or irrelevant)"
+      },
+      {
+        "id": "D",
+        "text": "The browser accessibility API rejects the DOM tree because the page contains too many nodes"
+      }
+    ],
+    "answer": "C",
+    "explanation": "A false negative occurs when an accessibility failure exists on the page but the automated scanner fails to report it. Teams relying solely on green automated badges may deploy severe barriers to real users.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Testing Tools for the Web and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "act-rules",
+      "false-negatives",
+      "ci-cd"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d2-act-headless-spa-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D2",
+    "section_id": "WAS-D2-D",
+    "concept_id": "was-act-spa-testing",
+    "variant_group_id": "was-act-spa-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "When evaluating dynamic single-page applications (SPAs) with automated ACT rule suites, what testing practice is necessary to catch state-dependent accessibility failures?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Running automated testing scripts on static server-rendered HTML templates prior to client-side bundle hydration"
+      },
+      {
+        "id": "B",
+        "text": "Disabling JavaScript execution so headless Chrome parses raw HTML markup"
+      },
+      {
+        "id": "C",
+        "text": "Testing the application during scheduled nighttime server maintenance windows to avoid database locks"
+      },
+      {
+        "id": "D",
+        "text": "Automated tools must evaluate the post-hydration rendered DOM and execute interactions to reveal states"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Modern SPAs load views and modal states dynamically. Running tools like Playwright or Puppeteer to interact with the page, open menus, and submit forms allows rule engines to audit rendered DOM states rather than just the initial landing payload.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Two D, Testing Tools for the Web and ACT Rules",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "spa",
+      "headless-browser",
+      "playwright"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-tablist-roving-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-tablist-roving-tabindex",
+    "variant_group_id": "was-tablist-roving-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Under the W3C ARIA Authoring Practices Guide (APG) Tablist pattern, how should keyboard Tab and Arrow keys function when navigating among tabs?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Arrow keys move focus between tabs (updating tabindex=0/-1), while Tab exits the tablist into the tabpanel"
+      },
+      {
+        "id": "B",
+        "text": "Tab key cycles continuously through available interactive tabs while pressing Escape closes the browser window"
+      },
+      {
+        "id": "C",
+        "text": "Clicking a tab reloads the entire web page while Space bar scrolls the document layout"
+      },
+      {
+        "id": "D",
+        "text": "Enter key deletes the active tab while Backspace key creates a new empty tab panel"
+      }
+    ],
+    "answer": "A",
+    "explanation": "In the APG Tabs pattern, the tablist represents a single composite widget in the page tab sequence: Tab enters the active tab (tabindex='0'), Left/Right arrows cycle among tabs (roving tabindex), and Tab moves directly into the tabpanel content.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C, Create Interactive Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Tabs Pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/"
+      }
+    ],
+    "tags": [
+      "apg",
+      "tabs",
+      "roving-tabindex"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-combobox-pattern-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-combobox-12-pattern",
+    "variant_group_id": "was-combobox-12-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "hard",
+    "stem": "In WAI-ARIA 1.2, which element role holds role='combobox', and what attribute links it to the associated popup listbox?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The outer container div holds role='combobox' and uses aria-owns referencing the listbox ID"
+      },
+      {
+        "id": "B",
+        "text": "The input element holds role='combobox' and uses aria-controls referencing the listbox ID"
+      },
+      {
+        "id": "C",
+        "text": "The listbox holds role='combobox' and uses aria-haspopup referencing the parent form"
+      },
+      {
+        "id": "D",
+        "text": "The submit button holds role='combobox' and uses aria-expanded referencing the modal"
+      }
+    ],
+    "answer": "B",
+    "explanation": "In ARIA 1.2, the combobox pattern was simplified: the `<input>` element itself has `role=\"combobox\"`, `aria-expanded`, `aria-haspopup=\"listbox\"`, and `aria-controls=\"listbox-id\"`.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C, Create Interactive Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Combobox Pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"
+      }
+    ],
+    "tags": [
+      "combobox",
+      "aria-1-2",
+      "aria-controls"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-tooltip-vs-toggletip-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-tooltip-vs-toggletip",
+    "variant_group_id": "was-tooltip-toggle-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What is the crucial architectural distinction between an accessible Tooltip widget and an accessible Toggletip widget?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A tooltip applies to mobile phones while a toggletip applies to desktop workstations"
+      },
+      {
+        "id": "B",
+        "text": "A tooltip requires a mouse click while a toggletip appears automatically upon page load"
+      },
+      {
+        "id": "C",
+        "text": "A tooltip displays on hover/focus describing a control, while a toggletip opens via click to display interactive text"
+      },
+      {
+        "id": "D",
+        "text": "A tooltip must be formatted with red backgrounds while a toggletip uses transparent borders"
+      }
+    ],
+    "answer": "C",
+    "explanation": "A tooltip provides supplementary description for an interactive control via hover/focus (`aria-describedby`). A toggletip is an interactive button that opens an informational popup containing text, links, or controls, often using an `aria-live` region or dialog.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C, Create Interactive Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "tooltip",
+      "toggletip",
+      "hover-focus"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-slider-properties-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-slider-aria-properties",
+    "variant_group_id": "was-slider-props-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "Which set of ARIA attributes is required on an element with role='slider' to communicate its numerical range and current position to assistive technologies?",
+    "options": [
+      {
+        "id": "A",
+        "text": "aria-checked, aria-selected, aria-expanded, and optionally aria-controls UI properties"
+      },
+      {
+        "id": "B",
+        "text": "aria-rowindex, aria-colindex, aria-rowcount, and optionally aria-colspan attributes"
+      },
+      {
+        "id": "C",
+        "text": "aria-live, aria-atomic, aria-relevant, and optionally aria-busy status attributes"
+      },
+      {
+        "id": "D",
+        "text": "aria-valuenow, aria-valuemin, aria-valuemax, and optionally aria-valuetext"
+      }
+    ],
+    "answer": "D",
+    "explanation": "A custom slider requires `role=\"slider\"`, `tabindex=\"0\"`, `aria-valuenow` (current value), `aria-valuemin` (minimum value), `aria-valuemax` (maximum value), and `aria-valuetext` when the value has a human-friendly label (e.g. 'Medium' or '$50').",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C, Create Interactive Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Slider Pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/"
+      }
+    ],
+    "tags": [
+      "slider",
+      "aria-valuenow",
+      "apg"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-menu-button-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-menu-button-pattern",
+    "variant_group_id": "was-menu-btn-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "When a user presses Escape while focus is inside an open popup menu (role='menu'), what focus management behavior does the APG Menu Button pattern mandate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The menu closes and keyboard focus returns immediately to the menu trigger button"
+      },
+      {
+        "id": "B",
+        "text": "The browser reloads the web page and returns focus to the top document heading element"
+      },
+      {
+        "id": "C",
+        "text": "Focus moves to the first focusable element inside the website footer"
+      },
+      {
+        "id": "D",
+        "text": "The operating system displays a modal application crash notification"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Under the APG Menu Button pattern, pressing Escape closes the menu and restores keyboard focus to the button that opened it, preserving context and preventing lost focus.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C, Create Interactive Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Menu Button Pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+      }
+    ],
+    "tags": [
+      "menu-button",
+      "escape-key",
+      "focus-restoration"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d1-ctrl-treeview-pattern-06",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D1",
+    "section_id": "WAS-D1-C",
+    "concept_id": "was-treeview-navigation",
+    "variant_group_id": "was-treeview-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "hard",
+    "stem": "In an accessible hierarchical Treeview widget (role='tree'), what role do Right Arrow and Left Arrow keys perform?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Right Arrow moves focus to the website search bar; Left Arrow opens the primary global navigation menu"
+      },
+      {
+        "id": "B",
+        "text": "Right Arrow expands closed nodes or moves to children; Left Arrow closes nodes or moves to parents"
+      },
+      {
+        "id": "C",
+        "text": "Right Arrow scrolls the browser horizontally; Left Arrow refreshes the current application page"
+      },
+      {
+        "id": "D",
+        "text": "Arrow keys select individual text characters inside editable tree item label controls"
+      }
+    ],
+    "answer": "B",
+    "explanation": "In the APG Treeview pattern: when on a closed parent node, Right Arrow opens it; when on an open parent node, it moves focus into the first child. Left Arrow closes an open parent node or moves focus to the parent node if already closed.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain One C, Create Interactive Controls",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      },
+      {
+        "source_id": "aria-apg",
+        "locator": "Treeview Pattern",
+        "role": "support",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/"
+      }
+    ],
+    "tags": [
+      "treeview",
+      "keyboard-navigation",
+      "apg"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d3-sev-blocker-definition-01",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-severity-blocker-def",
+    "variant_group_id": "was-blocker-def-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "In accessibility defect triage, how is a 'Blocker' (or Critical / P0) severity rating defined?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A persistent validation error that interrupts automated build scripts during regression release testing"
+      },
+      {
+        "id": "B",
+        "text": "A minor typographical spelling mistake in an explanatory tooltip sentence on a settings page"
+      },
+      {
+        "id": "C",
+        "text": "An issue that directly prevents a user with disabilities from completing a primary core task"
+      },
+      {
+        "id": "D",
+        "text": "A missing footer copyright date on an archived historical marketing blog article"
+      }
+    ],
+    "answer": "C",
+    "explanation": "A Blocker defect (like a keyboard trap in a checkout modal, or an unlabelled login form submit button) completely stops a user with disabilities from finishing a core workflow, leaving zero usable workaround.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "severity",
+      "blocker",
+      "triage"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d3-sev-wcag-level-vs-impact-02",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-level-vs-user-impact",
+    "variant_group_id": "was-level-impact-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "hard",
+    "stem": "Why must engineering teams prioritize accessibility defects based on actual user impact rather than solely on WCAG conformance level (Level A vs AA)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automated testing scanners evaluate Level AAA success criteria rules rather than foundational Level A requirements"
+      },
+      {
+        "id": "B",
+        "text": "Level AA success criteria have been officially repealed by international court decisions"
+      },
+      {
+        "id": "C",
+        "text": "Level A success criteria apply to mobile apps while Level AA applies to desktop websites"
+      },
+      {
+        "id": "D",
+        "text": "Certain Level A defects cause minor friction, while a Level A keyboard trap decisively halts user task"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Both SC 2.1.2 (No Keyboard Trap) and SC 3.1.1 (Language of Page) are Level A. However, a keyboard trap stops a user cold, while a missing lang attribute may only slightly alter pronunciation. Triage must weigh functional user impact.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "severity",
+      "prioritization",
+      "wcag-levels"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d3-sev-high-vs-medium-03",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-high-vs-medium-severity",
+    "variant_group_id": "was-high-med-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "comprehension",
+    "difficulty": "medium",
+    "stem": "What distinguishing characteristic separates a 'High' severity accessibility defect from a 'Medium' severity defect?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A High defect causes significant barrier with difficult workarounds, while Medium causes minor friction"
+      },
+      {
+        "id": "B",
+        "text": "High defects must be remediated by external specialized software consultants prior to official production launch"
+      },
+      {
+        "id": "C",
+        "text": "High defects occur on desktop monitors while Medium defects occur on smartphone displays"
+      },
+      {
+        "id": "D",
+        "text": "Medium defects are legally exempt from corporate software audit compliance tracking workflows"
+      }
+    ],
+    "answer": "A",
+    "explanation": "High severity defects significantly impede user progress or require confusing, complex workarounds. Medium severity defects cause inconvenience or inefficiency (e.g. slight contrast issue, imprecise heading levels) but the task can still be completed with reasonable effort.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "severity",
+      "high-severity",
+      "medium-severity"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d3-sev-critical-journey-04",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-critical-user-journeys",
+    "variant_group_id": "was-journey-priority-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "application",
+    "difficulty": "medium",
+    "stem": "An e-commerce site has hundreds of accessibility defects across various pages. How should the team prioritize remediation tickets across sprints?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Remediate defects in alphabetical order based on CSS class name identifiers"
+      },
+      {
+        "id": "B",
+        "text": "Prioritize critical user journeys (registration, product search, cart checkout) before secondary pages"
+      },
+      {
+        "id": "C",
+        "text": "Focus remediation on the company marketing blog archives published five years ago"
+      },
+      {
+        "id": "D",
+        "text": "Wait until an external regulatory authority issues a formal legal audit citation"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Defects in core transactional funnels (Critical User Journeys) carry the greatest user impact and legal risk. Fixing sign-up, product search, and checkout first ensures customers can actually purchase goods and services.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "prioritization",
+      "critical-user-journeys",
+      "remediation"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "was-d3-sev-effort-impact-matrix-05",
+    "certification_id": "WAS",
+    "domain_id": "WAS-D3",
+    "section_id": "WAS-D3-A",
+    "concept_id": "was-effort-impact-matrix",
+    "variant_group_id": "was-effort-impact-v1",
+    "variant_strategy": "new_context",
+    "type": "multiple_choice",
+    "cognitive_level": "analysis",
+    "difficulty": "medium",
+    "stem": "In an Impact vs. Effort prioritization matrix, which category of accessibility fixes should be scheduled immediately for the current development sprint?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Postponing accessibility remediation tickets until the next major annual enterprise platform redesign"
+      },
+      {
+        "id": "B",
+        "text": "Low Impact / High Effort changes that require rewriting underlying database schemas"
+      },
+      {
+        "id": "C",
+        "text": "High Impact / Low Effort fixes ('Quick Wins' such as adding missing button labels and html lang)"
+      },
+      {
+        "id": "D",
+        "text": "Cosmetic changes to third-party vendor marketing partner logos on the corporate about page"
+      }
+    ],
+    "answer": "C",
+    "explanation": "High-impact, low-effort fixes (e.g. adding `lang=\"en\"`, fixing missing alt attributes, adding `type=\"button\"`) deliver immediate, massive usability improvements for assistive technology users with minimal engineering cost.",
+    "source_refs": [
+      {
+        "source_id": "was-bok-2024-10",
+        "locator": "Domain Three A, Severity and Prioritization",
+        "role": "scope",
+        "url": "../../resources/IAAP_WAS_BOK_2024_v23 1.docx"
+      }
+    ],
+    "tags": [
+      "prioritization",
+      "impact-effort-matrix",
+      "quick-wins"
+    ],
+    "status": "draft"
   }
 ]
