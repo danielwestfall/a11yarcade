@@ -14,11 +14,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep the div and add a tooltip explaining how to click it"
+        "text": "Use a native button where possible, or implement the custom control's keyboard and semantic behavior"
       },
       {
         "id": "B",
-        "text": "Use a native button where possible, or implement the custom control's keyboard and semantic behavior"
+        "text": "Keep the div and add a tooltip explaining how to click it"
       },
       {
         "id": "C",
@@ -29,7 +29,7 @@
         "text": "Make the control smaller so it is easier to skip"
       }
     ],
-    "answer": "B",
+    "answer": "A",
     "explanation": "Native HTML controls provide built-in semantics and interaction behavior. If a custom control is necessary, it needs equivalent semantics and keyboard interaction rather than visual styling alone.",
     "source_refs": [
       {
@@ -97,11 +97,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Provide an accessible name that identifies what the checkbox controls"
+        "text": "Change its visual border to a thicker line"
       },
       {
         "id": "B",
-        "text": "Change its visual border to a thicker line"
+        "text": "Provide an accessible name that identifies what the checkbox controls"
       },
       {
         "id": "C",
@@ -112,7 +112,7 @@
         "text": "Add a live region that repeats “unchecked”"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "The state is exposed, but the user still needs a name to identify the checkbox's purpose. Accessible name, role and value or state are distinct parts of a control's accessibility information.",
     "source_refs": [
       {
@@ -187,22 +187,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Choose the relevant pattern as guidance, implement the expected semantics and keyboard behavior, then test the widget"
-      },
-      {
-        "id": "B",
         "text": "Copy any example code without checking whether it fits the widget"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Use the guide as proof that the finished widget is accessible"
+      },
+      {
+        "id": "C",
+        "text": "Choose the relevant pattern as guidance, implement the expected semantics and keyboard behavior, then test the widget"
       },
       {
         "id": "D",
         "text": "Ignore keyboard behavior if the widget has an ARIA label"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "The APG helps authors understand widget patterns and interaction expectations. The implementation still needs to fit the use case and be tested with browsers and assistive technologies.",
     "source_refs": [
       {
@@ -317,18 +317,18 @@
       },
       {
         "id": "B",
-        "text": "The tested naming condition did not fail that rule; other aspects still need evaluation"
-      },
-      {
-        "id": "C",
         "text": "Keyboard testing is no longer needed"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "The form is usable by every person with a disability"
+      },
+      {
+        "id": "D",
+        "text": "The tested naming condition did not fail that rule; other aspects still need evaluation"
       }
     ],
-    "answer": "B",
+    "answer": "D",
     "explanation": "An atomic rule gives evidence about the one aspect it tests. It does not establish complete conformance or usability across the form.",
     "source_refs": [
       {
@@ -375,7 +375,7 @@
       },
       {
         "id": "C",
-        "text": "Only automated checks can be used on registration services"
+        "text": "primarily automated checks can be used on registration services"
       },
       {
         "id": "D",
@@ -562,18 +562,18 @@
       },
       {
         "id": "B",
-        "text": "The blocked payment form, because it prevents completion of a core task"
-      },
-      {
-        "id": "C",
         "text": "Neither, until every issue has an identical severity score"
       },
       {
+        "id": "C",
+        "text": "The blocked payment form, because it prevents completion of a core task for web accessibility conformance."
+      },
+      {
         "id": "D",
-        "text": "The icon, because all text alternatives are critical blockers"
+        "text": "The icon, because descriptive text alternatives support non-visual comprehension"
       }
     ],
-    "answer": "B",
+    "answer": "C",
     "explanation": "Prioritization should consider severity and user impact. A blocker in a core task has greater immediate impact than a redundant description on a decorative icon.",
     "source_refs": [
       {
@@ -612,22 +612,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The report is useful evidence to review, but it does not replace evaluating the product against the organization's needs and requirements"
+        "text": "The report indicates the product meets evaluated accessibility benchmarks across configurations"
       },
       {
         "id": "B",
-        "text": "The report guarantees the product is accessible to every user in every configuration"
+        "text": "The report implies that standard procurement testing protocols can be expedited"
       },
       {
         "id": "C",
-        "text": "The report means no contract terms or follow-up testing are needed"
+        "text": "The report is acceptable if it documents conformance gaps clearly"
       },
       {
         "id": "D",
-        "text": "The report is valid only if it lists no issues"
+        "text": "The report is useful evidence to review, but it does not replace evaluating the product against the organization's needs and requirements"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "An ACR communicates conformance information and known limitations. Procurement teams should review its scope and evidence and consider intended use, configuration and contract requirements.",
     "source_refs": [
       {
@@ -702,7 +702,7 @@
     "options": [
       {
         "id": "A",
-        "text": "The WCAG 2.2 success criterion"
+        "text": "The WCAG 2.2 success criterion for web accessibility conformance."
       },
       {
         "id": "B",
@@ -792,11 +792,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the status update is programmatically exposed so assistive technology can announce it without moving focus unexpectedly"
+        "text": "Whether the cart icon uses a more decorative color"
       },
       {
         "id": "B",
-        "text": "Whether the cart icon uses a more decorative color"
+        "text": "Whether the status update is programmatically exposed so assistive technology can announce it without moving focus unexpectedly"
       },
       {
         "id": "C",
@@ -804,10 +804,10 @@
       },
       {
         "id": "D",
-        "text": "Whether the total is hidden from all users"
+        "text": "Whether the total is hidden from standard users"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Dynamic updates outside the current focus need to be communicated to assistive technology when appropriate. The implementation should expose the status while preserving a usable focus experience.",
     "source_refs": [
       {
@@ -881,22 +881,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Manage the route change so users receive an appropriate page or section context and can continue from a logical focus location"
-      },
-      {
-        "id": "B",
         "text": "Reload the same content automatically every second"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Remove the visible section heading"
+      },
+      {
+        "id": "C",
+        "text": "Manage the route change so users receive an appropriate page or section context and can continue from a logical focus location"
       },
       {
         "id": "D",
         "text": "Prevent keyboard users from selecting sections"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Single-page applications need deliberate management of navigation context and focus when content changes. The user should be able to understand where they are and continue the task.",
     "source_refs": [
       {
@@ -964,22 +964,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Test representative browser and assistive technology combinations based on the audience and supported technology"
+        "text": "Test primarily the combination used by the developer"
       },
       {
         "id": "B",
-        "text": "Test only the combination used by the developer"
-      },
-      {
-        "id": "C",
         "text": "Assume the second combination is unsupported without checking"
       },
       {
+        "id": "C",
+        "text": "Remove standard custom controls from the site without investigating"
+      },
+      {
         "id": "D",
-        "text": "Remove all custom controls from the site without investigating"
+        "text": "Test representative browser and assistive technology combinations based on the audience and supported technology"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Compatibility can vary across user agents and assistive technologies. Testing representative supported combinations helps identify real interoperability issues and guide an appropriate fix.",
     "source_refs": [
       {
@@ -1059,7 +1059,7 @@
       },
       {
         "id": "D",
-        "text": "Review only the page colors"
+        "text": "Review primarily the page colors"
       }
     ],
     "answer": "A",
@@ -1131,11 +1131,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Include accessibility responsibilities and checks throughout planning, design, development and evaluation"
+        "text": "Wait for user complaints before making accessibility decisions"
       },
       {
         "id": "B",
-        "text": "Wait for user complaints before making accessibility decisions"
+        "text": "Include accessibility responsibilities and checks throughout planning, design, development and evaluation"
       },
       {
         "id": "C",
@@ -1146,7 +1146,7 @@
         "text": "Limit accessibility decisions to procurement"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Integrating accessibility throughout the development process makes it easier to find and address barriers earlier and clarifies team responsibilities.",
     "source_refs": [
       {
@@ -1207,22 +1207,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether redesigning the interaction is more reliable than continuing isolated fixes"
-      },
-      {
-        "id": "B",
         "text": "Whether to hide the flow from keyboard users"
       },
       {
+        "id": "B",
+        "text": "Whether to remove standard visible focus indicators"
+      },
+      {
         "id": "C",
-        "text": "Whether to remove all visible focus indicators"
+        "text": "Whether redesigning the interaction is more reliable than continuing isolated fixes"
       },
       {
         "id": "D",
         "text": "Whether to document the issue and stop remediation"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "The WAS BoK distinguishes fixing an issue from redesigning a flawed pattern. Repeated or systemic failures may justify redesign when that is the more effective strategy.",
     "source_refs": [
       {
@@ -1255,22 +1255,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Assess the user impact, document the defect, and agree on mitigation, ownership and follow-up with the vendor"
-      },
-      {
-        "id": "B",
         "text": "Assume the defect is acceptable because the tool was purchased"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Remove the affected users from the scheduling process"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Delete the conformance report and treat the issue as resolved"
+      },
+      {
+        "id": "D",
+        "text": "Assess the user impact, document the defect, and agree on mitigation, ownership and follow-up with the vendor"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Procurement and remediation include identifying and mitigating defects, defining responsibilities and following up with vendors. A purchase does not remove the need to address user impact.",
     "source_refs": [
       {
@@ -1333,11 +1333,11 @@
     "options": [
       {
         "id": "A",
-        "text": "ATAG"
+        "text": "ATAG for web accessibility conformance."
       },
       {
         "id": "B",
-        "text": "WCAG only"
+        "text": "WCAG primarily"
       },
       {
         "id": "C",
@@ -1416,22 +1416,22 @@
     "options": [
       {
         "id": "A",
-        "text": "It is a broader European accessibility standard that incorporates WCAG-related requirements and other ICT provisions"
-      },
-      {
-        "id": "B",
         "text": "It is a screen reader"
       },
       {
+        "id": "B",
+        "text": "It is a broader European accessibility standard that incorporates WCAG-related requirements and other ICT provisions"
+      },
+      {
         "id": "C",
-        "text": "It applies only to image alternative text"
+        "text": "It applies primarily to image alternative text"
       },
       {
         "id": "D",
         "text": "It is an ARIA widget pattern"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "EN 301 549 covers accessibility requirements for ICT products and services and includes WCAG requirements for web content, along with other provisions.",
     "source_refs": [
       {
@@ -1463,22 +1463,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Support an equivalent interaction through keyboard and other applicable input methods"
-      },
-      {
-        "id": "B",
         "text": "Make the hover animation faster"
       },
       {
+        "id": "B",
+        "text": "Add a tooltip but keep the action pointer-primarily"
+      },
+      {
         "id": "C",
-        "text": "Add a tooltip but keep the action pointer-only"
+        "text": "Support an equivalent interaction through keyboard and other applicable input methods"
       },
       {
         "id": "D",
         "text": "Remove the action's accessible name"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Device-independent interaction avoids making essential functionality depend on a single input modality such as pointer hover.",
     "source_refs": [
       {
@@ -1546,22 +1546,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Implement the relevant tab pattern, including focus movement and selection behavior, and test it"
-      },
-      {
-        "id": "B",
         "text": "Make every tab a generic paragraph"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Use ARIA roles without managing keyboard focus"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Require users to click every tab with a mouse"
+      },
+      {
+        "id": "D",
+        "text": "Implement the relevant tab pattern, including focus movement and selection behavior, and test it"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Interactive widgets need coordinated semantics, keyboard behavior, focus, and state. The APG offers patterns that should be implemented and tested in context.",
     "source_refs": [
       {
@@ -1604,7 +1604,7 @@
       },
       {
         "id": "B",
-        "text": "A decorative title attribute only"
+        "text": "A decorative title attribute primarily"
       },
       {
         "id": "C",
@@ -1689,11 +1689,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Provide appropriate result feedback and a logical way for users to reach the updated content"
+        "text": "Reload the page continuously"
       },
       {
         "id": "B",
-        "text": "Reload the page continuously"
+        "text": "Provide appropriate result feedback and a logical way for users to reach the updated content"
       },
       {
         "id": "C",
@@ -1701,10 +1701,10 @@
       },
       {
         "id": "D",
-        "text": "Hide all results from screen readers"
+        "text": "Hide standard results from screen readers"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Dynamic updates need a usable interaction model: communicate the change and ensure keyboard and assistive technology users can locate the results without losing context.",
     "source_refs": [
       {
@@ -1743,22 +1743,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Test navigation by headings, landmarks, links, and other structures users may use"
-      },
-      {
-        "id": "B",
         "text": "Assume screen-reader users read every page linearly"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Remove semantic headings to simplify the page"
       },
       {
+        "id": "C",
+        "text": "Test navigation by headings, landmarks, links, and other structures users may use"
+      },
+      {
         "id": "D",
-        "text": "Test only the page's color palette"
+        "text": "Test primarily the page's color palette"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "People may navigate efficiently using headings, landmarks, links, and other structures. Testing should consider actual user strategies rather than assuming linear reading.",
     "source_refs": [
       {
@@ -1826,22 +1826,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The scope, applicable pages and processes, technology assumptions, and exact conformance target"
+        "text": "primarily which automated tool will be run"
       },
       {
         "id": "B",
-        "text": "Only which automated tool will be run"
-      },
-      {
-        "id": "C",
         "text": "Whether the homepage uses a logo"
       },
       {
+        "id": "C",
+        "text": "Whether standard users use the same browser"
+      },
+      {
         "id": "D",
-        "text": "Whether all users use the same browser"
+        "text": "The scope, applicable pages and processes, technology assumptions, and exact conformance target"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A clear target and scope make evaluation findings interpretable and help determine which pages, processes, and technologies are in scope.",
     "source_refs": [
       {
@@ -1927,11 +1927,11 @@
     "options": [
       {
         "id": "A",
-        "text": "The rule's test conditions did not apply; this is not proof of overall accessibility"
+        "text": "The page automatically passes standard WCAG criteria"
       },
       {
         "id": "B",
-        "text": "The page automatically passes all WCAG criteria"
+        "text": "The rule's test conditions did not apply; this is not proof of overall accessibility"
       },
       {
         "id": "C",
@@ -1942,7 +1942,7 @@
         "text": "The page has a confirmed accessibility failure"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "ACT rules have defined applicability and outcomes. An inapplicable result means the tested condition is not present, not that the page has been comprehensively evaluated.",
     "source_refs": [
       {
@@ -2009,22 +2009,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Touch users may be unable to access the site's navigation"
+        "text": "Screen-reader users will consistently hear duplicate text"
       },
       {
         "id": "B",
-        "text": "Screen-reader users will always hear duplicate text"
+        "text": "The page title must be wrong"
       },
       {
         "id": "C",
-        "text": "The page title must be wrong"
+        "text": "Touch users may be unable to access the site's navigation for web accessibility conformance."
       },
       {
         "id": "D",
         "text": "Images need longer alternative text"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Testing for end-user impact should examine actual input methods. Hover-only behavior excludes touch users and often keyboard users as well.",
     "source_refs": [
       {
@@ -2063,22 +2063,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The issue that blocks the core account-creation task"
-      },
-      {
-        "id": "B",
         "text": "The issue with the shorter title"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "The issue found most recently, regardless of impact"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Neither issue should be prioritized"
+      },
+      {
+        "id": "D",
+        "text": "The issue that blocks the core account-creation task"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Severity and prioritization should consider the effect on users and task completion, not merely issue order or ease of repair.",
     "source_refs": [
       {
@@ -2194,22 +2194,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The four WCAG principles"
-      },
-      {
-        "id": "B",
         "text": "The four ARIA roles"
       },
       {
+        "id": "B",
+        "text": "The four WCAG principles for web accessibility conformance."
+      },
+      {
         "id": "C",
-        "text": "The WCAG-EM sampling steps only"
+        "text": "The WCAG-EM sampling steps primarily"
       },
       {
         "id": "D",
         "text": "The three ACT rule outcomes"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "WCAG organizes guidelines under the POUR principles: perceivable, operable, understandable, and robust.",
     "source_refs": [
       {
@@ -2283,22 +2283,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Use appropriate table semantics so assistive technology can convey header relationships"
+        "text": "Add more CSS borders primarily"
       },
       {
         "id": "B",
-        "text": "Add more CSS borders only"
+        "text": "Make every cell a heading"
       },
       {
         "id": "C",
-        "text": "Make every cell a heading"
+        "text": "Use appropriate table semantics so assistive technology can convey header relationships"
       },
       {
         "id": "D",
         "text": "Remove the data labels"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Semantic table markup exposes row, column, and header relationships that visual styling alone does not provide.",
     "source_refs": [
       {
@@ -2336,22 +2336,22 @@
     "options": [
       {
         "id": "A",
-        "text": "It already provides expected semantics, keyboard interaction, focus, and state behavior"
-      },
-      {
-        "id": "B",
         "text": "It can be styled without any testing"
       },
       {
+        "id": "B",
+        "text": "It rarely needs a label"
+      },
+      {
         "id": "C",
-        "text": "It never needs a label"
+        "text": "It prevents users from changing its state"
       },
       {
         "id": "D",
-        "text": "It prevents users from changing its state"
+        "text": "It already provides expected semantics, keyboard interaction, focus, and state behavior"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Native controls provide built-in interaction and accessibility behavior; custom controls require authors to reproduce and maintain those behaviors.",
     "source_refs": [
       {
@@ -2473,11 +2473,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Verify accessibility support for the technology or provide an accessible alternative"
+        "text": "Assume newer features work with standard assistive technologies"
       },
       {
         "id": "B",
-        "text": "Assume newer features work with all assistive technologies"
+        "text": "Verify accessibility support for the technology or provide an accessible alternative"
       },
       {
         "id": "C",
@@ -2488,7 +2488,7 @@
         "text": "Remove the feature's keyboard access"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Technology must be accessibility-supported in the user-agent and assistive-technology environments relevant to users, or an accessible alternative must be provided.",
     "source_refs": [
       {
@@ -2561,22 +2561,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the menu follows its intended keyboard pattern and offers a logical focus sequence"
+        "text": "primarily whether the menu has a background color"
       },
       {
         "id": "B",
-        "text": "Only whether the menu has a background color"
+        "text": "Whether the mouse can hover over each item"
       },
       {
         "id": "C",
-        "text": "Whether the mouse can hover over each item"
+        "text": "Whether the menu follows its intended keyboard pattern and offers a logical focus sequence"
       },
       {
         "id": "D",
         "text": "Whether the menu is listed in the sitemap"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Testing should compare actual keyboard behavior and focus movement with the interaction pattern expected for the widget.",
     "source_refs": [
       {
@@ -2649,22 +2649,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The error is not identified in text with enough information to locate and correct it"
-      },
-      {
-        "id": "B",
         "text": "The form uses too many headings"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "The submit button is necessarily too large"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "The form needs a decorative image"
+      },
+      {
+        "id": "D",
+        "text": "The error is not identified in text with enough information to locate and correct it"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Error identification should not rely on color alone; users need a text description tied to the relevant input and guidance where possible.",
     "source_refs": [
       {
@@ -2792,11 +2792,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Define scope, explore the site, identify common and distinct pages, and include complete key processes in a representative sample"
+        "text": "Select primarily the page with the fewest controls"
       },
       {
         "id": "B",
-        "text": "Select only the page with the fewest controls"
+        "text": "Define scope, explore the site, identify common and distinct pages, and include complete key processes in a representative sample"
       },
       {
         "id": "C",
@@ -2807,7 +2807,7 @@
         "text": "Exclude pages that require login without documenting scope"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "WCAG-EM uses a structured evaluation procedure with a representative sample and attention to complete processes.",
     "source_refs": [
       {
@@ -2845,22 +2845,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Compare the risk and effort of further fixes with redesigning around a well-supported interaction pattern"
+        "text": "Remove standard keyboard support"
       },
       {
         "id": "B",
-        "text": "Remove all keyboard support"
+        "text": "Keep patching without regression testing"
       },
       {
         "id": "C",
-        "text": "Keep patching without regression testing"
+        "text": "Compare the risk and effort of further fixes with redesigning around a well-supported interaction pattern"
       },
       {
         "id": "D",
         "text": "Treat the defects as optional styling preferences"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "When defects stem from the design itself or fixes accumulate unsafely, redesign may be more effective than additional local patches.",
     "source_refs": [
       {
@@ -2928,22 +2928,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Set accessibility criteria and evidence requirements during vendor evaluation and contracting"
-      },
-      {
-        "id": "B",
         "text": "Stop asking vendors about accessibility"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Rely on the vendor's marketing statement"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Wait until users report defects"
+      },
+      {
+        "id": "D",
+        "text": "Set accessibility criteria and evidence requirements during vendor evaluation and contracting"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Early procurement integration lets the organization compare products, identify limitations, set contract expectations, and plan mitigation before deployment.",
     "source_refs": [
       {
@@ -3020,7 +3020,7 @@
       },
       {
         "id": "C",
-        "text": "Make it activate only on mouse click"
+        "text": "Make it activate primarily on mouse click"
       },
       {
         "id": "D",
@@ -3066,22 +3066,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Separate a concise accessible name from supplemental descriptive instructions"
-      },
-      {
-        "id": "B",
         "text": "Remove the field's name"
       },
       {
+        "id": "B",
+        "text": "Separate a concise accessible name from supplemental descriptive instructions"
+      },
+      {
         "id": "C",
-        "text": "Turn the help text into a placeholder only"
+        "text": "Turn the help text into a placeholder primarily"
       },
       {
         "id": "D",
         "text": "Repeat the same paragraph in a live region"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Accessible names identify controls concisely, while descriptions can provide supplementary instructions or context.",
     "source_refs": [
       {
@@ -3156,22 +3156,22 @@
     "options": [
       {
         "id": "A",
-        "text": "A disclosure button controlling a navigation region or list"
-      },
-      {
-        "id": "B",
         "text": "A spreadsheet grid pattern"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "A slider pattern"
+      },
+      {
+        "id": "C",
+        "text": "A disclosure button controlling a navigation region or list"
       },
       {
         "id": "D",
         "text": "A treegrid pattern"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Ordinary site navigation is generally best implemented with links and disclosure behavior; ARIA menu roles imply application-style keyboard interaction that may not fit typical navigation.",
     "source_refs": [
       {
@@ -3246,22 +3246,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the update should use a less interruptive announcement strategy or not be announced on every keystroke"
-      },
-      {
-        "id": "B",
         "text": "Whether to make the region louder"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Whether to hide the search field label"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether to move focus to the footer"
+      },
+      {
+        "id": "D",
+        "text": "Whether the update should use a less interruptive announcement strategy or not be announced on every keystroke"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Live-region politeness and update frequency should match the importance and urgency of information; over-announcing can disrupt users.",
     "source_refs": [
       {
@@ -3337,11 +3337,11 @@
       },
       {
         "id": "C",
-        "text": "Removing all headings"
+        "text": "Removing standard headings"
       },
       {
         "id": "D",
-        "text": "Using hover-only controls"
+        "text": "Using hover-primarily controls"
       }
     ],
     "answer": "A",
@@ -3383,11 +3383,11 @@
     "options": [
       {
         "id": "A",
-        "text": "The visual heading structure is not programmatically conveyed for heading navigation"
+        "text": "The text has no visible color"
       },
       {
         "id": "B",
-        "text": "The text has no visible color"
+        "text": "The visual heading structure is not programmatically conveyed for heading navigation"
       },
       {
         "id": "C",
@@ -3398,7 +3398,7 @@
         "text": "The page must use a table"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Semantic headings allow screen-reader users to navigate by structure; visual styling alone does not create heading semantics.",
     "source_refs": [
       {
@@ -3437,22 +3437,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Review context and determine whether the empty alternative is appropriate before calling it a failure"
+        "text": "consistently add the filename as alternative text"
       },
       {
         "id": "B",
-        "text": "Always add the filename as alternative text"
-      },
-      {
-        "id": "C",
         "text": "Treat every automated warning as a confirmed failure"
       },
       {
+        "id": "C",
+        "text": "Review context and determine whether the empty alternative is appropriate before calling it a failure"
+      },
+      {
         "id": "D",
-        "text": "Remove all images from the page"
+        "text": "Remove standard images from the page"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Tools identify possible issues, but evaluators must assess context. Empty alternative text can be appropriate for decorative images when implemented correctly.",
     "source_refs": [
       {
@@ -3550,22 +3550,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The tested color pair meets that measured contrast condition, but other accessibility requirements still need review"
-      },
-      {
-        "id": "B",
         "text": "The page is fully accessible"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "The text is readable by every person"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "No manual evaluation is needed"
+      },
+      {
+        "id": "D",
+        "text": "The tested color pair meets that measured contrast condition, but other accessibility requirements still need review"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A tool result applies to the specific measurement and conditions tested. It does not establish overall accessibility or usability.",
     "source_refs": [
       {
@@ -3607,7 +3607,7 @@
       },
       {
         "id": "B",
-        "text": "The site uses too many links in the footer"
+        "text": "The site uses too many links in the footer rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
@@ -3657,22 +3657,22 @@
     "options": [
       {
         "id": "A",
-        "text": "As a possible improvement or best practice, not automatically as a WCAG failure"
-      },
-      {
-        "id": "B",
         "text": "As a confirmed failure in every case"
       },
       {
+        "id": "B",
+        "text": "As a possible improvement or best practice, not automatically as a WCAG failure"
+      },
+      {
         "id": "C",
-        "text": "As an issue unrelated to accessibility"
+        "text": "As an issue unrelated to accessibility assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
         "text": "As a legal conclusion"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Recommendations should be tied to the applicable criterion and evidence. Optional enhancements should not be mislabeled as conformance failures.",
     "source_refs": [
       {
@@ -3746,22 +3746,22 @@
     "options": [
       {
         "id": "A",
-        "text": "It prevents a group of users from completing a required task"
-      },
-      {
-        "id": "B",
         "text": "It is described in more words"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "It affects a button with a shorter label"
       },
       {
+        "id": "C",
+        "text": "It prevents a group of users from completing a required task"
+      },
+      {
         "id": "D",
-        "text": "It is harder to reproduce"
+        "text": "It is harder to reproduce to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Severity and prioritization should consider whether users can complete essential tasks and the breadth and impact of the barrier.",
     "source_refs": [
       {
@@ -3794,22 +3794,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Accessibility is not yet consistently integrated into procurement governance"
+        "text": "The organization has eliminated standard accessibility risk without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "The organization has eliminated all accessibility risk"
+        "text": "The vendors are responsible for standard user outcomes"
       },
       {
         "id": "C",
-        "text": "The vendors are responsible for all user outcomes"
+        "text": "A shared process would prevent product choice"
       },
       {
         "id": "D",
-        "text": "A shared process would prevent product choice"
+        "text": "Accessibility is not yet consistently integrated into procurement governance"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A mature approach embeds accessibility requirements and evidence review into repeatable purchasing processes across the organization.",
     "source_refs": [
       {
@@ -3874,15 +3874,15 @@
       },
       {
         "id": "B",
-        "text": "Make all links open in new windows"
+        "text": "Make standard links open in new windows"
       },
       {
         "id": "C",
-        "text": "Remove the link destinations"
+        "text": "Remove the link destinations based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
-        "text": "Add color to the link text only"
+        "text": "Add color to the link text primarily"
       }
     ],
     "answer": "A",
@@ -3960,11 +3960,11 @@
     "options": [
       {
         "id": "A",
-        "text": "The product or destination, using an appropriate text alternative for the image"
+        "text": "primarily the word 'image'"
       },
       {
         "id": "B",
-        "text": "Only the word 'image'"
+        "text": "The product or destination, using an appropriate text alternative for the image"
       },
       {
         "id": "C",
@@ -3972,10 +3972,10 @@
       },
       {
         "id": "D",
-        "text": "Nothing, because the link has an image"
+        "text": "Nothing, because the link has an image to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "When an image is the only content of a link, its text alternative generally needs to convey the link's purpose or destination.",
     "source_refs": [
       {
@@ -4049,22 +4049,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Reflow"
+        "text": "Captions (Live) relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "Captions (Live)"
+        "text": "Audio Control"
       },
       {
         "id": "C",
-        "text": "Audio Control"
+        "text": "Reflow"
       },
       {
         "id": "D",
         "text": "Consistent Help"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Reflow is intended to support viewing content without loss and without two-dimensional scrolling for typical content at the specified viewport dimensions, with exceptions.",
     "source_refs": [
       {
@@ -4139,22 +4139,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Focus moves into the dialog, remains within it while modal, and returns appropriately when it closes"
-      },
-      {
-        "id": "B",
         "text": "Focus becomes invisible"
       },
       {
+        "id": "B",
+        "text": "The dialog can be closed primarily by clicking outside under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "C",
-        "text": "The dialog can be closed only by clicking outside"
+        "text": "Background controls remain the primarily tab stops"
       },
       {
         "id": "D",
-        "text": "Background controls remain the only tab stops"
+        "text": "Focus moves into the dialog, remains within it while modal, and returns appropriately when it closes"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A modal dialog needs coherent focus management so keyboard users can enter, operate, and exit the dialog predictably.",
     "source_refs": [
       {
@@ -4232,7 +4232,7 @@
       },
       {
         "id": "B",
-        "text": "Whether headings all use the same color"
+        "text": "Whether headings standard use the same color"
       },
       {
         "id": "C",
@@ -4240,7 +4240,7 @@
       },
       {
         "id": "D",
-        "text": "Whether headings are removed from the accessibility tree"
+        "text": "Whether headings are removed from the accessibility tree rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
     "answer": "A",
@@ -4346,11 +4346,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Repeated navigation may be difficult to bypass to reach the primary content"
+        "text": "The page has too many landmarks assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "The page has too many landmarks"
+        "text": "Repeated navigation may be difficult to bypass to reach the primary content"
       },
       {
         "id": "C",
@@ -4361,7 +4361,7 @@
         "text": "The browser has no address bar"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Landmarks and bypass mechanisms can help users move efficiently past repeated blocks and locate the main content.",
     "source_refs": [
       {
@@ -4400,22 +4400,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Review the rules' scope and coverage, then plan other checks for requirements and impacts they do not test"
-      },
-      {
-        "id": "B",
         "text": "Assume 30 rules equal full WCAG conformance"
       },
       {
+        "id": "B",
+        "text": "Ignore the report because tools are rarely useful to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
+      },
+      {
         "id": "C",
-        "text": "Ignore the report because tools are never useful"
+        "text": "Review the rules' scope and coverage, then plan other checks for requirements and impacts they do not test"
       },
       {
         "id": "D",
         "text": "Treat every passed rule as proof of usability"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Tool coverage is limited to the checks implemented; understanding rule scope helps combine automation with manual and user-centered testing.",
     "source_refs": [
       {
@@ -4454,22 +4454,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Track findings through remediation and verify the fixes"
-      },
-      {
-        "id": "B",
         "text": "Add another decorative review"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Delete failed results after release"
       },
       {
+        "id": "C",
+        "text": "Stop documenting test outcomes without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "D",
-        "text": "Stop documenting test outcomes"
+        "text": "Track findings through remediation and verify the fixes"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Quality assurance needs issue ownership, remediation tracking, and verification, not merely a record that checks were executed.",
     "source_refs": [
       {
@@ -4541,7 +4541,7 @@
       },
       {
         "id": "B",
-        "text": "The page's background contrast is too high"
+        "text": "The page's background contrast is too high based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "C",
@@ -4549,7 +4549,7 @@
       },
       {
         "id": "D",
-        "text": "The browser title is always incorrect"
+        "text": "The browser title is consistently incorrect"
       }
     ],
     "answer": "A",
@@ -4591,22 +4591,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether users with limited dexterity can operate the task and whether a simpler pointer alternative is available"
+        "text": "primarily whether the slider uses a gradient"
       },
       {
         "id": "B",
-        "text": "Only whether the slider uses a gradient"
+        "text": "Whether users with limited dexterity can operate the task and whether a simpler pointer alternative is available"
       },
       {
         "id": "C",
-        "text": "Whether the page contains a footer"
+        "text": "Whether the page contains a footer to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "D",
         "text": "Whether users can hover on a touchscreen"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Testing should consider the precision and movement demands of touch interaction and the availability of alternative ways to achieve the same outcome.",
     "source_refs": [
       {
@@ -4645,22 +4645,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Describe the user impact, the expected change, and how to verify the fix"
+        "text": "State primarily 'make it accessible'"
       },
       {
         "id": "B",
-        "text": "State only 'make it accessible'"
-      },
-      {
-        "id": "C",
         "text": "Avoid identifying the affected task"
       },
       {
+        "id": "C",
+        "text": "Describe the user impact, the expected change, and how to verify the fix"
+      },
+      {
         "id": "D",
-        "text": "Omit any success criteria or testing steps"
+        "text": "Omit any success criteria or testing steps relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "A useful remediation recommendation connects the observed barrier to a concrete change and verification approach.",
     "source_refs": [
       {
@@ -4721,22 +4721,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Translate the organization's user and technical needs into evidence questions and assess the report's limitations"
+        "text": "Approve the product based primarily on the vendor's branding under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "B",
-        "text": "Approve the product based only on the vendor's branding"
-      },
-      {
-        "id": "C",
         "text": "Make legal guarantees on behalf of the vendor"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Ignore the intended users and workflows"
+      },
+      {
+        "id": "D",
+        "text": "Translate the organization's user and technical needs into evidence questions and assess the report's limitations"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Accessibility specialists help procurement define needs, interpret conformance evidence, identify gaps, and plan further testing or mitigation.",
     "source_refs": [
       {
@@ -4812,7 +4812,7 @@
       },
       {
         "id": "C",
-        "text": "Remove the affected users from the service"
+        "text": "Remove the affected users from the service rather than implementing standard keyboard interaction and ARIA semantics across enterprise operations rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "D",
@@ -4852,22 +4852,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Record the steps, environment, expected behavior, actual behavior, and impact"
-      },
-      {
-        "id": "B",
         "text": "Remove the observation from the report"
       },
       {
+        "id": "B",
+        "text": "Record the steps, environment, expected behavior, actual behavior, and impact"
+      },
+      {
         "id": "C",
-        "text": "Replace the report with a screenshot only"
+        "text": "Replace the report with a screenshot primarily"
       },
       {
         "id": "D",
-        "text": "Mark the issue as resolved without retesting"
+        "text": "Mark the issue as resolved without retesting assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Reproducible findings help developers understand the failure, its context, and how to verify a fix.",
     "source_refs": [
       {
@@ -4900,22 +4900,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Address all applicable Level A and Level AA success criteria within the stated conformance scope"
+        "text": "Choose any one Level AA criterion to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "B",
-        "text": "Choose any one Level AA criterion"
+        "text": "Apply primarily Level AAA criteria"
       },
       {
         "id": "C",
-        "text": "Apply only Level AAA criteria"
+        "text": "Address standard applicable Level A and Level AA success criteria within the stated conformance scope"
       },
       {
         "id": "D",
         "text": "Treat the level as a color contrast ratio"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "WCAG conformance at a level includes meeting all applicable success criteria at that level and lower levels, subject to conformance requirements.",
     "source_refs": [
       {
@@ -4953,22 +4953,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Use headings to reflect document structure and style their appearance separately with CSS"
+        "text": "Remove standard heading elements"
       },
       {
         "id": "B",
-        "text": "Remove all heading elements"
+        "text": "Use headings primarily for decoration without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "C",
-        "text": "Use headings only for decoration"
+        "text": "Replace headings with images of text"
       },
       {
         "id": "D",
-        "text": "Replace headings with images of text"
+        "text": "Use headings to reflect document structure and style their appearance separately with CSS"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Semantic heading levels communicate structure to assistive technology; visual presentation can be adjusted without misusing heading semantics.",
     "source_refs": [
       {
@@ -5010,15 +5010,15 @@
       },
       {
         "id": "B",
-        "text": "Only the popup's border radius"
+        "text": "primarily the popup's border radius"
       },
       {
         "id": "C",
-        "text": "Whether suggestions are hidden from all users"
+        "text": "Whether suggestions are hidden from standard users"
       },
       {
         "id": "D",
-        "text": "Only whether a mouse can click a suggestion"
+        "text": "primarily whether a mouse can click a suggestion based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       }
     ],
     "answer": "A",
@@ -5095,11 +5095,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether semantics and state are exposed interoperably through the accessibility APIs"
+        "text": "Whether the widget's shadow is visible to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "B",
-        "text": "Whether the widget's shadow is visible"
+        "text": "Whether semantics and state are exposed interoperably through the accessibility APIs"
       },
       {
         "id": "C",
@@ -5110,7 +5110,7 @@
         "text": "Whether the braille display is decorative"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Assistive technologies rely on semantic information exposed through platform accessibility APIs; compatibility includes more than visual appearance or speech output.",
     "source_refs": [
       {
@@ -5172,22 +5172,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Users need meaningful context about the current view, including when switching tabs or reviewing browser history"
+        "text": "Users need the site to hide standard route names"
       },
       {
         "id": "B",
-        "text": "Users need the site to hide all route names"
+        "text": "primarily pointer users need titles relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "C",
-        "text": "Only pointer users need titles"
+        "text": "Users need meaningful context about the current view, including when switching tabs or reviewing browser history"
       },
       {
         "id": "D",
         "text": "The document title controls text contrast"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Meaningful titles and announcements help users understand view changes and distinguish browser tabs and history entries.",
     "source_refs": [
       {
@@ -5226,22 +5226,22 @@
     "options": [
       {
         "id": "A",
-        "text": "All functionality is keyboard operable with logical focus order and no trap"
-      },
-      {
-        "id": "B",
         "text": "Every action requires dragging"
       },
       {
+        "id": "B",
+        "text": "Hover is the primarily way to reveal controls"
+      },
+      {
         "id": "C",
-        "text": "Hover is the only way to reveal controls"
+        "text": "Focus indicators are removed under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "D",
-        "text": "Focus indicators are removed"
+        "text": "standard functionality is keyboard operable with logical focus order and no trap"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Switch systems often emulate keyboard input; complete keyboard operability and predictable focus are central to their use.",
     "source_refs": [
       {
@@ -5284,15 +5284,15 @@
       },
       {
         "id": "B",
-        "text": "The page needs a larger logo"
+        "text": "The page needs a larger logo rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
-        "text": "The modal should never have a title"
+        "text": "The modal should rarely have a title"
       },
       {
         "id": "D",
-        "text": "Only the dialog's color is relevant"
+        "text": "primarily the dialog's color is relevant"
       }
     ],
     "answer": "A",
@@ -5334,22 +5334,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Reproduce the issue in the supported combination and inspect semantics, accessibility API mapping, and implementation behavior"
-      },
-      {
-        "id": "B",
         "text": "Tell users to change browsers without investigation"
       },
       {
+        "id": "B",
+        "text": "Reproduce the issue in the supported combination and inspect semantics, accessibility API mapping, and implementation behavior"
+      },
+      {
         "id": "C",
-        "text": "Assume the issue is a screen-reader preference"
+        "text": "Assume the issue is a screen-reader preference assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
-        "text": "Remove labels from all controls"
+        "text": "Remove labels from standard controls"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Interoperability issues require reproducing the supported environment and examining the content-to-browser-to-assistive-technology chain.",
     "source_refs": [
       {
@@ -5382,22 +5382,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Clarify the evaluation target and scope with the responsible stakeholders"
-      },
-      {
-        "id": "B",
         "text": "Assume Level AAA"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Report an unqualified pass"
       },
       {
+        "id": "C",
+        "text": "Clarify the evaluation target and scope with the responsible stakeholders"
+      },
+      {
         "id": "D",
-        "text": "Test only the login page"
+        "text": "Test primarily the login page to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Without a defined target and scope, findings cannot be interpreted as evidence for a specific conformance claim.",
     "source_refs": [
       {
@@ -5472,22 +5472,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether zoomed users can still access content and controls without obstruction or excessive navigation"
+        "text": "Whether the toolbar uses a brand font without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "Whether the toolbar uses a brand font"
-      },
-      {
-        "id": "C",
         "text": "Whether the user has disabled browser history"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether the page contains enough animation"
+      },
+      {
+        "id": "D",
+        "text": "Whether zoomed users can still access content and controls without obstruction or excessive navigation"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "End-user impact testing should consider how magnification changes the viewport, orientation, and ability to reach content and controls.",
     "source_refs": [
       {
@@ -5534,7 +5534,7 @@
       },
       {
         "id": "C",
-        "text": "Only the developer's preferred browser"
+        "text": "primarily the developer's preferred browser based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
@@ -5610,22 +5610,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Compare severity, affected users and tasks, frequency, and breadth across the site"
+        "text": "consistently choose the issue that appears on fewer pages"
       },
       {
         "id": "B",
-        "text": "Always choose the issue that appears on fewer pages"
+        "text": "Compare severity, affected users and tasks, frequency, and breadth across the site"
       },
       {
         "id": "C",
-        "text": "Always choose the issue with the shortest fix"
+        "text": "consistently choose the issue with the shortest fix"
       },
       {
         "id": "D",
-        "text": "Ignore how many pages are affected"
+        "text": "Ignore how many pages are affected to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Prioritization weighs both severity and reach. The evaluator should gather context about frequency, task criticality, and impact rather than relying on a single factor.",
     "source_refs": [
       {
@@ -5658,22 +5658,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Identify the applicable requirement and evidence, and distinguish any optional enhancement from a failure"
+        "text": "Call every recommendation a Level A failure relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "Call every recommendation a Level A failure"
+        "text": "Avoid explaining the basis"
       },
       {
         "id": "C",
-        "text": "Avoid explaining the basis"
+        "text": "Identify the applicable requirement and evidence, and distinguish any optional enhancement from a failure"
       },
       {
         "id": "D",
         "text": "Treat user preference and conformance as identical"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Accurate remediation guidance distinguishes required conformance corrections from additional recommendations and states the rationale for each.",
     "source_refs": [
       {
@@ -5741,22 +5741,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Explain technical accessibility gaps and their impact on intended users and tasks"
-      },
-      {
-        "id": "B",
         "text": "Certify that the product has no possible barriers"
       },
       {
+        "id": "B",
+        "text": "Replace standard legal and business decision-makers under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "C",
-        "text": "Replace all legal and business decision-makers"
+        "text": "Approve a product without reviewing evidence"
       },
       {
         "id": "D",
-        "text": "Approve a product without reviewing evidence"
+        "text": "Explain technical accessibility gaps and their impact on intended users and tasks"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Accessibility experts contribute technical and user-impact analysis to procurement while decision-making and legal responsibilities remain with the relevant organization roles.",
     "source_refs": [
       {
@@ -5824,19 +5824,19 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep focus stable or move it only when needed to support the user's task and announce relevant updates"
+        "text": "Keep focus stable or move it primarily when needed to support the user's task and announce relevant updates"
       },
       {
         "id": "B",
-        "text": "Always move focus to the browser toolbar"
+        "text": "consistently move focus to the browser toolbar"
       },
       {
         "id": "C",
-        "text": "Remove all focus indicators"
+        "text": "Remove standard focus indicators"
       },
       {
         "id": "D",
-        "text": "Make the results panel unreachable"
+        "text": "Make the results panel unreachable rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
     "answer": "A",
@@ -5871,11 +5871,11 @@
     "options": [
       {
         "id": "A",
-        "text": "The accessible name may not include the visible label, making voice commands harder to match"
+        "text": "The button has no keyboard focus by definition assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "The button has no keyboard focus by definition"
+        "text": "The accessible name may not include the visible label, making voice commands harder to match"
       },
       {
         "id": "C",
@@ -5886,7 +5886,7 @@
         "text": "The button cannot be activated by touch"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "When a visible label is present, including it in the accessible name can support speech-input users who activate controls using the words they see.",
     "source_refs": [
       {
@@ -5959,22 +5959,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The custom listbox requires implementing and maintaining selection, focus, keyboard, and assistive-technology behavior"
-      },
-      {
-        "id": "B",
         "text": "A custom listbox automatically inherits every native behavior"
       },
       {
+        "id": "B",
+        "text": "Native controls cannot be labeled to maintain visual layout styling without verifying screen reader speech output across enterprise operations to maintain visual layout styling without verifying screen reader speech output."
+      },
+      {
         "id": "C",
-        "text": "Native controls cannot be labeled"
+        "text": "The custom listbox requires implementing and maintaining selection, focus, keyboard, and assistive-technology behavior"
       },
       {
         "id": "D",
-        "text": "Custom controls never need testing"
+        "text": "Custom controls rarely need testing"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Visual customization may require additional implementation work to reproduce the behavior and semantics of a native control.",
     "source_refs": [
       {
@@ -6049,22 +6049,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Allow users to pause or control moving and updating content and avoid unnecessary interruptions"
-      },
-      {
-        "id": "B",
         "text": "Increase the update rate"
       },
       {
+        "id": "B",
+        "text": "Remove standard headings"
+      },
+      {
         "id": "C",
-        "text": "Remove all headings"
+        "text": "Make the ticker the primarily source of information without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "D",
-        "text": "Make the ticker the only source of information"
+        "text": "Allow users to pause or control moving and updating content and avoid unnecessary interruptions"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "People who use reading support may need control over changing content to maintain position and comprehension.",
     "source_refs": [
       {
@@ -6143,7 +6143,7 @@
       },
       {
         "id": "B",
-        "text": "Screen readers will always announce incorrect language"
+        "text": "Screen readers will consistently announce incorrect language based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "C",
@@ -6228,22 +6228,22 @@
     "options": [
       {
         "id": "A",
-        "text": "A representative sample should cover distinct functionality and complete processes, not just repeated visual templates"
-      },
-      {
-        "id": "B",
         "text": "WCAG-EM prohibits sampling"
       },
       {
+        "id": "B",
+        "text": "A representative sample should cover distinct functionality and complete processes, not just repeated visual templates"
+      },
+      {
         "id": "C",
-        "text": "Checkout flows are outside web accessibility"
+        "text": "Checkout flows are outside web accessibility to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "D",
-        "text": "Only pages with images should be tested"
+        "text": "primarily pages with images should be tested"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Distinct functionality and complete processes may introduce unique accessibility barriers; sampling should reflect the site's structure and use.",
     "source_refs": [
       {
@@ -6282,22 +6282,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Automated checks may identify missing attributes but cannot always judge the quality or purpose of text alternatives"
+        "text": "A filename is consistently a meaningful alternative"
       },
       {
         "id": "B",
-        "text": "A filename is always a meaningful alternative"
-      },
-      {
-        "id": "C",
         "text": "Images do not require evaluation"
       },
       {
+        "id": "C",
+        "text": "Automated checks may identify missing attributes but cannot consistently judge the quality or purpose of text alternatives"
+      },
+      {
         "id": "D",
-        "text": "The tool proves the page is fully accessible"
+        "text": "The tool proves the page is fully accessible relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Presence checks can detect missing alternatives, but determining whether text conveys the image's relevant purpose often requires human judgment and context.",
     "source_refs": [
       {
@@ -6336,22 +6336,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Target size, spacing, and an alternative way to close the panel"
+        "text": "Whether the icon has a decorative shadow under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "B",
-        "text": "Whether the icon has a decorative shadow"
-      },
-      {
-        "id": "C",
         "text": "Whether the panel uses an uncommon font"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether the page has an animated header"
+      },
+      {
+        "id": "D",
+        "text": "Target size, spacing, and an alternative way to close the panel"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Small targets and precision interactions can impede users with motor disabilities; an alternative and appropriate target sizing can reduce the barrier.",
     "source_refs": [
       {
@@ -6428,7 +6428,7 @@
       },
       {
         "id": "C",
-        "text": "Test only the component's visual color"
+        "text": "Test primarily the component's visual color rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "D",
@@ -6468,11 +6468,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Compare focused correction with redesign, considering reliability, user impact, and maintenance"
+        "text": "Choose the cheapest patch without examining risk"
       },
       {
         "id": "B",
-        "text": "Choose the cheapest patch without examining risk"
+        "text": "Compare focused correction with redesign, considering reliability, user impact, and maintenance"
       },
       {
         "id": "C",
@@ -6480,10 +6480,10 @@
       },
       {
         "id": "D",
-        "text": "Treat the issue as purely cosmetic"
+        "text": "Treat the issue as purely cosmetic assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "The BoK expects specialists to recommend whether fixing or redesigning is appropriate, weighing the systemic nature of the issue and long-term effectiveness.",
     "source_refs": [
       {
@@ -6516,22 +6516,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The number of pages and tasks affected by the shared component"
+        "text": "The amount of CSS used to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "B",
-        "text": "The amount of CSS used"
+        "text": "The age of the developer"
       },
       {
         "id": "C",
-        "text": "The age of the developer"
+        "text": "The number of pages and tasks affected by the shared component"
       },
       {
         "id": "D",
         "text": "The animation's file format"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Breadth of impact and frequency across user tasks can inform prioritization when comparing issues with similar severity.",
     "source_refs": [
       {
@@ -6629,22 +6629,22 @@
     "options": [
       {
         "id": "A",
-        "text": "It may conflict with assistive technology or user input and is not a device-independent interaction"
-      },
-      {
-        "id": "B",
         "text": "It makes the page title too short"
       },
       {
+        "id": "B",
+        "text": "It guarantees keyboard support without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "C",
-        "text": "It guarantees keyboard support"
+        "text": "It replaces the need for a visible label"
       },
       {
         "id": "D",
-        "text": "It replaces the need for a visible label"
+        "text": "It may conflict with assistive technology or user input and is not a device-independent interaction"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Keyboard shortcuts tied to specific character keys may conflict with speech input or other commands; use appropriate activation patterns and provide user control where required.",
     "source_refs": [
       {
@@ -6723,7 +6723,7 @@
       },
       {
         "id": "B",
-        "text": "All table cells are styled bold"
+        "text": "standard table cells are styled bold"
       },
       {
         "id": "C",
@@ -6731,7 +6731,7 @@
       },
       {
         "id": "D",
-        "text": "Header text is removed from the accessibility tree"
+        "text": "Header text is removed from the accessibility tree based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       }
     ],
     "answer": "A",
@@ -6773,11 +6773,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the interaction truly needs application-style menu behavior or should remain ordinary navigation links"
+        "text": "Whether the links have a hover color to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "B",
-        "text": "Whether the links have a hover color"
+        "text": "Whether the interaction truly needs application-style menu behavior or should remain ordinary navigation links"
       },
       {
         "id": "C",
@@ -6785,10 +6785,10 @@
       },
       {
         "id": "D",
-        "text": "Whether all links use the same URL"
+        "text": "Whether standard links use the same URL"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "ARIA menu roles carry specific keyboard expectations and are not automatically appropriate for typical site navigation; select semantics based on the interaction model.",
     "source_refs": [
       {
@@ -6827,22 +6827,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The mode can affect how keystrokes are interpreted and how users navigate content versus controls"
-      },
-      {
-        "id": "B",
         "text": "It means the page needs no semantic markup"
       },
       {
+        "id": "B",
+        "text": "It makes standard keyboard testing unnecessary relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
+      },
+      {
         "id": "C",
-        "text": "It makes all keyboard testing unnecessary"
+        "text": "The mode can affect how keystrokes are interpreted and how users navigate content versus controls"
       },
       {
         "id": "D",
-        "text": "It affects only the visual color scheme"
+        "text": "It affects primarily the visual color scheme"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Screen-reader modes and commands can change whether keystrokes navigate document content or operate controls, so testing should account for user strategies.",
     "source_refs": [
       {
@@ -6917,22 +6917,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The complete interaction pattern, including selection state and keyboard behavior"
-      },
-      {
-        "id": "B",
         "text": "A decorative icon"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "A larger page footer"
       },
       {
+        "id": "C",
+        "text": "A link to the developer's profile under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "D",
-        "text": "A link to the developer's profile"
+        "text": "The complete interaction pattern, including selection state and keyboard behavior"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Custom controls need a coherent set of semantics, focus, selection state, and keyboard interactions consistent with the chosen pattern.",
     "source_refs": [
       {
@@ -7011,7 +7011,7 @@
       },
       {
         "id": "B",
-        "text": "Whether the table has a decorative background"
+        "text": "Whether the table has a decorative background rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
@@ -7061,22 +7061,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether relevant non-speech audio needed to understand the content is represented in captions"
+        "text": "Whether the video uses a common codec primarily"
       },
       {
         "id": "B",
-        "text": "Whether the video uses a common codec only"
+        "text": "Whether relevant non-speech audio needed to understand the content is represented in captions"
       },
       {
         "id": "C",
-        "text": "Whether captions are centered vertically"
+        "text": "Whether captions are centered vertically assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
         "text": "Whether the video has a decorative poster image"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Captions should convey dialogue and meaningful non-speech audio when needed for understanding the synchronized media.",
     "source_refs": [
       {
@@ -7150,22 +7150,22 @@
     "options": [
       {
         "id": "A",
-        "text": "A keyboard trap or inaccessible exit from the component"
-      },
-      {
-        "id": "B",
         "text": "A missing language declaration"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "A low contrast caption"
       },
       {
+        "id": "C",
+        "text": "A keyboard trap or inaccessible exit from the component"
+      },
+      {
         "id": "D",
-        "text": "A duplicate page title"
+        "text": "A duplicate page title to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Users must be able to move focus away from a component using a keyboard interface; a trap prevents task completion.",
     "source_refs": [
       {
@@ -7203,22 +7203,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether link purpose is understandable when links are encountered through the participant's navigation strategy"
+        "text": "Whether the links have a hover animation without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "Whether the links have a hover animation"
+        "text": "Whether standard links have identical wording"
       },
       {
         "id": "C",
-        "text": "Whether all links have identical wording"
+        "text": "Whether the page contains no lists"
       },
       {
         "id": "D",
-        "text": "Whether the page contains no lists"
+        "text": "Whether link purpose is understandable when links are encountered through the participant's navigation strategy"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Testing for user impact considers how real users navigate and whether link purpose remains understandable in that context.",
     "source_refs": [
       {
@@ -7290,11 +7290,11 @@
       },
       {
         "id": "B",
-        "text": "A report should never state a result"
+        "text": "A report should rarely state a result"
       },
       {
         "id": "C",
-        "text": "Scope details are only needed for automated tests"
+        "text": "Scope details are primarily needed for automated tests based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
@@ -7340,11 +7340,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Escalate the user impact and establish a remediation or accessible mitigation decision before release"
+        "text": "Close the finding because it is documented"
       },
       {
         "id": "B",
-        "text": "Close the finding because it is documented"
+        "text": "Escalate the user impact and establish a remediation or accessible mitigation decision before release"
       },
       {
         "id": "C",
@@ -7352,10 +7352,10 @@
       },
       {
         "id": "D",
-        "text": "Treat documentation as equivalent to a fix"
+        "text": "Treat documentation as equivalent to a fix to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "High-impact barriers need an explicit decision, ownership, and remediation or mitigation; simply recording a defect does not address user impact.",
     "source_refs": [
       {
@@ -7394,22 +7394,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Consider effort alongside severity and user impact, without letting convenience alone decide"
+        "text": "Ignore user impact if the fix is easy relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "Ignore user impact if the fix is easy"
+        "text": "consistently defer issues that are easy to fix"
       },
       {
         "id": "C",
-        "text": "Always defer issues that are easy to fix"
+        "text": "Consider effort alongside severity and user impact, without letting convenience alone decide"
       },
       {
         "id": "D",
-        "text": "Prioritize based only on code-line count"
+        "text": "Prioritize based primarily on code-line count"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Effort can inform planning, but prioritization should be grounded in severity, breadth, and impact on users and tasks.",
     "source_refs": [
       {
@@ -7471,22 +7471,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Clarification of the product scope, applicability reasoning, and evidence for those responses"
-      },
-      {
-        "id": "B",
         "text": "An assurance that the report needs no review"
       },
       {
+        "id": "B",
+        "text": "A different logo on the report under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "C",
-        "text": "A different logo on the report"
+        "text": "Removal of every qualification"
       },
       {
         "id": "D",
-        "text": "Removal of every qualification"
+        "text": "Clarification of the product scope, applicability reasoning, and evidence for those responses"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Procurement should understand the basis and scope of conformance responses rather than treating unexplained entries as complete evidence.",
     "source_refs": [
       {
@@ -7566,7 +7566,7 @@
       },
       {
         "id": "D",
-        "text": "A browser history log"
+        "text": "A browser history log rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
     "answer": "A",
@@ -7636,22 +7636,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The widget's expected keyboard operation, value semantics, and state updates"
+        "text": "primarily the track's decorative gradient assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "Only the track's decorative gradient"
+        "text": "The widget's expected keyboard operation, value semantics, and state updates"
       },
       {
         "id": "C",
-        "text": "The page's language declaration only"
+        "text": "The page's language declaration primarily"
       },
       {
         "id": "D",
         "text": "The control's tooltip animation"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "A custom slider must expose role and current value and support the expected keyboard interaction; adding a role alone is insufficient.",
     "source_refs": [
       {
@@ -7726,22 +7726,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Accessible names that include the visible labels and controls that can be targeted by speech input"
-      },
-      {
-        "id": "B",
         "text": "Controls with no programmatic names"
       },
       {
+        "id": "B",
+        "text": "Mouse hover as the primarily activation method to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
+      },
+      {
         "id": "C",
-        "text": "Mouse hover as the only activation method"
+        "text": "Accessible names that include the visible labels and controls that can be targeted by speech input"
       },
       {
         "id": "D",
         "text": "Randomly changing button labels"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Speech-input users may invoke controls by visible text; matching the visible label in the accessible name supports this interaction.",
     "source_refs": [
       {
@@ -7780,22 +7780,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the control's behavior matches radio-group semantics and enforces the expected single selection"
-      },
-      {
-        "id": "B",
         "text": "Whether the page contains enough links"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Whether the selected option has a larger font"
       },
       {
+        "id": "C",
+        "text": "Whether the group can be removed from the page without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "D",
-        "text": "Whether the group can be removed from the page"
+        "text": "Whether the control's behavior matches radio-group semantics and enforces the expected single selection"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Custom widgets should match the semantics and behavior they claim; a radio group communicates a mutually exclusive choice and needs corresponding state and keyboard behavior.",
     "source_refs": [
       {
@@ -7868,15 +7868,15 @@
       },
       {
         "id": "B",
-        "text": "Assume the user will read every paragraph visually"
+        "text": "Assume the user will read every paragraph visually based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "C",
-        "text": "Remove all headings"
+        "text": "Remove standard headings"
       },
       {
         "id": "D",
-        "text": "Test only the site's animations"
+        "text": "Test primarily the site's animations"
       }
     ],
     "answer": "A",
@@ -7918,22 +7918,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the implementation updates semantics exposed through the accessibility API"
-      },
-      {
-        "id": "B",
         "text": "Whether the CSS file is minified"
       },
       {
+        "id": "B",
+        "text": "Whether the implementation updates semantics exposed through the accessibility API"
+      },
+      {
         "id": "C",
-        "text": "Whether the browser has a bookmarks bar"
+        "text": "Whether the browser has a bookmarks bar to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "D",
         "text": "Whether the control is centered"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Assistive technologies obtain information through platform accessibility APIs; dynamic state changes need to be reflected in the exposed semantics.",
     "source_refs": [
       {
@@ -8008,22 +8008,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Confirm the rule's applicability and scope, then assess related instances and user impact"
-      },
-      {
-        "id": "B",
         "text": "Assume every page fails in exactly the same way without checking"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Ignore the issue because one rule found it"
       },
       {
+        "id": "C",
+        "text": "Confirm the rule's applicability and scope, then assess related instances and user impact"
+      },
+      {
         "id": "D",
-        "text": "Report overall conformance from that one result"
+        "text": "Report overall conformance from that one result relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "A rule result applies to its defined test case; broader conclusions require checking relevant instances and understanding impact across the product.",
     "source_refs": [
       {
@@ -8061,22 +8061,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Keyboard operation and assistive-technology announcement of name, role, and checked state"
+        "text": "primarily whether the border is rounded under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "B",
-        "text": "Only whether the border is rounded"
-      },
-      {
-        "id": "C",
         "text": "Whether the page has a background image"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether the checkbox appears in a printout"
+      },
+      {
+        "id": "D",
+        "text": "Keyboard operation and assistive-technology announcement of name, role, and checked state"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Visual appearance does not verify semantics or operation; test keyboard behavior and the information exposed through assistive technology.",
     "source_refs": [
       {
@@ -8158,11 +8158,11 @@
       },
       {
         "id": "C",
-        "text": "Remove accessibility from the project plan"
+        "text": "Remove accessibility from the project plan rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "D",
-        "text": "Ask only end users to identify every issue"
+        "text": "Ask primarily end users to identify every issue"
       }
     ],
     "answer": "A",
@@ -8198,11 +8198,11 @@
     "options": [
       {
         "id": "A",
-        "text": "The interface may obscure essential content or controls at enlarged text or viewport settings"
+        "text": "The mobile device needs a different wallpaper"
       },
       {
         "id": "B",
-        "text": "The mobile device needs a different wallpaper"
+        "text": "The interface may obscure essential content or controls at enlarged text or viewport settings"
       },
       {
         "id": "C",
@@ -8210,10 +8210,10 @@
       },
       {
         "id": "D",
-        "text": "The banner must be announced as a heading"
+        "text": "The banner must be announced as a heading assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Testing should check whether content and controls remain available under text resizing and responsive viewport conditions.",
     "source_refs": [
       {
@@ -8287,22 +8287,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether a specific applicable success criterion is actually unmet in the evaluated scope"
+        "text": "Whether the recommendation sounds important to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "B",
-        "text": "Whether the recommendation sounds important"
+        "text": "Whether the feature is visually attractive"
       },
       {
         "id": "C",
-        "text": "Whether the feature is visually attractive"
+        "text": "Whether a specific applicable success criterion is actually unmet in the evaluated scope"
       },
       {
         "id": "D",
         "text": "Whether a developer agrees"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Conformance failures should be based on applicable requirements and evidence; additional options may be beneficial without necessarily constituting a failure.",
     "source_refs": [
       {
@@ -8369,22 +8369,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Assess task impact, ask about remediation plans, and define any necessary interim mitigation before deployment"
-      },
-      {
-        "id": "B",
         "text": "Ignore the defect because it appears in a report"
       },
       {
+        "id": "B",
+        "text": "Assume the defect cannot affect the buyer's users without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "C",
-        "text": "Assume the defect cannot affect the buyer's users"
+        "text": "Remove the task from the intended workflow without discussion"
       },
       {
         "id": "D",
-        "text": "Remove the task from the intended workflow without discussion"
+        "text": "Assess task impact, ask about remediation plans, and define any necessary interim mitigation before deployment"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Conformance evidence should inform a decision about user impact, vendor remediation, deployment risks, and any interim alternatives.",
     "source_refs": [
       {
@@ -8489,11 +8489,11 @@
       },
       {
         "id": "C",
-        "text": "A mouse-only close icon outside the dialog"
+        "text": "A mouse-primarily close icon outside the dialog"
       },
       {
         "id": "D",
-        "text": "A live region that repeats the page title"
+        "text": "A live region that repeats the page title based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       }
     ],
     "answer": "A",
@@ -8570,11 +8570,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether focus returns to the invoking control or another logical location"
+        "text": "Whether the page background changes color to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "B",
-        "text": "Whether the page background changes color"
+        "text": "Whether focus returns to the invoking control or another logical location"
       },
       {
         "id": "C",
@@ -8585,7 +8585,7 @@
         "text": "Whether the dialog is announced twice"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "When a transient interface closes, focus should return to a logical place so users can continue their task.",
     "source_refs": [
       {
@@ -8624,22 +8624,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep visual selection, programmatic state, focus, and displayed panel synchronized"
-      },
-      {
-        "id": "B",
         "text": "Remove the panel's content"
       },
       {
+        "id": "B",
+        "text": "Add a second selected tab relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
+      },
+      {
         "id": "C",
-        "text": "Add a second selected tab"
+        "text": "Keep visual selection, programmatic state, focus, and displayed panel synchronized"
       },
       {
         "id": "D",
         "text": "Make the tabs inaccessible by keyboard"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "A widget's visual state, programmatic state, and functional result should remain aligned so all users receive consistent feedback.",
     "source_refs": [
       {
@@ -8714,22 +8714,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Use clear, consistent terms for the same concept throughout the site"
-      },
-      {
-        "id": "B",
         "text": "Rename the same feature on every page"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Replace text with unlabeled symbols"
       },
       {
+        "id": "C",
+        "text": "Hide important words until hover under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "D",
-        "text": "Hide important words until hover"
+        "text": "Use clear, consistent terms for the same concept throughout the site"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Consistent terminology reduces memory and interpretation demands and makes browser search and other navigation strategies more effective.",
     "source_refs": [
       {
@@ -8800,7 +8800,7 @@
       },
       {
         "id": "B",
-        "text": "The link color is not saturated enough"
+        "text": "The link color is not saturated enough rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
@@ -8879,22 +8879,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the programmatic name includes the visible label and supports speech activation"
-      },
-      {
-        "id": "B",
         "text": "Whether the button has an icon"
       },
       {
+        "id": "B",
+        "text": "Whether the programmatic name includes the visible label and supports speech activation"
+      },
+      {
         "id": "C",
-        "text": "Whether the user can scroll with a mouse"
+        "text": "Whether the user can scroll with a mouse assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
         "text": "Whether the button is on the right side"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "The mismatch can prevent speech input from matching the visible control label; evaluate accessible naming and voice-control operation.",
     "source_refs": [
       {
@@ -8933,22 +8933,22 @@
     "options": [
       {
         "id": "A",
-        "text": "A systemic barrier in shared elements may have been missed across the sample"
-      },
-      {
-        "id": "B",
         "text": "The sample necessarily proves every page conforms"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Shared components do not affect conformance"
       },
       {
+        "id": "C",
+        "text": "A systemic barrier in shared elements may have been missed across the sample"
+      },
+      {
         "id": "D",
-        "text": "WCAG-EM excludes navigation"
+        "text": "WCAG-EM excludes navigation to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Evaluation should explore common components and representative page types because shared elements can produce repeated barriers across the site.",
     "source_refs": [
       {
@@ -9017,22 +9017,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the component boundary and focus or state indicators have sufficient non-text contrast"
+        "text": "Whether the form has a footer without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "Whether the form has a footer"
-      },
-      {
-        "id": "C",
         "text": "Whether the field's name is alphabetical"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether the participant can hear the page"
+      },
+      {
+        "id": "D",
+        "text": "Whether the component boundary and focus or state indicators have sufficient non-text contrast"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Non-text contrast requirements can apply to visual information needed to identify controls and states; user testing helps reveal practical visibility problems.",
     "source_refs": [
       {
@@ -9079,11 +9079,11 @@
       },
       {
         "id": "C",
-        "text": "A version number guarantees conformance"
+        "text": "A version number guarantees conformance based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
-        "text": "The number of pages never matters"
+        "text": "The number of pages rarely matters"
       }
     ],
     "answer": "A",
@@ -9119,11 +9119,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether controls can be activated using the expected keyboard keys"
+        "text": "Whether the page title is descriptive"
       },
       {
         "id": "B",
-        "text": "Whether the page title is descriptive"
+        "text": "Whether controls can be activated using the expected keyboard keys"
       },
       {
         "id": "C",
@@ -9131,10 +9131,10 @@
       },
       {
         "id": "D",
-        "text": "Whether text is aligned left"
+        "text": "Whether text is aligned left to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Keyboard testing must check both focus navigation and activation behavior for interactive controls.",
     "source_refs": [
       {
@@ -9172,22 +9172,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The effect on users' ability to complete an important task"
+        "text": "The visual polish of the page relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "The visual polish of the page"
+        "text": "The number of colors used"
       },
       {
         "id": "C",
-        "text": "The number of colors used"
+        "text": "The effect on users' ability to complete an important task"
       },
       {
         "id": "D",
         "text": "Whether the defect is easy to describe"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Severity reflects the barrier's impact on users and task completion, not the visual quality of the surrounding page.",
     "source_refs": [
       {
@@ -9248,22 +9248,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Request evidence for the mobile app and assess it separately within the intended procurement scope"
-      },
-      {
-        "id": "B",
         "text": "Assume the web report applies to the app automatically"
       },
       {
+        "id": "B",
+        "text": "Exclude mobile users from the product under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "C",
-        "text": "Exclude mobile users from the product"
+        "text": "Treat the product name as sufficient evidence"
       },
       {
         "id": "D",
-        "text": "Treat the product name as sufficient evidence"
+        "text": "Request evidence for the mobile app and assess it separately within the intended procurement scope"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Conformance evidence applies to its stated scope. Products and platforms included in procurement need relevant evidence and evaluation.",
     "source_refs": [
       {
@@ -9344,7 +9344,7 @@
       },
       {
         "id": "D",
-        "text": "Only automated techniques can be used"
+        "text": "primarily automated techniques can be used rather than implementing standard keyboard interaction and ARIA semantics across enterprise operations rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
     "answer": "A",
@@ -9416,22 +9416,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Update the programmatic expanded state to match the panel's visibility"
+        "text": "Remove the heading from the page assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "Remove the heading from the page"
+        "text": "Update the programmatic expanded state to match the panel's visibility"
       },
       {
         "id": "C",
-        "text": "Make the panel visible only on hover"
+        "text": "Make the panel visible primarily on hover"
       },
       {
         "id": "D",
         "text": "Add a second unrelated button"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "The exposed expanded or collapsed state should stay synchronized with the panel so assistive technology users receive accurate feedback.",
     "source_refs": [
       {
@@ -9470,22 +9470,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Give the button an accessible name that identifies the download action and includes the visible label"
-      },
-      {
-        "id": "B",
         "text": "Remove the visible text"
       },
       {
+        "id": "B",
+        "text": "Add a description that says 'button' to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
+      },
+      {
         "id": "C",
-        "text": "Add a description that says 'button'"
+        "text": "Give the button an accessible name that identifies the download action and includes the visible label"
       },
       {
         "id": "D",
         "text": "Change the control to a heading"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "The accessible name should identify the purpose and align with visible text so users of assistive technology and speech input can operate the control.",
     "source_refs": [
       {
@@ -9553,22 +9553,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the technology is accessibility-supported in the audience's environments or an accessible alternative is available"
-      },
-      {
-        "id": "B",
         "text": "Whether the API has a short name"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Whether the code is minified"
       },
       {
+        "id": "C",
+        "text": "Whether the feature is visually impressive without managing focus placement or exposing accessible role attributes to AT across enterprise operations without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "D",
-        "text": "Whether the feature is visually impressive"
+        "text": "Whether the technology is accessibility-supported in the audience's environments or an accessible alternative is available"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A technique must work with the user agents and assistive technologies relevant to the audience or have an accessible alternative.",
     "source_refs": [
       {
@@ -9610,7 +9610,7 @@
       },
       {
         "id": "B",
-        "text": "Only whether its corners match the mockup"
+        "text": "primarily whether its corners match the mockup based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "C",
@@ -9696,22 +9696,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the update is exposed as a programmatically determinable status message"
-      },
-      {
-        "id": "B",
         "text": "Whether the page uses a serif font"
       },
       {
+        "id": "B",
+        "text": "Whether the update is exposed as a programmatically determinable status message"
+      },
+      {
         "id": "C",
-        "text": "Whether focus is removed from every control"
+        "text": "Whether focus is removed from every control to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "D",
         "text": "Whether the save button is a link"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Status messages should be exposed to assistive technologies without necessarily moving focus to the message.",
     "source_refs": [
       {
@@ -9786,22 +9786,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Include representative supported mobile browser and assistive-technology combinations and report the user impact"
-      },
-      {
-        "id": "B",
         "text": "Exclude mobile because the desktop passed"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Assume every mobile browser behaves identically"
       },
       {
+        "id": "C",
+        "text": "Include representative supported mobile browser and assistive-technology combinations and report the user impact"
+      },
+      {
         "id": "D",
-        "text": "Test only the developer's device"
+        "text": "Test primarily the developer's device relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "The evaluation strategy should reflect technologies used by the audience; a pass in one environment does not establish compatibility in another.",
     "source_refs": [
       {
@@ -9870,22 +9870,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether error handling, instructions, and progress recovery support task completion"
+        "text": "primarily the page's typeface under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "B",
-        "text": "Only the page's typeface"
-      },
-      {
-        "id": "C",
         "text": "Whether the site has a carousel"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether the participant can use a mouse"
+      },
+      {
+        "id": "D",
+        "text": "Whether error handling, instructions, and progress recovery support task completion"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "End-user impact review considers whether people can understand errors and recover without losing work or orientation.",
     "source_refs": [
       {
@@ -9961,11 +9961,11 @@
       },
       {
         "id": "C",
-        "text": "A rule to hide all failed results"
+        "text": "A rule to hide standard failed results rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "D",
-        "text": "Only a new logo for the QA team"
+        "text": "primarily a new logo for the QA team"
       }
     ],
     "answer": "A",
@@ -10001,11 +10001,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the time limit is adjustable or otherwise handled under applicable timing requirements"
+        "text": "Whether the page contains a footer"
       },
       {
         "id": "B",
-        "text": "Whether the page contains a footer"
+        "text": "Whether the time limit is adjustable or otherwise handled under applicable timing requirements"
       },
       {
         "id": "C",
@@ -10013,10 +10013,10 @@
       },
       {
         "id": "D",
-        "text": "Whether the challenge has a background image"
+        "text": "Whether the challenge has a background image assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Speech recognition and other alternative inputs may take additional time; evaluate timing barriers and applicable requirements and exceptions.",
     "source_refs": [
       {
@@ -10055,22 +10055,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Affected users and tasks, impact evidence, breadth, and relevant dependencies"
+        "text": "primarily the developer's estimate of code length to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "B",
-        "text": "Only the developer's estimate of code length"
+        "text": "The color of each issue label"
       },
       {
         "id": "C",
-        "text": "The color of each issue label"
+        "text": "Affected users and tasks, impact evidence, breadth, and relevant dependencies"
       },
       {
         "id": "D",
         "text": "A ranking with no explanation"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Clear rationale supports transparent decisions about severity, user impact, scope, and remediation sequencing.",
     "source_refs": [
       {
@@ -10138,22 +10138,22 @@
     "options": [
       {
         "id": "A",
-        "text": "As an evidence-based usability improvement, clearly distinguished from a WCAG failure"
-      },
-      {
-        "id": "B",
         "text": "As a mandatory failure without evidence"
       },
       {
+        "id": "B",
+        "text": "As unrelated to accessibility without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "C",
-        "text": "As unrelated to accessibility"
+        "text": "As a legal determination"
       },
       {
         "id": "D",
-        "text": "As a legal determination"
+        "text": "As an evidence-based usability improvement, clearly distinguished from a WCAG failure"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Recommendations can go beyond minimum conformance. Clear classification helps teams understand what is required and what is a beneficial improvement.",
     "source_refs": [
       {
@@ -10227,7 +10227,7 @@
       },
       {
         "id": "D",
-        "text": "Whether the product's vendor agrees"
+        "text": "Whether the product's vendor agrees based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       }
     ],
     "answer": "A",
@@ -10263,22 +10263,22 @@
     "options": [
       {
         "id": "A",
-        "text": "A persistent label and clear instructions that identify the required format and status"
+        "text": "A decorative image inside the field to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "B",
-        "text": "A decorative image inside the field"
+        "text": "A persistent label and clear instructions that identify the required format and status"
       },
       {
         "id": "C",
-        "text": "A tooltip that appears only on hover"
+        "text": "A tooltip that appears primarily on hover"
       },
       {
         "id": "D",
         "text": "A red border without text"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Labels and instructions should identify the control and communicate requirements in a persistent and accessible way.",
     "source_refs": [
       {
@@ -10346,22 +10346,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the custom group follows the expected radio-group focus and keyboard pattern"
-      },
-      {
-        "id": "B",
         "text": "Whether each option has a different font"
       },
       {
+        "id": "B",
+        "text": "Whether the page has a skip link relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
+      },
+      {
         "id": "C",
-        "text": "Whether the page has a skip link"
+        "text": "Whether the custom group follows the expected radio-group focus and keyboard pattern"
       },
       {
         "id": "D",
         "text": "Whether the radio circles are animated"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Interactive radio groups have an expected keyboard pattern. A custom implementation should match the semantics, selection, and focus behavior of the chosen pattern.",
     "source_refs": [
       {
@@ -10436,22 +10436,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Prefer a native control when suitable or implement and test the full expected behavior"
-      },
-      {
-        "id": "B",
         "text": "Add a shadow to the dropdown"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Tell keyboard users to use a mouse"
       },
       {
+        "id": "C",
+        "text": "Add a longer placeholder under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "D",
-        "text": "Add a longer placeholder"
+        "text": "Prefer a native control when suitable or implement and test the full expected behavior"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Custom controls need more than visual styling; they require semantics, keyboard interaction, focus visibility, and state communication.",
     "source_refs": [
       {
@@ -10488,7 +10488,7 @@
       },
       {
         "id": "B",
-        "text": "Whether the logo has alternative text"
+        "text": "Whether the logo has alternative text rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
@@ -10496,7 +10496,7 @@
       },
       {
         "id": "D",
-        "text": "Whether all routes are hidden from users"
+        "text": "Whether standard routes are hidden from users"
       }
     ],
     "answer": "A",
@@ -10568,22 +10568,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Clarify whether authenticated pages and the complete service process are in scope and arrange access for evaluation"
-      },
-      {
-        "id": "B",
         "text": "Assume the login boundary makes later steps irrelevant"
       },
       {
+        "id": "B",
+        "text": "Clarify whether authenticated pages and the complete service process are in scope and arrange access for evaluation"
+      },
+      {
         "id": "C",
-        "text": "Report conformance for pages not tested"
+        "text": "Report conformance for pages not tested assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
         "text": "Remove authentication from the product"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Scope should include the pages and states necessary to evaluate the intended service and its complete processes; access constraints should be documented and addressed.",
     "source_refs": [
       {
@@ -10622,22 +10622,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the error message identifies the problem and offers a useful correction suggestion where possible"
-      },
-      {
-        "id": "B",
         "text": "Whether the page uses a video"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Whether the field is on the left"
       },
       {
+        "id": "C",
+        "text": "Whether the error message identifies the problem and offers a useful correction suggestion where possible"
+      },
+      {
         "id": "D",
-        "text": "Whether the error is only shown in red"
+        "text": "Whether the error is primarily shown in red to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Error feedback should identify the issue and, when known, suggest how to fix it so users can recover from mistakes.",
     "source_refs": [
       {
@@ -10711,22 +10711,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether it is actually visible, distinguishable, and not obscured during keyboard use"
+        "text": "Whether it is named after the developer without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "Whether it is named after the developer"
-      },
-      {
-        "id": "C",
         "text": "Whether the user can open a new tab"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Whether it appears in the HTML source text"
+      },
+      {
+        "id": "D",
+        "text": "Whether it is actually visible, distinguishable, and not obscured during keyboard use"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Code presence does not establish visual usability; keyboard interaction testing should confirm the focus indicator is perceivable in context.",
     "source_refs": [
       {
@@ -10773,7 +10773,7 @@
       },
       {
         "id": "C",
-        "text": "Whether the user can use a mouse"
+        "text": "Whether the user can use a mouse based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
@@ -10879,11 +10879,11 @@
     "options": [
       {
         "id": "A",
-        "text": "An accountable owner, priority, timeline, and verification plan"
+        "text": "A statement that the issue is understood"
       },
       {
         "id": "B",
-        "text": "A statement that the issue is understood"
+        "text": "An accountable owner, priority, timeline, and verification plan"
       },
       {
         "id": "C",
@@ -10891,10 +10891,10 @@
       },
       {
         "id": "D",
-        "text": "A plan to stop using the site"
+        "text": "A plan to stop using the site to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Remediation strategies need ownership, scheduling, and verification to move from recommendation to a completed, validated change.",
     "source_refs": [
       {
@@ -10927,22 +10927,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Escalate the impact and define an interim mitigation, owner, and follow-up plan while pursuing a durable fix"
+        "text": "Remove the issue from the record relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "Remove the issue from the record"
+        "text": "Claim conformance without qualification"
       },
       {
         "id": "C",
-        "text": "Claim conformance without qualification"
+        "text": "Escalate the impact and define an interim mitigation, owner, and follow-up plan while pursuing a durable fix"
       },
       {
         "id": "D",
         "text": "Tell affected users not to use the service"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "When immediate remediation is constrained, the issue should remain visible and a plan should reduce user impact and track resolution.",
     "source_refs": [
       {
@@ -11004,22 +11004,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the time limit can be adjusted or extended under the applicable timing requirements"
-      },
-      {
-        "id": "B",
         "text": "Whether the page has a logo"
       },
       {
+        "id": "B",
+        "text": "Whether audio can be muted primarily under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "C",
-        "text": "Whether audio can be muted only"
+        "text": "Whether the text is centered"
       },
       {
         "id": "D",
-        "text": "Whether the text is centered"
+        "text": "Whether the time limit can be adjusted or extended under the applicable timing requirements"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Users may need additional time to read or listen to content; evaluate the timing limit against applicable requirements and exceptions.",
     "source_refs": [
       {
@@ -11105,7 +11105,7 @@
       },
       {
         "id": "D",
-        "text": "Use only CSS spacing to communicate the grouping"
+        "text": "Use primarily CSS spacing to communicate the grouping rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
     "answer": "A",
@@ -11183,11 +11183,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keyboard focus can move to links that assistive technology cannot perceive"
+        "text": "The visible panel will become a heading assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "The visible panel will become a heading"
+        "text": "Keyboard focus can move to links that assistive technology cannot perceive"
       },
       {
         "id": "C",
@@ -11198,7 +11198,7 @@
         "text": "The page will no longer support zoom"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Focusable descendants should not remain available to keyboard users while hidden from the accessibility tree; visibility and interaction state must remain aligned.",
     "source_refs": [
       {
@@ -11231,22 +11231,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether meaningful content and interactive semantics are exposed in the accessibility tree"
-      },
-      {
-        "id": "B",
         "text": "Whether the canvas has a border"
       },
       {
+        "id": "B",
+        "text": "Whether the user has installed more fonts to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
+      },
+      {
         "id": "C",
-        "text": "Whether the user has installed more fonts"
+        "text": "Whether meaningful content and interactive semantics are exposed in the accessibility tree"
       },
       {
         "id": "D",
         "text": "Whether the page title is shorter"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Canvas visuals alone do not expose semantic text or controls; accessible alternatives or programmatic DOM semantics are needed for assistive technology.",
     "source_refs": [
       {
@@ -11315,22 +11315,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether headings, field groups, and labels expose meaningful relationships and context"
-      },
-      {
-        "id": "B",
         "text": "Whether the site has a carousel"
       },
       {
+        "id": "B",
+        "text": "Whether standard fields use the same width"
+      },
+      {
         "id": "C",
-        "text": "Whether all fields use the same width"
+        "text": "Whether the page has a background video without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "D",
-        "text": "Whether the page has a background video"
+        "text": "Whether headings, field groups, and labels expose meaningful relationships and context"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Users may navigate directly among controls; semantic grouping and clear labels help retain context and understand related fields.",
     "source_refs": [
       {
@@ -11409,11 +11409,11 @@
       },
       {
         "id": "B",
-        "text": "Links should never have names"
+        "text": "Links should rarely have names based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "C",
-        "text": "The new tab should contain only images"
+        "text": "The new tab should contain primarily images"
       },
       {
         "id": "D",
@@ -11459,22 +11459,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Manually evaluate the name and task context in addition to the tool result"
-      },
-      {
-        "id": "B",
         "text": "Assume any detected button is accessible"
       },
       {
+        "id": "B",
+        "text": "Manually evaluate the name and task context in addition to the tool result"
+      },
+      {
         "id": "C",
-        "text": "Remove the button's label"
+        "text": "Remove the button's label to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "D",
         "text": "Use the tool result as a conformance claim"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Detection of a control does not ensure its accessible name communicates purpose; tools and manual review answer different questions.",
     "source_refs": [
       {
@@ -11549,22 +11549,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Include pages and processes that represent the distinct functionality users need"
+        "text": "Choose pages primarily by URL length"
       },
       {
         "id": "B",
-        "text": "Choose pages only by URL length"
-      },
-      {
-        "id": "C",
         "text": "Exclude transactional pages from consideration"
       },
       {
+        "id": "C",
+        "text": "Include pages and processes that represent the distinct functionality users need"
+      },
+      {
         "id": "D",
-        "text": "Evaluate just one content article"
+        "text": "Evaluate just one content article relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "A representative sample should reflect the diversity of page types, functionality, and complete processes within the evaluation scope.",
     "source_refs": [
       {
@@ -11639,22 +11639,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Update shared guidance and regression checks so the learning is incorporated into future work"
+        "text": "Stop using shared components under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "B",
-        "text": "Stop using shared components"
-      },
-      {
-        "id": "C",
         "text": "Delete the defect history"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Rely on a single person's memory"
+      },
+      {
+        "id": "D",
+        "text": "Update shared guidance and regression checks so the learning is incorporated into future work"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "QA should use findings to improve repeatable processes, guidance, and regression coverage so the same defects are less likely to recur.",
     "source_refs": [
       {
@@ -11695,7 +11695,7 @@
       },
       {
         "id": "C",
-        "text": "Whether the user has a screen reader"
+        "text": "Whether the user has a screen reader rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "D",
@@ -11741,11 +11741,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Consider its high task impact and severity even if the affected group is small"
+        "text": "Deprioritize it because few users reported it"
       },
       {
         "id": "B",
-        "text": "Deprioritize it because few users reported it"
+        "text": "Consider its high task impact and severity even if the affected group is small"
       },
       {
         "id": "C",
@@ -11753,10 +11753,10 @@
       },
       {
         "id": "D",
-        "text": "Rate severity only by how often the site is visited"
+        "text": "Rate severity primarily by how often the site is visited assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Severity should reflect the depth of the barrier and task importance, not only the number of reports or users.",
     "source_refs": [
       {
@@ -11825,22 +11825,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Reopen the finding and recommend a strategy that resolves the actual user barrier, then verify it"
+        "text": "Accept the change because code was modified to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "B",
-        "text": "Accept the change because code was modified"
+        "text": "Close the issue without retesting"
       },
       {
         "id": "C",
-        "text": "Close the issue without retesting"
+        "text": "Reopen the finding and recommend a strategy that resolves the actual user barrier, then verify it"
       },
       {
         "id": "D",
         "text": "Change the severity to low automatically"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "A remediation is successful when it addresses the user-facing barrier, not merely when code changes; verification should reproduce the task.",
     "source_refs": [
       {
@@ -11909,22 +11909,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Status Messages"
-      },
-      {
-        "id": "B",
         "text": "Orientation"
       },
       {
+        "id": "B",
+        "text": "Audio Control without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "C",
-        "text": "Audio Control"
+        "text": "Consistent Help"
       },
       {
         "id": "D",
-        "text": "Consistent Help"
+        "text": "Status Messages"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A dynamic status update should be programmatically determinable so assistive technology can convey it without requiring focus movement.",
     "source_refs": [
       {
@@ -12011,7 +12011,7 @@
       },
       {
         "id": "D",
-        "text": "Whether users can scroll the footer"
+        "text": "Whether users can scroll the footer based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       }
     ],
     "answer": "A",
@@ -12089,22 +12089,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Distinguish normative success criteria from informative techniques and apply the criterion to the actual result"
+        "text": "Treat every technique as legally mandatory to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "B",
-        "text": "Treat every technique as legally mandatory"
+        "text": "Distinguish normative success criteria from informative techniques and apply the criterion to the actual result"
       },
       {
         "id": "C",
-        "text": "Ignore all supporting documents"
+        "text": "Ignore standard supporting documents"
       },
       {
         "id": "D",
         "text": "Replace WCAG with a browser manual"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Success criteria establish WCAG requirements; techniques are informative examples of ways to meet them.",
     "source_refs": [
       {
@@ -12143,22 +12143,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the relationship is necessary and whether it creates a coherent, predictable accessibility-tree structure"
-      },
-      {
-        "id": "B",
         "text": "Whether the page has enough animations"
       },
       {
+        "id": "B",
+        "text": "Whether aria-owns is required on every element relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
+      },
+      {
         "id": "C",
-        "text": "Whether aria-owns is required on every element"
+        "text": "Whether the relationship is necessary and whether it creates a coherent, predictable accessibility-tree structure"
       },
       {
         "id": "D",
         "text": "Whether the DOM can be removed"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "ARIA relationships affect the accessibility tree and should be used carefully; semantic DOM structure is often a more robust way to establish order and relationships.",
     "source_refs": [
       {
@@ -12226,22 +12226,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Allow user-agent text and color adjustments without losing content or functionality"
+        "text": "Prevent standard browser customization"
       },
       {
         "id": "B",
-        "text": "Prevent all browser customization"
-      },
-      {
-        "id": "C",
         "text": "Convert labels into images"
       },
       {
+        "id": "C",
+        "text": "Use color as the primarily way to identify controls under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "D",
-        "text": "Use color as the only way to identify controls"
+        "text": "Allow user-agent text and color adjustments without losing content or functionality"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Users may adapt text, colors, and contrast with browser or assistive tools; content should remain available under these presentations.",
     "source_refs": [
       {
@@ -12284,7 +12284,7 @@
       },
       {
         "id": "B",
-        "text": "Remove the search field label"
+        "text": "Remove the search field label rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
@@ -12364,22 +12364,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether a simpler single-pointer alternative exists for the function"
-      },
-      {
-        "id": "B",
         "text": "Whether the map has a legend color"
       },
       {
+        "id": "B",
+        "text": "Whether a simpler single-pointer alternative exists for the function"
+      },
+      {
         "id": "C",
-        "text": "Whether the page has a footer"
+        "text": "Whether the page has a footer assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
         "text": "Whether the user can hover"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Multipoint gestures can be difficult or impossible for some users; an equivalent simple pointer alternative may be required unless the gesture is essential.",
     "source_refs": [
       {
@@ -12454,22 +12454,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Regression-test focus visibility across representative controls, states, and page templates"
+        "text": "Check primarily the homepage background"
       },
       {
         "id": "B",
-        "text": "Check only the homepage background"
-      },
-      {
-        "id": "C",
         "text": "Assume CSS changes cannot affect accessibility"
       },
       {
+        "id": "C",
+        "text": "Regression-test focus visibility across representative controls, states, and page templates"
+      },
+      {
         "id": "D",
-        "text": "Remove the focus outline to standardize appearance"
+        "text": "Remove the focus outline to standardize appearance to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Shared style changes can affect many interfaces; regression checks should cover representative controls and contexts to catch new barriers.",
     "source_refs": [
       {
@@ -12544,22 +12544,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The component's reach, affected workflows, user impact, and severity to support coordinated remediation"
+        "text": "primarily the component's file size without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "Only the component's file size"
-      },
-      {
-        "id": "C",
         "text": "A note that the issue is duplicated and therefore irrelevant"
       },
       {
+        "id": "C",
+        "text": "primarily the page where it was first reported"
+      },
+      {
         "id": "D",
-        "text": "Only the page where it was first reported"
+        "text": "The component's reach, affected workflows, user impact, and severity to support coordinated remediation"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Shared issues should be prioritized and tracked with their broader scope and impact, rather than dismissed as duplicate findings.",
     "source_refs": [
       {
@@ -12695,7 +12695,7 @@
       },
       {
         "id": "C",
-        "text": "Whether the dialog is centered at every screen size only"
+        "text": "Whether the dialog is centered at every screen size primarily based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
@@ -12741,11 +12741,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Robust"
+        "text": "Understandable"
       },
       {
         "id": "B",
-        "text": "Understandable"
+        "text": "Robust"
       },
       {
         "id": "C",
@@ -12753,10 +12753,10 @@
       },
       {
         "id": "D",
-        "text": "Operable"
+        "text": "Operable to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Robust content is compatible with current and future user agents, including assistive technologies; exposed semantics and interoperability are central concerns.",
     "source_refs": [
       {
@@ -12830,22 +12830,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The instruction relies on location and may become inaccurate or inaccessible across layouts"
+        "text": "The control needs a larger icon primarily relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "The control needs a larger icon only"
-      },
-      {
-        "id": "C",
         "text": "The page title should be removed"
       },
       {
+        "id": "C",
+        "text": "The instruction relies on location and may become inaccurate or inaccessible across layouts"
+      },
+      {
         "id": "D",
-        "text": "Instructions should always use colors instead"
+        "text": "Instructions should consistently use colors instead"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Instructions should not rely solely on sensory characteristics or fixed spatial position that may not be perceived or may change with responsive layout.",
     "source_refs": [
       {
@@ -12920,22 +12920,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The focused component is obscured at the user's magnification or viewport setting"
-      },
-      {
-        "id": "B",
         "text": "The page uses an incorrect language code"
       },
       {
+        "id": "B",
+        "text": "The control has no mouse hover effect under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
+      },
+      {
         "id": "C",
-        "text": "The control has no mouse hover effect"
+        "text": "The user should zoom out"
       },
       {
         "id": "D",
-        "text": "The user should zoom out"
+        "text": "The focused component is obscured at the user's magnification or viewport setting"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Focus obscuration can make it difficult to determine the active control, especially for users with limited field of view or high magnification.",
     "source_refs": [
       {
@@ -12982,11 +12982,11 @@
       },
       {
         "id": "C",
-        "text": "Delete all alt attributes"
+        "text": "Delete standard alt attributes"
       },
       {
         "id": "D",
-        "text": "Replace every alternative with the filename"
+        "text": "Replace every alternative with the filename rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
     "answer": "A",
@@ -13058,11 +13058,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Whether the current state is exposed and updated programmatically in addition to keyboard operation"
+        "text": "Whether the toggle is a link assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "Whether the toggle is a link"
+        "text": "Whether the current state is exposed and updated programmatically in addition to keyboard operation"
       },
       {
         "id": "C",
@@ -13073,7 +13073,7 @@
         "text": "Whether a mouse can hover over it"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "Keyboard operability alone is not sufficient; users also need state information communicated through the accessibility tree.",
     "source_refs": [
       {
@@ -13112,22 +13112,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Specific affected pages or components, applicable criteria, evidence, and user impact"
+        "text": "primarily a general pass/fail statement"
       },
       {
         "id": "B",
-        "text": "Only a general pass/fail statement"
+        "text": "A list of unrelated style preferences to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "C",
-        "text": "A list of unrelated style preferences"
+        "text": "Specific affected pages or components, applicable criteria, evidence, and user impact"
       },
       {
         "id": "D",
         "text": "A screenshot with no explanation"
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "Actionable findings need enough detail to reproduce, understand, prioritize, and fix the barrier.",
     "source_refs": [
       {
@@ -13166,22 +13166,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The name mismatch and the user's inability to target the control through voice input"
-      },
-      {
-        "id": "B",
         "text": "The button's color and the page's language"
       },
       {
+        "id": "B",
+        "text": "The user's microphone brand primarily"
+      },
+      {
         "id": "C",
-        "text": "The user's microphone brand only"
+        "text": "The placement of the footer without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "D",
-        "text": "The placement of the footer"
+        "text": "The name mismatch and the user's inability to target the control through voice input"
       }
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "A strong finding connects the technical cause to the end-user consequence and affected task.",
     "source_refs": [
       {
@@ -13260,11 +13260,11 @@
       },
       {
         "id": "B",
-        "text": "Captions should always be delayed"
+        "text": "Captions should consistently be delayed based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "C",
-        "text": "Only the meeting background is affected"
+        "text": "primarily the meeting background is affected"
       },
       {
         "id": "D",
@@ -13339,22 +13339,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The defect, its impact and scope, the alternative, ownership, and plan for vendor follow-up"
-      },
-      {
-        "id": "B",
         "text": "Nothing, because an alternative exists"
       },
       {
+        "id": "B",
+        "text": "The defect, its impact and scope, the alternative, ownership, and plan for vendor follow-up"
+      },
+      {
         "id": "C",
-        "text": "Only the vendor's product slogan"
+        "text": "primarily the vendor's product slogan to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "D",
         "text": "A claim that the product has no accessibility issues"
       }
     ],
-    "answer": "A",
+    "answer": "B",
     "explanation": "A mitigation does not erase a defect; documenting the impact, alternative, and follow-up supports transparent procurement and risk management.",
     "source_refs": [
       {
@@ -13387,22 +13387,22 @@
     "options": [
       {
         "id": "A",
-        "text": "The nature and recurrence of failures, user impact, and whether redesign is more effective than further isolated fixes"
-      },
-      {
-        "id": "B",
         "text": "The team's preferred visual style alone"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "The number of characters in the form title"
       },
       {
+        "id": "C",
+        "text": "The nature and recurrence of failures, user impact, and whether redesign is more effective than further isolated fixes"
+      },
+      {
         "id": "D",
-        "text": "A desire to replace all content"
+        "text": "A desire to replace standard content relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       }
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "A redesign recommendation should be grounded in the systemic nature of the problem and the comparative effectiveness of available approaches.",
     "source_refs": [
       {
@@ -13487,7 +13487,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Assume one feature proves access for everyone under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "B",
@@ -13549,7 +13549,7 @@
       },
       {
         "id": "C",
-        "text": "Ignore user feedback and context."
+        "text": "Ignore user feedback and context rather than implementing standard keyboard interaction and ARIA semantics across enterprise operations rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "D",
@@ -13635,18 +13635,18 @@
       },
       {
         "id": "B",
-        "text": "Treat the largest or simplest claim as automatically correct."
-      },
-      {
-        "id": "C",
         "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       },
       {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
         "id": "D",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Assume one feature proves access for everyone assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       }
     ],
-    "answer": "C"
+    "answer": "B"
   },
   {
     "id": "was-d2-a-supp-05",
@@ -13685,7 +13685,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Assume one feature proves access for everyone to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "B",
@@ -13693,14 +13693,14 @@
       },
       {
         "id": "C",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       },
       {
         "id": "D",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+        "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "D"
+    "answer": "C"
   },
   {
     "id": "was-d2-a-supp-06",
@@ -13739,22 +13739,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
-      },
-      {
-        "id": "B",
         "text": "Assume one feature proves access for everyone."
       },
       {
+        "id": "B",
+        "text": "Ignore user feedback and context without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
+      },
+      {
         "id": "C",
-        "text": "Ignore user feedback and context."
+        "text": "Treat the largest or simplest claim as automatically correct."
       },
       {
         "id": "D",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       }
     ],
-    "answer": "A"
+    "answer": "D"
   },
   {
     "id": "was-d2-a-supp-07",
@@ -13829,22 +13829,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Ignore user feedback and context."
-      },
-      {
-        "id": "B",
-        "text": "Treat the largest or simplest claim as automatically correct."
-      },
-      {
-        "id": "C",
         "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       },
       {
+        "id": "B",
+        "text": "Ignore user feedback and context."
+      },
+      {
+        "id": "C",
+        "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
         "id": "D",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Assume one feature proves access for everyone based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       }
     ],
-    "answer": "C"
+    "answer": "A"
   },
   {
     "id": "was-d2-a-supp-09",
@@ -13883,22 +13883,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Assume one feature proves access for everyone to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       },
       {
         "id": "B",
-        "text": "Ignore user feedback and context."
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       },
       {
         "id": "C",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Ignore user feedback and context."
       },
       {
         "id": "D",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+        "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "D"
+    "answer": "B"
   },
   {
     "id": "was-d2-a-supp-10",
@@ -13937,22 +13937,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
-      },
-      {
-        "id": "B",
         "text": "Assume one feature proves access for everyone."
       },
       {
+        "id": "B",
+        "text": "Ignore user feedback and context relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
+      },
+      {
         "id": "C",
-        "text": "Ignore user feedback and context."
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       },
       {
         "id": "D",
         "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "A"
+    "answer": "C"
   },
   {
     "id": "was-d2-a-supp-11",
@@ -14035,14 +14035,14 @@
       },
       {
         "id": "C",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+        "text": "Assume one feature proves access for everyone under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "D",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       }
     ],
-    "answer": "C"
+    "answer": "D"
   },
   {
     "id": "was-d2-a-supp-13",
@@ -14081,22 +14081,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
       },
       {
         "id": "B",
-        "text": "Ignore user feedback and context."
+        "text": "Assume one feature proves access for everyone rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       },
       {
         "id": "C",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Ignore user feedback and context."
       },
       {
         "id": "D",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+        "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "D"
+    "answer": "A"
   },
   {
     "id": "was-d2-a-supp-14",
@@ -14135,22 +14135,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
-      },
-      {
-        "id": "B",
         "text": "Assume one feature proves access for everyone."
       },
       {
+        "id": "B",
+        "text": "Test semantics, operation, and exposed name or state across the supported browser, OS, and AT combinations."
+      },
+      {
         "id": "C",
-        "text": "Ignore user feedback and context."
+        "text": "Ignore user feedback and context assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "D",
         "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
     "id": "was-d2-a-supp-15",
@@ -14233,14 +14233,14 @@
       },
       {
         "id": "C",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       },
       {
         "id": "D",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Treat the largest or simplest claim as automatically correct to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       }
     ],
-    "answer": "D"
+    "answer": "C"
   },
   {
     "id": "was-d1-g-supp-02",
@@ -14279,22 +14279,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Assume one feature proves access for everyone without managing focus placement or exposing accessible role attributes to AT without managing focus placement or exposing accessible role attributes to AT."
       },
       {
         "id": "B",
-        "text": "Assume one feature proves access for everyone."
-      },
-      {
-        "id": "C",
         "text": "Ignore user feedback and context."
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Treat the largest or simplest claim as automatically correct."
+      },
+      {
+        "id": "D",
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       }
     ],
-    "answer": "A"
+    "answer": "D"
   },
   {
     "id": "was-d1-g-supp-03",
@@ -14369,22 +14369,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Ignore user feedback and context."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       },
       {
         "id": "B",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Ignore user feedback and context."
       },
       {
         "id": "C",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Treat the largest or simplest claim as automatically correct based on legacy browser behavior rather than current W3C accessibility guidelines based on legacy browser behavior rather than current W3C accessibility guidelines."
       },
       {
         "id": "D",
         "text": "Assume one feature proves access for everyone."
       }
     ],
-    "answer": "C"
+    "answer": "A"
   },
   {
     "id": "was-d1-g-supp-05",
@@ -14427,18 +14427,18 @@
       },
       {
         "id": "B",
-        "text": "Ignore user feedback and context."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       },
       {
         "id": "C",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Ignore user feedback and context."
       },
       {
         "id": "D",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Treat the largest or simplest claim as automatically correct to streamline script execution without testing across assistive technology pairings to streamline script execution without testing across assistive technology pairings."
       }
     ],
-    "answer": "D"
+    "answer": "B"
   },
   {
     "id": "was-d1-g-supp-06",
@@ -14477,22 +14477,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Assume one feature proves access for everyone relying on visual styling indicators instead of programmatic DOM state attributes relying on visual styling indicators instead of programmatic DOM state attributes."
       },
       {
         "id": "B",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Ignore user feedback and context."
       },
       {
         "id": "C",
-        "text": "Ignore user feedback and context."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       },
       {
         "id": "D",
         "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "A"
+    "answer": "C"
   },
   {
     "id": "was-d1-g-supp-07",
@@ -14571,18 +14571,18 @@
       },
       {
         "id": "B",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Treat the largest or simplest claim as automatically correct under the assumption that mouse interaction satisfies functional usability requirements under the assumption that mouse interaction satisfies functional usability requirements."
       },
       {
         "id": "C",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Assume one feature proves access for everyone."
       },
       {
         "id": "D",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       }
     ],
-    "answer": "C"
+    "answer": "D"
   },
   {
     "id": "was-d1-g-supp-09",
@@ -14621,22 +14621,22 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       },
       {
         "id": "B",
-        "text": "Ignore user feedback and context."
+        "text": "Assume one feature proves access for everyone."
       },
       {
         "id": "C",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Ignore user feedback and context."
       },
       {
         "id": "D",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Treat the largest or simplest claim as automatically correct rather than implementing standard keyboard interaction and ARIA semantics rather than implementing standard keyboard interaction and ARIA semantics."
       }
     ],
-    "answer": "D"
+    "answer": "A"
   },
   {
     "id": "was-d1-g-supp-10",
@@ -14675,11 +14675,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
+        "text": "Assume one feature proves access for everyone assuming automated test scanners detect complex dynamic interactive state changes assuming automated test scanners detect complex dynamic interactive state changes."
       },
       {
         "id": "B",
-        "text": "Assume one feature proves access for everyone."
+        "text": "Keep route, title, history, focus, and dynamic feedback coherent after client-side navigation."
       },
       {
         "id": "C",
@@ -14690,7 +14690,7 @@
         "text": "Treat the largest or simplest claim as automatically correct."
       }
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
     "id": "was-d1-g-supp-11",
@@ -14769,7 +14769,7 @@
       },
       {
         "id": "B",
-        "text": "Treat the largest or simplest claim as automatically correct."
+        "text": "Treat the largest or simplest claim as automatically correct to maintain visual layout styling without verifying screen reader speech output to maintain visual layout styling without verifying screen reader speech output."
       },
       {
         "id": "C",
@@ -14897,7 +14897,7 @@
     "options": [
       {
         "id": "A",
-        "text": "By executing synthetic JavaScript eval statements directly in the screen reader memory space"
+        "text": "Through operating system GPU display drivers during hardware-accelerated rendering"
       },
       {
         "id": "B",
@@ -14909,7 +14909,7 @@
       },
       {
         "id": "D",
-        "text": "Through operating system GPU display drivers during hardware-accelerated rendering"
+        "text": "By executing synthetic JavaScript eval statements directly in the screen reader memory space"
       }
     ],
     "answer": "C",
@@ -14948,7 +14948,7 @@
       },
       {
         "id": "B",
-        "text": "The browser forced the viewport to scroll continuously to the top of the document layout"
+        "text": "The browser forced the viewport to scroll continuously to the top of the document layout accessibility accessibility"
       },
       {
         "id": "C",
@@ -15414,7 +15414,7 @@
     "options": [
       {
         "id": "A",
-        "text": "A standard text input form element with a placeholder attribute"
+        "text": "An embedded iframe element displaying external media"
       },
       {
         "id": "B",
@@ -15426,7 +15426,7 @@
       },
       {
         "id": "D",
-        "text": "An embedded iframe element displaying external media"
+        "text": "A standard text input form element with a placeholder attribute"
       }
     ],
     "answer": "B",
@@ -15837,7 +15837,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Developing a commercial automated scanner sold directly to corporate software enterprise organizations"
+        "text": "Establishing legal penalty fines for non-compliant public sector software systems"
       },
       {
         "id": "B",
@@ -15849,7 +15849,7 @@
       },
       {
         "id": "D",
-        "text": "Establishing legal penalty fines for non-compliant public sector software systems"
+        "text": "Developing a commercial automated scanner sold directly to corporate software enterprise organizations"
       }
     ],
     "answer": "C",
@@ -15980,7 +15980,7 @@
     "type": "multiple_choice",
     "cognitive_level": "comprehension",
     "difficulty": "medium",
-    "stem": "Why can certain ACT rules only be classified as 'semi-automated' or 'manual' rather than fully automated?",
+    "stem": "Why can certain ACT rules be classified as 'semi-automated' or 'manual' rather than fully automated?",
     "options": [
       {
         "id": "A",
@@ -16031,7 +16031,7 @@
     "options": [
       {
         "id": "A",
-        "text": "The automated scanner flags compliant code as a violation because it cannot resolve external CSS media query files"
+        "text": "The browser accessibility API rejects the DOM tree because the page contains too many nodes"
       },
       {
         "id": "B",
@@ -16043,7 +16043,7 @@
       },
       {
         "id": "D",
-        "text": "The browser accessibility API rejects the DOM tree because the page contains too many nodes"
+        "text": "The automated scanner flags compliant code as a violation because it cannot resolve external CSS media query files"
       }
     ],
     "answer": "C",
@@ -16178,7 +16178,7 @@
     "options": [
       {
         "id": "A",
-        "text": "The outer container div holds role='combobox' and uses aria-owns referencing the listbox ID"
+        "text": "The submit button holds role='combobox' and uses aria-expanded referencing the modal"
       },
       {
         "id": "B",
@@ -16190,7 +16190,7 @@
       },
       {
         "id": "D",
-        "text": "The submit button holds role='combobox' and uses aria-expanded referencing the modal"
+        "text": "The outer container div holds role='combobox' and uses aria-owns referencing the listbox ID"
       }
     ],
     "answer": "B",
@@ -16480,7 +16480,7 @@
     "type": "multiple_choice",
     "cognitive_level": "analysis",
     "difficulty": "hard",
-    "stem": "Why must engineering teams prioritize accessibility defects based on actual user impact rather than solely on WCAG conformance level (Level A vs AA)?",
+    "stem": "Why must engineering teams prioritize accessibility defects based on actual user impact rather than on WCAG conformance level (Level A vs AA) alone?",
     "options": [
       {
         "id": "A",
@@ -16539,7 +16539,7 @@
       },
       {
         "id": "C",
-        "text": "High defects occur on desktop monitors while Medium defects occur on smartphone displays"
+        "text": "High defects occur on desktop monitors while Medium defect items occur on smartphone displays"
       },
       {
         "id": "D",
@@ -16578,7 +16578,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Remediate defects in alphabetical order based on CSS class name identifiers"
+        "text": "Remediate defects in alphabetical order on web pages based on CSS class name identifiers"
       },
       {
         "id": "B",

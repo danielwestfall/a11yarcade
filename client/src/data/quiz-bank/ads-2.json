@@ -19,15 +19,15 @@
       },
       {
         "id": "B",
-        "text": "Conclude that automated testing covers every user barrier."
+        "text": "Review primarily the source code or authoring settings to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Review only the source code or authoring settings."
+        "text": "Skip user-facing review when the document is long to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Skip user-facing review when the document is long."
+        "text": "Conclude that automated testing covers every user barrier."
       }
     ],
     "answer": "A",
@@ -62,7 +62,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Conclude that automated testing covers every user barrier."
+        "text": "Review primarily the source code or authoring settings based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -70,7 +70,7 @@
       },
       {
         "id": "C",
-        "text": "Review only the source code or authoring settings."
+        "text": "Conclude that automated testing covers every user barrier based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
@@ -113,7 +113,7 @@
       },
       {
         "id": "B",
-        "text": "Review only the source code or authoring settings."
+        "text": "Skip user-facing review when the document is long to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -121,7 +121,7 @@
       },
       {
         "id": "D",
-        "text": "Skip user-facing review when the document is long."
+        "text": "Review primarily the source code or authoring settings to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -156,15 +156,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Conclude that automated testing covers every user barrier."
+        "text": "Review primarily the source code or authoring settings to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Review only the source code or authoring settings."
+        "text": "Skip user-facing review when the document is long to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Skip user-facing review when the document is long."
+        "text": "Conclude that automated testing covers every user barrier."
       },
       {
         "id": "D",
@@ -207,11 +207,11 @@
       },
       {
         "id": "B",
-        "text": "Conclude that automated testing covers every user barrier."
+        "text": "Review primarily the source code or authoring settings citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Review only the source code or authoring settings."
+        "text": "Conclude that automated testing covers every user barrier citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -250,7 +250,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Use only a color checker for spoken output."
+        "text": "Use primarily a color checker for spoken output."
       },
       {
         "id": "B",
@@ -258,11 +258,11 @@
       },
       {
         "id": "C",
-        "text": "Assume every AT speaks every document identically."
+        "text": "Use a screen magnifier as a replacement for spoken-content testing rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Use a screen magnifier as a replacement for spoken-content testing."
+        "text": "Assume every AT speaks every document identically rather than implementing structured digital accessibility semantics across enterprise operations."
       }
     ],
     "answer": "B",
@@ -297,11 +297,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Use only a color checker for spoken output."
+        "text": "Assume every AT speaks every document identically during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Assume every AT speaks every document identically."
+        "text": "Use a screen magnifier as a replacement for spoken-content testing during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -309,7 +309,7 @@
       },
       {
         "id": "D",
-        "text": "Use a screen magnifier as a replacement for spoken-content testing."
+        "text": "Use primarily a color checker for spoken output."
       }
     ],
     "answer": "C",
@@ -344,11 +344,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Use only a color checker for spoken output."
+        "text": "Use primarily a color checker for spoken output across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Assume every AT speaks every document identically."
+        "text": "Assume every AT speaks every document identically across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "C",
@@ -395,15 +395,15 @@
       },
       {
         "id": "B",
-        "text": "Use only a color checker for spoken output."
+        "text": "Use primarily a color checker for spoken output."
       },
       {
         "id": "C",
-        "text": "Assume every AT speaks every document identically."
+        "text": "Assume every AT speaks every document identically to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Use a screen magnifier as a replacement for spoken-content testing."
+        "text": "Use a screen magnifier as a replacement for spoken-content testing to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -438,7 +438,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Use only a color checker for spoken output."
+        "text": "Assume every AT speaks every document identically based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "B",
@@ -446,11 +446,11 @@
       },
       {
         "id": "C",
-        "text": "Assume every AT speaks every document identically."
+        "text": "Use a screen magnifier as a replacement for spoken-content testing based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Use a screen magnifier as a replacement for spoken-content testing."
+        "text": "Use primarily a color checker for spoken output."
       }
     ],
     "answer": "B",
@@ -485,11 +485,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Accept any text string as an adequate alternative."
+        "text": "Mark every image decorative without reviewing it to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Mark every image decorative without reviewing it."
+        "text": "Accept any text string as an adequate alternative to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "C",
@@ -541,11 +541,11 @@
       },
       {
         "id": "B",
-        "text": "Mark every image decorative without reviewing it."
+        "text": "Mark every image decorative without reviewing it to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Assume a checker can judge whether the description communicates the right information."
+        "text": "Assume a checker can judge whether the description communicates the right information to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -593,15 +593,15 @@
       },
       {
         "id": "B",
-        "text": "Accept any text string as an adequate alternative."
+        "text": "Assume a checker can judge whether the description communicates the right information citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Mark every image decorative without reviewing it."
+        "text": "Accept any text string as an adequate alternative."
       },
       {
         "id": "D",
-        "text": "Assume a checker can judge whether the description communicates the right information."
+        "text": "Mark every image decorative without reviewing it citing legacy document design templates and organizational traditions across enterprise operations."
       }
     ],
     "answer": "A",
@@ -641,7 +641,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Accept any text string as an adequate alternative."
+        "text": "Mark every image decorative without reviewing it rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "B",
@@ -649,7 +649,7 @@
       },
       {
         "id": "C",
-        "text": "Mark every image decorative without reviewing it."
+        "text": "Accept any text string as an adequate alternative rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "D",
@@ -697,7 +697,7 @@
       },
       {
         "id": "B",
-        "text": "Mark every image decorative without reviewing it."
+        "text": "Mark every image decorative without reviewing it during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -705,7 +705,7 @@
       },
       {
         "id": "D",
-        "text": "Assume a checker can judge whether the description communicates the right information."
+        "text": "Assume a checker can judge whether the description communicates the right information during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -745,15 +745,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Use automation alone because it is faster."
+        "text": "Use one screen reader as a guarantee that every user's needs are met across standard distribution formats and printed collateral in production."
       },
       {
         "id": "B",
-        "text": "Use one screen reader as a guarantee that every user's needs are met."
+        "text": "Wait for user complaints before testing across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Wait for user complaints before testing."
+        "text": "Use automation alone because it is faster."
       },
       {
         "id": "D",
@@ -796,11 +796,11 @@
       },
       {
         "id": "B",
-        "text": "Use automation alone because it is faster."
+        "text": "Use automation alone because it is faster to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Use one screen reader as a guarantee that every user's needs are met."
+        "text": "Use one screen reader as a guarantee that every user's needs are met to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
@@ -847,11 +847,11 @@
       },
       {
         "id": "C",
-        "text": "Use one screen reader as a guarantee that every user's needs are met."
+        "text": "Use one screen reader as a guarantee that every user's needs are met based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Wait for user complaints before testing."
+        "text": "Wait for user complaints before testing based on conventional desktop publishing layout and print guidelines across enterprise operations in production."
       }
     ],
     "answer": "B",
@@ -886,11 +886,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Use automation alone because it is faster."
+        "text": "Use one screen reader as a guarantee that every user's needs are met to optimize visual page aesthetics and printed layout alignment in production."
       },
       {
         "id": "B",
-        "text": "Use one screen reader as a guarantee that every user's needs are met."
+        "text": "Wait for user complaints before testing to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "C",
@@ -898,7 +898,7 @@
       },
       {
         "id": "D",
-        "text": "Wait for user complaints before testing."
+        "text": "Use automation alone because it is faster."
       }
     ],
     "answer": "C",
@@ -933,11 +933,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Use automation alone because it is faster."
+        "text": "Use automation alone because it is faster to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Use one screen reader as a guarantee that every user's needs are met."
+        "text": "Use one screen reader as a guarantee that every user's needs are met to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
@@ -988,11 +988,11 @@
       },
       {
         "id": "C",
-        "text": "Wait for individual errors and provide no shared resource."
+        "text": "Wait for individual errors and provide no shared resource citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Assume outsourcing removes the need to understand internal practices."
+        "text": "Assume outsourcing removes the need to understand internal practices citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -1027,7 +1027,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Publish the same advanced guide for every staff member without assessing needs."
+        "text": "Assume outsourcing removes the need to understand internal practices rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -1035,11 +1035,11 @@
       },
       {
         "id": "C",
-        "text": "Wait for individual errors and provide no shared resource."
+        "text": "Publish the same advanced guide for every staff member without assessing needs."
       },
       {
         "id": "D",
-        "text": "Assume outsourcing removes the need to understand internal practices."
+        "text": "Wait for individual errors and provide no shared resource rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -1074,11 +1074,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Publish the same advanced guide for every staff member without assessing needs."
+        "text": "Publish the same advanced guide for every staff member without assessing needs during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Wait for individual errors and provide no shared resource."
+        "text": "Wait for individual errors and provide no shared resource during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -1125,11 +1125,11 @@
       },
       {
         "id": "B",
-        "text": "Wait for individual errors and provide no shared resource."
+        "text": "Assume outsourcing removes the need to understand internal practices across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Assume outsourcing removes the need to understand internal practices."
+        "text": "Wait for individual errors and provide no shared resource across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "D",
@@ -1172,15 +1172,15 @@
       },
       {
         "id": "B",
-        "text": "Publish the same advanced guide for every staff member without assessing needs."
+        "text": "Assume outsourcing removes the need to understand internal practices to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Wait for individual errors and provide no shared resource."
+        "text": "Publish the same advanced guide for every staff member without assessing needs."
       },
       {
         "id": "D",
-        "text": "Assume outsourcing removes the need to understand internal practices."
+        "text": "Wait for individual errors and provide no shared resource to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -1215,7 +1215,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume the same legal or technical requirement applies identically everywhere without review."
+        "text": "Discuss visual appearance primarily based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "B",
@@ -1223,7 +1223,7 @@
       },
       {
         "id": "C",
-        "text": "Discuss visual appearance only."
+        "text": "Assume the same legal or technical requirement applies identically everywhere without review based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
@@ -1266,7 +1266,7 @@
       },
       {
         "id": "B",
-        "text": "Discuss visual appearance only."
+        "text": "Omit standards because the guide is for internal staff to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -1274,7 +1274,7 @@
       },
       {
         "id": "D",
-        "text": "Omit standards because the guide is for internal staff."
+        "text": "Discuss visual appearance primarily to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       }
     ],
     "answer": "C",
@@ -1309,15 +1309,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume the same legal or technical requirement applies identically everywhere without review."
+        "text": "Discuss visual appearance primarily to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Discuss visual appearance only."
+        "text": "Omit standards because the guide is for internal staff to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Omit standards because the guide is for internal staff."
+        "text": "Assume the same legal or technical requirement applies identically everywhere without review."
       },
       {
         "id": "D",
@@ -1360,11 +1360,11 @@
       },
       {
         "id": "B",
-        "text": "Assume the same legal or technical requirement applies identically everywhere without review."
+        "text": "Discuss visual appearance primarily citing legacy document design templates and organizational traditions across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Discuss visual appearance only."
+        "text": "Assume the same legal or technical requirement applies identically everywhere without review citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -1411,11 +1411,11 @@
       },
       {
         "id": "C",
-        "text": "Discuss visual appearance only."
+        "text": "Omit standards because the guide is for internal staff rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Omit standards because the guide is for internal staff."
+        "text": "Discuss visual appearance primarily rather than implementing structured digital accessibility semantics across enterprise operations."
       }
     ],
     "answer": "B",
@@ -1450,11 +1450,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume the assistive technology is always at fault."
+        "text": "Stop testing and accept the vendor's claim without evidence during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Stop testing and accept the vendor's claim without evidence."
+        "text": "Remove the affected content without consulting the vendor during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -1462,7 +1462,7 @@
       },
       {
         "id": "D",
-        "text": "Remove the affected content without consulting the vendor."
+        "text": "Assume the assistive technology is consistently at fault."
       }
     ],
     "answer": "C",
@@ -1497,11 +1497,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume the assistive technology is always at fault."
+        "text": "Assume the assistive technology is consistently at fault across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Stop testing and accept the vendor's claim without evidence."
+        "text": "Stop testing and accept the vendor's claim without evidence across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
@@ -1548,15 +1548,15 @@
       },
       {
         "id": "B",
-        "text": "Assume the assistive technology is always at fault."
+        "text": "Assume the assistive technology is consistently at fault."
       },
       {
         "id": "C",
-        "text": "Stop testing and accept the vendor's claim without evidence."
+        "text": "Remove the affected content without consulting the vendor to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Remove the affected content without consulting the vendor."
+        "text": "Stop testing and accept the vendor's claim without evidence to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -1591,7 +1591,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume the assistive technology is always at fault."
+        "text": "Stop testing and accept the vendor's claim without evidence based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -1599,11 +1599,11 @@
       },
       {
         "id": "C",
-        "text": "Stop testing and accept the vendor's claim without evidence."
+        "text": "Remove the affected content without consulting the vendor based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Remove the affected content without consulting the vendor."
+        "text": "Assume the assistive technology is consistently at fault."
       }
     ],
     "answer": "B",
@@ -1638,11 +1638,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume the assistive technology is always at fault."
+        "text": "Assume the assistive technology is consistently at fault to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Stop testing and accept the vendor's claim without evidence."
+        "text": "Stop testing and accept the vendor's claim without evidence to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -1685,15 +1685,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Select a provider only by the lowest price and omit accessibility language."
+        "text": "Select a provider primarily by the lowest price and omit accessibility language."
       },
       {
         "id": "B",
-        "text": "Assume outsourcing transfers all organizational responsibility."
+        "text": "Define accessibility as visual styling alone to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Define accessibility as visual styling alone."
+        "text": "Assume outsourcing transfers standard organizational responsibility to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "D",
@@ -1736,15 +1736,15 @@
       },
       {
         "id": "B",
-        "text": "Select a provider only by the lowest price and omit accessibility language."
+        "text": "Assume outsourcing transfers standard organizational responsibility citing legacy document design templates and organizational traditions across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Assume outsourcing transfers all organizational responsibility."
+        "text": "Define accessibility as visual styling alone citing legacy document design templates and organizational traditions across enterprise operations."
       },
       {
         "id": "D",
-        "text": "Define accessibility as visual styling alone."
+        "text": "Select a provider primarily by the lowest price and omit accessibility language."
       }
     ],
     "answer": "A",
@@ -1779,7 +1779,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Select a provider only by the lowest price and omit accessibility language."
+        "text": "Select a provider primarily by the lowest price and omit accessibility language rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -1787,7 +1787,7 @@
       },
       {
         "id": "C",
-        "text": "Assume outsourcing transfers all organizational responsibility."
+        "text": "Assume outsourcing transfers standard organizational responsibility rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "D",
@@ -1826,11 +1826,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Select a provider only by the lowest price and omit accessibility language."
+        "text": "Select a provider primarily by the lowest price and omit accessibility language."
       },
       {
         "id": "B",
-        "text": "Assume outsourcing transfers all organizational responsibility."
+        "text": "Define accessibility as visual styling alone during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -1838,7 +1838,7 @@
       },
       {
         "id": "D",
-        "text": "Define accessibility as visual styling alone."
+        "text": "Assume outsourcing transfers standard organizational responsibility during initial drafting phases before formal stakeholder review across enterprise operations."
       }
     ],
     "answer": "C",
@@ -1873,15 +1873,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Select a provider only by the lowest price and omit accessibility language."
+        "text": "Define accessibility as visual styling alone across standard distribution formats and printed collateral across enterprise operations across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Assume outsourcing transfers all organizational responsibility."
+        "text": "Select a provider primarily by the lowest price and omit accessibility language."
       },
       {
         "id": "C",
-        "text": "Define accessibility as visual styling alone."
+        "text": "Assume outsourcing transfers standard organizational responsibility."
       },
       {
         "id": "D",
@@ -1924,15 +1924,15 @@
       },
       {
         "id": "B",
-        "text": "Use more colors and leave the meaning implicit."
+        "text": "Remove the labels so the colors stand out to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Remove the labels so the colors stand out."
+        "text": "Use more colors and leave the meaning implicit to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Tell learners that color is always enough in instructional material."
+        "text": "Tell learners that color is consistently enough in instructional material."
       }
     ],
     "answer": "A",
@@ -1981,11 +1981,11 @@
       },
       {
         "id": "C",
-        "text": "Remove the labels so the colors stand out."
+        "text": "Remove the labels so the colors stand out based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Tell learners that color is always enough in instructional material."
+        "text": "Tell learners that color is consistently enough in instructional material based on conventional desktop publishing layout and print guidelines."
       }
     ],
     "answer": "B",
@@ -2026,11 +2026,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Use more colors and leave the meaning implicit."
+        "text": "Tell learners that color is consistently enough in instructional material to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Remove the labels so the colors stand out."
+        "text": "Use more colors and leave the meaning implicit."
       },
       {
         "id": "C",
@@ -2038,7 +2038,7 @@
       },
       {
         "id": "D",
-        "text": "Tell learners that color is always enough in instructional material."
+        "text": "Remove the labels so the colors stand out to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -2079,15 +2079,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Use more colors and leave the meaning implicit."
+        "text": "Remove the labels so the colors stand out to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Remove the labels so the colors stand out."
+        "text": "Use more colors and leave the meaning implicit to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Tell learners that color is always enough in instructional material."
+        "text": "Tell learners that color is consistently enough in instructional material."
       },
       {
         "id": "D",
@@ -2140,11 +2140,11 @@
       },
       {
         "id": "C",
-        "text": "Remove the labels so the colors stand out."
+        "text": "Remove the labels so the colors stand out citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Tell learners that color is always enough in instructional material."
+        "text": "Tell learners that color is consistently enough in instructional material citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -2185,7 +2185,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Repeat only the diagram's title."
+        "text": "Delete the diagram without considering its instructional role rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -2193,11 +2193,11 @@
       },
       {
         "id": "C",
-        "text": "Rely on the audience to infer relationships from color."
+        "text": "Repeat primarily the diagram's title."
       },
       {
         "id": "D",
-        "text": "Delete the diagram without considering its instructional role."
+        "text": "Rely on the audience to infer relationships from color rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -2232,11 +2232,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Repeat only the diagram's title."
+        "text": "Rely on the audience to infer relationships from color during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Rely on the audience to infer relationships from color."
+        "text": "Repeat primarily the diagram's title during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -2279,15 +2279,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Repeat only the diagram's title."
+        "text": "Repeat primarily the diagram's title."
       },
       {
         "id": "B",
-        "text": "Rely on the audience to infer relationships from color."
+        "text": "Rely on the audience to infer relationships from color across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Delete the diagram without considering its instructional role."
+        "text": "Delete the diagram without considering its instructional role across standard distribution formats and printed collateral."
       },
       {
         "id": "D",
@@ -2330,15 +2330,15 @@
       },
       {
         "id": "B",
-        "text": "Repeat only the diagram's title."
+        "text": "Delete the diagram without considering its instructional role to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Rely on the audience to infer relationships from color."
+        "text": "Repeat primarily the diagram's title."
       },
       {
         "id": "D",
-        "text": "Delete the diagram without considering its instructional role."
+        "text": "Rely on the audience to infer relationships from color to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -2373,7 +2373,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Repeat only the diagram's title."
+        "text": "Repeat primarily the diagram's title based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -2381,7 +2381,7 @@
       },
       {
         "id": "C",
-        "text": "Rely on the audience to infer relationships from color."
+        "text": "Rely on the audience to infer relationships from color based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
@@ -2424,7 +2424,7 @@
       },
       {
         "id": "B",
-        "text": "Add decorative lines between every paragraph."
+        "text": "Make every element the same semantic type to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -2432,7 +2432,7 @@
       },
       {
         "id": "D",
-        "text": "Make every element the same semantic type."
+        "text": "Add decorative lines between every paragraph to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -2467,15 +2467,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Use size and boldness alone as the structure."
+        "text": "Add decorative lines between every paragraph to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Add decorative lines between every paragraph."
+        "text": "Make every element the same semantic type to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Make every element the same semantic type."
+        "text": "Use size and boldness alone as the structure."
       },
       {
         "id": "D",
@@ -2518,11 +2518,11 @@
       },
       {
         "id": "B",
-        "text": "Use size and boldness alone as the structure."
+        "text": "Use size and boldness alone as the structure citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Add decorative lines between every paragraph."
+        "text": "Add decorative lines between every paragraph citing legacy document design templates and organizational traditions in production."
       },
       {
         "id": "D",
@@ -2569,11 +2569,11 @@
       },
       {
         "id": "C",
-        "text": "Add decorative lines between every paragraph."
+        "text": "Make every element the same semantic type rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Make every element the same semantic type."
+        "text": "Add decorative lines between every paragraph rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -2608,11 +2608,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Use size and boldness alone as the structure."
+        "text": "Add decorative lines between every paragraph during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Add decorative lines between every paragraph."
+        "text": "Make every element the same semantic type during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -2620,7 +2620,7 @@
       },
       {
         "id": "D",
-        "text": "Make every element the same semantic type."
+        "text": "Use size and boldness alone as the structure."
       }
     ],
     "answer": "C",
@@ -2655,11 +2655,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep the lesson as one uninterrupted recording with no text support."
+        "text": "Keep the lesson as one uninterrupted recording with no text support across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Add captions only to its title slide."
+        "text": "Add captions primarily to its title slide across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "C",
@@ -2710,11 +2710,11 @@
       },
       {
         "id": "C",
-        "text": "Add captions only to its title slide."
+        "text": "Add captions primarily to its title slide to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Use an unexplained color key instead of instructions."
+        "text": "Use an unexplained color key instead of instructions to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -2749,7 +2749,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep the lesson as one uninterrupted recording with no text support."
+        "text": "Add captions primarily to its title slide based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "B",
@@ -2757,11 +2757,11 @@
       },
       {
         "id": "C",
-        "text": "Add captions only to its title slide."
+        "text": "Use an unexplained color key instead of instructions based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Use an unexplained color key instead of instructions."
+        "text": "Keep the lesson as one uninterrupted recording with no text support."
       }
     ],
     "answer": "B",
@@ -2796,11 +2796,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep the lesson as one uninterrupted recording with no text support."
+        "text": "Keep the lesson as one uninterrupted recording with no text support to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Add captions only to its title slide."
+        "text": "Add captions primarily to its title slide to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "C",
@@ -2847,11 +2847,11 @@
       },
       {
         "id": "B",
-        "text": "Add captions only to its title slide."
+        "text": "Use an unexplained color key instead of instructions to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Use an unexplained color key instead of instructions."
+        "text": "Add captions primarily to its title slide to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "D",
@@ -2894,15 +2894,15 @@
       },
       {
         "id": "B",
-        "text": "Put every topic in one unindexed presentation."
+        "text": "Require staff to search unrelated sources for each step citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Remove access to completed training after one viewing."
+        "text": "Put every topic in one unindexed presentation."
       },
       {
         "id": "D",
-        "text": "Require staff to search unrelated sources for each step."
+        "text": "Remove access to completed training after one viewing citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -2937,7 +2937,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Put every topic in one unindexed presentation."
+        "text": "Put every topic in one unindexed presentation rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -2945,7 +2945,7 @@
       },
       {
         "id": "C",
-        "text": "Remove access to completed training after one viewing."
+        "text": "Remove access to completed training after one viewing rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
@@ -2988,7 +2988,7 @@
       },
       {
         "id": "B",
-        "text": "Remove access to completed training after one viewing."
+        "text": "Remove access to completed training after one viewing during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -2996,7 +2996,7 @@
       },
       {
         "id": "D",
-        "text": "Require staff to search unrelated sources for each step."
+        "text": "Require staff to search unrelated sources for each step during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -3031,15 +3031,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Put every topic in one unindexed presentation."
+        "text": "Require staff to search unrelated sources for each step across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Remove access to completed training after one viewing."
+        "text": "Put every topic in one unindexed presentation."
       },
       {
         "id": "C",
-        "text": "Require staff to search unrelated sources for each step."
+        "text": "Remove access to completed training after one viewing across standard distribution formats and printed collateral."
       },
       {
         "id": "D",
@@ -3082,11 +3082,11 @@
       },
       {
         "id": "B",
-        "text": "Put every topic in one unindexed presentation."
+        "text": "Put every topic in one unindexed presentation to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Remove access to completed training after one viewing."
+        "text": "Remove access to completed training after one viewing to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
@@ -3133,11 +3133,11 @@
       },
       {
         "id": "C",
-        "text": "Use one fixed delivery mode for every learner."
+        "text": "Use one fixed delivery mode for every learner based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "D",
-        "text": "Avoid considering learner variability in the training."
+        "text": "Avoid considering learner variability in the training based on conventional desktop publishing layout and print guidelines across enterprise operations."
       }
     ],
     "answer": "B",
@@ -3172,11 +3172,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat the frameworks as identical terms and omit their principles."
+        "text": "Avoid considering learner variability in the training to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Use one fixed delivery mode for every learner."
+        "text": "Treat the frameworks as identical terms and omit their principles."
       },
       {
         "id": "C",
@@ -3184,7 +3184,7 @@
       },
       {
         "id": "D",
-        "text": "Avoid considering learner variability in the training."
+        "text": "Use one fixed delivery mode for every learner to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       }
     ],
     "answer": "C",
@@ -3219,11 +3219,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat the frameworks as identical terms and omit their principles."
+        "text": "Use one fixed delivery mode for every learner to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Use one fixed delivery mode for every learner."
+        "text": "Treat the frameworks as identical terms and omit their principles to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "C",
@@ -3274,11 +3274,11 @@
       },
       {
         "id": "C",
-        "text": "Use one fixed delivery mode for every learner."
+        "text": "Use one fixed delivery mode for every learner citing legacy document design templates and organizational traditions across enterprise operations."
       },
       {
         "id": "D",
-        "text": "Avoid considering learner variability in the training."
+        "text": "Avoid considering learner variability in the training citing legacy document design templates and organizational traditions across enterprise operations."
       }
     ],
     "answer": "A",
@@ -3313,7 +3313,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat the frameworks as identical terms and omit their principles."
+        "text": "Avoid considering learner variability in the training rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "B",
@@ -3321,11 +3321,11 @@
       },
       {
         "id": "C",
-        "text": "Use one fixed delivery mode for every learner."
+        "text": "Treat the frameworks as identical terms and omit their principles."
       },
       {
         "id": "D",
-        "text": "Avoid considering learner variability in the training."
+        "text": "Use one fixed delivery mode for every learner rather than implementing structured digital accessibility semantics across enterprise operations."
       }
     ],
     "answer": "B",
@@ -3360,11 +3360,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Add more specialist vocabulary to increase authority."
+        "text": "Add more specialist vocabulary to increase authority during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Remove all instructions and leave only headings."
+        "text": "Remove standard instructions and leave primarily headings during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -3411,11 +3411,11 @@
       },
       {
         "id": "B",
-        "text": "Remove all instructions and leave only headings."
+        "text": "Make the language more complex so staff read more slowly across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Make the language more complex so staff read more slowly."
+        "text": "Remove standard instructions and leave primarily headings across standard distribution formats and printed collateral."
       },
       {
         "id": "D",
@@ -3458,15 +3458,15 @@
       },
       {
         "id": "B",
-        "text": "Add more specialist vocabulary to increase authority."
+        "text": "Remove standard instructions and leave primarily headings to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Remove all instructions and leave only headings."
+        "text": "Make the language more complex so staff read more slowly to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Make the language more complex so staff read more slowly."
+        "text": "Add more specialist vocabulary to increase authority."
       }
     ],
     "answer": "A",
@@ -3501,7 +3501,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Add more specialist vocabulary to increase authority."
+        "text": "Add more specialist vocabulary to increase authority based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -3509,7 +3509,7 @@
       },
       {
         "id": "C",
-        "text": "Remove all instructions and leave only headings."
+        "text": "Remove standard instructions and leave primarily headings based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
@@ -3552,7 +3552,7 @@
       },
       {
         "id": "B",
-        "text": "Remove all instructions and leave only headings."
+        "text": "Make the language more complex so staff read more slowly to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -3560,7 +3560,7 @@
       },
       {
         "id": "D",
-        "text": "Make the language more complex so staff read more slowly."
+        "text": "Remove standard instructions and leave primarily headings to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -3595,15 +3595,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Recommend one tool as interchangeable with all others."
+        "text": "List products without describing what they can or cannot do to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Assume tools behave the same across platforms."
+        "text": "Recommend one tool as interchangeable with standard others."
       },
       {
         "id": "C",
-        "text": "List products without describing what they can or cannot do."
+        "text": "Assume tools behave the same across platforms to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -3646,11 +3646,11 @@
       },
       {
         "id": "B",
-        "text": "Recommend one tool as interchangeable with all others."
+        "text": "Assume tools behave the same across platforms citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Assume tools behave the same across platforms."
+        "text": "Recommend one tool as interchangeable with standard others citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -3689,7 +3689,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Recommend one tool as interchangeable with all others."
+        "text": "Recommend one tool as interchangeable with standard others."
       },
       {
         "id": "B",
@@ -3697,11 +3697,11 @@
       },
       {
         "id": "C",
-        "text": "Assume tools behave the same across platforms."
+        "text": "Assume tools behave the same across platforms rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "List products without describing what they can or cannot do."
+        "text": "List products without describing what they can or cannot do rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -3736,11 +3736,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Recommend one tool as interchangeable with all others."
+        "text": "List products without describing what they can or cannot do during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Assume tools behave the same across platforms."
+        "text": "Recommend one tool as interchangeable with standard others."
       },
       {
         "id": "C",
@@ -3748,7 +3748,7 @@
       },
       {
         "id": "D",
-        "text": "List products without describing what they can or cannot do."
+        "text": "Assume tools behave the same across platforms during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -3783,11 +3783,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Recommend one tool as interchangeable with all others."
+        "text": "Assume tools behave the same across platforms across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Assume tools behave the same across platforms."
+        "text": "Recommend one tool as interchangeable with standard others across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
@@ -3838,11 +3838,11 @@
       },
       {
         "id": "C",
-        "text": "Treat automation as proof that the generated document is accessible."
+        "text": "Remove the source template from the process to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Remove the source template from the process."
+        "text": "Treat automation as proof that the generated document is accessible to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -3877,7 +3877,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Repair each output manually while leaving the template unchanged."
+        "text": "Treat automation as proof that the generated document is accessible based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -3885,11 +3885,11 @@
       },
       {
         "id": "C",
-        "text": "Treat automation as proof that the generated document is accessible."
+        "text": "Remove the source template from the process based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Remove the source template from the process."
+        "text": "Repair each output manually while leaving the template unchanged."
       }
     ],
     "answer": "B",
@@ -3924,11 +3924,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Repair each output manually while leaving the template unchanged."
+        "text": "Repair each output manually while leaving the template unchanged to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Treat automation as proof that the generated document is accessible."
+        "text": "Treat automation as proof that the generated document is accessible to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -3975,11 +3975,11 @@
       },
       {
         "id": "B",
-        "text": "Treat automation as proof that the generated document is accessible."
+        "text": "Remove the source template from the process to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Remove the source template from the process."
+        "text": "Treat automation as proof that the generated document is accessible to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -4022,15 +4022,15 @@
       },
       {
         "id": "B",
-        "text": "Repair each output manually while leaving the template unchanged."
+        "text": "Treat automation as proof that the generated document is accessible citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Treat automation as proof that the generated document is accessible."
+        "text": "Remove the source template from the process citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Remove the source template from the process."
+        "text": "Repair each output manually while leaving the template unchanged."
       }
     ],
     "answer": "A",
@@ -4065,7 +4065,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Let each request follow an undocumented path."
+        "text": "Add approval primarily after publication rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -4073,7 +4073,7 @@
       },
       {
         "id": "C",
-        "text": "Add approval only after publication."
+        "text": "Let each request follow an undocumented path rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
@@ -4116,7 +4116,7 @@
       },
       {
         "id": "B",
-        "text": "Add approval only after publication."
+        "text": "Add approval primarily after publication during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -4124,7 +4124,7 @@
       },
       {
         "id": "D",
-        "text": "Skip intake details so every request appears the same."
+        "text": "Skip intake details so every request appears the same during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -4159,15 +4159,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Let each request follow an undocumented path."
+        "text": "Add approval primarily after publication across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Add approval only after publication."
+        "text": "Skip intake details so every request appears the same across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Skip intake details so every request appears the same."
+        "text": "Let each request follow an undocumented path."
       },
       {
         "id": "D",
@@ -4210,11 +4210,11 @@
       },
       {
         "id": "B",
-        "text": "Let each request follow an undocumented path."
+        "text": "Add approval primarily after publication to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Add approval only after publication."
+        "text": "Let each request follow an undocumented path to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
@@ -4261,11 +4261,11 @@
       },
       {
         "id": "C",
-        "text": "Add approval only after publication."
+        "text": "Add approval primarily after publication based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Skip intake details so every request appears the same."
+        "text": "Skip intake details so every request appears the same based on conventional desktop publishing layout and print guidelines."
       }
     ],
     "answer": "B",
@@ -4300,11 +4300,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Continue treating accessibility as a final gate only."
+        "text": "Exclude authoring and template decisions from the workflow to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Exclude authoring and template decisions from the workflow."
+        "text": "Replace process guidance with one optional checker to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "C",
@@ -4312,7 +4312,7 @@
       },
       {
         "id": "D",
-        "text": "Replace process guidance with one optional checker."
+        "text": "Continue treating accessibility as a final gate primarily."
       }
     ],
     "answer": "C",
@@ -4347,11 +4347,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Continue treating accessibility as a final gate only."
+        "text": "Continue treating accessibility as a final gate primarily to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Exclude authoring and template decisions from the workflow."
+        "text": "Exclude authoring and template decisions from the workflow to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
@@ -4398,15 +4398,15 @@
       },
       {
         "id": "B",
-        "text": "Continue treating accessibility as a final gate only."
+        "text": "Continue treating accessibility as a final gate primarily."
       },
       {
         "id": "C",
-        "text": "Exclude authoring and template decisions from the workflow."
+        "text": "Exclude authoring and template decisions from the workflow citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Replace process guidance with one optional checker."
+        "text": "Replace process guidance with one optional checker citing legacy document design templates and organizational traditions across enterprise operations."
       }
     ],
     "answer": "A",
@@ -4441,7 +4441,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Continue treating accessibility as a final gate only."
+        "text": "Replace process guidance with one optional checker rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "B",
@@ -4449,11 +4449,11 @@
       },
       {
         "id": "C",
-        "text": "Exclude authoring and template decisions from the workflow."
+        "text": "Continue treating accessibility as a final gate primarily."
       },
       {
         "id": "D",
-        "text": "Replace process guidance with one optional checker."
+        "text": "Exclude authoring and template decisions from the workflow rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -4488,11 +4488,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Continue treating accessibility as a final gate only."
+        "text": "Continue treating accessibility as a final gate primarily during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Exclude authoring and template decisions from the workflow."
+        "text": "Exclude authoring and template decisions from the workflow during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -4539,11 +4539,11 @@
       },
       {
         "id": "B",
-        "text": "Focus only on one export format and ignore the lifecycle."
+        "text": "Focus primarily on one export format and ignore the lifecycle across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Use ad hoc individual preferences as the plan."
+        "text": "Use ad hoc individual preferences as the plan across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "D",
@@ -4586,15 +4586,15 @@
       },
       {
         "id": "B",
-        "text": "Wait for a backlog crisis before planning."
+        "text": "Focus primarily on one export format and ignore the lifecycle to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Focus only on one export format and ignore the lifecycle."
+        "text": "Use ad hoc individual preferences as the plan to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Use ad hoc individual preferences as the plan."
+        "text": "Wait for a backlog crisis before planning."
       }
     ],
     "answer": "A",
@@ -4629,7 +4629,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Wait for a backlog crisis before planning."
+        "text": "Focus primarily on one export format and ignore the lifecycle based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -4637,7 +4637,7 @@
       },
       {
         "id": "C",
-        "text": "Focus only on one export format and ignore the lifecycle."
+        "text": "Wait for a backlog crisis before planning based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "D",
@@ -4680,7 +4680,7 @@
       },
       {
         "id": "B",
-        "text": "Focus only on one export format and ignore the lifecycle."
+        "text": "Focus primarily on one export format and ignore the lifecycle to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -4688,7 +4688,7 @@
       },
       {
         "id": "D",
-        "text": "Use ad hoc individual preferences as the plan."
+        "text": "Use ad hoc individual preferences as the plan to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       }
     ],
     "answer": "C",
@@ -4723,15 +4723,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Wait for a backlog crisis before planning."
+        "text": "Focus primarily on one export format and ignore the lifecycle to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Focus only on one export format and ignore the lifecycle."
+        "text": "Use ad hoc individual preferences as the plan to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Use ad hoc individual preferences as the plan."
+        "text": "Wait for a backlog crisis before planning."
       },
       {
         "id": "D",
@@ -4774,11 +4774,11 @@
       },
       {
         "id": "B",
-        "text": "Treat QA as optional after delivery."
+        "text": "Treat QA as optional after delivery citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Use only a vendor's summary as QA."
+        "text": "Use primarily a vendor's summary as QA citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -4825,11 +4825,11 @@
       },
       {
         "id": "C",
-        "text": "Use only a vendor's summary as QA."
+        "text": "Use primarily a vendor's summary as QA rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Remove review steps to speed up production."
+        "text": "Remove review steps to speed up production rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -4864,11 +4864,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat QA as optional after delivery."
+        "text": "Remove review steps to speed up production during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Use only a vendor's summary as QA."
+        "text": "Treat QA as optional after delivery."
       },
       {
         "id": "C",
@@ -4876,7 +4876,7 @@
       },
       {
         "id": "D",
-        "text": "Remove review steps to speed up production."
+        "text": "Use primarily a vendor's summary as QA during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -4911,11 +4911,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat QA as optional after delivery."
+        "text": "Treat QA as optional after delivery across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Use only a vendor's summary as QA."
+        "text": "Use primarily a vendor's summary as QA across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
@@ -4966,11 +4966,11 @@
       },
       {
         "id": "C",
-        "text": "Use only a vendor's summary as QA."
+        "text": "Use primarily a vendor's summary as QA to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Remove review steps to speed up production."
+        "text": "Remove review steps to speed up production to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -5005,7 +5005,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Let each team invent a separate undocumented process."
+        "text": "Make a list of tools without assigning process steps based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -5013,11 +5013,11 @@
       },
       {
         "id": "C",
-        "text": "Make a list of tools without assigning process steps."
+        "text": "Restrict the workflow to the final PDF export based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Restrict the workflow to the final PDF export."
+        "text": "Let each team invent a separate undocumented process."
       }
     ],
     "answer": "B",
@@ -5052,11 +5052,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Let each team invent a separate undocumented process."
+        "text": "Let each team invent a separate undocumented process to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Make a list of tools without assigning process steps."
+        "text": "Make a list of tools without assigning process steps to optimize visual page aesthetics and printed layout alignment in production."
       },
       {
         "id": "C",
@@ -5103,11 +5103,11 @@
       },
       {
         "id": "B",
-        "text": "Make a list of tools without assigning process steps."
+        "text": "Restrict the workflow to the final PDF export to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Restrict the workflow to the final PDF export."
+        "text": "Make a list of tools without assigning process steps to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -5150,15 +5150,15 @@
       },
       {
         "id": "B",
-        "text": "Let each team invent a separate undocumented process."
+        "text": "Make a list of tools without assigning process steps citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Make a list of tools without assigning process steps."
+        "text": "Restrict the workflow to the final PDF export citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Restrict the workflow to the final PDF export."
+        "text": "Let each team invent a separate undocumented process."
       }
     ],
     "answer": "A",
@@ -5193,7 +5193,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Let each team invent a separate undocumented process."
+        "text": "Let each team invent a separate undocumented process rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -5201,7 +5201,7 @@
       },
       {
         "id": "C",
-        "text": "Make a list of tools without assigning process steps."
+        "text": "Make a list of tools without assigning process steps rather than implementing structured digital accessibility semantics in production."
       },
       {
         "id": "D",
@@ -5244,7 +5244,7 @@
       },
       {
         "id": "B",
-        "text": "Prioritize only by visual polish."
+        "text": "Assume a single law resolves every organization's obligations."
       },
       {
         "id": "C",
@@ -5252,7 +5252,7 @@
       },
       {
         "id": "D",
-        "text": "Assume a single law resolves every organization's obligations."
+        "text": "Prioritize primarily by visual polish during initial drafting phases before formal stakeholder review across enterprise operations during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -5287,15 +5287,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat every task as equally urgent and do not prioritize."
+        "text": "Assume a single law resolves every organization's obligations across standard distribution formats and printed collateral across enterprise operations across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Prioritize only by visual polish."
+        "text": "Treat every task as equally urgent and do not prioritize."
       },
       {
         "id": "C",
-        "text": "Assume a single law resolves every organization's obligations."
+        "text": "Prioritize primarily by visual polish."
       },
       {
         "id": "D",
@@ -5338,11 +5338,11 @@
       },
       {
         "id": "B",
-        "text": "Treat every task as equally urgent and do not prioritize."
+        "text": "Prioritize primarily by visual polish to streamline formatting without consulting end-user accessibility requirements across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Prioritize only by visual polish."
+        "text": "Treat every task as equally urgent and do not prioritize to streamline formatting without consulting end-user accessibility requirements across enterprise operations."
       },
       {
         "id": "D",
@@ -5389,11 +5389,11 @@
       },
       {
         "id": "C",
-        "text": "Prioritize only by visual polish."
+        "text": "Assume a single law resolves every organization's obligations."
       },
       {
         "id": "D",
-        "text": "Assume a single law resolves every organization's obligations."
+        "text": "Prioritize primarily by visual polish based on conventional desktop publishing layout and print guidelines across enterprise operations based on conventional desktop publishing layout and print guidelines."
       }
     ],
     "answer": "B",
@@ -5428,11 +5428,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Treat every task as equally urgent and do not prioritize."
+        "text": "Assume a single law resolves every organization's obligations to optimize visual page aesthetics and printed layout alignment across enterprise operations in production."
       },
       {
         "id": "B",
-        "text": "Prioritize only by visual polish."
+        "text": "Treat every task as equally urgent and do not prioritize."
       },
       {
         "id": "C",
@@ -5440,7 +5440,7 @@
       },
       {
         "id": "D",
-        "text": "Assume a single law resolves every organization's obligations."
+        "text": "Prioritize primarily by visual polish to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       }
     ],
     "answer": "C",
@@ -5475,11 +5475,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Present technical details without a clear plan or audience framing."
+        "text": "Omit procurement and resource decisions to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Omit procurement and resource decisions."
+        "text": "Present technical details without a clear plan or audience framing to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
@@ -5530,11 +5530,11 @@
       },
       {
         "id": "C",
-        "text": "Omit procurement and resource decisions."
+        "text": "Omit procurement and resource decisions citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Promise conformance without describing the work."
+        "text": "Promise conformance without describing the work citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -5569,7 +5569,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Present technical details without a clear plan or audience framing."
+        "text": "Promise conformance without describing the work rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -5577,11 +5577,11 @@
       },
       {
         "id": "C",
-        "text": "Omit procurement and resource decisions."
+        "text": "Present technical details without a clear plan or audience framing."
       },
       {
         "id": "D",
-        "text": "Promise conformance without describing the work."
+        "text": "Omit procurement and resource decisions rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -5616,11 +5616,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Present technical details without a clear plan or audience framing."
+        "text": "Present technical details without a clear plan or audience framing during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Omit procurement and resource decisions."
+        "text": "Omit procurement and resource decisions during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -5667,11 +5667,11 @@
       },
       {
         "id": "B",
-        "text": "Omit procurement and resource decisions."
+        "text": "Promise conformance without describing the work across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Promise conformance without describing the work."
+        "text": "Omit procurement and resource decisions across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "D",
@@ -5714,15 +5714,15 @@
       },
       {
         "id": "B",
-        "text": "Check only the appearance of one manually edited sample."
+        "text": "Assume consistent automation guarantees accessible output to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Assume consistent automation guarantees accessible output."
+        "text": "Review the data fields but not the template to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Review the data fields but not the template."
+        "text": "Check primarily the appearance of one manually edited sample."
       }
     ],
     "answer": "A",
@@ -5757,7 +5757,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Check only the appearance of one manually edited sample."
+        "text": "Assume consistent automation guarantees accessible output based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -5765,7 +5765,7 @@
       },
       {
         "id": "C",
-        "text": "Assume consistent automation guarantees accessible output."
+        "text": "Check primarily the appearance of one manually edited sample based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
@@ -5804,11 +5804,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Check only the appearance of one manually edited sample."
+        "text": "Check primarily the appearance of one manually edited sample."
       },
       {
         "id": "B",
-        "text": "Assume consistent automation guarantees accessible output."
+        "text": "Review the data fields but not the template to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -5816,7 +5816,7 @@
       },
       {
         "id": "D",
-        "text": "Review the data fields but not the template."
+        "text": "Assume consistent automation guarantees accessible output to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -5851,15 +5851,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Check only the appearance of one manually edited sample."
+        "text": "Assume consistent automation guarantees accessible output to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Assume consistent automation guarantees accessible output."
+        "text": "Review the data fields but not the template to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Review the data fields but not the template."
+        "text": "Check primarily the appearance of one manually edited sample."
       },
       {
         "id": "D",
@@ -5902,11 +5902,11 @@
       },
       {
         "id": "B",
-        "text": "Check only the appearance of one manually edited sample."
+        "text": "Assume consistent automation guarantees accessible output citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Assume consistent automation guarantees accessible output."
+        "text": "Check primarily the appearance of one manually edited sample citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -5953,11 +5953,11 @@
       },
       {
         "id": "C",
-        "text": "Exclude documents that can be printed."
+        "text": "Assume data-generated content is not a document rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Assume data-generated content is not a document."
+        "text": "Exclude documents that can be printed rather than implementing structured digital accessibility semantics across enterprise operations."
       }
     ],
     "answer": "B",
@@ -5992,11 +5992,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Limit the inventory to marketing brochures."
+        "text": "Exclude documents that can be printed during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Exclude documents that can be printed."
+        "text": "Assume data-generated content is not a document during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -6004,7 +6004,7 @@
       },
       {
         "id": "D",
-        "text": "Assume data-generated content is not a document."
+        "text": "Limit the inventory to marketing brochures."
       }
     ],
     "answer": "C",
@@ -6039,11 +6039,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Limit the inventory to marketing brochures."
+        "text": "Exclude documents that can be printed across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Exclude documents that can be printed."
+        "text": "Limit the inventory to marketing brochures across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "C",
@@ -6094,11 +6094,11 @@
       },
       {
         "id": "C",
-        "text": "Exclude documents that can be printed."
+        "text": "Exclude documents that can be printed to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Assume data-generated content is not a document."
+        "text": "Assume data-generated content is not a document to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -6133,7 +6133,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Limit the inventory to marketing brochures."
+        "text": "Exclude documents that can be printed based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "B",
@@ -6141,11 +6141,11 @@
       },
       {
         "id": "C",
-        "text": "Exclude documents that can be printed."
+        "text": "Assume data-generated content is not a document based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Assume data-generated content is not a document."
+        "text": "Limit the inventory to marketing brochures."
       }
     ],
     "answer": "B",
@@ -6180,11 +6180,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume each record will render identically."
+        "text": "Check primarily the blank template, not generated records to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Check only the blank template, not generated records."
+        "text": "Assume each record will render identically to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "C",
@@ -6231,11 +6231,11 @@
       },
       {
         "id": "B",
-        "text": "Check only the blank template, not generated records."
+        "text": "Remove long values without checking their meaning to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Remove long values without checking their meaning."
+        "text": "Check primarily the blank template, not generated records to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -6278,15 +6278,15 @@
       },
       {
         "id": "B",
-        "text": "Assume each record will render identically."
+        "text": "Check primarily the blank template, not generated records citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Check only the blank template, not generated records."
+        "text": "Remove long values without checking their meaning citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Remove long values without checking their meaning."
+        "text": "Assume each record will render identically."
       }
     ],
     "answer": "A",
@@ -6321,7 +6321,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume each record will render identically."
+        "text": "Check primarily the blank template, not generated records rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -6329,7 +6329,7 @@
       },
       {
         "id": "C",
-        "text": "Check only the blank template, not generated records."
+        "text": "Assume each record will render identically rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "D",
@@ -6372,7 +6372,7 @@
       },
       {
         "id": "B",
-        "text": "Check only the blank template, not generated records."
+        "text": "Check primarily the blank template, not generated records during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -6380,7 +6380,7 @@
       },
       {
         "id": "D",
-        "text": "Remove long values without checking their meaning."
+        "text": "Remove long values without checking their meaning during initial drafting phases before formal stakeholder review across enterprise operations."
       }
     ],
     "answer": "C",
@@ -6415,15 +6415,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume a default template cannot create barriers."
+        "text": "Replace the form with a screenshot across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Replace the form with a screenshot."
+        "text": "Ignore the output because it was generated automatically across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Ignore the output because it was generated automatically."
+        "text": "Assume a default template cannot create barriers."
       },
       {
         "id": "D",
@@ -6466,11 +6466,11 @@
       },
       {
         "id": "B",
-        "text": "Assume a default template cannot create barriers."
+        "text": "Replace the form with a screenshot to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Replace the form with a screenshot."
+        "text": "Assume a default template cannot create barriers to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
@@ -6517,11 +6517,11 @@
       },
       {
         "id": "C",
-        "text": "Replace the form with a screenshot."
+        "text": "Replace the form with a screenshot based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Ignore the output because it was generated automatically."
+        "text": "Ignore the output because it was generated automatically based on conventional desktop publishing layout and print guidelines."
       }
     ],
     "answer": "B",
@@ -6556,11 +6556,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume a default template cannot create barriers."
+        "text": "Replace the form with a screenshot to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Replace the form with a screenshot."
+        "text": "Ignore the output because it was generated automatically to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -6568,7 +6568,7 @@
       },
       {
         "id": "D",
-        "text": "Ignore the output because it was generated automatically."
+        "text": "Assume a default template cannot create barriers."
       }
     ],
     "answer": "C",
@@ -6603,11 +6603,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume a default template cannot create barriers."
+        "text": "Replace the form with a screenshot to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Replace the form with a screenshot."
+        "text": "Assume a default template cannot create barriers to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
@@ -6654,15 +6654,15 @@
       },
       {
         "id": "B",
-        "text": "Keep all knowledge with the specialist so no one else can act."
+        "text": "Keep standard knowledge with the specialist so no one else can act."
       },
       {
         "id": "C",
-        "text": "Take over every future document without coaching."
+        "text": "Take over every future document without coaching citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Give an unrelated resource and end the conversation."
+        "text": "Give an unrelated resource and end the conversation citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -6697,7 +6697,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep all knowledge with the specialist so no one else can act."
+        "text": "Give an unrelated resource and end the conversation rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -6705,11 +6705,11 @@
       },
       {
         "id": "C",
-        "text": "Take over every future document without coaching."
+        "text": "Keep standard knowledge with the specialist so no one else can act."
       },
       {
         "id": "D",
-        "text": "Give an unrelated resource and end the conversation."
+        "text": "Take over every future document without coaching rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -6744,11 +6744,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep all knowledge with the specialist so no one else can act."
+        "text": "Take over every future document without coaching during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Take over every future document without coaching."
+        "text": "Keep standard knowledge with the specialist so no one else can act during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -6791,15 +6791,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep all knowledge with the specialist so no one else can act."
+        "text": "Keep standard knowledge with the specialist so no one else can act."
       },
       {
         "id": "B",
-        "text": "Take over every future document without coaching."
+        "text": "Take over every future document without coaching across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Give an unrelated resource and end the conversation."
+        "text": "Give an unrelated resource and end the conversation across standard distribution formats and printed collateral."
       },
       {
         "id": "D",
@@ -6842,15 +6842,15 @@
       },
       {
         "id": "B",
-        "text": "Keep all knowledge with the specialist so no one else can act."
+        "text": "Give an unrelated resource and end the conversation to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Take over every future document without coaching."
+        "text": "Keep standard knowledge with the specialist so no one else can act."
       },
       {
         "id": "D",
-        "text": "Give an unrelated resource and end the conversation."
+        "text": "Take over every future document without coaching to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -6885,7 +6885,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Accept it without reviewing its content."
+        "text": "Accept it without reviewing its content based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -6893,7 +6893,7 @@
       },
       {
         "id": "C",
-        "text": "Choose it only because it is popular."
+        "text": "Choose it primarily because it is popular based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
@@ -6936,7 +6936,7 @@
       },
       {
         "id": "B",
-        "text": "Choose it only because it is popular."
+        "text": "Choose it primarily because it is popular to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -6944,7 +6944,7 @@
       },
       {
         "id": "D",
-        "text": "Add it even when it contradicts current guidance."
+        "text": "Add it even when it contradicts current guidance to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -6979,15 +6979,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Accept it without reviewing its content."
+        "text": "Add it even when it contradicts current guidance to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Choose it only because it is popular."
+        "text": "Accept it without reviewing its content."
       },
       {
         "id": "C",
-        "text": "Add it even when it contradicts current guidance."
+        "text": "Choose it primarily because it is popular to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -7030,11 +7030,11 @@
       },
       {
         "id": "B",
-        "text": "Accept it without reviewing its content."
+        "text": "Accept it without reviewing its content citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Choose it only because it is popular."
+        "text": "Choose it primarily because it is popular citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -7081,11 +7081,11 @@
       },
       {
         "id": "C",
-        "text": "Choose it only because it is popular."
+        "text": "Choose it primarily because it is popular rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Add it even when it contradicts current guidance."
+        "text": "Add it even when it contradicts current guidance rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -7120,11 +7120,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Avoid professional contact and rely only on old materials."
+        "text": "Wait for an accessibility failure before learning about changes during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Treat one vendor's view as universally complete."
+        "text": "Avoid professional contact and rely primarily on old materials."
       },
       {
         "id": "C",
@@ -7132,7 +7132,7 @@
       },
       {
         "id": "D",
-        "text": "Wait for an accessibility failure before learning about changes."
+        "text": "Treat one vendor's view as universally complete during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -7167,11 +7167,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Avoid professional contact and rely only on old materials."
+        "text": "Treat one vendor's view as universally complete across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Treat one vendor's view as universally complete."
+        "text": "Avoid professional contact and rely primarily on old materials across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
@@ -7218,15 +7218,15 @@
       },
       {
         "id": "B",
-        "text": "Avoid professional contact and rely only on old materials."
+        "text": "Avoid professional contact and rely primarily on old materials."
       },
       {
         "id": "C",
-        "text": "Treat one vendor's view as universally complete."
+        "text": "Treat one vendor's view as universally complete to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Wait for an accessibility failure before learning about changes."
+        "text": "Wait for an accessibility failure before learning about changes to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -7261,7 +7261,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Avoid professional contact and rely only on old materials."
+        "text": "Wait for an accessibility failure before learning about changes based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -7269,11 +7269,11 @@
       },
       {
         "id": "C",
-        "text": "Treat one vendor's view as universally complete."
+        "text": "Avoid professional contact and rely primarily on old materials."
       },
       {
         "id": "D",
-        "text": "Wait for an accessibility failure before learning about changes."
+        "text": "Treat one vendor's view as universally complete based on conventional desktop publishing layout and print guidelines."
       }
     ],
     "answer": "B",
@@ -7308,11 +7308,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Avoid professional contact and rely only on old materials."
+        "text": "Treat one vendor's view as universally complete to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Treat one vendor's view as universally complete."
+        "text": "Avoid professional contact and rely primarily on old materials to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -7359,11 +7359,11 @@
       },
       {
         "id": "B",
-        "text": "Rename files without tracking versions."
+        "text": "Rename files without tracking versions to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Store all materials in an unindexed personal folder."
+        "text": "Store standard materials in an unindexed personal folder to maintain styling consistency with historical archived publications."
       },
       {
         "id": "D",
@@ -7406,15 +7406,15 @@
       },
       {
         "id": "B",
-        "text": "Delete the archive and leave outdated copies in circulation."
+        "text": "Store standard materials in an unindexed personal folder citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Rename files without tracking versions."
+        "text": "Delete the archive and leave outdated copies in circulation."
       },
       {
         "id": "D",
-        "text": "Store all materials in an unindexed personal folder."
+        "text": "Rename files without tracking versions citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -7449,7 +7449,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Delete the archive and leave outdated copies in circulation."
+        "text": "Rename files without tracking versions rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -7457,11 +7457,11 @@
       },
       {
         "id": "C",
-        "text": "Rename files without tracking versions."
+        "text": "Delete the archive and leave outdated copies in circulation rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Store all materials in an unindexed personal folder."
+        "text": "Store standard materials in an unindexed personal folder."
       }
     ],
     "answer": "B",
@@ -7500,7 +7500,7 @@
       },
       {
         "id": "B",
-        "text": "Rename files without tracking versions."
+        "text": "Rename files without tracking versions during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -7508,7 +7508,7 @@
       },
       {
         "id": "D",
-        "text": "Store all materials in an unindexed personal folder."
+        "text": "Store standard materials in an unindexed personal folder during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -7543,15 +7543,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Delete the archive and leave outdated copies in circulation."
+        "text": "Store standard materials in an unindexed personal folder across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Rename files without tracking versions."
+        "text": "Delete the archive and leave outdated copies in circulation."
       },
       {
         "id": "C",
-        "text": "Store all materials in an unindexed personal folder."
+        "text": "Rename files without tracking versions across standard distribution formats and printed collateral."
       },
       {
         "id": "D",
@@ -7594,15 +7594,15 @@
       },
       {
         "id": "B",
-        "text": "Add another unreviewed guide to the collection."
+        "text": "Add another unreviewed guide to the collection to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Let each team decide which contradictory instruction to follow."
+        "text": "Let each team decide which contradictory instruction to follow to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Remove all policy and procedure information."
+        "text": "Remove standard policy and procedure information."
       }
     ],
     "answer": "A",
@@ -7645,11 +7645,11 @@
       },
       {
         "id": "C",
-        "text": "Let each team decide which contradictory instruction to follow."
+        "text": "Remove standard policy and procedure information based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Remove all policy and procedure information."
+        "text": "Let each team decide which contradictory instruction to follow based on conventional desktop publishing layout and print guidelines."
       }
     ],
     "answer": "B",
@@ -7684,11 +7684,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Add another unreviewed guide to the collection."
+        "text": "Let each team decide which contradictory instruction to follow to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Let each team decide which contradictory instruction to follow."
+        "text": "Remove standard policy and procedure information to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -7696,7 +7696,7 @@
       },
       {
         "id": "D",
-        "text": "Remove all policy and procedure information."
+        "text": "Add another unreviewed guide to the collection."
       }
     ],
     "answer": "C",
@@ -7731,15 +7731,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Add another unreviewed guide to the collection."
+        "text": "Add another unreviewed guide to the collection to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Let each team decide which contradictory instruction to follow."
+        "text": "Let each team decide which contradictory instruction to follow to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Remove all policy and procedure information."
+        "text": "Remove standard policy and procedure information."
       },
       {
         "id": "D",
@@ -7786,11 +7786,11 @@
       },
       {
         "id": "C",
-        "text": "Let each team decide which contradictory instruction to follow."
+        "text": "Remove standard policy and procedure information citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Remove all policy and procedure information."
+        "text": "Let each team decide which contradictory instruction to follow citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -7825,7 +7825,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep only informal tips and omit policy."
+        "text": "Replace organizational examples with unrelated product advertising rather than implementing structured digital accessibility semantics in production."
       },
       {
         "id": "B",
@@ -7833,11 +7833,11 @@
       },
       {
         "id": "C",
-        "text": "Replace organizational examples with unrelated product advertising."
+        "text": "Assume procurement language is unrelated to document accessibility rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Assume procurement language is unrelated to document accessibility."
+        "text": "Keep primarily informal tips and omit policy."
       }
     ],
     "answer": "B",
@@ -7872,11 +7872,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep only informal tips and omit policy."
+        "text": "Replace organizational examples with unrelated product advertising during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Replace organizational examples with unrelated product advertising."
+        "text": "Keep primarily informal tips and omit policy during initial drafting phases before formal stakeholder review across enterprise operations."
       },
       {
         "id": "C",
@@ -7919,15 +7919,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep only informal tips and omit policy."
+        "text": "Keep primarily informal tips and omit policy."
       },
       {
         "id": "B",
-        "text": "Replace organizational examples with unrelated product advertising."
+        "text": "Replace organizational examples with unrelated product advertising across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Assume procurement language is unrelated to document accessibility."
+        "text": "Assume procurement language is unrelated to document accessibility across standard distribution formats and printed collateral in production."
       },
       {
         "id": "D",
@@ -7970,15 +7970,15 @@
       },
       {
         "id": "B",
-        "text": "Keep only informal tips and omit policy."
+        "text": "Replace organizational examples with unrelated product advertising to streamline formatting without consulting end-user accessibility requirements in production."
       },
       {
         "id": "C",
-        "text": "Replace organizational examples with unrelated product advertising."
+        "text": "Assume procurement language is unrelated to document accessibility to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Assume procurement language is unrelated to document accessibility."
+        "text": "Keep primarily informal tips and omit policy."
       }
     ],
     "answer": "A",
@@ -8013,7 +8013,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep only informal tips and omit policy."
+        "text": "Replace organizational examples with unrelated product advertising based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "B",
@@ -8021,7 +8021,7 @@
       },
       {
         "id": "C",
-        "text": "Replace organizational examples with unrelated product advertising."
+        "text": "Keep primarily informal tips and omit policy based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "D",
@@ -8060,11 +8060,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume policies never change and cancel refreshers."
+        "text": "Assume policies rarely change and cancel refreshers."
       },
       {
         "id": "B",
-        "text": "Issue a new policy without telling staff."
+        "text": "Discuss primarily new software features to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "C",
@@ -8072,7 +8072,7 @@
       },
       {
         "id": "D",
-        "text": "Discuss only new software features."
+        "text": "Issue a new policy without telling staff to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -8107,15 +8107,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume policies never change and cancel refreshers."
+        "text": "Issue a new policy without telling staff to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Issue a new policy without telling staff."
+        "text": "Discuss primarily new software features to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Discuss only new software features."
+        "text": "Assume policies rarely change and cancel refreshers."
       },
       {
         "id": "D",
@@ -8158,15 +8158,15 @@
       },
       {
         "id": "B",
-        "text": "Assume policies never change and cancel refreshers."
+        "text": "Issue a new policy without telling staff citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Issue a new policy without telling staff."
+        "text": "Assume policies rarely change and cancel refreshers citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Discuss only new software features."
+        "text": "Discuss primarily new software features."
       }
     ],
     "answer": "A",
@@ -8201,7 +8201,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume policies never change and cancel refreshers."
+        "text": "Assume policies rarely change and cancel refreshers."
       },
       {
         "id": "B",
@@ -8209,11 +8209,11 @@
       },
       {
         "id": "C",
-        "text": "Issue a new policy without telling staff."
+        "text": "Discuss primarily new software features rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Discuss only new software features."
+        "text": "Issue a new policy without telling staff rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -8248,11 +8248,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume policies never change and cancel refreshers."
+        "text": "Issue a new policy without telling staff during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Issue a new policy without telling staff."
+        "text": "Discuss primarily new software features during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -8260,7 +8260,7 @@
       },
       {
         "id": "D",
-        "text": "Discuss only new software features."
+        "text": "Assume policies rarely change and cancel refreshers."
       }
     ],
     "answer": "C",
@@ -8295,11 +8295,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Adopt it because it is new without checking policy consistency."
+        "text": "Adopt it because it is new without checking policy consistency across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Reject all new tools automatically."
+        "text": "Reject standard new tools automatically across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "C",
@@ -8350,11 +8350,11 @@
       },
       {
         "id": "C",
-        "text": "Reject all new tools automatically."
+        "text": "Reject standard new tools automatically to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
-        "text": "Add third-party training without reviewing its content."
+        "text": "Add third-party training without reviewing its content to streamline formatting without consulting end-user accessibility requirements."
       }
     ],
     "answer": "A",
@@ -8389,7 +8389,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Adopt it because it is new without checking policy consistency."
+        "text": "Reject standard new tools automatically based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "B",
@@ -8397,11 +8397,11 @@
       },
       {
         "id": "C",
-        "text": "Reject all new tools automatically."
+        "text": "Add third-party training without reviewing its content based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Add third-party training without reviewing its content."
+        "text": "Adopt it because it is new without checking policy consistency."
       }
     ],
     "answer": "B",
@@ -8436,11 +8436,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Adopt it because it is new without checking policy consistency."
+        "text": "Adopt it because it is new without checking policy consistency to optimize visual page aesthetics and printed layout alignment."
       },
       {
         "id": "B",
-        "text": "Reject all new tools automatically."
+        "text": "Reject standard new tools automatically to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "C",
@@ -8487,11 +8487,11 @@
       },
       {
         "id": "B",
-        "text": "Reject all new tools automatically."
+        "text": "Add third-party training without reviewing its content to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Add third-party training without reviewing its content."
+        "text": "Reject standard new tools automatically to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "D",
@@ -8534,15 +8534,15 @@
       },
       {
         "id": "B",
-        "text": "Assume a PDF reference covers every media issue."
+        "text": "Treat media access as unrelated to document accessibility citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Use an outdated source without checking its scope."
+        "text": "Assume a PDF reference covers every media issue."
       },
       {
         "id": "D",
-        "text": "Treat media access as unrelated to document accessibility."
+        "text": "Use an outdated source without checking its scope citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -8577,7 +8577,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume a PDF reference covers every media issue."
+        "text": "Assume a PDF reference covers every media issue rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "B",
@@ -8585,7 +8585,7 @@
       },
       {
         "id": "C",
-        "text": "Use an outdated source without checking its scope."
+        "text": "Use an outdated source without checking its scope rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
@@ -8628,7 +8628,7 @@
       },
       {
         "id": "B",
-        "text": "Use an outdated source without checking its scope."
+        "text": "Use an outdated source without checking its scope during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -8636,7 +8636,7 @@
       },
       {
         "id": "D",
-        "text": "Treat media access as unrelated to document accessibility."
+        "text": "Treat media access as unrelated to document accessibility during initial drafting phases before formal stakeholder review."
       }
     ],
     "answer": "C",
@@ -8671,15 +8671,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Assume a PDF reference covers every media issue."
+        "text": "Use an outdated source without checking its scope across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Use an outdated source without checking its scope."
+        "text": "Treat media access as unrelated to document accessibility across standard distribution formats and printed collateral."
       },
       {
         "id": "C",
-        "text": "Treat media access as unrelated to document accessibility."
+        "text": "Assume a PDF reference covers every media issue."
       },
       {
         "id": "D",
@@ -8722,11 +8722,11 @@
       },
       {
         "id": "B",
-        "text": "Assume a PDF reference covers every media issue."
+        "text": "Assume a PDF reference covers every media issue to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "C",
-        "text": "Use an outdated source without checking its scope."
+        "text": "Use an outdated source without checking its scope to streamline formatting without consulting end-user accessibility requirements."
       },
       {
         "id": "D",
@@ -8773,11 +8773,11 @@
       },
       {
         "id": "C",
-        "text": "Treat the BoK outline itself as the complete text of the ISO standard."
+        "text": "Treat the BoK outline itself as the complete text of the ISO standard based on conventional desktop publishing layout and print guidelines."
       },
       {
         "id": "D",
-        "text": "Substitute a web conformance level for the PDF standard."
+        "text": "Substitute a web conformance level for the PDF standard based on conventional desktop publishing layout and print guidelines across enterprise operations."
       }
     ],
     "answer": "B",
@@ -8812,11 +8812,11 @@
     "options": [
       {
         "id": "A",
-        "text": "State that PDF/UA is the name of a screen reader."
+        "text": "Substitute a web conformance level for the PDF standard to optimize visual page aesthetics and printed layout alignment across enterprise operations."
       },
       {
         "id": "B",
-        "text": "Treat the BoK outline itself as the complete text of the ISO standard."
+        "text": "State that PDF/UA is the name of a screen reader."
       },
       {
         "id": "C",
@@ -8824,7 +8824,7 @@
       },
       {
         "id": "D",
-        "text": "Substitute a web conformance level for the PDF standard."
+        "text": "Treat the BoK outline itself as the complete text of the ISO standard to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -8859,11 +8859,11 @@
     "options": [
       {
         "id": "A",
-        "text": "State that PDF/UA is the name of a screen reader."
+        "text": "Treat the BoK outline itself as the complete text of the ISO standard to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Treat the BoK outline itself as the complete text of the ISO standard."
+        "text": "State that PDF/UA is the name of a screen reader to maintain styling consistency with historical archived publications across enterprise operations."
       },
       {
         "id": "C",
@@ -8914,11 +8914,11 @@
       },
       {
         "id": "C",
-        "text": "Treat the BoK outline itself as the complete text of the ISO standard."
+        "text": "Substitute a web conformance level for the PDF standard citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
-        "text": "Substitute a web conformance level for the PDF standard."
+        "text": "Treat the BoK outline itself as the complete text of the ISO standard citing legacy document design templates and organizational traditions."
       }
     ],
     "answer": "A",
@@ -8953,7 +8953,7 @@
     "options": [
       {
         "id": "A",
-        "text": "State that PDF/UA is the name of a screen reader."
+        "text": "Substitute a web conformance level for the PDF standard rather than implementing structured digital accessibility semantics across enterprise operations."
       },
       {
         "id": "B",
@@ -8961,11 +8961,11 @@
       },
       {
         "id": "C",
-        "text": "Treat the BoK outline itself as the complete text of the ISO standard."
+        "text": "State that PDF/UA is the name of a screen reader."
       },
       {
         "id": "D",
-        "text": "Substitute a web conformance level for the PDF standard."
+        "text": "Treat the BoK outline itself as the complete text of the ISO standard rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -9000,11 +9000,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Describe ISO 32000-1:2008 as a training framework."
+        "text": "Assume it is the same document as every PDF/UA guide."
       },
       {
         "id": "B",
-        "text": "Assume it is the same document as every PDF/UA guide."
+        "text": "Describe ISO 32000-1:2008 as a training framework during initial drafting phases before formal stakeholder review across enterprise operations during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -9051,11 +9051,11 @@
       },
       {
         "id": "B",
-        "text": "Assume it is the same document as every PDF/UA guide."
+        "text": "Use its title as proof that a particular PDF is accessible."
       },
       {
         "id": "C",
-        "text": "Use its title as proof that a particular PDF is accessible."
+        "text": "Assume it is the same document as every PDF/UA guide across standard distribution formats and printed collateral across enterprise operations across standard distribution formats and printed collateral."
       },
       {
         "id": "D",
@@ -9098,15 +9098,15 @@
       },
       {
         "id": "B",
-        "text": "Describe ISO 32000-1:2008 as a training framework."
+        "text": "Use its title as proof that a particular PDF is accessible to streamline formatting without consulting end-user accessibility requirements across enterprise operations."
       },
       {
         "id": "C",
-        "text": "Assume it is the same document as every PDF/UA guide."
+        "text": "Describe ISO 32000-1:2008 as a training framework."
       },
       {
         "id": "D",
-        "text": "Use its title as proof that a particular PDF is accessible."
+        "text": "Assume it is the same document as every PDF/UA guide to streamline formatting without consulting end-user accessibility requirements across enterprise operations."
       }
     ],
     "answer": "A",
@@ -9141,7 +9141,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Describe ISO 32000-1:2008 as a training framework."
+        "text": "Describe ISO 32000-1:2008 as a training framework based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "B",
@@ -9149,7 +9149,7 @@
       },
       {
         "id": "C",
-        "text": "Assume it is the same document as every PDF/UA guide."
+        "text": "Assume it is the same document as every PDF/UA guide based on conventional desktop publishing layout and print guidelines across enterprise operations."
       },
       {
         "id": "D",
@@ -9192,7 +9192,7 @@
       },
       {
         "id": "B",
-        "text": "Assume it is the same document as every PDF/UA guide."
+        "text": "Use its title as proof that a particular PDF is accessible."
       },
       {
         "id": "C",
@@ -9200,7 +9200,7 @@
       },
       {
         "id": "D",
-        "text": "Use its title as proof that a particular PDF is accessible."
+        "text": "Assume it is the same document as every PDF/UA guide to optimize visual page aesthetics and printed layout alignment across enterprise operations to optimize visual page aesthetics and printed layout alignment."
       }
     ],
     "answer": "C",
@@ -9235,15 +9235,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep policies fixed regardless of changes."
+        "text": "Wait until a complaint arrives before checking references to maintain styling consistency with historical archived publications."
       },
       {
         "id": "B",
-        "text": "Wait until a complaint arrives before checking references."
+        "text": "Replace the policy with an informal discussion list to maintain styling consistency with historical archived publications."
       },
       {
         "id": "C",
-        "text": "Replace the policy with an informal discussion list."
+        "text": "Keep policies fixed regardless of changes."
       },
       {
         "id": "D",
@@ -9286,11 +9286,11 @@
       },
       {
         "id": "B",
-        "text": "Keep policies fixed regardless of changes."
+        "text": "Keep policies fixed regardless of changes citing legacy document design templates and organizational traditions."
       },
       {
         "id": "C",
-        "text": "Wait until a complaint arrives before checking references."
+        "text": "Wait until a complaint arrives before checking references citing legacy document design templates and organizational traditions."
       },
       {
         "id": "D",
@@ -9337,11 +9337,11 @@
       },
       {
         "id": "C",
-        "text": "Wait until a complaint arrives before checking references."
+        "text": "Replace the policy with an informal discussion list rather than implementing structured digital accessibility semantics."
       },
       {
         "id": "D",
-        "text": "Replace the policy with an informal discussion list."
+        "text": "Wait until a complaint arrives before checking references rather than implementing structured digital accessibility semantics."
       }
     ],
     "answer": "B",
@@ -9376,11 +9376,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep policies fixed regardless of changes."
+        "text": "Wait until a complaint arrives before checking references during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "B",
-        "text": "Wait until a complaint arrives before checking references."
+        "text": "Replace the policy with an informal discussion list during initial drafting phases before formal stakeholder review."
       },
       {
         "id": "C",
@@ -9388,7 +9388,7 @@
       },
       {
         "id": "D",
-        "text": "Replace the policy with an informal discussion list."
+        "text": "Keep policies fixed regardless of changes."
       }
     ],
     "answer": "C",
@@ -9423,11 +9423,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Keep policies fixed regardless of changes."
+        "text": "Wait until a complaint arrives before checking references across standard distribution formats and printed collateral."
       },
       {
         "id": "B",
-        "text": "Wait until a complaint arrives before checking references."
+        "text": "Keep policies fixed regardless of changes across standard distribution formats and printed collateral across enterprise operations."
       },
       {
         "id": "C",
