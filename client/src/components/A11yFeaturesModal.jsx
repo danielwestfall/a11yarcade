@@ -223,14 +223,14 @@ export default function A11yFeaturesModal({
                     <img
                       src="/mascots/arcade-hero.jpg"
                       alt="Bit-Bot Neo-Arcade Mascot"
-                      width={44}
-                      height={44}
+                      width={76}
+                      height={76}
                       loading="lazy"
-                      style={{ width: 44, height: 44, borderRadius: '8px', objectFit: 'cover', border: '2px solid #38bdf8', background: '#ffffff' }}
+                      style={{ width: 76, height: 76, borderRadius: '10px', objectFit: 'cover', border: '2.5px solid #38bdf8', background: '#ffffff', flexShrink: 0 }}
                     />
                     <div>
                       <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Neo-Arcade (Bit-Bot)</div>
-                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '3px', background: 'rgba(56,189,248,0.2)', color: 'var(--arcade-cyan)', border: '1px solid var(--arcade-cyan)' }}>
+                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '3px', background: '#082f49', color: '#7dd3fc', border: '1px solid #38bdf8' }}>
                         CLASSIC CABINET
                       </span>
                     </div>
@@ -275,14 +275,14 @@ export default function A11yFeaturesModal({
                     <img
                       src="/mascots/kawaii-hero.jpg"
                       alt="Mochi-Bot Kawaii Pastel Mascot"
-                      width={44}
-                      height={44}
+                      width={76}
+                      height={76}
                       loading="lazy"
-                      style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', border: '2px solid #ec4899', background: '#ffffff' }}
+                      style={{ width: 76, height: 76, borderRadius: '18px', objectFit: 'cover', border: '2.5px solid #ec4899', background: '#ffffff', flexShrink: 0 }}
                     />
                     <div>
                       <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Kawaii Pastel (Mochi-Bot)</div>
-                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '12px', background: 'rgba(236,72,153,0.25)', color: '#f472b6', border: '1px solid #f472b6' }}>
+                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '12px', background: '#500724', color: '#fbcfe8', border: '1px solid #f472b6' }}>
                         PASTEL COMPANION
                       </span>
                     </div>
@@ -328,14 +328,14 @@ export default function A11yFeaturesModal({
                     <img
                       src="/mascots/anime-hero.jpg"
                       alt="A11y-Zero Manga Action Mascot"
-                      width={44}
-                      height={44}
+                      width={76}
+                      height={76}
                       loading="lazy"
-                      style={{ width: 44, height: 44, borderRadius: '4px', objectFit: 'cover', border: '2px solid #ef4444', background: '#ffffff' }}
+                      style={{ width: 76, height: 76, borderRadius: '6px', objectFit: 'cover', border: '2.5px solid #ef4444', background: '#ffffff', flexShrink: 0 }}
                     />
                     <div>
                       <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Manga & Comic (A11y-Zero)</div>
-                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '2px', background: 'rgba(239,68,68,0.25)', color: '#ef4444', border: '1px solid #ef4444' }}>
+                      <span className="badge-dark-bg" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '2px', background: '#450a0a', color: '#fca5a5', border: '1px solid #ef4444' }}>
                         SHONEN ACTION
                       </span>
                     </div>
@@ -394,13 +394,14 @@ export default function A11yFeaturesModal({
               {/* Light Theme */}
               <button
                 type="button"
+                className="theme-preview-light"
                 onClick={() => updatePref('theme', 'light')}
                 style={{
                   padding: '0.85rem 1rem',
                   borderRadius: 'var(--radius-sm)',
                   border: `2px solid ${preferences.theme === 'light' ? '#0284c7' : 'var(--border-color)'}`,
                   background: preferences.theme === 'light' ? 'rgba(2, 132, 199, 0.15)' : '#f8fafc',
-                  color: '#090d16',
+                  color: 'var(--text-primary)',
                   textAlign: 'left',
                   cursor: 'pointer',
                   display: 'flex',
@@ -411,8 +412,8 @@ export default function A11yFeaturesModal({
               >
                 <Sun size={18} color="#0284c7" />
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: '0.9rem', color: '#090d16' }}>Crisp Light Mode</div>
-                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>High-contrast paper AAA</div>
+                  <div style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Crisp Light Mode</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>High-contrast paper AAA</div>
                 </div>
               </button>
 

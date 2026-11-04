@@ -446,7 +446,7 @@ export default function SoloBoundaryBrawl({ onBack }) {
                 borderRadius: 'var(--radius-sm)',
                 background: userVoted === 'UP' ? '#10b981' : 'rgba(16, 185, 129, 0.15)',
                 border: '2px solid #10b981',
-                color: '#ffffff',
+                color: userVoted === 'UP' ? '#090d16' : '#ffffff',
                 fontWeight: 800,
                 cursor: userVoted ? 'default' : 'pointer',
                 display: 'flex',
@@ -571,7 +571,7 @@ export default function SoloBoundaryBrawl({ onBack }) {
                       onClick={() => handlePlaceCard(selectedCardId, quad.id)}
                       style={{
                         background: quad.color,
-                        color: '#ffffff',
+                        color: '#090d16',
                         border: 'none',
                         padding: '0.35rem 0.75rem',
                         borderRadius: 'var(--radius-sm)',

@@ -293,19 +293,23 @@
 }
 
 .answer-btn.triangle {
-  background-color: var(--color-triangle);
+  background-color: #b91c1c;
+  border-color: #ef4444;
 }
 
 .answer-btn.diamond {
-  background-color: var(--color-diamond);
+  background-color: #0369a1;
+  border-color: #38bdf8;
 }
 
 .answer-btn.circle {
-  background-color: var(--color-circle);
+  background-color: #b45309;
+  border-color: #facc15;
 }
 
 .answer-btn.square {
-  background-color: var(--color-square);
+  background-color: #047857;
+  border-color: #10b981;
 }
 
 .shape-badge {

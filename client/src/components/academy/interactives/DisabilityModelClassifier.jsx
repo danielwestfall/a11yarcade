@@ -14,7 +14,7 @@ const MODELS = [
     id: 'medical',
     name: 'Medical Model',
     tagline: 'Deficit within the individual needing a cure',
-    badgeColor: '#ef4444',
+    badgeColor: '#f87171',
     description: 'Disability is viewed as an illness, pathology, or individual physiological flaw. Focuses solely on medical treatments, therapies, or curing the individual to adapt to society.'
   },
   {

@@ -69,17 +69,23 @@ body.light-mode span.label-text {
 }
 
 /* Eliminate invisible white text on white backgrounds */
-body.light-mode [style*="color: #ffffff"]:not(.answer-btn):not(.answer-btn *):not(.btn-primary):not(.btn-primary *):not(.arcade-btn-secondary):not(.arcade-btn-secondary *):not(.mode-tab.active):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.theme-preview-dark *):not(.theme-preview-hc *),
-body.light-mode [style*="color: rgb(255, 255, 255)"]:not(.answer-btn):not(.answer-btn *):not(.btn-primary):not(.btn-primary *):not(.arcade-btn-secondary):not(.arcade-btn-secondary *):not(.mode-tab.active):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.theme-preview-dark *):not(.theme-preview-hc *),
-body.light-mode [style*="color: white"]:not(.answer-btn):not(.answer-btn *):not(.btn-primary):not(.btn-primary *):not(.arcade-btn-secondary):not(.arcade-btn-secondary *):not(.mode-tab.active):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.theme-preview-dark *):not(.theme-preview-hc *) {
+body.light-mode [style*="color: #ffffff"]:not(.answer-btn):not(.answer-btn *):not(.btn-primary):not(.btn-primary *):not(.arcade-btn-secondary):not(.arcade-btn-secondary *):not(.mode-tab.active):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.badge-dark-bg *):not(.theme-preview-dark *):not(.theme-preview-hc *),
+body.light-mode [style*="color: rgb(255, 255, 255)"]:not(.answer-btn):not(.answer-btn *):not(.btn-primary):not(.btn-primary *):not(.arcade-btn-secondary):not(.arcade-btn-secondary *):not(.mode-tab.active):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.badge-dark-bg *):not(.theme-preview-dark *):not(.theme-preview-hc *),
+body.light-mode [style*="color: white"]:not(.answer-btn):not(.answer-btn *):not(.btn-primary):not(.btn-primary *):not(.arcade-btn-secondary):not(.arcade-btn-secondary *):not(.mode-tab.active):not(.mode-tab.active *):not(.shape-badge):not(.badge-dark-bg):not(.badge-dark-bg *):not(.theme-preview-dark *):not(.theme-preview-hc *) {
   color: #090d16 !important;
 }
 
-/* Low contrast slate/grey text on light backgrounds */
-body.light-mode [style*="color: #cbd5e1"],
-body.light-mode [style*="color: rgb(203, 213, 225)"],
+/* Low contrast slate/grey/off-white text on light backgrounds */
+body.light-mode [style*="color: #cbd5e1"]:not(.theme-preview-dark *),
+body.light-mode [style*="color: rgb(203, 213, 225)"]:not(.theme-preview-dark *),
 body.light-mode [style*="color: #e2e8f0"],
-body.light-mode [style*="color: #f8fafc"] {
+body.light-mode [style*="color: rgb(226, 232, 240)"],
+body.light-mode [style*="color: #f8fafc"],
+body.light-mode [style*="color: rgb(248, 250, 252)"],
+body.light-mode [style*="color: #f1f5f9"],
+body.light-mode [style*="color: rgb(241, 245, 249)"],
+body.light-mode [style*="color: #fdf2f8"],
+body.light-mode [style*="color: rgb(253, 242, 248)"] {
   color: #0f172a !important;
 }
 
@@ -88,7 +94,9 @@ body.light-mode [style*="color: rgb(100, 116, 139)"],
 body.light-mode [style*="color: #94a3b8"],
 body.light-mode [style*="color: rgb(148, 163, 184)"],
 body.light-mode [style*="color: #87929a"],
-body.light-mode [style*="color: rgb(135, 146, 154)"] {
+body.light-mode [style*="color: rgb(135, 146, 154)"],
+body.light-mode [style*="color: #b8c4ce"],
+body.light-mode [style*="color: rgb(184, 196, 206)"] {
   color: #334155 !important;
 }
 
@@ -99,16 +107,40 @@ body.light-mode [style*="background: #060e20"]:not(.theme-preview-dark):not(.the
 body.light-mode [style*="background: rgb(6, 14, 32)"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: #070d19"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: rgb(7, 13, 25)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #070f22"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(7, 15, 34)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #090d16"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(9, 13, 22)"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: #1e293b"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: rgb(30, 41, 59)"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: #131b2e"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: rgb(19, 27, 46)"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: #0f172a"]:not(.theme-preview-dark):not(.theme-preview-hc),
 body.light-mode [style*="background: rgb(15, 23, 42)"]:not(.theme-preview-dark):not(.theme-preview-hc),
-body.light-mode [style*="background: rgba(15, 23, 42"]:not(.theme-preview-dark):not(.theme-preview-hc) {
-  background: #f1f5f9 !important;
-  border-color: #cbd5e1 !important;
+body.light-mode [style*="background: #334155"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(51, 65, 85)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #475569"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(71, 85, 105)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: #000000"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgb(0, 0, 0)"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(15, 23, 42"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(30, 41, 59"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(51, 65, 85"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(11, 19, 38"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(9, 13, 22"]:not(.theme-preview-dark):not(.theme-preview-hc),
+body.light-mode [style*="background: rgba(0, 0, 0, 0.2"]:not(.answer-btn *):not([role="presentation"]),
+body.light-mode [style*="background: rgba(0, 0, 0, 0.3"]:not(.answer-btn *):not([role="presentation"]),
+body.light-mode [style*="background: rgba(255, 255, 255, 0.0"]:not(.answer-btn *) {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
   color: #090d16 !important;
+}
+
+body.light-mode [style*="background: #450a0a"],
+body.light-mode [style*="background: rgb(69, 10, 10)"] {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
 }
 
 /* Buttons in Light Mode */
@@ -126,12 +158,41 @@ body.light-mode button.btn-secondary:hover:not(:disabled) {
   color: #000000 !important;
 }
 
-body.light-mode .btn-primary,
-body.light-mode button.btn-primary {
+body.light-mode .bronze-accent-text {
+  color: #78350f !important;
+}
+
+body.light-mode .btn-primary:not(.live-cab-select-btn),
+body.light-mode button.btn-primary:not(.live-cab-select-btn) {
   background: #0369a1 !important;
   border-color: #0369a1 !important;
   color: #ffffff !important;
   box-shadow: 0 4px 0 0 #075985 !important;
+}
+
+body.light-mode .btn-primary:not(.live-cab-select-btn) *,
+body.light-mode button.btn-primary:not(.live-cab-select-btn) * {
+  color: #ffffff !important;
+}
+
+body.light-mode .btn-primary.live-cab-select-btn,
+body.light-mode button.btn-primary.live-cab-select-btn,
+body.skin-kawaii.light-mode .btn-primary.live-cab-select-btn,
+body.skin-kawaii.light-mode button.btn-primary.live-cab-select-btn,
+body.skin-anime.light-mode .btn-primary.live-cab-select-btn,
+body.skin-anime.light-mode button.btn-primary.live-cab-select-btn {
+  background: #facc15 !important;
+  border-color: #ca8a04 !important;
+  color: #090d16 !important;
+  box-shadow: 0 4px 0 0 #a16207 !important;
+}
+body.light-mode .btn-primary.live-cab-select-btn *,
+body.light-mode button.btn-primary.live-cab-select-btn *,
+body.skin-kawaii.light-mode .btn-primary.live-cab-select-btn *,
+body.skin-kawaii.light-mode button.btn-primary.live-cab-select-btn *,
+body.skin-anime.light-mode .btn-primary.live-cab-select-btn *,
+body.skin-anime.light-mode button.btn-primary.live-cab-select-btn * {
+  color: #090d16 !important;
 }
 
 body.light-mode .btn-primary:hover:not(:disabled),
@@ -145,6 +206,10 @@ body.light-mode .arcade-btn-secondary {
   border-color: #047857 !important;
   color: #ffffff !important;
   box-shadow: 0 4px 0 0 #065f46 !important;
+}
+
+body.light-mode .arcade-btn-secondary * {
+  color: #ffffff !important;
 }
 
 body.light-mode .arcade-dock {
@@ -242,6 +307,16 @@ body.light-mode .mode-tab.active {
   box-shadow: 0 4px 0 0 #075985 !important;
 }
 
+body.light-mode .mode-tab.active * {
+  color: #ffffff !important;
+}
+
+body.light-mode .brand-badge {
+  background: #e0f2fe !important;
+  color: #0c4a6e !important;
+  border-color: #0284c7 !important;
+}
+
 body.light-mode .a11y-pill-btn {
   background: #f1f5f9;
   border-color: #cbd5e1;
@@ -261,14 +336,33 @@ body.light-mode .a11y-pill-btn.active {
   box-shadow: 0 3px 0 0 #075985 !important;
 }
 
-body.light-mode .a11y-pill-btn.active[style*="background: #facc15"] {
+body.light-mode .a11y-pill-btn.active:not(.a11y-menu-trigger-btn) * {
+  color: #ffffff !important;
+}
+
+body.light-mode .a11y-pill-btn.active.a11y-menu-trigger-btn,
+body.light-mode .a11y-pill-btn.active[style*="background: #facc15"],
+body.light-mode .a11y-pill-btn.active[style*="background: rgb(250, 204, 21)"] {
   background: #facc15 !important;
   color: #090d16 !important;
-  border-color: #eab308 !important;
-  box-shadow: 0 3px 0 0 #ca8a04 !important;
+  border-color: #ca8a04 !important;
+  box-shadow: 0 3px 0 0 #a16207 !important;
+}
+
+body.light-mode .a11y-pill-btn.active.a11y-menu-trigger-btn *,
+body.light-mode .a11y-pill-btn.active[style*="background: rgb(250, 204, 21)"] * {
+  color: #090d16 !important;
 }
 
 /* Theme preview cards in A11y modal */
+body.light-mode .theme-preview-light {
+  background: #f8fafc !important;
+  border-color: #0284c7 !important;
+}
+body.light-mode .theme-preview-light * {
+  color: #090d16 !important;
+}
+
 body.light-mode .theme-preview-dark {
   background: #090d16 !important;
   border-color: #38bdf8 !important;
@@ -292,103 +386,214 @@ body.light-mode .theme-preview-hc .theme-subtext {
 }
 
 /* High-Contrast Accessible Badges & Pills in Light Mode */
-body.light-mode [style*="color: #38bdf8"],
-body.light-mode [style*="color: rgb(56, 189, 248)"],
-body.light-mode [style*="color: #7dd3fc"],
-body.light-mode [style*="color: rgb(125, 211, 252)"],
-body.light-mode [style*="color: #60a5fa"],
-body.light-mode [style*="color: rgb(96, 165, 250)"] {
+body.light-mode [style*="color: #38bdf8"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(56, 189, 248)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #7dd3fc"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(125, 211, 252)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #60a5fa"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(96, 165, 250)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #93c5fd"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(147, 197, 253)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #bae6fd"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(186, 230, 253)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #58a6ff"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(88, 166, 255)"]:not(.badge-dark-bg):not(.badge-dark-bg *) {
   color: #0369a1 !important;
 }
 
-body.light-mode [style*="color: #10b981"],
-body.light-mode [style*="color: rgb(16, 185, 129)"],
-body.light-mode [style*="color: #4ade80"],
-body.light-mode [style*="color: rgb(74, 222, 128)"],
-body.light-mode [style*="color: #34d399"],
-body.light-mode [style*="color: rgb(52, 211, 153)"],
-body.light-mode [style*="color: #22c55e"],
-body.light-mode [style*="color: rgb(34, 197, 94)"],
-body.light-mode [style*="color: #6ee7b7"],
-body.light-mode [style*="color: rgb(110, 231, 183)"],
-body.light-mode [style*="color: #86efac"],
-body.light-mode [style*="color: rgb(134, 239, 172)"] {
+body.light-mode [style*="color: #10b981"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(16, 185, 129)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #4ade80"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(74, 222, 128)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #34d399"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(52, 211, 153)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #22c55e"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(34, 197, 94)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #6ee7b7"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(110, 231, 183)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #86efac"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(134, 239, 172)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #a7f3d0"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(167, 243, 208)"]:not(.badge-dark-bg):not(.badge-dark-bg *) {
   color: #065f46 !important;
 }
 
-body.light-mode [style*="color: #f59e0b"],
-body.light-mode [style*="color: rgb(245, 158, 11)"],
-body.light-mode [style*="color: #fbbf24"],
-body.light-mode [style*="color: rgb(251, 191, 36)"],
-body.light-mode [style*="color: #facc15"],
-body.light-mode [style*="color: rgb(250, 204, 21)"],
-body.light-mode [style*="color: #fde68a"],
-body.light-mode [style*="color: rgb(253, 230, 138)"],
-body.light-mode [style*="color: #fef08a"],
-body.light-mode [style*="color: rgb(254, 240, 138)"] {
+body.light-mode [style*="color: #f59e0b"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(245, 158, 11)"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: #fbbf24"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(251, 191, 36)"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: #facc15"]:not(.a11y-menu-trigger-btn):not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(250, 204, 21)"]:not(.a11y-menu-trigger-btn):not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: #eab308"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(234, 179, 8)"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: #fde047"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(253, 224, 71)"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: #fde68a"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(253, 230, 138)"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: #fef08a"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *),
+body.light-mode [style*="color: rgb(254, 240, 138)"]:not(.badge-dark-bg):not(.badge-dark-bg *):not(.btn-primary):not(.btn-primary *):not(.live-cab-select-btn):not(.live-cab-select-btn *) {
   color: #78350f !important;
 }
 
-body.light-mode [style*="color: #ef4444"],
-body.light-mode [style*="color: rgb(239, 68, 68)"],
-body.light-mode [style*="color: #f87171"],
-body.light-mode [style*="color: rgb(248, 113, 113)"],
-body.light-mode [style*="color: #fca5a5"],
-body.light-mode [style*="color: rgb(252, 165, 165)"] {
+body.light-mode [style*="color: #ef4444"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(239, 68, 68)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #f87171"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(248, 113, 113)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #fca5a5"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(252, 165, 165)"]:not(.badge-dark-bg):not(.badge-dark-bg *) {
   color: #7f1d1d !important;
 }
 
-body.light-mode [style*="color: #a855f7"],
-body.light-mode [style*="color: rgb(168, 85, 247)"],
-body.light-mode [style*="color: #c084fc"],
-body.light-mode [style*="color: rgb(192, 132, 252)"],
-body.light-mode [style*="color: #e9d5ff"],
-body.light-mode [style*="color: rgb(233, 213, 255)"],
-body.light-mode [style*="color: #ec4899"],
-body.light-mode [style*="color: rgb(236, 72, 153)"],
-body.light-mode [style*="color: #f472b6"],
-body.light-mode [style*="color: rgb(244, 114, 182)"] {
+body.light-mode [style*="color: #a855f7"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(168, 85, 247)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #c084fc"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(192, 132, 252)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #e9d5ff"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(233, 213, 255)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #ec4899"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(236, 72, 153)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #f472b6"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(244, 114, 182)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #fbcfe8"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(251, 207, 232)"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: #f9a8d4"]:not(.badge-dark-bg):not(.badge-dark-bg *),
+body.light-mode [style*="color: rgb(249, 168, 212)"]:not(.badge-dark-bg):not(.badge-dark-bg *) {
   color: #581c87 !important;
 }
 
-/* Badge Background Overrides for Light Mode */
+body.light-mode .badge-dark-bg {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #090d16 !important;
+}
+body.light-mode .badge-dark-bg * {
+  color: #090d16 !important;
+}
+
+/* Badge & Banner Background Overrides for Light Mode */
 body.light-mode [style*="background: rgba(16, 185, 129"],
-body.light-mode [style*="background: rgba(16, 185, 129, 0.2)"],
-body.light-mode [style*="background: rgba(16, 185, 129, 0.15)"] {
+body.light-mode [style*="background: rgba(34, 197, 94"],
+body.light-mode [style*="background: rgba(5, 150, 105"],
+body.light-mode [style*="background: rgba(4, 120, 87"] {
   background: #d1fae5 !important;
   border-color: #059669 !important;
 }
 
 body.light-mode [style*="background: rgba(56, 189, 248"],
-body.light-mode [style*="background: rgba(56, 189, 248, 0.2)"],
-body.light-mode [style*="background: rgba(56, 189, 248, 0.15)"] {
+body.light-mode [style*="background: rgba(14, 165, 233"],
+body.light-mode [style*="background: rgba(2, 132, 199"],
+body.light-mode [style*="background: rgba(3, 105, 161"],
+body.light-mode [style*="background: rgba(59, 130, 246"] {
   background: #e0f2fe !important;
   border-color: #0284c7 !important;
 }
 
 body.light-mode [style*="background: rgba(245, 158, 11"],
-body.light-mode [style*="background: rgba(245, 158, 11, 0.2)"],
-body.light-mode [style*="background: rgba(245, 158, 11, 0.15)"],
 body.light-mode [style*="background: rgba(250, 204, 21"],
-body.light-mode [style*="background: rgba(250, 204, 21, 0.2)"],
-body.light-mode [style*="background: rgba(250, 204, 21, 0.15)"],
-body.light-mode [style*="background: rgba(250, 204, 21, 0.1)"] {
+body.light-mode [style*="background: rgba(234, 179, 8"],
+body.light-mode [style*="background: rgba(217, 119, 6"] {
   background: #fef3c7 !important;
   border-color: #d97706 !important;
 }
 
 body.light-mode [style*="background: rgba(239, 68, 68"],
-body.light-mode [style*="background: rgba(239, 68, 68, 0.2)"],
-body.light-mode [style*="background: rgba(239, 68, 68, 0.15)"] {
+body.light-mode [style*="background: rgba(220, 38, 38"] {
   background: #fee2e2 !important;
   border-color: #dc2626 !important;
 }
 
 body.light-mode [style*="background: rgba(192, 132, 252"],
-body.light-mode [style*="background: rgba(192, 132, 252, 0.2)"],
-body.light-mode [style*="background: rgba(192, 132, 252, 0.15)"] {
+body.light-mode [style*="background: rgba(168, 85, 247"] {
   background: #f3e8ff !important;
   border-color: #7c3aed !important;
+}
+
+body.light-mode [style*="background: rgba(236, 72, 153"],
+body.light-mode [style*="background: rgba(244, 114, 182"] {
+  background: #fce7f3 !important;
+  border-color: #db2777 !important;
+}
+
+/* Solid Saturated Inline Backgrounds in Light Mode -> High Contrast Jewel Tones with White Text */
+body.light-mode [style*="background: rgb(2, 132, 199)"],
+body.light-mode [style*="background: #0284c7"],
+body.light-mode [style*="background: rgb(3, 105, 161)"],
+body.light-mode [style*="background: #0369a1"],
+body.light-mode [style*="background: rgb(37, 99, 235)"],
+body.light-mode [style*="background: #2563eb"] {
+  background: #0369a1 !important;
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(2, 132, 199)"] *,
+body.light-mode [style*="background: rgb(3, 105, 161)"] *,
+body.light-mode [style*="background: rgb(37, 99, 235)"] * {
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(239, 68, 68)"],
+body.light-mode [style*="background: #ef4444"],
+body.light-mode [style*="background: rgb(220, 38, 38)"],
+body.light-mode [style*="background: #dc2626"] {
+  background: #b91c1c !important;
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(239, 68, 68)"] *,
+body.light-mode [style*="background: rgb(220, 38, 38)"] * {
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(236, 72, 153)"],
+body.light-mode [style*="background: #ec4899"],
+body.light-mode [style*="background: rgb(225, 29, 72)"],
+body.light-mode [style*="background: #e11d48"] {
+  background: #be185d !important;
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(236, 72, 153)"] *,
+body.light-mode [style*="background: rgb(225, 29, 72)"] * {
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(5, 150, 105)"],
+body.light-mode [style*="background: #059669"] {
+  background: #047857 !important;
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(5, 150, 105)"] * {
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(217, 119, 6)"],
+body.light-mode [style*="background: #d97706"] {
+  background: #b45309 !important;
+  color: #ffffff !important;
+}
+
+body.light-mode [style*="background: rgb(217, 119, 6)"] * {
+  color: #ffffff !important;
+}
+
+/* Bright Selected Inline Backgrounds (#38bdf8, #10b981, #22c55e, #f59e0b, #facc15, #c084fc) -> Dark Text */
+body.light-mode [style*="background: rgb(56, 189, 248)"]:not(.btn-primary):not(.arcade-btn-secondary),
+body.light-mode [style*="background: rgb(16, 185, 129)"]:not(.btn-primary):not(.arcade-btn-secondary),
+body.light-mode [style*="background: rgb(34, 197, 94)"]:not(.btn-primary):not(.arcade-btn-secondary),
+body.light-mode [style*="background: rgb(245, 158, 11)"]:not(.btn-primary):not(.arcade-btn-secondary),
+body.light-mode [style*="background: rgb(250, 204, 21)"]:not(.btn-primary):not(.arcade-btn-secondary),
+body.light-mode [style*="background: rgb(192, 132, 252)"]:not(.btn-primary):not(.arcade-btn-secondary) {
+  color: #090d16 !important;
+}
+
+body.light-mode [style*="background: rgb(56, 189, 248)"]:not(.btn-primary):not(.arcade-btn-secondary) *,
+body.light-mode [style*="background: rgb(16, 185, 129)"]:not(.btn-primary):not(.arcade-btn-secondary) *,
+body.light-mode [style*="background: rgb(34, 197, 94)"]:not(.btn-primary):not(.arcade-btn-secondary) *,
+body.light-mode [style*="background: rgb(245, 158, 11)"]:not(.btn-primary):not(.arcade-btn-secondary) *,
+body.light-mode [style*="background: rgb(250, 204, 21)"]:not(.btn-primary):not(.arcade-btn-secondary) *,
+body.light-mode [style*="background: rgb(192, 132, 252)"]:not(.btn-primary):not(.arcade-btn-secondary) * {
+  color: #090d16 !important;
 }
 
 /* Answer Button Typography in Light Mode */

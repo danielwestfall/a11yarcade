@@ -155,7 +155,7 @@ export default function QuestionBankExplorer() {
                   aria-pressed={isSelected}
                 >
                   <span>{t.badge}</span>
-                  <span style={{ color: isSelected ? t.color : '#64748b' }}>({count})</span>
+                  <span style={{ color: isSelected ? t.color : '#94a3b8' }}>({count})</span>
                 </button>
               );
             })}
@@ -613,7 +613,7 @@ export default function QuestionBankExplorer() {
                             {q.difficulty}
                           </span>
                         )}
-                        <span style={{ fontSize: '0.72rem', color: '#64748b', fontFamily: "'Space Mono', monospace" }}>
+                        <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
                           ID: {q.id}
                         </span>
                       </div>

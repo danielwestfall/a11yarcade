@@ -2109,7 +2109,7 @@ export default function LiveMode() {
                         e.stopPropagation();
                         handleSelectGameMode(cab.id);
                       }}
-                      className={isSelected ? "btn-primary" : "btn-secondary"}
+                      className={isSelected ? "btn-primary live-cab-select-btn" : "btn-secondary"}
                       style={{
                         padding: '0.3rem 0.75rem',
                         fontSize: '0.75rem',
@@ -2545,7 +2545,7 @@ export default function LiveMode() {
                           e.stopPropagation();
                           handleSelectGameMode(cab.id);
                         }}
-                        className={isSelected ? "btn-primary" : "btn-secondary"}
+                        className={isSelected ? "btn-primary live-cab-select-btn" : "btn-secondary"}
                         style={{
                           padding: '0.3rem 0.75rem',
                           fontSize: '0.75rem',

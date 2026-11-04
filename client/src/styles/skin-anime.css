@@ -54,7 +54,6 @@ body.skin-anime .brand-title {
 body.skin-anime p.lead,
 body.skin-anime .hero-subtitle,
 body.skin-anime .brand-badge,
-body.skin-anime span[style*="border"],
 body.skin-anime .badge,
 body.skin-anime .status-pill,
 body.skin-anime .domain-pill {
@@ -156,6 +155,12 @@ body.skin-anime:not(.light-mode):not(.high-contrast) header.a11y-header {
   color: #ffffff !important;
 }
 
+body.skin-anime:not(.light-mode):not(.high-contrast) .brand-badge {
+  background-color: #1e263d !important;
+  color: #fef08a !important;
+  border: 2px solid #38bdf8 !important;
+}
+
 body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary,
 body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary {
   background: #991b1b !important; /* 8.31:1 AAA with white text */
@@ -163,6 +168,11 @@ body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary {
   border: 3px solid #ffffff !important;
   box-shadow: 5px 5px 0px 0px #000000 !important;
   font-weight: 900 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary:not(.arcade-btn-secondary) *,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-primary:not(.arcade-btn-secondary) * {
+  color: #ffffff !important;
 }
 
 body.skin-anime:not(.light-mode):not(.high-contrast) .btn-primary:active:not(:disabled),
@@ -179,12 +189,18 @@ body.skin-anime:not(.light-mode):not(.high-contrast) button.btn-secondary {
   box-shadow: 4px 4px 0px 0px #000000 !important;
 }
 
-body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-btn-secondary,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.arcade-btn-secondary {
   background: #10b981 !important;
   color: #080c16 !important;
   border: 3px solid #ffffff !important;
   box-shadow: 5px 5px 0px 0px #000000 !important;
   font-weight: 900 !important;
+}
+
+body.skin-anime:not(.light-mode):not(.high-contrast) .arcade-btn-secondary *,
+body.skin-anime:not(.light-mode):not(.high-contrast) button.arcade-btn-secondary * {
+  color: #080c16 !important;
 }
 
 body.skin-anime:not(.light-mode):not(.high-contrast) .answer-btn {
@@ -258,6 +274,12 @@ body.skin-anime.light-mode header.a11y-header {
   box-shadow: 6px 6px 0px 0px #111827 !important;
 }
 
+body.skin-anime.light-mode .brand-badge {
+  background-color: #fef3c7 !important;
+  color: #09090b !important;
+  border: 2px solid #111827 !important;
+}
+
 body.skin-anime.light-mode .btn-primary,
 body.skin-anime.light-mode button.btn-primary {
   background: #991b1b !important; /* 8.31:1 AAA with white text */
@@ -265,6 +287,12 @@ body.skin-anime.light-mode button.btn-primary {
   border: 3px solid #111827 !important;
   box-shadow: 5px 5px 0px 0px #111827 !important;
   font-weight: 900 !important;
+}
+
+body.skin-anime.light-mode .btn-primary *,
+body.skin-anime.light-mode button.btn-primary *,
+body.skin-anime.light-mode .arcade-btn-secondary * {
+  color: #ffffff !important;
 }
 
 body.skin-anime.light-mode .btn-primary:active:not(:disabled),

@@ -54,21 +54,21 @@ export default function QuestionMascotCompanion({
     >
       <div
         style={{
-          width: compact ? '76px' : '104px',
-          height: compact ? '76px' : '104px',
-          borderRadius: skin === 'kawaii' ? '20px' : skin === 'anime' ? '4px' : '8px',
-          border: `2.5px solid ${isAnswered ? (isCorrect ? '#10b981' : '#f59e0b') : mascot.accent}`,
+          width: compact ? '144px' : '184px',
+          height: compact ? '144px' : '184px',
+          borderRadius: skin === 'kawaii' ? '22px' : skin === 'anime' ? '6px' : '12px',
+          border: `3px solid ${isAnswered ? (isCorrect ? '#10b981' : '#f59e0b') : mascot.accent}`,
           background: '#ffffff',
           overflow: 'hidden',
           flexShrink: 0,
-          boxShadow: `0 4px 12px rgba(0, 0, 0, 0.25)`
+          boxShadow: `0 6px 16px rgba(0, 0, 0, 0.28)`
         }}
       >
         <img
           src={imgSrc}
           alt={isAnswered && isCorrect ? mascot.altText.victory : scene.alt}
-          width={compact ? 76 : 104}
-          height={compact ? 76 : 104}
+          width={compact ? 144 : 184}
+          height={compact ? 144 : 184}
           loading="lazy"
           onError={() => {
             if (imgSrc !== mascot.images.hero) {
@@ -84,14 +84,15 @@ export default function QuestionMascotCompanion({
         />
       </div>
 
-      <figcaption style={{ flex: 1, minWidth: '210px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '0.35rem' }}>
+      <figcaption style={{ flex: 1, minWidth: '220px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.45rem' }}>
           <span
+            className="mascot-scene-badge"
             style={{
-              fontSize: '0.72rem',
+              fontSize: '0.78rem',
               fontFamily: "'Space Mono', monospace",
               fontWeight: 900,
-              padding: '0.15rem 0.55rem',
+              padding: '0.2rem 0.65rem',
               borderRadius: skin === 'kawaii' ? '9999px' : '4px',
               background: isAnswered
                 ? isCorrect
@@ -107,7 +108,7 @@ export default function QuestionMascotCompanion({
 
           <span
             style={{
-              fontSize: '0.75rem',
+              fontSize: '0.82rem',
               fontWeight: 800,
               color: 'var(--text-secondary)',
               fontFamily: "'Space Grotesk', sans-serif"
@@ -120,8 +121,8 @@ export default function QuestionMascotCompanion({
         <p
           style={{
             margin: 0,
-            fontSize: compact ? '0.84rem' : '0.92rem',
-            lineHeight: 1.45,
+            fontSize: compact ? '0.92rem' : '1rem',
+            lineHeight: 1.5,
             color: 'var(--text-primary)',
             fontWeight: 600
           }}

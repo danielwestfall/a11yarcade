@@ -112,7 +112,6 @@ body.skin-kawaii .input-field {
 }
 
 /* Badges & Telemetry Chips: Floating Rounded Stickers */
-body.skin-kawaii span[style*="border"],
 body.skin-kawaii .badge,
 body.skin-kawaii .status-pill,
 body.skin-kawaii .domain-pill {
@@ -176,6 +175,44 @@ body.skin-kawaii:not(.light-mode):not(.high-contrast) h3 {
   text-shadow: -1px -1px 0 #15091a, 1px -1px 0 #15091a, -1px 1px 0 #15091a, 1px 1px 0 #15091a, 0 0 10px #15091a !important;
 }
 
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .brand-badge {
+  background-color: #351a42 !important;
+  color: #fdf2f8 !important;
+  border: 1.5px solid #f472b6 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn {
+  color: #15091a !important;
+  border: 2.5px solid #fdf2f8 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn.triangle {
+  background-color: #fb7185 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn.diamond {
+  background-color: #38bdf8 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn.circle {
+  background-color: #fde047 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn.square {
+  background-color: #34d399 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn * {
+  color: #15091a !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn .shape-badge,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .answer-btn .shape-badge-key {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #15091a !important;
+  border: 1.5px solid #15091a !important;
+}
+
 body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-primary,
 body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-primary {
   background: #f472b6 !important;
@@ -183,6 +220,11 @@ body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-primary {
   border: 2px solid #ec4899 !important;
   box-shadow: 0 5px 0 0 #db2777 !important;
   font-weight: 800 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-primary:not(.arcade-btn-secondary) *,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-primary:not(.arcade-btn-secondary) * {
+  color: #15091a !important;
 }
 
 body.skin-kawaii:not(.light-mode):not(.high-contrast) .btn-secondary,
@@ -193,11 +235,17 @@ body.skin-kawaii:not(.light-mode):not(.high-contrast) button.btn-secondary {
   box-shadow: 0 4px 0 0 #1b0a22 !important;
 }
 
-body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-btn-secondary {
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-btn-secondary,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.arcade-btn-secondary {
   background: #065f46 !important; /* 7.68:1 AAA with white text */
   color: #ffffff !important;
   border: 2px solid #34d399 !important;
   box-shadow: 0 4px 0 0 #047857 !important;
+}
+
+body.skin-kawaii:not(.light-mode):not(.high-contrast) .arcade-btn-secondary *,
+body.skin-kawaii:not(.light-mode):not(.high-contrast) button.arcade-btn-secondary * {
+  color: #ffffff !important;
 }
 
 /* --- Kawaii Light Mode (Strawberry & Cream Pastel) --- */
@@ -267,11 +315,28 @@ body.skin-kawaii.light-mode header.a11y-header {
   box-shadow: 0 8px 24px rgba(244, 114, 182, 0.22), 0 4px 0 0 #fbcfe8 !important;
 }
 
+body.skin-kawaii.light-mode .brand-badge {
+  background-color: #ffe4ec !important;
+  color: #4a044e !important;
+  border: 1.5px solid #db2777 !important;
+}
+
 body.skin-kawaii.light-mode .answer-btn {
   background: #ffffff !important;
   border: 2.5px solid #db2777 !important;
   box-shadow: 0 6px 18px rgba(219, 39, 119, 0.16) !important;
   color: #4a044e !important;
+}
+
+body.skin-kawaii.light-mode .answer-btn * {
+  color: #4a044e !important;
+}
+
+body.skin-kawaii.light-mode .answer-btn .shape-badge,
+body.skin-kawaii.light-mode .answer-btn .shape-badge-key {
+  background: #ffe4ec !important;
+  color: #4a044e !important;
+  border: 1.5px solid #db2777 !important;
 }
 
 body.skin-kawaii.light-mode .btn-primary,
@@ -281,6 +346,11 @@ body.skin-kawaii.light-mode button.btn-primary {
   border: 2px solid #881337 !important;
   box-shadow: 0 5px 0 0 #4c0519 !important;
   font-weight: 800 !important;
+}
+
+body.skin-kawaii.light-mode .btn-primary *,
+body.skin-kawaii.light-mode button.btn-primary * {
+  color: #ffffff !important;
 }
 
 body.skin-kawaii.light-mode .btn-primary:hover:not(:disabled),

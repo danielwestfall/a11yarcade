@@ -9,9 +9,9 @@ const SOLO_CABINETS = [
     tagColor: '#10b981',
     accent: '#38bdf8',
     iconBg: 'rgba(56, 189, 248, 0.1)',
-    btnBg: '#38bdf8',
+    btnBg: '#0369a1',
     btnBorder: '#38bdf8',
-    btnColor: '#090d16',
+    btnColor: '#ffffff',
     emoji: '🎓',
     title: 'Classic Self-Paced Practice',
     subtitle: 'UNTIMED BOK CITATIONS & HINTS',
@@ -25,7 +25,7 @@ const SOLO_CABINETS = [
     tagColor: '#fbbf24',
     accent: '#f59e0b',
     iconBg: 'rgba(245, 158, 11, 0.1)',
-    btnBg: '#d97706',
+    btnBg: '#b45309',
     btnBorder: '#f59e0b',
     btnColor: '#ffffff',
     emoji: '🥔',
@@ -41,7 +41,7 @@ const SOLO_CABINETS = [
     tagColor: '#f87171',
     accent: '#ef4444',
     iconBg: 'rgba(239, 68, 68, 0.1)',
-    btnBg: '#dc2626',
+    btnBg: '#b91c1c',
     btnBorder: '#ef4444',
     btnColor: '#ffffff',
     emoji: '🏎️',
@@ -57,7 +57,7 @@ const SOLO_CABINETS = [
     tagColor: '#e9d5ff',
     accent: '#c084fc',
     iconBg: 'rgba(192, 132, 252, 0.1)',
-    btnBg: '#7e22ce',
+    btnBg: '#6b21a8',
     btnBorder: '#a855f7',
     btnColor: '#ffffff',
     emoji: '🎰',
@@ -73,7 +73,7 @@ const SOLO_CABINETS = [
     tagColor: '#7dd3fc',
     accent: '#38bdf8',
     iconBg: 'rgba(56, 189, 248, 0.1)',
-    btnBg: '#0284c7',
+    btnBg: '#0369a1',
     btnBorder: '#38bdf8',
     btnColor: '#ffffff',
     emoji: '🎯',
@@ -89,7 +89,7 @@ const SOLO_CABINETS = [
     tagColor: '#f87171',
     accent: '#ef4444',
     iconBg: 'rgba(239, 68, 68, 0.1)',
-    btnBg: '#dc2626',
+    btnBg: '#b91c1c',
     btnBorder: '#ef4444',
     btnColor: '#ffffff',
     emoji: '🕵️',
@@ -105,7 +105,7 @@ const SOLO_CABINETS = [
     tagColor: '#fbbf24',
     accent: '#f59e0b',
     iconBg: 'rgba(245, 158, 11, 0.1)',
-    btnBg: '#d97706',
+    btnBg: '#b45309',
     btnBorder: '#f59e0b',
     btnColor: '#ffffff',
     emoji: '⚖️',
@@ -119,9 +119,9 @@ const SOLO_CABINETS = [
     code: 'CABINET 07',
     tag: '[TECH TREE // GIGACORP MONOLITH]',
     tagColor: '#e9d5ff',
-    accent: '#a855f7',
+    accent: '#c084fc',
     iconBg: 'rgba(168, 85, 247, 0.1)',
-    btnBg: '#7e22ce',
+    btnBg: '#6b21a8',
     btnBorder: '#a855f7',
     btnColor: '#ffffff',
     emoji: '👾',
@@ -281,10 +281,10 @@ export default function SoloArcadeHub({ onSelectMode }) {
                     fontWeight: 800,
                     background: cab.btnBg,
                     borderColor: cab.btnBorder,
-                    color: cab.btnColor
+                    color: '#ffffff'
                   }}
                 >
-                  LAUNCH SOLO DRILL
+                  <span>LAUNCH SOLO DRILL</span>
                 </button>
               </div>
             </article>

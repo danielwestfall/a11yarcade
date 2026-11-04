@@ -173,7 +173,7 @@ export default function WeeklyLeaderboard() {
                 <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontFamily: "'Space Mono', monospace" }}>
                   {CADET_SPECIALTIES[2]}
                 </span>
-                <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#d97706', marginTop: '0.75rem' }}>
+                <div className="bronze-accent-text" style={{ fontSize: '1.5rem', fontWeight: 900, color: '#f59e0b', marginTop: '0.75rem' }}>
                   {top3.totalScore.toLocaleString()} XP
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.25rem' }}>
@@ -303,7 +303,7 @@ export default function WeeklyLeaderboard() {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <span style={{ fontSize: '1.2rem', fontWeight: 900, minWidth: '40px', fontFamily: "'Space Mono', monospace", color: idx === 0 ? '#facc15' : idx === 1 ? '#cbd5e1' : idx === 2 ? '#d97706' : '#94a3b8' }}>
+                    <span className="bronze-accent-text" style={{ fontSize: '1.2rem', fontWeight: 900, minWidth: '40px', fontFamily: "'Space Mono', monospace", color: idx === 0 ? '#facc15' : idx === 1 ? '#cbd5e1' : idx === 2 ? '#f59e0b' : '#94a3b8' }}>
                       {idx === 0 ? '🥇 #1' : idx === 1 ? '🥈 #2' : idx === 2 ? '🥉 #3' : `#${idx + 1}`}
                     </span>
                     <div style={{ width: '44px', height: '44px', background: '#060e20', border: `2px solid ${isMe ? '#38bdf8' : 'var(--border-color)'}`, borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>

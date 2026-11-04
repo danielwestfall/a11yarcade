@@ -59,21 +59,21 @@ export default function ThemeMascotBanner({
       <div
         style={{
           position: 'relative',
-          width: compact ? '68px' : '92px',
-          height: compact ? '68px' : '92px',
-          borderRadius: skin === 'kawaii' ? '50%' : skin === 'anime' ? '4px' : '10px',
-          border: `2.5px solid ${mascot.accent}`,
+          width: compact ? '136px' : '176px',
+          height: compact ? '136px' : '176px',
+          borderRadius: skin === 'kawaii' ? '26px' : skin === 'anime' ? '6px' : '14px',
+          border: `3px solid ${mascot.accent}`,
           background: '#ffffff',
           overflow: 'hidden',
           flexShrink: 0,
-          boxShadow: `0 0 14px ${mascot.accent}40`
+          boxShadow: `0 6px 18px ${mascot.accent}45`
         }}
       >
         <img
           src={imgSrc}
           alt={mascot.altText[pose] || mascot.altText.hero}
-          width={compact ? 68 : 92}
-          height={compact ? 68 : 92}
+          width={compact ? 136 : 176}
+          height={compact ? 136 : 176}
           {...(isLcp ? { fetchPriority: 'high' } : { loading: 'lazy' })}
           onError={() => {
             if (imgSrc !== mascot.images.hero) {
@@ -90,14 +90,15 @@ export default function ThemeMascotBanner({
       </div>
 
       {/* Mascot Dialogue & Identity */}
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '0.3rem' }}>
+      <div style={{ flex: 1, minWidth: '220px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.4rem' }}>
           <span
+            className="mascot-role-badge"
             style={{
-              fontSize: '0.72rem',
+              fontSize: '0.78rem',
               fontFamily: "'Space Mono', monospace",
               fontWeight: 900,
-              padding: '0.15rem 0.55rem',
+              padding: '0.2rem 0.65rem',
               borderRadius: skin === 'kawaii' ? '9999px' : '4px',
               background: `${mascot.accent}22`,
               color: 'var(--text-primary)',
@@ -110,10 +111,10 @@ export default function ThemeMascotBanner({
           {contextBadge && (
             <span
               style={{
-                fontSize: '0.7rem',
+                fontSize: '0.74rem',
                 fontFamily: "'Space Mono', monospace",
                 fontWeight: 800,
-                padding: '0.15rem 0.5rem',
+                padding: '0.2rem 0.55rem',
                 borderRadius: skin === 'kawaii' ? '9999px' : '4px',
                 background: 'var(--bg-surface)',
                 color: 'var(--text-secondary)',
@@ -128,8 +129,8 @@ export default function ThemeMascotBanner({
         <p
           style={{
             margin: 0,
-            fontSize: compact ? '0.85rem' : '0.92rem',
-            lineHeight: 1.45,
+            fontSize: compact ? '0.92rem' : '1rem',
+            lineHeight: 1.5,
             color: 'var(--text-primary)',
             fontWeight: 600
           }}

@@ -242,21 +242,21 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
             return (
               <div
                 style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: preferences.skin === 'kawaii' ? '50%' : preferences.skin === 'anime' ? '4px' : '8px',
-                  border: `2px solid ${activeMascot.accent}`,
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: preferences.skin === 'kawaii' ? '20px' : preferences.skin === 'anime' ? '6px' : '12px',
+                  border: `3px solid ${activeMascot.accent}`,
                   background: '#ffffff',
                   overflow: 'hidden',
                   flexShrink: 0,
-                  boxShadow: `0 0 10px ${activeMascot.accent}45`
+                  boxShadow: `0 4px 14px ${activeMascot.accent}55`
                 }}
               >
                 <img
                   src={activeMascot.images.hero}
                   alt={activeMascot.altText.hero}
-                  width={48}
-                  height={48}
+                  width={80}
+                  height={80}
                   fetchPriority="high"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
@@ -293,7 +293,7 @@ export default function A11yHeader({ activeMode, setActiveMode }) {
               soundManager.playClick();
               setIsModalOpen(true);
             }}
-            className="a11y-pill-btn active"
+            className="a11y-pill-btn active a11y-menu-trigger-btn"
             aria-label="A11y Menu (Alt+A) - Open comprehensive accessibility & display controls"
             title="Open Accessibility Controls (Alt + A)"
             style={{
